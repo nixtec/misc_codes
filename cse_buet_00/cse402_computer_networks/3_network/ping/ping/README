@@ -1,0 +1,6 @@
+This version of ping command handles timeout.
+However, this is possible because Linux modifies the timeval structure upon
+return from select. If this would not be the case, then we would not have
+this simple way of handling timeouts. Since we set alrm clock for each 1 second.
+And each time select() in interrupted.
+

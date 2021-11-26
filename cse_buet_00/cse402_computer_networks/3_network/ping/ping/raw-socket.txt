@@ -1,0 +1,81 @@
+Why to use raw sockets:
+
+Raw sockets provide three features not provided by normal TCP and UDP sockets:
+1. Raw sockets let us read and write ICMPv4, IGMPv4, and ICMPv6 packets. The
+ping program sends ICMP echo requests and receives ICMP echo replies. This
+capability also allows applications that are built using ICMP and IGMP to be
+handled entirely as user processes, instead of putting more code into the
+kernel.
+
+2. With a raw socket a process can read and write IPv4 datagrams with an IPv4
+protocol field that is not processed by the kernel.
+
+3. With a raw socket a process can build its own IPv4 header, using IP_HDRINCL
+socket option. This can be used to build our own UDP or TCP packets.
+
+Raw socket creation:
+1.
+	#include <netinet/in.h>
+
+	int sockfd;
+	sockfd = socket(AF_INET, SOCK_RAW, protocol);
+
+	/* protocol is one of the IPPROTO_XXX as defined in <netinet/in.h> */
+
+Only the superuser can create a raw socket. This prevents normal users from
+writing their own IP datagrams to the network.
+
+2. The IP_HDRINCL socket option can be set:
+
+	const int on = 1;
+	if (setsockopt(sockfd, IPPROTO_IP, IP_HDRINCL, &on, sizeof(on)) < 0)
+	  error;
+
+3. 'bind' can be called on the raw socket (rarely done). This function sets
+only the local address: there is no concept of a port number with a raw
+socket. Calling bind sets the source IP address that will be used for
+datagrams sent on the raw socket. If bind is not called, the kernel sets the
+source IP address to the primary IP address of the outgoing interface.
+
+4. connect can be called on the raw socket (rarely done). This function sets
+only the foreign address: again there is no concept of a port number with a
+raw socket. With regard to output, calling connect lets us call write or send
+instead of sendto, since the destination IP address is already specified.
+
+
+Raw Socket Output:
+Output on a raw socket is governed by the following rules:
+
+1. Normal output is performed by calling 'sendto' or 'sendmsg' and specifying
+the destination IP address. 'write', 'writev', or 'send' can also be called if
+the socket has been connected.
+
+2. If the IP_HDRINCL option is not set, the starting address of the data for
+the kernel to write specifies the first byte following the IP header, because
+the kernel will build the IP header and prepend it to the data from the
+process. The kernel sets the protocol field to the IPv4 header that it builds
+to the third argument from the call to 'socket'.
+
+3. ...
+
+4. The kernel fragments raw packets that exceed the outgoing interface MTU.
+
+
+With IPv4 it is the responsibility of the user process to calculate and set
+any header checksums contained in whatever follows the IPv4 header.
+
+
+Raw Socket Input:
+Which received IP datagrams does the kernel pass to raw sockets?
+
+1. Received UDP packets and received TCP packets are NEVER passed to a raw
+socket. If a process wants to read IP datagrams containing UDP or TCP packets,
+the packets must be read at the datalink layer.
+
+2. MOST ICMP packets are passed to a raw socket, after the kernel has finished
+processing the ICMP message. Berkeley-derived implementations pass all
+received ICMP packets to a raw socket other than echo request, timestamp
+request, and address mask request. These three ICMP messages are processed
+entirely by the kernel.
+
+

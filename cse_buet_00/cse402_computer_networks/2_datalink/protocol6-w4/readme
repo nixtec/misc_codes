@@ -1,0 +1,4 @@
+SIGINT  terminates the application
+SIGQUIT toggles error
+
+Initially error is disabled.

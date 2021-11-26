@@ -1,0 +1,19 @@
+#ifndef _PING_H_
+#define _PING_H_
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <sys/types.h>
+#include <sys/socket.h>
+#include <arpa/inet.h>
+#include <netinet/in_systm.h>
+#include <netinet/ip.h>
+#include <netinet/ip_icmp.h>
+#include <netdb.h>
+#include <signal.h>
+#include <sys/time.h>
+#include <sys/select.h>
+#include <errno.h>
+#include <unistd.h>
+#include <pthread.h>
+#endif

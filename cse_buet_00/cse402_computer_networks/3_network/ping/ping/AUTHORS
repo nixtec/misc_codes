@@ -1,0 +1,8 @@
+Originally W. Richard Stevens (UNIX Network Programming, 2nd Edition, Vol-1)
+
+Heavily modified by Ayub <mrayub@gmail.com>
+This version handles timeouts.
+
+Default INTERVAL=1, TIMEOUT=3
+You can set INTERVAL and TIMEOUT (both in seconds) in the gcc command line.
+gcc -o myping4 myping4.c -DINTERVAL=2 -DTIMEOUT=5
