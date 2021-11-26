@@ -1,0 +1,29 @@
+1. cd - Changes current working directory.
+	cd <dir>
+2. chmod - Changes permission mode of file or directory
+	chmod <mode> <file/dir>
+3. cp - Copy file
+	cp <src> <dest>
+4. create - Creates file
+	create <file>
+5. exit - Exit to system (shell)
+	exit
+6. find - Finds file
+	find <file>		[wildcard is allowed <*end>]
+7. help - Display this page
+	help
+8. ls - Lists files and directories inside a directory
+	ls [dir]
+9. mkdir - Makes directory
+	mkdir <dir>
+10. mv - Moves (renames) file
+	mv <old> <new>
+	Both <old> and <new> must be in the same partition.
+11. rmdir - Removes directory
+	rmdir <dir>
+	<dir> must be empty directory.
+12. rm - Removes file
+	rm <file>
+13. touch - Updates modification time of an inode
+	touch <file/dir>
+
