@@ -1,0 +1,3 @@
+In Windows, CreateProcess receives the
+cwd for the new process as a parameter. APR must have handle this
+(haven't checked). 

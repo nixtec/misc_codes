@@ -1,0 +1,584 @@
+/* Text colour definitions  */
+.txtBody		{ color: #636363; }
+.txtHighlight		{ color: #447F94; }
+.txtTitle		{ color: #47869D; }
+.txtSubTitle		{ color: #315B6A; }
+
+/* Right window pane colours */
+.3DBorderLight		{ border-color: #FFFFFF; }
+.3DBorderDark		{ border-color: #8D9598; }
+.3DWindowFace		{ background-color: #E2EDED; }
+.3DWindowTitleFace	{ background-color: #C3DADA; }
+.3DWindowTitleGlyph	{ background-color: #D1E2E2; }
+
+.bdySplitter		{ background-color: #D8E5EA; }
+
+/* Input element colours */
+.inpDarkText	
+{
+	color: #FFFFFF; 
+	background-color: #91C6C6; 
+	border-color: #494C4F;
+}
+
+.inpLightText
+{
+	color: #000000;
+	background-color: #FFFFFF;
+	border-color: #65A2A2; 
+}
+
+/* Link definitions */
+
+a:link, a:visited, a:active {
+	color: #636363;
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+/* embedded links - green color */
+
+a:link.gridlink{
+	color: #009999;
+	text-decoration: none;
+}
+
+a:visited.gridlink{
+	color: #006464;
+	text-decoration: none;
+
+}
+
+a:active.gridlink{
+	color: #006464;
+	text-decoration: none;
+}
+
+a:hover.gridlink {
+	color: #000000;
+	text-decoration: underline;
+}
+
+/* end embedded links */
+
+a:link.globalnav, a:visited.globalnav, a:active.globalnav {
+	color: #FFFFFF;
+	font-weight: normal;
+	text-decoration: none;
+}
+
+a:hover.globalnav {
+	font-weight: normal;
+	text-decoration: underline;
+}
+
+a:hover.leftnavtop 
+{
+	font-weight: bold;
+	text-decoration: underline;
+	color: #636363;
+}
+
+a:link.leftnavtop, a:visited.leftnavtop, a:active.leftnavtop, a:link.localnavmain, a:visited.localnavmain, a:visited.localnavmain {
+	color: #636363;
+	text-decoration: none;
+	font-weight: bold;
+}
+
+a:hover.localnavmain {
+	color: #009999;
+	text-decoration: underline;
+	font-weight: bold;
+}
+
+a:link.leftnavsel, a:visited.leftnavsel, a:active.leftnavsel {
+	color: #FFFFFF;
+	text-decoration: none;
+}
+
+a:hover.leftnavsel {
+	color: #FFFFFF;
+	text-decoration: underline;
+}
+
+a:link.leftnavstd, a:visited.leftnavstd, a:active.leftnavstd {
+	color: #636363;
+	text-decoration: none;	
+}
+
+a:hover.leftnavstd {
+	color: #636363;
+	text-decoration: underline;
+}
+
+a:link.leftnavact, a:visited.leftnavact, a:active.leftnavact {
+	color: #636363;
+	text-decoration: none;
+}
+
+a:hover.leftnavact {
+	color: #636363;
+	text-decoration: underline;
+}
+
+a.TopLevel, a:visited.TopLevel, a:active.TopLevel
+{
+	font-family: "Arial narrow", "Arial";
+	font-size:11pt;
+	color: #47869D;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+a:hover.TopLevel
+{
+	font-family: "Arial narrow", "Arial";
+	font-size:11pt;
+	color: #47869D;
+	font-weight: bold;
+}
+
+a.Green, a:visited.Green, a:active.Green
+{
+	font-weight: bold;
+	color: #009999;
+	text-decoration: none;
+}
+
+a:hover.Green
+{
+	font-weight: bold;
+	color: #009999;
+	text-decoration: underline;
+}
+
+/*Header definitions - ask Gaz for further details*/
+
+H1
+{
+	font-family: Rotis Sans Serif 55, Arial Narrow;
+	font-size: 25px;
+	color: #47869D;
+	margin-bottom:0px;
+}
+
+H1.grid
+{
+	font-family: Rotis Sans Serif 55, Arial Narrow;
+	font-size: 25px;
+	line-height: 25px;
+	color: #47869D;
+	margin-bottom:10px;
+}
+
+H1.promo
+{
+	font-family: Rotis Sans Serif 55, Arial Narrow;
+	font-size: 20px;
+	color: #4B4B4B;
+	margin-bottom:0px;
+}
+
+H1.whitepromo
+{
+	font-family: Rotis Sans Serif 55, Arial Narrow, Arial;
+	font-size: 20px;
+	color: #FFFFFF;
+	margin-bottom:0px;
+}
+
+
+H2
+{
+	font-family: arial;
+	font-weight: bold;
+	font-size: 11px;
+	color: #325C6A;
+	margin-bottom:0px;
+}
+
+H2.promo
+{
+	font-family: Rotis Sans Serif 55, Arial Narrow, Arial;
+	font-size: 13px;
+	color: #4CB7B7;
+	margin-bottom:0px;
+}
+
+H2.whitepromo
+{
+	font-family: Rotis Sans Serif 55, Arial Narrow, Arial;
+	font-size: 13px;
+	color: #FFFFFF;
+	margin-bottom:0px;
+}
+
+H3
+{
+	font-family: Rotis Sans Serif 55, Arial Narrow, Arial;
+	font-size: 14px;
+	color: #47869D;
+	margin-bottom:0px;
+}
+
+body {
+	background: #FFFFFF;
+	background-repeat: no-repeat;
+	color: #636363;
+	font: 11px arial;
+	margin: 0px;
+	padding: 0px;
+}
+
+div.title {
+	font-weight: bold;
+	padding: 3px 0px;
+}
+
+img {
+	border: 0px solid #000000;
+	padding: 0px;
+	margin: 0px;
+}
+
+img.arrow {
+	vertical-align: middle;
+}
+
+img.arrowgreen {
+	margin: 1px;
+	padding: 0px;
+	vertical-align: bottom;
+}
+
+img.square 
+{
+	border: 1px solid #666666;
+	vertical-align: middle;
+	background-color: #D1E2E2;
+}
+
+input.arrowwhite {
+	border: 1px solid #FFFFFF;
+	margin: 1px;
+	padding: 0px;
+	vertical-align: bottom;
+}
+
+input.arrowblack {
+	border: 1px solid #000000;
+	margin: 1px;
+	padding: 0px;
+	vertical-align: bottom;
+}
+
+select
+{
+	color: #636363;
+	font: 11px arial;
+}
+
+select.menu
+{
+	color: #FFFFFF;
+	font: 11px arial;
+	background-color: #4B9090;
+}
+
+table, tr, td {
+	color: #636363;
+	font: 11px arial;
+	margin: 0px;
+	vertical-align: top;
+}
+
+td.footer {
+	border-top: 4px solid #D8E5EB;
+	font: 10px arial;
+	text-align: left;
+}
+
+td.prodmain {
+	border-bottom: 1px dotted #B7B7B7;
+	padding: 7px 0px;
+	width: 100%;
+}
+
+td.prodright {
+	padding: 5px 0px 0px;
+	text-align: center;
+}
+
+td.localnav {
+	background: #F5F5F5;
+	border-bottom: 1px solid darkgray;
+	font-weight: bold;
+	height: 20px;
+	padding: 0px 9px;
+	vertical-align: middle;
+}
+
+td.localnavselected {
+	border-left: 1px solid darkgray;
+	border-right: 1px solid darkgray;
+	border-top: 1px solid darkgray;
+	background: #FFFFFF;
+	color: #000000;
+	font-weight: bold;
+	height: 20px;
+	padding: 0px 9px;
+	vertical-align: middle;
+	width: 1%;
+}
+
+td.localnavmain {
+	background: #F5F5F5;
+	border-bottom: 1px solid darkgray;
+	color: #009999;
+	font-weight: bold;
+	height: 20px;
+	padding: 0px 9px;
+	vertical-align: middle;
+	width: 1%;
+}
+
+td.teaser {
+	background-image: url(images/transback.gif);
+	color: #FFFFFF;
+	font: bold 11px arial;
+	padding-top: 3px;
+}
+
+td.teaser2 {
+	background: #009999;
+	color: #FFFFFF;
+	font: bold 11px arial;
+	padding-top: 3px;
+}
+
+td.globalnav {
+	color: #FFFFFF;
+	font-weight: normal;
+	padding: 3px 7px;
+}
+
+div.header {
+	font: 16pt "Arial Narrow", "Arial";
+	color: #009999;
+}
+
+div.sub-header {
+	font: bold 11px arial;
+	color: #009999;
+}
+
+div.main-header {
+	font: 18pt "Arial Narrow", "Arial";
+	color: #000000;
+}
+
+input.searchBox {
+	border: 1px solid #B7B7B7;
+	background: #FFFFFF;
+	color: #000000;
+	font: 10px arial;
+	height: 15px;
+	margin: 0px;
+	padding: 0px;
+	vertical-align: bottom;
+	width: 105px;
+}
+
+input.searchBoxgrey {
+	border: 1px solid #FFFFFF;
+	background: #B7B7B7;
+	color: #000000;
+	font: 10px arial;
+	height: 15px;
+	margin: 0px;
+	padding: 0px;
+	vertical-align: bottom;
+	width: 70px;
+}
+
+
+.subBarText{
+	line-height: 1.2;
+	font-family: "Arial narrow", "Arial";
+	font-size:13pt;
+	color: #47869D;
+	font-weight: bold;
+	margin-right:5px;
+}
+
+.subBarGoTo{
+	line-height: 1.5;
+	font-family: arial;
+	font-size:8pt;
+	color: #FFFFFF;
+	background-color: #009999;
+	text-align: top;
+	padding-right:4px;
+}
+
+div.subBarGrey{
+	line-height: 1.2;
+	font-family: "Arial narrow", "Arial";
+	font-size:10pt;
+	color: #FFFFFF;
+	background-color: #D8E5EA;
+	margin-right:2px;
+}
+
+.greytitle
+{
+	padding: 2px 5px;
+	background-color: #C3DADA;
+	font-weight: bold;
+	font-family: "Arial", "Helvetica", "sans-serif";
+	font-size: 11px;
+	vertical-align: baseline;
+	text-align: left;
+}
+
+.contentgrey
+{
+	background-color: #E2EDED;
+	font-weight: normal;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	padding-left: 5px;
+	padding-top: 2px;
+	vertical-align: baseline;
+	text-align: left;
+}
+
+.3D
+{	
+	border-bottom: solid 1px #8D9598;
+	border-right: solid 1px #8D9598;
+	border-top: solid 1px #FFFFFF;
+	border-left: solid 1px #FFFFFF;
+}
+
+.contentgreyRightNav {
+	background-color: #E2EDED;
+	font-weight: normal;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: medium;
+	padding-left: 0px;
+	padding-right: 0px;
+	padding-top: 2px;
+	vertical-align: baseline;
+	text-align: left;
+}
+
+input.darkbox
+{
+	background-color: #91C6C6;
+	color: #FFFFFF;
+	border: solid 1px #464C4F;
+	margin: 0px 3px 0px 2px;
+}
+
+input.lightbox
+{
+	background-color: #FFFFFF;
+	color: #636363;
+	border: solid 1px #65A2A2;
+	margin: 0px 3px 0px 3px;
+}
+
+/* Start dropdown nav classes */
+
+	/* The following was written by Syzergy for the dropdown navs. */
+
+	.clCMEvent{position:absolute; z-index:300; width:100%; height:100%; clip:rect(0,100%,100%,0); left:0; top:0; visibility:hidden}
+	.clCMAbs{position:absolute; width:10; height:10; left:0; top:0; visibility:hidden}
+	.clTover{color:#FFFFFF;layer-background-color:#3E7879; background-color:#3E7879;}
+	.clT,.clTover,.clS,.clSover,.clS2,.clS2over{position:absolute; overflow:hidden; width:143; height:19; cursor:pointer; cursor:hand}
+	.clT,.clTover{padding:4px; font-size:11px; font-weight:normal}
+	.clT{color:white;}   
+	.clTover{}
+	.clS,.clSover{padding:2px; font-size:11px; font-weight:normal; color:#FFFFFF;}
+	.clS2,.clS2over{padding:2px; font-size:11px;}
+	.clS,.clS2{color:#FFFFFF; background-color:#649E9F; layer-background-color:#649E9F;}
+	.clSover,.clS2over{color:#FFFFFF;}
+	.clSover,.clS2over{layer-background-color:#3E7879; background-color:#3E7879;}
+	.clB,.clBar{layer-background-color:#4B8F8E; background-color:#4B8F8E;}
+
+	.clB{position:absolute; visibility:hidden; z-index:300}
+	.clBar{position:absolute; width:10; height:10; visibility:hidden;}
+
+/* End dropdown nav classes */
+
+
+/*Start horizontal headline bar for grid */
+
+.barText{
+	line-height: 0.9;
+	font-family: Rotis Sans-Serif 65, arial narrow, arial;
+	font-size:14px;
+	color: #47869D;
+	margin-right:5px;
+	font-weight: bold;
+	vertical-align:baseline;
+	margin-bottom:10px;
+	margin-top:13px;
+}
+
+.barImage
+{
+	line-height: 1.0;
+	font-family: Rotis Sans-Serif 65, arial narrow, arial;
+	font-size:9px;
+	margin-left:2px;
+	vertical-align:baseline;
+	margin-bottom:10px;
+	margin-top:13px;
+}
+
+a:hover.barGoTo {
+	font-weight: normal;
+	text-decoration: underline;
+}
+
+a:link.barGoTo, a:visited.barGoTo, a:active.barGoTo{
+	line-height: 1.4;
+	font-family: arial;
+	font-size:9px;
+	color: #FFFFFF;
+	background-color: #43859B;
+	padding-left:1px;
+	padding-right:6px;
+	vertical-align:baseline;
+}
+
+.barGoTo
+{
+	line-height: 0.8;
+	font-family: arial;
+	font-size:7px;
+	color: #FFFFFF;
+	background-color: #43859B;
+	vertical-align:baseline;
+	margin-bottom:10px;
+	margin-top:13px;
+}
+
+.barGrey
+{
+	line-height: 0.9;
+	font-family: Rotis Sans-Serif 65, arial narrow, arial;
+	font-size:14px;
+	color: #FFFFFF;
+	background-color: #D8E5EA;
+	vertical-align:baseline;
+	margin-bottom:10px;
+	margin-top:13px;
+}
+
+/*End headline bar*/

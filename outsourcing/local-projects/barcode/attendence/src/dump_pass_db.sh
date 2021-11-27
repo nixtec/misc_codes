@@ -1,0 +1,18 @@
+#!/bin/sh
+
+DB_DIR="$HOME/.attendence_db"
+DB_NAME="auth.sdb"
+DB="$DB_DIR/$DB_NAME"
+TBL="passwd"
+
+TYPE_PASS_ADMIN=1
+ADMIN_PASS="9qSSn"
+TYPE_PASS_ENTRY=2
+ENTRY_PASS="9qSSn"
+TYPE_PASS_EDIT=3
+EDIT_PASS="9qSSn"
+
+sqlite3 $DB <<EOF
+SELECT * FROM $TBL;
+EOF
+

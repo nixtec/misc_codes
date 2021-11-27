@@ -1,0 +1,27 @@
+Adding your custom CFLAGS and LDFLAGS:
+
+in 'configure.in' add the following: [sqlite3 is an example here]
+----------------------
+dnl specify cflags and ldflags for sqlite3 [ayub]
+sqlite3_modules="sqlite3"
+PKG_CHECK_MODULES(SQLITE3, [$sqlite3_modules])
+----------------------
+
+in 'src/Makefile.am' append the variables to 'INCLUDES' and 'prog_LDADD' as
+follows:
+
+----------------------
+INCLUDES = ... @SQLITE3_CFLAGS@
+
+prog_LDADD = ... @SQLITE3_LIBS@
+----------------------
+
+
+Then run
+./configure --enable-maintainer-mode
+make
+./prog
+
+Enjoy
+
+		Ayub

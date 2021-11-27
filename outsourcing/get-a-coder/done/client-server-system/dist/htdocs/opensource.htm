@@ -1,0 +1,311 @@
+<html><head>
+
+
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0"><title>OpenSource</title>
+
+
+<meta name="Microsoft Border" content="t"></head><body bgproperties="fixed" alink="#ff5e5e" bgcolor="#d7f4dd" link="#0c49af" vlink="#55a878"><h2><font color="#ff0000" size="3"><br>
+</font><font face="Arial" size="3">New: Oct 14, 2000<font color="#ff0000">,
+minor updates Sept. 1, 2002</font></font></h2>
+
+<h2><font face="Arial" size="5">Experiments with the Open Source Pthreads Library<br>
+and Some Comments</font></h2>
+
+<p>Chapter 10 (Edition 2) introduced the "condition variable" model, and this
+model is based upon the the POSIX Pthreads standard, which is available in nearly every
+UNIX implementation, LINUX, Compaq OpenVMS, and other operating systems. Elsewhere in
+Chapter 10 and these pages, I've commented upon the inescapable need for condition
+variables, or their equivalent. The Win32 events really are not well designed and cause a
+large amount of confusion, even among experienced programmers and writers. Furthermore, if
+Windows had a good Pthreads library, multithreaded code could be easily ported from other
+platforms.</p>
+
+<p>Fortunately, there is an Open Source implementation, available at <a href="http://sources.redhat.com/pthreads-win32">http://sources.redhat.com/pthreads-win32</a>.
+Simply download it, follow the directions, and you have a Pthreads DLL and library. Does
+it work? Does it have good performance? How is it implemented? <font color="#ff5e5e">Sept
+1, 2002: </font>Experience to date indicates very positive answers to all of
+these questions, and the open source library can be recommended both for
+Windows-only development and especially when code most be portable to UNIX,
+Linux, and other systems.</p>
+
+<p> First, here is a quick
+Pthreads summary.</p>
+
+<p><u>Quick Pthreads Summary</u>: The most significant aspect of Pthreads for this
+discussion is that it properly formalizes the condition variable model. Pthreads also
+supplies mutexes and thread management that are analogous to what Win32 delivers. Thread
+cancellation is another important Pthreads capability that improves on Win32. See Butenhof
+<i>Programming with POSIX Threads</i>, AWL, 1997, for more information (this
+book is highly recommended). The important
+features for this discussion are: 
+
+</p><ol>
+  <li>There are distinct data types, such as <font face="Courier New">pthread_thread_t</font>,
+    <font face="Courier New">pthread_mutex_t</font>, and <font face="Courier New">pthread_cond_t</font>,
+    for different objects, whereas Win32 simply uses <font face="Courier New">HANDLE</font>
+    everywhere (I prefer the Win32 approach).</li>
+  <li>There is no direct equivalent to the Win32 event. Rather, there are condition variables
+    (data type <font face="Courier New">pthread_cond_t</font>), and there is no distinction
+    between auto and manual reset. Condition variables most closely resemble auto-reset
+    events, but therre are some differences.</li>
+  <li>There are two functions used to wait on condition variables: <font face="Courier New">pthread_cond_wait</font>
+    and <font face="Courier New">pthread_cond_timedwait</font>. The two functions require both
+    a mutex and a CV argument, and they: a) unlock the mutex (it is an error to make the call
+    without the mutex being locked), b) atomically wait on the CV (possibly with a timeout),
+    and c) lock the mutex. There is no single equivalent Win32 function; you either need to
+    use two (<font face="Courier New">SignalObjectAndWait</font> and <font face="Courier New">WaitForSingleObject</font>)
+    or three (<font face="Courier New">ReleaseMutex</font> and two <font face="Courier New">WaitForSingleObject</font>)
+    Win32 calls (all of this is discussed at the start of Chapter 10 - Second Edition).</li>
+  <li>CVs are "signaled" using <font face="Courier New">pthread_cond_signal</font>
+    (roughly equivalent to <font face="Courier New">SetEvent</font> on an auto-reset event -
+    but be careful here) and <font face="Courier New">pthread_cond_broadcast</font> (roughly
+    equivalent to <font face="Courier New">PulseEvent</font> on a manual-reset event - be
+    careful here too).</li>
+  <li>Thread management and mutexes are roughly similar to their Win32 equivalents for our
+    purposes, but it is worth pointing out that all the objects have attributes (thread stack
+    size, whether a mutex is recursive, whether a mutex or CV is process shared, and so on)
+    that, in general, can be mapped to Win32 capabilities.</li>
+  <li>In summary, Pthreads provide: a) source level portability to numerous platforms, b) an
+    industry standard, c) a complete and well-designed API for mutltithreaded application
+    development.</li>
+</ol>
+
+<p>The Open Source implementation passed some quick tests and provided good performance. I
+used a Pthreads version of the three-stage queuing system, <font face="Courier New">ThreeStage.c</font>
+(Program 10-5, Edition 2. Contact me, <a href="mailto:jmhart@world.std.com">jmhart@world.std.com</a>,&nbsp;
+for the source code, or download the book's example code) to obtain data that extends the performance data in Table C-5, using
+both the broadcast and signal models (the code is included at the end, and the data is
+below). So, the library works (it worked right away; there were no problems, and source
+level portability appears to be feasible), and it gives comparable performance to the
+other implementations. <i>Note: </i>While the timing results are not shown here, the same
+tests run under Windows Me show that Me does not scale well when the number of threads is
+large.</p>
+
+<p><font color="#ff5e5e">(Sept 1, 2002)</font> The fact that multithreaded
+applications are portable across a wide range of target architectures and
+systems is, to me, at least, a remarkable achievement. At one time, not so long
+ago, multitasking was considered to be among the most system-specific issues
+confronting an application developer. As someone who has to create portable
+applications, and port between Windows and UNIX/Linux, I'm grateful that I no
+longer have to use preprocessor macros to select between POSIX and Win32 code,
+and I no longer have to create painful emulations of condition variables when
+porting from UNIX/Linux to Windows.</p>
+
+<p>I also ran the program using macros to implement the Pthreads API. The macros are very
+simple and are listed after the performance data.</p>
+
+<p>How is the Open Source library implemented? You can read the code; in some
+cases, it is not simple.
+For example, look at the condition variable implementation; there is an intricate data
+structure with thread counters, and only MR events and <font face="Courier New">SetEvent</font>
+are used (requiring <font face="Courier New">ResetEvent</font> calls). Incidentally, the
+Schmidt and Pyarali work (cited at the end of Chapter 10) was influential in the Open
+Source work. Is the Open Source implementation too complex? Why are the macros so simple?
+In short, the macros only solve part of a larger whole problem. Here are some explanatory comments: 
+
+</p><ol>
+  <li><font color="#ff5e5e">Sept. 1, 2002</font>. The complexity is necessary
+    due to the Win32 event model; thus the complexity is more a critique of the
+    Win32 model than of the open source implementation. The open source
+    developers had to do their best with what they were given. However, under
+    WNT, 2000, and XP, <font face="Courier New">SignalObjectAndWait</font> can
+    be used, simplifying some of the code. As W9x and WMe fade into the sunset
+    over time, perhaps this whole question will become moot.</li>
+  <li>The macros are only used in the context of Chapter 10's "condition variable
+    model" which are always used in a loop where we "test the CV predicate and test
+    it again" (as Butenhof urges you to do). A general implementation, however, cannot
+    assure that the emulated CVs will always be used properly.</li>
+  <li>The macros assume that, when a CV is created, it will always be signaled with just one
+    of the two emulated calls: <font face="Courier New">pthread_cond_signal</font> (in which
+    case, <font face="Courier New">SetEvent</font> is used with an auto-reset event) or <font face="Courier New">pthread_cond_broadcast</font> (in which case, <font face="Courier New">PulseEvent</font>
+    is used with a manual reset event). A general implementation, however, cannot make this
+    assumption and must, therefore, use a MR event (to allow multiple threads to be released)
+    as the event's type cannot be changed once it is created.</li>
+  <li>The macro implementation does not need to be concerned with attributes.&nbsp;</li>
+</ol>
+
+<p>In conclusion, there are good reasons why the general purpose Open Source
+implementation is more complex than the simple macro implementation shown below.
+Nonetheless, I'm not convinced that the Open Source implementation could not be
+simplified, although a lot of smart people have worked on it. Personally, I have not had
+the time to think about it thoroughly. <i>Opinions, comments, etc. appreciated, and watch
+this space</i>. Furthermore, the Open Source code contains at least one comment about a
+possible deadlock; this comment is not reassuring.<font color="#ff5e5e"> Sept.
+1, 2002.</font><font color="#000000"> I've had email conversations with two of
+the open source developers, and the above point is discussed at <a href="http://sources.redhat.com/ml/pthreads-win32/2002/msg00012.html">http://sources.redhat.com/ml/pthreads-win32/2002/msg00012.html</a>.
+I've never had a problem and have used the open source library extensively (but,
+of course, failure to observe a defect does not prove that a defect does not
+exist!).</font></p>
+
+<h3><font face="Arial" size="4">Performance Results for the Open Source Pthreads Emulation</font></h3>
+
+<p>Here is Table C-5 (from Edition 2) extended to include the Open Source Pthreads
+emulation. Contact me <a href="mailto:%28jmhart@world.std.com">(jmhart@world.std.com</a>)
+for a copy of ThreeStage.c implemented in Pthreads or download it from the
+book's example code. The implementation can be
+configured to use either the macros (next section) or the Open Source emulation, and
+results for both are included below.&nbsp;</p>
+
+<p>The first six columns simply repeat the data that is already in the book. The rightmost
+two columns contain:
+
+</p><ul>
+  <li>Column 7: The signal model program (as in columns 4, 5, and 6) modified to use the
+    Pthreads emulation library for synchronization only.</li>
+  <li>Column 8: A pure Pthreads program, originally developed to run under UNIX and Compaq
+    OpenVMS, was tested without modification.</li>
+</ul>
+
+<p>In summary, the Open Source Pthreads emulation provides performance that is fully
+competitive with what can be achieved using the Win32 API directly (at least, for this one
+set of tests). Also, existing Pthreads applications can be ported painlessly to Win32.</p>
+
+<p><img src="opensource_files/tablec5.jpg" alt="tablec5.jpg (97507 bytes)" height="372" width="681"></p>
+
+<h3><font face="Arial" size="4">Simplified Pthread Emulation with Macros</font></h3>
+
+<p><font size="3">I used these macros successfully to develop an application targeted for
+UNIX, Linux, and even OpenVMS, but I was able to develop and debug on my W2000 laptop (a real
+convenience). Furthermore, <font face="Courier New">pthread_cond_signal</font> was never
+used, simplifying the CV wait. Here are the macros <font color="#ff5e5e">(Sept.
+1, 2002. BEWARE - as stated above, these macros are not a general solution to
+the problem of emulating Pthreads under Win32)</font>.</font></p>
+
+<p><font color="#ff0000" size="3">Nov 21, 2004. I've fixed these slightly and
+added macros for UNIX I/O. This way, I was able to write a threaded file
+processing program with a single source file that can be built on UNIX, Linux,
+and Windows with no source code changes and minimal conditional compilation.</font></p>
+
+<p><font size="2"><font face="Courier New">#ifdef _WIN32<br>
+/* Windows requires definitions for the POSIX file I/O functions */<br>
+#include &lt;io.h&gt;<br>
+#define _INTEGRAL_MAX_BITS 64<br>
+#define read(fd,pbuffer,count) _read(fd,pbuffer,count)<br>
+#define write(fd,pbuffer,count) _write(fd,pbuffer,count)<br>
+#define open(fn,flag) _open(fn,flag)<br>
+#define open3(fn,flag,mode) _open(fn,flag,mode)<br>
+#define close(fd) _close(fd)<br>
+#define lseek64(handle,offset,origin) _lseeki64(handle,offset,origin)<br>
+#define sleep(t) Sleep(1000*(t))<br>
+#define sync() ;<br>
+#define off64_t __int64<br>
+#define size64_t __int64<br>
+<br>
+#else<br>
+#ifdef _LINUX<br>
+#define open3(fn,flag,mode) open(fn,flag,mode)<br>
+#define lseek64(handle,offset,origin) lseek(handle,offset,origin)<br>
+#define FlushFileBuffers(i) 1<br>
+#define off64_t long long<br>
+#define size64_t long long<br>
+<br>
+#else<br>
+<br>
+#define open3(fn,flag,mode) open(fn,flag,mode)<br>
+#define FlushFileBuffers(i) 1<br>
+#define size64_t long long<br>
+<br>
+#endif<br>
+#endif<br>
+<br>
+#ifdef _WIN32<br>
+#define _WIN32_WINNT 0x500				/* Require Windows NT5 (2K, XP, 2K3) */<br>
+#include &lt;windows.h&gt;<br>
+#include &lt;time.h&gt;<br>
+#else<br>
+#include &lt;unistd.h&gt;<br>
+#include &lt;sys/time.h&gt;<br>
+#endif<br>
+<br>
+#include &lt;stdio.h&gt;<br>
+#include &lt;sys/types.h&gt;<br>
+#include &lt;sys/stat.h&gt;<br>
+#include &lt;fcntl.h&gt;<br>
+#include &lt;errno.h&gt;<br>
+</font><br>
+<font face="Courier New">/* Thread_emulation.h */<br>
+/* Author: Johnson M. Hart */<br>
+/* Emulate the Pthreads model for the Win32 platform */<br>
+/* The emulation is not complete, but it does provide a subset */<br>
+/* required for a first project */<br>
+<br>
+#ifndef _THREAD_EMULATION<br>
+#define _THREAD_EMULATION<br>
+<br>
+</font> 
+</font></p>
+
+<p><font face="Courier New" size="2">/*  Thread_emulation.h		*/<br>
+/*		Author: John Hart, July 27, 2000							*/<br>
+/*	Emulate the Pthreads model for both Win32 and Pthreads platforms*/<br>
+/*	The emulation is not complete, but it does provide a subset		*/<br>
+/*	that will work with many well-behaved programs					*/<br>
+/*  IF YOU ARE REALLY SERIOUS ABOUT THIS, USE THE OPEN SOURCE       */<br>
+/*  PTHREAD LIBRARY. YOU'LL FIND IT ON THE RED HAT SITE             */<br>
+#ifndef _THREAD_EMULATION<br>
+#define _THREAD_EMULATION<br>
+<br>
+/*	Thread management macros		*/<br>
+#ifdef _WIN32<br>
+/*		Win32		*/<br>
+#define _WIN32_WINNT 0x500				/* WINBASE.H - Enable SignalObjectAndWait */<br>
+#include &lt;process.h&gt;<br>
+#include &lt;windows.h&gt;<br>
+#define		THREAD_FUNCTION		DWORD WINAPI<br>
+#define		THREAD_FUNCTION_RETURN DWORD<br>
+#define		THREAD_SPECIFIC_INDEX DWORD<br>
+#define		pthread_t	HANDLE<br>
+#define		pthread_attr_t DWORD<br>
+#define pthread_create(thhandle,attr,thfunc,tharg)
+(int)((*thhandle=(HANDLE)_beginthreadex(NULL,0,(THREAD_FUNCTION)thfunc,tharg,0,NULL))==NULL)<br>
+#define		pthread_join(thread, result) ((WaitForSingleObject((thread),INFINITE)!=WAIT_OBJECT_0) || !CloseHandle(thread))<br>
+#define		pthread_detach(thread) if(thread!=NULL)CloseHandle(thread)<br>
+#define		thread_sleep(nms)	Sleep(nms)<br>
+#define		pthread_cancel(thread)	TerminateThread(thread,0)<br>
+#define		ts_key_create(ts_key, destructor) {ts_key = TlsAlloc();};<br>
+#define		pthread_getspecific(ts_key) TlsGetValue(ts_key)<br>
+#define		pthread_setspecific(ts_key, value) TlsSetValue(ts_key, (void *)value)<br>
+#define		pthread_self() GetCurrentThreadId()<br>
+#else<br>
+/*		pthreads	*/<br>
+/*		Nearly everything is already defined */<br>
+#define		THREAD_FUNCTION		void *<br>
+#define		THREAD_FUNCTION_RETURN void *<br>
+#define		THREAD_SPECIFIC_INDEX pthread_key_t<br>
+#define		thread_sleep(nms)	sleep((nms+500)/1000)<br>
+#define		ts_key_create(ts_key, destructor) pthread_key_create (&amp;(ts_key), destructor);<br>
+#endif<br>
+<br>
+/*	Syncrhronization macros: Win32 and Pthreads						*/<br>
+#ifdef _WIN32<br>
+#define pthread_mutex_t					        HANDLE<br>
+#define pthread_cond_t					        HANDLE<br>
+#define pthread_mutex_lock(pobject)		        WaitForSingleObject(*pobject,INFINITE)<br>
+#define pthread_mutex_unlock(pobject)	        ReleaseMutex(*pobject)<br>
+#define pthread_mutex_init(pobject,pattr)       (*pobject=CreateMutex(NULL,FALSE,NULL))<br>
+#define pthread_cond_init(pobject,pattr)        (*pobject=CreateEvent(NULL,FALSE,FALSE,NULL))<br>
+#define pthread_mutex_destroy(pobject)          CloseHandle(*pobject)<br>
+#define pthread_cond_destroy(pobject)           CloseHandle(*pobject)<br>
+#define CV_TIMEOUT			INFINITE		/* Tunable value */<br>
+/* USE THE FOLLOWING FOR WINDOWS 9X */<br>
+/* For addtional explanation of the condition variable emulation and the use of the<br>
+ * timeout, see the paper "Batons: A Sequential Synchronization Object"&nbsp;<br>
+ * by Andrew Tucker and Johnson M Hart. (Windows Developer&#8217;s Journal,&nbsp;<br>
+ * July, 2001, pp24 ff. www.wdj.com). */<br>
+//#define pthread_cond_wait(pcv,pmutex)
+{ReleaseMutex(*pmutex);WaitForSingleObject(*pcv,CV_TIMEOUT);WaitForSingleObject(*pmutex,INFINITE);};<br>
+/* You can use the following on Windows NT/2000/XP and avoid the timeout */<br>
+#define pthread_cond_wait(pcv,pmutex)
+{SignalObjectAndWait(*pmutex,*pcv,INFINITE,FALSE);WaitForSingleObject(*pmutex,INFINITE);};<br>
+//#define pthread_cond_broadcast(pcv)		PulseEvent(*pcv)<br>
+#define pthread_cond_signal(pcv)         SetEvent(*pcv)<br>
+static int						OnceFlag;<br>
+//static DWORD ThId;  /* This is ugly, but is required on Win9x for _beginthreadex */<br>
+#else<br>
+/*	Not Windows. Assume pthreads */<br>
+<br>
+#endif<br>
+<br>
+#endif</font></p>
+<p>&nbsp;</p>
+</body></html>

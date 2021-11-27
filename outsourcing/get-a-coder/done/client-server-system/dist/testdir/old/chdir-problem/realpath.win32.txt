@@ -1,0 +1,33 @@
+Category: runtime
+Group: None
+Status: Open
+Resolution: None
+Priority: 5
+Submitted By: Nach M. S. (n-a-c-h)
+Assigned to: Nobody/Anonymous (nobody)
+Summary: Full implementation of realpath() for Win32
+
+Initial Comment:
+I noticed the other day that Win32 is the only port one
+of my applications doesn't have access to realpath()
+on. So I wrote realpath() for it, and I might as well
+submit it so it becomes part of MinGW and I don't have
+to make a special ifdef __WIN32__ for it ;)
+
+The realpath() I wrote should be standards conforming.
+It uses GetFullPathNameA() from Win32 as the underlying
+means as getting the resolved path. It sets errno
+appropriately as needed and even translates Win32
+errors to the appropriate errno.
+
+It also makes sure the path exists (via a call to
+stat()) and supports the glibc extension to allocate
+the resolved path buffer if it was passed in as null to
+the call to realpath().
+
+My tests show the function works quite well, but if
+someone finds an error with it, I'll be happy to fix it.
+
+I give full permission to MinGW and it's users to use
+it, if I messed up on the usage rights in the file,
+I'll be happy to change it too.

@@ -1,0 +1,21 @@
+CC		:= gcc
+CFLAGS		:= -g -Wall
+LDFLAGS		:=
+
+#CFLAGS		:= -g -Wall -mno-cygwin
+#LDFLAGS		:= -lws2_32
+
+TARGETS		:= sender receiver
+
+all: $(TARGETS)
+
+sender: sender.c dsecommon.h config.h
+	$(CC) $(CFLAGS) -o sender sender.c $(LDFLAGS)
+
+receiver: receiver.c dsecommon.h config.h
+	$(CC) $(CFLAGS) -o receiver receiver.c $(LDFLAGS)
+
+.PHONY: clean
+
+clean:
+	rm -f *.o sender.exe receiver.exe

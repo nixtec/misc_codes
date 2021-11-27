@@ -1,0 +1,2 @@
+MS5145-47 is a Keyboard Wedge barcode reader.
+

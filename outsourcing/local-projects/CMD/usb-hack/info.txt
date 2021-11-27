@@ -1,0 +1,49 @@
+uses: /proc/bus/usb/devices
+
+USB Viewer [usbview] gives the following necessary information: [pen-drive]
+
+USB Version: 1.10 [or whatever]
+Device Class: 00(>ifc)
+Device Subclass: 00
+Device Protocol: 00
+Maximum Default Endpoint Size: 8
+Number of Configurations: 1
+Vendor Id: 126f
+Product Id: 1114
+Revision Number: 3.2e
+
+
+CMD USB-Stick:
+Manufacturer: CMD AG
+Serial Number: V1.00
+Speed: 1.5Mb/s (low)
+USB Version: 1.0a
+Device Class: 00(>ifc)
+Device Subclass: 00
+Device Protocol: 00
+Maximum Default Endpoint Size: 8
+Number of Configurations: 1
+Vendor Id: 0fa6
+Product Id: 1001
+Revision Number: 1.00
+
+Configu Number: 1
+	Number of Interfaces: 1
+	Attributes: 80
+	MaxPower Needed: 100mA
+
+	Interface Number: 0
+		Name: usbhid
+		Alternate Number: 0
+		Class: 03(HID)
+		Sub Class: 00
+		Protocol: 00
+		Number of Endpoints: 1
+
+		Endpoint Address: 81
+		Direction: in
+		Attribute: 3
+		Type: Int.
+		Max Packet Size: 6
+		Interval: 10ms
+

@@ -1,0 +1,15 @@
+#
+# This Makefile should run fine with both pmake and gmake
+#
+
+CC		:= gcc
+CFLAGS		:= -g -O2 -Wall
+LDFLAGS		:= -lbarcode
+
+all: sample
+
+sample: sample.o $(LIBRARY)
+	$(CC) $(CFLAGS) sample.o $(LDFLAGS) -o $@ 
+
+clean:
+	rm -f sample

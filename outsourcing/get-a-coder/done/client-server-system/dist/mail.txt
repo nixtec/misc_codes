@@ -1,0 +1,28 @@
+Hello
+   Here's the definitive project. First try all the features differently for
+   two platforms. Then try cross-platform. I didn't test cross-platform. So
+   inform if any errors and with screenshot if possible.
+
+STEPS:
+  Linux Version:
+     * unzip the project
+     * In terminal, type 'make'
+     * In two different terminals run, './server' and './shell'
+
+  Windows Version:
+     * unzip the project
+     * Rename 'build.win32.bat_' to 'build.win32.bat' and
+       'cmdenv.bat_' to 'cmdenv.bat' [gmail doesn't allow sending executables]
+     * Fix the 'Dev-Cpp' path in the 'cmdenv.bat' file. I used 'E:\Dev-Cpp\bin'
+     * Run 'cmdenv.bat' [extension may be hidden in ur system]
+     * In the command prompt type, 'build.win32.bat'. It should build the
+       project.
+     * In two different terminals run 'server.exe' and 'shell.exe'
+
+NOTE:
+   If you need to use lock anywhere, do it at your own way please. I have given
+   all the implementation of pthread wrapper functions using Windows APIs. So
+   that in the main code very little have to be modified. For anything to
+   understand feel free to ask.
+
+Thanks

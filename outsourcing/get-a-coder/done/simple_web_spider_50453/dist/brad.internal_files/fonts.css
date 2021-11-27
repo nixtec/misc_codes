@@ -1,0 +1,59 @@
+body {
+ 		 font-family: Verdana, Arial, Helvetica, Sans-Serif;
+		 font-size: 76%;
+}        
+
+#masthead li.here {
+		 font-weight: bold;
+}
+
+#masthead li {
+		 font-size: 1em;
+}
+
+
+#leftcolumn h1 {
+		 font-size: 1em;
+		 height: 1.4em;
+}
+
+#leftcolumn a {
+		 font-size: 0.9em;
+}
+
+
+#centre h1 {
+		 font-size: 1.4em;
+}
+
+#centre h2 {
+		 font-size: 1.2em;
+}
+#centre h3 {
+		 font-size: 0.9em;
+}
+#centre p.posted {
+         font-size: 0.9em;
+		 font-style: italic;
+}
+#rightcolumn h1 {
+		 font-size: 1em;
+		 height: 1.4em;
+}
+
+#rightcolumn a {
+		 font-size: 1em;
+}
+
+#rightcolumn li {
+		 font-size: 0.9em;
+}
+
+#rightcolumn h2 {
+		 font-size: 0.9em;
+		 height: 1.4em;
+}
+
+#footer p {
+		 font-size: 0.8em;
+}

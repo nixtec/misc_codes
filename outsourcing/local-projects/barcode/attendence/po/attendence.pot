@@ -1,0 +1,510 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2006-05-09 01:02+0600\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: src/interface.c:78 src/interface.c:1349
+msgid "Attendance Monitoring System"
+msgstr ""
+
+#: src/interface.c:95
+msgid "_File"
+msgstr ""
+
+#: src/interface.c:105 src/interface.c:128 src/interface.c:243
+msgid "Quit system"
+msgstr ""
+
+#: src/interface.c:107
+msgid "_Help"
+msgstr ""
+
+#: src/interface.c:117
+msgid "About the author"
+msgstr ""
+
+#: src/interface.c:137
+msgid "Add Stuff"
+msgstr ""
+
+#: src/interface.c:142
+msgid "Edit Stuff Information"
+msgstr ""
+
+#: src/interface.c:151 src/interface.c:931
+msgid "Extended Query"
+msgstr ""
+
+#: src/interface.c:160
+msgid "Show barcode entry window"
+msgstr ""
+
+#: src/interface.c:165
+msgid "View last unmindful stuffs"
+msgstr ""
+
+#: src/interface.c:174
+msgid "First IN Last OUT Query"
+msgstr ""
+
+#: src/interface.c:191
+msgid "<b>Last Status</b>"
+msgstr ""
+
+#: src/interface.c:205
+msgid "<b>Stuff Status</b>"
+msgstr ""
+
+#: src/interface.c:210
+msgid "<b>Today's Attendance History</b>"
+msgstr ""
+
+#: src/interface.c:249
+msgid "Refresh attendence list"
+msgstr ""
+
+#: src/interface.c:255
+msgid "Print today's attendence list"
+msgstr ""
+
+#. TRANSLATORS: Replace this string with your names, one name per line.
+#: src/interface.c:353
+msgid "translator-credits"
+msgstr ""
+
+#: src/interface.c:359
+msgid ""
+"\n"
+"Attendance Monitoring System\n"
+"Version"
+msgstr ""
+
+#: src/interface.c:360
+msgid "Copyright (c) 2006, Ayub <mrayub@gmail.com>"
+msgstr ""
+
+#: src/interface.c:392
+msgid "Barcode Entry"
+msgstr ""
+
+#: src/interface.c:415
+msgid "Barcode Entry Field"
+msgstr ""
+
+#: src/interface.c:419
+msgid "<b><span foreground=\"blue\">Show your ID</span></b>"
+msgstr ""
+
+#: src/interface.c:453
+msgid "Message"
+msgstr ""
+
+#: src/interface.c:466
+msgid "Your messages will be here"
+msgstr ""
+
+#: src/interface.c:519
+msgid "Message Window"
+msgstr ""
+
+#: src/interface.c:538
+msgid "label9"
+msgstr ""
+
+#: src/interface.c:558
+msgid "If you don't agree"
+msgstr ""
+
+#: src/interface.c:564
+msgid "If you agree"
+msgstr ""
+
+#: src/interface.c:627
+msgid "Stuff Information"
+msgstr ""
+
+#: src/interface.c:683
+msgid "Additional meta information about stuff"
+msgstr ""
+
+#: src/interface.c:686
+msgid "Write additional information here..."
+msgstr ""
+
+#: src/interface.c:688
+msgid "<b>Name</b>"
+msgstr ""
+
+#: src/interface.c:694 src/interface.c:1113 src/interface.c:1865
+msgid "<b>Stuff ID</b>"
+msgstr ""
+
+#: src/interface.c:700
+msgid "<b>Meta Information</b>"
+msgstr ""
+
+#: src/interface.c:724
+msgid "<b>Photo</b>"
+msgstr ""
+
+#: src/interface.c:738
+msgid "Load a photo"
+msgstr ""
+
+#: src/interface.c:744
+msgid "Remove photo"
+msgstr ""
+
+#: src/interface.c:746
+msgid "<b>Stuff Infromation</b>"
+msgstr ""
+
+#: src/interface.c:764
+msgid "Unsaved changes will not be saved"
+msgstr ""
+
+#: src/interface.c:770
+msgid "Save stuff information to database"
+msgstr ""
+
+#: src/interface.c:776
+msgid "Clear fields"
+msgstr ""
+
+#: src/interface.c:847
+msgid "Load file"
+msgstr ""
+
+#: src/interface.c:969 src/interface.c:1897
+msgid "Run Query"
+msgstr ""
+
+#: src/interface.c:989 src/interface.c:1741
+msgid "Daily"
+msgstr ""
+
+#: src/interface.c:997 src/interface.c:1749
+msgid "Monthly"
+msgstr ""
+
+#: src/interface.c:1015 src/interface.c:1767
+msgid "01"
+msgstr ""
+
+#: src/interface.c:1016 src/interface.c:1768
+msgid "02"
+msgstr ""
+
+#: src/interface.c:1017 src/interface.c:1769
+msgid "03"
+msgstr ""
+
+#: src/interface.c:1018 src/interface.c:1770
+msgid "04"
+msgstr ""
+
+#: src/interface.c:1019 src/interface.c:1771
+msgid "05"
+msgstr ""
+
+#: src/interface.c:1020 src/interface.c:1772
+msgid "06"
+msgstr ""
+
+#: src/interface.c:1021 src/interface.c:1773
+msgid "07"
+msgstr ""
+
+#: src/interface.c:1022 src/interface.c:1774
+msgid "08"
+msgstr ""
+
+#: src/interface.c:1023 src/interface.c:1775
+msgid "09"
+msgstr ""
+
+#: src/interface.c:1024 src/interface.c:1776
+msgid "10"
+msgstr ""
+
+#: src/interface.c:1025 src/interface.c:1777
+msgid "11"
+msgstr ""
+
+#: src/interface.c:1026 src/interface.c:1778
+msgid "12"
+msgstr ""
+
+#: src/interface.c:1027 src/interface.c:1779
+msgid "13"
+msgstr ""
+
+#: src/interface.c:1028 src/interface.c:1780
+msgid "14"
+msgstr ""
+
+#: src/interface.c:1029 src/interface.c:1781
+msgid "15"
+msgstr ""
+
+#: src/interface.c:1030 src/interface.c:1782
+msgid "16"
+msgstr ""
+
+#: src/interface.c:1031 src/interface.c:1783
+msgid "17"
+msgstr ""
+
+#: src/interface.c:1032 src/interface.c:1784
+msgid "18"
+msgstr ""
+
+#: src/interface.c:1033 src/interface.c:1785
+msgid "19"
+msgstr ""
+
+#: src/interface.c:1034 src/interface.c:1786
+msgid "20"
+msgstr ""
+
+#: src/interface.c:1035 src/interface.c:1787
+msgid "21"
+msgstr ""
+
+#: src/interface.c:1036 src/interface.c:1788
+msgid "22"
+msgstr ""
+
+#: src/interface.c:1037 src/interface.c:1789
+msgid "23"
+msgstr ""
+
+#: src/interface.c:1038 src/interface.c:1790
+msgid "24"
+msgstr ""
+
+#: src/interface.c:1039 src/interface.c:1791
+msgid "25"
+msgstr ""
+
+#: src/interface.c:1040 src/interface.c:1792
+msgid "26"
+msgstr ""
+
+#: src/interface.c:1041 src/interface.c:1793
+msgid "27"
+msgstr ""
+
+#: src/interface.c:1042 src/interface.c:1794
+msgid "28"
+msgstr ""
+
+#: src/interface.c:1043 src/interface.c:1795
+msgid "29"
+msgstr ""
+
+#: src/interface.c:1044 src/interface.c:1796
+msgid "30"
+msgstr ""
+
+#: src/interface.c:1045 src/interface.c:1797
+msgid "31"
+msgstr ""
+
+#: src/interface.c:1052 src/interface.c:1076 src/interface.c:1804
+#: src/interface.c:1828
+msgid "Jan"
+msgstr ""
+
+#: src/interface.c:1053 src/interface.c:1077 src/interface.c:1805
+#: src/interface.c:1829
+msgid "Feb"
+msgstr ""
+
+#: src/interface.c:1054 src/interface.c:1078 src/interface.c:1806
+#: src/interface.c:1830
+msgid "Mar"
+msgstr ""
+
+#: src/interface.c:1055 src/interface.c:1079 src/interface.c:1807
+#: src/interface.c:1831
+msgid "Apr"
+msgstr ""
+
+#: src/interface.c:1056 src/interface.c:1080 src/interface.c:1808
+#: src/interface.c:1832
+msgid "May"
+msgstr ""
+
+#: src/interface.c:1057 src/interface.c:1081 src/interface.c:1809
+#: src/interface.c:1833
+msgid "Jun"
+msgstr ""
+
+#: src/interface.c:1058 src/interface.c:1082 src/interface.c:1810
+#: src/interface.c:1834
+msgid "Jul"
+msgstr ""
+
+#: src/interface.c:1059 src/interface.c:1083 src/interface.c:1811
+#: src/interface.c:1835
+msgid "Aug"
+msgstr ""
+
+#: src/interface.c:1060 src/interface.c:1084 src/interface.c:1812
+#: src/interface.c:1836
+msgid "Sep"
+msgstr ""
+
+#: src/interface.c:1061 src/interface.c:1085 src/interface.c:1813
+#: src/interface.c:1837
+msgid "Oct"
+msgstr ""
+
+#: src/interface.c:1062 src/interface.c:1086 src/interface.c:1814
+#: src/interface.c:1838
+msgid "Nov"
+msgstr ""
+
+#: src/interface.c:1063 src/interface.c:1087 src/interface.c:1815
+#: src/interface.c:1839
+msgid "Dec"
+msgstr ""
+
+#: src/interface.c:1090 src/interface.c:1842
+msgid "<b>Time Options</b>"
+msgstr ""
+
+#: src/interface.c:1130 src/interface.c:1882
+msgid "<b>Filter Options</b>"
+msgstr ""
+
+#: src/interface.c:1135
+msgid "<b>Extended Query</b>"
+msgstr ""
+
+#: src/interface.c:1162 src/interface.c:1926
+msgid "<b>Query Output</b>"
+msgstr ""
+
+#: src/interface.c:1177 src/interface.c:1941
+msgid "Close window"
+msgstr ""
+
+#: src/interface.c:1183 src/interface.c:1947
+msgid "Print query output"
+msgstr ""
+
+#: src/interface.c:1257
+msgid "Unmindful Stuffs"
+msgstr ""
+
+#: src/interface.c:1289
+msgid "<b>Stuff List</b>"
+msgstr ""
+
+#: src/interface.c:1304
+msgid "Close Window"
+msgstr ""
+
+#: src/interface.c:1310
+msgid "Refresh List"
+msgstr ""
+
+#: src/interface.c:1391
+msgid "Login Password"
+msgstr ""
+
+#: src/interface.c:1404
+msgid ""
+"\n"
+"<b>Please Enter Login Password</b>\n"
+msgstr ""
+
+#: src/interface.c:1413
+msgid "Enter password here"
+msgstr ""
+
+#: src/interface.c:1475
+msgid "Add Stuff Database Password"
+msgstr ""
+
+#: src/interface.c:1487
+msgid ""
+"\n"
+"<b>Please Enter Database Password for Add Stuff</b>\n"
+msgstr ""
+
+#: src/interface.c:1496
+msgid "Enter add stuff password"
+msgstr ""
+
+#: src/interface.c:1549
+msgid "Unlicensed Copy"
+msgstr ""
+
+#: src/interface.c:1559
+msgid ""
+"<span size=\"xx-large\"><b>Unauthorized Copy!\n"
+"Please collect a licensed copy.</b></span>"
+msgstr ""
+
+#: src/interface.c:1593
+msgid "Edit Stuff Database Password"
+msgstr ""
+
+#: src/interface.c:1605
+msgid ""
+"\n"
+"<b>Please Enter Database Password for Edit Stuff</b>\n"
+msgstr ""
+
+#: src/interface.c:1614
+msgid "Enter edit stuff password"
+msgstr ""
+
+#: src/interface.c:1701
+msgid "First IN Last OUT"
+msgstr ""
+
+#: src/interface.c:1899
+msgid "<b>First IN Last OUT Query</b>"
+msgstr ""
+
+#: src/callbacks.c:207
+msgid "Error: No such Stuff!"
+msgstr ""
+
+#: src/callbacks.c:210
+msgid "Error: Database error!"
+msgstr ""
+
+#: src/callbacks.c:213
+msgid "Error: Executing query!"
+msgstr ""
+
+#: src/callbacks.c:216
+msgid "Error: unknown!"
+msgstr ""
+
+#: src/callbacks.c:805 src/callbacks.c:864 src/callbacks.c:910
+msgid "Authentication failure!"
+msgstr ""
+
+#: src/support.c:90 src/support.c:114
+#, c-format
+msgid "Couldn't find pixmap file: %s"
+msgstr ""

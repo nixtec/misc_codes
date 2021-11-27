@@ -1,0 +1,13 @@
+1. login and database edit password		[done]
+2. installation hardware based key		[done]
+3. picture should be large in display		[done]
+4. Say "Welcome $USER" when somebody enters	[done]
+   Say "Goodbye $USER" when somebody leaves	[done]
+5. attendenc list display should be as follows:	[done]
+
+Name		Status		Since		Duration (Minutes)
+
+
+Duration will be difference between last-out - last-in
+So whenever there is OUT, the corresponding IN will be with duration of OUT.
+

@@ -1,0 +1,371 @@
+OS = 0A280105
+Message: 0x00000593(==>1769894), 516, 0
+SendCommand: '1'! dT = 5109781.60
+Kommando-Antwort:  1
+DeviceNo = 10000759,  10
+SendCommand: '2'! dT = 43.00
+Kommando-Antwort:  2
+Measurement = 1266
+SendCommand: '2'! dT = 3221.70
+Kommando-Antwort:  2
+Measurement = 1883
+SendCommand: '2'! dT = 169.20
+Kommando-Antwort:  2
+Measurement = 1681
+SendCommand: '2'! dT = 131.20
+Kommando-Antwort:  2
+Measurement = 1240
+SendCommand: '2'! dT = 127.20
+Kommando-Antwort:  2
+Measurement = 2189
+SendCommand: '2'! dT = 126.20
+Kommando-Antwort:  2
+Measurement = 1266
+SendCommand: '2'! dT = 274.30
+Kommando-Antwort:  2
+Measurement = 322
+SendCommand: '2'! dT = 308.50
+Kommando-Antwort:  2
+Measurement = 2931
+SendCommand: '2'! dT = 172.20
+Kommando-Antwort:  2
+Measurement = 2265
+SendCommand: '2'! dT = 123.20
+Kommando-Antwort:  2
+Measurement = 1235
+SendCommand: '2'! dT = 147.20
+Kommando-Antwort:  2
+Measurement = 1725
+SendCommand: '2'! dT = 132.20
+Kommando-Antwort:  2
+Measurement = 1079
+SendCommand: '2'! dT = 167.30
+Kommando-Antwort:  2
+Measurement = 3547
+SendCommand: '2'! dT = 682.90
+Kommando-Antwort:  2
+Measurement = 4278
+SendCommand: '2'! dT = 129.20
+Kommando-Antwort:  2
+Measurement = 1313
+SendCommand: '2'! dT = 155.20
+Kommando-Antwort:  2
+Measurement = 2986
+SendCommand: '2'! dT = 134.20
+Kommando-Antwort:  2
+Measurement = 8300
+SendCommand: '2'! dT = 169.30
+Kommando-Antwort:  2
+Measurement = 14297
+SendCommand: '2'! dT = 210.30
+Kommando-Antwort:  2
+Measurement = 14297
+SendCommand: '2'! dT = 255.40
+Kommando-Antwort:  2
+Measurement = 14254
+SendCommand: '2'! dT = 117.10
+Kommando-Antwort:  2
+Measurement = 5958
+SendCommand: '2'! dT = 583.90
+Kommando-Antwort:  2
+Measurement = 8897
+SendCommand: '2'! dT = 128.10
+Kommando-Antwort:  2
+Measurement = 4613
+SendCommand: '2'! dT = 531.80
+Kommando-Antwort:  2
+Measurement = 5094
+SendCommand: '2'! dT = 171.30
+Kommando-Antwort:  2
+Measurement = 5588
+SendCommand: '2'! dT = 250.30
+Kommando-Antwort:  2
+Measurement = 14297
+SendCommand: '2'! dT = 326.50
+Kommando-Antwort:  2
+Measurement = 14297
+SendCommand: '2'! dT = 309.40
+Kommando-Antwort:  2
+Measurement = 14297
+SendCommand: '2'! dT = 118.20
+Kommando-Antwort:  2
+Measurement = 1146
+SendCommand: '2'! dT = 748.10
+Kommando-Antwort:  2
+Measurement = 14297
+SendCommand: '2'! dT = 740.00
+Kommando-Antwort:  2
+Measurement = 14297
+SendCommand: '2'! dT = 159.30
+Kommando-Antwort:  2
+Measurement = 13966
+SendCommand: '2'! dT = 133.20
+Kommando-Antwort:  2
+Measurement = 1564
+SendCommand: '2'! dT = 5648.10
+Kommando-Antwort:  2
+Measurement = 1485
+SendCommand: '2'! dT = 162.20
+Kommando-Antwort:  2
+Measurement = 1906
+SendCommand: '2'! dT = 153.20
+Kommando-Antwort:  2
+Measurement = 2106
+SendCommand: '2'! dT = 133.20
+Kommando-Antwort:  2
+Measurement = 2734
+SendCommand: '2'! dT = 137.20
+Kommando-Antwort:  2
+Measurement = 1238
+SendCommand: '2'! dT = 168.30
+Kommando-Antwort:  2
+Measurement = 654
+SendCommand: '2'! dT = 497.70
+Kommando-Antwort:  2
+Measurement = 1239
+SendCommand: '2'! dT = 158.20
+Kommando-Antwort:  2
+Measurement = 2679
+SendCommand: '2'! dT = 124.20
+Kommando-Antwort:  2
+Measurement = 960
+SendCommand: '2'! dT = 229.30
+Kommando-Antwort:  2
+Measurement = 1470
+SendCommand: '2'! dT = 139.20
+Kommando-Antwort:  2
+Measurement = 1004
+SendCommand: '2'! dT = 146.20
+Kommando-Antwort:  2
+Measurement = 3461
+SendCommand: '2'! dT = 392.60
+Kommando-Antwort:  2
+Measurement = 4286
+SendCommand: '2'! dT = 141.20
+Kommando-Antwort:  2
+Measurement = 3458
+SendCommand: '2'! dT = 150.20
+Kommando-Antwort:  2
+Measurement = 7200
+SendCommand: '2'! dT = 156.20
+Kommando-Antwort:  2
+Measurement = 5940
+SendCommand: '2'! dT = 133.20
+Kommando-Antwort:  2
+Measurement = 14297
+SendCommand: '2'! dT = 175.30
+Kommando-Antwort:  2
+Measurement = 13447
+SendCommand: '2'! dT = 162.20
+Kommando-Antwort:  2
+Measurement = 14297
+SendCommand: '2'! dT = 118.20
+Kommando-Antwort:  2
+Measurement = 1879
+SendCommand: '2'! dT = 341.50
+Kommando-Antwort:  2
+Measurement = 3679
+SendCommand: '2'! dT = 161.20
+Kommando-Antwort:  2
+Measurement = 2956
+SendCommand: '2'! dT = 240.40
+Kommando-Antwort:  2
+Measurement = 2879
+SendCommand: '2'! dT = 425.60
+Kommando-Antwort:  2
+Measurement = 13796
+SendCommand: '2'! dT = 382.50
+Kommando-Antwort:  2
+Measurement = 6699
+SendCommand: '2'! dT = 188.30
+Kommando-Antwort:  2
+Measurement = 14297
+SendCommand: '2'! dT = 323.50
+Kommando-Antwort:  2
+Measurement = 14297
+SendCommand: '2'! dT = 274.30
+Kommando-Antwort:  2
+Measurement = 14297
+SendCommand: '2'! dT = 143.30
+Kommando-Antwort:  2
+Measurement = 1659
+SendCommand: '2'! dT = 454.60
+Kommando-Antwort:  2
+Measurement = 14297
+SendCommand: '2'! dT = 637.90
+Kommando-Antwort:  2
+Measurement = 14297
+SendCommand: '2'! dT = 155.20
+Kommando-Antwort:  2
+Measurement = 14297
+SendCommand: '2'! dT = 124.20
+Kommando-Antwort:  2
+Measurement = 2649
+SendCommand: '2'! dT = 19174.60
+Kommando-Antwort:  2
+Measurement = 3563
+SendCommand: '2'! dT = 151.20
+Kommando-Antwort:  2
+Measurement = 3992
+SendCommand: '2'! dT = 125.20
+Kommando-Antwort:  2
+Measurement = 2681
+SendCommand: '2'! dT = 151.20
+Kommando-Antwort:  2
+Measurement = 2536
+SendCommand: '2'! dT = 137.20
+Kommando-Antwort:  2
+Measurement = 2967
+SendCommand: '2'! dT = 151.20
+Kommando-Antwort:  2
+Measurement = 3210
+SendCommand: '2'! dT = 489.70
+Kommando-Antwort:  2
+Measurement = 6363
+SendCommand: '2'! dT = 162.30
+Kommando-Antwort:  2
+Measurement = 3136
+SendCommand: '2'! dT = 249.30
+Kommando-Antwort:  2
+Measurement = 4483
+SendCommand: '2'! dT = 160.30
+Kommando-Antwort:  2
+Measurement = 6211
+SendCommand: '2'! dT = 148.20
+Kommando-Antwort:  2
+Measurement = 2457
+SendCommand: '2'! dT = 145.20
+Kommando-Antwort:  2
+Measurement = 5870
+SendCommand: '2'! dT = 732.00
+Kommando-Antwort:  2
+Measurement = 2715
+SendCommand: '2'! dT = 205.30
+Kommando-Antwort:  2
+Measurement = 3170
+SendCommand: '2'! dT = 398.60
+Kommando-Antwort:  2
+Measurement = 6030
+SendCommand: '2'! dT = 308.40
+Kommando-Antwort:  2
+Measurement = 5227
+SendCommand: '2'! dT = 159.30
+Kommando-Antwort:  2
+Measurement = 12627
+SendCommand: '2'! dT = 152.20
+Kommando-Antwort:  2
+Measurement = 14297
+SendCommand: '2'! dT = 226.30
+Kommando-Antwort:  2
+Measurement = 9702
+SendCommand: '2'! dT = 256.40
+Kommando-Antwort:  2
+Measurement = 3118
+SendCommand: '2'! dT = 337.50
+Kommando-Antwort:  2
+Measurement = 2657
+SendCommand: '2'! dT = 190.20
+Kommando-Antwort:  2
+Measurement = 2119
+SendCommand: '2'! dT = 164.30
+Kommando-Antwort:  2
+Measurement = 2404
+SendCommand: '2'! dT = 158.20
+Kommando-Antwort:  2
+Measurement = 2517
+SendCommand: '2'! dT = 291.40
+Kommando-Antwort:  2
+Measurement = 3030
+SendCommand: '2'! dT = 236.40
+Kommando-Antwort:  2
+Measurement = 1676
+SendCommand: '2'! dT = 686.00
+Kommando-Antwort:  2
+Measurement = 6486
+SendCommand: '2'! dT = 931.30
+Kommando-Antwort:  2
+Measurement = 1641
+SendCommand: '2'! dT = 5949.60
+Kommando-Antwort:  2
+Measurement = 2720
+SendCommand: '2'! dT = 128.10
+Kommando-Antwort:  2
+Measurement = 1891
+SendCommand: '2'! dT = 241.40
+Kommando-Antwort:  2
+Measurement = 4043
+SendCommand: '2'! dT = 123.20
+Kommando-Antwort:  2
+Measurement = 2156
+SendCommand: '2'! dT = 131.20
+Kommando-Antwort:  2
+Measurement = 1469
+SendCommand: '2'! dT = 125.10
+Kommando-Antwort:  2
+Measurement = 1654
+SendCommand: '2'! dT = 501.80
+Kommando-Antwort:  2
+Measurement = 1523
+SendCommand: '2'! dT = 153.20
+Kommando-Antwort:  2
+Measurement = 2526
+SendCommand: '2'! dT = 120.10
+Kommando-Antwort:  2
+Measurement = 2548
+SendCommand: '2'! dT = 182.30
+Kommando-Antwort:  2
+Measurement = 5123
+SendCommand: '2'! dT = 128.20
+Kommando-Antwort:  2
+Measurement = 1256
+SendCommand: '2'! dT = 117.20
+Kommando-Antwort:  2
+Measurement = 4984
+SendCommand: '2'! dT = 669.90
+Kommando-Antwort:  2
+Measurement = 1072
+SendCommand: '2'! dT = 149.20
+Kommando-Antwort:  2
+Measurement = 1263
+SendCommand: '2'! dT = 222.40
+Kommando-Antwort:  2
+Measurement = 4918
+SendCommand: '2'! dT = 222.30
+Kommando-Antwort:  2
+Measurement = 4001
+SendCommand: '2'! dT = 131.20
+Kommando-Antwort:  2
+Measurement = 14295
+SendCommand: '2'! dT = 153.20
+Kommando-Antwort:  2
+Measurement = 14297
+SendCommand: '2'! dT = 242.30
+Kommando-Antwort:  2
+Measurement = 13393
+SendCommand: '2'! dT = 142.20
+Kommando-Antwort:  2
+Measurement = 2441
+SendCommand: '2'! dT = 302.50
+Kommando-Antwort:  2
+Measurement = 1861
+SendCommand: '2'! dT = 301.40
+Kommando-Antwort:  2
+Measurement = 1578
+SendCommand: '2'! dT = 136.20
+Kommando-Antwort:  2
+Measurement = 1880
+SendCommand: '2'! dT = 192.30
+Kommando-Antwort:  2
+Measurement = 2454
+SendCommand: '2'! dT = 277.40
+Kommando-Antwort:  2
+Measurement = 2495
+SendCommand: '2'! dT = 172.20
+Kommando-Antwort:  2
+Measurement = 11581
+SendCommand: '2'! dT = 749.10
+Kommando-Antwort:  2
+Measurement = 981
+SendCommand: '2'! dT = 588.90
+Kommando-Antwort:  2
+SendCommand: '3'! dT = 90297.80

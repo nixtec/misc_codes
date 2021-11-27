@@ -1,0 +1,25 @@
+$ cat /proc/interrupts
+           CPU0       
+  0:    1433319          XT-PIC  timer
+  1:       2081          XT-PIC  i8042
+  2:          0          XT-PIC  cascade
+  4:      12783          XT-PIC  serial
+  8:          1          XT-PIC  rtc
+  9:          0          XT-PIC  uhci_hcd:usb2
+ 10:          0          XT-PIC  Ensoniq AudioPCI
+ 11:      29279          XT-PIC  uhci_hcd:usb1
+ 12:         35          XT-PIC  i8042
+ 14:      30201          XT-PIC  ide0
+ 15:       3018          XT-PIC  ide1
+NMI:          0 
+ERR:          0
+$ cat /proc/interrupts | grep i8042
+  1:       2081          XT-PIC  i8042
+
+Whenever I attached the barcode reader to my linux box, interrupt handler
+for i8042 has been activated. To read the signal, I'll have to install my
+custom interrupt handler.
+
+
+Search for 'i8042' online for programming it.
+

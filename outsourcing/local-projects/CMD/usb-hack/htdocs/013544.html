@@ -1,0 +1,210 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html><head><title>problem with user space interrupt and shared irqs</title>
+
+ 
+   
+   <link rel="Index" href="https://mail.rtai.org/pipermail/rtai/2005-December/index.html">
+   <link rel="made" href="mailto:Finny.Thomas%40wpafb.af.mil">
+   <meta name="robots" content="index,nofollow">
+   
+   <link rel="Previous" href="https://mail.rtai.org/pipermail/rtai/2005-December/013551.html">
+   <link rel="Next" href="https://mail.rtai.org/pipermail/rtai/2005-December/013545.html"></head><body bgcolor="#ffffff">
+   <h1>problem with user space interrupt and shared irqs
+   </h1>
+    <b>Thomas Finny C Contr AFRL/SNRN
+    </b> 
+    <a href="mailto:Finny.Thomas%40wpafb.af.mil" title="problem with user space interrupt and shared irqs">Finny.Thomas@wpafb.af.mil
+       </a><br>
+    <i>Fri, 9 Dec 2005 15:34:58 -0500</i>
+    <p></p><ul>
+        <li> Previous message: <a href="https://mail.rtai.org/pipermail/rtai/2005-December/013551.html">int _rt_mbx_send_if( ... , int space) Space????
+</a></li>
+        <li> Next message: <a href="https://mail.rtai.org/pipermail/rtai/2005-December/013545.html">Magma Module.symvers missing?
+</a></li>
+         <li> <b>Messages sorted by:</b> 
+              <a href="https://mail.rtai.org/pipermail/rtai/2005-December/date.html#13544">[ date ]</a>
+              <a href="https://mail.rtai.org/pipermail/rtai/2005-December/thread.html#13544">[ thread ]</a>
+              <a href="https://mail.rtai.org/pipermail/rtai/2005-December/subject.html#13544">[ subject ]</a>
+              <a href="https://mail.rtai.org/pipermail/rtai/2005-December/author.html#13544">[ author ]</a>
+         </li>
+       </ul>
+    <hr>  
+<!--beginarticle-->
+<pre>I was able to solve this problem by using a little tool called irqbalance
+(<a href="http://www.die.net/doc/linux/man/man1/irqbalance.1.html">http://www.die.net/doc/linux/man/man1/irqbalance.1.html</a>)
+
+I'm not sure why, but I am able to handle interrupts from our boards when
+they are sharing interrupts when this program is running; is it possible
+that one processor had too many irqs assigned to it? 
+
+F. Thomas
+
+
+-----Original Message-----
+From: <a href="mailto:rtai-admin@rtai.org">rtai-admin@rtai.org</a> [mailto:<a href="mailto:rtai-admin@rtai.org">rtai-admin@rtai.org</a>] On Behalf Of Thomas
+Finny C Contr AFRL/SNRN
+Sent: Monday, November 21, 2005 12:41 PM
+To: 'Paolo Mantegazza'
+Cc: '<a href="mailto:rtai@rtai.org">rtai@rtai.org</a>'
+Subject: RE: problem with user space interrupt and shared irqs
+
+I should clarify that in these tests, I'm not doing anything with RTAI (that
+is, not using the RTAI interrupt handler), I only have the standard linux
+driver running. 
+
+I wanted to be able to rule out that I had used RTAI incorrectly, so all
+there is is the adeos-patched kernel and a standard linux driver. I enable
+interrupts on the board using a small test program that interacts with the
+linux driver. 
+
+F. Thomas
+
+
+-----Original Message-----
+From: <a href="mailto:rtai-admin@rtai.org">rtai-admin@rtai.org</a> [mailto:<a href="mailto:rtai-admin@rtai.org">rtai-admin@rtai.org</a>] On Behalf Of Thomas
+Finny C Contr AFRL/SNRN
+Sent: Monday, November 21, 2005 10:29 AM
+To: 'Paolo Mantegazza'
+Cc: '<a href="mailto:rtai@rtai.org">rtai@rtai.org</a>'
+Subject: RE: problem with user space interrupt and shared irqs
+
+Hi Paolo,
+Thanks for your reply. 
+
+I've been doing more debugging, to try to figure out why I cannot see
+interrupts from boards that are sharing IRQs. I tried using your advice
+about rt_enable_irq, but nothing changed. 
+
+So, I did the following test:
+1. Using a non-adeos patched kernel, I installed our linux driver and
+verified that we could receive interrupts from the IRQ sharing board (our
+driver has a simple interrupt counter in the handler).
+2. Using an adeos-patched kernel and our linux driver, I verified that our
+system hangs when our IRQ sharing board sends interrupts. 
+
+I tried using hal-linux-2.6.10-i386-r9.patch from the rtai-3.2 distribution,
+which led to an immediate system hang. 
+
+I also tried using adeos-linux-2.6.10-i386-r13.patch (the newest 2.6.10
+adeos patch I could find) to see if it made any difference. It seems that
+the system slowed down a bit first, and then completely hung. 
+
+I believe this test verifies that my usage of the rtai api is not to blame
+for the hang from IRQ sharing boards. 
+
+So, does anyone have any advice? Is this an adeos issue?
+
+Also, does anyone know of a way to manipulate the system so that I am not
+sharing interrupts? 
+
+Thanks in advance,
+
+F. Thomas
+
+
+-----Original Message-----
+From: <a href="mailto:rtai-admin@rtai.org">rtai-admin@rtai.org</a> [mailto:<a href="mailto:rtai-admin@rtai.org">rtai-admin@rtai.org</a>] On Behalf Of Paolo
+Mantegazza
+Sent: Friday, November 11, 2005 3:19 AM
+To: Thomas Finny C Contr AFRL/SNRW
+Cc: '<a href="mailto:rtai@rtai.org">rtai@rtai.org</a>'
+Subject: Re: problem with user space interrupt and shared irqs
+
+Thomas Finny C Contr AFRL/SNRW wrote:
+&gt;<i> Greetings,
+</i>&gt;<i> 
+</i>&gt;<i>  
+</i>&gt;<i> 
+</i>&gt;<i> I am using the following system:
+</i>&gt;<i> 
+</i>&gt;<i>    1. Ubuntu Breezy, with 2.6.10 kernel &amp; adeos patch
+</i>&gt;<i>    2. RTAI 3.2
+</i>&gt;<i> 
+</i>&gt;<i>  
+</i>&gt;<i> 
+</i>&gt;<i> We have 4 PCI DSP devices connected to our system over a Stargen PCI 
+</i>&gt;<i> bridge. We are using RTAI to get a timer interrupt from one of the 
+</i>&gt;<i> boards (we can configure any of the boards to generate the interrupt) by 
+</i>&gt;<i> using the usi_process.c example (user space interrupt handler) in 
+</i>&gt;<i> showroom. We also have a linux driver for the DSP boards, but no 
+</i>&gt;<i> interrupt handler in that driver. We use this driver in non-rt mode for 
+</i>&gt;<i> configuration purposes only (it only writes registers via ioctl()).
+</i>&gt;<i> 
+</i>&gt;<i>  
+</i>&gt;<i> 
+</i>&gt;<i> Pairs of boards will share IRQs in this scheme; board 1 &amp; 3 will have 
+</i>&gt;<i> IRQ 30, while 2&amp;4 will have IRQ 29. If we take one board out, board 2 
+</i>&gt;<i> will have an IRQ all to itself (not shared). In this configuration, our 
+</i>&gt;<i> user space interrupt handler works fine. However, if we are sharing 
+</i>&gt;<i> IRQs, the interrupt handler (using rt_irq_wait()) never sees any of the 
+</i>&gt;<i> interrupts.
+</i>&gt;<i> 
+</i>&gt;<i>  
+</i>&gt;<i> 
+</i>&gt;<i> Looking over old posts about shared IRQs, I see a lot of reasons why 
+</i>&gt;<i> this is problematic if you need to share the interrupt with a linux 
+</i>&gt;<i> driver; in our case, we never need the DSP board interrupts to reach the 
+</i>&gt;<i> linux domain. Also, when boards are sharing IRQs, no other devices are 
+</i>&gt;<i> using the same IRQ.
+</i>&gt;<i> 
+</i>&gt;<i>  
+</i>&gt;<i> 
+</i>&gt;<i> Questions
+</i>&gt;<i> 
+</i>&gt;<i>    1. Can anyone see a reason why shared IRQs would prevent the
+</i>&gt;<i>       rt_irq_wait() call from being notified that an interrupt has
+</i>occurred?
+&gt;<i>    2. How can I manipulate the system to assign one of the boards a
+</i>&gt;<i>       unique IRQ? I have looked at the Boot-Prompt-HOWTO  Section 4 as
+</i>&gt;<i>       recommended in a previous post, and couldn't see what I could do
+</i>&gt;<i>       to change things.
+</i>&gt;<i>    3. I have tried to comment out the rt_pend_linux_irq() call in the
+</i>&gt;<i>       usi_process.c example. My understanding of what this call does is
+</i>&gt;<i>       that it prevents the linux domain of being notified that a
+</i>&gt;<i>       particular interrupt has occurred once handled by the rtai user
+</i>&gt;<i>       space interrupt handler. If I do comment it out, our machine
+</i>&gt;<i>       receives a single interrupt, and then stops receiving them. Why?
+</i>&gt;<i>       Are we missing an ack? And does this have anything to do with our
+</i>&gt;<i>       main problem (see #1?)
+</i>&gt;<i> 
+</i>
+One point is that the usi examples relies on an edge triggered interrupt 
+and os there is no particular need to do any rt_enable_irq. In the case 
+of level triggered interrupt there is such a need instead.
+
+Paolo.
+
+
+_______________________________________________
+RTAI mailing list
+<a href="mailto:RTAI@rtai.org">RTAI@rtai.org</a>
+<a href="https://mail.rtai.org/cgi-bin/mailman/listinfo/rtai">https://mail.rtai.org/cgi-bin/mailman/listinfo/rtai</a>
+
+_______________________________________________
+RTAI mailing list
+<a href="mailto:RTAI@rtai.org">RTAI@rtai.org</a>
+<a href="https://mail.rtai.org/cgi-bin/mailman/listinfo/rtai">https://mail.rtai.org/cgi-bin/mailman/listinfo/rtai</a>
+
+_______________________________________________
+RTAI mailing list
+<a href="mailto:RTAI@rtai.org">RTAI@rtai.org</a>
+<a href="https://mail.rtai.org/cgi-bin/mailman/listinfo/rtai">https://mail.rtai.org/cgi-bin/mailman/listinfo/rtai</a>
+
+
+</pre>
+<!--endarticle-->
+    <hr>
+    <p></p><ul>
+        <!--threads-->
+	<li> Previous message: <a href="https://mail.rtai.org/pipermail/rtai/2005-December/013551.html">int _rt_mbx_send_if( ... , int space) Space????
+</a></li>
+	<li> Next message: <a href="https://mail.rtai.org/pipermail/rtai/2005-December/013545.html">Magma Module.symvers missing?
+</a></li>
+         <li> <b>Messages sorted by:</b> 
+              <a href="https://mail.rtai.org/pipermail/rtai/2005-December/date.html#13544">[ date ]</a>
+              <a href="https://mail.rtai.org/pipermail/rtai/2005-December/thread.html#13544">[ thread ]</a>
+              <a href="https://mail.rtai.org/pipermail/rtai/2005-December/subject.html#13544">[ subject ]</a>
+              <a href="https://mail.rtai.org/pipermail/rtai/2005-December/author.html#13544">[ author ]</a>
+         </li>
+       </ul>
+</body></html>

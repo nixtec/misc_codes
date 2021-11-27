@@ -1,0 +1,4 @@
+-rw-r--r-- 1     ayub     ayub        238 Apr 19 21:45 inout.c
+-rw-r--r-- 1     ayub     ayub        933 Apr 18 15:52 lockdemo.c
+-rw-r--r-- 1     ayub     ayub        769 Apr 18 15:52 mycat.c
+-rw------- 1     ayub     ayub        139 Apr 18 15:52 test.c

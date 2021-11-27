@@ -1,0 +1,1 @@
+I have question regarding this project, if i use these functions independently in some one elses code what are the things that needs to be considered like declarations, dependent functions, header files and something like that. My code is part of others code. So If you could send me a document that would be greate. Thanks in advance.

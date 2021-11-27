@@ -1,0 +1,402 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" dir="ltr" lang="en"><head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta name="keywords" content="Universal Product Code,1974,Alphabet,Barcode,Barcodes,Bit,Canada,Check digit,Chewing gum,Coupon,EAN">
+<link rel="shortcut icon" href="http://en.wikipedia.org/favicon.ico">
+<link rel="copyright" href="http://www.gnu.org/copyleft/fdl.html"><title>Universal Product Code - Wikipedia, the free encyclopedia</title>
+		
+		<style type="text/css" media="screen,projection">/*<![CDATA[*/ @import "/skins-1.5/monobook/main.css?7"; /*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="_files/commonPrint.css"><!--[if lt IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE50Fixes.css";</style><![endif]--><!--[if IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE55Fixes.css";</style><![endif]--><!--[if IE 6]><style type="text/css">@import "/skins-1.5/monobook/IE60Fixes.css";</style><![endif]--><!--[if IE 7]><style type="text/css">@import "/skins-1.5/monobook/IE70Fixes.css?1";</style><![endif]--><!--[if lt IE 7]><script type="text/javascript" src="/skins-1.5/common/IEFixes.js"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		
+		
+		
+		
+		
+		<script type="text/javascript">var skin = 'monobook';var stylepath = '/skins-1.5';</script>
+		<script type="text/javascript" src="_files/wikibits"><!-- wikibits js --></script>
+		<script type="text/javascript" src="_files/index"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "/w/index.php?title=MediaWiki:Common.css&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=MediaWiki:Monobook.css&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=-&action=raw&gen=css&maxage=2678400";
+/*]]>*/</style><!-- Head Scripts --></head>
+
+	<body class="ns-0 ltr">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+		<div id="siteNotice"><div style="text-align: right; font-size: 80%;">Your <b><a href="http://wikimediafoundation.org/wiki/Fundraising" class="extiw" title="wikimedia:Fundraising">continued donations</a></b> keep Wikipedia running!&nbsp;&nbsp;&nbsp;&nbsp;</div>
+</div>		<h1 class="firstHeading">Universal Product Code</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<p><b>UPC</b> or (<b>Universal Product Code</b>) is one of a wide variety of bar code languages called symbologies. The UPC was the original <a href="http://en.wikipedia.org/wiki/Barcode" title="Barcode">barcode</a> widely used in the <a href="http://en.wikipedia.org/wiki/United_States" title="United States">United States</a> and <a href="http://en.wikipedia.org/wiki/Canada" title="Canada">Canada</a> for items in <a href="http://en.wikipedia.org/wiki/Store" title="Store">stores</a>. The first item to be placed under a UPC scanner in a <a href="http://en.wikipedia.org/wiki/Retail" title="Retail">retail</a> store was a 10-pack of <a href="http://en.wikipedia.org/wiki/Wrigley_Company" title="Wrigley Company">Wrigley</a>'s <a href="http://en.wikipedia.org/wiki/Juicy_Fruit" title="Juicy Fruit">Juicy Fruit</a> <a href="http://en.wikipedia.org/wiki/Chewing_gum" title="Chewing gum">chewing gum</a> at a <a href="http://en.wikipedia.org/wiki/Marsh_Supermarkets" title="Marsh Supermarkets">Marsh supermarket</a> in <a href="http://en.wikipedia.org/wiki/Troy%2C_Ohio" title="Troy, Ohio">Troy, Ohio</a>, on <a href="http://en.wikipedia.org/wiki/June_26" title="June 26">June 26</a>, <a href="http://en.wikipedia.org/wiki/1974" title="1974">1974</a>.</p>
+<table id="toc" class="toc" summary="Contents">
+<tbody><tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+ <span class="toctoggle">[<a href="javascript:toggleToc()" class="internal" id="togglelink">hide</a>]</span></div>
+<ul>
+<li class="toclevel-1"><a href="#History"><span class="tocnumber">1</span> <span class="toctext">History</span></a></li>
+<li class="toclevel-1"><a href="#Current_Code"><span class="tocnumber">2</span> <span class="toctext">Current Code</span></a></li>
+<li class="toclevel-1"><a href="#All_countries_codes"><span class="tocnumber">3</span> <span class="toctext">All countries codes</span></a></li>
+<li class="toclevel-1"><a href="#Representation"><span class="tocnumber">4</span> <span class="toctext">Representation</span></a></li>
+<li class="toclevel-1"><a href="#Expansion"><span class="tocnumber">5</span> <span class="toctext">Expansion</span></a></li>
+<li class="toclevel-1"><a href="#External_links"><span class="tocnumber">6</span> <span class="toctext">External links</span></a></li>
+</ul>
+</td>
+</tr>
+</tbody></table>
+<p><script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script></p>
+<div class="editsection" style="float: right; margin-left: 5px;">[<a href="http://en.wikipedia.org/w/index.php?title=Universal_Product_Code&amp;action=edit&amp;section=1" title="Edit section: History">edit</a>]</div>
+<p><a name="History" id="History"></a></p>
+<h3>History</h3>
+<p>Wallace Flint proposed an automated checkout system in 1932 using punch cards. <a href="http://educ.queensu.ca/%7Ecompsci/units/encoding/barcodes/history.html" class="external autonumber" title="http://educ.queensu.ca/~compsci/units/encoding/barcodes/history.html">[1]</a> Joseph Woodland and Bernard Silver patented a bullseye style code in 1952 and the first commercial use of barcodes was in 1966.<a href="http://inventors.about.com/library/inventors/blbar_code.htm" class="external autonumber" title="http://inventors.about.com/library/inventors/blbar_code.htm">[2]</a> For a more detailed history see: <a href="http://en.wikipedia.org/wiki/Barcodes" title="Barcodes">Barcodes</a></p>
+<p>In 1970 Logicon Inc. created the Universal Grocery Products
+Identification Code (UGPIC). In 1970 it was used by Monarch Marking in
+the <a href="http://en.wikipedia.org/wiki/United_States" title="United States">United States</a> and Plessey Telecommunications in the <a href="http://en.wikipedia.org/wiki/United_Kingdom" title="United Kingdom">United Kingdom</a>.<a href="http://inventors.about.com/library/inventors/blbar_code.htm" class="external autonumber" title="http://inventors.about.com/library/inventors/blbar_code.htm">[3]</a> (a consulting firm) in conjunction with UGPCC</p>
+<p>A group of grocery industry trade associations formed the <a href="http://en.wikipedia.org/w/index.php?title=Uniform_Grocery_Product_Code_Council&amp;action=edit" class="new" title="Uniform Grocery Product Code Council">Uniform Grocery Product Code Council</a> which with McKinsey &amp; Co., a consulting firm, defined the predecessor to the Uniform Product Code. In 1973 <a href="http://en.wikipedia.org/wiki/George_J._Laurer" title="George J. Laurer">George J. Laurer</a> developed the Universal Product Code.<a href="http://inventors.about.com/library/inventors/blbar_code.htm" class="external autonumber" title="http://inventors.about.com/library/inventors/blbar_code.htm">[4]</a></p>
+<p>In <a href="http://en.wikipedia.org/wiki/1974" title="1974">1974</a>, a pack of <a href="http://en.wikipedia.org/wiki/Wrigley" title="Wrigley">Wrigley</a>'s gum was the first item scanned with a UPC.</p>
+<div class="editsection" style="float: right; margin-left: 5px;">[<a href="http://en.wikipedia.org/w/index.php?title=Universal_Product_Code&amp;action=edit&amp;section=2" title="Edit section: Current Code">edit</a>]</div>
+<p><a name="Current_Code" id="Current_Code"></a></p>
+<h3>Current Code</h3>
+<div class="thumb tright">
+<div style="width: 302px;"><a href="http://en.wikipedia.org/wiki/Image:UPC_EANUCC-12_barcode.png" class="internal" title="In the UPC-A barcode, each digit is represented by a seven-bit sequence, encoded by a series of alternating bars and spaces. Guard bars, shown in green, separate the two groups of six digits."><img src="_files/300px-UPC_EANUCC-12_barcode" alt="In the UPC-A barcode, each digit is represented by a seven-bit sequence, encoded by a series of alternating bars and spaces. Guard bars, shown in green, separate the two groups of six digits." longdesc="/wiki/Image:UPC_EANUCC-12_barcode.png" height="216" width="300"></a>
+<div class="thumbcaption">
+<div class="magnify" style="float: right;"><a href="http://en.wikipedia.org/wiki/Image:UPC_EANUCC-12_barcode.png" class="internal" title="Enlarge"><img src="_files/magnify-clip" alt="Enlarge" height="11" width="15"></a></div>
+In the UPC-A barcode, each digit is represented by a seven-bit
+sequence, encoded by a series of alternating bars and spaces. Guard
+bars, shown in green, separate the two groups of six digits.</div>
+</div>
+</div>
+<p>The UPC (now officially <b>EAN.UCC-12</b>) <a href="http://en.wikipedia.org/wiki/Encode" title="Encode">encodes</a> twelve <a href="http://en.wikipedia.org/wiki/Numerical_digit" title="Numerical digit">digits</a> as S<b><u>L</u>LLLLL</b>M<b>RRRRR<u>R</u></b>E, where S (start) and E (end) are the <a href="http://en.wikipedia.org/wiki/Bit" title="Bit">bit</a>
+pattern 101, M (middle) is the bit pattern 01010 (called guard bars),
+and each L (left) and R (right) are digits, seven bits long each. This
+is a total of 95 bits. The bit pattern for each numeral is designed to
+be as little like the others as possible, and to have no more than four
+1s or 0s in order. Both are for <a href="http://en.wikipedia.org/wiki/Reliability" title="Reliability">reliability</a> in scanning.</p>
+<p>The UPC is only <a href="http://en.wikipedia.org/wiki/Numeral" title="Numeral">numerals</a>, with no <a href="http://en.wikipedia.org/wiki/Alphabet" title="Alphabet">letters</a> or other <a href="http://en.wikipedia.org/wiki/Punctuation" title="Punctuation">characters</a>. The first <u>L</u> digit is 0 for ordinary items, 3 for pharmaceuticals, 2 for random-<a href="http://en.wikipedia.org/wiki/Weight" title="Weight">weight</a> items, and 5 for <a href="http://en.wikipedia.org/wiki/Coupon" title="Coupon">coupons</a> (though stores often ignore this and use 000000 or 999999). The rest of L is the <a href="http://en.wikipedia.org/wiki/Manufacturer" title="Manufacturer">manufacturer</a> code. The first five R digits are the product code assigned by the manufacturer. The last digit <u>R</u> is a <a href="http://en.wikipedia.org/wiki/Check_digit" title="Check digit">check digit</a>, so that errors in scanning or manual entry can be detected. In the UPC-A system, the check digit is calculated as follows:</p>
+<ol>
+<li>Add the digits in the odd-numbered positions (first, third, fifth, etc.) together and multiply by three.</li>
+<li>Add the digits in the even-numbered positions (second, fourth, sixth, etc.) to the result.</li>
+<li>Subtract the result from the next-higher multiple of ten. The answer is the check digit.</li>
+</ol>
+<p>For instance, a UPC-A barcode "03600029145X" where <i>X</i> is the check digit, <i>X</i>
+can be calculated by adding the odd-numbered digits (0+6+0+2+1+5 = 14),
+multiplying by three (14 × 3 = 42), adding the even-numbered digits
+(42+3+0+0+9+4 = 58) and subtracting from the next-higher multiple of
+ten (60 - 58 = 2). The check digit is thus 2.</p>
+<p>Pharmaceuticals in the <a href="http://en.wikipedia.org/wiki/United_States" title="United States">U.S.</a> have the remainder of the UPC as their <a href="http://en.wikipedia.org/wiki/National_Drug_Code" title="National Drug Code">National Drug Code</a> (NDC) number. Random-weight items, such as <a href="http://en.wikipedia.org/wiki/Meat" title="Meat">meats</a> and fresh <a href="http://en.wikipedia.org/wiki/Fruit" title="Fruit">fruits</a> and <a href="http://en.wikipedia.org/wiki/Vegetable" title="Vegetable">vegetables</a>,
+are assigned a UPC by the store if they are packaged there. In this
+case, the LLLLL is the item number, and the _RRRR is either the weight
+or the price, with the first R determining which. Likewise, coupons are
+supposed to have the coupon code in LLLLL, the amount to be taken off
+in _RRRR, and whether that amount is a <a href="http://en.wikipedia.org/wiki/Percent" title="Percent">percent</a> or a literal amount encoded in the first R.</p>
+<p><br></p>
+<div class="editsection" style="float: right; margin-left: 5px;">[<a href="http://en.wikipedia.org/w/index.php?title=Universal_Product_Code&amp;action=edit&amp;section=3" title="Edit section: All countries codes">edit</a>]</div>
+<p><a name="All_countries_codes" id="All_countries_codes"></a></p>
+<h2>All countries codes</h2>
+<p>The first 3 digits of the bar code of any product you buy represents the country.</p>
+<ul>
+<li>000 - 019 USA &amp; Canada</li>
+<li>020 - 029 reserved for local use (store/warehouse)</li>
+<li>030 - 039 USA &amp; Canada</li>
+<li>040 - 049 reserved for local use (store/warehouse)</li>
+<li>050 - 059 Coupons</li>
+<li>060 - 139 USA &amp; Canada</li>
+<li>200 - 299 reserved for local use (store/warehouse)</li>
+<li>300 - 379 France</li>
+<li>380 Bulgaria</li>
+<li>383 Slovenija</li>
+<li>385 Croatia</li>
+<li>387 BIH (Bosnia-Herzegovina)</li>
+<li>400 - 440 Germany</li>
+<li>450 - 459 Japan</li>
+<li>460 - 469 Russian Federation</li>
+<li>470 Kyrgyzstan</li>
+<li>471 Taiwan</li>
+<li>474 Estonia</li>
+<li>475 Latvia</li>
+<li>476 Azerbaijan</li>
+<li>477 Lithuania</li>
+<li>478 Uzbekistan</li>
+<li>479 Sri Lanka</li>
+<li>480 Philippines</li>
+<li>481 Belarus</li>
+<li>482 Ukraine</li>
+<li>484 Moldova</li>
+<li>485 Armenia</li>
+<li>486 Georgia</li>
+<li>487 Kazakhstan</li>
+<li>489 Hong Kong</li>
+<li>490 - 499 Japan</li>
+<li>500 - 509 UK</li>
+<li>520 Greece</li>
+<li>528 Lebanon</li>
+<li>529 Cyprus</li>
+<li>531 Macedonia</li>
+<li>535 Malta</li>
+<li>539 Ireland</li>
+<li>540 - 549 Belgium &amp; Luxembourg</li>
+<li>560 Portugal</li>
+<li>569 Iceland</li>
+<li>570 - 579 Denmark</li>
+<li>590 Poland</li>
+<li>594 Romania</li>
+<li>599 Hungary</li>
+<li>600-601 South Africa</li>
+<li>608 Bahrain</li>
+<li>609 Mauritius</li>
+<li>611 Morocco</li>
+<li>613 Algeria</li>
+<li>619 Tunisia</li>
+<li>621 Syria</li>
+<li>622 Egypt</li>
+<li>624 Libya</li>
+<li>625 Jordan</li>
+<li>626 Iran</li>
+<li>627 Kuwait</li>
+<li>628 Saudi Arabia</li>
+<li>629 Emirates</li>
+<li>640 - 649 Finland</li>
+<li>690 - 695 China</li>
+<li>700 - 709 Norway</li>
+<li>729 Israel</li>
+<li>730 - 739 Sweden</li>
+<li>740 Guatemala</li>
+<li>741 El Salvador</li>
+<li>742 Honduras</li>
+<li>744 Costa Rica</li>
+<li>745 Panama</li>
+<li>746 Republica Dominicana</li>
+<li>750 Mexico</li>
+<li>754 - 755 Canada</li>
+<li>759 Venezuela</li>
+<li>760 - 769 Schweiz, Suisse, Svizzera</li>
+<li>770 Colombia</li>
+<li>773 Uruguay</li>
+<li>775 Peru</li>
+<li>777 Bolivia</li>
+<li>779 Argentina</li>
+<li>780 Chile</li>
+<li>784 Paraguay</li>
+<li>786 Ecuador</li>
+<li>789 - 790 Brasil</li>
+<li>800 - 839 Italy</li>
+<li>840 - 849 Spain</li>
+<li>850 Cuba</li>
+<li>858 Slovakia</li>
+<li>859 Czech</li>
+<li>860 YU (Serbia &amp; Montenegro)</li>
+<li>865 Mongolia</li>
+<li>867 North Korea</li>
+<li>869 Turkey</li>
+<li>870 - 879 Netherlands</li>
+<li>880 South Korea</li>
+<li>884 Cambodia</li>
+<li>885 Thailand</li>
+<li>888 Singapore</li>
+<li>890 India</li>
+<li>893 Vietnam</li>
+<li>899 Indonesia</li>
+<li>900 - 919 Austria</li>
+<li>930 - 939 Australia</li>
+<li>940 - 949 New Zealand</li>
+<li>950 Head Office</li>
+<li>955 Malaysia</li>
+<li>958 Macau</li>
+<li>977 Serial publications (ISSN)</li>
+<li>978 - 979 Bookland (ISBN)</li>
+<li>980 Refund receipts</li>
+<li>981 - 982 Common Currency Coupons</li>
+<li>990 - 999 Coupons</li>
+</ul>
+<div class="editsection" style="float: right; margin-left: 5px;">[<a href="http://en.wikipedia.org/w/index.php?title=Universal_Product_Code&amp;action=edit&amp;section=4" title="Edit section: Representation">edit</a>]</div>
+<p><a name="Representation" id="Representation"></a></p>
+<h2>Representation</h2>
+<p>In the barcode, each number is represented by two bar and space
+configurations. One configuration is used in the "L" digits, while
+another is used in the "R" digits. This is done so that the barcode can
+be scanned forwards or backwards, and the scanner can determine from
+which direction the code is being scanned so that it can be registered
+correctly. If it were not for this, products could easily be registered
+incorrectly.</p>
+<p>Each digit has four forms, of which two are used in UPC-A and three in <a href="http://en.wikipedia.org/wiki/EAN" title="EAN">EAN</a>. For instance, the number 6 can be encoded as:</p>
+<ul>
+<li><tt>0101111</tt> (In the left half of a UPC-A barcode)</li>
+<li><tt>1010000</tt> (In the right half of a UPC-A barcode)</li>
+<li><tt>0000101</tt> (In an EAN barcode)</li>
+<li><tt>1111010</tt> (unused)</li>
+</ul>
+<p>The first and second forms are the <a href="http://en.wikipedia.org/wiki/One%27s_complement" title="One's complement">one's complement</a> of each other, as are the third and fourth.</p>
+<p>The (L) codes for the ten digits are:</p>
+<ul>
+<li>0: <tt>0001101</tt></li>
+<li>1: <tt>0110011</tt></li>
+<li>2: <tt>0011011</tt></li>
+<li>3: <tt>0111101</tt></li>
+<li>4: <tt>0100011</tt></li>
+<li>5: <tt>0110001</tt></li>
+<li>6: <tt>0000101</tt></li>
+<li>7: <tt>0111011</tt></li>
+<li>8: <tt>0001001</tt></li>
+<li>9: <tt>0010111</tt></li>
+</ul>
+<p>The (R) codes are simply the one's complement of the (L) codes. All left-side digits have odd <a href="http://en.wikipedia.org/wiki/Parity" title="Parity">parity</a>, while all right-side digits have even parity.</p>
+<p>Company Prefixes are assigned by a <a href="http://en.wikipedia.org/wiki/GS1" title="GS1">GS1</a> Member Organization, which is now using longer company codes (with shorter item codes) for smaller companies.</p>
+<p>If you want to read barcodes yourself and not need to count one,
+zero, zero, one..., or have to memorize those, there is an easier
+"code" to reading barcodes. The bars and spaces in barcodes have four
+different lengths, or values. A digit in a UPC barcode consists of two
+spaces and 2 bars, the lengths of the digit always equalling seven. The
+lengths can be called 1, 2, 3 and 4. 1 is the thinnest, 2 is twice as
+wide as 1, 3 is as wide as three 1 bars, and 4 is the widest, equal to
+four 1 bars, or two 2 bars.</p>
+<p><br></p>
+<pre>(L) codes:
+   0 : 3-2-1-1
+   1 : 1-2-2-2
+   2 : 2-2-1-2
+   3 : 1-4-1-1
+   4 : 1-1-3-2
+   5 : 1-2-3-1
+   6 : 4-1-1-1
+   7 : 1-3-1-2
+   8 : 3-1-2-1
+   9 : 2-1-1-3
+</pre>
+<p>For example, let's say the first digit in a barcode, after the 1-1-1
+start code, is one. You would see a space 2 long, a bar 2 long, a space
+2 long and a bar 1 long. After the first six digits, there are five 1's
+(space bar space bar space), this is to make sure the barcode ends in a
+bar, not a space. After that, the digits on the right start with a bar
+and end with a space, the inverse of the digits on the left. Then the
+ending 1-1-1 sequence, which is bar-space-bar again.</p>
+<div class="editsection" style="float: right; margin-left: 5px;">[<a href="http://en.wikipedia.org/w/index.php?title=Universal_Product_Code&amp;action=edit&amp;section=5" title="Edit section: Expansion">edit</a>]</div>
+<p><a name="Expansion" id="Expansion"></a></p>
+<h2>Expansion</h2>
+<p>EAN was developed as a <a href="http://en.wikipedia.org/wiki/Superset" title="Superset">superset</a> of UPC, adding an extra digit to the beginning so that there would be plenty of numbers for the entire world. The <a href="http://en.wikipedia.org/wiki/Prefix_%28linguistics%29" title="Prefix (linguistics)">prefix</a> digit 0 has been reserved for UPC, and in fact the <a href="http://en.wikipedia.org/wiki/Uniform_Code_Council" title="Uniform Code Council">Uniform Code Council</a> has <a href="http://en.wikipedia.org/wiki/Mandate" title="Mandate">mandated</a> all retail systems be able to recognize both UPC and EAN by <a href="http://en.wikipedia.org/wiki/January_1%2C_2005" title="January 1, 2005">January 1, 2005</a>.
+This means that products marked with an EAN will be accepted in the US
+and Canada in addition to those products already marked with a UPC. Any
+product marked with a UPC does not have to be remarked with an EAN. In
+addition, this also expands the numbers available for the U.S. and
+Canada by 50%, adding 10 to 13 to the 00 to 09 (0 to 9 in UPC) already
+in use.</p>
+<div class="editsection" style="float: right; margin-left: 5px;">[<a href="http://en.wikipedia.org/w/index.php?title=Universal_Product_Code&amp;action=edit&amp;section=6" title="Edit section: External links">edit</a>]</div>
+<p><a name="External_links" id="External_links"></a></p>
+<h2>External links</h2>
+<ul>
+<li><a href="http://www.technoriversoft.com/barcode.html" class="external text" title="http://www.technoriversoft.com/barcode.html">The Barcode Symbology</a> — Preview different barcodes.</li>
+<li><a href="http://web.archive.org/web/20010301222250/http://www.ean-int.org/cdcalcul.html" class="external text" title="http://web.archive.org/web/20010301222250/http://www.ean-int.org/cdcalcul.html">Details on the checksum algorithm</a> (from the <a href="http://en.wikipedia.org/wiki/Internet_Archive" title="Internet Archive">Internet Archive</a>)</li>
+<li><a href="http://web.archive.org/web/20010306164535/http://www.nepc.sanc.org.sg/html/DataDictionary/EANCode.htm" class="external text" title="http://web.archive.org/web/20010306164535/http://www.nepc.sanc.org.sg/html/DataDictionary/EANCode.htm">Exceptions to the general algorithm for zero-suppressed barcodes</a> (from the <a href="http://en.wikipedia.org/wiki/Internet_Archive" title="Internet Archive">Internet Archive</a>)</li>
+<li><a href="http://www.azalea.com/FAQ/FAQ.html" class="external text" title="http://www.azalea.com/FAQ/FAQ.html">The Barcode FAQ</a> — links to barcode related white papers.</li>
+<li><a href="http://www.laurerupc.com/" class="external text" title="http://www.laurerupc.com/">George J. Laurer's personal web site.</a></li>
+<li><a href="http://www.upcdatabase.com/" class="external text" title="http://www.upcdatabase.com/">The Internet UPC Database</a></li>
+<li><a href="http://wiki.ehow.com/Read-12-Digit-UPC-Barcodes" class="external text" title="http://wiki.ehow.com/Read-12-Digit-UPC-Barcodes">How to Read 12 Digit UPC Barcodes - WikiHow</a></li>
+<li><a href="http://www.tec-it.com/playground" class="external text" title="http://www.tec-it.com/playground">Online UPC Bar Code Generator</a></li>
+</ul>
+
+
+<!-- Saved in parser cache with key enwiki:pcache:idhash:53700-0!1!0!0!!en!2 and timestamp 20060408163630 -->
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org/wiki/Universal_Product_Code">http://en.wikipedia.org/wiki/Universal_Product_Code</a>"</div>
+			<div id="catlinks"><p class="catlinks"><a href="http://en.wikipedia.org/w/index.php?title=Special:Categories&amp;article=Universal_Product_Code" title="Special:Categories">Categories</a>: <span dir="ltr"><a href="http://en.wikipedia.org/wiki/Category:Barcodes" title="Category:Barcodes">Barcodes</a></span> | <span dir="ltr"><a href="http://en.wikipedia.org/wiki/Category:Checksum_algorithms" title="Category:Checksum algorithms">Checksum algorithms</a></span> | <span dir="ltr"><a href="http://en.wikipedia.org/wiki/Category:Identifiers" title="Category:Identifiers">Identifiers</a></span> | <span dir="ltr"><a href="http://en.wikipedia.org/wiki/Category:Universal_Identifiers" title="Category:Universal Identifiers">Universal Identifiers</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<ul>
+				 <li id="ca-nstab-main" class="selected"><a title="View the content page [alt-c]" accesskey="c" href="http://en.wikipedia.org/wiki/Universal_Product_Code">Article</a></li>
+				 <li id="ca-talk"><a title="Discussion about the content page [alt-t]" accesskey="t" href="http://en.wikipedia.org/wiki/Talk:Universal_Product_Code">Discussion</a></li>
+				 <li id="ca-edit"><a title="You can edit this page. Please use the preview button before saving. [alt-e]" accesskey="e" href="http://en.wikipedia.org/w/index.php?title=Universal_Product_Code&amp;action=edit">Edit this page</a></li>
+				 <li id="ca-history"><a title="Past versions of this page. [alt-h]" accesskey="h" href="http://en.wikipedia.org/w/index.php?title=Universal_Product_Code&amp;action=history">History</a></li>
+		</ul>
+	</div>
+	<div class="portlet" id="p-personal">
+		<h5>Personal tools</h5>
+		<div class="pBody">
+			<ul>
+				<li id="pt-login"><a title="Logging in is not required, but brings many benefits. [alt-o]" accesskey="o" href="http://en.wikipedia.org/w/index.php?title=Special:Userlogin&amp;returnto=Universal_Product_Code">Sign in / create account</a></li>
+			</ul>
+		</div>
+	</div>
+	<div title="Main Page" class="portlet" id="p-logo">
+		<a style="background-image: url(/images/wiki-en.png);" href="http://en.wikipedia.org/wiki/Main_Page" title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class="portlet" id="p-navigation">
+		<h5>Navigation</h5>
+		<div class="pBody">
+			<ul>
+				<li id="n-mainpage"><a title="Visit the Main Page [alt-z]" accesskey="z" href="http://en.wikipedia.org/wiki/Main_Page">Main Page</a></li>
+				<li title="About the project, what you can do, where to find things" id="n-portal"><a href="http://en.wikipedia.org/wiki/Wikipedia:Community_Portal">Community Portal</a></li>
+				<li id="n-Featured-articles"><a href="http://en.wikipedia.org/wiki/Wikipedia:Featured_articles">Featured articles</a></li>
+				<li title="Find background information on current events" id="n-currentevents"><a href="http://en.wikipedia.org/wiki/Current_events">Current events</a></li>
+				<li id="n-recentchanges"><a title="List of recent changes in Wikipedia [alt-r]" accesskey="r" href="http://en.wikipedia.org/wiki/Special:Recentchanges">Recent changes</a></li>
+				<li id="n-randompage"><a title="Load a random page [alt-x]" accesskey="x" href="http://en.wikipedia.org/wiki/Special:Random">Random article</a></li>
+				<li title="The place to find out about Wikipedia" id="n-help"><a href="http://en.wikipedia.org/wiki/Help:Contents">Help</a></li>
+				<li id="n-contact"><a href="http://en.wikipedia.org/wiki/Wikipedia:Contact_us">Contact Wikipedia</a></li>
+				<li title="Support us" id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising#Donation_methods">Donations</a></li>
+			</ul>
+		</div>
+	</div>
+		<div id="p-search" class="portlet">
+		<h5><label for="searchInput">Search</label></h5>
+		<div id="searchBody" class="pBody">
+			<form action="/wiki/Special:Search" id="searchform"><div>
+				<input id="searchInput" name="search" accesskey="f" value="" type="text">
+				<input name="go" class="searchButton" id="searchGoButton" value="Go" type="submit">&nbsp;
+				<input name="fulltext" class="searchButton" value="Search" type="submit">
+			</div></form>
+		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5>Toolbox</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a title="List of all wiki pages that link here [alt-j]" accesskey="j" href="http://en.wikipedia.org/wiki/Special:Whatlinkshere/Universal_Product_Code">What links here</a></li>
+				<li id="t-recentchangeslinked"><a title="Recent changes in pages linked from this page [alt-k]" accesskey="k" href="http://en.wikipedia.org/wiki/Special:Recentchangeslinked/Universal_Product_Code">Related changes</a></li>
+<li id="t-upload"><a title="Upload images or media files [alt-u]" accesskey="u" href="http://en.wikipedia.org/wiki/Special:Upload">Upload file</a></li>
+<li id="t-specialpages"><a title="List of all special pages [alt-q]" accesskey="q" href="http://en.wikipedia.org/wiki/Special:Specialpages">Special pages</a></li>
+				<li id="t-print"><a href="http://en.wikipedia.org/w/index.php?title=Universal_Product_Code&amp;printable=yes">Printable version</a></li>				<li id="t-permalink"><a href="http://en.wikipedia.org/w/index.php?title=Universal_Product_Code&amp;oldid=47568125">Permanent link</a></li><li id="t-cite"><a href="http://en.wikipedia.org/w/index.php?title=Special:Cite&amp;page=Universal_Product_Code&amp;id=47568125">Cite this article</a></li>			</ul>
+		</div>
+	</div>
+	<div id="p-lang" class="portlet">
+		<h5>In other languages</h5>
+		<div class="pBody">
+			<ul>
+				<li class="interwiki-fr"><a href="http://fr.wikipedia.org/wiki/Code_universel_des_produits">Français</a></li>
+				<li class="interwiki-no"><a href="http://no.wikipedia.org/wiki/Universal_Product_Code">Norsk (bokmål)</a></li>
+				<li class="interwiki-pl"><a href="http://pl.wikipedia.org/wiki/UPC">Polski</a></li>
+				<li class="interwiki-vi"><a href="http://vi.wikipedia.org/wiki/M%C3%A3_s%E1%BA%A3n_ph%E1%BA%A9m_chung">Tiếng Việt</a></li>
+			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="_files/poweredby_mediawiki_88x31" alt="MediaWiki"></a></div>
+				<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="_files/wikimedia-button" alt="Wikimedia Foundation" border="0"></a></div>
+			<ul id="f-list">
+				<li id="lastmod"> This page was last modified 16:30, 8 April 2006.</li>
+				<li id="copyright">All text is available under the terms of the <a class="internal" href="http://en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License">GNU Free Documentation License</a> (see <b><a class="internal" href="http://en.wikipedia.org/wiki/Wikipedia:Copyrights">Copyrights</a></b> for details). <br> Wikipedia® is a registered trademark of the Wikimedia Foundation, Inc.<br></li>
+				<li id="privacy"><a href="http://wikimediafoundation.org/wiki/Privacy_policy" title="wikimedia:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="http://en.wikipedia.org/wiki/Wikipedia:About" title="Wikipedia:About">About Wikipedia</a></li>
+				<li id="disclaimer"><a href="http://en.wikipedia.org/wiki/Wikipedia:General_disclaimer" title="Wikipedia:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+	<script type="text/javascript"> if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by srv73 in 0.06 secs. -->
+</body></html>

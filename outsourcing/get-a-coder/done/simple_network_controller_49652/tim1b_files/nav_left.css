@@ -1,0 +1,113 @@
+/* LINK STYLE FOR LEFT-SIDE PAGE NAVIGATION */
+A.lnav {
+	color : #FFFFFF;
+}
+A.lnav:link {
+	color : #FFFFFF;
+	text-decoration : none;
+	font : verdana, sans serif;
+}
+A.lnav:visited {
+	color : #FFFFFF;
+	text-decoration : none;
+}
+A.lnav:hover {
+	color : Yellow;
+	text-decoration : underline;
+}
+A.lnav:active {
+	color : Yellow;
+}
+/* SUBNAV LINK STLYE FOR SUBSECTIONS BELOW LEFT NAVIGATION */
+A.subnav:link {
+	text-decoration : none;
+	font : verdana, sans serif;
+	color : Black;
+}
+A.subnav:visited {
+	color : Black;
+	text-decoration : none;
+}
+A.subnav:hover {
+	color : Black;
+}
+A.main:LINK {
+	color: #0066E0;
+	text-decoration : underline;
+}
+A.main:visited {
+	text-decoration: underline;
+	color: #0066E0;
+}
+A.main:hover{
+	color: Red;
+	text-decoration: underline;
+}
+A:link 	{
+	color: #0066E0;
+	text-decoration: none;
+}
+A:visited {
+	color: #0066E0;
+	text-decoration: none;
+}
+A:active 	{
+	color: red;
+	text-decoration: none;
+	}
+A:hover 	{
+	text-decoration: none;
+	color : Red;
+}	
+A3		{
+	color : Black;
+	text-decoration : underline;
+	}
+#A3:hover	{
+	color : #0066E0;
+	text-decoration: underline;
+	}
+SELECT#quicklinks {
+	font-family:Verdana; 
+	color: White; 
+	background-color: #0066E0; 
+	font-size: 7pt; 
+	font-weight: bold;
+}
+DIV.bodymain {
+	font-family : Verdana;
+	font-size : 10pt;
+	font-weight : normal;
+}
+TABLE.bodymain {
+	font-family : Verdana;
+	font-size : 10pt;
+	font-weight : normal;
+}
+/* LINK STYLE FOR "[more]" LINKS */
+A:LINK.more {
+	font-family : Verdana, Tahoma;
+	font-size : 10px;
+	color: #0066E0;
+	text-decoration: none;
+	font-weight : bold;
+}
+A:VISITED.more {
+	color: #0066E0;
+	font-family : Verdana, Tahoma;
+	font-size : 10px;
+	font-weight : bold;
+}
+A:ACTIVE.more {
+	color: red;
+}
+A:HOVER.more {
+	color: red;
+}
+TABLE.sublnav {
+	font-family : Verdana;
+	font-size : xx-small;
+	font-weight : normal;
+}
+.redtext_subhead { color:#FF0000;
+font-size:x-small; font-family:Verdana, Arial, Helvetica, sans-serif; font-weight:normal}

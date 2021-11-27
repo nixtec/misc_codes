@@ -1,0 +1,269 @@
+v0.8.2 (29/06/2003) :
+		- Made a patch of the cuecat driver for Linux 2.4.21
+
+v0.8.1 (29/05/2003) :
+		- Completed and corrected the SUPPORTED_BARCODE file.
+
+		- Made a patch of the cuecat driver for Linux 2.4.20
+
+		- Corrected my email address
+
+v0.8.0 (16/10/2001) :
+		- The driver now explicitely declares itself as being licensed
+		  under the GPL with the new "tainted" mechanism present in
+		  kernels 2.4.11 and above.
+
+v0.7.1 (11/10/2001) :
+		- Made a patch for Linux 2.4.12 and removed the patch for Linux
+		  2.4.11.
+
+v0.7.0 (10/10/2001) :
+		- Made a patch of the cuecat driver for Linux 2.4.11, and added
+		  a patch for Linux 2.4.6 as well. Re-did a complete round of
+		  testing of the driver with 2.4.11, which was long overdue.
+
+		- Corrected minor warnings when compiling read_cuecat.c
+
+		- Corrected a small typo in the SUPPORTED_BARCODES file for the
+		  UPC-E example, and added an example of a CBR (codabar)
+		  barcode.
+
+v0.6.1 (03/10/2001) :
+		- Finally separated the cueact archive, which contains userland
+		  applications, from the cuecat driver archive, which is a
+		  kernel driver. I should have done that a long time ago. I've
+		  incrementing the version of the driver archive because it
+		  has changed, but none of the driver's code has changed.
+
+		- Removed the note in the README stating that the PS/2 CueCat
+		  support is experimental. It's not anymore, the driver is rock
+		  solid with a CueCat on a PS/2 mouse port.
+
+v0.6.0 (15/09/2001) :
+                - Added DCdb utility to look up a barcode in the online database
+                  maintained by DigitalConvergence. This is a companion utility
+                  for CueAct, but it can also be used standalone.
+
+                - New version of CueAct with minor corrections.
+
+v0.5.0 (10/09/2001) :
+		- Support for the CueCat PS/2 to USB Adapter made by RadioShack
+		  (RadioShack sku #26-241)
+
+		- Completed the SUPPORTED_BARCODES file
+
+		- New version of cueact
+
+v0.4.0 (22/07/2001) :
+		- I'm finally happy with a 2.4.[1>] kernel. 2.4.1, 2.4.2, 2.4.3
+		  weren't really usable for me, 2.4.4 and 2.4.5 were messed up,
+		  but 2.4.7 works great. So 0.4.0 is really 0.3.0 ported to
+		  version 2.4.7 of the kernel.
+
+v0.3.0 (20/11/2000) :
+		- I'm confident enough with the 2.4 kernels that I have switched
+		  all my boxes over to 2.4.0-test10. As a result, the CueCat
+		  driver is now a 2.4 driver, and I abandon the dual 2.2.16
+		  patch kludge.
+
+		- Corrected the "SHIFT-'+'" bug introduced by certain CueCat
+		  firmwares.
+
+v0.2.1 (23/09/2000) :
+		- Doh, I had forgotten to export cuecat_process_scancode in
+		  cuecat_driver.c
+
+v0.2.0 (20/09/2000) :
+		- Corrected the /proc/scanners/cuecat readback routine.
+
+		- read_cuecat now flushes stdout each time it displays the
+		  read barcode information.
+
+		- Added Brad Jorsch's patch against linux-2.2.17 with
+		  CueCat-0.1.9 in the contrib directory.
+
+v0.1.9 (18/09/2000) :
+		- Rewritten the /proc/scanners/cuecat write function as a state
+		  machine.
+
+		- Reading /proc/scanners/cuecat now returns the states of the
+		  various CueCat drivers.
+
+		- Completed cuecat_at2xt.h for the ',' and '/' characters.
+
+v0.1.8 (17/09/2000) :
+		- Added ',' as valid code for base64 value 62 and '/' as valid
+		  code for base64 value 63, per Stephen Satchell's report that
+		  certain CueCats use '+' and '-' for values 62 and 63, and
+		  others use ',' and '/' for the same values.
+
+v0.1.7 (15/09/2000) :
+		- Added support for the USB CueCat, and reorganized some
+		  things to make the updated driver more coherent.
+		  Since the USB CueCat support requires the USB backport of
+		  2.4.0-test2-pre2 for 2.2.16, there are now 2 separate patches,
+		  one for 2.2.16 without the USB backport and one for 2.2.16
+		  with it. When I switch to 2.4, the former will disappear.
+
+v0.1.6 (15/09/2000) :
+		- Added explanations to build a pod to connect a CueCat on a
+		  serial port and completed read_cuecat to exploit the new
+		  feature.
+
+v0.1.5 (13/09/2000) :
+		- Added #ifdef CONFIG_PROC_FS I had forgotten around proc
+		  filesystem related pieces of code in the driver
+
+v0.1.4 (11/09/2000) :
+		- Now the driver has an official major number 10 (misc) and an
+		  official minor 199. I put back the frontend of the driver like
+		  it was before v0.1.3 : there is now only one device file,
+		  which is now /dev/scanners/cuecat, and the inputs from all
+		  CueCat scanners are made available throught that one device
+		  file.
+
+		- Now, the device file is fully buffered, as it should always
+		  have been.
+
+		- Corrected an omission in the scancode to ASCII table
+
+		- New improved version of CueAct
+
+v0.1.3 (10/09/2000) :
+		- Restructured the decoder to be able to work on different
+		  incoming barcodes at the same time. Also restructured the
+		  decoder to handle several CueCats : now it is possible to have
+		  one CueCat on a PC/AT keyboard port, and another one on a
+		  PS/2 mouse port. SUPPORT FOR THE PS/2 CUECAT IS EXPERIMENTAL !
+
+		- Corrected a bug where the decoder would drop a valid single
+		  character barcode.
+
+		- CueCat now uses major number 60 until a new major is agreed
+		  upon.
+		  NOTE : CHANGE YOUR /DEV/FILE FILE !
+
+		- Corrected minor bug in read_cuecat.c
+
+v0.1.2 (08/09/2000) :
+		- Corrected the scancode buffer flushing routines in the kernel
+		  driver. Now the buffer is not flushed twice anymore when the
+		  timeout thread kicks in first.
+
+		- Corrected the cuecat_read() function in the kernel driver :
+		  before, it was sending the whole barcode regardless of how
+		  big the calling process' buffer was (not good). Now it is
+		  careful of not overflowing the buffer.
+
+v0.1.1 (07/09/2000) :
+		- Corrected the portion of code that recalculate the check digit
+		  for broken UPC-E codes
+
+		- New version of the CueAct utility
+
+v0.1.0 (06/09/2000) :
+		- Reorganized the driver and made it modular
+
+		- Redone and cleaned up the patch to keyboard.c so that we don't
+		  need to patch drivers/char/pc_keyb.c or include/linux/kbd_ll.h
+		  and it doesn't break the USB keyboard driver anymore
+
+		- Added the EAN-13 type of barcode as a valid barcode in the
+		  SUPPORTED_BARCODES file
+
+v0.0.9 (03/09/2000) :
+		- New (debugged) version of the CueAct utility
+
+		- Added the "Cue" barcode type in the SUPPORTED_BARCODE file
+		  (silly, I forgot that one :)
+
+v0.0.8 (31/08/2000) :
+		- It seems that the problem of the missing digit in UPC-E codes
+		  is a problem from the CueCat itself. So to compensate, the
+		  driver now reconstructs that last digit (the check digit) from
+		  the rest of the barcode and appends it to the barcode, so that
+		  the final result looks like it comes from a working CueCat.
+
+v0.0.7 (31/08/2000) :
+		- Added a SUPPORTED_BARCODE that lists all that is known about
+		  what a CueCat can scan and how it does it.
+
+		- Reduced the size of the maximum number of scancodes that the
+		  CueCat can send, now that we have determined the limits of
+		  what it can scan.
+
+		- Corrected the driver, following Ben Winslow's changes, to
+		  make sure the timeout thread is setup properly
+
+		- Added an option in the configuration to enable the driver by
+		  default, for people who don't want to enable /proc filesystem
+		  support, or don't want to write a small script to enable the
+		  driver, for whatever reason.
+
+v0.0.6 (31/08/2000) :
+		- Corrected a serious bug where codes with an incomplete
+                  trailing triplet would get their last digit(s) corrupted
+                  because of a wrong padding for the missing triplet characters.
+
+v0.0.5 (30/08/2000) :
+		- Added the new CueAct utility. CueAct is distributed as part
+		  of the CueCat driver software. It is in version 0.0.1.
+
+		- Now the kernel driver doesn't allow more than one process
+		  to open the device file.
+
+v0.0.4 (28/08/2000) :
+		- The kernel driver now measures the timeout between scancodes
+		  when decoding a possible barcode, and rejects the ongoing
+		  decoding if the scancodes don't come fast enough. As a result,
+		  unless someone types on the keyboard while scanning a barcode,
+		  (which the driver can't do anything about), it is now quite
+		  hard to fool the driver and let a barcode miss the decoder
+		  and slip into the console. Also, it means that ALT-F10s are
+		  now undetectably slower, instead of being held up in the
+		  driver's scancode buffer until the user types something to
+		  unblock it.
+
+		- Added proc filesystem support. /proc/cuecat is used to turn
+		  the driver on and off by echoing "CC=1" or "CC=0" to it.
+		  Also, the driver now starts disabled by default, and it has
+		  to be explicitely enabled with /proc/cuecat.
+
+		- The decoder takes care of barcodes with a trailing partial
+		  encoded triplet of 3 characters, and tentatively lets those
+		  with trailing partial encoded triplets of 1 character, instead
+		  of rejecting them. This enables the proper decoding of Michael
+		  Rothwell's test barcodes.
+		  
+v0.0.3 (27/08/2000) :
+		- Now the decoder takes care of the last character in a barcode
+		  which coded data has a length that is not multiple of 4
+		  (typically in ISBN codes).
+
+		- Added '+', '-', and '=' in the scancode table, has '+' and '-'
+		  are apparently valid characters from a CueCat (I have never
+		  seen coded triplets with these in them though)
+
+		- Updated the README and forked off the credits in a separate
+		  CREDITS file
+
+v0.0.2 (26/08/2000) :
+		- Barcode decoder totally rewritten as an FSM instead of a flat
+		  string parser : the code is a bit more complicated but the
+		  architecture is right and allows for precise scancode
+		  filtering in the kernel.
+
+		- Changed the silly brain-dead transcoding tables for the nice
+		  generic algorithm from Colin Cross (colin@MIT.EDU). Once
+		  you understand exactly how it's done, the code immediately
+		  becomes more elegant :)
+
+		- Made handle_scancode() in driver/char/keyboard.c reentrant,
+		  so the driver can call it back to spit buffered scancodes.
+
+		- Made the driver recognize barcode sequences as early as
+		  possible and squelch the normal scancode route when a
+		  barcode is coming, so we don't mess the console anymore.
+
+w0.0.1 (24/08/2000) :
+		- First release

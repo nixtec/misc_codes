@@ -1,0 +1,137 @@
+ GetFullPathName
+
+The GetFullPathName function retrieves the full path and file name of a specified file.
+
+DWORD GetFullPathName(
+  LPCTSTR lpFileName,
+  DWORD nBufferLength,
+  LPTSTR lpBuffer,
+  LPTSTR* lpFilePart
+);
+
+Parameters
+
+lpFileName
+    [in] A pointer to a null-terminated string that specifies a valid file name.
+
+    This string can use short (the 8.3 form) or long file names. This string can be a share or volume name.
+nBufferLength
+    [in] The size of the buffer to receive the null-terminated string for the drive and path, in TCHARs. 
+lpBuffer
+    [out] A pointer to a buffer that receives the null-terminated string for the drive and path.
+lpFilePart
+    [out] A pointer to a buffer that receives the address (in lpBuffer) of the final file name component in the path. Specify NULL if you do not need to receive this information.
+
+    If lpBuffer points to a directory and not a file, lpFilePart receives 0 (zero).
+
+Return Value
+
+If the function succeeds, the return value is the length of the string copied to lpBuffer, not including the terminating null character, in TCHARs.
+
+If the lpBuffer buffer is too small to contain the path, the return value is the size of the buffer that is required to hold the path and the terminating null character, in TCHARs. Therefore, if the return value is greater than nBufferLength, call the function again with a buffer that is large enough to hold the path.
+
+If the function fails for any other reason, the return value is 0 (zero). To get extended error information, call GetLastError.
+Remarks
+
+GetFullPathName merges the name of the current drive and directory with a specified file name to determine the full path and file name of a specified file. It also calculates the address of the file name portion of the full path and file name. This function does not verify that the resulting path and file name are valid, or that they see an existing file on the associated volume.
+
+Share and volume names are valid input for lpFileName. For example, the following list identities the returned path and file names if test-2 is a remote computer and U: is a network mapped drive:
+
+    * If you specify "\\test-2\q$\lh" the path returned is "\\test-2\q$\lh "
+    * If you specify "\\?\UNC\test-2\q$\lh" the path returned is "\\?\UNC\test-2\q$\lh"
+    * If you specify "U:" the path returned is "U:\"
+
+GetFullPathName does not convert the specified file name, lpFileName. If the specified file name exists, you can use GetLongPathName and GetShortPathName to convert to long and short path names, respectively.
+Example Code [C++]
+
+The following example code shows a basic use of GetFullPathName, GetLongPathName, and GetShortPathName.
+
+ #include <windows.h>
+#include <stdio.h>
+
+#define BUFSIZE 4096
+
+int main(int argc, char *argv[])
+{
+    DWORD retval=0;
+    BOOL success; 
+    char buffer[BUFSIZE]=""; 
+    char * lpPart[BUFSIZE]={NULL};
+
+// Retrieve a full path name for a file.  The file does not need to 
+// exist.
+    retval = GetFullPathName("c:\\testfile.txt",
+			     BUFSIZE,
+	                     buffer,
+			     lpPart);
+    
+    if (retval == 0) 
+    {
+        // Handle an error condition.
+        printf ("GetFullPathName failed with error %d.\n", 
+                GetLastError());
+        return (1);
+    }
+    else
+        printf("The full path name for the file test.txt is:  %s\n", 
+               buffer);
+
+
+// Create a long directory name for use with the next two examples.
+    success = CreateDirectory("c:\\longdirectoryname",
+                              NULL);    // No security attributes.
+
+    if (!success)
+    {
+        // Handle an error condition.
+        printf ("CreateDirectory failed with error %d.\n", 
+                GetLastError());
+        return (1);
+    }
+
+
+// Retrieve the short path name.  
+
+    retval = GetShortPathName("c:\\longdirectoryname",
+	                      buffer,
+			      BUFSIZE);
+
+    if (retval == 0) 
+    {
+        // Handle an error condition.
+         printf ("GetShortPathName failed with error %d.\n", 
+                 GetLastError());
+         return (1);
+    }
+    else
+        printf("The short path name for the directory "
+               "c:\\longdirectoryname is:  %s\n", buffer);
+
+
+// Retrieve the long path name.  
+    retval = GetLongPathName("c:\\LONGDI~1",
+	                  buffer,
+			  BUFSIZE);
+
+    if (retval == 0) 
+    {
+        // Handle an error condition.
+         printf ("GetLongPathName failed with error %d.\n", 
+                 GetLastError());
+         return (1);
+    }
+    else
+        printf("The long path name for the directory "
+               "c:\\longdirectoryname is:  %s\n", buffer);
+
+// Clean up the directory.
+
+	success = RemoveDirectory("c:\\longdirectoryname");
+    if (!success)
+    {
+        // Handle an error condition.
+        printf ("RemoveDirectory failed with error %d.\n", 
+                GetLastError());
+        return (1);
+    }
+}

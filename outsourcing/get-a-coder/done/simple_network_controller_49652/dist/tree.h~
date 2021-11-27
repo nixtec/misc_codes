@@ -1,0 +1,50 @@
+/*
+ * tree.h
+ */
+#ifndef TREE_H
+#define TREE_H
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+
+typedef void * element_t;
+
+struct node;
+typedef struct node node_t;
+typedef node_t *position_t;
+typedef node_t *tree_t;
+
+struct node {
+  element_t e;
+  tree_t left;
+  tree_t right;
+};
+
+
+tree_t		tree_make_empty(tree_t t);
+position_t	tree_find(element_t e, tree_t t);
+position_t	tree_find_min(tree_t t);
+position_t	tree_find_max(tree_t t);
+tree_t		tree_insert(element_t e, tree_t t);
+tree_t		tree_delete(element_t e, tree_t t);
+element_t	tree_get_element(position_t p);
+
+/* defined in snc.c */
+//extern int element_compare(element_t *e1, element_t *e2);
+
+typedef int pid_t; /* to encapsulate process identifier */
+typedef int stat_t; /* status of process [active,suspended] */
+struct proc_struct {
+  pid_t pid;
+  /* which address the process is communicating */
+  char ip_dst[INET_ADDRSTRLEN]; /* conforming to <netinet/in.h> */
+  stat_t status; /* status of the process, to be triggered */
+  int n_port; /* in which port this process is attached */
+};
+typedef struct proc_struct proc_t;
+/* this function will be called several times, so using macro */
+#define element_compare(e1, e2) (((proc_t*)e)->pid - ((proc_t *)e)->pid)
+
+#endif /* !TREE_H */

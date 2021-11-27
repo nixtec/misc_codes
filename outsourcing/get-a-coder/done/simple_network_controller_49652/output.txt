@@ -1,0 +1,2 @@
+A sample output of the program would be something like this:
+Port #1: Active, Processes# 01, 12, 18, 25

@@ -1,0 +1,605 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head><title>LWN: Handling interrupts in user space</title>
+        
+        
+        <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+        <link rel="icon" href="http://old.lwn.net/images/bookmark.png" type="image/png">
+        <link rel="alternate" type="application/rss+xml" title="LWN Headlines" href="http://lwn.net/headlines/newrss">
+        <style type="text/css">
+<!--
+/* $Id: lwn.css,v 1.53 2006/05/15 20:03:07 corbet Exp $ */
+body {
+        color: black;
+        background-color: #ffffff;
+        padding:0px;
+        }
+h1 {
+        margin:0px 0px 5px 0px;
+        padding:0px;
+        color: black;
+        }
+h2 {
+        margin:20px 0px 5px 0px;
+        padding:0px;
+        }
+h3 {
+        margin:0px 0px 5px 0px;
+        padding:0px;
+        }
+td {
+        /* font-size:12px;
+        font-family: Verdana, Arial, Helvetica, sans-serif; */
+        }
+a {
+        color:Blue;
+        text-decoration:none;
+        }
+a:link { color: Blue;}
+a:visited {color: DarkBlue;}
+a:hover {color:Red;}
+
+a.name { color: black }
+a.name:link { color: black }
+a.name:hover { color: black }
+  
+/* All the content boxes belong to the content class. */
+
+SPAN { font-style: normal; font-weight: normal;
+       color: darkred; background-color: white }
+
+SPAN.SpellingError {  background-color: #eeeeee; color: black }
+FONT.SpellingError {  background-color: #eeeeee }
+
+DIV.BigQuote {font-style: normal; font-weight: normal;
+       color: darkred; background-color: white;
+       margin-left: 1cm; margin-right: 1cm }
+
+DIV.Headline { background-color: #ffcc99; font-weight: bold;
+	       font-size: larger }
+DIV.SummaryHeadline { font-weight: bold; font-size: larger;
+		      text-decoration: underline }
+
+DIV.Byline { font-size: smaller; text-align: center }
+
+/* Comments */
+DIV.Comment { margin-left: 2em }
+TABLE.CommentHL { border-width: 0; width: 100%; padding: 1px; margin: 0px;
+                  background-color: #ffcc99 }
+TABLE.CommentBox { background-color: black; border-width: 0px; padding: 0px;
+	           margin: 1px }
+TD.CommentBox { padding: 1px; margin: 0px }
+TABLE.CommentBody { width: 100%; padding: 3px; 
+		    background-color: #ffffff }
+TD.CommentBody { vertical-align: top; text-align: left;
+		 background-color: #ffffff }
+
+div.CommentReplyButton { display: none; 
+			 text-align: right }
+
+H1.C1HL { background-color: #ffcc99; text-align: center }
+DIV.C1HL { background-color: #ffcc99; font-size: x-large;
+	   text-align: center }
+DIV.C2HL { background-color: #ffcc99; font-size: large }
+DIV.C3HL { background-color: #ffcc99}
+
+TD.LeftColumn { background-color: #ffcc99; vertical-align: top }
+TD.Headline {background-color: #ffcc99 }
+TABLE.Middle { background-color: #ffffff; padding: 3px; 
+	       border-style: none; width: 100% }
+TD.Middle { background-color: #ffffff; vertical-align: top }
+
+.Form { background-color: #eeeeee; 
+	padding: 3px;
+	border-style: groove 
+	}
+
+A.Current { background-color: darkred; color: white }
+A.Other { }
+P.NextLink { text-align: right }
+FONT.SearchItem { font-weight: bold; color: red }
+FONT.QuotedText { color: #990099 }
+FONT.Subscription { color: darkgreen }
+
+TR.Odd { background-color: #eeeeee }
+TR.Even { }
+
+P.Headlines { margin-bottom: 6px; text-indent: -1em; margin-left: 1em;
+	      margin-top: 0px }
+
+
+P.Feature { text-indent: -1em; margin-left: 1em; margin-top: 0px;
+	    margin-bottom: 2px}
+
+P.ErrorMessage { color: red; margin-left: 1cm;
+                 margin-right: 1cm; font-weight: bold;
+                 font-size: large }
+FONT.NonActive { color: red; font-weight: bold }
+A.NonActive { color: red; font-weight: bold }
+
+TABLE.TopNavigation { width: 100% }
+TD.NavLink { background-color: #eeeeee; text-align: center }
+
+/* Index listings */
+P.IndexPrimary { margin-top: 1em; margin-bottom: 0px; font-weight: bold; }
+/*	font-size: larger } */
+P.IndexSecondary { margin-top: 0px; text-indent: 5mm; margin-bottom: 0px; }
+P.IndexEntry { text-indent: 1cm; margin-top: 0px; margin-bottom: 0px }
+
+/* Text ad formatting. */
+TABLE.TA1 { background-color: #000000; border-width: 0; width: 140px;
+	    padding: 1px }
+TABLE.TA2 { background-color: #e6e6e6; width: 100%; border-width: 0;
+	    padding: 2px}
+TABLE.TA3 { background-color: #fefefe; width: 100%; border-width: 0;
+	    padding: 7px }
+
+TD.TA { background-color: #419d4a; color: #ffffff }
+TD.TATEXT { vertical-align: top; text-align: left; background-color: white}
+
+/* Timeline stuff. */
+
+TABLE.tlnav { width: 100%; color: black; padding: 2px }
+
+TABLE.tlrw { width: 45%; float: right; background-color: #eeeedd;
+		 border-style: groove; margin: 5px; float: right }
+TABLE.tlr { width: 35%; float: right; background-color: #eeeedd;
+		 border-style: groove; margin: 5px; float: right }
+TABLE.tllw { width: 45%; float: right; background-color: #eeeedd;
+		 border-style: groove; margin: 5px; float: left }
+TABLE.tll { width: 35%; float: right; background-color: #eeeedd;
+		 border-style: groove; margin: 5px; float: left }
+P.QuoteAttr { text-align: right }
+
+P.GuestAuthor { text-align: left; font-size: smaller; margin-top: 0px}
+TABLE.Byline { width: 35%; float: right; background-color: #eeeedd;
+		 border-style: groove; margin: 5px; float: right }
+
+
+div.survey { margin-left: 1cm }
+div.sv_mc { margin-left: 10mm; margin-top: 0cm }
+
+-->
+</style></head><body alink="Green" bgcolor="#ffffff" link="Blue" vlink="Green">
+        <table border="0" width="100%">
+           <tbody><tr><td class="LeftColumn" valign="top">
+           
+        <center>
+        <a href="http://lwn.net/"><img src="LWN:%20Handling%20interrupts%20in%20user%20space_files/lcorner.png" alt="LWN.net Logo" border="0" height="120" width="153"></a>
+        </center>
+        <br>&nbsp;<br>
+        <p>
+<b>You are not logged in</b><br>
+<a href="http://lwn.net/login">Log in now</a><br>
+                                 <a href="http://lwn.net/newaccount">Create an account</a><br>
+                                 <a href="http://lwn.net/subscribe/">Subscribe to LWN</a>
+<br>&nbsp;<br><b>Weekly Edition</b><br>
+Return to the <a href="http://lwn.net/Articles/127052/">Kernel page</a>
+<br>&nbsp;<br><b>Recent Features</b>
+</p><p class="Feature"><a href="http://lwn.net/Articles/183231/">LWN.net Weekly Edition for May 18, 2006</a></p>
+            	<p class="Feature"><a href="http://lwn.net/Articles/184066/">Java becomes more distributable</a></p>
+            	<p class="Feature"><a href="http://lwn.net/Articles/183907/">Open Content III: the code</a></p>
+            	<p class="Feature"><a href="http://lwn.net/Articles/182492/">LWN.net Weekly Edition for May 11, 2006</a></p>
+            	<p class="Feature"><a href="http://lwn.net/Articles/182954/">The Grumpy Editor's guide to audio stream grabbers</a></p>
+            	<p>
+<a href="http://lwn.net/Articles/127698/?format=printable" rel="nofollow">Printable page</a>
+
+<br>&nbsp;<br></p></td><td width="10">&nbsp;</td>
+<td valign="top" width="100%">
+           <table border="0" cellpadding="0" cellspacing="1" width="100%">
+
+        <tbody><tr><td class="Middle" align="left" bgcolor="#ffffff" valign="top">
+        <!-- $Id: top-navigation,v 1.20 2005/01/21 17:05:04 corbet Exp $ -->
+<table bgcolor="#ffffff" width="100%">
+
+<!-- First row - content links -->
+<tbody><tr>
+  <td class="NavLink"><a href="http://lwn.net/">Home</a></td>
+  <td class="NavLink"><a href="http://lwn.net/current/">Weekly edition</a></td>
+  <td class="NavLink">
+	<a href="http://lwn.net/Kernel/">Kernel</a></td>
+  <td class="NavLink"><a href="http://lwn.net/security">Security</a></td>
+  <td class="NavLink">
+	<a href="http://lwn.net/Distributions/">Distributions</a></td>
+</tr>
+<!-- Second row: navigation links -->
+<tr>
+  <td class="NavLink"><a href="http://lwn.net/Archives/">Archives</a></td>
+  <td class="NavLink"><a href="http://lwn.net/Search/">Search</a> </td>
+  <td class="NavLink">
+	<a href="http://lwn.net/Letters/">Letters</a></td>
+  <td class="NavLink"><a href="http://www.linuxcalendar.com/">Calendar</a></td>
+  <td class="NavLink"><a href="http://lwn.net/op/FAQ.lwn">LWN.net FAQ</a></td>
+</tr>
+<!-- Third row: other stuff -->
+<tr>
+  <td class="NavLink"><a href="http://lwn.net/op/Subscriptions.lwn">Subscriptions</a></td>
+  <td class="NavLink"><a href="http://lwn.net/TextAds/">Advertise</a></td>
+  <td class="NavLink"><a href="http://lwn.net/op/AuthorGuide.lwn">Write for LWN</a></td>
+  <td class="NavLink"><a href="http://lwn.net/op/FAQ.lwn#contact">Contact us</a></td>
+  <td class="NavLink"><a href="http://lwn.net/op/Privacy.lwn">Privacy</a></td>
+</tr>
+</tbody></table>
+
+        </td></tr></tbody></table>
+        <p>
+        <!-- LWN.net Google adcode $Id: google-adcode,v 1.1 2003/06/20 20:28:25 corbet Exp $ -->
+</p><center>
+<script language="JavaScript">
+<!--
+google_ad_client = 'pub-4358676377058562';
+google_ad_width = 468;
+google_ad_height = 60;
+google_ad_format = '468x60_as';
+// -->
+</script>
+<script language="JavaScript" src="LWN:%20Handling%20interrupts%20in%20user%20space_files/show_ads.js">
+</script>
+</center>
+<p>
+</p><table border="0" cellpadding="0" cellspacing="1" width="100%">
+
+        <tbody><tr><td class="Middle" align="center" bgcolor="#ffffff" valign="top">
+        <h1>Handling interrupts in user space</h1>
+<div class="Byline">[Posted March 15, 2005 by corbet]
+               <p>
+               </p></div>
+
+        </td></tr></tbody></table>
+        <p>
+        </p><table border="0" cellpadding="0" cellspacing="1" width="100%">
+
+        <tbody><tr><td class="Middle" align="left" bgcolor="#ffffff" valign="top">
+        Peter Chubb has long been working on a project to move device drivers into
+user space.  Getting drivers out of the kernel, he points out, would have a
+number of benefits.  Faults in drivers (the source of a large percentage of
+kernel bugs) would be less likely to destabilize the entire system.
+Drivers could be easily restarted and upgraded.  And a user-space
+implementation would make it possible to provide a relatively stable driver
+API, which would appeal to many vendors.
+<p>
+Much of the support needed for user-space drivers is already in place.  A
+process can communicate with hardware by mapping the relevant I/O memory
+directly into its address space, for example; that is how the X server
+works with video adaptors.  One piece, however, is missing:
+user-space drivers cannot handle device interrupts.  In many cases, a
+proper driver cannot be written without using interrupts, so a user-space
+implementation is not possible.
+</p><p>
+
+Peter has now posted <a href="http://lwn.net/Articles/127293/">his user-space interrupts
+patch</a> for review and possible inclusion.  The mechanism that he ended
+up with is simple and easy to work with, but it suffers from an important
+limitation. 
+</p><p>
+
+The mechanism is this: a process wishing to respond to interrupts opens a
+new <tt>/proc</tt> file; for IRQ 10, the file would be
+<tt>/proc/irq/10/irq</tt>.  A read on that file will yield the number of
+interrupts which have occurred since the last read.  If no interrupts have
+occurred, the <tt>read()</tt> call will block until the next interrupt
+happens.  The <tt>select()</tt> and <tt>poll()</tt> system calls are
+properly supported, so it is possible to include interrupt handling as just
+another thing to do in an event loop.  
+
+</p><p>
+On the kernel side, the real interrupt handler looks like this:
+</p><p>
+</p><pre>    static irqreturn_t irq_proc_irq_handler(int irq, void *vidp, 
+                                            struct pt_regs *regs)
+    {
+ 	struct irq_proc *idp = (struct irq_proc *)vidp;
+ 
+ 	BUG_ON(idp-&gt;irq != irq);
+ 	disable_irq_nosync(irq);
+ 	atomic_inc(&amp;idp-&gt;count);
+ 	wake_up(&amp;idp-&gt;q);
+ 	return IRQ_HANDLED;
+    }
+</pre>
+<p>
+
+In other words, all it does is count the interrupt and wake up any process
+that might be waiting to handle it.
+</p><p>
+The handler also disables the interrupt before returning.  There is an
+important reason for this action: since the
+handler knows nothing of the device which is actually interrupting, it is
+unable to acknowledge or turn off the interrupt.  So, when the handler
+returns, the device will still be signalling an interrupt.  If the
+interrupt were not disabled in the processor (or the APIC), the processor
+would be interrupted (and the handler called) all over again, repeatedly -
+at least, when level-triggered interrupts are in use.  Disabling the
+interrupt allows life to go on until the user-space process gets scheduled
+and is able to tend to the interrupting device.
+</p><p>
+
+There is a problem here, however: interrupt lines are often shared between
+devices.  Disabling a shared interrupt shuts it off for all devices using
+that line, not just the one being handled by a user-space driver.  It is
+entirely possible that masking that interrupt will block a device which is
+needed by the user-space handler - a disk controller, perhaps.  In that
+case, the system may well deadlock.  For this reason, the patch does not
+allow user-space drivers to work with shared interrupts.  This restriction
+avoids problems, but it also reduces the utility of the whole thing.
+</p><p>
+
+One possible solution was <a href="http://lwn.net/Articles/127714/">posted</a> by Alan
+Cox.  He would require user-space processes to pass a small structure into
+the kernel describing the hardware's IRQ interface.  It would be just
+enough for the kernel to tell if a particular device is interrupting,
+acknowledge that interrupt, and tell the device to shut
+up.  With that in place, the kernel could let user space deal with what the
+device really needs while leaving the interrupt enabled.  It has been <a href="http://lwn.net/Articles/127715/">pointed out</a> that this simple scheme would not
+work with some of the more complicated hardware, but it would be a step in
+the right direction regardless.
+
+</p><p>
+
+Meanwhile, Michael Raymond <a href="http://lwn.net/Articles/127716/">described</a> a
+different user-space interrupt implementation (called "User Level
+Interrupt" or ULI) done at SGI.  This patch is significantly more
+complicated.  In this scheme, a user-space driver would register an
+interrupt handler function directly with the kernel.  When an interrupt
+happens, the ULI code performs some assembly-code black magic so that its
+"return from interrupt" instruction jumps directly into the user-space
+handler, in user mode.  Once that handler returns, the ULI library writes a
+code to a magic device which causes the kernel stack and related data
+structures to be restored to their pre-interrupt state.  The implementation
+is more complex, and it currently only works on the ia-64 architecture, but
+it could conceivably offer better performance than the <tt>/proc</tt>
+method.</p><p><a name="Comments"></a>
+</p><hr align="left" width="60%">
+           (<a href="http://lwn.net/login?target=/Articles/127698/">Log in</a> to post comments)
+           <p>
+           </p><p>
+        </p><table class="CommentBox" border="0" cellpadding="0" cellspacing="1"><tbody><tr><td>
+        <table class="CommentHL">
+               <tbody><tr><td><b>Does it really stabilise the system?</b></td></tr>
+        </tbody></table>
+        <table class="CommentBody">
+        <tbody><tr>
+        <td class="CommentBody">
+        Posted Mar 17, 2005 12:20 UTC (Thu) by subscriber <b>NAR</b> [<a href="http://lwn.net/Articles/128032/">Link</a>]
+        <p>
+        <!-- body -->
+        <i>Faults
+in drivers [...] would be less likely to destabilize the entire system.
+[...] A process can communicate with hardware by mapping the relevant
+I/O memory directly into its address space, for example; that is how
+the X server works with video adaptors.</i>
+</p><p>
+Would the user space driver make the system really that more stable? I
+mean the X server can easily lock up my system even from user mode...
+</p><p>
+</p><center>Bye,NAR</center>
+        <!-- comment button -->
+	<p>
+        </p><div class="CommentReplyButton">
+        	<form action="/Articles/128032/comment" method="post">
+                <input value="Reply to this comment" type="submit">
+                </form>
+        </div>
+        <!-- notification -->
+        
+        </td></tr></tbody></table>
+</td></tr></tbody></table>
+<p>
+</p><div class="Comment">
+<p>
+        </p><table class="CommentBox" border="0" cellpadding="0" cellspacing="1"><tbody><tr><td>
+        <table class="CommentHL">
+               <tbody><tr><td><b>Does it really stabilise the system?</b></td></tr>
+        </tbody></table>
+        <table class="CommentBody">
+        <tbody><tr>
+        <td class="CommentBody">
+        Posted Mar 17, 2005 13:47 UTC (Thu) by subscriber <b>nix</b> [<a href="http://lwn.net/Articles/128051/">Link</a>]
+        <p>
+        <!-- body -->
+Ideally, the X server would not need to use iopl() or run suid root:
+this is a step in that direction. In that situation, the most it could
+do without a kernel bug is lock up the console (maybe not even that).<br>
+        <!-- comment button -->
+	</p><p>
+        </p><div class="CommentReplyButton">
+        	<form action="/Articles/128051/comment" method="post">
+                <input value="Reply to this comment" type="submit">
+                </form>
+        </div>
+        <!-- notification -->
+        
+        </td></tr></tbody></table>
+</td></tr></tbody></table>
+<p>
+</p><div class="Comment">
+<p>
+        </p><table class="CommentBox" border="0" cellpadding="0" cellspacing="1"><tbody><tr><td>
+        <table class="CommentHL">
+               <tbody><tr><td><b>Does it really stabilise the system?</b></td></tr>
+        </tbody></table>
+        <table class="CommentBody">
+        <tbody><tr>
+        <td class="CommentBody">
+        Posted Mar 17, 2005 15:20 UTC (Thu) by subscriber <b>gnb</b> [<a href="http://lwn.net/Articles/128084/">Link</a>]
+        <p>
+        <!-- body -->
+        <font class="QuotedText">&gt; In that situation, the most it could do without a kernel bug is lock up </font><br>
+<font class="QuotedText">&gt;the console (maybe not even that). </font><br>
+ That's optimistic. Any driver for a DMA-capable device can pretty much <br>
+obliterate the system. Moving stuff into user-space should eliminate  <br>
+some classes of crash, but it's not the answer to everything. <br>
+ <br>
+        <!-- comment button -->
+	</p><p>
+        </p><div class="CommentReplyButton">
+        	<form action="/Articles/128084/comment" method="post">
+                <input value="Reply to this comment" type="submit">
+                </form>
+        </div>
+        <!-- notification -->
+        
+        </td></tr></tbody></table>
+</td></tr></tbody></table>
+<p>
+</p><div class="Comment">
+<p>
+        </p><table class="CommentBox" border="0" cellpadding="0" cellspacing="1"><tbody><tr><td>
+        <table class="CommentHL">
+               <tbody><tr><td><b>Does it really stabilise the system?</b></td></tr>
+        </tbody></table>
+        <table class="CommentBody">
+        <tbody><tr>
+        <td class="CommentBody">
+        Posted Mar 18, 2005 23:06 UTC (Fri) by subscriber <b>giraffedata</b> [<a href="http://lwn.net/Articles/128323/">Link</a>]
+        <p>
+        <!-- body -->
+        <i>Moving stuff into user-space should eliminate 
+some classes of crash, but it's not the answer to everything. 
+</i>
+
+</p><p>Indeed.  But the point of this proposal is that it eliminates not only <em>some</em> classes of crash, but the vast majority of the crashes.  If it were only a few classes, it wouldn't be worth it.
+
+</p><p>A few examples of common coding errors that would obliterate the
+system in a real interrupt handler, but have relatively minor impact in
+a user interrupt handler process: infinite loop, wild pointer to
+nonexistent address, store into an arbitrary address.
+</p><p>The SGI ULI thing, though, is a horse of a different color.  This eliminates relatively few risks and adds others.
+
+        <!-- comment button -->
+	</p><p>
+        </p><div class="CommentReplyButton">
+        	<form action="/Articles/128323/comment" method="post">
+                <input value="Reply to this comment" type="submit">
+                </form>
+        </div>
+        <!-- notification -->
+        
+        </td></tr></tbody></table>
+</td></tr></tbody></table>
+<p>
+</p></div>
+</div>
+</div>
+<p>
+        </p><table class="CommentBox" border="0" cellpadding="0" cellspacing="1"><tbody><tr><td>
+        <table class="CommentHL">
+               <tbody><tr><td><b>Handling interrupts in user space</b></td></tr>
+        </tbody></table>
+        <table class="CommentBody">
+        <tbody><tr>
+        <td class="CommentBody">
+        Posted Mar 17, 2005 22:18 UTC (Thu) by subscriber <b>rgoates</b> [<a href="http://lwn.net/Articles/128143/">Link</a>]
+        <p>
+        <!-- body -->
+Peter Chubb's solution for user-space interrupts seems to turn the
+asynchronous nature of interrupts into polling, which is certainly not
+asynchronous and is something I learned to dislike as a real-time
+programmer. This might work for some drivers but it doesn't sound like
+a good general solution. SGI's ULI at least retains the asynchronicity
+of interrupts. <br>
+        <!-- comment button -->
+	</p><p>
+        </p><div class="CommentReplyButton">
+        	<form action="/Articles/128143/comment" method="post">
+                <input value="Reply to this comment" type="submit">
+                </form>
+        </div>
+        <!-- notification -->
+        
+        </td></tr></tbody></table>
+</td></tr></tbody></table>
+<p>
+</p><div class="Comment">
+<p>
+        </p><table class="CommentBox" border="0" cellpadding="0" cellspacing="1"><tbody><tr><td>
+        <table class="CommentHL">
+               <tbody><tr><td><b>Handling interrupts in user space</b></td></tr>
+        </tbody></table>
+        <table class="CommentBody">
+        <tbody><tr>
+        <td class="CommentBody">
+        Posted Mar 17, 2005 22:40 UTC (Thu) by subscriber <b>obobo</b> [<a href="http://lwn.net/Articles/128148/">Link</a>]
+        <p>
+        <!-- body -->
+Well, if you make a task that is just sitting (via poll or select) on
+that event, it will act pretty much exactly like an interrupt handler
+for that event. If you decide to use a single thread/task and just poll
+it periodically, of course, it won't.<br>
+</p><p>
+        <!-- comment button -->
+	</p><p>
+        </p><div class="CommentReplyButton">
+        	<form action="/Articles/128148/comment" method="post">
+                <input value="Reply to this comment" type="submit">
+                </form>
+        </div>
+        <!-- notification -->
+        
+        </td></tr></tbody></table>
+</td></tr></tbody></table>
+<p>
+</p></div>
+<p>
+        </p><table class="CommentBox" border="0" cellpadding="0" cellspacing="1"><tbody><tr><td>
+        <table class="CommentHL">
+               <tbody><tr><td><b>Handling interrupts in user space</b></td></tr>
+        </tbody></table>
+        <table class="CommentBody">
+        <tbody><tr>
+        <td class="CommentBody">
+        Posted Mar 25, 2005 6:00 UTC (Fri) by guest <b>goaty</b> [<a href="http://lwn.net/Articles/129123/">Link</a>]
+        <p>
+        <!-- body -->
+It seems to me that if we're going to require the kernel to have some
+knowledge of how to handle interrupts, we may as well make it pluggable.<br>
+</p><p>
+In other words, when our userspace driver starts up, it loads two
+modules, one which contains the infrastructure for userspace module
+delivery, and another which contains the logic necessary to confirm
+receipt of an interrupt.<br>
+</p><p>
+Drivers that only handle simple edge-trigger interrupts could simply
+load the module for that case (which would be effectively a null
+implementation) and not need any further configuration.<br>
+</p><p>
+Drivers that needed more fully-fledged interrupt handling could upload
+a module that supported the interface Alan Cox suggested. Perhaps it
+could be programmed by module parameters? IIRC, the infrastructure to
+make that trivial is already in place.<br>
+</p><p>
+Drivers with really complex interrupt requirements would obviously need
+their own module, but it would still be simpler than writing the whole
+driver in kernelspace. The benefit is that this complexity can be
+supported without complicating things for other users of the interface.<br>
+</p><p>
+I think this idea has enormous potential. Drivers could be prototyped
+in Perl or your favourite rapid-turnaround language. You could even do
+it interactively.<br>
+        <!-- comment button -->
+	</p><p>
+        </p><div class="CommentReplyButton">
+        	<form action="/Articles/129123/comment" method="post">
+                <input value="Reply to this comment" type="submit">
+                </form>
+        </div>
+        <!-- notification -->
+        
+        </td></tr></tbody></table>
+</td></tr></tbody></table>
+<p>
+
+        </p></td></tr></tbody></table>
+        <p>
+        <!-- Below ends the full table. -->
+           </p></td></tr></tbody></table>
+           
+        <p>
+        </p><center>
+        <font size="-2">
+        Copyright © 2005, Eklektix, Inc.<br>
+        Comments and public postings are copyrighted by their creators.<br>
+        Linux  is a registered trademark of Linus Torvalds<br>
+        Powered by <a href="http://www.rackspace.com/index.php?CMP=BAC-2GH696668493">Rackspace Managed Hosting</a>.
+        </font>
+        </center>
+        </body></html>

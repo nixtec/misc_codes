@@ -1,0 +1,120 @@
+#
+# Makefile for project [win32]
+# Use: make
+#
+INSTDIR		:= /usr/local/bin
+#SCFLAGS		:= -D_REENTRANT -g -mthreads -Wall -finline-functions -O2
+#CCFLAGS		:= -D_REENTRANT -g -mthreads -Wall -finline-functions -O2
+CFLAGS		:= -Wall -mthreads -finline-functions -O2
+SCFLAGS		:= $(CFLAGS)
+CCFLAGS		:= $(CFLAGS)
+LDFLAGS		:= -lws2_32
+SLDFLAGS	:= $(LDFLAGS)
+CLDFLAGS	:= $(LDFLAGS)
+SCXXFLAGS	:= $(SCFLAGS)
+CCXXFLAGS	:= $(CCFLAGS)
+CC		:= gcc
+CXX		:= g++
+
+SERVER_SRCS	:= server.c proc-download.c proc-upload.c proc-move.c \
+			proc-none.c proc-exec.c support.c exec_cmd.c \
+			cmdmap.c authenticate.c pthread.c
+SERVER_OBJS	:= $(patsubst %.c,%.o,$(SERVER_SRCS))
+
+SHELL_SRCS	:= shell.c functions.c shell-support.c parser.c getpass.c \
+			oshacks.c cwdent.c
+SHELL_OBJS	:= $(patsubst %.c,%.o,$(SHELL_SRCS))
+
+#TARGETS		:= server shell
+TARGETS		:= server shell
+WTARGETS	:= $(patsubst %,%.exe,$(TARGETS))
+
+
+.PHONY: clean install
+
+all: $(WTARGETS)
+
+server: $(SERVER_OBJS)
+	$(CC) $(SCFLAGS) -o server $(SERVER_OBJS) $(SLDFLAGS)
+#	strip server
+
+server.exe: $(SERVER_OBJS)
+	$(CC) $(SCFLAGS) -o server.exe $(SERVER_OBJS) $(SLDFLAGS)
+#	strip server
+
+proc-move.o: proc-move.c server-funcs.h
+	$(CC) $(SCFLAGS) -c proc-move.c
+
+proc-none.o: proc-none.c server-funcs.h
+	$(CC) $(SCFLAGS) -c proc-none.c
+
+proc-exec.o: proc-exec.c server-funcs.h
+	$(CC) $(SCFLAGS) -c proc-exec.c
+
+proc-download.o: proc-download.c server-funcs.h
+	$(CC) $(SCFLAGS) -c proc-download.c
+
+proc-upload.o: proc-upload.c server-funcs.h
+	$(CC) $(SCFLAGS) -c proc-upload.c
+
+server.o: server.c server.h server-funcs.h
+	$(CC) $(SCFLAGS) -c server.c
+
+support.o: support.h support.c
+	$(CC) $(SCFLAGS) -c support.c
+
+exec_cmd.o: exec_cmd.c exec_cmd.h exec_cmd.winx.c
+	$(CC) $(SCFLAGS) -c exec_cmd.c
+
+authenticate.o: authenticate.c authenticate.h
+	$(CC) $(SCFLAGS) -c authenticate.c
+
+cmdmap.o: cmdmap.c cmdmap.h
+	$(CC) $(SCFLAGS) -c cmdmap.c
+
+pthread.o: pthread.c pthread.h
+	$(CC) $(SCFLAGS) -c pthread.c
+
+# single-threaded
+execmd.exe: execmd.c exec_cmd.o
+	$(CC) $(CCFLAGS) -o execmd.exe execmd.c exec_cmd.o
+
+# client
+
+shell: $(SHELL_OBJS)
+	$(CC) $(CCFLAGS) -o shell $(SHELL_OBJS) $(CLDFLAGS)
+#	strip shell
+
+shell.exe: $(SHELL_OBJS)
+	$(CC) $(CCFLAGS) -o shell.exe $(SHELL_OBJS) $(CLDFLAGS)
+#	strip shell
+
+shell.o: shell.c functions.h
+	$(CC) $(CCFLAGS) -c shell.c
+
+functions.o: functions.c functions.h
+	$(CC) $(CCFLAGS) -c functions.c
+
+parser.o: parser.c parser.h
+	$(CC) $(CCFLAGS) -c parser.c
+
+shell-support.o: shell-support.c shell-support.h
+	$(CC) $(CCFLAGS) -c shell-support.c
+
+getpass.o: getpass.c
+	$(CC) $(CCFLAGS) -c getpass.c
+
+oshacks.o: oshacks.c oshacks.h
+	$(CC) $(CCFLAGS) -c oshacks.c
+
+cwdent.o: cwdent.c cwdent.h
+	$(CC) $(CCFLAGS) -c cwdent.c
+
+
+
+install: $(WTARGETS)
+	cp -f server shell $(INSTDIR)
+
+clean:
+	-rm -f *.o $(TARGETS) $(SERVER_OBJS) $(WTARGETS)
+

@@ -1,0 +1,9 @@
+* 1.1   Apr 2007
+    - use freelists for improving memory allocation performance
+    - fix list_concat() that could output inconsistent lists
+    - new ready-made comparators, metric and hashing functions for
+        the most common types (numeric and strings)
+    - new list_find() function
+
+* 1.0   Jan 2007
+    - first release to public

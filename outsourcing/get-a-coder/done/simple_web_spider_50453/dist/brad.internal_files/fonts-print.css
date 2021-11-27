@@ -1,0 +1,43 @@
+html {
+		 font-size: 76%;
+}
+
+body {
+ 		 font-family: Verdana, Arial, Helvetica, Sans Serif;
+		 font-size: 0.9em;
+}
+
+#masthead li.here {
+		 font-weight: bold;
+}
+
+
+#leftcolumn h1 {
+		 font-size: 1.2em;
+		 height: 1.4em;
+}
+
+
+#centre h1 {
+		 font-size: 2em;
+}
+
+#centre h2 {
+		 font-size: 1.2em;
+}
+#centre h3 {
+		 font-size: 1em;
+}
+#centre p.posted {
+		 font-style: italic;
+}
+#rightcolumn h1 {
+		 font-size: 1.2em;
+		 height: 1.4em;
+}
+
+#rightcolumn h2 {
+		 font-size: 1.2em;
+		 font-weight: bold;
+		 height: 1.4em;
+}

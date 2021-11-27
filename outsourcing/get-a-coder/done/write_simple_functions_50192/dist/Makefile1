@@ -1,0 +1,19 @@
+#
+# Makefile for write simple functions [wsf] project
+#
+CC		:= gcc
+CFLAGS		:= -g -Wall -ansi -finline-functions -O2
+LDFLAGS		:=
+TARGET		:= wsf
+
+all: $(TARGET)
+
+.PHONY: clean
+
+
+wsf: wsf.c wsf.h
+	$(CC) $(CFLAGS) -o $@ wsf.c $(LDFLAGS)
+
+
+clean:
+	rm -f $(TARGET)

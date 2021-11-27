@@ -1,0 +1,34 @@
+Linux Environment:
+
+Requirements:
+1. gcc
+2. POSIX Threads [pthreads] library [-lpthread]
+3. GNU Cryptographic Library [-lcrypt]
+
+Compiling:
+1. make
+
+Running:
+1. In two terminals, run './server' and './shell'. See 'commands.txt' for
+   available commands to be recognized from shell.
+
+
+Windows Environment:
+
+Requirements:
+1. Dev-Cpp or GCC For Windows [mingw]
+
+[Gmail doesn't allow attaching executable/bat files. So '_' is appended]
+Compiling:
+1. Rename 'cmdenv.bat_' to 'cmdenv.bat'
+2. Check the Dev-Cpp 'bin' path in the 'cmdenv.bat' file and modify if needed
+3. Run 'cmdenv.bat'
+4. Rename 'build.win32.bat_' to 'build.win32.bat'
+5. In 'cmdenv.bat' shell type 'build.win32.bat'
+
+Running:
+1. In two terminals [cmd windows], run 'server' and 'shell'. See 'commands.txt'
+   for available commands to be recognized from shell.
+2. When using 'execute' command from Windows shell if you don't see the command
+   prompt after execution is done, type Ctrl-Z followed by ENTER. This is
+   because of using an additional thread for input in windows.

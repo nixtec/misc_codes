@@ -1,0 +1,7 @@
+Project: CMD
+
+Total Bill: 150000/=
+Paid Bill :  13000/= [3000+10000]
+Remainint : 137000/=
+
+Comment: Not yet paid fully.

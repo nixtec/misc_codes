@@ -1,0 +1,22 @@
+copy localhost:"test file 1.txt" "test file 1.txt.local"
+copy "test file 1.txt" localhost:"test file 1.txt.server"
+copy localhost:"test file 1.txt.server" localhost:"test file 1.txt.server1"
+copy "test file 1.txt" "test file 1.txt.localcopy"
+move localhost:"test file 1.txt" "test file 1.txt.local"
+move "test file 1.txt" localhost:"test file 1.txt.server"
+move localhost:"test file 1.txt.server" localhost:"test file 1.txt.server1"
+move "test file 1.txt" "test file 1.txt.localcopy"
+delete localhost:*.del
+delete *.del.local
+list localhost:*.c
+list *.h
+create_folder localhost:"server test folder"
+create_folder "local test folder"
+delete_folder localhost:"server test folder"
+delete_folder "local test folder"
+execute localhost:"ls -l"
+execute localhost:"wc server.c"
+change_folder localhost:testdir
+change_folder testdir
+pwd localhost:.
+pwd

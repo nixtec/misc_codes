@@ -1,0 +1,5 @@
+Project Responsibilities:
+
+1. I will have to write a program for reading barcode from a barcode reader.
+2. The barcode information should be stored in the database [BDB/Sqlite]
+3. A GUI should be developed so that we can see the database

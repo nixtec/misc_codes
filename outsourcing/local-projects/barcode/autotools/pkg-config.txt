@@ -1,0 +1,13 @@
+AUTOCONF MACROS
+
+PKG_CHECK_MODULES(VARIABLEBASE,MODULELIST[,ACTION-IF-FOUND,[ACTION-IF-NOT-FOUND]])
+
+    The macro PKG_CHECK_MODULES can be used in configure.in to check whether modules exist. A typical usage would be:
+
+     PKG_CHECK_MODULES(MYSTUFF, gtk+-2.0 >= 1.3.5 libxml = 1.8.4)
+
+    This would result in MYSTUFF_LIBS and MYSTUFF_CFLAGS substitution variables, set to the libs and cflags for the given module list. If a module is missing or has the wrong version, by default configure will abort with a message. To replace the default action, specify an ACTION-IF-NOT-FOUND. PKG_CHECK_MODULES will not print any error messages if you specify your own ACTION-IF-NOT-FOUND. However, it will set the variable MYSTUFF_PKG_ERRORS, which you can use to display what went wrong.
+
+    If you want to use MYSTUFF_LIBS and MYSTUFF_CFLAGS as Makefile.am variables (i.e. $(MYSTUFF_LIBS)) then you have to add AC_SUBST(MYSTUFF_LIBS) to your configure.in so automake can find the variable. You don't need to do this if you use the @MYSTUFF_LIBS@ syntax in your Makefile.am instead of $(MYSTUFF_LIBS).
+
+ 

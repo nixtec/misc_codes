@@ -1,0 +1,773 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Introduction to barcode - Raster vs. Vector Graphics for Bar Codes</title>
+
+
+
+<meta name="description" content="Introduction to barcode - Raster vs. Vector Graphics for Bar Codes">
+
+<meta name="searchtitle" content="Raster vs Vector Graphics for Barcodes">
+
+<meta name="keywords" content="barcode, bar code, barcode font, bar code font, symbologies, Code 39, code39, code 3 of 9, Interleaved 2 of 5, ITF, UPC, UPC-A, UPC-E, EAN, EAN-8, EAN-13, Code 128 Code128, UCC/EAN 128, EAN/UCC 128 UCC, Code 93, Code93, Codabar, MSI, Plessey, PostNET, Zip+4, ZIP, 2 of 5, JAN, Bookland, Aztec Code, Aztec, PDF417, Data Matrix, Datamatrix, maxicode, HIBC">
+
+<script language="JavaScript">
+
+function formHandler(form){
+var URL = form.Quicklinks.options[form.Quicklinks.selectedIndex].value;
+if (URL != "") {
+	window.location.href =URL;
+}
+}
+
+</script>
+
+
+
+
+<style type="text/css">
+
+<!--
+
+A:link {color:#0000A0;}
+
+A:vlink {color:#330099;}
+
+A:hover {color:#8080FF;}
+
+-->
+
+</style>
+
+<link rel="stylesheet" type="text/css" href="rastvect_files/taltech">
+
+
+
+<script type="text/javascript" language="JavaScript">
+
+function MM_preloadImages() { //v3.0s
+
+ 	var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+
+   	var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+
+   	if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+
+}
+
+//-->
+
+</script></head>
+
+
+<body topmargin="0" leftmargin="0" onload="MM_preloadImages('../images/n_products2_F2.gif', '../images/n_resources2_F2.gif', '../images/n_freesoft2_F2.gif');" alink="#8080ff" bgcolor="white" link="#0000a0" marginheight="0" marginwidth="0" vlink="#330099">
+
+
+
+<!--Header-->
+
+
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+
+
+
+
+
+
+
+<tbody><tr>
+
+
+
+
+
+
+
+<td colspan="2" bgcolor="#003399">
+
+
+
+
+
+
+
+<input name="Range" value="All" type="hidden"><input value="Standard" name="Format" type="hidden"><table border="0" cellpadding="2" cellspacing="0" width="745">
+
+
+
+
+
+
+
+<tbody><tr><td width="200"><img src="rastvect_files/logo_sm" alt="TALtech Logo" border="0" height="34" width="197"></td>
+
+
+
+
+
+
+<form name="Quick"></form>
+<td width="255">
+<select name="Quicklinks" onchange="formHandler(this.form)"><option selected="selected">Resources
+
+</option><option value="../links.html">Links to related sites
+
+</option><option value="../intro-sc.html">Intro to Serial Communications
+
+</option><option value="http://www.beyondlogic.org/">Intro to Interfacing Devices to PCs
+
+</option><option value="index.html">Intro to Bar Coding
+
+</option><option value="../tcpip.htm">Using TCP/IP as an Instrument Interface
+
+</option><option value="../abouttal.htm">About TAL
+
+</option></select> 
+</td>
+
+
+
+
+
+
+
+<form name="SearchForm" method="get" action="http://www.taltech.com/cgi-bin/library/xavatoria/search.cgi"></form><td align="right"><img src="rastvect_files/search2" alt="search" border="0" height="10" width="56"></td>
+
+<td><input name="Terms" size="20" maxlength="800" type="text"><input name="Scope" value="1" type="hidden"></td>
+
+
+
+
+
+
+
+
+</tr>
+
+
+
+
+
+
+
+</tbody></table></td>
+
+
+
+
+
+
+
+</tr>
+
+
+
+
+
+
+
+<tr><td colspan="2" bgcolor="#990000"><img src="rastvect_files/dot_rs" alt="" border="0" height="3" width="3"></td></tr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<tr><td><img src="rastvect_files/instrumental" alt="" border="0" height="25" width="235"></td>
+
+
+
+<td><table border="0" cellpadding="0" cellspacing="5"> 
+
+
+
+<tbody><tr>
+
+
+
+          <td valign="top"><a href="http://www.taltech.com/TALtech_web/products/index.html" onmouseover="document.products.src='../../images/n_products2_F2.gif';" onmouseout="document.products.src='../../images/n_products2.gif';"><img src="rastvect_files/n_products2" alt="Products" name="products" border="0" height="12" width="57"></a></td>
+
+
+
+<td><img src="rastvect_files/divider_r" alt="" border="0" height="15" width="1"></td>
+
+
+
+          <td valign="top"><a href="http://www.taltech.com/TALtech_web/support/index.html" onmouseover="document.support.src='../../images/n_support2_F2.gif';" onmouseout="document.support.src='../../images/n_support2.gif';"><img src="rastvect_files/n_support2" alt="Support" name="support" border="0" height="15" width="53"></a></td>
+
+
+
+<td><img src="rastvect_files/divider_r" alt="" border="0" height="15" width="1"></td>
+
+
+
+<td valign="top"><img src="rastvect_files/n_resources2_F2" alt="Resources" name="resources" border="0" height="12" width="67"></td>
+
+
+
+<td><img src="rastvect_files/divider_r" alt="" border="0" height="15" width="1"></td>
+
+
+
+
+
+<td valign="top"></td><td valign="top"><a href="http://www.taltech.com/cgi-bin/fs2k.cgi" onmouseover="document.freesoft.src='../../images/n_freesoft2_F2.gif';" onmouseout="document.freesoft.src='../../images/n_freesoft2.gif';"><img src="rastvect_files/n_freesoft2" alt="Free Software" name="freesoft" border="0" height="13" width="90"></a></td>
+
+</tr>
+
+</tbody></table></td></tr>
+
+
+
+
+
+
+
+
+
+
+
+</tbody></table>
+
+
+
+
+
+
+
+
+
+
+
+<!--Text Navigation-->
+
+<table align="left" border="0" cellpadding="1" cellspacing="0" width="745">
+
+<tbody><tr>
+    <td><font face="Arial, Helvetica, Sans-serif" size="2"><i><b>&nbsp;<a href="http://www.taltech.com/TALtech_web/index.html">TALtech 
+      Home:</a> &nbsp;<a href="http://www.taltech.com/TALtech_web/resources/index.html">Resources:</a> &nbsp; <a href="http://www.taltech.com/TALtech_web/resources/intro_to_bc/index.html">Introduction 
+      to Bar Coding</a></b></i></font></td>
+  </tr>
+
+</tbody></table><br>
+
+<!--End Text Navigation-->
+
+
+
+
+
+
+
+
+
+<!--Content Table--><br>
+
+<table border="0" cellpadding="0" cellspacing="20" width="745">
+
+<tbody><tr>
+
+
+
+<td rowspan="3" width="20"><img src="rastvect_files/blank" alt="" border="0" height="3" width="20"></td>
+
+
+
+<td width="570">
+
+<img src="rastvect_files/r_rastorvs" alt="Raster vs. Vector Graphics for Bar Codes" border="0" height="17" width="290">
+
+
+
+<p>A bar code is comparable to a printed version of the Morse code. Instead of
+  dots
+
+        and dashes to represent characters, bar codes use the widths of black
+  bars and white
+
+        spaces. It is extremely important that the widths of the bars and spaces
+  are printed
+
+        within precise tolerances in order to be readable by most bar code readers.
+  How the bar
+
+        code is produced including the type of graphic that is originally used
+  is therefore
+
+        extremely important. Microsoft Windows supports three native graphic
+  types that are
+
+        commonly used to create bar codes: bitmaps, fonts and metafiles. </p>
+
+		
+
+		
+
+		  <h2>BitMaps</h2>
+
+		  
+
+            <p>A bitmap is an array of dots or "pixels" where each
+              pixel (picture element) has
+
+            a value that represents the color of the pixel. The width of a bitmap
+              is defined by the
+
+            number of pixels across a row. The height of the bitmap is defined
+              by the number of rows
+
+            of pixels. Any graphic that is made up of rows of dots is called
+              a "Raster"
+
+            graphic therefore a bitmap is a raster graphic. The overall printed
+            dimensions of a bitmap
+
+            are dependent on the dot resolution of the device used to print it.
+            For example if you
+
+            create a bitmap graphic that is 300 pixels wide and has 300 rows
+            of pixels and then you
+
+            print this bitmap on a printer that has a dot resolution of 300 dots
+            per inch, you will
+
+            end up with a printed image one inch square. If you display the same
+            bitmap on a computer
+
+            screen that has a dot resolution of 100 dots per inch, you end up
+            with an image that is
+
+            three inches square. This means that bitmaps are "device dependent" where
+            the
+
+            resolution of the rendering device (e.g. printer or screen) must
+            be taken into
+
+            consideration when you create the image. If you need to preserve
+            the size of an image from
+
+            one device to another (e.g. screen to printer) you must "stretch" or
+
+            "shrink" a bitmap to fit the desired size. The process
+            of stretching and
+
+            shrinking involves either adding or removing pixels to or from the
+            original image. As you
+
+            can imagine resizing a bitmap to a desired size when moving from
+            one output device to
+
+            another generally causes a severe degradation of the original image
+            quality. Therefore,
+
+            when creating precise graphics (like bar codes) it is extremely important
+            that the image
+
+            is created with the same dot resolution of the printer. If you do
+            not know the dot
+
+            resolution of the printer that will be used to print the bar code
+            then you cannot fully
+
+            guarantee that the image will be readable by all bar code readers.<br>
+
+            <br>
+
+            A type of bitmap called a "Device Independent Bitmap" has been developed as an
+
+            attempt to solve the device dependency problem however you still end up with distorted
+
+            images when you render a bitmap on a device that does not have the exact same dot
+
+            resolution that the bitmap was created with.<br>
+
+            <br>
+
+            Another problem with bitmaps is that they require large amounts of memory. For example a
+
+            bitmap that is 300 pixels wide and 300 lines down (only 1 square inch on a 300 DPI laser
+
+            printer) and has three bytes per pixel of color information (standard RGB colors) will
+
+            require 270,000 bytes of memory or disk space. For bar codes, this is a huge amount of
+
+            space for a very simple graphic made up of a relatively small number of rectangles.</p>
+
+        
+
+		<h2>Fonts</h2>
+
+		
+
+            
+      <p>Although fonts are not normally thought of as graphics, they can be used 
+        to produce bar codes. A font is a collection of graphic elements that 
+        are assigned to each of the characters in the ASCII or ANSI character 
+        set. Because most bar code symbologies encode data by mapping specific 
+        characters to specific bar and space patterns, it is possible to use fonts 
+        to create bar codes. Unfortunately, fonts have many inherent problems 
+        when they are used to create bar codes. <br>
+        <br>
+        The most important problem with fonts when they are used to create bar 
+        codes is that they are not "intelligent". Almost every bar code 
+        symbology has features like start and stop patterns, check digits, guard 
+        patterns, quiet zones and bearer bars. When you use a font to create a 
+        bar code you cannot simply select the text for the message that you want 
+        encoded and select a bar code font. You first have to insert special characters 
+        for the start and stop patterns as well as manually calculate and insert 
+        a special character for the check digit. In almost all cases you have 
+        to use a special program provided with the font to calculate and add check 
+        digits and insert start and stop patterns. Another problem with fonts 
+        is that they cannot be scaled in a single direction in most application 
+        programs. Some specialized desktop publishing programs allow stretching 
+        of fonts in a single direction however most database or word processing 
+        programs do not. This means that if you increase the size of a font, both 
+        the height and the width change. When creating bar codes, it is extremely 
+        important that the width of the bars and spaces remain constant. Typically 
+        the height of a bar code font is not adequate and it must be scaled up. 
+        When you do this by increasing the font size, the width of the bars and 
+        spaces as well as the overall width of the bar code increases proportionally 
+        which causes the bar code to be rendered out of spec. In general fonts 
+        are the poorest choice for creating bar codes. They offer the least control 
+        of all possible methods for creating bar codes.</p>
+
+			
+
+			<p>"Bar code fonts have been known to create EAN/UPC
+
+            symbols with serious quality defects. The problems may be caused by the inherent design of
+
+            the font, operator input, or a combination of both..." 
+
+			Uniform Code Council, Inc., Guidelines for Providers of EAN/UPC
+
+            Symbol Design Software, 1997, Page 13.</p>
+
+			
+
+			<p>"For these reasons, extreme caution should
+
+            be used when producing EAN/UPC symbols with bar code fonts. They should only be used by
+
+            highly experienced bar code design professionals utilizing appropriate
+
+            controls"&nbsp; </p>
+
+			
+
+            <p>This is true when using fonts to create any bar code symbology.</p>
+
+		  
+
+		 <h2> Metafiles</h2>
+
+			<p>The absolute best way to create bar codes is to use a vector style
+
+            graphic. Instead of containing an actual raster style image (like a bitmap), a vector
+
+            graphic contains a sequence of drawing instructions that describe how to render the image.
+
+            For example it might contain an instruction that tells the output device to move to a
+
+            point exactly two inches down and to the right from the upper left corner of the screen or
+
+            page and draw solid black rectangle that is exactly a quarter of an inch wide and one inch
+
+            tall.<br>
+
+            <br>
+
+            The Windows metafile (WMF) and the Encapsulated Postscript (EPS) graphics formats are
+
+            "vector" graphic formats. The prominent features of the WMF format is that it is
+
+            completely device independent, it supports extremely precise dimensions for all graphic
+
+            elements (down to 1/100th of a millimeter) and the amount of memory required to store a
+
+            metafile is extremely small. Best of all, every printer that has a Windows printer driver
+
+            must support printing metafiles therefore there is never an issue with being able to print
+
+            metafiles on a particular printer. The characteristics of metafiles are ideal for creating
+
+            bar codes.<br>
+
+            <br>
+
+            As an added bonus, most programming languages and commonly used Windows
+            programs provide
+
+            built in support for handling metafiles. Metafiles are in fact built
+            from the natural
+
+            "graphics language" used by Windows for creating almost
+            all graphic elements
+
+            used in every Windows program. Windows also provides built in clipboard
+            support for the
+
+            metafile format which makes it extremely easy to move them between
+            applications.<br>
+
+            <br>
+
+            The only problems that you might encounter with metafiles is that some service bureaus
+
+            have trouble printing them on a small number of high resolution film mastering devices.
+
+            Typically the problems that they encounter are because they are using older, outdated
+
+            printer drivers. Service bureaus generally prefer the EPS graphics however most Windows
+
+            programs do not have the ability to render EPS images on screen making EPS files difficult
+
+            to work with. For example PageMaker for Windows will allow you to insert EPS files into a
+
+            document however when you do so, PageMaker only displays a rectangle where the image would
+
+            appear in the document. You will not see the image on your screen unless the EPS file has
+
+            a TIFF preview embedded in the EPS file. (A TIFF is a type of raster graphic similar to a
+
+            bitmap. Both EPS and WMF files can contain raster images embedded as part of the vector
+
+            graphic.)</p>
+
+			
+
+			<h2>B-Coder
+
+            Pro and B-Coder Lite</h2>
+
+			
+
+           <p>TALtech's B-Coder bar code graphic generating software can create
+             bar codes in ANY graphic
+
+            format - including Windows Metafile (.WMF), EPS, TIFF, bitmap, GIF,
+             JPEG, AI, PCT, PCX,
+
+            etc... However for the reasons given above we recommend that you
+             use one of the vector
+
+            formats (WMF or EPS) if possible.</p>
+
+			  
+
+			<h2>  Windows Applications</h2>
+
+			   <p>- Word, Access,
+
+                PageMaker, WordPerfect, Quark, etc.<br>
+
+                Generally in Windows the WMF format is best as all printers can print perfect WMF graphics
+
+                from Windows however only postscript printers can print EPS (Encapsulated Postscript)
+
+                graphics. Hence WMF is the "default" graphic format in B-Coder.</p>
+
+           
+
+			  <h2>MAC</h2>
+
+				<p>If you are going to be printing from a MAC we recommend you use the EPS graphic
+
+                format in B-Coder. This allows all EPS options including selectable TIFF preview for the
+
+                EPS.</p>
+
+				
+
+             
+
+			<h2>  Internet</h2>
+
+			  
+
+              <p>  If you are going to be showing the bar codes on web pages then you will want to use the
+
+                GIF or JPEG options, however the quality of these bar codes will be much lower as GIFs and
+
+                JPEGs are raster graphics.</p>
+
+			
+
+			<p>The other graphic formats supported by B-Coder (bitmap, TIFF,
+
+            PCT, PCX, TGA, CTM, WPG, DRW, etc.) are provided for special situations
+			  or for specific
+
+            applications that have limited graphic support. They are all raster
+			  graphics so they
+
+            should only be used if you have no other choice.</p>
+
+			
+
+	        <table border="1" bordercolor="#000080" height="97" width="90%">
+
+          <tbody><tr>
+
+            <td colspan="2" height="18"><p>Imaging Device
+
+            Resolution in DPI*</p></td>
+
+          </tr>
+
+          <tr>
+
+            <td width="50%"><p>Bitmap Images</p></td>
+
+            <td width="50%"><p>100 - 400 dpi&nbsp;
+
+            (device dependent)</p></td>
+
+          </tr>
+
+          <tr>
+
+            <td width="50%"><p>Vector Images</p></td>
+
+            <td width="50%"><p>100 - 4000+ dpi (device
+
+            independent)</p></td>
+
+          </tr>
+
+          <tr>
+
+            <td height="10" valign="top" width="50%"><p>Thermal Bar Code
+
+            Printers</p></td>
+
+            <td height="10" valign="top" width="50%"><p>100 - 400 dpi (with
+
+            resident bar code formats)</p></td>
+
+          </tr>
+
+          <tr>
+
+            <td height="10" width="50%"><p>General Purpose Printers</p></td>
+
+            <td height="10" width="50%"><p>300 - 1200 dpi (laser, inkjet,
+
+            etc..)</p></td>
+
+          </tr>
+
+          <tr>
+
+            <td height="10" width="50%"><p>Imagesetters</p></td>
+
+            <td height="10" width="50%"><p>1200 - 4000+ dpi (e.g. Linotronic
+
+            printers)</p></td>
+
+          </tr>
+
+          <tr>
+
+            <td colspan="2" height="21" width="100%"><p>*Taken from
+
+            Guidelines for Providers of EAN/UPC Symbol Design Software</p></td>
+
+          </tr>
+
+        </tbody></table>
+
+      <br><br>
+      <p><img src="rastvect_files/seealso" alt="See Also:" border="0" height="13" width="64"><br>
+        <br>
+        <a href="http://www.taltech.com/TALtech_web/products/activex_barcodes.html">TALtech ActiveX Contol</a><br>
+        <a href="http://www.taltech.com/TALtech_web/products/barcode_software.html">TALtech B-Coder Bar Code
+        Software</a><br>
+        <a href="http://www.taltech.com/TALtech_web/products/dll_barcodes.html">TALtech Barcode DLLs</a> <br>
+        <a href="http://www.taltech.com/TALtech_web/resources/intro_to_bc/printper.htm">Printing Perfect Barcodes</a><br>
+        <a href="http://www.taltech.com/TALtech_web/resources/intro_to_bc/bcpwork.htm">How a Bar Code Reader Works</a><br>
+        <a href="http://www.taltech.com/TALtech_web/resources/intro_to_bc/bcsymbol.htm">Bar Code Symbology Descriptions</a></p>
+
+      
+
+
+
+</td>
+
+
+
+<td width="135">&nbsp;
+
+</td>
+
+
+
+</tr>
+
+
+
+
+
+
+
+
+
+<tr><td colspan="3"><hr color="#cc0033" noshade="noshade"></td></tr>
+
+
+
+
+
+<tr>
+
+<td colspan="3" align="right"><!--Footer-->
+
+<table border="0" cellpadding="0" cellspacing="0">
+<tbody><tr>
+<td><a href="http://www.taltech.com/TALtech_web/"><font face="Arial, Helvetica, Sans-Serif" size="1">TALtech Home</font></a></td>
+<td>&nbsp;|&nbsp;</td>
+<td><a href="http://www.taltech.com/TALtech_web/products/"><font face="Arial, Helvetica, Sans-Serif" size="1">Products</font></a></td>
+<td>&nbsp;|&nbsp;</td>
+<td><a href="http://www.taltech.com/TALtech_web/resources/"><font face="Arial, Helvetica, Sans-Serif" size="1">Resources</font></a></td>
+<td>&nbsp;|&nbsp;</td>
+<td><a href="http://www.taltech.com/cgi-bin/fs2k.cgi"><font face="Arial, Helvetica, Sans-Serif" size="1">Free Software</font></a></td>
+<td>&nbsp;|&nbsp;</td>
+<td><a href="http://www.taltech.com/TALtech_web/support/"><font face="Arial, Helvetica, Sans-Serif" size="1">Support</font></a></td>
+<td>&nbsp;|&nbsp;</td>
+<td><a href="https://taltech.securesites.com/cgi-bin/catalog2k2.cgi?ProdID="><font face="Arial, Helvetica, Sans-Serif" size="1">Buy Now</font></a></td>
+<td>&nbsp;|&nbsp;</td>
+<td><a href="http://www.taltech.com/TALtech_web/register.html"><font face="Arial, Helvetica, Sans-Serif" size="1">Register Your Products</font></a></td>
+<td>&nbsp;|&nbsp;</td>
+</tr></tbody></table>
+<table border="0" cellpadding="0" cellspacing="0">
+<tbody><tr>
+<td><a href="http://www.taltech.com/TALtech_web/tal_sitemap.html"><font face="Arial, Helvetica, Sans-Serif" size="1">Site Map</font></a></td>
+<td>&nbsp;|&nbsp;</td>
+<td><a href="http://www.taltech.com/TALtech_web/contact_tal.html"><font face="Arial, Helvetica, Sans-Serif" size="1">Contact TALtech</font></a></td>
+<td>&nbsp;|&nbsp;</td>
+<td><a href="http://www.taltech.com/TALtech_web/news/"><font face="Arial, Helvetica, Sans-Serif" size="1">News</font></a></td>
+</tr>
+</tbody></table>
+<!--End Footer-->
+
+
+</td> 
+
+</tr>
+
+</tbody></table>
+
+<!--End Content Table-->
+
+<br><br>
+
+
+</body></html>

@@ -1,0 +1,44 @@
+OS = 0A280105
+Message: 0x00000593(==>3867384), 468, 0
+SendCommand: '1'! dT = 5534083.80
+Kommando-Antwort:  1
+DeviceNo = 10000305,  10
+SendCommand: '2'! dT = 39.10
+Kommando-Antwort:  2
+Measurement = 3632
+SendCommand: '2'! dT = 1984.80
+Kommando-Antwort:  2
+Measurement = 4678
+SendCommand: '2'! dT = 921.40
+Kommando-Antwort:  2
+Measurement = 4663
+SendCommand: '2'! dT = 348.50
+Kommando-Antwort:  2
+Measurement = 3366
+SendCommand: '2'! dT = 482.70
+Kommando-Antwort:  2
+Measurement = 4320
+SendCommand: '2'! dT = 281.40
+Kommando-Antwort:  2
+Measurement = 3883
+SendCommand: '2'! dT = 190.20
+Kommando-Antwort:  2
+Measurement = 2453
+SendCommand: '2'! dT = 304.50
+Kommando-Antwort:  2
+Measurement = 3316
+SendCommand: '2'! dT = 242.30
+Kommando-Antwort:  2
+Measurement = 4747
+SendCommand: '2'! dT = 198.30
+Kommando-Antwort:  2
+Measurement = 3191
+SendCommand: '2'! dT = 187.30
+Kommando-Antwort:  2
+Measurement = 3139
+SendCommand: '2'! dT = 211.30
+Kommando-Antwort:  2
+Measurement = 2696
+SendCommand: '2'! dT = 152.20
+Kommando-Antwort:  2
+SendCommand: '3'! dT = 7519.80

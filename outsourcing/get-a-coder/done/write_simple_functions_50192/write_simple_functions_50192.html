@@ -1,0 +1,1692 @@
+<html><head><title>Write Simple C Functions (C++ / C, Linux, Microsoft Windows, UNIX)</title>
+<meta name="description" content="Outsourcing Write Simple C Functions. Project related to C++ / C, Linux, Microsoft Windows and UNIX. Post your project and Save up to 60% over traditional outsourcing."><meta name="keywords" content="Write Simple C Functions, c++, c, linux, microsoft windows, unix, freesmile"><meta name="author" content="www.getacoder.com"><meta name="robots" content="index,follow">  <link href="http://www.getacoder.com%20/rss.xml" rel="alternate" type="application/rss+xml" title="Latest projects"><link href="http://www.getacoder.com%20/projects/rss/web_design_development_42.xml" rel="alternate" type="application/rss+xml" title="Web Design Development Projects"><link href="http://www.getacoder.com%20/projects/rss/programming_113.xml" rel="alternate" type="application/rss+xml" title="Programming Projects"><link href="http://www.getacoder.com%20/projects/rss/database_development_133.xml" rel="alternate" type="application/rss+xml" title="Database Development Projects"><link href="http://www.getacoder.com%20/projects/rss/graphics_multimedia_62.xml" rel="alternate" type="application/rss+xml" title="Graphics Multimedia Projects"><link href="http://www.getacoder.com%20/projects/rss/miscellaneous_182.xml" rel="alternate" type="application/rss+xml" title="Miscellaneous Projects"><link href="http://www.getacoder.com%20/projects/rss/marketing_promotion_77.xml" rel="alternate" type="application/rss+xml" title="Marketing Promotion Projects"><link href="http://www.getacoder.com%20/projects/rss/gaming_86.xml" rel="alternate" type="application/rss+xml" title="Gaming Projects"><link href="http://www.getacoder.com%20/projects/rss/writing_139.xml" rel="alternate" type="application/rss+xml" title="Writing Projects"><link href="http://www.getacoder.com%20/projects/rss/computer_platforms_54.xml" rel="alternate" type="application/rss+xml" title="Computer Platforms Projects"><link href="http://www.getacoder.com%20/projects/rss/engineering_90.xml" rel="alternate" type="application/rss+xml" title="Engineering Projects"><meta http-equiv="pragma" content="no-cache"><meta http-equiv="cache-control" content="no-cache"><meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"><style type="text/css"><!--TEXTAREA {font-size : 13px;color : #000000;font-weight: normal;}.cp{cursor:pointer;cursor:hand}.bordertable {border: 0px #6699CC solid;}.bordertable2 {border-top: 1px solid #999999;border-right: 0px solid #999999;border-bottom: 1px solid #999999;border-left: 0px solid #999999;}TH {font-size : 13px;color : #FFFFFF;font-weight : bold;background-color : #6699CC;text-align : left;}A {font-weight: normal;text-decoration: underline;}A:hover {font-weight: normal;text-decoration: underline;}.quote {font-weight: bold;color: #000000;text-decoration: none;}.quote:hover {font-weight: bold;color: #000000;text-decoration: underline;}.textad {font-weight: bold;color: #FFFFFF;text-decoration: none;}.textad:hover {font-weight: bold;text-decoration: underline;}strong, b{font-weight : bold;}small {font-size : 12;}big {font-size: 14px; font-weight : bold;}.footer { color : #FFFFFF;font-weight : bold;text-decoration: none;; }.footer:hover { color : #FFFFFF;font-weight : bold;; }.downtopmenu { color : #000066;font-size: 12px;font-weight : bold;text-decoration: none;;}.downmenu { color : #000066;font-size: 12px;font-weight : normal;text-decoration: none;; }.downmenu:hover { color : #000066;font-size: 12px;font-weight : normal;;}.menu { color : #000000;font-size: 13px;font-weight : normal;text-decoration: none;; }.menu:hover { color : #000000;font-size: 13px;font-weight : normal;; }.catmenu { color : #000000;font-size: 10px;font-weight : normal;text-decoration: none;; }.catmenu:hover { color : #000000;font-size: 10px;font-weight : normal;; }.upmenu { color : #ffffff;font-size: 12px;font-weight : bold;text-decoration: none;; }.upmenu:hover { color : #ffffff;font-size: 12px;font-weight : bold;; }.searchedit {border: 1px #000000 solid;width: 90; }.job { color : #000000;font-weight : normal;font-size: 10;text-decoration: none;}.job:hover { color : #000000;font-size: 10;font-weight : normal;}.edit { font-size : 10px;color : #000000;font-weight: normal;; border: 1px #000000 solid;margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; clip:rect(0px 0px 0px 0px); left: 0px; top: 0px; clear: none; float: none; position: static; height: 19px; background-position: 0px} BODY { font-family : Arial, Helvetica, sans-serif;font-size : 13px;color : #000000;font-weight: normal;} FORM { font-size : 13px;color : #000000;font-weight: normal;} INPUT { font-size : 13px;color : #000000;font-weight: normal;} SELECT { font-size : 13px;color : #000000;font-weight: normal;} TD {FONT-WEIGHT: normal; FONT-SIZE: 13px; COLOR: #000000}table {font-family: arial, helvetica, sans-serif; font-size: 10pt; color: #000000}.lightblue {background-color: #99B7DD}.white {background-color: #FFFFFF}.dark {background-color: #6D8CB3}.whitesmall {font-family: arial, helvetica, sans-serif; font-size: 9pt; color: #FFFFFF}.lighteryellow {background-color: #FDF8D4}.smaller {font-family: arial, helvetica, sans-serif; font-size: 11px; color: #000000}.small {font-family: arial, helvetica, sans-serif; font-size: 9pt; color: #000000}.lightyellow {background-color: #FDF8D4}.light {background-color: #EEEEEE} --></style><style>
+<!--
+
+.atd{
+	background-color: #162E45;
+	text-align: center;
+	width: 100px;
+	height: 20px;
+}
+.natd{
+	background-color: #9d9d9d;
+	text-align: center;
+	width: 100px;
+	height: 20px;
+}
+
+.featurelink{
+	color: White;
+	font-size: 9pt;
+	text-decoration: none;
+}
+.featurelink:hover{
+	text-decoration: none;
+}
+
+
+-->
+</style></head><body leftmargin="0" topmargin="0" rightmargin="0" alink="#666666" bgcolor="#ffffff" link="#000000" marginheight="0" marginwidth="0" text="#000000" vlink="#333333"><div style="width: 100%; background-color: rgb(255, 255, 255);" name="contain">  <table border="0" cellpadding="0" cellspacing="0" height="98" width="100%"><tbody><tr> <td height="60" width="1%">&nbsp; </td><td align="left" valign="bottom"><a href="http://www.getacoder.com/"><img alt="GetACoder.com" src="write_simple_functions_50192_files/getacoder.gif" align="left" border="0" height="43" width="200"></a><br> <br> &nbsp;</td><td valign="baseline"><div align="right"> <table border="0" cellpadding="0" cellspacing="0"><tbody><tr> <td> </td></tr></tbody></table></div></td><td width="1%"></td></tr><tr> <td height="16" width="1%">&nbsp; </td><td colspan="2" bgcolor="#316293" height="16"><table style="border-collapse: collapse;" id="AutoNumber10" border="0" bordercolor="#111111" cellpadding="5" cellspacing="0" width="100%">
+            <tbody><tr>
+              <td align="left"><p style="margin-top: 2px;"><a class="menu" href="http://www.getacoder.com/"> 
+                  <font style="font-size: 9pt;" color="#f7f7f7">Home</font></a><font style="font-size: 9pt;" color="#f7f7f7"> 
+                  | </font><a class="menu" href="https://www.getacoder.com/users/manage.php"><font style="font-size: 9pt;" color="#f7f7f7">My 
+                  Account</font></a><font style="font-size: 9pt;" color="#f7f7f7"> 
+                  | </font><a class="menu" href="http://www.getacoder.com/buyers/create.php"><font style="font-size: 9pt;" color="#f7f7f7">Post 
+                  Project</font></a><font style="font-size: 9pt;" color="#f7f7f7"> 
+                  | </font><a class="menu" href="http://www.getacoder.com/projects/all_projects_0.htm"><font style="font-size: 9pt;" color="#f7f7f7">Browse 
+                  Projects</font></a><font style="font-size: 9pt;" color="#f7f7f7"> 
+                  | </font><a class="menu" href="http://www.getacoder.com/rss/rss_feeds.html"><font style="font-size: 9pt;" color="#f7f7f7">RSS 
+                  Feeds</font></a> <font color="#ffcc66"><strong>New!</strong></font> 
+                </p></td>
+              <td align="left"> </td>
+            </tr>
+          </tbody></table></td><td height="16" width="1%"></td></tr><tr> <td height="16" width="1%">&nbsp; </td><td colspan="2" bgcolor="#000000" height="16"><table style="border-collapse: collapse;" id="AutoNumber15" border="0" bordercolor="#111111" cellpadding="0" cellspacing="0" width="100%"><tbody><tr> <td width="100%"><p style="margin-left: 40px; margin-top: 0pt; margin-bottom: 0pt;" align="left"> <font style="font-size: 18px;" color="#fefefe" face="Arial">Write Simple C Functions</font></p></td><td width="100%"><img src="write_simple_functions_50192_files/gacglobe.jpg" align="left" border="0" height="100" hspace="0" width="400"></td></tr></tbody></table></td><td height="16" width="1%"></td></tr><tr> <td width="1%"></td><td colspan="2"><table align="center" border="0" cellpadding="0" cellspacing="0" width="100%"><tbody><tr align="center"> <td bgcolor="#000000" height="2" valign="top"></td></tr></tbody></table></td><td width="1%"></td></tr></tbody></table> <table align="center" border="0" cellpadding="0" cellspacing="0" width="98%">
+
+<script>function report(bid){if (window.confirm('Are you sure that this bidder violates GetACoder terms?'))window.open('../report/onviolationpopup.php?bid='+bid,'','width=400, height=300, left=100,top=100,menu=no, toolbar=no,scrollbars=yes');return false;}</script>
+
+<tbody><tr>
+
+  <td><table align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
+
+      <script>function report(bid){if (window.confirm('Are you sure that this bidder violates GetACoder terms?'))window.open('../report/onviolationpopup.php?bid='+bid,'','width=400, height=300, left=100,top=100,menu=no, toolbar=no,scrollbars=yes');return false;}</script>
+
+      <tbody><tr>
+
+        <td>&nbsp;</td>
+
+      </tr>
+
+      <tr>
+
+        <td><table class="bordertable" style="border-color: rgb(0, 0, 0); border-width: 0pt; border-collapse: collapse;" border="0" bordercolor="#111111" cellpadding="0" cellspacing="0" width="100%">
+
+            <tbody><tr>
+
+              <td style="border-left: 1px solid; padding: 1px 4px;" bordercolor="#000000" bgcolor="#ffffff" valign="top" width="1"></td>
+
+              <td valign="top">
+              <table align="right" border="0" cellpadding="0" cellspacing="0">
+
+                  <tbody><tr>
+
+                    <td valign="top"></td>
+
+                    <td bordercolor="#dfdfdf" valign="top">
+                    <table style="border-collapse: collapse; width: 58%;" align="right" border="0" bordercolor="#111111" cellpadding="0" cellspacing="0">
+
+                        <tbody><tr>
+
+                          <td valign="top">&nbsp; </td>
+
+                          <td>  <div align="right"><table id="AutoNumber25" style="border-collapse: collapse; font-size: 10pt; color: rgb(0, 0, 0); font-family: arial,helvetica,sans-serif;" border="1" bordercolor="#111111" cellpadding="0" cellspacing="0" width="100%">
+	<tbody><tr>
+	  <td style="border-top: 1px solid; border-right: 1px solid; font-weight: normal; font-size: 13px; color: rgb(0, 0, 0);" bgcolor="#fefceb" valign="top">
+	  <table style="font-size: 10pt; color: rgb(0, 0, 0); font-family: arial,helvetica,sans-serif;" border="0" cellpadding="3" cellspacing="5" width="100%">
+	    <tbody><tr>
+	
+	      <td style="font-weight: normal; font-size: 13px; color: rgb(0, 0, 0);" valign="top" width="50%">
+	      <b style="font-weight: bold;">
+	      Recent GetACoder Articles:</b>
+	      <ul>
+	       
+	       <li>
+	       <a href="http://articles.getacoder.com/Why_Purchasing_Leads_Dont_Work_Most_Of_The_Time_398414.htm" style="font-weight: normal; text-decoration: underline;">Why Purchasing Leads Don't Work Most Of The Time
+	       
+	       </a></li>
+<a href="http://articles.getacoder.com/Why_Purchasing_Leads_Dont_Work_Most_Of_The_Time_398414.htm" style="font-weight: normal; text-decoration: underline;">	       
+	       
+	       </a><li>
+<a href="http://articles.getacoder.com/Why_Purchasing_Leads_Dont_Work_Most_Of_The_Time_398414.htm" style="font-weight: normal; text-decoration: underline;">	       </a><a href="http://articles.getacoder.com/Defining_Categories_For_Your_Web_Directory_400044.htm" style="font-weight: normal; text-decoration: underline;">Defining Categories For Your Web Directory
+	       
+	       </a></li>
+<a href="http://articles.getacoder.com/Defining_Categories_For_Your_Web_Directory_400044.htm" style="font-weight: normal; text-decoration: underline;">	       
+	       
+	       </a><li>
+<a href="http://articles.getacoder.com/Defining_Categories_For_Your_Web_Directory_400044.htm" style="font-weight: normal; text-decoration: underline;">	       </a><a href="http://articles.getacoder.com/Conceptual_Model_&amp;_Intuitiveness_408943.htm" style="font-weight: normal; text-decoration: underline;">Conceptual Model &amp; Intuitiveness
+	       
+	       </a></li>
+<a href="http://articles.getacoder.com/Conceptual_Model_&amp;_Intuitiveness_408943.htm" style="font-weight: normal; text-decoration: underline;">	       
+	       
+	       </a><li>
+<a href="http://articles.getacoder.com/Conceptual_Model_&amp;_Intuitiveness_408943.htm" style="font-weight: normal; text-decoration: underline;">	       </a><a href="http://articles.getacoder.com/Make_Money_on_eBay_-_Buy_Resale_Products_at_Reasonable_Prices_400823.htm" style="font-weight: normal; text-decoration: underline;">Make Money on eBay - Buy Resale Products at Reasonable Prices
+	       
+	       </a></li>
+<a href="http://articles.getacoder.com/Make_Money_on_eBay_-_Buy_Resale_Products_at_Reasonable_Prices_400823.htm" style="font-weight: normal; text-decoration: underline;">	       
+	       
+	       </a><li>
+<a href="http://articles.getacoder.com/Make_Money_on_eBay_-_Buy_Resale_Products_at_Reasonable_Prices_400823.htm" style="font-weight: normal; text-decoration: underline;">	       </a><a href="http://articles.getacoder.com/Free_Reverse_Number_Lookup_-_How_To_Dig_Up_Anything_On_Anybody_398044.htm" style="font-weight: normal; text-decoration: underline;">Free Reverse Number Lookup - How To Dig Up Anything On Anybody
+	       
+	       </a></li>
+<a href="http://articles.getacoder.com/Free_Reverse_Number_Lookup_-_How_To_Dig_Up_Anything_On_Anybody_398044.htm" style="font-weight: normal; text-decoration: underline;">	       
+	       
+	       </a><li>
+<a href="http://articles.getacoder.com/Free_Reverse_Number_Lookup_-_How_To_Dig_Up_Anything_On_Anybody_398044.htm" style="font-weight: normal; text-decoration: underline;">	       </a><a href="http://articles.getacoder.com/Heavy_Equipment_Training,_Behind_the_Wheel_and_You_396964.htm" style="font-weight: normal; text-decoration: underline;">Heavy Equipment Training, Behind the Wheel and You
+	       
+	       </a></li>
+<a href="http://articles.getacoder.com/Heavy_Equipment_Training,_Behind_the_Wheel_and_You_396964.htm" style="font-weight: normal; text-decoration: underline;">	       
+	       
+	       </a><li>
+<a href="http://articles.getacoder.com/Heavy_Equipment_Training,_Behind_the_Wheel_and_You_396964.htm" style="font-weight: normal; text-decoration: underline;">	       </a><a href="http://articles.getacoder.com/7_Tips_for_a_Successful_Business_Venture_397191.htm" style="font-weight: normal; text-decoration: underline;">7 Tips for a Successful Business Venture
+	       
+	       </a></li>
+<a href="http://articles.getacoder.com/7_Tips_for_a_Successful_Business_Venture_397191.htm" style="font-weight: normal; text-decoration: underline;">	       
+	       
+	       </a><li>
+<a href="http://articles.getacoder.com/7_Tips_for_a_Successful_Business_Venture_397191.htm" style="font-weight: normal; text-decoration: underline;">	       </a><a href="http://articles.getacoder.com/Direct_Mail_Makes_A_Comeback_396161.htm" style="font-weight: normal; text-decoration: underline;">Direct Mail Makes A Comeback
+	       
+	       </a></li>
+<a href="http://articles.getacoder.com/Direct_Mail_Makes_A_Comeback_396161.htm" style="font-weight: normal; text-decoration: underline;">	       
+	       
+	       </a><li>
+<a href="http://articles.getacoder.com/Direct_Mail_Makes_A_Comeback_396161.htm" style="font-weight: normal; text-decoration: underline;">	       </a><a href="http://articles.getacoder.com/How_to_Choose_the_Best_Home_Business_for_You_397252.htm" style="font-weight: normal; text-decoration: underline;">How to Choose the Best Home Business for You
+	       
+	       </a></li>
+<a href="http://articles.getacoder.com/How_to_Choose_the_Best_Home_Business_for_You_397252.htm" style="font-weight: normal; text-decoration: underline;">	       
+	       
+	       </a><li>
+<a href="http://articles.getacoder.com/How_to_Choose_the_Best_Home_Business_for_You_397252.htm" style="font-weight: normal; text-decoration: underline;">	       </a><a href="http://articles.getacoder.com/Do_One_Thing,_and_Do_It_Well_408016.htm" style="font-weight: normal; text-decoration: underline;">Do One Thing, and Do It Well
+	       
+	       </a></li>
+<a href="http://articles.getacoder.com/Do_One_Thing,_and_Do_It_Well_408016.htm" style="font-weight: normal; text-decoration: underline;">	       
+	       
+	       </a><li>
+<a href="http://articles.getacoder.com/Do_One_Thing,_and_Do_It_Well_408016.htm" style="font-weight: normal; text-decoration: underline;">	       </a><a href="http://articles.getacoder.com/Generating_Real_Estate_Leads_409589.htm" style="font-weight: normal; text-decoration: underline;">Generating Real Estate Leads
+	       
+	       </a></li>
+<a href="http://articles.getacoder.com/Generating_Real_Estate_Leads_409589.htm" style="font-weight: normal; text-decoration: underline;">	       
+	       
+	       </a><li>
+<a href="http://articles.getacoder.com/Generating_Real_Estate_Leads_409589.htm" style="font-weight: normal; text-decoration: underline;">	       </a><a href="http://articles.getacoder.com/Credit_Card_Theft_Hurts_Retailers_and_Credit_Card_Consumers_401831.htm" style="font-weight: normal; text-decoration: underline;">Credit Card Theft Hurts Retailers and Credit Card Consumers
+	       
+	       </a></li>
+<a href="http://articles.getacoder.com/Credit_Card_Theft_Hurts_Retailers_and_Credit_Card_Consumers_401831.htm" style="font-weight: normal; text-decoration: underline;">	       
+	       
+	       </a><li>
+<a href="http://articles.getacoder.com/Credit_Card_Theft_Hurts_Retailers_and_Credit_Card_Consumers_401831.htm" style="font-weight: normal; text-decoration: underline;">	       </a><a href="http://articles.getacoder.com/In_Times_Of_Great_Debt,_Who_Do_You_Pay_402820.htm" style="font-weight: normal; text-decoration: underline;">In Times Of Great Debt, Who Do You Pay?
+	       
+	       </a></li>
+<a href="http://articles.getacoder.com/In_Times_Of_Great_Debt,_Who_Do_You_Pay_402820.htm" style="font-weight: normal; text-decoration: underline;">	       
+	       
+	       </a><li>
+<a href="http://articles.getacoder.com/In_Times_Of_Great_Debt,_Who_Do_You_Pay_402820.htm" style="font-weight: normal; text-decoration: underline;">	       </a><a href="http://articles.getacoder.com/The_Law_in_South_Africa_409458.htm" style="font-weight: normal; text-decoration: underline;">The Law in South Africa
+	       
+	       </a></li>
+<a href="http://articles.getacoder.com/The_Law_in_South_Africa_409458.htm" style="font-weight: normal; text-decoration: underline;">	       
+	       
+	       </a><li>
+<a href="http://articles.getacoder.com/The_Law_in_South_Africa_409458.htm" style="font-weight: normal; text-decoration: underline;">	       </a><a href="http://articles.getacoder.com/How_To_Save_Money_and_Get_Discount_Automobile_Insurance_in_Arizona_409378.htm" style="font-weight: normal; text-decoration: underline;">How To Save Money and Get Discount Automobile Insurance in Arizona
+	       
+	       </a></li>
+<a href="http://articles.getacoder.com/How_To_Save_Money_and_Get_Discount_Automobile_Insurance_in_Arizona_409378.htm" style="font-weight: normal; text-decoration: underline;">	       
+	       
+	       
+	      </a></ul>
+<a href="http://articles.getacoder.com/How_To_Save_Money_and_Get_Discount_Automobile_Insurance_in_Arizona_409378.htm" style="font-weight: normal; text-decoration: underline;">	      </a></td>
+	    </tr>
+	  </tbody></table>
+	  </td>
+	
+	</tr>
+	</tbody></table>
+</div></td>
+
+                        </tr>
+
+                      </tbody></table>
+
+                      <table align="right" border="0" cellpadding="0" cellspacing="0">
+
+                        <tbody><tr>
+
+                          <td valign="top">&nbsp; </td>
+
+                          <td bordercolor="#666666" valign="top">
+
+                              &nbsp;&nbsp;&nbsp; 
+
+                            </td>
+
+                        </tr>
+
+                        <tr>
+
+                          <td height="5" valign="top"></td>
+
+                          <td style="padding: 0pt;" bordercolor="#666666" height="5" valign="top"></td>
+
+                        </tr>
+
+                      </tbody></table>
+
+                      <table border="0" cellpadding="2" cellspacing="0">
+                        <tbody><tr> 
+                          <td valign="top" width="120"><font style="font-size: 9pt;" face="Verdana, Arial, Helvetica, sans-serif"><b>Budget:</b></font></td>
+                          <td><small>$&nbsp;20-100</small></td>
+                        </tr>
+                        <tr> 
+                          <td valign="top" width="120"><font style="font-size: 9pt;" face="Verdana, Arial, Helvetica, sans-serif"><b>Status:</b></font></td>
+                          <td><small> <font color="#ff0000">Frozen</font> 
+                             ( awaiting action from 
+                            <a href="http://www.getacoder.com/users/TechnoVilla/TechnoVilla_profile.htm"><b>TechnoVilla</b></a> 
+                            )  
+                              
+                            </small></td>
+                        </tr>
+                        <tr> 
+                          <td valign="top"><font style="font-size: 9pt;" face="Verdana, Arial, Helvetica, sans-serif"><b>Project 
+                            Creator:</b></font></td>
+                          <td> <table border="0" cellpadding="0" cellspacing="0">
+                              <tbody><tr> 
+                                <td><a title="view profile" class="menu" style="font-size: 10pt;" href="http://www.getacoder.com/users/freesmile/freesmile_buyer_profile.htm">freesmile</a>&nbsp;&nbsp; 
+                                </td>
+                                <td><a title="send message" style="font-size: 7pt;" href="#" onclick="window.open('../pmb/private.php?id=50192&to=264288#view','','width=640, height=540, left=100,top=100,menu=no, toolbar=no,scrollbars=yes');return false;"> <img src="write_simple_functions_50192_files/send_message.gif" border="0" height="16" width="46"></a></td>
+                              </tr>
+                            </tbody></table>
+                            
+                          </td>
+                        </tr>
+                        <tr> 
+                          <td valign="top">&nbsp;</td>
+                          <td> <small> <a href="http://www.getacoder.com/users/freesmile/freesmile_buyer_feedback.htm"><img alt="10.00/10" src="write_simple_functions_50192_files/star.gif" border="0"><img alt="10.00/10" src="write_simple_functions_50192_files/star.gif" border="0"><img alt="10.00/10" src="write_simple_functions_50192_files/star.gif" border="0"><img alt="10.00/10" src="write_simple_functions_50192_files/star.gif" border="0"><img alt="10.00/10" src="write_simple_functions_50192_files/star.gif" border="0"><img alt="10.00/10" src="write_simple_functions_50192_files/star.gif" border="0"><img alt="10.00/10" src="write_simple_functions_50192_files/star.gif" border="0"><img alt="10.00/10" src="write_simple_functions_50192_files/star.gif" border="0"><img alt="10.00/10" src="write_simple_functions_50192_files/star.gif" border="0"><img alt="10.00/10" src="write_simple_functions_50192_files/star.gif" border="0"></a> 
+                            <a href="http://www.getacoder.com/users/freesmile/freesmile_buyer_feedback.htm">1 
+                            reviews</a>   
+                            </small><small></small></td>
+                        </tr>
+                         
+                        <tr> 
+                          <td valign="top" width="120"><font style="font-size: 9pt;" face="Verdana, Arial, Helvetica, sans-serif"><b>Required 
+                            Skills:</b></font></td>
+                          <td><small><a href="http://www.getacoder.com/projects/c_118.htm" class="catmenu" style="font-size: 9pt;">C++ / C</a>, 
+                            <a href="http://www.getacoder.com/projects/linux_57.htm" class="catmenu" style="font-size: 9pt;">Linux</a>, 
+                            <a href="http://www.getacoder.com/projects/microsoft_windows_60.htm" class="catmenu" style="font-size: 9pt;">Microsoft Windows</a>, 
+                            <a href="http://www.getacoder.com/projects/unix_61.htm" class="catmenu" style="font-size: 9pt;">UNIX</a> <small> 
+                          </small></small></td>
+                        </tr>
+                         
+                        <tr> 
+                          <td valign="top" width="120"><font style="font-size: 9pt;" face="Verdana, Arial, Helvetica, sans-serif"><b>Attached 
+                            Files:</b></font></td>
+                          <td><small> 
+                             <a href="http://www.getacoder.com/data/projects/50192/Problem_statement.doc">Problem_statement.doc</a><br>
+                             <small></small></small></td>
+                        </tr>
+                      </tbody></table>
+
+                      &nbsp;
+
+                      <table border="0" cellpadding="0" cellspacing="0" height="51" width="295">
+
+                        <tbody><tr>
+
+                          <td background="write_simple_functions_50192_files/bckg_new.gif" height="43" valign="top" width="20%"><center>
+
+                              <a title="post new project" href="http://www.getacoder.com/buyers/create.php"><img src="write_simple_functions_50192_files/new.gif" alt="post new project" border="0" height="40" width="48"></a></center></td>
+
+                          <td background="write_simple_functions_50192_files/bckg_send.gif" height="43" valign="top" width="20%"><center>
+
+                              <a href="#" title="email this project" class="menu" onclick="window.open('../projects/emailproject.php?id=50192#view','','width=400, height=300, left=100,top=100,menu=no,toolbar=no,scrollbars=no');return false;"><img src="write_simple_functions_50192_files/small_email.gif" alt="email this project" border="0" height="40" width="48"></a></center></td>
+
+                          <td background="write_simple_functions_50192_files/bckg_discuss.gif" height="43" valign="top" width="20%"><center>
+
+                              <a href="#" title="discuss this project" class="menu" onclick="window.open('../pmb/messageboard.php?id=50192#view','','width=640, height=540, left=100,top=100,menu=no,toolbar=no,scrollbars=yes');return false;"><img src="write_simple_functions_50192_files/small_discuss.gif" alt="discuss this project" border="0" height="40" width="48"></a></center></td>
+
+                          <td background="write_simple_functions_50192_files/bckg_contact.gif" height="43" valign="top" width="20%"><center>
+
+                              <a title="send private message to project creator" class="menu" style="font-size: 7pt;" href="#" onclick="window.open('../pmb/private.php?id=50192&to=264288#view','','width=640, height=540, left=100,top=100,menu=no, toolbar=no,scrollbars=yes');return false;"><img src="write_simple_functions_50192_files/small_contact.gif" alt="send private message to project creator" border="0" height="40" width="48"></a></center></td>
+
+                          <td background="write_simple_functions_50192_files/bckg_options.gif" height="43" valign="top" width="20%"><center>
+                              <a title="more options" href="#options"><img src="write_simple_functions_50192_files/small_options.gif" alt="more options" border="0" height="40" width="48"></a> 
+                            </center></td>
+
+                        </tr>
+
+                        <tr>
+
+                          <td class="linksblack" height="8"><center>
+
+                              <p style="margin-top: 0pt; margin-bottom: 0pt;"><font face="Verdana"><a title="post new project" class="menu" href="http://www.getacoder.com/buyers/create.php"><span style="font-size: 6pt; text-decoration: none;">NEW</span></a></font></p>
+
+                            </center></td>
+
+                          <td class="linksblack" height="8"><center>
+
+                              <p class="buttons" style="margin-top: 0pt; margin-bottom: 0pt;"><font face="Verdana"><a href="#" title="email this project" class="menu" onclick="window.open('../projects/emailproject.php?id=50192#view','','width=400, height=300, left=100,top=100,menu=no,toolbar=no,scrollbars=no');return false;"><span style="font-size: 6pt; text-decoration: none;">SEND</span></a></font></p>
+
+                            </center></td>
+
+                          <td class="linksblack" height="8"><center class="linksblack">
+
+                              <p class="buttons" style="margin-top: 0pt; margin-bottom: 0pt;"><font face="Verdana"><a href="#" title="discuss this project" class="menu" onclick="window.open('../pmb/messageboard.php?id=50192#view','','width=640, height=540, left=100,top=100,menu=no,toolbar=no,scrollbars=yes');return false;"><span style="font-size: 6pt; text-decoration: none;">DISCUSS</span></a></font></p>
+
+                            </center></td>
+
+                          <td class="linksblack" height="8"><center>
+
+                              <p class="buttons" style="margin-top: 0pt; margin-bottom: 0pt;"><font face="Verdana"><a title="send private message to project creator" class="menu" style="font-size: 7pt;" href="#" onclick="window.open('../pmb/private.php?id=50192&to=264288#view','','width=640, height=540, left=100,top=100,menu=no, toolbar=no,scrollbars=yes');return false;"><span style="font-size: 6pt; text-decoration: none;">CONTACT</span></a></font></p>
+
+                            </center></td>
+
+                          <td class="linksblack" height="8"><center>
+
+                              <p class="buttons" style="margin-top: 0pt; margin-bottom: 0pt;"><font face="Verdana"><a title="more options" class="menu" href="#options"><span style="font-size: 6pt; text-decoration: none;">OPTIONS</span></a></font></p>
+
+                            </center></td>
+
+                        </tr>
+
+                      </tbody></table>
+
+                      <p><b>Description</b><br>
+
+                        This is simple project. Simple functions has to be written. Please see the document attached.   
+
+                      </p><p><b>Additional information:</b><br>
+
+                        <font style="font-size: 8pt;"><i>Submitted on 04/27/2007 at 9:15 EDT</i></font><br>
+                        Maximum bid is 25 dollars   
+						
+						
+                      </p><p><b>Reminder</b> <br>
+
+                        You may not start working in this and any project before 
+
+                        your bid is accepted. Any user who violates this policy 
+
+                        may have their account permanently suspended.</p>
+                      
+                      <p><a name="options"></a> 
+
+                      <table id="AutoNumber3" style="border-collapse: collapse;" border="0" bordercolor="#111111" cellpadding="0" cellspacing="0">
+
+                        <form name="orderForm"></form>
+                        
+                        
+                        
+                        
+                       
+                       
+                          <tbody><tr>
+
+                            <td bgcolor="#162e45" width="1%">
+                            <table style="border-collapse: collapse;" id="AutoNumber16" bgcolor="White" border="0" bordercolor="#111111" cellpadding="0" cellspacing="0" width="100%">
+
+                                <tbody><tr>
+
+                                 <td class="atd">
+                                     <a href="http://www.getacoder.com/projects/write_simple_functions_50192.html#options" class="featurelink"><nobr>&nbsp;Bids Received&nbsp;(8)&nbsp;</nobr></a>
+                                 </td>
+                                 <td width="1"><img src="write_simple_functions_50192_files/spacer.html" border="0" height="1" width="5"></td>
+                                 <td class="natd">
+                                 	 <a href="http://www.getacoder.com/projects/write_simple_functions_50192_shortlist.html#options" class="featurelink"><nobr>&nbsp;Shortlist&nbsp;(0)&nbsp;</nobr></a>
+                                 </td>
+                                 <td width="1"><img src="write_simple_functions_50192_files/spacer.html" border="0" height="1" width="5"></td>
+								 <td class="natd">
+								 	<a href="http://www.getacoder.com/projects/write_simple_functions_50192_decline.html#options" class="featurelink"><nobr>&nbsp;Declined Bids&nbsp;(0)&nbsp;</nobr></a>
+								 </td>
+								 <td width="1"><img src="write_simple_functions_50192_files/spacer.html" border="0" height="1" width="5"></td>
+                                 <td width="70">&nbsp;</td>
+								 <td>
+								 	<table border="0" cellpadding="0" cellspacing="0">
+								 		<tbody><tr>
+								 			<td>Average bid amount:</td>
+								 			<td>&nbsp;</td>
+								 			<td><b>$36.88</b></td>
+								 			<td width="10">&nbsp;</td>
+								 			<td>Average delivery time:</td>
+								 			<td>&nbsp;</td>
+								 			<td><b>2 Day(s)</b></td>
+								 			
+								 			
+								 		</tr>
+								 	</tbody></table>
+								 
+								 </td>
+								 <td>
+								 </td>
+                                </tr>
+                             </tbody></table>
+                           </td>
+
+                         </tr>
+                          
+						 <tr> <td bgcolor="#162e45" height="3"></td></tr>
+						 
+						 
+                         
+                         
+                       
+                           
+                        
+
+                          <tr>
+
+                            <td bgcolor="#316293" width="1%">
+                            <table style="border-collapse: collapse;" id="AutoNumber16" border="0" bordercolor="#111111" cellpadding="3" cellspacing="0" width="100%">
+								
+                                <tbody><tr>
+
+                                  <td>  <font style="font-size: 9pt;" color="#ffffff">
+                                  
+                                    
+                                    <a href="http://www.getacoder.com/buyers/create.php" class="menu"><font style="font-size: 9pt;" color="#ffffff">Post 
+                                    Similar Project</font></a> | <a href="#" class="menu" onclick="window.open('../projects/emailproject.php?id=50192#view','','width=400, height=300, left=100,top=100,menu=no,toolbar=no,scrollbars=no');return false;"><font style="font-size: 9pt;" color="#ffffff">Send 
+                                    Project</font></a> | <a href="#" class="menu" onclick="window.open('../pmb/messageboard.php?id=50192#view','','width=640, height=540, left=100,top=100,menu=no,toolbar=no,scrollbars=yes');return false;"> 
+                                    <font style="font-size: 9pt;" color="#ffffff">Message 
+                                    Board(0)</font></a> 
+                                    | <a href="#" class="menu" onclick="window.open('../pmb/private.php?id=50192&to=264288#view','','width=640, height=540, left=100,top=100,menu=no, toolbar=no,resizable=yes,scrollbars=yes');return false;"> 
+                                    <font style="font-size: 9pt;" color="#ffffff">Contact 
+                                    freesmile</font></a></font>
+                                    
+                                   
+                                     </td>
+
+                                  <td><p align="right"><font color="#ffffff"><span style="font-size: 8pt;">Order 
+
+                                      by: 
+
+                                      <select name="ord" class="edit" onchange="document.forms.orderForm.submit()" style="font-size: 12px; color: rgb(0, 0, 0); font-weight: normal; width: 70px;">
+
+                                        <option value="rating">Rating</option>
+
+                                        <option value="bidsum">Bid 
+
+                                        sum</option>
+
+                                        <option value="biddate">Bid 
+
+                                        date</option>
+
+                                      </select>
+
+                                      </span></font></p></td>
+
+                                </tr>
+
+                        
+                             </tbody></table>
+                           </td>
+
+                          </tr>
+                          
+                          
+
+                          <tr>
+
+                            <td bgcolor="#fefceb" width="1%">&nbsp;</td>
+
+                          </tr>
+                          
+						  
+							
+						
+							
+							
+							
+                          <tr>
+
+                            <td bgcolor="#fefceb" width="100%"><p style="margin-left: 10px; margin-right: 10px;"><font style="font-size: 8pt;">Remember 
+
+                                that contacting the other party outside the site 
+
+                                (by email, phone, etc.) on all business projects 
+
+                                (before the project is awarded) is a violation 
+
+                                of our terms of use. We supervise all site activity 
+
+                                for such infringements and can immediately expel 
+
+                                transgressors on the spot, so we thank you in 
+
+                                advance for your cooperation. If you notice a 
+
+                                violation please <a href="http://www.getacoder.com/report/violation.php">help 
+
+                                out the site and report it</a>. Thank you for your 
+
+                                help.</font><br>
+
+                                &nbsp;</p></td>
+
+                          </tr>
+
+                          
+
+                      </tbody></table>
+					                          <table class="lightyellow" style="border-width: 0px; border-collapse: collapse; background-color: rgb(49, 98, 147);" border="1" bordercolor="#cccccc" cellpadding="0" cellspacing="0">
+                          <tbody>
+                          <tr valign="center">
+                            <td class="small" style="border: medium none ;" bordercolor="#316293" bgcolor="#316293" height="5" width="1%"><span style="font-size: 2pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td></tr></tbody></table>
+
+ 					  <a name="bid_0">
+                      
+						
+                      </a><table style="border-collapse: collapse; border-bottom-width: 0pt;" border="1" bordercolor="#cccccc" cellpadding="0" cellspacing="0">
+					    <tbody><tr class="lightyellow">
+
+                          <td style="border: medium none ;" width="1%">
+                          <table cellpadding="5" cellspacing="0" height="103">
+
+                              <tbody><tr valign="center">
+                              	<td valign="top" width="2%">
+                              		<table border="0" cellpadding="0" cellspacing="0">
+                          				<tbody><tr>
+											<td align="center" valign="top">
+												<a title="" href="#" onclick="window.open('../pmb/private.php?id=50192&to=246571#view','','width=640, height=540, left=100,top=100,menu=no, toolbar=no,scrollbars=yes');return false;">
+                                    				<img src="write_simple_functions_50192_files/send_message2.gif" alt="send private message" border="0" height="16" width="46">
+													
+												</a>
+											</td>
+										</tr>
+										
+										
+										<tr>
+											<td height="3">&nbsp;</td>
+										</tr>
+										<tr>
+											<td align="center"><img src="write_simple_functions_50192_files/cub.gif" title="Project Awarded" height="20"></td>
+										</tr>
+										
+										
+										
+										
+										
+										
+										
+									</tbody></table>
+                          
+                              	</td>
+
+                                <td class="small" height="34" valign="top" width="30%"> 
+															
+									<a name="bid_322084">
+								  </a><table border="0" cellpadding="0" cellspacing="0">
+                                  <tbody><tr>
+                                   <td><img alt="Premium User" src="write_simple_functions_50192_files/premium.gif" align="middle" border="0" height="23" width="25">&nbsp;&nbsp; </td>
+                                    <td valign="top">
+                                 <table align="left" border="0" cellpadding="0" cellspacing="0">
+                                  <tbody><tr>
+                                    <td>
+                                    <a class="menu" title="TechnoVilla profile" href="http://www.getacoder.com/users/TechnoVilla/TechnoVilla_profile.htm"> <b><font size="3">TechnoVilla</font></b></a>&nbsp;&nbsp; </td>
+                                   
+                                  </tr>
+                                </tbody></table></td>
+                                  </tr>
+                                </tbody></table>
+<a name="bid_322084">     
+								
+								
+								</a></td>
+
+                                <td class="small" align="center" height="34" valign="top" width="12%">Dhaka, 
+
+                                  BD<br>
+
+                                  <font color="#999999" size="1"><b>location</b></font></td>
+
+                                <td class="small" align="center" height="34" valign="top" width="11%"><b>US$35<br>
+
+                                  </b><font color="#999999" size="1"><b>bid amount</b></font></td>
+
+                                <td class="smaller" align="center" height="34" valign="top" width="12%"><img src="write_simple_functions_50192_files/spacer.html" border="0" height="1" width="50"><br>
+
+                                   <a href="http://www.getacoder.com/users/TechnoVilla/TechnoVilla_feedback.htm"><img alt="9.91/10" src="write_simple_functions_50192_files/star.gif" border="0"><img alt="9.91/10" src="write_simple_functions_50192_files/star.gif" border="0"><img alt="9.91/10" src="write_simple_functions_50192_files/star.gif" border="0"><img alt="9.91/10" src="write_simple_functions_50192_files/star.gif" border="0"><img alt="9.91/10" src="write_simple_functions_50192_files/star.gif" border="0"><img alt="9.91/10" src="write_simple_functions_50192_files/star.gif" border="0"><img alt="9.91/10" src="write_simple_functions_50192_files/star.gif" border="0"><img alt="9.91/10" src="write_simple_functions_50192_files/star.gif" border="0"><img alt="9.91/10" src="write_simple_functions_50192_files/star.gif" border="0"><img alt="9.91/10" src="write_simple_functions_50192_files/star.gif" border="0"><br>
+
+                                  (<b>58</b> 
+
+                                  reviews)</a>  
+
+                                   <br>
+
+                                  <font color="#999999" size="1"><b>feedback</b></font></td>
+
+                                <td class="smaller" align="center" height="34" width="7%"><img src="write_simple_functions_50192_files/spacer.html" border="0" height="1" width="40"><br>
+
+                                  2 day(s)<br>
+
+                                  <font color="#999999" size="1"><b>delivery time</b></font></td>
+
+                                <td class="small" align="center" height="34" width="1%"><img src="write_simple_functions_50192_files/spacer.html" border="0" height="1" width="5"><br> 
+
+                                  &nbsp;</td>
+
+                              </tr>
+
+                              <tr>
+								<td>&nbsp;</td>
+                                <td class="small" colspan="6" height="59"> 
+                                	<table border="0" cellpadding="0" cellspacing="0">
+                                	
+                                		<tbody><tr>
+                                			<td class="small" colspan="3" height="59">
+                                			 	plz check pmb<br>
+
+                                  				<font color="#999999" size="1">Bid Time: Today&nbsp;13:05<br>
+
+                                  				&nbsp;</font>
+                                			</td>
+                                		</tr>
+                                	</tbody></table>
+                                </td>
+
+                              </tr>
+
+                              </tbody></table></td>
+
+                        </tr>
+
+                      </tbody></table>
+
+<a name="bid_0">                      
+						
+                      </a><table style="border-collapse: collapse; border-bottom-width: 0pt;" border="1" bordercolor="#cccccc" cellpadding="0" cellspacing="0">
+					    <tbody><tr class="lightyellow">
+
+                          <td style="border: medium none ;" width="1%">
+                          <table cellpadding="5" cellspacing="0" height="103">
+
+                              <tbody><tr valign="center">
+                              	<td valign="top" width="2%">
+                              		<table border="0" cellpadding="0" cellspacing="0">
+                          				<tbody><tr>
+											<td align="center" valign="top">
+												<a title="" href="#" onclick="window.open('../pmb/private.php?id=50192&to=214717#view','','width=640, height=540, left=100,top=100,menu=no, toolbar=no,scrollbars=yes');return false;">
+                                    				<img src="write_simple_functions_50192_files/send_message2.gif" alt="send private message" border="0" height="16" width="46">
+													
+												</a>
+											</td>
+										</tr>
+										
+										
+										
+										
+										
+										
+										
+										
+										
+										<tr>
+											<td style="font-size: 10px; cursor: pointer; color: silver;" title="Login as project creator to make changes" align="center" valign="top">Shortlist</td>
+										</tr>
+										
+										
+										
+										
+										
+										<tr>
+											<td style="font-size: 10px; cursor: pointer; color: silver;" title="Login as project creator to make changes" align="center" valign="top"><nobr>Decline Bid</nobr></td>
+										</tr>
+										
+										
+										
+										
+										
+										
+										
+										
+										
+										
+										
+										
+										
+									</tbody></table>
+                          
+                              	</td>
+
+                                <td class="small" height="34" valign="top" width="30%"> 
+															
+									<a name="bid_322120">
+								  </a><table border="0" cellpadding="0" cellspacing="0">
+                                  <tbody><tr>
+                                   <td><img alt="Premium User" src="write_simple_functions_50192_files/premium.gif" align="middle" border="0" height="23" width="25">&nbsp;&nbsp; </td>
+                                    <td valign="top">
+                                 <table align="left" border="0" cellpadding="0" cellspacing="0">
+                                  <tbody><tr>
+                                    <td>
+                                    <a class="menu" title="meghdut profile" href="http://www.getacoder.com/users/meghdut/meghdut_profile.htm"> <b><font size="3">meghdut</font></b></a>&nbsp;&nbsp; </td>
+                                   
+                                  </tr>
+                                </tbody></table></td>
+                                  </tr>
+                                </tbody></table>
+<a name="bid_322120">     
+								
+								
+								</a></td>
+
+                                <td class="small" align="center" height="34" valign="top" width="12%">dhaka, 
+
+                                  BD<br>
+
+                                  <font color="#999999" size="1"><b>location</b></font></td>
+
+                                <td class="small" align="center" height="34" valign="top" width="11%"><b>US$50<br>
+
+                                  </b><font color="#999999" size="1"><b>bid amount</b></font></td>
+
+                                <td class="smaller" align="center" height="34" valign="top" width="12%"><img src="write_simple_functions_50192_files/spacer.html" border="0" height="1" width="50"><br>
+
+                                   <a href="http://www.getacoder.com/users/meghdut/meghdut_feedback.htm"><img alt="9.69/10" src="write_simple_functions_50192_files/star.gif" border="0"><img alt="9.69/10" src="write_simple_functions_50192_files/star.gif" border="0"><img alt="9.69/10" src="write_simple_functions_50192_files/star.gif" border="0"><img alt="9.69/10" src="write_simple_functions_50192_files/star.gif" border="0"><img alt="9.69/10" src="write_simple_functions_50192_files/star.gif" border="0"><img alt="9.69/10" src="write_simple_functions_50192_files/star.gif" border="0"><img alt="9.69/10" src="write_simple_functions_50192_files/star.gif" border="0"><img alt="9.69/10" src="write_simple_functions_50192_files/star.gif" border="0"><img alt="9.69/10" src="write_simple_functions_50192_files/star.gif" border="0"><img alt="9.69/10" src="write_simple_functions_50192_files/star.gif" border="0"><br>
+
+                                  (<b>26</b> 
+
+                                  reviews)</a>  
+
+                                   <br>
+
+                                  <font color="#999999" size="1"><b>feedback</b></font></td>
+
+                                <td class="smaller" align="center" height="34" width="7%"><img src="write_simple_functions_50192_files/spacer.html" border="0" height="1" width="40"><br>
+
+                                  0 day(s)<br>
+
+                                  <font color="#999999" size="1"><b>delivery time</b></font></td>
+
+                                <td class="small" align="center" height="34" width="1%"><img src="write_simple_functions_50192_files/spacer.html" border="0" height="1" width="5"><br> 
+
+                                  &nbsp;</td>
+
+                              </tr>
+
+                              <tr>
+								<td>&nbsp;</td>
+                                <td class="small" colspan="6" height="59"> 
+                                	<table border="0" cellpadding="0" cellspacing="0">
+                                	
+                                		<tbody><tr>
+                                			<td class="small" colspan="3" height="59">
+                                			 	Please check PM.
+Thanks<br>
+
+                                  				<font color="#999999" size="1">Bid Time: Today&nbsp;00:45<br>
+
+                                  				&nbsp;</font>
+                                			</td>
+                                		</tr>
+                                	</tbody></table>
+                                </td>
+
+                              </tr>
+
+                              </tbody></table></td>
+
+                        </tr>
+
+                      </tbody></table>
+
+<a name="bid_0">                      
+						
+                      </a><table style="border-collapse: collapse; border-bottom-width: 0pt;" border="1" bordercolor="#cccccc" cellpadding="0" cellspacing="0">
+					    <tbody><tr class="">
+
+                          <td style="border: medium none ;" width="1%">
+                          <table cellpadding="5" cellspacing="0" height="103">
+
+                              <tbody><tr valign="center">
+                              	<td valign="top" width="2%">
+                              		<table border="0" cellpadding="0" cellspacing="0">
+                          				<tbody><tr>
+											<td align="center" valign="top">
+												<a title="" href="#" onclick="window.open('../pmb/private.php?id=50192&to=244689#view','','width=640, height=540, left=100,top=100,menu=no, toolbar=no,scrollbars=yes');return false;">
+                                    				
+													<img src="write_simple_functions_50192_files/send_message.gif" alt="send private message" border="0" height="16" width="46">
+												</a>
+											</td>
+										</tr>
+										
+										
+										
+										
+										
+										
+										
+										
+										
+										<tr>
+											<td style="font-size: 10px; cursor: pointer; color: silver;" title="Login as project creator to make changes" align="center" valign="top">Shortlist</td>
+										</tr>
+										
+										
+										
+										
+										
+										<tr>
+											<td style="font-size: 10px; cursor: pointer; color: silver;" title="Login as project creator to make changes" align="center" valign="top"><nobr>Decline Bid</nobr></td>
+										</tr>
+										
+										
+										
+										
+										
+										
+										
+										
+										
+										
+										
+										
+										
+									</tbody></table>
+                          
+                              	</td>
+
+                                <td class="small" height="34" valign="top" width="30%"> 
+															
+									<a name="bid_322150">
+								  </a><table border="0" cellpadding="0" cellspacing="0">
+                                  <tbody><tr>
+                                   
+                                    <td valign="top">
+                                 <table align="left" border="0" cellpadding="0" cellspacing="0">
+                                  <tbody><tr>
+                                    <td>
+                                    <a class="menu" title="gunja profile" href="http://www.getacoder.com/users/gunja/gunja_profile.htm"> <b><font size="3">gunja</font></b></a>&nbsp;&nbsp; </td>
+                                   
+                                  </tr>
+                                </tbody></table></td>
+                                  </tr>
+                                </tbody></table>
+<a name="bid_322150">     
+								
+								
+								</a></td>
+
+                                <td class="small" align="center" height="34" valign="top" width="12%">Moscow, 
+
+                                  RU<br>
+
+                                  <font color="#999999" size="1"><b>location</b></font></td>
+
+                                <td class="small" align="center" height="34" valign="top" width="11%"><b>US$30<br>
+
+                                  </b><font color="#999999" size="1"><b>bid amount</b></font></td>
+
+                                <td class="smaller" align="center" height="34" valign="top" width="12%"><img src="write_simple_functions_50192_files/spacer.html" border="0" height="1" width="50"><br>
+
+                                   <a href="http://www.getacoder.com/users/gunja/gunja_feedback.htm"><img alt="7.00/10" src="write_simple_functions_50192_files/star.gif" border="0"><img alt="7.00/10" src="write_simple_functions_50192_files/star.gif" border="0"><img alt="7.00/10" src="write_simple_functions_50192_files/star.gif" border="0"><img alt="7.00/10" src="write_simple_functions_50192_files/star.gif" border="0"><img alt="7.00/10" src="write_simple_functions_50192_files/star.gif" border="0"><img alt="7.00/10" src="write_simple_functions_50192_files/star.gif" border="0"><img alt="7.00/10" src="write_simple_functions_50192_files/star.gif" border="0"><img alt="7.00/10" src="write_simple_functions_50192_files/star2.gif" border="0"><img alt="7.00/10" src="write_simple_functions_50192_files/star2.gif" border="0"><img alt="7.00/10" src="write_simple_functions_50192_files/star2.gif" border="0"><br>
+
+                                  (<b>3</b> 
+
+                                  reviews)</a>  
+
+                                   <br>
+
+                                  <font color="#999999" size="1"><b>feedback</b></font></td>
+
+                                <td class="smaller" align="center" height="34" width="7%"><img src="write_simple_functions_50192_files/spacer.html" border="0" height="1" width="40"><br>
+
+                                  3 day(s)<br>
+
+                                  <font color="#999999" size="1"><b>delivery time</b></font></td>
+
+                                <td class="small" align="center" height="34" width="1%"><img src="write_simple_functions_50192_files/spacer.html" border="0" height="1" width="5"><br> 
+
+                                  &nbsp;</td>
+
+                              </tr>
+
+                              <tr>
+								<td>&nbsp;</td>
+                                <td class="small" colspan="6" height="59"> 
+                                	<table border="0" cellpadding="0" cellspacing="0">
+                                	
+                                		<tbody><tr>
+                                			<td class="small" colspan="3" height="59">
+                                			 	   Hello, I can do it for you. But to be true, I would prefer $25.
+Waiting for your desition.<br>
+
+                                  				<font color="#999999" size="1">Bid Time: 04-27-2007&nbsp;17:35<br>
+
+                                  				&nbsp;</font>
+                                			</td>
+                                		</tr>
+                                	</tbody></table>
+                                </td>
+
+                              </tr>
+
+                              </tbody></table></td>
+
+                        </tr>
+
+                      </tbody></table>
+
+<a name="bid_0">                      
+						
+                      </a><table style="border-collapse: collapse; border-bottom-width: 0pt;" border="1" bordercolor="#cccccc" cellpadding="0" cellspacing="0">
+					    <tbody><tr class="light">
+
+                          <td style="border: medium none ;" width="1%">
+                          <table cellpadding="5" cellspacing="0" height="103">
+
+                              <tbody><tr valign="center">
+                              	<td valign="top" width="2%">
+                              		<table border="0" cellpadding="0" cellspacing="0">
+                          				<tbody><tr>
+											<td align="center" valign="top">
+												<a title="" href="#" onclick="window.open('../pmb/private.php?id=50192&to=263230#view','','width=640, height=540, left=100,top=100,menu=no, toolbar=no,scrollbars=yes');return false;">
+                                    				
+													<img src="write_simple_functions_50192_files/send_message.gif" alt="send private message" border="0" height="16" width="46">
+												</a>
+											</td>
+										</tr>
+										
+										
+										
+										
+										
+										
+										
+										
+										
+										<tr>
+											<td style="font-size: 10px; cursor: pointer; color: silver;" title="Login as project creator to make changes" align="center" valign="top">Shortlist</td>
+										</tr>
+										
+										
+										
+										
+										
+										<tr>
+											<td style="font-size: 10px; cursor: pointer; color: silver;" title="Login as project creator to make changes" align="center" valign="top"><nobr>Decline Bid</nobr></td>
+										</tr>
+										
+										
+										
+										
+										
+										
+										
+										
+										
+										
+										
+										
+										
+									</tbody></table>
+                          
+                              	</td>
+
+                                <td class="small" height="34" valign="top" width="30%"> 
+															
+									<a name="bid_322082">
+								  </a><table border="0" cellpadding="0" cellspacing="0">
+                                  <tbody><tr>
+                                   
+                                    <td valign="top">
+                                 <table align="left" border="0" cellpadding="0" cellspacing="0">
+                                  <tbody><tr>
+                                    <td>
+                                    <a class="menu" title="CoderOne profile" href="http://www.getacoder.com/users/CoderOne/CoderOne_profile.htm"> <b><font size="3">CoderOne</font></b></a>&nbsp;&nbsp; </td>
+                                   
+                                  </tr>
+                                </tbody></table></td>
+                                  </tr>
+                                </tbody></table>
+<a name="bid_322082">     
+								
+								
+								</a></td>
+
+                                <td class="small" align="center" height="34" valign="top" width="12%">Spain, 
+
+                                  ES<br>
+
+                                  <font color="#999999" size="1"><b>location</b></font></td>
+
+                                <td class="small" align="center" height="34" valign="top" width="11%"><b>US$100<br>
+
+                                  </b><font color="#999999" size="1"><b>bid amount</b></font></td>
+
+                                <td class="smaller" align="center" height="34" valign="top" width="12%"><img src="write_simple_functions_50192_files/spacer.html" border="0" height="1" width="50"><br>
+
+                                   
+
+                                  (No Feedback 
+
+                                  Yet) <br>
+
+                                  <font color="#999999" size="1"><b>feedback</b></font></td>
+
+                                <td class="smaller" align="center" height="34" width="7%"><img src="write_simple_functions_50192_files/spacer.html" border="0" height="1" width="40"><br>
+
+                                  3 day(s)<br>
+
+                                  <font color="#999999" size="1"><b>delivery time</b></font></td>
+
+                                <td class="small" align="center" height="34" width="1%"><img src="write_simple_functions_50192_files/spacer.html" border="0" height="1" width="5"><br> 
+
+                                  &nbsp;</td>
+
+                              </tr>
+
+                              <tr>
+								<td>&nbsp;</td>
+                                <td class="small" colspan="6" height="59"> 
+                                	<table border="0" cellpadding="0" cellspacing="0">
+                                	
+                                		<tbody><tr>
+                                			<td class="small" colspan="3" height="59">
+                                			 	we can do it easily!<br>
+
+                                  				<font color="#999999" size="1">Bid Time: 04-27-2007&nbsp;12:28<br>
+
+                                  				&nbsp;</font>
+                                			</td>
+                                		</tr>
+                                	</tbody></table>
+                                </td>
+
+                              </tr>
+
+                              </tbody></table></td>
+
+                        </tr>
+
+                      </tbody></table>
+
+<a name="bid_0">                      
+						
+                      </a><table style="border-collapse: collapse; border-bottom-width: 0pt;" border="1" bordercolor="#cccccc" cellpadding="0" cellspacing="0">
+					    <tbody><tr class="">
+
+                          <td style="border: medium none ;" width="1%">
+                          <table cellpadding="5" cellspacing="0" height="103">
+
+                              <tbody><tr valign="center">
+                              	<td valign="top" width="2%">
+                              		<table border="0" cellpadding="0" cellspacing="0">
+                          				<tbody><tr>
+											<td align="center" valign="top">
+												<a title="" href="#" onclick="window.open('../pmb/private.php?id=50192&to=268000#view','','width=640, height=540, left=100,top=100,menu=no, toolbar=no,scrollbars=yes');return false;">
+                                    				
+													<img src="write_simple_functions_50192_files/send_message.gif" alt="send private message" border="0" height="16" width="46">
+												</a>
+											</td>
+										</tr>
+										
+										
+										
+										
+										
+										
+										
+										
+										
+										<tr>
+											<td style="font-size: 10px; cursor: pointer; color: silver;" title="Login as project creator to make changes" align="center" valign="top">Shortlist</td>
+										</tr>
+										
+										
+										
+										
+										
+										<tr>
+											<td style="font-size: 10px; cursor: pointer; color: silver;" title="Login as project creator to make changes" align="center" valign="top"><nobr>Decline Bid</nobr></td>
+										</tr>
+										
+										
+										
+										
+										
+										
+										
+										
+										
+										
+										
+										
+										
+									</tbody></table>
+                          
+                              	</td>
+
+                                <td class="small" height="34" valign="top" width="30%"> 
+															
+									<a name="bid_322144">
+								  </a><table border="0" cellpadding="0" cellspacing="0">
+                                  <tbody><tr>
+                                   
+                                    <td valign="top">
+                                 <table align="left" border="0" cellpadding="0" cellspacing="0">
+                                  <tbody><tr>
+                                    <td>
+                                    <a class="menu" title="rockyspirit profile" href="http://www.getacoder.com/users/rockyspirit/rockyspirit_profile.htm"> <b><font size="3">rockyspirit</font></b></a>&nbsp;&nbsp; </td>
+                                   
+                                  </tr>
+                                </tbody></table></td>
+                                  </tr>
+                                </tbody></table>
+<a name="bid_322144">     
+								
+								
+								</a></td>
+
+                                <td class="small" align="center" height="34" valign="top" width="12%">Fortaleza, 
+
+                                  BR<br>
+
+                                  <font color="#999999" size="1"><b>location</b></font></td>
+
+                                <td class="small" align="center" height="34" valign="top" width="11%"><b>US$20<br>
+
+                                  </b><font color="#999999" size="1"><b>bid amount</b></font></td>
+
+                                <td class="smaller" align="center" height="34" valign="top" width="12%"><img src="write_simple_functions_50192_files/spacer.html" border="0" height="1" width="50"><br>
+
+                                   
+
+                                  (No Feedback 
+
+                                  Yet) <br>
+
+                                  <font color="#999999" size="1"><b>feedback</b></font></td>
+
+                                <td class="smaller" align="center" height="34" width="7%"><img src="write_simple_functions_50192_files/spacer.html" border="0" height="1" width="40"><br>
+
+                                  2 day(s)<br>
+
+                                  <font color="#999999" size="1"><b>delivery time</b></font></td>
+
+                                <td class="small" align="center" height="34" width="1%"><img src="write_simple_functions_50192_files/spacer.html" border="0" height="1" width="5"><br> 
+
+                                  &nbsp;</td>
+
+                              </tr>
+
+                              <tr>
+								<td>&nbsp;</td>
+                                <td class="small" colspan="6" height="59"> 
+                                	<table border="0" cellpadding="0" cellspacing="0">
+                                	
+                                		<tbody><tr>
+                                			<td class="small" colspan="3" height="59">
+                                			 	Please check your PM.<br>
+
+                                  				<font color="#999999" size="1">Bid Time: 04-27-2007&nbsp;16:53<br>
+
+                                  				&nbsp;</font>
+                                			</td>
+                                		</tr>
+                                	</tbody></table>
+                                </td>
+
+                              </tr>
+
+                              </tbody></table></td>
+
+                        </tr>
+
+                      </tbody></table>
+
+<a name="bid_0">                      
+						
+                      </a><table style="border-collapse: collapse; border-bottom-width: 0pt;" border="1" bordercolor="#cccccc" cellpadding="0" cellspacing="0">
+					    <tbody><tr class="light">
+
+                          <td style="border: medium none ;" width="1%">
+                          <table cellpadding="5" cellspacing="0" height="103">
+
+                              <tbody><tr valign="center">
+                              	<td valign="top" width="2%">
+                              		<table border="0" cellpadding="0" cellspacing="0">
+                          				<tbody><tr>
+											<td align="center" valign="top">
+												<a title="" href="#" onclick="window.open('../pmb/private.php?id=50192&to=268338#view','','width=640, height=540, left=100,top=100,menu=no, toolbar=no,scrollbars=yes');return false;">
+                                    				
+													<img src="write_simple_functions_50192_files/send_message.gif" alt="send private message" border="0" height="16" width="46">
+												</a>
+											</td>
+										</tr>
+										
+										
+										
+										
+										
+										
+										
+										
+										
+										<tr>
+											<td style="font-size: 10px; cursor: pointer; color: silver;" title="Login as project creator to make changes" align="center" valign="top">Shortlist</td>
+										</tr>
+										
+										
+										
+										
+										
+										<tr>
+											<td style="font-size: 10px; cursor: pointer; color: silver;" title="Login as project creator to make changes" align="center" valign="top"><nobr>Decline Bid</nobr></td>
+										</tr>
+										
+										
+										
+										
+										
+										
+										
+										
+										
+										
+										
+										
+										
+									</tbody></table>
+                          
+                              	</td>
+
+                                <td class="small" height="34" valign="top" width="30%"> 
+															
+									<a name="bid_322180">
+								  </a><table border="0" cellpadding="0" cellspacing="0">
+                                  <tbody><tr>
+                                   
+                                    <td valign="top">
+                                 <table align="left" border="0" cellpadding="0" cellspacing="0">
+                                  <tbody><tr>
+                                    <td>
+                                    <a class="menu" title="pragyabagaria profile" href="http://www.getacoder.com/users/pragyabagaria/pragyabagaria_profile.htm"> <b><font size="3">pragyabagaria</font></b></a>&nbsp;&nbsp; </td>
+                                   
+                                  </tr>
+                                </tbody></table></td>
+                                  </tr>
+                                </tbody></table>
+<a name="bid_322180">     
+								
+								
+								</a></td>
+
+                                <td class="small" align="center" height="34" valign="top" width="12%">New Delhi, 
+
+                                  IN<br>
+
+                                  <font color="#999999" size="1"><b>location</b></font></td>
+
+                                <td class="small" align="center" height="34" valign="top" width="11%"><b>US$20<br>
+
+                                  </b><font color="#999999" size="1"><b>bid amount</b></font></td>
+
+                                <td class="smaller" align="center" height="34" valign="top" width="12%"><img src="write_simple_functions_50192_files/spacer.html" border="0" height="1" width="50"><br>
+
+                                   
+
+                                  (No Feedback 
+
+                                  Yet) <br>
+
+                                  <font color="#999999" size="1"><b>feedback</b></font></td>
+
+                                <td class="smaller" align="center" height="34" width="7%"><img src="write_simple_functions_50192_files/spacer.html" border="0" height="1" width="40"><br>
+
+                                  3 day(s)<br>
+
+                                  <font color="#999999" size="1"><b>delivery time</b></font></td>
+
+                                <td class="small" align="center" height="34" width="1%"><img src="write_simple_functions_50192_files/spacer.html" border="0" height="1" width="5"><br> 
+
+                                  &nbsp;</td>
+
+                              </tr>
+
+                              <tr>
+								<td>&nbsp;</td>
+                                <td class="small" colspan="6" height="59"> 
+                                	<table border="0" cellpadding="0" cellspacing="0">
+                                	
+                                		<tbody><tr>
+                                			<td class="small" colspan="3" height="59">
+                                			 	Its a matter of luck.<br>
+
+                                  				<font color="#999999" size="1">Bid Time: 04-27-2007&nbsp;23:22<br>
+
+                                  				&nbsp;</font>
+                                			</td>
+                                		</tr>
+                                	</tbody></table>
+                                </td>
+
+                              </tr>
+
+                              </tbody></table></td>
+
+                        </tr>
+
+                      </tbody></table>
+
+<a name="bid_0">                      
+						
+                      </a><table style="border-collapse: collapse; border-bottom-width: 0pt;" border="1" bordercolor="#cccccc" cellpadding="0" cellspacing="0">
+					    <tbody><tr class="">
+
+                          <td style="border: medium none ;" width="1%">
+                          <table cellpadding="5" cellspacing="0" height="103">
+
+                              <tbody><tr valign="center">
+                              	<td valign="top" width="2%">
+                              		<table border="0" cellpadding="0" cellspacing="0">
+                          				<tbody><tr>
+											<td align="center" valign="top">
+												<a title="" href="#" onclick="window.open('../pmb/private.php?id=50192&to=264248#view','','width=640, height=540, left=100,top=100,menu=no, toolbar=no,scrollbars=yes');return false;">
+                                    				
+													<img src="write_simple_functions_50192_files/send_message.gif" alt="send private message" border="0" height="16" width="46">
+												</a>
+											</td>
+										</tr>
+										
+										
+										
+										
+										
+										
+										
+										
+										
+										<tr>
+											<td style="font-size: 10px; cursor: pointer; color: silver;" title="Login as project creator to make changes" align="center" valign="top">Shortlist</td>
+										</tr>
+										
+										
+										
+										
+										
+										<tr>
+											<td style="font-size: 10px; cursor: pointer; color: silver;" title="Login as project creator to make changes" align="center" valign="top"><nobr>Decline Bid</nobr></td>
+										</tr>
+										
+										
+										
+										
+										
+										
+										
+										
+										
+										
+										
+										
+										
+									</tbody></table>
+                          
+                              	</td>
+
+                                <td class="small" height="34" valign="top" width="30%"> 
+															
+									<a name="bid_322310">
+								  </a><table border="0" cellpadding="0" cellspacing="0">
+                                  <tbody><tr>
+                                   
+                                    <td valign="top">
+                                 <table align="left" border="0" cellpadding="0" cellspacing="0">
+                                  <tbody><tr>
+                                    <td>
+                                    <a class="menu" title="EMSYS profile" href="http://www.getacoder.com/users/EMSYS/EMSYS_profile.htm"> <b><font size="3">EMSYS</font></b></a>&nbsp;&nbsp; </td>
+                                   
+                                  </tr>
+                                </tbody></table></td>
+                                  </tr>
+                                </tbody></table>
+<a name="bid_322310">     
+								
+								
+								</a></td>
+
+                                <td class="small" align="center" height="34" valign="top" width="12%">Dhaka, 
+
+                                  BD<br>
+
+                                  <font color="#999999" size="1"><b>location</b></font></td>
+
+                                <td class="small" align="center" height="34" valign="top" width="11%"><b>US$20<br>
+
+                                  </b><font color="#999999" size="1"><b>bid amount</b></font></td>
+
+                                <td class="smaller" align="center" height="34" valign="top" width="12%"><img src="write_simple_functions_50192_files/spacer.html" border="0" height="1" width="50"><br>
+
+                                   
+
+                                  (No Feedback 
+
+                                  Yet) <br>
+
+                                  <font color="#999999" size="1"><b>feedback</b></font></td>
+
+                                <td class="smaller" align="center" height="34" width="7%"><img src="write_simple_functions_50192_files/spacer.html" border="0" height="1" width="40"><br>
+
+                                  2 day(s)<br>
+
+                                  <font color="#999999" size="1"><b>delivery time</b></font></td>
+
+                                <td class="small" align="center" height="34" width="1%"><img src="write_simple_functions_50192_files/spacer.html" border="0" height="1" width="5"><br> 
+
+                                  &nbsp;</td>
+
+                              </tr>
+
+                              <tr>
+								<td>&nbsp;</td>
+                                <td class="small" colspan="6" height="59"> 
+                                	<table border="0" cellpadding="0" cellspacing="0">
+                                	
+                                		<tbody><tr>
+                                			<td class="small" colspan="3" height="59">
+                                			 	looking for this work<br>
+
+                                  				<font color="#999999" size="1">Bid Time: Today&nbsp;05:35<br>
+
+                                  				&nbsp;</font>
+                                			</td>
+                                		</tr>
+                                	</tbody></table>
+                                </td>
+
+                              </tr>
+
+                              </tbody></table></td>
+
+                        </tr>
+
+                      </tbody></table>
+
+<a name="bid_0">                      
+						
+                      </a><table style="border-collapse: collapse; border-bottom-width: 0pt;" border="1" bordercolor="#cccccc" cellpadding="0" cellspacing="0">
+					    <tbody><tr class="light">
+
+                          <td style="border: medium none ;" width="1%">
+                          <table cellpadding="5" cellspacing="0" height="103">
+
+                              <tbody><tr valign="center">
+                              	<td valign="top" width="2%">
+                              		<table border="0" cellpadding="0" cellspacing="0">
+                          				<tbody><tr>
+											<td align="center" valign="top">
+												<a title="" href="#" onclick="window.open('../pmb/private.php?id=50192&to=256831#view','','width=640, height=540, left=100,top=100,menu=no, toolbar=no,scrollbars=yes');return false;">
+                                    				
+													<img src="write_simple_functions_50192_files/send_message.gif" alt="send private message" border="0" height="16" width="46">
+												</a>
+											</td>
+										</tr>
+										
+										
+										
+										
+										
+										
+										
+										
+										
+										<tr>
+											<td style="font-size: 10px; cursor: pointer; color: silver;" title="Login as project creator to make changes" align="center" valign="top">Shortlist</td>
+										</tr>
+										
+										
+										
+										
+										
+										<tr>
+											<td style="font-size: 10px; cursor: pointer; color: silver;" title="Login as project creator to make changes" align="center" valign="top"><nobr>Decline Bid</nobr></td>
+										</tr>
+										
+										
+										
+										
+										
+										
+										
+										
+										
+										
+										
+										
+										
+									</tbody></table>
+                          
+                              	</td>
+
+                                <td class="small" height="34" valign="top" width="30%"> 
+															
+									<a name="bid_322385">
+								  </a><table border="0" cellpadding="0" cellspacing="0">
+                                  <tbody><tr>
+                                   
+                                    <td valign="top">
+                                 <table align="left" border="0" cellpadding="0" cellspacing="0">
+                                  <tbody><tr>
+                                    <td>
+                                    <a class="menu" title="oceanbuet profile" href="http://www.getacoder.com/users/oceanbuet/oceanbuet_profile.htm"> <b><font size="3">oceanbuet</font></b></a>&nbsp;&nbsp; </td>
+                                   
+                                  </tr>
+                                </tbody></table></td>
+                                  </tr>
+                                </tbody></table>
+<a name="bid_322385">     
+								
+								
+								</a></td>
+
+                                <td class="small" align="center" height="34" valign="top" width="12%">Dhaka, 
+
+                                  BD<br>
+
+                                  <font color="#999999" size="1"><b>location</b></font></td>
+
+                                <td class="small" align="center" height="34" valign="top" width="11%"><b>US$20<br>
+
+                                  </b><font color="#999999" size="1"><b>bid amount</b></font></td>
+
+                                <td class="smaller" align="center" height="34" valign="top" width="12%"><img src="write_simple_functions_50192_files/spacer.html" border="0" height="1" width="50"><br>
+
+                                   
+
+                                  (No Feedback 
+
+                                  Yet) <br>
+
+                                  <font color="#999999" size="1"><b>feedback</b></font></td>
+
+                                <td class="smaller" align="center" height="34" width="7%"><img src="write_simple_functions_50192_files/spacer.html" border="0" height="1" width="40"><br>
+
+                                  1 day(s)<br>
+
+                                  <font color="#999999" size="1"><b>delivery time</b></font></td>
+
+                                <td class="small" align="center" height="34" width="1%"><img src="write_simple_functions_50192_files/spacer.html" border="0" height="1" width="5"><br> 
+
+                                  &nbsp;</td>
+
+                              </tr>
+
+                              <tr>
+								<td>&nbsp;</td>
+                                <td class="small" colspan="6" height="59"> 
+                                	<table border="0" cellpadding="0" cellspacing="0">
+                                	
+                                		<tbody><tr>
+                                			<td class="small" colspan="3" height="59">
+                                			 	We worked in other sites earlier, though we are new here.
+We think it will be enjoyable to work with you.<br>
+
+                                  				<font color="#999999" size="1">Bid Time: Today&nbsp;07:43<br>
+
+                                  				&nbsp;</font>
+                                			</td>
+                                		</tr>
+                                	</tbody></table>
+                                </td>
+
+                              </tr>
+
+                              
+
+                              <tr>
+				
+                                <td class="small" bordercolor="#cccccc" colspan="7" bgcolor="#cccccc" height="1"></td>
+
+                              </tr>
+
+                              </tbody></table></td>
+
+                        </tr>
+
+                      </tbody></table>
+
+<a name="bid_0">                      </a></p></td>
+
+                  </tr>
+
+                </tbody></table></td>
+
+            </tr>
+
+          </tbody></table></td>
+
+      </tr>
+
+    </tbody></table></td>
+
+</tr>
+
+<tr align="center">
+
+  <td align="center" valign="top">&nbsp;</td>
+
+</tr>
+
+</tbody></table><table align="center" border="0" cellpadding="0" cellspacing="0" width="98%"><tbody><tr><td><div align="center"><center>        <table style="border-collapse: collapse; border-left-width: 0pt; border-right-width: 0pt;" id="AutoNumber16" bgcolor="#f7f7f7" border="1" bordercolor="#000000" cellpadding="0" cellspacing="0" width="100%"><tbody><tr><td style="border-left: medium none rgb(17, 17, 17); border-right: medium none rgb(17, 17, 17); border-bottom-style: solid; border-bottom-width: 1px;" align="center" width="100%"><br><br><script type="text/javascript"><!--
+
+google_ad_client = "pub-7351093958140213";
+
+google_alternate_ad_url = "../google_adsense_footer_script.htm";
+
+google_ad_width = 728;
+
+google_ad_height = 90;
+
+google_ad_format = "728x90_as";
+
+google_ad_type = "text";
+
+google_ad_channel ="3585871201";
+
+google_color_border = "F7F7F7";
+
+google_color_bg = "F7F7F7";
+
+google_color_link = "336699";
+
+google_color_url = "666666";
+
+google_color_text = "000000";
+
+//--></script>
+
+<script type="text/javascript" src="write_simple_functions_50192_files/show_ads.js">
+
+</script></td></tr></tbody></table></center></div> &nbsp; <table style="border-collapse: collapse;" border="1" bordercolor="#e6e6e6" cellpadding="0" cellspacing="0"><tbody><tr> <td><table style="border-collapse: collapse;" id="AutoNumber22" bgcolor="#316293" border="0" bordercolor="#111111" cellpadding="0" cellspacing="5" width="100%"><tbody><tr><td width="100%"><font color="#ffffff" size="3"><b>What is GetACoder?</b></font></td></tr></tbody></table><table style="border-collapse: collapse;" border="0" bordercolor="#111111" cellpadding="5" cellspacing="10"><tbody><tr> <td height="40" width="100%"><p><span class="contentpaneopen"><font color="#333333"><span style="font-weight: 400;"> </span></font></span><font color="#5d5e91" size="3"><b></b></font><span style="font-size: 8pt; text-decoration: none;"><b><font color="#333333"><span style="font-weight: 400;"> </span><span class="contentpaneopen"><font color="#333333"><span style="font-weight: 400;"><img alt="GetACoder.com" src="write_simple_functions_50192_files/gac.gif" align="right" height="144" width="222"></span></font></span><span style="font-weight: 400;">GetACoder
+is a leading Global Services Marketplace doing business in more than
+200 countries. Our unique system accelerates your time to market and
+provides your business with key competitive advantages. When you use
+GetACoder you are stretching your budget and saving as much as 60% over
+traditional outsourcing. GetACoder is changing business, now it's no
+longer about what you own or build but which resources and talent you
+can access. With GetACoder you reduce expenses, increase efficiencies,
+aggressively grow your business, and create a sustainable competitive
+advantage. GetACoder makes outsourcing to any part of the world an easy
+task! With GetACoder it's simple to outsource any business project,
+gain access to global talent and manage projects online.</span></font></b></span></p><p><span style="font-size: 8pt; text-decoration: none;"><b><font color="#333333"><span style="font-weight: 400;">One
+of the main advantages of GetACoder is the low labor cost. The
+typically rates are about seven times lower than the ones in the US or
+Europe. Posting a project at GetACoder allows the right professional or
+company to find you and to bid for your work. We are building a
+reputation for exceeding our customers' expectations and for becoming
+an extremely cost effective way to outsource work. Use GetACoder when
+you want to save money, increase efficiency or accelerate the
+development of your project. With GetACoder you focus on growing your
+business and let others do the tedious work. <a href="http://www.getacoder.com%20/buyers/create.php">Post your project</a> on GetACoder for free. Find out why people outsource projects with us day after day.</span></font></b></span></p><p style="margin-bottom: 0pt;"><font color="#5d5e91"><b><font size="3">Thousands of Satisfied Customers -</font><font style="font-size: 8pt; font-weight: 400;"> <a href="http://www.getacoder.com/quotes/"><font color="#5d5e91">Submit/View Quotes</font></a></font></b></font></p><hr color="#000000" size="1"><table border="0" cellpadding="5" width="100%"><tbody><tr><td width="1"><font size="3"><span style="text-decoration: none; font-weight: 700;">-</span></font></td><td><span style="font-size: 8pt; text-decoration: none;">I
+like this site very much. It is great because the business generated is
+pretty active here. I come in everyday to check out if I got an order.
+Good way to go!!!</span> -  <a style="font-size: 8pt;" class="menu" href="http://www.getacoder.com/users/vinusub/vinusub_profile.htm"><font color="#666666"><b>vinusub</b></font></a></td></tr><tr><td width="1"><font size="3"><span style="text-decoration: none; font-weight: 700;">-</span></font></td><td><span style="font-size: 8pt; text-decoration: none;">GetACoder
+is great, and the only place, where Buyers and Professionals can have a
+long term relation. I really recommend doing business through this
+website.</span> -  <a style="font-size: 8pt;" class="menu" href="http://www.getacoder.com/users/bizsol/bizsol_profile.htm"><font color="#666666"><b>bizsol</b></font></a></td></tr><tr><td width="1"><font size="3"><span style="text-decoration: none; font-weight: 700;">-</span></font></td><td><span style="font-size: 8pt; text-decoration: none;">Starting
+my own Software Development business use to be the unattainable dream.
+Then I found GetACoder and it just happened, literally over night.
+Thanks!</span> -  <a style="font-size: 8pt;" class="menu" href="http://www.getacoder.com/users/echovue/echovue_profile.htm"><font color="#666666"><b>echovue</b></font></a></td></tr></tbody></table></td></tr></tbody></table></td></tr></tbody></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tbody><tr> <td colspan="2" bgcolor="#316293" height="16"><table style="border-collapse: collapse;" id="AutoNumber10" border="0" bordercolor="#111111" cellpadding="5" cellspacing="0" width="100%"><tbody><tr> <td alig="left"><div align="center"><a class="footer" href="http://www.getacoder.com/report/violation.php">Report 
+                      Violation</a>&nbsp;&nbsp;&nbsp;&nbsp;<a class="footer" href="http://www.getacoder.com/page.php?p=info/privacy">Privacy 
+                      Policy </a>&nbsp;&nbsp;&nbsp;&nbsp;<a class="footer" href="http://www.getacoder.com/affiliates/">Affiliate 
+                      Program</a>&nbsp;&nbsp;&nbsp;&nbsp;<a class="footer" href="http://www.getacoder.com/page.php?p=info/terms">Terms 
+                      of Use</a>&nbsp;&nbsp;&nbsp;&nbsp;<a class="footer" href="http://www.getacoder.com/report/contact.php">Contact 
+                      Us</a>&nbsp;&nbsp;&nbsp;&nbsp;<a class="footer" href="http://www.getacoder.com/faq/view.php">Help</a> 
+                      &nbsp;&nbsp;&nbsp;&nbsp; <a href="http://www.getacoder.com/rss.xml"><img alt="GetACoder.com Latest Projects RSS Feed" src="write_simple_functions_50192_files/rss.gif" border="0" height="14" width="36"></a>	
+                    </div></td></tr></tbody></table></td></tr></tbody></table></td></tr> <tr> <td height="3"><div align="center"><font size="1">© 2004-2007 GetACoder LLC. All rights reserved.</font></div></td></tr>
+                    
+                    <script src="write_simple_functions_50192_files/urchin.js" type="text/javascript">
+                    </script>
+                    <script type="text/javascript">
+                    _uacct = "UA-217728-1";
+                    urchinTracker();
+                    </script>
+                    
+                    
+                    </tbody></table></div></body></html>

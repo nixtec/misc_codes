@@ -1,0 +1,78 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html><head><title>[Orocos-Dev] Interrupt to userspace</title>
+
+ 
+   
+   <link rel="Index" href="http://lists.mech.kuleuven.be/pipermail/orocos-dev/2005-September/index.html">
+   <link rel="made" href="mailto:orocos-dev%40lists.mech.kuleuven.be?Subject=%5BOrocos-Dev%5D%20Interrupt%20to%20userspace&amp;In-Reply-To=CC092C670C482A4C954AB4D13743B60A49533E%40vdwmar13.vandewiele.local">
+   <meta name="robots" content="index,nofollow">
+   <meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <link rel="Previous" href="http://lists.mech.kuleuven.be/pipermail/orocos-dev/2005-September/000883.html">
+   <link rel="Next" href="http://lists.mech.kuleuven.be/pipermail/orocos-dev/2005-September/000885.html"></head><body bgcolor="#ffffff">
+   <h1>[Orocos-Dev] Interrupt to userspace</h1>
+    <b>Herman Bruyninckx</b> 
+    <a href="mailto:orocos-dev%40lists.mech.kuleuven.be?Subject=%5BOrocos-Dev%5D%20Interrupt%20to%20userspace&amp;In-Reply-To=CC092C670C482A4C954AB4D13743B60A49533E%40vdwmar13.vandewiele.local" title="[Orocos-Dev] Interrupt to userspace">Herman.Bruyninckx at mech.kuleuven.be
+       </a><br>
+    <i>Thu Sep  1 13:39:39 CEST 2005</i>
+    <p></p><ul>
+        <li>Previous message: <a href="http://lists.mech.kuleuven.be/pipermail/orocos-dev/2005-September/000883.html">[Orocos-Dev] Interrupt to userspace
+</a></li>
+        <li>Next message: <a href="http://lists.mech.kuleuven.be/pipermail/orocos-dev/2005-September/000885.html">[Orocos-Dev] parse error
+</a></li>
+         <li> <b>Messages sorted by:</b> 
+              <a href="http://lists.mech.kuleuven.be/pipermail/orocos-dev/2005-September/date.html#884">[ date ]</a>
+              <a href="http://lists.mech.kuleuven.be/pipermail/orocos-dev/2005-September/thread.html#884">[ thread ]</a>
+              <a href="http://lists.mech.kuleuven.be/pipermail/orocos-dev/2005-September/subject.html#884">[ subject ]</a>
+              <a href="http://lists.mech.kuleuven.be/pipermail/orocos-dev/2005-September/author.html#884">[ author ]</a>
+         </li>
+       </ul>
+    <hr>  
+<!--beginarticle-->
+<pre>On Thu, 1 Sep 2005, Vandenbroucke Sander wrote:
+
+&gt;<i> I have a question abaout calling a userspace function (static function in OROCOS) from kernelspace (ISR).
+</i>&gt;<i> I see there has been an attempt in the canpie driver shipped with OROCOS but it isn't complete.
+</i>&gt;<i>
+</i>&gt;<i> Is it possible to call userspace from kenelspace? Or am I better of using the userspace interrupts supported by the rtai_usi.o module?
+</i>&gt;<i>
+</i>I would suggest the latter. A user space call from kernelspace doesn't make
+much sense, because the context of the call is not well defined. For
+example, there is no "libc" available etc. The userspace interrupt
+infrastructure was built especially to let an interrupt "propagate" to user
+space and be handled there. Much easier than trying to call userspace stuff
+from a kernelspace ISR.
+
+But this is more of an RTAI/LXRT question than an Orocos question, so
+you're chances of getting a good answer will be higher on their mailinglist :-)
+&gt;<i>From what you say I have the impression that you are writing some device
+</i>driver stuff, and this is outside of the Orocos source tree. By definition.
+
+Herman
+
+--
+   K.U.Leuven, Mechanical Eng.,  Mechatronics &amp; Robotics Research Group
+     &lt;<a href="http://people.mech.kuleuven.be/%7Ebruyninc">http://people.mech.kuleuven.be/~bruyninc</a>&gt; Tel: +32 16 322480
+</pre>
+
+
+<!--endarticle-->
+    <hr>
+    <p></p><ul>
+        <!--threads-->
+	<li>Previous message: <a href="http://lists.mech.kuleuven.be/pipermail/orocos-dev/2005-September/000883.html">[Orocos-Dev] Interrupt to userspace
+</a></li>
+	<li>Next message: <a href="http://lists.mech.kuleuven.be/pipermail/orocos-dev/2005-September/000885.html">[Orocos-Dev] parse error
+</a></li>
+         <li> <b>Messages sorted by:</b> 
+              <a href="http://lists.mech.kuleuven.be/pipermail/orocos-dev/2005-September/date.html#884">[ date ]</a>
+              <a href="http://lists.mech.kuleuven.be/pipermail/orocos-dev/2005-September/thread.html#884">[ thread ]</a>
+              <a href="http://lists.mech.kuleuven.be/pipermail/orocos-dev/2005-September/subject.html#884">[ subject ]</a>
+              <a href="http://lists.mech.kuleuven.be/pipermail/orocos-dev/2005-September/author.html#884">[ author ]</a>
+         </li>
+       </ul>
+
+<hr>
+<a href="http://lists.mech.kuleuven.be/mailman/listinfo/orocos-dev">More information about the Orocos-Dev
+mailing list</a><br>
+
+</body></html>

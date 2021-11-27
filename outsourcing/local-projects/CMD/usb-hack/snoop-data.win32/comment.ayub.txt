@@ -1,0 +1,10 @@
+As soon as the cmd-stick is attached with the usb cable, 18 packets are
+transferrd between the host and device. So, you need not check those out.
+
+You should analyze the packets after the '10 ??? down' direction packet.
+
+Analyze the rest.
+
+
+			Ayub
+

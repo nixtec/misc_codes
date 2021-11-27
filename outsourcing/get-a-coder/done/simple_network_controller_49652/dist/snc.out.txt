@@ -1,0 +1,35 @@
+Port #1: Active, Processes# 12
+Port #2: Active, Processes# 15
+Port #3: Active, No processes
+Port #4: Active, No processes
+Port #5: Active, No processes
+Port #6: Active, No processes
+... ... ...
+Port #1: Active, Processes# 12
+Port #2: Active, Processes# 15
+Port #3: Inactive, No processes
+Port #4: Active, Processes# 25
+Port #5: Active, No processes
+Port #6: Active, No processes
+... ... ...
+Port #1: Active, Processes# 12
+Port #2: Active, Processes# 15
+Port #3: Inactive, No processes
+Port #4: Active, Processes# 25
+Port #5: Active, Processes# 27
+Port #6: Active, Processes# 27
+... ... ...
+Port #1: Active, No processes
+Port #2: Active, Processes# 15
+Port #3: Active, Processes# 32
+Port #4: Active, No processes
+Port #5: Active, Processes# 27
+Port #6: Active, Processes# 27
+... ... ...
+Port #1: Active, Processes# 69
+Port #2: Active, Processes# 15
+Port #3: Active, Processes# 32
+Port #4: Active, No processes
+Port #5: Active, Processes# 27
+Port #6: Active, Processes# 27
+... ... ...

@@ -1,0 +1,79 @@
+struct stuff_info {
+  char *bcode_id;
+  char *name;
+  char *meta;
+  char *photo; /* location of the photo */
+  size_t photo_len;
+};
+
+struct stuff_status {
+  char *id;
+  char *name;
+  char *stat_time;
+  int duration;		/* how long the stuff was out/in */
+  int status; /* 0 = out, 1 = in */
+};
+
+
+NOTE:
+	duration will be in seconds in database. But when we will display it
+	we will convert it to human readable format.
+
+
+Database: stuffinfo.bdb
+Table: person
+Query: struct stuff_info;
+
+/* in the attendence table 'name' is included because just for loading
+this we have to get full info from bdb, which crashes when the list becomes
+long
+*/
+Database: db_yyyy.sdb
+Table: attendence_dd_mm
+Query:
+	CREATE TABLE attendence_dd_mm (
+	bcode_id TEXT NOT NULL,
+	name TEXT NOT NULL,
+	stat_time TEXT NOT NULL,
+	duration INTEGER NOT NULL,	/* duration is in seconds */
+	status INTEGER NOT NULL)
+
+Database: dd_yyyy.sdb
+Table: fault_dd_mm
+Query:
+	CREATE TABLE fault_dd_mm (bcode_id TEXT PRIMARY KEY)
+
+
+Database: last_status.sdb
+Table: last_status
+Query:
+	CREATE TABLE last_status (
+	bcode_id TEXT PRIMARY KEY,
+	last_stat INTEGER NOT NULL,
+	times INTEGER NOT NULL)
+
+Table: filo_dd_mm
+Query:
+	CREATE TABLE filo_dd_mm (
+	bcode_id TEXT PRIMARY KEY,
+	name TEXT NOT NULL,
+	fin TEXT NOT NULL,
+	lout TEXT NOT NULL)
+
+
+This database will be created manually by the author [ayub]
+But the 'passwd' table content may be modified later.
+
+Database: auth.sdb
+Table: passwd
+Query:
+	CREATE TABLE passwd (
+	type INTEGER PRIMARY KEY,
+	pass TEXT NOT NULL)
+
+Fault Tolerence:
+	If somebody forgets to show his/her barcode before leaving the office
+	in the office hours, his/her status will be set to OUT automatically
+	and will be logged and noticed in the next day. To handle this, I will
+	just set the status of all stuffs OUT if the attendence table is newly
+	created, meaning that the office just started today.

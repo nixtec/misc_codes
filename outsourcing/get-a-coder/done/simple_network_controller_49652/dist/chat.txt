@@ -1,0 +1,19 @@
+I have accepted your bid and just like all your other clients expect the best
+from you. Your bid price was more then my budget but that's fine as long as
+you do a good job and do it within three days.
+
+A sample output of the program would be something like this:
+>> Port #1: Active, Processes# 01, 12, 18, 25
+
+This program is really important to me and i am counting on you guys to do it
+within 3 days.
+I would also appreciate it if you could submit a Readme file and a design
+document describing your design approach(either a flowchart or just a word
+document with text).
+
+Keep me posted on the progress.
+
+If all goes well i should have some more programs for you towards the end of this month.
+
+Thanks
+Freesmile

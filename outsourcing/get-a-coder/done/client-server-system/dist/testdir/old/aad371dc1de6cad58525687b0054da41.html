@@ -1,0 +1,998 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><title>Domino Web Server Application Interface (DSAPI)</title></head><body bgcolor="#ffffff" text="#000000">
+<div align="center">
+<p><b><font color="#000080" size="6">Chapter </font></b><b><font color="#000080" size="6">9</font></b><b><font color="#000080" size="6">-</font></b><b><font color="#000080" size="6">11</font></b><br>
+<br>
+<b><font color="#000080" size="6">Domino Web Server Application Interface (DSAPI)</font></b></p></div><br>
+<br>
+<br>
+<br>
+<b><font color="#000080" size="5">Overview </font></b><br>
+<br>
+The Domino Web Server Application Programming Interface (DSAPI) is a C
+API that lets you write your own extensions to the Domino Web Server.
+DSAPI extensions, or filters, are notified whenever a particular event
+occurs during the processing of a request. There are currently two
+events for which a filter can be written for. The events are:<br>
+
+<ol type="1">
+<li><b><font color="#000080">User Authentication</font></b>
+</li><li><b><font color="#000080">Group List Construction for a Particular User</font></b></li></ol>
+<br>
+Please refer to the <i>Lotus C API Reference</i> for further information on any of the filter data structures referred to in this document.<br>
+<br>
+<b><font color="#000080" size="5">Getting Started</font></b><br>
+<br>
+A DSAPI filter must specify two entry points:<br>
+
+<ol type="1">
+<li><font color="#000080">Initialization</font>
+</li><li><font color="#000080">Event Notification</font></li></ol>
+<br>
+An optional entry point may be defined for <font color="#000080">Filter Termination</font>.  <br>
+<br>
+<b><u><font color="#000080">Initialization</font></u></b><br>
+<u><font color="#000080">	</font></u><br>
+Domino calls the initialization function when the filter is loaded. The
+filter is loaded when the Domino HTTP server task is started or when
+the HTTP task is restarted with the Domino console command 'tell http
+restart'. An example of Filter Initialization:<br>
+	/*---<br>
+	*		filter initialization<br>
+	*/<br>
+	unsigned int FilterInit(FilterInitData* filterInitData)<br>
+<br>
+Refer to the 'Lotus C API Reference Guide' for further information on the FilterInitData structure. <br>
+<br>
+<b><u><font color="#000080">Event Notification</font></u></b><br>
+<br>
+The event-notification function does the actual work of the filter.
+Domino calls the event-notification function whenever a particular
+event occurs during the processing of a request. When Domino calls the
+filter's event-notification function it passes information about the
+request and the event being processed. On each call the filter can
+decide to handle the event, with or without an error return, or decline
+to handle the event. An example of Event Notification:<br>
+	/*---<br>
+	*		filter notification handling<br>
+	*/<br>
+	unsigned int HttpFilterProc(FilterContext* context,	unsigned int eventType, void* eventData)<br>
+<br>
+A DSAPI filter written for the <b><font color="#000080">User Authentication</font></b>
+event allows you to customize the authentication of the Web users,
+which is often one part of implementing 'single-sign on' within a
+corporation. In this case, the DSAPI filter is notified when Domino
+authenticates a user. The DSAPI filter can then parse the user name,
+validate user names and passwords against a legacy mainframe system,
+and if successful, notify the Domino Web server that it has handled the
+user's authentication and return to Domino the user's credentials.<br>
+<br>
+This is a guide to setting the output variables and return code for
+common authentication scenarios where eventData points to the
+FilterAuthenticate structure:<br>
+
+<ul type="disc">
+<li><u>Scenario 1</u>: The filter was able to authenticate the user.</li></ul>
+<br>
+   	Set eventData-&gt;authName to the canonical name, set<br>
+   	eventData-&gt;authType to kAuthenticBasic or kAuthenticClientCert,<br>
+   	and the return code to kFilterHandledEvent.<br>
+
+<ul type="disc">
+<li><u>Scenario 2</u>: The filter was NOT able to authenticate the user, and Domino should go ahead and attempt its own authentication.</li></ul>
+<br>
+   	Set the return code to kFilterNotHandled.<br>
+
+<ul type="disc">
+<li><u>Scenario 3</u>: The filter was NOT able to authenticate the user, and Domino should NOT attempt its own authentication.</li></ul>
+<br>
+  	Set eventData-&gt;authType to kNotAuthentic,<br>
+	and the return code to kFilterHandledEvent.<br>
+<br>
+A DSAPI filter written for the<b><font color="#000080"> </font></b><b><font color="#000080">Group List Construction for a Particular User </font></b>will
+occur when Domino is about to create a list of groups of which the user
+is a member. The filter can have Domino populate the list, add or
+remove groups to the list, or completely handle the event. In this case
+the eventData points to the FilterUserNameList structure.<br>
+<br>
+Optional <b><u><font color="#000080">Filter Termination</font></u></b><br>
+<br>
+The filter may also define a termination entry point. Domino will call
+this function whenever the filter is about to be unloaded. The filter
+can use this function to clean up resources it allocated. An example of
+Filter Termination:<br>
+	*---<br>
+	*		filter termination<br>
+	*/<br>
+	unsigned int TerminateFilter(unsigned int reserved)<br>
+<br>
+<b><font color="#000080" size="5">Overview of the DSAPI Data Structures</font></b><br>
+<br>
+The DSAPI data structures are defined in dsapi.h.  Also refer to the <i>Lotus C API Reference</i> for further information.<br>
+
+<ul type="disc">
+<li>FilterInitData<b> </b>- This structure is needed for filter initialization.
+</li><li type="circle">EventFlags 		- Defines what type of events are available.
+</li><li type="circle">kInterfaceVersion	- A constant which defines the DSAPI version.
+</li><li type="circle">kMaxFilterDesc		- A constant defining the maximum number of characters allowed for a filter description.</li></ul>
+
+<ul type="disc">
+<li>FilterContext - This structure contains information about the
+request, server call back functions, and a pointer to your own data.
+</li><li type="circle">FilterRequest		- Corresponds to the GetRequest functionality within a FilterContext.
+</li><li type="circle">RequestMethod	- Types of HTTP requests.
+</li><li type="circle">FilterResponseHeaders - Corresponds to the ServerSupport functionality within a FilterContext.	
+</li><li type="circle">ServerSupportTypes	- Indicates whether customized information will be appended to response headers.</li></ul>
+
+<ul type="disc">
+<li>FilterAuthenticate - This structure is needed when the event occurring is for user authentication.
+</li><li type="circle">FilterAuthConfigFlags	- Contstants which define the authentication options for a server.
+</li><li type="circle">FilterAuthenticationTypes - Constants which define what authentication was performed.</li></ul>
+
+<ul type="disc">
+<li>FilterGetUserNameList - This structure is needed when the event occurring is for group list construction for a particular user.</li></ul>
+
+<ul type="disc">
+<li>FilterReturnCode - Defines what the valid return codes are for handling events.</li></ul>
+<br>
+<b><font color="#000080" size="5">Running and Programming Considerations</font></b><br>
+ 
+<ul type="disc">
+<li>A DSAPI filter is built as a shared library under UNIX and a DLL
+under Win32. DSAPI is supported on all Domino server platforms. The
+details of compiling and linking a shared library differ from platform
+to platform. Please refer to <b><font color="#000080">Chapter 3, Platform Specifics, </font></b>for
+further information on building applications for a particular platform.
+There is also a sample makefile for Solaris Sparc documented at the end
+of this chapter.</li></ul>
+
+<ul type="disc">
+<li>Since the filter is written in C, you can use the Notes C API to
+access Domino data or other C interfaces to access other systems.</li></ul>
+
+<ul type="disc">
+<li>A DSAPI filter is a server extension, the filter has the privileges
+of the server ID when accessing Domino databases through the C API.</li></ul>
+
+<ul type="disc">
+<li>DSAPI also provides the following server call-back functions that
+the filter can call to get additional information or to have a service
+performed:</li></ul>
+
+<ul>
+<ul type="circle">
+<li> Allocate and free memory 		- refer to the FilterContext structure in the 'Lotus C API Reference'
+</li><li> Add a name to a group list 		- refer to the FilterUserNameList structure in the 'Lotus C API Reference'
+</li><li>Get information about a request 		- refer to the FilterContext/FilterRequest structures in the 'Lotus C API Reference'
+</li><li>Write a response directly to the client 	- refer to the FilterContext structure in the 'Lotus C API Reference'
+</li><li>Add or change HTTP headers on the request or response - refer
+to the FilterContext/FilterResponseHeaders structures in the 'Lotus C
+API Reference'</li></ul>
+</ul>
+<br>
+
+<ul type="disc">
+<li>Since filter notification functions may be called simultaneously
+from different server threads, all code in these functions must be
+thread-safe. When a Domino server thread receives an HTTP request, it
+allocates a new instance of the FilterContext structure. As the thread
+processes the request, it passes that instance to all filter functions
+it calls. FilterContext contains a pointer, privateContext, that you
+can use to store your own data structure. All thread-specific data that
+the filter needs to maintain from event to event should be stored in
+your privateContext structure.</li></ul>
+
+<ul type="disc">
+<li>You should use the AllocMem callback function to allocate dynamic
+memory in your filter. All memory allocated by AllocMem is
+automatically freed when the server thread finishes processing the
+request. This simplifies your filter cleanup and ensures that the
+memory is freed even if the thread terminates abnormally.</li></ul>
+
+<ul type="disc">
+<li>Install the filter by specifying the name of the filter in the
+Server record, in the field DSAPI filter file name in the Internet
+Protocols -&gt; HTTP table. You can specify just the name of the filter
+file if it is located in the Domino program or data directories;
+otherwise you must specify the fully-qualified path name. Make sure
+that all filter files are secured by adequate file permissions and
+physical security, to prevent unauthorized persons from tampering with
+the filter.</li></ul>
+<br>
+<b><font color="#000080" size="5">DSAPI Sample Code</font></b><br>
+<br>
+The purpose of this example is to show how to extend the Domino Web
+server to enable Unix password checking. When a Domino database is
+accessed via a Web browser, Domino can authenticate the user based on
+Unix password (i.e., password stored in standard Unix password
+registries such as /etc/passwd or NIS). It is possible to cut and paste
+what is documented here and incorporate it into a sample of your own.
+There is a sample Solaris Sparc makefile also provided for your
+convenience. Steps for running and installing the filter are featured
+below.
+<table border="1" width="100%">
+<tbody><tr valign="top"><td width="100%"><b><font color="#000080">What the sample code illustrates.</font></b></td></tr>
+</tbody></table>When a protected Web page is accessed, Domino will
+prompt for a user name and password. This example allows the user to
+enter a Unix password, and to be authenticated for Web access if the
+password can be verified. This example works only for the case where a
+user is known to both Domino and Unix. <br>
+The example assumes that the Unix user name is the user's Domino "short  name".  For instance: <br>
+		<u>Domino user name</u>    	Jane Doe <br>
+		<u>Domino short name</u>   	jdoe <br>
+		<u>Unix user name</u>
+jdoe (note: Unix is case sensitive, so the Domino short name should be
+stored as lower case characters. For best interoperability, this name
+should be no longer than 8 characters.) <table border="1" width="100%">
+<tbody><tr valign="top"><td width="100%"><b><font color="#000080">Installing and running the filter shared library.</font></b></td></tr>
+</tbody></table>
+<b>1.	</b><u>Filter Installation</u><br>
+
+<ul type="disc">
+<li>Open the Domino Name and Address book.  Switch to the server view and open the server document.  Edit the server document:
+</li><li>Click on the "Internet Protocols" tab.
+</li><li>Click on the "HTTP" tab.
+</li><li>Edit the field "DSAPI filter file name" to contain the name of
+the shared library. (If the shared library is installed to a directory
+other than the Domino executable directory, provide a full path name to
+the library).
+</li><li>Save your changes.</li></ul>
+<br>
+<b>2.	</b><u>Running the filter</u><br>
+
+<ul type="disc">
+<li>Gain access to the server console. Restart the Domino server http
+task (e.g., issue commands "tell http quit", "load http"). The server
+console should display an initialization message as the shared library
+is loaded.
+</li><li>From a Domino admin client, register a new Domino user,
+ensuring that the user's Domino short name corresponds to the desired
+Unix login username. Or find an existing Domino user who is already
+known to both Domino and Unix.
+</li><li>For the target Domino database that will be accessed from a
+Web browser, edit the database access control list to grant access to
+the Domino user.
+</li><li>Use a Web browser to access the target database. If the
+example is working properly, you should be prompted for user name and
+password. Enter the Unix password to test the example.
+<table border="1" width="100%">
+<tbody><tr valign="top"><td width="100%"><b><font color="#000080">Program Filter Initialization, Filter Termination and Filter Notification Definitions.</font></b></td></tr>
+</tbody></table>
+</li></ul>
+<tt><font size="2">/* Input and output include files */</font></tt><br>
+<tt><font size="2">#include &lt;stdlib.h&gt;</font></tt><br>
+<tt><font size="2">#include &lt;stdio.h&gt;</font></tt><br>
+<tt><font size="2">#include &lt;string.h&gt;</font></tt><br>
+<br>
+<tt><font size="2">/* Special dsapi include file */</font></tt><br>
+<tt><font size="2">#include "dsapi.h"</font></tt><br>
+<br>
+<tt><font size="2">/* unix authentication includes */</font></tt><br>
+<tt><font size="2">#ifdef SOLARIS</font></tt><br>
+<tt><font size="2">#include &lt;shadow.h&gt;</font></tt><br>
+<tt><font size="2">#endif</font></tt><br>
+<br>
+<tt><font size="2">#ifdef AIX</font></tt><br>
+<tt><font size="2">#include &lt;sys/types.h&gt;</font></tt><br>
+<tt><font size="2">#include &lt;pwd.h&gt;</font></tt><br>
+<tt><font size="2">#endif</font></tt><br>
+<br>
+<tt><font size="2">#ifdef HPUX</font></tt><br>
+<tt><font size="2">#include &lt;pwd.h&gt;</font></tt><br>
+<tt><font size="2">#include &lt;crypt.h&gt;</font></tt><br>
+<tt><font size="2">#include &lt;unistd.h&gt;</font></tt><br>
+<tt><font size="2">#endif</font></tt><br>
+<br>
+<tt><font size="2">/* Notes SDK include files */</font></tt><br>
+<tt><font size="2">#include "global.h"</font></tt><br>
+<tt><font size="2">#include "osmem.h"</font></tt><br>
+<tt><font size="2">#include "lookup.h"</font></tt><br>
+<br>
+<tt><font size="2">/*---</font></tt><br>
+<tt><font size="2">*		local procedure prototypes</font></tt><br>
+<tt><font size="2">*/</font></tt><br>
+<br>
+<tt><font size="2">/* Notes SDK unix shared library entrypoint */</font></tt><br>
+<tt><font size="2">STATUS FAR PASCAL MainEntryPoint (void);</font></tt><br>
+<br>
+<tt><font size="2">/* Routines with syntax dictated by the DSAPI interface */</font></tt><br>
+<tt><font size="2">unsigned int Authenticate(FilterContext* context, FilterAuthenticate* authData);</font></tt><br>
+<br>
+<tt><font size="2">/* Retrieval of names from Notes name and address book */</font></tt><br>
+<tt><font size="2">int getUserNames (FilterContext* context, char *userName, char **pUserFullName, int &nbsp;*pUserFullNameLen,</font></tt><br>
+<tt><font size="2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; char **pUserShortName,</font></tt><br>
+<tt><font size="2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; int &nbsp;*pUserShortNameLen);</font></tt><br>
+<br>
+<tt><font size="2">int getLookupInfo (FilterContext* context, char *pMatch, int &nbsp;itemNumber, char **pInfo, int &nbsp;*pInfoLen);</font></tt><br>
+<br>
+<tt><font size="2">/* unix password check routine */</font></tt><br>
+<tt><font size="2">int unixAuthenticate(char *userName, char *password);</font></tt><br>
+<br>
+<tt><font size="2">/*---</font></tt><br>
+<tt><font size="2">*		local procedures follow</font></tt><br>
+<tt><font size="2">*/</font></tt><br>
+<br>
+<tt><font size="2">STATUS FAR PASCAL MainEntryPoint (void) </font></tt><br>
+<tt><font size="2">{</font></tt><br>
+<tt><font size="2">/*</font></tt><br>
+<tt><font size="2">&nbsp;* Description: &nbsp;Provide a main entry point for the Notes API to </font></tt><br>
+<tt><font size="2">&nbsp;* &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; initialize inside of this shared library. &nbsp;We need </font></tt><br>
+<tt><font size="2">&nbsp;* &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; this entry point because we want to be able to lookup</font></tt><br>
+<tt><font size="2">&nbsp;* &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; user information in the name and address book via the</font></tt><br>
+<tt><font size="2">&nbsp;* &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Notes SDK API.</font></tt><br>
+<tt><font size="2">&nbsp;*</font></tt><br>
+<tt><font size="2">&nbsp;* Input: &nbsp;nothing</font></tt><br>
+<tt><font size="2">&nbsp;* Output: nothing</font></tt><br>
+<tt><font size="2">&nbsp;* Return: NOERROR</font></tt><br>
+<tt><font size="2">&nbsp;*/</font></tt><br>
+<tt><font size="2">	return NOERROR;</font></tt><br>
+<tt><font size="2">}</font></tt><br>
+<br>
+<tt><font size="2">/*---</font></tt><br>
+<tt><font size="2">*		filter initialization</font></tt><br>
+<tt><font size="2">*/</font></tt><br>
+<tt><font size="2">unsigned int FilterInit(FilterInitData* filterInitData)</font></tt><br>
+<tt><font size="2">{</font></tt><br>
+<tt><font size="2">/*</font></tt><br>
+<tt><font size="2">&nbsp;* Description: &nbsp;Filter initialization is performed when the filter</font></tt><br>
+<tt><font size="2">&nbsp;* &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; shared library is dynamically loaded.</font></tt><br>
+<tt><font size="2">&nbsp;*</font></tt><br>
+<tt><font size="2">&nbsp;* Input: &nbsp;filterInitData &nbsp; &nbsp; dsapi specification controls the format</font></tt><br>
+<tt><font size="2">&nbsp;* &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;of data</font></tt><br>
+<tt><font size="2">&nbsp;* Output: filterInitData &nbsp; &nbsp; several fields are filled in</font></tt><br>
+<tt><font size="2">&nbsp;*</font></tt><br>
+<tt><font size="2">&nbsp;* Return: kFilterHandledEvent</font></tt><br>
+<tt><font size="2">&nbsp;*/</font></tt><br>
+<tt><font size="2">&nbsp; &nbsp; &nbsp; &nbsp; /*Required*/</font></tt><br>
+<tt><font size="2">&nbsp; &nbsp; &nbsp; &nbsp; filterInitData-&gt;appFilterVersion = kInterfaceVersion; &nbsp;</font></tt><br>
+<br>
+<tt><font size="2">	/* Modify the following code to set the flags you want */</font></tt><br>
+<tt><font size="2">	filterInitData-&gt;eventFlags = </font></tt><br>
+<tt><font size="2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; kFilterAuthUser;</font></tt><br>
+<tt><font size="2">	</font></tt><br>
+<tt><font size="2">	/* Set a short description for your filter */</font></tt><br>
+<tt><font size="2">	strcpy(filterInitData-&gt;filterDesc,</font></tt><br>
+<tt><font size="2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;"Unix Authentication Filter");</font></tt><br>
+<br>
+<tt><font size="2">&nbsp; &nbsp; &nbsp; &nbsp; /* insert any global initialization code here... &nbsp; &nbsp; &nbsp; */</font></tt><br>
+<br>
+<tt><font size="2">	/* Output sent to stdout and stderr is displayed on the </font></tt><br>
+<tt><font size="2">	 * server console, but is not written to the server log file.</font></tt><br>
+<tt><font size="2">	 */</font></tt><br>
+<tt><font size="2">	printf("\nDSAPI Unix Authentication filter initialized\n");</font></tt><br>
+<tt><font size="2">	return kFilterHandledEvent;</font></tt><br>
+<tt><font size="2">}</font></tt><br>
+<br>
+<tt><font size="2">/*---</font></tt><br>
+<tt><font size="2">*		filter termination</font></tt><br>
+<tt><font size="2">*/</font></tt><br>
+<tt><font size="2">unsigned int TerminateFilter(unsigned int reserved)</font></tt><br>
+<tt><font size="2">{</font></tt><br>
+<tt><font size="2">/*</font></tt><br>
+<tt><font size="2">&nbsp;* Description: &nbsp;Filter termination is performed when the filter</font></tt><br>
+<tt><font size="2">&nbsp;* &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; shared library is unloaded.</font></tt><br>
+<tt><font size="2">&nbsp;*</font></tt><br>
+<tt><font size="2">&nbsp;* Input: &nbsp;reserved &nbsp; &nbsp; currently unused (dsapi spec controls the</font></tt><br>
+<tt><font size="2">&nbsp;* &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;format of data)</font></tt><br>
+<tt><font size="2">&nbsp;* Output: none</font></tt><br>
+<tt><font size="2">&nbsp;*</font></tt><br>
+<tt><font size="2">&nbsp;* Return: kFilterHandledEvent</font></tt><br>
+<tt><font size="2">&nbsp;*/</font></tt><br>
+<tt><font size="2">	/* insert any global cleanup code here... */</font></tt><br>
+<br>
+<tt><font size="2">	printf("\nDSAPI Unix authentication filter unloaded\n");</font></tt><br>
+<tt><font size="2">	return kFilterHandledEvent;</font></tt><br>
+<tt><font size="2">}</font></tt><br>
+<br>
+<br>
+<tt><font size="2">/*---</font></tt><br>
+<tt><font size="2">*		filter notification handling</font></tt><br>
+<tt><font size="2">*/</font></tt><br>
+<tt><font size="2">unsigned int HttpFilterProc(FilterContext* context,</font></tt><br>
+<tt><font size="2">			unsigned int eventType, void* eventData)</font></tt><br>
+<tt><font size="2">{</font></tt><br>
+<tt><font size="2">/*</font></tt><br>
+<tt><font size="2">&nbsp;* Description: &nbsp;This routine is called for all dsapi filter events. &nbsp;</font></tt><br>
+<tt><font size="2">&nbsp;*</font></tt><br>
+<tt><font size="2">&nbsp;* Input: &nbsp;reserved &nbsp; &nbsp; currently unused (dsapi spec controls the</font></tt><br>
+<tt><font size="2">&nbsp;* &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;format of data)</font></tt><br>
+<tt><font size="2">&nbsp;* Output: none</font></tt><br>
+<tt><font size="2">&nbsp;*</font></tt><br>
+<tt><font size="2">&nbsp;* Return: kFilterNotHandled for all events that we don't customize, </font></tt><br>
+<tt><font size="2">&nbsp;* &nbsp; &nbsp; &nbsp; &nbsp; otherwise allow our filter routine to provide a return</font></tt><br>
+<tt><font size="2">&nbsp;* &nbsp; &nbsp; &nbsp; &nbsp; value.</font></tt><br>
+<tt><font size="2">&nbsp;*/</font></tt><br>
+<tt><font size="2">	</font></tt><br>
+<tt><font size="2">	/* Include only those events we want to handle */</font></tt><br>
+<tt><font size="2">	switch (eventType) {</font></tt><br>
+<tt><font size="2">	case kFilterAuthUser:</font></tt><br>
+<tt><font size="2">		return Authenticate(context,</font></tt><br>
+<tt><font size="2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; (FilterAuthenticate *)eventData);</font></tt><br>
+<tt><font size="2">	default:</font></tt><br>
+<tt><font size="2">		break;</font></tt><br>
+<tt><font size="2">	}</font></tt><br>
+<br>
+<tt><font size="2">	return kFilterNotHandled;</font></tt><br>
+<tt><font size="2">}</font></tt><br>
+<br>
+
+<table border="1" width="100%">
+<tbody><tr valign="top"><td width="100%"><b><font color="#000080">Filter Authentication Main Functionality which controls the authentication from both the Domino and Unix side.</font></b></td></tr>
+</tbody></table>
+<tt><font size="2">/*---</font></tt><br>
+<tt><font size="2">*		handle user authentication</font></tt><br>
+<tt><font size="2">*/</font></tt><br>
+<tt><font size="2">unsigned int Authenticate(FilterContext* context,</font></tt><br>
+<tt><font size="2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; FilterAuthenticate* authData)</font></tt><br>
+<tt><font size="2">{</font></tt><br>
+<tt><font size="2">/*</font></tt><br>
+<tt><font size="2">&nbsp;* Description: &nbsp;This routine is called on a dsapi kFilterAuthUser</font></tt><br>
+<tt><font size="2">&nbsp;* &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; event.</font></tt><br>
+<tt><font size="2">&nbsp;*</font></tt><br>
+<tt><font size="2">&nbsp;* Input: &nbsp;context &nbsp; &nbsp; dsapi specification controls the format of data</font></tt><br>
+<tt><font size="2">&nbsp;* &nbsp; &nbsp; &nbsp; &nbsp; authData &nbsp; &nbsp;password field contains the password to use for </font></tt><br>
+<tt><font size="2">&nbsp;* &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; authentication userName field contains the name </font></tt><br>
+<tt><font size="2">&nbsp;* &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; to authenticate foundInCache field is TRUE if </font></tt><br>
+<tt><font size="2">&nbsp;* &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; user has been found in the cache and can be</font></tt><br>
+<tt><font size="2">&nbsp;* &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; authenticated on that basis.</font></tt><br>
+<tt><font size="2">&nbsp;*</font></tt><br>
+<tt><font size="2">&nbsp;* Output: authData &nbsp; &nbsp;authName field is filled with user's </font></tt><br>
+<tt><font size="2">&nbsp;* &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; distinguished name authType filed is filled </font></tt><br>
+<tt><font size="2">&nbsp;* &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; with kNotAuthentic if we can't authenticate the</font></tt><br>
+<tt><font size="2">&nbsp;* &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; unix user kAuthenticBasic if we can </font></tt><br>
+<tt><font size="2">&nbsp;* &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; authenticate the unix user.</font></tt><br>
+<tt><font size="2">&nbsp;*</font></tt><br>
+<tt><font size="2">&nbsp;* Return: kFilterNotHandled if we do not understand the input data, </font></tt><br>
+<tt><font size="2">&nbsp;* &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; or if the user has been found in the cache, or </font></tt><br>
+<tt><font size="2">&nbsp;* &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; if we find that the user to be authenticated is</font></tt><br>
+<tt><font size="2">&nbsp;* &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; not known to unix.</font></tt><br>
+<tt><font size="2">&nbsp;* &nbsp; &nbsp; &nbsp; &nbsp; kFilterHandledEvent if the user is known to unix.</font></tt><br>
+<tt><font size="2">&nbsp;*/</font></tt><br>
+<tt><font size="2">	/* If the user is found in the cache, then we don't need to do</font></tt><br>
+<tt><font size="2">	 * anything further.</font></tt><br>
+<tt><font size="2">	 */</font></tt><br>
+<tt><font size="2">	if (!authData || authData-&gt;foundInCache)</font></tt><br>
+<tt><font size="2">		return kFilterNotHandled;</font></tt><br>
+<br>
+<tt><font size="2">	/* Attempt to verify the user's password. </font></tt><br>
+<tt><font size="2">	 */</font></tt><br>
+<tt><font size="2">	if (authData-&gt;userName &amp;&amp; authData-&gt;password) {</font></tt><br>
+<tt><font size="2">		char *fullName = NULL;</font></tt><br>
+<tt><font size="2">		int fullNameLen = 0;</font></tt><br>
+<tt><font size="2">		char *shortName = NULL;</font></tt><br>
+<tt><font size="2">		int shortNameLen = 0;</font></tt><br>
+<br>
+<tt><font size="2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; /* Lookup the user in the Name and Address book. &nbsp;Get </font></tt><br>
+<tt><font size="2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;* the user's short name (which we expect is the unix</font></tt><br>
+<tt><font size="2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;* user name), and get the user's fullname (which we </font></tt><br>
+<tt><font size="2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;* expect will be in the format to pass back to</font></tt><br>
+<tt><font size="2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;* dsapi).</font></tt><br>
+<tt><font size="2">		 */</font></tt><br>
+<tt><font size="2">		if (0 == getUserNames (context,</font></tt><br>
+<tt><font size="2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp;(char *)authData-&gt;userName,</font></tt><br>
+<tt><font size="2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp;&amp;fullName,</font></tt><br>
+<tt><font size="2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp;&amp;fullNameLen,</font></tt><br>
+<tt><font size="2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp;&amp;shortName,</font></tt><br>
+<tt><font size="2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp;&amp;shortNameLen) ) {</font></tt><br>
+<tt><font size="2">			int unixauth;</font></tt><br>
+<tt><font size="2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; /* Do the unix authentication. The </font></tt><br>
+<tt><font size="2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;* unixAuthenticate routine
+returns: -1 on</font></tt><br>
+<tt><font size="2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;* error, 0 on success, 1 if
+user is not known </font></tt><br>
+<tt><font size="2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;* to unix.</font></tt><br>
+<tt><font size="2">			 */</font></tt><br>
+<tt><font size="2">			unixauth = unixAuthenticate(shortName,</font></tt><br>
+<tt><font size="2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; (char *)authData-&gt;password);</font></tt><br>
+<tt><font size="2">			/* Return if user is not known to unix */</font></tt><br>
+<tt><font size="2">			if (1 == unixauth) {</font></tt><br>
+<tt><font size="2">				printf("\nUser name not in UNIX system.\n")</font></tt><br>
+<tt><font size="2">				return kFilterNotHandled;</font></tt><br>
+<tt><font size="2">			} </font></tt><br>
+<tt><font size="2">			/* Copy the canonical name for this user that</font></tt><br>
+<tt><font size="2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;* dsapi requires.</font></tt><br>
+<tt><font size="2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;*/</font></tt><br>
+<tt><font size="2">			strncpy ((char *)authData-&gt;authName, fullName,</font></tt><br>
+<tt><font size="2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp;authData-&gt;authNameSize);</font></tt><br>
+<br>
+<tt><font size="2">			/* Fill in authType return info that dsapi</font></tt><br>
+<tt><font size="2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;* requires.</font></tt><br>
+<tt><font size="2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;*/</font></tt><br>
+<tt><font size="2">			if (unixauth) {</font></tt><br>
+<tt><font size="2">				/* The unixauthenticate routine</font></tt><br>
+<tt><font size="2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;*
+returned error: &nbsp;we couldn't</font></tt><br>
+<tt><font size="2">				 * authenticate with the input</font></tt><br>
+<tt><font size="2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;*
+password.</font></tt><br>
+<tt><font size="2">				 */</font></tt><br>
+<tt><font size="2">				authData-&gt;authType = kNotAuthentic;</font></tt><br>
+<tt><font size="2">			} else {</font></tt><br>
+<tt><font size="2">				/* For debug purposes, write to the</font></tt><br>
+<tt><font size="2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;*
+Domino console that authentication</font></tt><br>
+<tt><font size="2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;*
+with the input password succeeded.</font></tt><br>
+<tt><font size="2">				 * You may wish to remove this printf.</font></tt><br>
+<tt><font size="2">				 */</font></tt><br>
+<tt><font size="2">				printf("DSAPI Filter authenticated %s as %s (unix user %s)\n",</font></tt><br>
+<tt><font size="2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp;(char *)authData-&gt;userName,</font></tt><br>
+<tt><font size="2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp;authData-&gt;authName, shortName);</font></tt><br>
+<tt><font size="2">				authData-&gt;authType = kAuthenticBasic;</font></tt><br>
+<tt><font size="2">			}</font></tt><br>
+<tt><font size="2">			return kFilterHandledEvent;</font></tt><br>
+<tt><font size="2">		}</font></tt><br>
+<tt><font size="2">	}</font></tt><br>
+<tt><font size="2">	return kFilterNotHandled;</font></tt><br>
+<tt><font size="2">}</font></tt>
+<table border="1" width="100%">
+<tbody><tr valign="top"><td width="100%"><b><font color="#000080">Actual routines to lookup the user from the Domino side.</font></b><br>
+<br>
+Each time this filter's Authenticate routine is called, a lookup will
+be done of the user in the Domino name and address book (assuming that
+the user is not found in the cache from a previous authentication).
+This lookup will attempt to retrieve the user's Domino short name
+(e.g., jdoe) and the user's full Domino name. If unix user names do not
+correspond to Domino short names, this example would need to be changed
+to handle the way in which unix names should be mapped to Domino names,
+and vice versa. </td></tr>
+</tbody></table>
+<tt><font size="2">int getUserNames (FilterContext* context,</font></tt><br>
+<tt><font size="2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; char *userName, </font></tt><br>
+<tt><font size="2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; char **pUserFullName,</font></tt><br>
+<tt><font size="2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; int &nbsp;*pUserFullNameLen,</font></tt><br>
+<tt><font size="2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; char **pUserShortName,</font></tt><br>
+<tt><font size="2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; int &nbsp;*pUserShortNameLen) {</font></tt><br>
+<tt><font size="2">/*</font></tt><br>
+<tt><font size="2">&nbsp;* Description: &nbsp;Lookup the user and return the user's full name and</font></tt><br>
+<tt><font size="2">&nbsp;* &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; short name.</font></tt><br>
+<tt><font size="2">&nbsp;*</font></tt><br>
+<tt><font size="2">&nbsp;* Input: &nbsp;context &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;context we'll use for allocating memory</font></tt><br>
+<tt><font size="2">&nbsp;* &nbsp; &nbsp; &nbsp; &nbsp; userName &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; the name of the user to lookup</font></tt><br>
+<tt><font size="2">&nbsp;* Output: pUserFullName &nbsp; &nbsp; &nbsp;location of the user's full name</font></tt><br>
+<tt><font size="2">&nbsp;* &nbsp; &nbsp; &nbsp; &nbsp; pUserFullNameLen &nbsp; location to store the length of fullname</font></tt><br>
+<tt><font size="2">&nbsp;* &nbsp; &nbsp; &nbsp; &nbsp; pUserShortName &nbsp; &nbsp; location of the user's shortname</font></tt><br>
+<tt><font size="2">&nbsp;* &nbsp; &nbsp; &nbsp; &nbsp; pUserShortNameLen &nbsp;location to store the length of</font></tt><br>
+<tt><font size="2">&nbsp;* &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;shortname</font></tt><br>
+<tt><font size="2">&nbsp;*</font></tt><br>
+<tt><font size="2">&nbsp;* Return: -1 on error, 0 on success</font></tt><br>
+<tt><font size="2">&nbsp;*/</font></tt><br>
+<tt><font size="2">	STATUS	error = NOERROR;</font></tt><br>
+<tt><font size="2">	HANDLE	hLookup = NULLHANDLE;</font></tt><br>
+<tt><font size="2">	WORD	Matches = 0;</font></tt><br>
+<tt><font size="2">	char	*pLookup;</font></tt><br>
+<tt><font size="2">	char	*pName = NULL;</font></tt><br>
+<tt><font size="2">	char	*pMatch = NULL;</font></tt><br>
+<tt><font size="2">&nbsp; &nbsp; &nbsp; &nbsp; int &nbsp; &nbsp; rc = -1;</font></tt><br>
+<br>
+<tt><font size="2">	if (!userName || !pUserFullName || !pUserFullNameLen || </font></tt><br>
+<tt><font size="2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; !pUserShortName || !pUserShortNameLen)</font></tt><br>
+<tt><font size="2">		return rc;</font></tt><br>
+<br>
+<tt><font size="2">	/* Initialize output */</font></tt><br>
+<tt><font size="2">	*pUserFullName = NULL;</font></tt><br>
+<tt><font size="2">	*pUserFullNameLen = 0;</font></tt><br>
+<tt><font size="2">	*pUserShortName = NULL;</font></tt><br>
+<tt><font size="2">	*pUserShortNameLen = 0;</font></tt><br>
+<br>
+<tt><font size="2">	/* do the name lookup</font></tt><br>
+<tt><font size="2">	 */</font></tt><br>
+<tt><font size="2">	error = NAMELookup(NULL, /* NULL means look locally */</font></tt><br>
+<tt><font size="2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;0, &nbsp; /* flags */</font></tt><br>
+<tt><font size="2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;1, &nbsp; /* number of
+namespaces */</font></tt><br>
+<tt><font size="2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;"$Users", /* namespace list */</font></tt><br>
+<tt><font size="2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;1, &nbsp; /* number of
+names to lookup */</font></tt><br>
+<tt><font size="2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;userName, /* list of
+names to lookup */</font></tt><br>
+<tt><font size="2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;2, /* number of items
+to return */</font></tt><br>
+<tt><font size="2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;"FullName\0ShortName",
+/* list of items to</font></tt><br>
+<tt><font size="2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;* return
+*/</font></tt><br>
+<tt><font size="2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&amp;hLookup); /* place
+to receive handle of</font></tt><br>
+<tt><font size="2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp;* return buffer */</font></tt><br>
+<tt><font size="2">						</font></tt><br>
+<tt><font size="2">	if (error || (NULLHANDLE == hLookup))</font></tt><br>
+<tt><font size="2">		goto NoUnlockExit;</font></tt><br>
+<br>
+<tt><font size="2">	pLookup = (char *) OSLockObject(hLookup);</font></tt><br>
+<tt><font size="2">		</font></tt><br>
+<tt><font size="2">	/*	Get a pointer to our entry.</font></tt><br>
+<tt><font size="2">	 */</font></tt><br>
+<tt><font size="2">	pName = (char *)NAMELocateNextName(pLookup, /* name lookup</font></tt><br>
+<tt><font size="2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;*
+buffer */</font></tt><br>
+<tt><font size="2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; NULL, /* start at beginning of</font></tt><br>
+<tt><font size="2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;* lookup buffer */</font></tt><br>
+<tt><font size="2">					&amp;Matches); /* Receives number</font></tt><br>
+<tt><font size="2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; * of
+times we</font></tt><br>
+<tt><font size="2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; * found
+the entry</font></tt><br>
+<tt><font size="2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; *
+(should be 1)</font></tt><br>
+<tt><font size="2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; */</font></tt><br>
+<br>
+<tt><font size="2">	/* If we didn't find the entry, then quit */</font></tt><br>
+<tt><font size="2">	if ((pName == NULL) || (Matches &lt;= 0)) {</font></tt><br>
+<tt><font size="2">		goto Exit;</font></tt><br>
+<tt><font size="2">	}</font></tt><br>
+<tt><font size="2">	</font></tt><br>
+<tt><font size="2">	pMatch = (char *)NAMELocateNextMatch(pLookup, &nbsp;/* name lookup</font></tt><br>
+<tt><font size="2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; * buffer */</font></tt><br>
+<tt><font size="2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; pName, /* entry that we found */</font></tt><br>
+<tt><font size="2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; NULL); /* no previous match */</font></tt><br>
+<tt><font size="2">	if (NULL == pMatch) {</font></tt><br>
+<tt><font size="2">		goto Exit;</font></tt><br>
+<tt><font size="2">	}</font></tt><br>
+<tt><font size="2">	/* Get the full name from the info we got back */</font></tt><br>
+<tt><font size="2">	if ( getLookupInfo (context,</font></tt><br>
+<tt><font size="2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; pMatch,</font></tt><br>
+<tt><font size="2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0,</font></tt><br>
+<tt><font size="2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; pUserFullName,</font></tt><br>
+<tt><font size="2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; pUserFullNameLen) )</font></tt><br>
+<tt><font size="2">		goto Exit;</font></tt><br>
+<tt><font size="2">		</font></tt><br>
+<tt><font size="2">	/* Get the short name from the info we got back */</font></tt><br>
+<tt><font size="2">	if ( getLookupInfo (context,</font></tt><br>
+<tt><font size="2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; pMatch,</font></tt><br>
+<tt><font size="2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 1,</font></tt><br>
+<tt><font size="2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; pUserShortName,</font></tt><br>
+<tt><font size="2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; pUserShortNameLen) )</font></tt><br>
+<tt><font size="2">		goto Exit;</font></tt><br>
+<tt><font size="2">	else</font></tt><br>
+<tt><font size="2">		/* Success in all things */</font></tt><br>
+<tt><font size="2">		rc = 0;</font></tt><br>
+<br>
+<tt><font size="2">Exit:</font></tt><br>
+<tt><font size="2">	if ( pLookup &amp;&amp; hLookup )</font></tt><br>
+<tt><font size="2">		OSUnlock(hLookup);</font></tt><br>
+<tt><font size="2">NoUnlockExit:</font></tt><br>
+<tt><font size="2">	if (NULLHANDLE != hLookup)</font></tt><br>
+<tt><font size="2">		OSMemFree(hLookup);</font></tt><br>
+<tt><font size="2">	return rc;</font></tt><br>
+<tt><font size="2">}</font></tt><br>
+<br>
+<tt><font size="2">int getLookupInfo (FilterContext* context,</font></tt><br>
+<tt><font size="2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;char *pMatch,</font></tt><br>
+<tt><font size="2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;int &nbsp;itemNumber,</font></tt><br>
+<tt><font size="2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;char **pInfo,</font></tt><br>
+<tt><font size="2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;int &nbsp;*pInfoLen) {</font></tt><br>
+<tt><font size="2">/*</font></tt><br>
+<tt><font size="2">&nbsp;* Description: &nbsp;Get the info from the lookup buffer </font></tt><br>
+<tt><font size="2">&nbsp;*</font></tt><br>
+<tt><font size="2">&nbsp;* Input: &nbsp;context &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;context we'll use for allocating memory</font></tt><br>
+<tt><font size="2">&nbsp;* &nbsp; &nbsp; &nbsp; &nbsp; pMatch &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; the name of the lookup buffer</font></tt><br>
+<tt><font size="2">&nbsp;* &nbsp; &nbsp; &nbsp; &nbsp; itemNumber &nbsp; &nbsp; &nbsp; &nbsp; where the info is stored in the lookup</font></tt><br>
+<tt><font size="2">&nbsp;* &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;buffer</font></tt><br>
+<tt><font size="2">&nbsp;* Output: pInfo &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;location of the info buffer</font></tt><br>
+<tt><font size="2">&nbsp;* &nbsp; &nbsp; &nbsp; &nbsp; pInfoLen &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; location to store the info length</font></tt><br>
+<tt><font size="2">&nbsp;*</font></tt><br>
+<tt><font size="2">&nbsp;* Return: -1 on error, 0 on success</font></tt><br>
+<tt><font size="2">&nbsp;*/</font></tt><br>
+<br>
+<tt><font size="2">	unsigned int reserved = 0;</font></tt><br>
+<tt><font size="2">	unsigned int errID;</font></tt><br>
+<tt><font size="2">	char	*ValuePtr = NULL;</font></tt><br>
+<tt><font size="2">	WORD	ValueLength, DataType;</font></tt><br>
+<tt><font size="2">	STATUS	error;</font></tt><br>
+<tt><font size="2">	void	*newSpace = NULL;</font></tt><br>
+<br>
+<tt><font size="2">	if (!pMatch || !pInfo || !pInfoLen || (itemNumber &lt; 0))</font></tt><br>
+<tt><font size="2">		return -1;</font></tt><br>
+<br>
+<tt><font size="2">	/* Initialize output */</font></tt><br>
+<tt><font size="2">	*pInfo = NULL;</font></tt><br>
+<tt><font size="2">	*pInfoLen = 0;</font></tt><br>
+<br>
+<tt><font size="2">	/* Check the type and length of the info */</font></tt><br>
+<tt><font size="2">	ValuePtr = (char *)NAMELocateItem(pMatch, /* match that we</font></tt><br>
+<tt><font size="2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;* found */</font></tt><br>
+<tt><font size="2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; itemNumber, /* item # in order</font></tt><br>
+<tt><font size="2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;*of item on
+lookup */</font></tt><br>
+<tt><font size="2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &amp;DataType, /* return the datatype</font></tt><br>
+<tt><font size="2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; * of item value */</font></tt><br>
+<tt><font size="2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &amp;ValueLength); /* size of rtn</font></tt><br>
+<tt><font size="2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; * value
+*/</font></tt><br>
+<tt><font size="2">	if (NULL == ValuePtr || ValueLength == 0) {</font></tt><br>
+<tt><font size="2">		/* there is no info */</font></tt><br>
+<tt><font size="2">		return -1;</font></tt><br>
+<tt><font size="2">	}</font></tt><br>
+<tt><font size="2">	ValueLength -= sizeof(WORD); /* remove datatype word included </font></tt><br>
+<tt><font size="2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; * in the list length </font></tt><br>
+<tt><font size="2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; */</font></tt><br>
+<tt><font size="2">&nbsp;	/* check the value DataType */</font></tt><br>
+<tt><font size="2">	switch (DataType) {</font></tt><br>
+<tt><font size="2">		case TYPE_TEXT_LIST:</font></tt><br>
+<tt><font size="2">			break;</font></tt><br>
+<br>
+<tt><font size="2">		case TYPE_TEXT:</font></tt><br>
+<tt><font size="2">			break;</font></tt><br>
+<br>
+<tt><font size="2">		default:</font></tt><br>
+<tt><font size="2">			return -1;</font></tt><br>
+<tt><font size="2">	}</font></tt><br>
+<br>
+<tt><font size="2">	/* Allocate space for the info. &nbsp;This memory will be freed</font></tt><br>
+<tt><font size="2">	 * automatically when the thread terminates.</font></tt><br>
+<tt><font size="2">	 */</font></tt><br>
+<tt><font size="2">	newSpace = (context-&gt;AllocMem)(context, ValueLength+1,</font></tt><br>
+<tt><font size="2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp;reserved, &amp;errID);</font></tt><br>
+<tt><font size="2">	*pInfo = (char *) newSpace;</font></tt><br>
+<tt><font size="2">	if (NULL == *pInfo) {</font></tt><br>
+<tt><font size="2">		printf ("Out of memory\n");</font></tt><br>
+<tt><font size="2">		return -1;</font></tt><br>
+<tt><font size="2">	}</font></tt><br>
+<br>
+<tt><font size="2">	/* Get the info */</font></tt><br>
+<tt><font size="2">	error = NAMEGetTextItem(pMatch, /* match that we found */</font></tt><br>
+<tt><font size="2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+itemNumber, /* item # in order of item</font></tt><br>
+<tt><font size="2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;* on lookup */</font></tt><br>
+<tt><font size="2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 0, /*
+Member # of item in text</font></tt><br>
+<tt><font size="2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; * lists */</font></tt><br>
+<tt><font size="2">				*pInfo, /* buffer to copy result</font></tt><br>
+<tt><font size="2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp;* into */</font></tt><br>
+<tt><font size="2">				ValueLength+1); /* Length of buffer */</font></tt><br>
+<tt><font size="2">	if (!error) {</font></tt><br>
+<tt><font size="2">		*pInfoLen = ValueLength +1;</font></tt><br>
+<tt><font size="2">		return 0;</font></tt><br>
+<tt><font size="2">	}</font></tt><br>
+<tt><font size="2">	return -1;</font></tt><br>
+<tt><font size="2">}</font></tt><br>
+<br>
+
+<table border="1" width="100%">
+<tbody><tr valign="top"><td width="100%"><b><font color="#000080">Authenticate the user from the Unix side.</font></b></td></tr>
+</tbody></table>
+<br>
+<tt><font size="2">int unixAuthenticate(char *userName, char *password) {</font></tt><br>
+<tt><font size="2">/*</font></tt><br>
+<tt><font size="2">&nbsp;* Description: &nbsp;See if the user is known to unix, and if so, check</font></tt><br>
+<tt><font size="2">&nbsp;* &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; that the password can be verified.</font></tt><br>
+<tt><font size="2">&nbsp;*</font></tt><br>
+<tt><font size="2">&nbsp;* Input: &nbsp;userName &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; unix user name</font></tt><br>
+<tt><font size="2">&nbsp;* &nbsp; &nbsp; &nbsp; &nbsp; password &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; unix password</font></tt><br>
+<tt><font size="2">&nbsp;*</font></tt><br>
+<tt><font size="2">&nbsp;* Return: -1 on error, 0 on success, 1 if user is not known to unix</font></tt><br>
+<tt><font size="2">&nbsp;*/</font></tt><br>
+<tt><font size="2">	char buffer[1024];</font></tt><br>
+<tt><font size="2">	int error = -1;</font></tt><br>
+<tt><font size="2">	int success = 0;</font></tt><br>
+<tt><font size="2">	int unknown = 1;</font></tt><br>
+<br>
+<tt><font size="2">#ifdef SOLARIS</font></tt><br>
+<tt><font size="2">	struct spwd result;</font></tt><br>
+<tt><font size="2">#endif</font></tt><br>
+<br>
+<tt><font size="2">#ifdef AIX</font></tt><br>
+<tt><font size="2">	struct passwd *result;</font></tt><br>
+<tt><font size="2">#endif</font></tt><br>
+<br>
+<tt><font size="2">#ifdef HPUX</font></tt><br>
+<tt><font size="2">	struct passwd pwd;</font></tt><br>
+<tt><font size="2">	size_t buflen = sizeof(buffer);</font></tt><br>
+<tt><font size="2">	struct passwd *result;</font></tt><br>
+<tt><font size="2">	int err;</font></tt><br>
+<tt><font size="2">#endif</font></tt><br>
+<br>
+<tt><font size="2">	printf("\nUserName = %s\n", *userName );</font></tt><br>
+<tt><font size="2">	if (!userName)</font></tt><br>
+<tt><font size="2">	{</font></tt><br>
+<tt><font size="2">		printf("\nUserName = %s\n", *userName );</font></tt><br>
+<tt><font size="2">		return error;</font></tt><br>
+<tt><font size="2">	}</font></tt><br>
+<br>
+<br>
+<tt><font size="2">	/* Get the unix record for this user */</font></tt><br>
+<tt><font size="2">#ifdef SOLARIS</font></tt><br>
+<tt><font size="2">	if (getspnam_r(userName, &amp;result, buffer, sizeof(buffer))) {</font></tt><br>
+<tt><font size="2">		/* Encrypt the password and see if it matches the</font></tt><br>
+<tt><font size="2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;* encrypted password from the user's record.</font></tt><br>
+<tt><font size="2">		 */</font></tt><br>
+<tt><font size="2">		char *thisCrypt = NULL;</font></tt><br>
+<tt><font size="2">		thisCrypt = (char *)crypt(password, result.sp_pwdp);</font></tt><br>
+<tt><font size="2">		if (strcmp (result.sp_pwdp, thisCrypt) == 0) {</font></tt><br>
+<tt><font size="2">			printf("\nSolaris getspnam being called and successful.\n");</font></tt><br>
+<tt><font size="2">			return success;</font></tt><br>
+<tt><font size="2">		} else {</font></tt><br>
+<tt><font size="2">			printf("\nSolaris getspnam being called and unsuccessful.\n");</font></tt><br>
+<tt><font size="2">			return error;</font></tt><br>
+<tt><font size="2">		}</font></tt><br>
+<tt><font size="2">	}</font></tt><br>
+<tt><font size="2">#endif</font></tt><br>
+<br>
+<tt><font size="2">#ifdef AIX</font></tt><br>
+<tt><font size="2">	result = getpwnam(userName);</font></tt><br>
+<tt><font size="2">	if (result &amp;&amp; result-&gt;pw_passwd) {</font></tt><br>
+<tt><font size="2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; /* Encrypt the password and see if it matches the </font></tt><br>
+<tt><font size="2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;* encrypted password from the user's record.</font></tt><br>
+<tt><font size="2">		 */</font></tt><br>
+<tt><font size="2">		char *thisCrypt = NULL;</font></tt><br>
+<tt><font size="2">		thisCrypt = (char *)crypt(password,</font></tt><br>
+<tt><font size="2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; result-&gt;pw_passwd);</font></tt><br>
+<tt><font size="2">		if (strcmp (result-&gt;pw_passwd, thisCrypt) == 0) {</font></tt><br>
+<tt><font size="2">			return success;</font></tt><br>
+<tt><font size="2">		} else {</font></tt><br>
+<tt><font size="2">			return error;</font></tt><br>
+<tt><font size="2">		}</font></tt><br>
+<tt><font size="2">	}</font></tt><br>
+<tt><font size="2">#endif</font></tt><br>
+<br>
+<tt><font size="2">#ifdef HPUX</font></tt><br>
+<tt><font size="2">	err = getpwnam_r(userName, &amp;pwd, buffer, buflen, &amp;result);</font></tt><br>
+<tt><font size="2">	if (0 == err) {</font></tt><br>
+<tt><font size="2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; /* Encrypt the password and see if it matches the </font></tt><br>
+<tt><font size="2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;* encrypted password from the user's record.</font></tt><br>
+<tt><font size="2">		 */</font></tt><br>
+<tt><font size="2">		if (strcmp (result-&gt;pw_passwd, </font></tt><br>
+<tt><font size="2">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; crypt(password,
+result-&gt;pw_passwd) ) == 0) {</font></tt><br>
+<tt><font size="2">			return success;</font></tt><br>
+<tt><font size="2">		} else {</font></tt><br>
+<tt><font size="2">			return error;</font></tt><br>
+<tt><font size="2">		}</font></tt><br>
+<tt><font size="2">	}</font></tt><br>
+<tt><font size="2">#endif</font></tt><br>
+<tt><font size="2">	return unknown;</font></tt><br>
+<tt><font size="2">}</font></tt><br>
+<br>
+<tt><font size="2">/* ----- end of dsapifilter.c */</font></tt><br>
+<br>
+<br>
+
+<table border="1" width="100%">
+<tbody><tr valign="top"><td width="100%"><b><font color="#000080">Sample Makefile for Unix Solaris Sparc</font></b></td></tr>
+</tbody></table>
+<tt><font size="2">#</font></tt><br>
+<tt><font size="2"># &nbsp;makefile for Notes API sample program dsapifilter</font></tt><br>
+<tt><font size="2"># &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Solaris 2 SPARC Edition</font></tt><br>
+<tt><font size="2">#</font></tt><br>
+<tt><font size="2">#</font></tt><br>
+<br>
+<tt><font size="2"># set TARGET to the name of the executable to create</font></tt><br>
+<tt><font size="2">TARGET = libunixauth.so</font></tt><br>
+<br>
+<tt><font size="2"># set SOURCES to the list of C source files in this program</font></tt><br>
+<tt><font size="2">SOURCES = dsapifilter.c</font></tt><br>
+<br>
+<tt><font size="2"># set HEADERS to the list of C include files in this program</font></tt><br>
+<tt><font size="2">HEADERS =</font></tt><br>
+<br>
+<tt><font size="2"># set OBJECTS to the list of object files that must be linked</font></tt><br>
+<tt><font size="2">OBJECTS = dsapifilter.o</font></tt><br>
+<br>
+<tt><font size="2"># CC defines the compiler. </font></tt><br>
+<tt><font size="2">CC = cc</font></tt><br>
+<br>
+<tt><font size="2"># Set CCOPTS - the compiler options.</font></tt><br>
+<tt><font size="2">CCOPTS = -c -xcg92 -xCC -Xt -xchip=ultra</font></tt><br>
+<br>
+<tt><font size="2"># You may use -g flag for debugging:</font></tt><br>
+<tt><font size="2">#CCOPTS = -c -g -xcg92 -xCC -xchip=ultra </font></tt><br>
+<br>
+<tt><font size="2"># set NOTESDIR to specify where to search for the Notes library file</font></tt><br>
+<tt><font size="2">NOTESDIR = $(Notes_ExecDirectory)</font></tt><br>
+<br>
+<tt><font size="2"># Set LINKOPTS - the linker options passed to CC when linking.</font></tt><br>
+<tt><font size="2"># -o $(TARGET) causes compiler to create target rather than a.out</font></tt><br>
+<tt><font size="2">LINKOPTS = -o $(TARGET) -G</font></tt><br>
+<br>
+<tt><font size="2"># Notes API header files require UNIX to be defined.</font></tt><br>
+<tt><font size="2">DEFINES = &nbsp;-DUNIX -DSOLARIS -D_REENTRANT -DUSE_THREADSAFE_INTERFACES</font></tt><br>
+<br>
+<tt><font size="2"># set INCDIR to specify where to search for include files</font></tt><br>
+<tt><font size="2">INCDIR = $(LOTUS)/notesapi/include</font></tt><br>
+<br>
+<tt><font size="2"># set LIBS to list all the libraries ld should link with.</font></tt><br>
+<tt><font size="2">LIBS = -lnotes -lC -lthread -lc</font></tt><br>
+<br>
+<tt><font size="2"># the executable depends on the objects.</font></tt><br>
+<tt><font size="2">$(TARGET): $(OBJECTS)</font></tt><br>
+<tt><font size="2">	$(CC) $(LINKOPTS) $(OBJECTS) -L$(NOTESDIR) $(LIBS)</font></tt><br>
+<br>
+<tt><font size="2"># the object files depend on the corresponding source files</font></tt><br>
+<tt><font size="2">.c.o:</font></tt><br>
+<tt><font size="2">	$(CC) $(CCOPTS) $(DEFINES) -I$(INCDIR) $(SOURCES)</font></tt><br>
+<br>
+<tt><font size="2">clean :</font></tt><br>
+<tt><font size="2">	rm -rf libunixauth.so dsapifilter.o</font></tt><br>
+ <br>
+<div align="center">----------------------------------------------------------------------------------------------------------<br>
+<a href="http://doc.notes.net/cct/r_tools5web.nsf/CAPI?openform&amp;Context=Guide:9-11+5.0.3"><u><font color="#008000" size="2">Click here to comment to Lotus on this documentation</font></u></a></div>
+</body></html>

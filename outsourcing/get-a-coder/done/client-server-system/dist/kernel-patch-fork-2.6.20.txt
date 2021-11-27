@@ -1,0 +1,41 @@
+    [PATCH] Fix COW D-cache aliasing on fork
+    
+    Problem:
+    
+    1. There is a process containing two thread (T1 and T2).  The
+       thread T1 calls fork().  Then dup_mmap() function called on T1 context.
+    
+    static inline int dup_mmap(struct mm_struct *mm, struct mm_struct *oldmm)
+    	...
+    	flush_cache_mm(current->mm);
+    	...	/* A */
+    	(write-protect all Copy-On-Write pages)
+    	...	/* B */
+    	flush_tlb_mm(current->mm);
+    	...
+    
+    2. When preemption happens between A and B (or on SMP kernel), the
+       thread T2 can run and modify data on COW pages without page fault
+       (modified data will stay in cache).
+    
+    3. Some time after fork() completed, the thread T2 may cause a page
+       fault by write-protect on a COW page.
+    
+    4. Then data of the COW page will be copied to newly allocated
+       physical page (copy_cow_page()).  It reads data via kernel mapping.
+       The kernel mapping can have different 'color' with user space
+       mapping of the thread T2 (dcache aliasing).  Therefore
+       copy_cow_page() will copy stale data.  Then the modified data in
+       cache will be lost.
+    
+    In order to allow architecture code to deal with this problem allow
+    architecture code to override copy_user_highpage() by defining
+    __HAVE_ARCH_COPY_USER_HIGHPAGE in <asm/page.h>.
+    
+    The main part of this patch was originally written by Ralf Baechle;
+    Atushi Nemoto did the the debugging.
+    
+    Signed-off-by: Atsushi Nemoto <anemo@mba.ocn.ne.jp>
+    Signed-off-by: Ralf Baechle <ralf@linux-mips.org>
+    Signed-off-by: Linus Torvalds <torvalds@osdl.org>
+

@@ -1,0 +1,7 @@
+Interfacing a bar code reader to a PC:
+All application programs support bar code reading as long as you have the
+right equipment. Bar code readers are available with two types of output -
+either "keyboard wedge" output or RS232 output. The bar code readers with
+keyboard wedge output plug directly into the keyboard port on your PC and they
+also provide a pigtail connector so that you can plug in your keyboard at the
+same time.

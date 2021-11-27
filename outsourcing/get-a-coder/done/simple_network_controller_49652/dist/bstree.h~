@@ -1,0 +1,28 @@
+/*
+ * bstree.h
+ */
+#ifndef BSTREE_H
+#define BSTREE_H
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+
+typedef void * element_t;
+struct tnode;
+typedef struct tnode *position_t;
+typedef struct tnode *tree_t;
+
+struct tnode {
+  element_t element;
+  tree_t left;
+  tree_t right;
+};
+
+tree_t		tree_make_empty(tree t);
+position	tree_find(tree_t t, element_t e);
+tree_t		tree_insert(tree_t t, element_t e);
+tree_t		tree_delete(tree_t t, element_t e);
+
+#endif /* !TREE_H */

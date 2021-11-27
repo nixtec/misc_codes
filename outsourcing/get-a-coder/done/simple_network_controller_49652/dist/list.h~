@@ -1,0 +1,19 @@
+/*
+ * list.h
+ */
+#ifndef LIST_H
+#define LIST_H
+
+#include <stdio.h>
+
+struct list_struct {
+  void *data; /* data */
+  struct list_struct *next; /* points to next entry */
+};
+typedef struct list_struct list_t;
+
+/* list specific functions */
+list_t list_add(list_t *list, void *data);
+list_t list_del(list_t *list, void *data);
+
+#endif

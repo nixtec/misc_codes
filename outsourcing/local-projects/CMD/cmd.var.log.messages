@@ -1,0 +1,3 @@
+May 16 21:34:19 tux kernel: usb 1-1: new low speed USB device using uhci_hcd and address 2
+May 16 21:34:19 tux kernel: hiddev96: USB HID v1.00 Device [CMD AG CMD USB-Stick] on usb-0000:00:1f.2-1
+

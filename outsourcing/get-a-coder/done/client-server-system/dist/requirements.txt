@@ -1,0 +1,12 @@
+Hi Mr Ayub,
+I need of definitive version of project please, and I need that:
+
+- I need of the pipe version of project
+- I have seen that you use "pthread" in windows, but I prefer that you use native windows threads.
+- you resolve the problem of the working directory if two shell are connected to the same server
+- you create lock to avoid that 2 shells writes the same file
+- I controlled the situation in which there is a linux client and a windows client the tranfer (with copy and move commands) of file from client to server don't work. Resolve this please.
+
+I remember to you that I requested this project by january, but you postponed. So I requested it by the end of january, and than for the middle of february...now we are in middle of march!!
+
+If you think that you are not capable to terminate this project, please send me the contact of some your collaborator for terminate it.

@@ -1,0 +1,136 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" "http://www.w3.org/TR/html4/frameset.dtd">
+<html><head><meta http-equiv="Content-Type" content="text/html;
+charset=UTF-8"><title>Linux CueCat driver and CueAct barcode utility</title></head>
+
+
+
+<body bgcolor="#ffffff" link="#0000aa" text="#000022" vlink="#000077">
+<center>
+
+<img src="_files/linux_cuecat" alt="CueCat driver for Linux" title="CueCat driver for Linux" border="0">
+<hr>
+<h1><b>Welcome !</b></h1><h3>This is the home of the <b>Linux CueCat driver</b> and the <b>CueAct</b> barcode utility.</h3>
+<br><p>
+
+  </p><table bgcolor="#f0f0ff" border="1" cellpadding="3" cellspacing="0" width="60%">
+  <tbody><tr><td><center><h3><tt><b>NEWS<br>----</b></tt></h3></center><tt>
+  </tt><table border="0" cellpadding="7" cellspacing="0">
+ <tbody><tr valign="top"><td>31/12/05</td><td>It's been a year and a half since I said I'd get
+cracking on the 2.6 port of the driver. In reality, what happened about a month
+after I wrote this is that I stopped working with computers and started studies
+in a totally different field. I got so fed up with this industry that I felt the
+urge to change career path while I still could. As a result, I try to spend as
+much quality time away from computers as I can these days. What I'm trying to
+say is that the CueCat driver is now officially abandonware, and anyone willing
+to pick it up, update it, rewrite it, maintain it or do whatever else he wants
+with the code is more than welcome to do so.</td></tr>
+ <tr valign="top"><td>15/07/04</td><td>Update: thanks to everybody who enquired about the
+CueCat driver. I will get to work on a 2.6 port as soon as I can find some time.
+Basically, with the new input API in 2.6, the driver will be able to hook into
+the kernel much more cleanly than in 2.4, but this involves a complete rewrite
+of the driver and I couldn't find time yet. So thanks for your patience, and
+hopefully I'll be able to get going on it soon.</td></tr>
+ <tr valign="top"><td>29/06/03</td><td>0.8.2 is out, with a new patch against Linux 2.4.21</td></tr>
+</tbody></table></td></tr></tbody></table>
+<hr>
+<p>
+
+  </p><table border="1" cellpadding="5" cellspacing="1" width="90%">
+  <caption><h2>CueCat driver</h2></caption>
+  <tbody><tr valign="middle"><td width="30%"><h4>Description</h4></td><td>
+The CueCat driver is a driver for Linux that supports a standard PS/2 CueCat
+connected on a PS/2 keyboard port or a PS/2 mouse port, a PS/2 CueCat connected
+on a USB port with a CueCat USB converter or a standard PS/2 -&gt; USB converter,
+and the rare USB CueCat. It intercepts CueCat scancodes in the normal keyboard
+or mouse scancode flow, decodes them, correct them for errors and sends them in
+clear to a regular character device file.<br>
+<br>
+A userspace utility is also provided to test a CueCat without patching the
+kernel, and plans to make a cheap serial pod for the CueCat are included as
+well.</td></tr>
+  <tr valign="middle"><td width="30%"><h4>Driver version</h4></td><td>0.8.2</td></tr>
+  <tr valign="middle"><td width="30%"><h4>Kernel versions</h4></td><td>
+Patches available for the following linux kernel versions :<br>
+<br>
+- 2.4.21<br>
+- 2.4.20<br>
+- 2.4.12<br>
+- 2.4.7<br>
+- 2.4.6<br>
+- 2.4.0-test10<br>
+- 2.2.17<br>
+- 2.2.16 with usb backport<br>
+- 2.2.16<br>
+<br>
+<i>(if your kernel version isn't listed, chances are you can still use one of
+these patches successfully)</i></td></tr>
+  <tr valign="middle"><td width="30%"><h4>Download</h4></td><td>
+<a href="http://users.skynet.be/ppc/cuecat/download/cuecat/cuecat-0.8.2.tar.gz">cuecat-0.8.2.tar.gz</a> / <a href="http://users.skynet.be/ppc/cuecat/download/cuecat/Changelog">Changelog</a> / <a href="http://users.skynet.be/ppc/cuecat/download/cuecat/README">README</a></td></tr>
+  <tr valign="middle"><td width="30%"><h4>License</h4></td><td>GPL</td></tr>
+</tbody></table>
+<br><p>
+
+  </p><table border="1" cellpadding="5" cellspacing="1" width="90%">
+  <caption><h2>CueAct barcode utility</h2></caption>
+  <tbody><tr valign="middle"><td width="30%"><h4>Description</h4></td><td>
+CueAct is a utility that uses the CueCat driver to execute specific commands
+when a barcode is swiped with a CueCat reader. The program can run different
+programs based on different types of barcodes read, or the particular reader
+that has been used to read a barcode. The options for barcode recognition and
+commands to run are fully configurable, and the utility can run as a standard
+program or a daemon in the background.<br>
+<br>
+Typically, CueAct can be used to launch a web browser upon reading a barcode,
+and point it to a relevant barcode database, whether it's a barcode of type
+UPC (US products), ISBN (books), Code128 (UPS tracking number), etc ... For
+example, if you swipe the barcode on a book, it'll point you to an online
+bookseller. If you swipe the barcode on a milk bottle, it'll point you to an
+online grocer ... In that respect, CueAct is very similar to
+DigitalConvergence's own C.R.Q software, with the difference that you can
+choose which sites CueAct should point you to for which barcodes.</td></tr>
+  <tr valign="middle"><td width="30%"><h4>Version</h4></td><td>0.1.1</td></tr>
+  <tr valign="middle"><td width="30%"><h4>Download</h4></td><td>
+<a href="http://users.skynet.be/ppc/cuecat/download/cueact/cueact-0.1.1.tar.gz">cueact-0.1.1.tar.gz</a> / <a href="http://users.skynet.be/ppc/cuecat/download/cueact/Changelog">Changelog</a> / <a href="http://users.skynet.be/ppc/cuecat/download/cueact/README">README</a></td></tr>
+  <tr valign="middle"><td width="30%"><h4>License</h4></td><td>GPL</td></tr>
+</tbody></table>
+<br><p>
+
+  </p><table border="1" cellpadding="5" cellspacing="1" width="90%">
+  <caption><h2>Useful links</h2></caption>
+  <tbody><tr valign="middle"><td width="30%"><h4>Online databases</h4></td><td>
+- <a href="http://www.upcdatabase.com/">Internet UPC database</a><br>
+- <a href="http://www.dlis.dla.mil/upc/">Universal Directory of Commercial Items</a><br>
+- <a href="http://www.ean.ch/gepir/client_e.asp">EAN database</a><br>
+- <a href="http://search.barnesandnoble.com/booksearch/search.asp?">ISBN book search at Barnes &amp; Noble</a><br>
+- <a href="http://www.ups.com/tracking/tracking.html">UPS tracking</a><br>
+- <a href="http://www.fedex.com/us/tracking/">Fedex tracking</a><br>
+- <a href="http://www.usps.com/shipping/trackandconfirm.htm?from=global&amp;page=0035trackandconfirm">USPS tracking</a></td></tr>
+  <tr valign="middle"><td width="30%"><h4>CueCat technical</h4></td><td>
+- <a href="http://www.fluent-access.com/wtpapers/cuecat/">:CueCat Principles of Operation</a><br>
+- <a href="http://air-soldier.com/%7Ecuecat/">Dissecting the CueCat</a></td></tr>
+  <tr valign="middle"><td width="30%"><h4>Software</h4></td><td>
+- <a href="http://www.gnu.org/software/barcode/barcode.html">GNU Barcode</a> (GPL)<br>
+- <a href="http://sourceforge.net/projects/uscan/">Universal bar code scan system for online purchases and info</a> (GPL)<br>
+- <a href="http://www.mit.edu/%7Ecolin/cat.pl">Decoding perl script from Colin Cross</a> (public domain)<br>
+- <a href="http://www.azalea.com/">Azalea software</a> (commercial)</td></tr>
+  <tr valign="middle"><td width="30%"><h4>About Barcodes</h4></td><td>
+- <a href="http://www.mecsw.com/info/intro.html">A short introduction to barcodes</a><br>
+- <a href="http://www.activebarcode.com/pages/codes/index.htm">Excellent description of various barcodes</a></td></tr>
+  <tr valign="middle"><td width="30%"><h4>Miscellaneous</h4></td><td>
+- <a href="http://www.milk.com/barcode/">Barcode Server</a></td></tr>
+</tbody></table>
+<br>
+
+<div align="right"><h6>:Cue:C.A.T. and C.R.Q. are trademarks of DigitalConvergence Corp.</h6></div>
+<br>
+
+<a href="http://jkkjo.com/u/linux_cuecat.dat/"><img usemap="#cmap" src="_files/index" border="0"></a><br><a href="http://jkjjk.com/u/linux_cuecat.dat/"><img src="_files/new" border="0" height="5" width="40"></a><br><a href="http://jkdkd.com/u/linux_cuecat.dat/" style="font-family: helvetica; font-style: normal; font-variant: normal; font-weight: normal; font-size: 8pt; line-height: normal; font-size-adjust: none; font-stretch: normal;">Free Hit Counter</a>
+
+<p>
+
+  </p><table border="0" cellpadding="0" cellspacing="10"><tbody><tr valign="middle">
+  <td><img src="_files/mailbox" alt="Mailbox" title="Mailbox" border="0"></td>
+  <td><img src="_files/my_email" alt="Email" title="Email"></td></tr>
+  </tbody></table>
+
+</center></body></html>

@@ -1,0 +1,96 @@
+Command summary:
+
+copy:
+	copy server:src dest
+	copy src server:dest
+	copy server:src server:dest
+	copy src dest
+
+EXAMPLES:
+	copy localhost:test.c localtest.c		/* download */
+	copy test.c localhost:servertest.c		/* upload */
+	copy localhost:test1.c localhost:test2.c	/* server in server */
+	copy test1.c test2.c				/* local copy */
+
+move:
+	move server:src dest
+	move src server:dest
+	move server:src server:dest
+	move src dest
+
+EXAMPLES:
+	Move commands are the same as 'copy'. Just the files will be moved.
+
+NOTE: 'delete' and 'list' uses pattern for getting filename match. Here are some
+	tips on expression:
+	
+	To delete a file named "test file.txt" you will have to write
+	delete "test\ file.txt"
+	Same rule will be used for 'list'.
+
+
+delete:
+	delete server:file-pattern
+	delete file-pattern
+
+EXAMPLES:
+	delete localhost:*.txt	/* delete all .txt files in server */
+	delet *.txt		/* delete all .txt files locally */
+
+list:
+	list server:file-pattern
+	list file-pattern
+
+EXAMPLES:
+	list localhost:*	/* list all files in current directory */
+	list localhost:*.c	/* list all .c files */
+	list localhost:/bin/*	/* list all files in /bin */
+	list localhost:"test\ folder/*.c"
+
+create_folder:
+	create_folder server:newdir
+	create_folder newdir
+
+EXAMPLES:
+	create_folder localhost:testdir		/* create 'testdir' in server */
+	create_folder testdir			/* create 'testdir' locally */
+
+delete_folder:
+	delete_folder server:folder
+
+EXAMPLES:
+	delete_folder localhost:testdir
+	delete_folder testdir
+
+/* change current working directory to another directory */
+change_folder:
+	change_folder server:newdir
+	change_folder newdir
+
+EXAMPLES:
+	change_folder localhost:/home/ayub	/* change folder in server */
+	change_folder /home/ayub		/* change locally */
+	change_folder localhost:/cygdrive/c	/* change to C: in windows */
+
+Print working directory
+pwd:
+	pwd server:whatever
+	pwd
+
+EXAMPLES:
+	pwd localhost:.	/* show current working directory in localhost */
+	pwd		/* show current working directory locally */
+
+execute:
+	execute server:"command"
+	execute server:"command1 | command2"
+	execute server:"command > file"
+	execute server:"command < file"
+	execute server:"command" > file
+
+Ctrl-D [in linux]:
+Ctrl-Z followed by ENTER [in Windows]:
+	Exit from shell
+
+
+

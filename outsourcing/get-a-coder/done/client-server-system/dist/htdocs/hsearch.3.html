@@ -1,0 +1,269 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="en"><head><title>hsearch(3): hash table management - Linux man page</title>
+
+
+
+
+
+<script type="text/javascript">
+<!--
+if (top.location != self.location) top.location = self.location;
+// -->
+</script>
+<link rel="stylesheet" type="text/css" href="hsearch.3_files/white.css">
+<link rel="shortcut icon" href="http://www.die.net/favicon.ico" type="image/x-icon"></head><body alink="#000000" bgcolor="#ffffff" link="#660000" text="#333333" vlink="#660000">
+<div id="content">
+
+<!-- google_ad_section_start -->
+<h1>hsearch(3) - Linux man page</h1>
+
+
+<div id="adright">
+<script language="JavaScript"><!--
+google_ad_client = 'pub-5823754184406795';
+google_alternate_ad_url = "http://ads.die.net/?url=http://www.die.net/doc/linux/man/man3/hsearch.3.html&type=right";
+google_ad_width = 336;
+google_ad_height = 280;
+google_ad_format = "336x280_as";
+google_ad_type = "text_image";
+google_ad_channel ="4616491980";
+google_color_border = ["F7F7F7","FFF7F7"];
+google_color_bg = ["F7F7F7","FFF7F7"];
+google_color_link = "660000";
+google_color_url = "660000";
+google_color_text = "333333";
+// --></script>
+<script language="JavaScript" src="hsearch.3_files/show_ads.js">
+</script>
+</div>
+
+
+
+
+<h2>NAME<a name="name">&nbsp;</a></h2>
+hcreate, hdestroy, hsearch - hash table management
+
+<h2>SYNOPSIS<a name="synopsis">&nbsp;</a></h2>
+<b>#include &lt;<a href="http://www.die.net/doc/linux/include/search.h" rel="nofollow">search.h</a>&gt;</b>
+<p><b>int hcreate(size_t</b> <i>nel</i><b>);</b>
+</p><p><b>ENTRY *hsearch(ENTRY</b> <i>item</i><b>, ACTION</b>
+<i>action</i><b>);</b>
+</p><p><b>void hdestroy(void);</b>
+</p><p><b>#define _GNU_SOURCE</b>
+<b>#include &lt;<a href="http://www.die.net/doc/linux/include/search.h" rel="nofollow">search.h</a>&gt;</b>
+</p><p><b>int hcreate_r(size_t</b> <i>nel</i><b>, struct hsearch_data
+*</b><i>tab</i><b>);</b>
+</p><p><b>int hsearch_r(ENTRY</b> <i>item</i><b>, ACTION</b>
+<i>action</i><b>,</b> <b>ENTRY **</b><i>ret</i><b>, struct
+hsearch_data *</b><i>tab</i><b>);</b>
+</p><p><b>void hdestroy_r(struct hsearch_data *</b><i>tab</i><b>);</b>
+
+</p><h2>DESCRIPTION<a name="description">&nbsp;</a></h2>
+The three functions <b>hcreate</b>(),
+<b>hsearch</b>(), and <b>hdestroy</b>() allow the user to create a
+hash table (only one at a time) which associates a key with any
+data.
+<p>First the table must be created with the function
+<b>hcreate</b>(). The argument <i>nel</i> is an estimate of the
+maximum number of entries in the table. The function
+<b>hcreate</b>() may adjust this value upward to improve the
+performance of the resulting hash table.
+</p><p>The corresponding function <b>hdestroy</b>() frees the memory
+occupied by the hash table so that a new table can be constructed.
+</p><p>The argument <i>item</i> is of type <b>ENTRY</b>, which is a
+typedef defined in <i>&lt;<a href="http://www.die.net/doc/linux/include/search.h" rel="nofollow">search.h</a>&gt;</i> and includes
+these elements:
+</p><pre class="code">        typedef struct entry {
+            char *<i>key</i>;
+            void *<i>data</i>;
+        } ENTRY;</pre>
+<p>The field <i>key</i> points to the null-terminated string which
+is the search key. The field <i>data</i> points to the data
+associated with that key. The function <b>hsearch</b>() searches
+the hash table for an item with the same key as <i>item</i> (where
+"the same" is determined using <b><a href="http://www.die.net/doc/linux/man/man3/strcmp.3.html">strcmp</a></b>(3)),
+and if successful returns a pointer to it. The argument
+<i>action</i> determines what <b>hsearch</b>() does after an
+unsuccessful search. A value of <b>ENTER</b> instructs it to insert
+a copy of <i>item</i>, while a value of <b>FIND</b> means to return
+NULL.
+</p><p>The three functions <b>hcreate_r</b>(), <b>hsearch_r</b>(),
+<b>hdestroy_r</b>() are reentrant versions that allow the use of
+more than one table. The last argument used identifies the table.
+The struct it points to must be zeroed before the first call to
+<b>hcreate_r</b>().
+
+</p><h2>RETURN VALUE<a name="return">&nbsp;</a></h2>
+<b>hcreate</b>() and <b>hcreate_r</b>() return
+0 when allocation of the memory for the hash table fails, non-zero
+otherwise.
+<p><b>hsearch</b>() returns NULL if <i>action</i> is <b>ENTER</b>
+and the hash table is full, or <i>action</i> is <b>FIND</b> and
+<i>item</i> cannot be found in the hash table.
+</p><p><b>hsearch_r</b>() returns 0 if <i>action</i> is <b>ENTER</b>
+and the hash table is full, and non-zero otherwise.
+
+</p><h2>ERRORS<a name="errors">&nbsp;</a></h2>
+POSIX documents
+<dl compact="compact">
+<dt><b>ENOMEM</b>
+</dt><dd>Out of memory.</dd></dl>
+<p>The glibc implementation will return the following two errors.
+</p><dl compact="compact">
+<dt><b>ENOMEM</b>
+</dt><dd>Table full with <i>action</i> set to <b>ENTER</b>.
+</dd><dt><b>ESRCH</b>
+</dt><dd>The <i>action</i> parameter is <b>FIND</b> and no corresponding
+element is found in the table.</dd></dl>
+
+<h2>CONFORMING TO<a name="conforming">&nbsp;</a></h2>
+The functions <b>hcreate</b>(),
+<b>hsearch</b>(), and <b>hdestroy</b>() are from SVr4, and are
+described in POSIX.1-2001. The functions <b>hcreate_r</b>(),
+<b>hsearch_r</b>(), <b>hdestroy_r</b>() are GNU extensions.
+
+<h2>BUGS<a name="bugs">&nbsp;</a></h2>
+SVr4 and POSIX.1-2001 specify that <i>action</i> is
+significant only for unsuccessful searches, so that an ENTER should
+not do anything for a successful search. The libc and glibc
+implementations update the <i>data</i> for the given <i>key</i> in
+this case.
+<p>Individual hash table entries can be added, but not deleted.
+
+</p><h2>EXAMPLE<a name="example">&nbsp;</a></h2>
+<p>The following program inserts 24 items in to a hash table, then
+prints some of them.
+</p><pre class="code">    #include &lt;<a href="http://www.die.net/doc/linux/include/stdio.h" rel="nofollow">stdio.h</a>&gt;
+    #include &lt;<a href="http://www.die.net/doc/linux/include/stdlib.h" rel="nofollow">stdlib.h</a>&gt;
+    #include &lt;<a href="http://www.die.net/doc/linux/include/search.h" rel="nofollow">search.h</a>&gt;
+
+    char *data[] = { "alpha", "bravo", "charlie", "delta",
+         "echo", "foxtrot", "golf", "hotel", "india", "juliet",
+         "kilo", "lima", "mike", "november", "oscar", "papa",
+         "quebec", "romeo", "sierra", "tango", "uniform",
+         "victor", "whisky", "x-ray", "yankee", "zulu"
+    };
+
+    int main() {
+      ENTRY e, *ep;
+      int i;
+
+      /* starting with small table, and letting it grow does not work */
+      hcreate(30);
+      for (i = 0; i &lt; 24; i++) {
+          e.key = data[i];
+          /* data is just an integer, instead of a
+             pointer to something */
+          e.data = (void *)i;
+          ep = hsearch(e, ENTER);
+          /* there should be no failures */
+          if (ep == NULL) {
+            fprintf(stderr, "entry failed\n");
+            <a href="http://www.die.net/doc/linux/man/man1/exit.1.html">exit</a>(1);
+          }
+      }
+      for (i = 22; i &lt; 26; i++) {
+          /* print two entries from the table, and
+             show that two are not in the table */
+          e.key = data[i];
+          ep = hsearch(e, FIND);
+          printf("%9.9s -&gt; %9.9s:%d\n", e.key,
+                 ep ? ep-&gt;key : "NULL",
+                 ep ? (int)(ep-&gt;data) : 0);
+      }
+      return 0;
+    }</pre>
+
+<h2>SEE ALSO<a name="see">&nbsp;</a></h2>
+<b><a href="http://www.die.net/doc/linux/man/man3/bsearch.3.html">bsearch</a></b>(3),
+<b><a href="http://www.die.net/doc/linux/man/man3/lsearch.3.html">lsearch</a></b>(3),
+<b><a href="http://www.die.net/doc/linux/man/man3/malloc.3.html">malloc</a></b>(3),
+<b><a href="http://www.die.net/doc/linux/man/man3/tsearch.3.html">tsearch</a></b>(3)
+
+<!-- google_ad_section_end -->
+<h2>REFERENCED BY<a name="referenced">&nbsp;</a></h2>
+<a href="http://www.die.net/doc/linux/man/man3/hdestroy.3.html" rel="nofollow">hdestroy</a>(3)
+
+<div id="adbottom" class="ad">
+<script language="JavaScript"><!--
+google_ad_client = 'pub-5823754184406795';
+google_alternate_ad_url = "http://ads.die.net/?url=http://www.die.net/doc/linux/man/man3/hsearch.3.html&type=bottom";
+google_ad_width = 728;
+google_ad_height = 90;
+google_ad_format = "728x90_as";
+google_ad_channel ="4616491980";
+google_color_border = ["FFFFFF","F7F7F7","FFF7F7"];
+google_color_bg = ["FFFFFF","F7F7F7","FFF7F7"];
+google_color_link = "660000";
+google_color_url = "660000";
+google_color_text = "333333";
+// --></script>
+<script language="JavaScript" src="hsearch.3_files/show_ads.js">
+</script>
+</div>
+
+
+
+</div>
+<div id="menu">
+
+<a href="http://www.die.net/"><img src="hsearch.3_files/logo.gif" alt="die.net" border="0" height="121" width="119"></a>
+
+
+<dl><dd>
+<form id="searchbox_010481055930024740680:oyi6cjh0aps" action="http://www.google.com/cse">
+<input name="cx" value="010481055930024740680:oyi6cjh0aps" type="hidden">
+<label><a href="http://www.die.net/search/">site search</a></label>
+<input name="q" size="10" type="text">
+<input name="sa" value="Search" type="hidden">
+<span style="font-family: Arial,Helvetica,sans-serif; font-size: 75%;">Google Custom Search</span>
+<input name="cof" value="FORID:9" type="hidden">
+</form>
+<script type="text/javascript">
+<!--
+document.forms["searchbox_010481055930024740680:oyi6cjh0aps"].action = "http://www.die.net/search/";
+// -->
+</script>
+</dd></dl>
+
+
+
+
+<dl>
+<dt>Library</dt>
+<dd><a href="http://dict.die.net/">online dictionary</a>
+
+</dd><dd><a href="http://www.die.net/doc/linux/man/">linux man pages</a>
+
+</dd><dd><a href="http://www.die.net/musings/page_load_time/">page load time</a>
+</dd></dl>
+<dl>
+<dt>Toys</dt>
+<dd><a href="http://www.die.net/earth/">world sunlight</a>
+</dd><dd><a href="http://www.die.net/moon/">moon phase</a>
+</dd><dd><a href="http://trace.die.net/">trace explorer</a>
+</dd><dd><a href="http://www.ishar.com/">free online rpg</a>
+</dd></dl>
+
+
+<dl>
+<dt><a href="http://www.die.net/doc/linux/man/man3/"><img src="hsearch.3_files/back.gif" alt="Back" border="0" height="22" width="20"></a>
+</dt></dl>
+<div id="adlink">
+<script language="JavaScript"><!--
+google_ad_client = 'pub-5823754184406795';
+google_alternate_ad_url = "http://ads.die.net/?url=http://www.die.net/doc/linux/man/man3/hsearch.3.html&type=link";
+google_ad_width = 120;
+google_ad_height = 90;
+google_ad_format = "120x90_0ads_al_s";
+google_ad_channel = "0926112970+4616491980";
+google_color_border = "666666";
+google_color_bg = "660000";
+google_color_link = "FFFFFF";
+google_color_url = "FFFFFF";
+google_color_text = "FFFFFF";
+// --></script>
+<script language="JavaScript" src="hsearch.3_files/show_ads.js">
+</script>
+</div></div>
+</body></html>

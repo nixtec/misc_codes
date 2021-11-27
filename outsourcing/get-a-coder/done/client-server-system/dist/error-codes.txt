@@ -1,0 +1,6 @@
+500	OK	[you may proceed]
+400	ERROR	[you may not proceed]
+300	Login Prompt
+350	Password Prompt
+200	Login Failure
+100	Login Successful

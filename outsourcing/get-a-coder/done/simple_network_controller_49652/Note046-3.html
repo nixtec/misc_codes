@@ -1,0 +1,452 @@
+<!DOCTYPE DOCTYPE PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html><head>
+
+   
+ 
+<link href="http://rd13doc.cern.ch/Notes/046/Note046-1.html" rel="TOP"> 
+<link href="http://rd13doc.cern.ch/Notes/046/Note046-2.html" rel="PREV"> 
+<link href="http://rd13doc.cern.ch/Notes/046/Note046-4.html" rel="NEXT"> 
+<link href="Note046-3_files/Note046.css" rel="stylesheet" title="WebMaker generated style" type="text/css"><title>Definitions</title> 
+ 
+<meta content="Harlequin WebMaker 3.0.2 ( 8-May-1977)" name="GENERATOR"></head><body class="WM-BODY" alink="#ff2020" bgcolor="#ffffff" link="#2040ff" text="#000000" vlink="#20b060"> 
+<div class="WM-DIV-BODY"> 
+<a name="HEADING3">
+</a> 
+<div class="WM-DIV-HEADERS"> 
+<p class="HEADER">
+<a class="HEADER" href="http://rd13doc.cern.ch/Notes/046/Note046-4.html">
+<img alt="[Next]" src="Note046-3_files/nextg.gif" align="middle" height="23" width="68">
+</a> 
+<a class="HEADER" href="http://rd13doc.cern.ch/Notes/046/Note046-2.html">
+<img alt="[Prev]" src="Note046-3_files/prevg.gif" align="middle" height="24" width="72">
+</a> 
+<a class="HEADER" href="http://rd13doc.cern.ch/Notes/046/Note046-1.html">
+<img alt="[Top]" src="Note046-3_files/topg.gif" align="middle" height="22" width="68">
+</a> 
+<a class="HEADER" href="http://rd13doc.cern.ch/Atlas/">
+<img alt="[ATD Home]" src="Note046-3_files/atd_homeg.gif" align="middle" height="23" width="85">
+</a> 
+</p><p class="HEADER">Definitions, acronyms and abbreviations in DAQ/EF prototype -1 
+</p></div> 
+<a name="HEADING3-0">
+</a> 
+<h1 class="a.H1">1 Definitions
+</h1> 
+<hr class="a.H1"> 
+<p class="a.Body" align="justify"> 
+<b class="a.Body">Back-end system
+<br>
+</b>All the software for configuring, controlling and monitoring of the DAQ prototype -1. It 
+<br>excludes: the management, processing and transportation of physics data. 
+</p><p class="a.Body" align="justify"> 
+<b class="a.Body">Collector
+<br>
+</b>An element of a sub-farm which obtains events from the processing elements of the sub-farm and provides them to the SFO. 
+</p><p class="a.Body" align="justify"> 
+<b class="a.Body">Crate control
+<br>
+</b>A high-level DAQ function of the LDAQ which allows an operator to
+coordinate the activities of IOMs within a DAQ-unit. A more detailed
+definition is given in <a class="a.Body" href="http://rd13doc.cern.ch/Notes/046/Note046-6.html#MARKER-9-4">[1]
+</a>. 
+</p><p class="a.Body" align="justify"> 
+<b class="a.Body">Crate fragment
+<br>
+</b>The set of ROB fragments, within a ROC, with the same Gid and buffered within the L3IF. 
+</p><p class="a.Body" align="justify"> 
+<b class="a.Body">Crate identifier (Cid)
+<br>
+</b>The unique system wide identifier of a ROC. 
+</p><p class="a.Body" align="justify"> 
+<b class="a.Body">Concurrent Versions System (CVS)
+<br>
+</b>The version control system provides the possibility to record the history of file modifications and retrieve previous versions 
+<a class="a.Body" href="http://rd13doc.cern.ch/Notes/046/Note046-6.html#MARKER-9-7">[2]
+</a>. 
+</p><p class="a.Body" align="justify"> 
+<b class="a.Body">Configuration databases
+<br>
+</b>The configuration databases store the parameters necessary to describe the DAQ system's 
+<br>architecture, hardware and software components, running modes and status 
+<a class="a.Body" href="http://rd13doc.cern.ch/Notes/046/Note046-6.html#MARKER-9-8">[3]
+</a>. 
+</p><p class="a.Body" align="justify"> 
+<b class="a.Body">Data collection
+<br>
+</b>The collecting and possible ordering of a set of ROB fragments into a crate fragment. 
+</p><p class="a.Body" align="justify"> 
+<b class="a.Body">Data control messages
+<br>
+</b>The data, excluding ROB or crate fragments, exchanged between IOMs. They cause the 
+<br>receiving IOM to perform a specific action. 
+</p><p class="a.Body" align="justify"> 
+<b class="a.Body">Data Flow Manager (DFM)
+<br>
+</b>A element of the event building sub-system which ensures the correct flow of data between 
+<br>event builder sources and destinations. A more detailed definition is given in 
+<a class="a.Body" href="http://rd13doc.cern.ch/Notes/046/Note046-6.html#MARKER-9-9">[4]
+</a>. 
+</p><p class="a.Body" align="justify"> 
+<b class="a.Body">Dataflow system
+<br>
+</b>All software and hardware required for the management, transportation and monitoring of 
+<br>physics data. 
+</p><p class="a.Body" align="justify"> 
+<b class="a.Body">DAQ-unit
+<br>
+</b>The functionality of the read-out crate or the sub-farm crate concerned with the management and transportation of physics data. 
+</p><p class="a.Body" align="justify"> 
+<b class="a.Body">Data Viewing System (DVS)
+<br>
+</b>Allows users to have access to aggregate displays, such as histograms and trace plots, repre
+<br>senting the performance of sub-systems of the data acquisition system 
+<a class="a.Body" href="http://rd13doc.cern.ch/Notes/046/Note046-6.html#MARKER-9-10">[5]
+</a>. 
+</p><p class="a.Body" align="justify"> 
+<b class="a.Body">Destination identifier (Did)
+<br>
+</b>The unique system wide identifier of a destination. This is a high-level identifier, independ
+<br>ent of technology. 
+</p><p class="a.Body" align="justify"> 
+<b class="a.Body">Detector event type (provisional)
+<br>
+</b>An identifier, unique within a sub-detector, which identifies the
+data within a ROB fragment, e.g. a ROB fragment may contain calibration
+or monitoring data. </p><p class="a.Body" align="justify"> 
+<b class="a.Body">Diagnostic package
+<br>
+</b>This element uses the tests held in the test manager to diagnose problems with the DAQ and 
+<br>confirm its functionality 
+<a class="a.Body" href="http://rd13doc.cern.ch/Notes/046/Note046-6.html#MARKER-9-11">[6]
+</a>. 
+</p><p class="a.Body" align="justify"> 
+<b class="a.Body">Distributor
+<br>
+</b>An element of a sub-farm which obtains events from the SFI and distributes them to the 
+<br>processing elements within it's sub-farm. 
+</p><p class="a.Body" align="justify"> 
+<b class="a.Body">Event
+<br>
+</b>All ROB fragments with the same Gid. Alternatively, all crate fragments with the same Gid. 
+</p><p class="a.Body" align="justify"> 
+<b class="a.Body">Event Builder (EB)
+<br>
+</b>The sub-system which provides the coordinated transfer of ROB or
+crate fragments between event builder sources and destinations. </p><p class="a.Body" align="justify"> 
+<b class="a.Body">Event builder Destination
+<br>
+</b>A element of the event building sub-system which receives data from the event building net
+<br>work. A more detailed definition is given in 
+<a class="a.Body" href="http://rd13doc.cern.ch/Notes/046/Note046-6.html#MARKER-9-9">[4]
+</a>. 
+</p><p class="a.Body" align="justify"> 
+<b class="a.Body">Event builder Source
+<br>
+</b>A element of the event building sub-system which puts ROB or crate fragments into the 
+<br>event building network. A more detailed definition is given in 
+<a class="a.Body" href="http://rd13doc.cern.ch/Notes/046/Note046-6.html#MARKER-9-9">[4]
+</a>. 
+</p><p class="a.Body" align="justify"> 
+<b class="a.Body">Event Handler
+<br>
+</b>The logical object consisting of an event distributor, an event
+collector, one or more processing elements, an event handler supervisor
+and an appropriate communication layer. </p><p class="a.Body" align="justify"> 
+<b class="a.Body">Event Filter (EF) system
+<br>
+</b>The hardware and software required for the on-line processing of all physics data. A more 
+<br>detailed definition is given in 
+<a class="a.Body" href="http://rd13doc.cern.ch/Notes/046/Note046-6.html#MARKER-9-12">[7]
+</a>. 
+</p><p class="a.Body" align="justify"> 
+<b class="a.Body">Event Filter Interface (EFIF)
+<br>
+</b>An instance of an IOM. It receives data control messages from the trigger module and col
+<br>lects ROB fragments, from the ROBs within its ROC, to form a crate fragment. The crate or 
+<br>ROB fragments are subsequently input into the Event building sub-system. A more detailed 
+<br>definition is given in 
+<a class="a.Body" href="http://rd13doc.cern.ch/Notes/046/Note046-6.html#MARKER-9-13">[8]
+</a>. 
+</p><p class="a.Body" align="justify"> 
+<b class="a.Body">Event sampling
+<br>
+</b>A high-level DAQ function of the LDAQ which provides crate or ROB
+fragments to applications mounted in the back-end. A more detailed
+definition is given in <a class="a.Body" href="http://rd13doc.cern.ch/Notes/046/Note046-6.html#MARKER-9-4">[1]
+</a>. 
+</p><p class="a.Body" align="justify"> 
+<b class="a.Body">Event filter supervisor
+<br>
+</b>The hardware and software required to globally control the Event
+Filter. It is also responsible for the configuration, initialisation
+and overall error handling of the Event Filter. </p><p class="a.Body" align="justify"> 
+<b class="a.Body">Event fragment
+<br>
+</b>A generic term for a sub-set of event data. Specific instances of an event fragment are a ROB fragment and a crate fragment. 
+</p><p class="a.Body" align="justify"> 
+<b class="a.Body">Event type
+<br>
+</b>A unique ATLAS trigger/DAQ wide identifier which classifies an event, e.g. physics, cali
+<br>bration, monitoring. 
+</p><p class="a.Body" align="justify"> 
+<b class="a.Body">Event Viewing System (EVS)
+<br>
+</b>Provides the facility for viewing event data in all detectors, together with a description of the event classification 
+<a class="a.Body" href="http://rd13doc.cern.ch/Notes/046/Note046-6.html#MARKER-9-14">[9]
+</a>. 
+</p><p class="a.Body" align="justify"> 
+<b class="a.Body">Generic I/O module
+<br>
+</b>An element, incorporating both software and hardware, which
+encapsulates the common core functionality of the I/O modules. A more
+detailed definition is given in <a class="a.Body" href="http://rd13doc.cern.ch/Notes/046/Note046-6.html#MARKER-9-15">[10]
+</a>. 
+</p><p class="a.Body" align="justify"> 
+<b class="a.Body">Global event Identifier (Gid)
+<br>
+</b>The unique, for a run, DAQ wide identifier of an event. 
+</p><p class="a.Body" align="justify"> 
+<b class="a.Body">I/O module (IOM)
+<br>
+</b>An element, incorporating both software and hardware, within a DAQ-unit which receives, 
+<br>buffers and outputs: ROB fragments and or crate fragments and or data control messages. 
+<br>More specifically it is a ROB or TRG or L3IF or SFI. A more detailed definition is given in 
+<br>
+<a class="a.Body" href="http://rd13doc.cern.ch/Notes/046/Note046-6.html#MARKER-9-13">[8]
+</a>. 
+</p><p class="a.Body" align="justify"> 
+<b class="a.Body">Level 1 trigger (L1)
+<br>
+</b>The first processing system, within the trigger/DAQ, which rejects or accepts events based 
+<br>on an analyses of a sub-set of an event's data. 
+</p><p class="a.Body" align="justify"> 
+<b class="a.Body">Level 2 trigger (L2)
+<br>
+</b>A processing system which rejects or accepts events based on an analyses of a sub-set of an 
+<br>event's data. It analyses those events accepted by the Level 1 trigger. 
+</p><p class="a.Body" align="justify"> 
+<b class="a.Body">Level three interface (L3IF)
+<br>
+</b>See Event filter interface. 
+</p><p class="a.Body" align="justify"> 
+<b class="a.Body">Local DAQ (LDAQ)
+<br>
+</b>The element which provides the high-level DAQ functions, not related to the main flow of 
+<br>data, within the Dataflow. It also provides the interface to the back-end. A more detailed def
+<br>inition is given in 
+<a class="a.Body" href="http://rd13doc.cern.ch/Notes/046/Note046-6.html#MARKER-9-4">[1]
+</a>. 
+</p><p class="a.Body" align="justify"> 
+<b class="a.Body">Message Reporting System (MRS)
+<br>
+</b>A facility which allows all software components in the ATLAS DAQ system to report error 
+<br>messages to other components 
+<a class="a.Body" href="http://rd13doc.cern.ch/Notes/046/Note046-6.html#MARKER-9-16">[11]
+</a>. 
+</p><p class="a.Body" align="justify"> 
+<b class="a.Body">Network controller
+<br>
+</b>The technology specific hardware and software which initialises, configures, controls and 
+<br>monitors the event building network. 
+</p><p class="a.Body" align="justify"> 
+<b class="a.Body">Network interface
+<br>
+</b>The technology specific hardware and software which connects modules to the event build
+<br>ing network. 
+</p><p class="a.Body" align="justify"> 
+<b class="a.Body">Objectivity/DB
+<br>
+</b>This is a fully distributed object orientated database used for the configuration, versions and 
+<br>backup databases 
+<a class="a.Body" href="http://rd13doc.cern.ch/Notes/046/Note046-6.html#MARKER-9-17">[12]
+</a>. 
+</p><p class="a.Body" align="justify"> 
+<b class="a.Body">Object Kernel Support (OKS)
+<br>
+</b>This is a package which provides a simple active persistent
+in-memory object manager which is used to implement run-time
+configuration databases <a class="a.Body" href="http://rd13doc.cern.ch/Notes/046/Note046-6.html#MARKER-9-18">[13]
+</a>. 
+</p><p class="a.Body" align="justify"> 
+<b class="a.Body">Partition
+<br>
+</b>The physical and or logical separation of one or more elements of the experiment into mutu
+<br>ally exclusive sub-sets. A more detailed definition is given in 
+<a class="a.Body" href="http://rd13doc.cern.ch/Notes/046/Note046-6.html#MARKER-9-19">[14]
+</a>. 
+</p><p class="a.Body" align="justify"> 
+<b class="a.Body">Partition Identifier (PID)
+<br>
+</b>The unique identifier of a partition. This is a high-level identifier, independent of technology. 
+</p><p class="a.Body" align="justify"> 
+<b class="a.Body">Partition manager
+<br>
+</b>Formalises the allocation of hardware and software elements, allowing people to work in 
+<br>parallel without interference 
+<a class="a.Body" href="http://rd13doc.cern.ch/Notes/046/Note046-6.html#MARKER-9-20">[15]
+</a>. 
+</p><p class="a.Body" align="justify"> 
+<b class="a.Body">Process manager
+<br>
+</b>This element performs basic job control of software components of the DAQ (starting, stop
+<br>ping and monitoring basic status) 
+<a class="a.Body" href="http://rd13doc.cern.ch/Notes/046/Note046-6.html#MARKER-9-21">[16]
+</a>. 
+</p><p class="a.Body" align="justify"> 
+<b class="a.Body">Processing Element
+<br>
+</b>A logical object consisting of one or more processing task and the processing node on which they are running. 
+</p><p class="a.Body" align="justify"> 
+<b class="a.Body">Processing Node
+<br>
+</b>The hardware on which run one or more processing tasks. 
+</p><p class="a.Body" align="justify"> 
+<b class="a.Body">Processing Task
+<br>
+</b>The software running on a processing node in charge of transforming
+the event. The transformation may be filtering, reformatting,
+monitoring or calibration. Several processing tasks can be running
+concurrently on the same processing node. </p><p class="a.Body" align="justify"> 
+<b class="a.Body">Read-Out Buffer (ROB)
+<br>
+</b>An instance of an IOM. It receives and buffers ROB fragments from a ROD via a ROL and 
+<br>provides the data to the level two trigger system and Event Filter.
+It also receives data control messages from other IOMs within its ROC.
+A more detailed definition is given in <a class="a.Body" href="http://rd13doc.cern.ch/Notes/046/Note046-6.html#MARKER-9-13">[8]
+</a>. 
+</p><p class="a.Body" align="justify"> 
+<b class="a.Body">Read-Out Crate (ROC)
+<br>
+</b>The combined functionality of the LDAQ, TRG, L3IF and one or more ROBs. 
+</p><p class="a.Body" align="justify"> 
+<b class="a.Body">Read-Out Driver (ROD)
+<br>
+</b>The element of the detector specific electronics which, via the ROL, sends ROB fragments to a ROB 
+<a class="a.Body" href="http://rd13doc.cern.ch/Notes/046/Note046-6.html#MARKER-9-22">[17]
+</a>. 
+</p><p class="a.Body" align="justify"> 
+<b class="a.Body">Read-Out Link (ROL)
+<br>
+</b>The physical link between the ROD and ROB. 
+</p><p class="a.Body" align="justify"> 
+<b class="a.Body">ROB fragment
+<br>
+</b>The data exchanged between the ROD and ROB. 
+</p><p class="a.Body" align="justify"> 
+<b class="a.Body">Run bookkeeper
+<br>
+</b>An element which archives information about the data recorded to permanent storage by the 
+<br>DAQ system 
+<a class="a.Body" href="http://rd13doc.cern.ch/Notes/046/Note046-6.html#MARKER-9-23">[18]
+</a>. 
+</p><p class="a.Body" align="justify"> 
+<b class="a.Body">Run Control
+<br>
+</b>Controls the data taking activities by coordinating the operating of the DAQ sub-systems, 
+<br>back-end software components and external systems 
+<a class="a.Body" href="http://rd13doc.cern.ch/Notes/046/Note046-6.html#MARKER-9-24">[19]
+</a>. 
+</p><p class="a.Body" align="justify"> 
+<b class="a.Body">Source identifier (Sid)
+<br>
+</b>The unique system wide identifier of a source. This is a high-level identifier, independent of 
+<br>technology. 
+</p><p class="a.Body" align="justify"> 
+<b class="a.Body">Software Release Tools (SRT)
+<br>
+</b>These tools are used to manage the development of multiple concurrent versions of software packages 
+<a class="a.Body" href="http://rd13doc.cern.ch/Notes/046/Note046-6.html#MARKER-9-25">[20]
+</a>. 
+</p><p class="a.Body" align="justify"> 
+<b class="a.Body">Status display
+<br>
+</b>An element which presents the status of the current data taking run to the user in terms of its 
+<br>main run parameters, detector configuration, trigger rate and state of run controller 
+<a class="a.Body" href="http://rd13doc.cern.ch/Notes/046/Note046-6.html#MARKER-9-26">[21]
+</a>. 
+</p><p class="a.Body" align="justify"> 
+<b class="a.Body">Software through Pictures (StP)
+<br>
+</b>This is the Software through Pictures for the Object Modelling Technique. It is a graphical, 
+<br>object-oriented modelling environment that helps people work together to analyse and design critical systems 
+<a class="a.Body" href="http://rd13doc.cern.ch/Notes/046/Note046-6.html#MARKER-9-27">[22]
+</a>. 
+</p><p class="a.Body" align="justify"> 
+<b class="a.Body">Sub-Farm
+<br>
+</b>The basic component of the Event Filter. It comprises the Event Handler and the Sub-Farm DAQ 
+<a class="a.Body" href="http://rd13doc.cern.ch/Notes/046/Note046-6.html#MARKER-9-28">[23]
+</a>. 
+</p><p class="a.Body" align="justify"> 
+<b class="a.Body">Sub-Farm Crate (SFC)
+<br>
+</b>The combined functionality of the LDAQ, the switch to farm
+interface and Sub-farm output. A more detailed definition is given in <a class="a.Body" href="http://rd13doc.cern.ch/Notes/046/Note046-6.html#MARKER-9-28">[23]
+</a>. 
+</p><p class="a.Body" align="justify"> 
+<b class="a.Body">Sub-Farm Input
+<br>
+</b>See Switch to farm interface. 
+</p><p class="a.Body" align="justify"> 
+<b class="a.Body">Sub-Farm Output (SFO)
+<br>
+</b>An instance of an IOM. It receives (and possibly buffers) events from the Event Filter and 
+<br>sends them to one or more storage systems. A more detailed definition is given in 
+<a class="a.Body" href="http://rd13doc.cern.ch/Notes/046/Note046-6.html#MARKER-9-28">[23]
+</a>. 
+</p><p class="a.Body" align="justify"> 
+<b class="a.Body">Event Handler Supervisor
+<br>
+</b>The object in charge of the control of the event handler. It
+provides initialization, configuration and run control functionalities.
+It also provides monitoring information to the Event Filter supervisor.
+</p><p class="a.Body" align="justify"> 
+<b class="a.Body">Switch to farm interface (SFI)
+<br>
+</b>An instance of an IOM. It receives and buffers all the event fragments to form an event and 
+<br>provides the event to the Event Handler. A more detailed definition is given in 
+<a class="a.Body" href="http://rd13doc.cern.ch/Notes/046/Note046-6.html#MARKER-9-13">[8]
+</a>. 
+</p><p class="a.Body" align="justify"> 
+<b class="a.Body">Test manager
+<br>
+</b>Provides a means of organising individual tests for hardware and software components 
+<a class="a.Body" href="http://rd13doc.cern.ch/Notes/046/Note046-6.html#MARKER-9-29">[24]
+</a>. 
+</p><p class="a.Body" align="justify"> 
+<b class="a.Body">Tools.h++
+<br>
+</b>The Rogue Wave Tools.h++ is an internationalised C++ foundation class library which con
+<br>tains basic data types and container classes, includes support for exception and multi-
+<br>threaded programs, allows to use Endian streams for exchanging binary data among Win
+<br>dows, OS/2 and Unix environments, and provides non-intrusive persistence for objects 
+<a class="a.Body" href="http://rd13doc.cern.ch/Notes/046/Note046-6.html#MARKER-9-30">[25]
+</a>. 
+</p><p class="a.Body" align="justify"> 
+<b class="a.Body">Trigger module (TRG)
+<br>
+</b>An instance of an IOM. It receives data control messages from the system and sends them to 
+<br>other IOMs within its ROC. A more detailed definition is given in 
+<a class="a.Body" href="http://rd13doc.cern.ch/Notes/046/Note046-6.html#MARKER-9-13">[8]
+</a>. 
+</p></div> 
+<div class="WM-DIV-FOOTERS"> 
+<p class="FOOTER">  
+</p><hr class="FOOTER"> 
+<address class="FOOTER">ATD - 21 Oct 1997
+</address> 
+<p class="FOOTER">
+<a class="HEADER" href="http://rd13doc.cern.ch/Notes/046/Note046-4.html">
+<img alt="[Next]" src="Note046-3_files/nextg.gif" align="middle" height="23" width="68">
+</a> 
+<a class="HEADER" href="http://rd13doc.cern.ch/Notes/046/Note046-2.html">
+<img alt="[Prev]" src="Note046-3_files/prevg.gif" align="middle" height="24" width="72">
+</a> 
+<a class="HEADER" href="http://rd13doc.cern.ch/Notes/046/Note046-1.html">
+<img alt="[Top]" src="Note046-3_files/topg.gif" align="middle" height="22" width="68">
+</a> 
+<a class="HEADER" href="http://rd13doc.cern.ch/Atlas/">
+<img alt="[ATD Home]" src="Note046-3_files/atd_homeg.gif" align="middle" height="23" width="85">
+</a> 
+</p></div> 
+</body></html>

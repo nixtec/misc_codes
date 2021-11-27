@@ -1,0 +1,20 @@
+Hello ,
+ 
+          I have a problem with the code. The thing is i have to change the secid datatype from int to char array which can store the input information like below.
+ 
+Sec5 - Input string
+Sec6 - Output(Initailly blank) string or int
+Sec2 - Operations string
+Sec3 - Some information string
+ 
+ 
+One more thing, We are maintianing a queue for length, right. I should have one more queue as running queue, when new job comes in, it is first put in the queue which you have already created, after sometime(put dummy if conditon)
+if(transfer=="yes"){
+    you have to transfer the information to the running queue
+}.
+ 
+Put one more if condition
+if(complete=="yes"){
+      sec6=result;
+      section id's information are transfered back to where yuo got.
+}

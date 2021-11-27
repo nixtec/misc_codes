@@ -1,0 +1,29 @@
+==INSTALL==
+
+In UNIX:
+1. Open a terminal. Go to the directory where the archive is
+2. Extract the archive
+   tar -xzf dsfuncs-1.0.tar.gz
+3. Change to the extracted directory
+   cd dsfuncs-1.0
+4. Build the program
+   make
+5. Run the program
+   ./dsfuncs
+
+In Windows [Turbo C for Windows]:
+1. Copy 'dsfuncs.c' and 'dsfuncs.h' to 'C:\TCWIN\BIN'
+   [assuming tcwin is installed in C:\]
+2. Run 'tcwin'
+3. From 'File->Open' menu, select the 'dsfuncs.c' file [filter *.c]
+4. Compile it, Build it. Run it.
+
+I provided screenshots for both Linux and Windows desktops. Wish that will be
+helpful.
+
+
+See README file for the syntax of the input [file].
+
+			Thanks
+			Ayub
+			TechnoVilla

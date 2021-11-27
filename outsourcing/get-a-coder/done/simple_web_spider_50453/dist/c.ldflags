@@ -1,0 +1,1 @@
+-L/usr/local/lib -lwwwxml -lxmltok -lxmlparse -lwwwzip -lwwwsql -lwwwinit -lwwwapp -lwwwhtml -lwwwtelnet -lwwwnews -lwwwhttp -lwwwmime -lwwwgopher -lwwwftp -lwwwdirfile -lwwwcache -lwwwstream -lwwwmux -lwwwtrans -lwwwcore -lwwwutils -lmd5 -L. -lz -L/usr/lib -lssl -lcrypto

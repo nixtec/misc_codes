@@ -1,0 +1,25 @@
+Interfacing a bar code reader to a PC:
+
+All application programs support bar code reading as long as you have the
+right equipment. Bar code readers are available with two types of output -
+either "keyboard wedge" output or RS232 output. The bar code readers with
+keyboard wedge output plug directly into the keyboard port on your PC and they
+also provide a pigtail connector so that you can plug in your keyboard at the
+same time. When you scan a bar code with the keyboard wedge bar code reader,
+the data goes into the computer just as if it were typed in on the keyboard.
+This makes it extremely easy to interface the bar code reader to any
+application that is written to accept keyboard data.
+
+
+Drawbacks:
+The keyboard wedge interface is extremely simple however it has a few
+drawbacks. If you swipe a bar code, the cursor has to be in the correct input
+field in the correct application, otherwise you end up reading bar code data
+into whatever application has the focus. This can cause all sorts of potential
+problems as you can imagine. The keyboard output also is limited in that you
+cannot modify the data in any way before sending it into the program that is
+to receive the data. For example, if you needed to parse a bar code message
+into multiple pieces or remove some of a bar code message or add in a date or
+time stamp you would not be able to with a normal keyboard wedge reader.
+
+

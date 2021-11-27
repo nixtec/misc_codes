@@ -1,0 +1,42 @@
+==README==
+
+See INSTALL for usage.
+
+
+Input File Format:
+1. Lines beginning with '#' are comments and ignored
+2. Empty lines are ignored
+3. Process Initiation Input:
+
+	INIT <PID> <IP>
+
+   For example,
+
+	INIT 32 195.168.23.9
+
+4. Process Completion Input:
+
+	COMP <PID>
+
+   For example,
+
+	COMP 32
+
+5. Port is DOWN Signal:
+
+	DOWN <PORT>
+
+   For example,
+
+	DOWN 3
+
+6. Port is Restored Signal:
+
+	REST 3
+
+A sample input file 'snc.in.txt' is provided with the package archive. You can
+test it as input. Please read the sample input file for knowing the syntax.
+
+  ./snc snc.in.txt
+
+A corresponding output file named 'snc.out.txt' is provided too. See it.

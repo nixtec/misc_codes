@@ -1,0 +1,11 @@
+1. login and database edit password
+2. installation hardware based key
+3. picture should be large in display
+4. attendenc list display should be as follows:
+
+Name		Status		Since		Duration (Minutes)
+
+
+Duration will be difference between last-out - last-in
+So whenever there is OUT, the corresponding IN will be with duration of OUT.
+

@@ -1,0 +1,694 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" dir="ltr" lang="en"><head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta name="keywords" content="Barcode,ASCII,Airlines,Automated identification and data capture,Aztec Code,Barcode printer,Barcode reader,Barcode scanner,Bee,CPC Binary Barcode,Camera Phones">
+<link rel="shortcut icon" href="http://en.wikipedia.org/favicon.ico">
+<link rel="copyright" href="http://www.gnu.org/copyleft/fdl.html"><title>Barcode - Wikipedia, the free encyclopedia</title>
+		
+		<style type="text/css" media="screen,projection">/*<![CDATA[*/ @import "/skins-1.5/monobook/main.css?7"; /*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="_files/commonPrint.css"><!--[if lt IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE50Fixes.css";</style><![endif]--><!--[if IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE55Fixes.css";</style><![endif]--><!--[if IE 6]><style type="text/css">@import "/skins-1.5/monobook/IE60Fixes.css";</style><![endif]--><!--[if IE 7]><style type="text/css">@import "/skins-1.5/monobook/IE70Fixes.css?1";</style><![endif]--><!--[if lt IE 7]><script type="text/javascript" src="/skins-1.5/common/IEFixes.js"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		
+		
+		
+		
+		
+		<script type="text/javascript">var skin = 'monobook';var stylepath = '/skins-1.5';</script>
+		<script type="text/javascript" src="_files/wikibits"><!-- wikibits js --></script>
+		<script type="text/javascript" src="_files/index"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "/w/index.php?title=MediaWiki:Common.css&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=MediaWiki:Monobook.css&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=-&action=raw&gen=css&maxage=2678400";
+/*]]>*/</style><!-- Head Scripts --></head>
+
+	<body class="ns-0 ltr">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+		<div id="siteNotice"><div style="text-align: right; font-size: 80%;">Your <b><a href="http://wikimediafoundation.org/wiki/Fundraising" class="extiw" title="wikimedia:Fundraising">continued donations</a></b> keep Wikipedia running!&nbsp;&nbsp;&nbsp;&nbsp;</div>
+</div>		<h1 class="firstHeading">Barcode</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<div class="thumb tright">
+<div style="width: 202px;"><a href="http://en.wikipedia.org/wiki/Image:Wikipedia-barcode-128B.png" class="internal" title="&quot;Wikipedia&quot; encoded in Code 128-B"><img src="_files/Wikipedia-barcode-128B" alt="&quot;Wikipedia&quot; encoded in Code 128-B" longdesc="/wiki/Image:Wikipedia-barcode-128B.png" height="75" width="200"></a>
+<div class="thumbcaption">"<i>Wikipedia</i>" encoded in Code 128-B</div>
+</div>
+</div>
+<div class="thumb tright">
+<div style="width: 105px;"><a href="http://en.wikipedia.org/wiki/Image:Datamatrix.png" class="internal" title="&quot;Wikipedia, the free encyclopedia&quot; encoded in the DataMatrix 2D barcode"><img src="_files/Datamatrix" alt="&quot;Wikipedia, the free encyclopedia&quot; encoded in the DataMatrix 2D barcode" longdesc="/wiki/Image:Datamatrix.png" height="103" width="103"></a>
+<div class="thumbcaption">"<i>Wikipedia, the free encyclopedia</i>" encoded in the DataMatrix 2D barcode</div>
+</div>
+</div>
+<div class="thumb tright">
+<div style="width: 297px;"><a href="http://en.wikipedia.org/wiki/Image:Dataglyph511140.png" class="internal" title="&quot;Wikipedia, The Free Encyclopedia&quot; in multiple languages encoded in the DataGlyph 2D barcode"><img src="_files/Dataglyph511140" alt="&quot;Wikipedia, The Free Encyclopedia&quot; in multiple languages encoded in the DataGlyph 2D barcode" longdesc="/wiki/Image:Dataglyph511140.png" height="240" width="295"></a>
+<div class="thumbcaption">"<i>Wikipedia, The Free Encyclopedia</i>" in multiple languages encoded in the DataGlyph 2D barcode</div>
+</div>
+</div>
+<p>A <b>barcode</b> (also <b>bar code</b>) is a <a href="http://en.wikipedia.org/wiki/Machine-readable" title="Machine-readable">machine-readable</a>
+representation of information in a visual format on a surface.
+Originally barcodes stored data in the widths and spacings of printed
+parallel lines, but today they also come in patterns of dots,
+concentric circles, and hidden in images. Barcodes can be read by
+optical scanners called <a href="http://en.wikipedia.org/wiki/Barcode_reader" title="Barcode reader">barcode readers</a> or scanned from an image by special software. Barcodes are widely used to implement <a href="http://en.wikipedia.org/wiki/Automated_identification_and_data_capture" title="Automated identification and data capture">Auto ID Data Capture</a> (AIDC) systems that improve the speed and accuracy of <a href="http://en.wikipedia.org/wiki/Computer" title="Computer">computer</a> <a href="http://en.wikipedia.org/wiki/Data_entry" title="Data entry">data entry</a>.</p>
+<p>While traditionally, barcodes encoding schemes represented just
+numbers, newer symbologies add new characters such as from the upper
+case alphabet to the complete <a href="http://en.wikipedia.org/wiki/ASCII" title="ASCII">ASCII</a>
+character set and beyond. The drive to encode ever more information in
+combination with the space requirements of simple barcodes led to the
+development of <a href="http://en.wikipedia.org/wiki/Matrix_code" title="Matrix code">matrix codes</a> (a type of <b>2D barcode</b>), which do not consist of bars but rather a grid of square cells. <b><a href="http://en.wikipedia.org/w/index.php?title=Stacked_barcode&amp;action=edit" class="new" title="Stacked barcode">Stacked barcodes</a></b>
+are a compromise between true 2D barcodes and linear codes, and are
+formed by taking a traditional linear symbology and placing it in an
+envelope that allows multiple rows.</p>
+<table id="toc" class="toc" summary="Contents">
+<tbody><tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+ <span class="toctoggle">[<a href="javascript:toggleToc()" class="internal" id="togglelink">hide</a>]</span></div>
+<ul>
+<li class="toclevel-1"><a href="#Usage"><span class="tocnumber">1</span> <span class="toctext">Usage</span></a></li>
+<li class="toclevel-1"><a href="#Symbologies"><span class="tocnumber">2</span> <span class="toctext">Symbologies</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Scanner.2Fsymbology_interaction"><span class="tocnumber">2.1</span> <span class="toctext">Scanner/symbology interaction</span></a></li>
+<li class="toclevel-2"><a href="#Scanners_.28barcode_readers.29"><span class="tocnumber">2.2</span> <span class="toctext">Scanners (barcode readers)</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Types_of_barcodes"><span class="tocnumber">3</span> <span class="toctext">Types of barcodes</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Linear_barcodes"><span class="tocnumber">3.1</span> <span class="toctext">Linear barcodes</span></a></li>
+<li class="toclevel-2"><a href="#Stacked_barcodes"><span class="tocnumber">3.2</span> <span class="toctext">Stacked barcodes</span></a></li>
+<li class="toclevel-2"><a href="#2D_barcodes"><span class="tocnumber">3.3</span> <span class="toctext">2D barcodes</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#See_also"><span class="tocnumber">4</span> <span class="toctext">See also</span></a></li>
+<li class="toclevel-1"><a href="#Further_reading"><span class="tocnumber">5</span> <span class="toctext">Further reading</span></a></li>
+<li class="toclevel-1"><a href="#External_links"><span class="tocnumber">6</span> <span class="toctext">External links</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Patents"><span class="tocnumber">6.1</span> <span class="toctext">Patents</span></a></li>
+<li class="toclevel-2"><a href="#History_of_barcodes"><span class="tocnumber">6.2</span> <span class="toctext">History of barcodes</span></a></li>
+<li class="toclevel-2"><a href="#Barcode_generators"><span class="tocnumber">6.3</span> <span class="toctext">Barcode generators</span></a></li>
+<li class="toclevel-2"><a href="#Standards"><span class="tocnumber">6.4</span> <span class="toctext">Standards</span></a></li>
+<li class="toclevel-2"><a href="#Barcode_wikis_and_blogs"><span class="tocnumber">6.5</span> <span class="toctext">Barcode wikis and blogs</span></a></li>
+<li class="toclevel-2"><a href="#How_barcodes_work_and_symbologies"><span class="tocnumber">6.6</span> <span class="toctext">How barcodes work and symbologies</span></a></li>
+</ul>
+</li>
+</ul>
+</td>
+</tr>
+</tbody></table>
+<p><script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script></p>
+<div class="editsection" style="float: right; margin-left: 5px;">[<a href="http://en.wikipedia.org/w/index.php?title=Barcode&amp;action=edit&amp;section=1" title="Edit section: Usage">edit</a>]</div>
+<p><a name="Usage" id="Usage"></a></p>
+<h2>Usage</h2>
+<p>Since their invention in the last century, especially the <a href="http://en.wikipedia.org/wiki/Universal_Product_Code" title="Universal Product Code">UPC</a>
+code, barcodes have slowly become an essential part of modern
+civilization. Their use is widespread and the technology behind
+barcodes is constantly improving. Some modern applications of barcodes
+include:</p>
+<ul>
+<li>Practically every item purchased from a <a href="http://en.wikipedia.org/wiki/Grocery_store" title="Grocery store">grocery store</a>, <a href="http://en.wikipedia.org/wiki/Department_store" title="Department store">department store</a>
+and mass merchandiser has a barcode on it. This greatly helps in
+keeping track of the large number of items in a store and also reduces
+instances of <a href="http://en.wikipedia.org/wiki/Shoplifting" title="Shoplifting">shoplifting</a>. Since the adoption of barcodes, both consumers and retailers have profited from the savings generated.</li>
+<li>Rental <a href="http://en.wikipedia.org/wiki/Car" title="Car">car</a> companies keep track of their cars by means of bar codes on the car bumper.</li>
+<li><a href="http://en.wikipedia.org/wiki/Airlines" title="Airlines">Airlines</a> track passenger <a href="http://en.wikipedia.org/wiki/Luggage" title="Luggage">luggage</a> with barcodes, reducing the chance of loss.</li>
+<li>Recently, researchers have placed tiny bar codes on individual <a href="http://en.wikipedia.org/wiki/Bee" title="Bee">bees</a> to track the insects' mating habits.</li>
+<li><a href="http://en.wikipedia.org/wiki/NASA" title="NASA">NASA</a> relies on bar codes to monitor the thousands of heat tiles that need to be replaced after every <a href="http://en.wikipedia.org/wiki/Space_shuttle" title="Space shuttle">space shuttle</a> trip.</li>
+<li>The movement of nuclear waste can be tracked easily with a bar-code inventory system.</li>
+<li>More recently, bar codes have even started appearing on humans. <a href="http://en.wikipedia.org/wiki/Fashion" title="Fashion">Fashion</a> designers stamp bar codes on their <a href="http://en.wikipedia.org/wiki/Model" title="Model">models</a>
+to help coordinate fashion shows. The codes store information about
+what outfits each model should be wearing and when they are due on the <a href="http://en.wikipedia.org/wiki/Runway" title="Runway">runway</a>.</li>
+<li>In the late 1990's in <a href="http://en.wikipedia.org/wiki/Tokyo" title="Tokyo">Tokyo</a>, there was a fad for temporary bar code shaped <a href="http://en.wikipedia.org/wiki/Tattoo" title="Tattoo">tattoos</a> among <a href="http://en.wikipedia.org/wiki/High_school" title="High school">high school</a> girls.</li>
+</ul>
+<div class="editsection" style="float: right; margin-left: 5px;">[<a href="http://en.wikipedia.org/w/index.php?title=Barcode&amp;action=edit&amp;section=2" title="Edit section: Symbologies">edit</a>]</div>
+<p><a name="Symbologies" id="Symbologies"></a></p>
+<h2>Symbologies</h2>
+<p>The mapping between messages and barcodes is called a <b>symbology</b>.
+The specification of a symbology includes the encoding of the single
+digits/characters of the message as well as the start and stop markers
+into bars and space, the size of the quiet zone required to be before
+and after the barcode as well as the computation of a <a href="http://en.wikipedia.org/wiki/Checksum" title="Checksum">checksum</a>.</p>
+<p>Linear symbologies can be classified mainly by two properties:</p>
+<ul>
+<li>Continuous vs. discrete: Characters in continuous symbologies abut,
+with one character ending with a space and the next beginning with a
+bar, or vice versa. Characters in discrete symbologies begin and end
+with bars; the intercharacter space is ignored, as long as it is not
+wide enough to look like the code ends.</li>
+<li>Two-width vs. many-width: Bars and spaces in two-width symbologies
+are wide or narrow; how wide a wide bar is exactly has no significance
+as long as the symbology requirements for wide bars are adhered to
+(usually two to three times more wide than a narrow bar). Bars and
+spaces in many-width symbologies are all multiples of a basic width
+called the <b>module</b>; most such codes use four widths of 1, 2, 3 and 4 modules.</li>
+</ul>
+<p>Stacked symbologies consist of a given linear symbology repeated vertically in multiple.</p>
+<p>There are a large variety of 2-D symbologies. The most common are
+matrix codes, which feature square or dot-shaped modules arranged on a
+grid pattern. 2-D symbologies also come in a variety of other visual
+formats. Aside from circular patterns, there are several 2-D
+symbologies which employ <a href="http://en.wikipedia.org/wiki/Steganography" title="Steganography">steganography</a> by hiding an array of different-sized or -shaped modules within a user-specified image (for example, DataGlyph).</p>
+<div class="editsection" style="float: right; margin-left: 5px;">[<a href="http://en.wikipedia.org/w/index.php?title=Barcode&amp;action=edit&amp;section=3" title="Edit section: Scanner/symbology interaction">edit</a>]</div>
+<p><a name="Scanner.2Fsymbology_interaction" id="Scanner.2Fsymbology_interaction"></a></p>
+<h3>Scanner/symbology interaction</h3>
+<p>Linear symbologies are optimized to be read by a laser scanner,
+which sweeps a beam of light across the barcode in a straight line,
+reading a <b>slice</b> of the barcode light-dark patterns.</p>
+<p>Stacked symbologies are also optimized for laser scanning, with the laser making multiple passes across the barcode.</p>
+<p>2-D symbologies cannot be read by a laser as there is typically no
+sweep pattern that can encompass the entire symbol. They must be
+scanned by a camera capture device.</p>
+<div class="editsection" style="float: right; margin-left: 5px;">[<a href="http://en.wikipedia.org/w/index.php?title=Barcode&amp;action=edit&amp;section=4" title="Edit section: Scanners (barcode readers)">edit</a>]</div>
+<p><a name="Scanners_.28barcode_readers.29" id="Scanners_.28barcode_readers.29"></a></p>
+<h3>Scanners (barcode readers)</h3>
+<dl>
+<dd><i>Main article: <a href="http://en.wikipedia.org/wiki/Barcode_reader" title="Barcode reader">Barcode reader</a></i></dd>
+</dl>
+<p>The earliest, and still the cheapest, bar code scanners are built from a fixed light and a single <a href="http://en.wikipedia.org/w/index.php?title=Photosensor&amp;action=edit" class="new" title="Photosensor">photosensor</a> that is manually "scrubbed" across the barcode.</p>
+<p>A later design, the "laser scanner," uses a <a href="http://en.wikipedia.org/w/index.php?title=Polygonal_mirror&amp;action=edit" class="new" title="Polygonal mirror">polygonal mirror</a> or <a href="http://en.wikipedia.org/wiki/Galvanometer" title="Galvanometer">galvanometer</a>-mounted
+mirror to scan a laser across the barcode -- initially only in a
+straight line, but eventually in complicated patterns so the reader
+could read barcodes at any angle.</p>
+<p>More recently, off-the-shelf digital cameras now have enough
+resolution to capture both 1D and 2D barcodes. Increasingly companies
+are looking to incorporate barcode scanning software into cameraphones.
+However, the camera phone optics are not well suited for standard codes
+that were designed for industrial dedicated scanners. As a result, new
+codes are being designed for mobile use such as color code and mCode.</p>
+<div class="editsection" style="float: right; margin-left: 5px;">[<a href="http://en.wikipedia.org/w/index.php?title=Barcode&amp;action=edit&amp;section=5" title="Edit section: Types of barcodes">edit</a>]</div>
+<p><a name="Types_of_barcodes" id="Types_of_barcodes"></a></p>
+<h2>Types of barcodes</h2>
+<div class="editsection" style="float: right; margin-left: 5px;">[<a href="http://en.wikipedia.org/w/index.php?title=Barcode&amp;action=edit&amp;section=6" title="Edit section: Linear barcodes">edit</a>]</div>
+<p><a name="Linear_barcodes" id="Linear_barcodes"></a></p>
+<h3>Linear barcodes</h3>
+<table class="wikitable">
+<tbody><tr>
+<th>Symbology</th>
+<th>Cont/Disc</th>
+<th>Two/Many</th>
+<th>Uses</th>
+</tr>
+<tr>
+<td><a href="http://en.wikipedia.org/wiki/Plessey" title="Plessey">Plessey</a></td>
+<td>Continuous</td>
+<td>Two</td>
+<td>Catalogs, store shelves, inventory</td>
+</tr>
+<tr>
+<td><a href="http://en.wikipedia.org/wiki/Universal_Product_Code" title="Universal Product Code">UPC</a></td>
+<td>Continuous</td>
+<td>Many</td>
+<td>North America retail</td>
+</tr>
+<tr>
+<td><a href="http://en.wikipedia.org/w/index.php?title=Codabar&amp;action=edit" class="new" title="Codabar">Codabar</a></td>
+<td>Discrete</td>
+<td>Two</td>
+<td>Old format used in libraries, blood banks, airbills</td>
+</tr>
+<tr>
+<td><a href="http://en.wikipedia.org/wiki/Interleaved_2_of_5" title="Interleaved 2 of 5">Interleaved 2 of 5</a></td>
+<td>Continuous</td>
+<td>Two</td>
+<td>Wholesale, Libraries (<a href="http://en.wikipedia.org/wiki/Norway" title="Norway">NO</a>)</td>
+</tr>
+<tr>
+<td><a href="http://en.wikipedia.org/wiki/Code_39" title="Code 39">Code 39</a></td>
+<td>Discrete</td>
+<td>Two</td>
+<td>Various</td>
+</tr>
+<tr>
+<td><a href="http://en.wikipedia.org/wiki/Code_93" title="Code 93">Code 93</a></td>
+<td>Continuous</td>
+<td>Many</td>
+<td>Various</td>
+</tr>
+<tr>
+<td><a href="http://en.wikipedia.org/wiki/Code_128" title="Code 128">Code 128</a></td>
+<td>Continuous</td>
+<td>Many</td>
+<td>Various</td>
+</tr>
+<tr>
+<td><a href="http://en.wikipedia.org/wiki/Code_128A" title="Code 128A">Code 128A</a></td>
+<td>Continuous</td>
+<td>Many</td>
+<td>Various</td>
+</tr>
+<tr>
+<td><a href="http://en.wikipedia.org/wiki/Code_128B" title="Code 128B">Code 128B</a></td>
+<td>Continuous</td>
+<td>Many</td>
+<td>Various</td>
+</tr>
+<tr>
+<td><a href="http://en.wikipedia.org/wiki/Code_128C" title="Code 128C">Code 128C</a></td>
+<td>Continuous</td>
+<td>Many</td>
+<td>Various</td>
+</tr>
+<tr>
+<td><a href="http://en.wikipedia.org/w/index.php?title=Code_11&amp;action=edit" class="new" title="Code 11">Code 11</a></td>
+<td>Discrete</td>
+<td>Two</td>
+<td>Telephones</td>
+</tr>
+<tr>
+<td><a href="http://en.wikipedia.org/w/index.php?title=EAN_2&amp;action=edit" class="new" title="EAN 2">EAN 2</a></td>
+<td>Continuous</td>
+<td>Many</td>
+<td>Addon code (Magazines)</td>
+</tr>
+<tr>
+<td><a href="http://en.wikipedia.org/w/index.php?title=EAN_3&amp;action=edit" class="new" title="EAN 3">EAN 3</a></td>
+<td>Continuous</td>
+<td>Many</td>
+<td>Addon code (Books)</td>
+</tr>
+<tr>
+<td>EAN 8, <a href="http://en.wikipedia.org/wiki/EAN-13" title="EAN-13">EAN 13</a></td>
+<td>Continuous</td>
+<td>Many</td>
+<td>Worldwide retail</td>
+</tr>
+<tr>
+<td><a href="http://en.wikipedia.org/wiki/UCC/EAN-128" title="UCC/EAN-128">UCC/EAN-128</a>, <a href="http://en.wikipedia.org/wiki/EAN_128" title="EAN 128">EAN 128</a>, <a href="http://en.wikipedia.org/wiki/UCC_128" title="UCC 128">UCC 128</a></td>
+<td>Continuous</td>
+<td>Many</td>
+<td>Various</td>
+</tr>
+<tr>
+<td><a href="http://en.wikipedia.org/w/index.php?title=DUN_14&amp;action=edit" class="new" title="DUN 14">DUN 14</a></td>
+<td>Continuous</td>
+<td>Many</td>
+<td>Various</td>
+</tr>
+<tr>
+<td><a href="http://en.wikipedia.org/w/index.php?title=ITF_14&amp;action=edit" class="new" title="ITF 14">ITF 14</a></td>
+<td>Continuous</td>
+<td>Many</td>
+<td>Shipping Container Symbol</td>
+</tr>
+<tr>
+<td><a href="http://en.wikipedia.org/wiki/Pharmacode" title="Pharmacode">Pharmacode</a></td>
+<td>Neither</td>
+<td>Two</td>
+<td>Pharmaceutical Packaging</td>
+</tr>
+<tr>
+<td><a href="http://en.wikipedia.org/wiki/POSTNET" title="POSTNET">POSTNET</a></td>
+<td>Continuous</td>
+<td>Tall/short</td>
+<td>Post office</td>
+</tr>
+<tr>
+<td><a href="http://en.wikipedia.org/wiki/PostBar" title="PostBar">PostBar</a></td>
+<td>Discrete</td>
+<td>Many</td>
+<td>Post office</td>
+</tr>
+<tr>
+<td><a href="http://en.wikipedia.org/wiki/CPC_Binary_Barcode" title="CPC Binary Barcode">CPC Binary</a></td>
+<td>Discrete</td>
+<td>Two</td>
+<td>Post office</td>
+</tr>
+<tr>
+<td><a href="http://en.wikipedia.org/wiki/Telepen" title="Telepen">Telepen</a></td>
+<td>Continuous</td>
+<td>Two</td>
+<td>Libraries, etc (UK)</td>
+</tr>
+</tbody></table>
+<div class="editsection" style="float: right; margin-left: 5px;">[<a href="http://en.wikipedia.org/w/index.php?title=Barcode&amp;action=edit&amp;section=7" title="Edit section: Stacked barcodes">edit</a>]</div>
+<p><a name="Stacked_barcodes" id="Stacked_barcodes"></a></p>
+<h3>Stacked barcodes</h3>
+<table class="wikitable">
+<tbody><tr>
+<th>Symbology</th>
+<th>Notes</th>
+</tr>
+<tr>
+<td>Codablock</td>
+<td>Stacked 1D barcodes.</td>
+</tr>
+<tr>
+<td>Code 16K</td>
+<td>Based on 1D Code 128.</td>
+</tr>
+<tr>
+<td>Code 49</td>
+<td>Stacked 1D barcodes from Intermec Corp.</td>
+</tr>
+<tr>
+<td><a href="http://en.wikipedia.org/wiki/PDF417" title="PDF417">PDF417</a></td>
+<td>The most common 2D barcode. Public domain.</td>
+</tr>
+<tr>
+<td>Micro PDF417</td>
+<td>&nbsp;</td>
+</tr>
+</tbody></table>
+<div class="editsection" style="float: right; margin-left: 5px;">[<a href="http://en.wikipedia.org/w/index.php?title=Barcode&amp;action=edit&amp;section=8" title="Edit section: 2D barcodes">edit</a>]</div>
+<p><a name="2D_barcodes"></a></p>
+<h3>2D barcodes</h3>
+<p>A <b>matrix code</b>, also known as a <b>2D barcode</b>, is a
+two-dimensional way of representing information. It is similar to a
+linear (1-dimensional) barcode, but has more data representation
+capability.</p>
+<table class="wikitable">
+<tbody><tr>
+<th>Symbology</th>
+<th>Notes</th>
+</tr>
+<tr>
+<td><a href="http://en.wikipedia.org/w/index.php?title=3-DI&amp;action=edit" class="new" title="3-DI">3-DI</a></td>
+<td>Developed by Lynn Ltd.</td>
+</tr>
+<tr>
+<td>ArrayTag</td>
+<td>From ArrayTech Systems.</td>
+</tr>
+<tr>
+<td><a href="http://en.wikipedia.org/wiki/Aztec_Code" title="Aztec Code">Aztec Code</a></td>
+<td>Designed by Andrew Longacre at Welch Allyn (now Hand Held Products). Public domain.</td>
+</tr>
+<tr>
+<td><a href="http://en.wikipedia.org/w/index.php?title=Small_Aztec_Code&amp;action=edit" class="new" title="Small Aztec Code">Small Aztec Code</a></td>
+<td>Space conscious version of Aztec code.</td>
+</tr>
+<tr>
+<td><a href="http://en.wikipedia.org/w/index.php?title=Bullseye_%28barcode%29&amp;action=edit" class="new" title="Bullseye (barcode)">Bullseye</a></td>
+<td>This was the barcode tested in a Kroger store in Cincinnati. It used concentric bars.</td>
+</tr>
+<tr>
+<td>Codablock</td>
+<td>Stacked 1D barcodes.</td>
+</tr>
+<tr>
+<td><a href="http://en.wikipedia.org/w/index.php?title=Code_1&amp;action=edit" class="new" title="Code 1">Code 1</a></td>
+<td>Public domain.</td>
+</tr>
+<tr>
+<td>Code 16K</td>
+<td>Based on 1D Code 128.</td>
+</tr>
+<tr>
+<td>Code 49</td>
+<td>Stacked 1D barcodes from Intermec Corp.</td>
+</tr>
+<tr>
+<td>Color code</td>
+<td>Mainly used for cell phones in Korea.</td>
+</tr>
+<tr>
+<td><a href="http://en.wikipedia.org/w/index.php?title=CP_Code&amp;action=edit" class="new" title="CP Code">CP Code</a></td>
+<td>From CP Tron, Inc.</td>
+</tr>
+<tr>
+<td><a href="http://www.parc.com/research/projects/dataglyphs/" class="external text" title="http://www.parc.com/research/projects/dataglyphs/">DataGlyphs</a></td>
+<td>From Xerox PARC.</td>
+</tr>
+<tr>
+<td><a href="http://en.wikipedia.org/wiki/Datamatrix" title="Datamatrix">Datamatrix</a></td>
+<td>From RVSI Acuity CiMatrix. Now Public Domain.</td>
+</tr>
+<tr>
+<td><a href="http://en.wikipedia.org/w/index.php?title=Datastrip_Code&amp;action=edit" class="new" title="Datastrip Code">Datastrip Code</a></td>
+<td>From Datastrip, Inc.</td>
+</tr>
+<tr>
+<td><a href="http://en.wikipedia.org/w/index.php?title=Dot_Code_A&amp;action=edit" class="new" title="Dot Code A">Dot Code A</a></td>
+<td>Designed for the unique identification of items.</td>
+</tr>
+<tr>
+<td><a href="http://en.wikipedia.org/w/index.php?title=HueCode&amp;action=edit" class="new" title="HueCode">HueCode</a></td>
+<td>From Robot Design Associates. Uses greyscale or colour.</td>
+</tr>
+<tr>
+<td><a href="http://en.wikipedia.org/w/index.php?title=INTACTA.CODE&amp;action=edit" class="new" title="INTACTA.CODE">INTACTA.CODE</a></td>
+<td>From INTACTA Technologies, Inc.</td>
+</tr>
+<tr>
+<td><a href="http://en.wikipedia.org/wiki/MaxiCode" title="MaxiCode">MaxiCode</a></td>
+<td>Used by <a href="http://en.wikipedia.org/wiki/United_Parcel_Service" title="United Parcel Service">United Parcel Service</a>. Now Public Domain</td>
+</tr>
+<tr>
+<td>MiniCode</td>
+<td>From Omniplanar, Inc.</td>
+</tr>
+<tr>
+<td><a href="http://en.wikipedia.org/wiki/PDF417" title="PDF417">PDF417</a></td>
+<td>Originated by <a href="http://en.wikipedia.org/wiki/Symbol_Technologies" title="Symbol Technologies">Symbol Technologies</a> Public Domain. The most common 2D barcode.</td>
+</tr>
+<tr>
+<td>Micro PDF417</td>
+<td>Facilitates codes too small to be used in PDF417.</td>
+</tr>
+<tr>
+<td><a href="http://en.wikipedia.org/wiki/QR_Code" title="QR Code">QR Code</a></td>
+<td>De-facto standard for Japanese cell phones. Developed, patented and
+owned by TOYOTA subsidiary Denso Wave initially for car parts
+management. Can encode Japanese Kanji and Kana characters, music,
+images, URLs, emails.</td>
+</tr>
+<tr>
+<td><a href="http://en.wikipedia.org/wiki/Semacode" title="Semacode">Semacode</a></td>
+<td>Open standard for picture cell phones</td>
+</tr>
+<tr>
+<td><a href="http://en.wikipedia.org/wiki/SmartCode" title="SmartCode">SmartCode</a></td>
+<td>From InfoImaging Technologies.</td>
+</tr>
+<tr>
+<td><a href="http://en.wikipedia.org/w/index.php?title=Snowflake_Code&amp;action=edit" class="new" title="Snowflake Code">Snowflake Code</a></td>
+<td>From Marconi Data Systems, Inc.</td>
+</tr>
+<tr>
+<td><a href="http://en.wikipedia.org/w/index.php?title=SpotCode&amp;action=edit" class="new" title="SpotCode">SpotCode</a></td>
+<td>Circular barcodes for <a href="http://en.wikipedia.org/wiki/Camera_Phones" title="Camera Phones">camera phones</a> from <a href="http://www.highenergymagic.com/" class="external text" title="http://www.highenergymagic.com/">High Energy Magic Ltd</a> and now <a href="http://www.shotcode.com/" class="external text" title="http://www.shotcode.com">Shotcode.</a></td>
+</tr>
+<tr>
+<td><a href="http://en.wikipedia.org/w/index.php?title=SuperCode&amp;action=edit" class="new" title="SuperCode">SuperCode</a></td>
+<td>Public domain.</td>
+</tr>
+<tr>
+<td><a href="http://en.wikipedia.org/w/index.php?title=UltraCode&amp;action=edit" class="new" title="UltraCode">UltraCode</a></td>
+<td>Black-and-white &amp; colour versions. Public domain. Invented by Jeffrey Kaufman and Clive Hohberger.</td>
+</tr>
+<tr>
+<td><a href="http://en.wikipedia.org/w/index.php?title=VeriCode&amp;action=edit" class="new" title="VeriCode">VeriCode</a>, <a href="http://en.wikipedia.org/w/index.php?title=VSCode&amp;action=edit" class="new" title="VSCode">VSCode</a></td>
+<td>From Veritec, Inc.</td>
+</tr>
+<tr>
+<td><a href="http://en.wikipedia.org/w/index.php?title=WaterCode&amp;action=edit" class="new" title="WaterCode">WaterCode</a></td>
+<td>High-density 2D Barcode(440bytes/cm2) From MarkAny Inc.</td>
+</tr>
+</tbody></table>
+<div class="editsection" style="float: right; margin-left: 5px;">[<a href="http://en.wikipedia.org/w/index.php?title=Barcode&amp;action=edit&amp;section=9" title="Edit section: See also">edit</a>]</div>
+<p><a name="See_also" id="See_also"></a></p>
+<h2>See also</h2>
+<ul>
+<li><a href="http://en.wikipedia.org/wiki/Universal_Product_Code" title="Universal Product Code">Universal Product Code</a> (UPC)</li>
+<li><a href="http://en.wikipedia.org/wiki/Automated_identification_and_data_capture" title="Automated identification and data capture">Automated identification and data capture</a> (AIDC)</li>
+<li><a href="http://en.wikipedia.org/wiki/Semacode" title="Semacode">Semacode</a></li>
+<li><a href="http://en.wikipedia.org/wiki/ISBN" title="ISBN">ISBN</a></li>
+<li><a href="http://en.wikipedia.org/wiki/Inventory_control_system" title="Inventory control system">Inventory control system</a></li>
+<li><a href="http://en.wikipedia.org/wiki/Supply_Chain_Management" title="Supply Chain Management">Supply Chain Management</a></li>
+<li><a href="http://en.wikipedia.org/wiki/Barcode_printer" title="Barcode printer">Barcode printer</a></li>
+<li><a href="http://en.wikipedia.org/wiki/Barcode_scanner" title="Barcode scanner">Barcode scanner</a></li>
+<li><a href="http://en.wikipedia.org/wiki/Global_Trade_Item_Number" title="Global Trade Item Number">Global Trade Item Number</a></li>
+<li><a href="http://en.wikipedia.org/wiki/RFID" title="RFID">RFID</a></li>
+</ul>
+<div class="editsection" style="float: right; margin-left: 5px;">[<a href="http://en.wikipedia.org/w/index.php?title=Barcode&amp;action=edit&amp;section=10" title="Edit section: Further reading">edit</a>]</div>
+<p><a name="Further_reading" id="Further_reading"></a></p>
+<h2>Further reading</h2>
+<ul>
+<li><i>Automating Management Information Systems: Barcode Engineering and Implementation</i>: Harry E. Burke, Thomson Learning, <a href="http://en.wikipedia.org/w/index.php?title=Special:Booksources&amp;isbn=0442207123" class="internal">ISBN 0-442-20712-3</a></li>
+<li><i>Automating Management Information Systems: Principles of Barcode Applications</i>: Harry E. Burke, Thomson Learning, <a href="http://en.wikipedia.org/w/index.php?title=Special:Booksources&amp;isbn=0442206674" class="internal">ISBN 0442206674</a></li>
+<li><i>The Bar Code Book</i>: Roger C. Palmer, Helmers Publishing, <a href="http://en.wikipedia.org/w/index.php?title=Special:Booksources&amp;isbn=0911261095" class="internal">ISBN 0-911261-09-5</a>, 386 pages</li>
+<li><i>The Bar Code Manual</i>: Eugene F. Brighan, Thompson Learning, <a href="http://en.wikipedia.org/w/index.php?title=Special:Booksources&amp;isbn=0030161738" class="internal">ISBN 0030161738</a></li>
+<li><i>Handbook of Bar Coding Systems</i>: Harry E. Burke, Van Nostrand Reinhold Company, <a href="http://en.wikipedia.org/w/index.php?title=Special:Booksources&amp;isbn=0422214308" class="internal">ISBN 0-422-21430-8</a>, 219 pages</li>
+<li><i>Lines of Communication</i>: Craig K. Harmon, Helmers Publishing, <a href="http://en.wikipedia.org/w/index.php?title=Special:Booksources&amp;isbn=0911261079" class="internal">ISBN 0-911261-07-9</a>, 425 pages</li>
+<li><i>Punched Cards to Bar Codes</i>: Benjamin Nelson, Helmers Publishing, <a href="http://en.wikipedia.org/w/index.php?title=Special:Booksources&amp;isbn=0911261125" class="internal">ISBN 0-911261-12-5</a>, 434 pages</li>
+<li><i>Revolution at the Checkout Counter: The Explosion of the Bar Code</i>: Stephen A. Brown, Harvard Univ Press, <a href="http://en.wikipedia.org/w/index.php?title=Special:Booksources&amp;isbn=0674767209" class="internal">ISBN 0674767209</a></li>
+<li><i>QR-Codes and color codes for Mobile Phones and CRM</i>: <a href="http://en.wikipedia.org/w/index.php?title=Gerhard_Fasol&amp;action=edit" class="new" title="Gerhard Fasol">Gerhard Fasol</a>, Eurotechnology Japan report, <a href="http://www.eurotechnology.com/store/qr-code/" class="external free" title="http://www.eurotechnology.com/store/qr-code/">http://www.eurotechnology.com/store/qr-code/</a></li>
+</ul>
+<div class="editsection" style="float: right; margin-left: 5px;">[<a href="http://en.wikipedia.org/w/index.php?title=Barcode&amp;action=edit&amp;section=11" title="Edit section: External links">edit</a>]</div>
+<p><a name="External_links" id="External_links"></a></p>
+<h2>External links</h2>
+<div class="editsection" style="float: right; margin-left: 5px;">[<a href="http://en.wikipedia.org/w/index.php?title=Barcode&amp;action=edit&amp;section=12" title="Edit section: Patents">edit</a>]</div>
+<p><a name="Patents" id="Patents"></a></p>
+<h5>Patents</h5>
+<ul>
+<li><a href="http://patft.uspto.gov/netacgi/nph-Parser?patentnumber=2612994" class="external text" title="http://patft.uspto.gov/netacgi/nph-Parser?patentnumber=2612994">U.S. Patent 2612994</a> - "<i>Classifying apparatus and method</i>"</li>
+</ul>
+<div class="editsection" style="float: right; margin-left: 5px;">[<a href="http://en.wikipedia.org/w/index.php?title=Barcode&amp;action=edit&amp;section=13" title="Edit section: History of barcodes">edit</a>]</div>
+<p><a name="History_of_barcodes" id="History_of_barcodes"></a></p>
+<h5>History of barcodes</h5>
+<ul>
+<li><a href="http://www.barcoding.com/Information/barcode_history.shtml" class="external text" title="http://www.barcoding.com/Information/barcode_history.shtml">Barcodes Sweep the World</a> - A very detailed history (3300+ words).</li>
+<li><a href="http://eh.net/encyclopedia/article/brown.bar_code" class="external text" title="http://eh.net/encyclopedia/article/brown.bar_code">History of the Barcode by Stephen A. Brown</a></li>
+</ul>
+<div class="editsection" style="float: right; margin-left: 5px;">[<a href="http://en.wikipedia.org/w/index.php?title=Barcode&amp;action=edit&amp;section=14" title="Edit section: Barcode generators">edit</a>]</div>
+<p><a name="Barcode_generators" id="Barcode_generators"></a></p>
+<h5>Barcode generators</h5>
+<ul>
+<li><a href="http://www.barcoding.com/upc/" class="external text" title="http://www.barcoding.com/upc/">Barcode Generator</a></li>
+<li><a href="http://www.terryburton.co.uk/barcodewriter/" class="external text" title="http://www.terryburton.co.uk/barcodewriter/">PostScript-based barcode generator</a></li>
+<li><a href="http://www.tec-it.com/playground" class="external text" title="http://www.tec-it.com/playground">Online Barcode Generator for Linear, 2D and Composite Bar Codes</a></li>
+</ul>
+<div class="editsection" style="float: right; margin-left: 5px;">[<a href="http://en.wikipedia.org/w/index.php?title=Barcode&amp;action=edit&amp;section=15" title="Edit section: Standards">edit</a>]</div>
+<p><a name="Standards" id="Standards"></a></p>
+<h5>Standards</h5>
+<ul>
+<li><a href="http://www.mecsw.com/specs/speclist.html" class="external text" title="http://www.mecsw.com/specs/speclist.html">List of specifications and sample images</a></li>
+<li><a href="http://www.azalea.com/FAQ" class="external text" title="http://www.azalea.com/FAQ">The Original Barcode FAQ</a></li>
+<li><a href="http://www.barcoderesource.com/barcodefaq.shtml" class="external text" title="http://www.barcoderesource.com/barcodefaq.shtml">Barcode FAQ</a></li>
+</ul>
+<div class="editsection" style="float: right; margin-left: 5px;">[<a href="http://en.wikipedia.org/w/index.php?title=Barcode&amp;action=edit&amp;section=16" title="Edit section: Barcode wikis and blogs">edit</a>]</div>
+<p><a name="Barcode_wikis_and_blogs" id="Barcode_wikis_and_blogs"></a></p>
+<h5>Barcode wikis and blogs</h5>
+<ul>
+<li><a href="http://wiki.ehow.com/Read-12-Digit-UPC-Barcodes" class="external text" title="http://wiki.ehow.com/Read-12-Digit-UPC-Barcodes">How to Read 12 Digit UPC Barcodes</a></li>
+<li><a href="http://wiki.java.net/bin/view/Javapedia/Barcode" class="external text" title="http://wiki.java.net/bin/view/Javapedia/Barcode">Javapedia: Java bar code source code</a></li>
+<li><a href="http://wikipython.flibuste.net/moin.py/GenerateurCodeBarre" class="external text" title="http://wikipython.flibuste.net/moin.py/GenerateurCodeBarre">Wikipython: Python bar code source code</a></li>
+</ul>
+<div class="editsection" style="float: right; margin-left: 5px;">[<a href="http://en.wikipedia.org/w/index.php?title=Barcode&amp;action=edit&amp;section=17" title="Edit section: How barcodes work and symbologies">edit</a>]</div>
+<p><a name="How_barcodes_work_and_symbologies" id="How_barcodes_work_and_symbologies"></a></p>
+<h5>How barcodes work and symbologies</h5>
+<ul>
+<li><a href="http://www.activebarcode.com/codes/index.html" class="external text" title="http://www.activebarcode.com/codes/index.html">Complete List of Barcodes with samples</a></li>
+<li><a href="http://electronics.howstuffworks.com/upc.htm" class="external text" title="http://electronics.howstuffworks.com/upc.htm">How Stuff Works - UPC bar code</a></li>
+<li><a href="http://www.ggbarcode.com/TypesofBarCodes.html" class="external text" title="http://www.ggbarcode.com/TypesofBarCodes.html">Types of Barcodes</a> - illustrated list</li>
+<li><a href="http://www.tec-it.com/barcode/go/barcode_dll_3.htm" class="external text" title="http://www.tec-it.com/barcode/go/barcode_dll_3.htm">Types of Barcodes</a> - long list of symbologies</li>
+<li><a href="http://www.morovia.com/education/" class="external text" title="http://www.morovia.com/education/">Barcode Library</a></li>
+</ul>
+<table>
+<tbody><tr>
+<td></td>
+</tr>
+</tbody></table>
+
+
+<!-- Saved in parser cache with key enwiki:pcache:idhash:60600-0!1!0!0!!en!2 and timestamp 20060406230604 -->
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org/wiki/Barcode">http://en.wikipedia.org/wiki/Barcode</a>"</div>
+			<div id="catlinks"><p class="catlinks"><a href="http://en.wikipedia.org/w/index.php?title=Special:Categories&amp;article=Barcode" title="Special:Categories">Categories</a>: <span dir="ltr"><a href="http://en.wikipedia.org/wiki/Category:Barcodes" title="Category:Barcodes">Barcodes</a></span> | <span dir="ltr"><a href="http://en.wikipedia.org/wiki/Category:Encodings" title="Category:Encodings">Encodings</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<ul>
+				 <li id="ca-nstab-main" class="selected"><a title="View the content page [alt-c]" accesskey="c" href="http://en.wikipedia.org/wiki/Barcode">Article</a></li>
+				 <li id="ca-talk"><a title="Discussion about the content page [alt-t]" accesskey="t" href="http://en.wikipedia.org/wiki/Talk:Barcode">Discussion</a></li>
+				 <li id="ca-edit"><a title="You can edit this page. Please use the preview button before saving. [alt-e]" accesskey="e" href="http://en.wikipedia.org/w/index.php?title=Barcode&amp;action=edit">Edit this page</a></li>
+				 <li id="ca-history"><a title="Past versions of this page. [alt-h]" accesskey="h" href="http://en.wikipedia.org/w/index.php?title=Barcode&amp;action=history">History</a></li>
+		</ul>
+	</div>
+	<div class="portlet" id="p-personal">
+		<h5>Personal tools</h5>
+		<div class="pBody">
+			<ul>
+				<li id="pt-login"><a title="Logging in is not required, but brings many benefits. [alt-o]" accesskey="o" href="http://en.wikipedia.org/w/index.php?title=Special:Userlogin&amp;returnto=Barcode">Sign in / create account</a></li>
+			</ul>
+		</div>
+	</div>
+	<div title="Main Page" class="portlet" id="p-logo">
+		<a style="background-image: url(/images/wiki-en.png);" href="http://en.wikipedia.org/wiki/Main_Page" title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class="portlet" id="p-navigation">
+		<h5>Navigation</h5>
+		<div class="pBody">
+			<ul>
+				<li id="n-mainpage"><a title="Visit the Main Page [alt-z]" accesskey="z" href="http://en.wikipedia.org/wiki/Main_Page">Main Page</a></li>
+				<li title="About the project, what you can do, where to find things" id="n-portal"><a href="http://en.wikipedia.org/wiki/Wikipedia:Community_Portal">Community Portal</a></li>
+				<li id="n-Featured-articles"><a href="http://en.wikipedia.org/wiki/Wikipedia:Featured_articles">Featured articles</a></li>
+				<li title="Find background information on current events" id="n-currentevents"><a href="http://en.wikipedia.org/wiki/Current_events">Current events</a></li>
+				<li id="n-recentchanges"><a title="List of recent changes in Wikipedia [alt-r]" accesskey="r" href="http://en.wikipedia.org/wiki/Special:Recentchanges">Recent changes</a></li>
+				<li id="n-randompage"><a title="Load a random page [alt-x]" accesskey="x" href="http://en.wikipedia.org/wiki/Special:Random">Random article</a></li>
+				<li title="The place to find out about Wikipedia" id="n-help"><a href="http://en.wikipedia.org/wiki/Help:Contents">Help</a></li>
+				<li id="n-contact"><a href="http://en.wikipedia.org/wiki/Wikipedia:Contact_us">Contact Wikipedia</a></li>
+				<li title="Support us" id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising#Donation_methods">Donations</a></li>
+			</ul>
+		</div>
+	</div>
+		<div id="p-search" class="portlet">
+		<h5><label for="searchInput">Search</label></h5>
+		<div id="searchBody" class="pBody">
+			<form action="/wiki/Special:Search" id="searchform"><div>
+				<input id="searchInput" name="search" accesskey="f" value="" type="text">
+				<input name="go" class="searchButton" id="searchGoButton" value="Go" type="submit">&nbsp;
+				<input name="fulltext" class="searchButton" value="Search" type="submit">
+			</div></form>
+		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5>Toolbox</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a title="List of all wiki pages that link here [alt-j]" accesskey="j" href="http://en.wikipedia.org/wiki/Special:Whatlinkshere/Barcode">What links here</a></li>
+				<li id="t-recentchangeslinked"><a title="Recent changes in pages linked from this page [alt-k]" accesskey="k" href="http://en.wikipedia.org/wiki/Special:Recentchangeslinked/Barcode">Related changes</a></li>
+<li id="t-upload"><a title="Upload images or media files [alt-u]" accesskey="u" href="http://en.wikipedia.org/wiki/Special:Upload">Upload file</a></li>
+<li id="t-specialpages"><a title="List of all special pages [alt-q]" accesskey="q" href="http://en.wikipedia.org/wiki/Special:Specialpages">Special pages</a></li>
+				<li id="t-print"><a href="http://en.wikipedia.org/w/index.php?title=Barcode&amp;printable=yes">Printable version</a></li>				<li id="t-permalink"><a href="http://en.wikipedia.org/w/index.php?title=Barcode&amp;oldid=46771970">Permanent link</a></li><li id="t-cite"><a href="http://en.wikipedia.org/w/index.php?title=Special:Cite&amp;page=Barcode&amp;id=46771970">Cite this article</a></li>			</ul>
+		</div>
+	</div>
+	<div id="p-lang" class="portlet">
+		<h5>In other languages</h5>
+		<div class="pBody">
+			<ul>
+				<li class="interwiki-da"><a href="http://da.wikipedia.org/wiki/Stregkode">Dansk</a></li>
+				<li class="interwiki-de"><a href="http://de.wikipedia.org/wiki/Strichcode">Deutsch</a></li>
+				<li class="interwiki-es"><a href="http://es.wikipedia.org/wiki/C%C3%B3digo_de_barras">Español</a></li>
+				<li class="interwiki-fr"><a href="http://fr.wikipedia.org/wiki/Lecteur_de_code-barres">Français</a></li>
+				<li class="interwiki-hr"><a href="http://hr.wikipedia.org/wiki/Crti%C4%8Dni_k%C3%B4d">Hrvatski</a></li>
+				<li class="interwiki-it"><a href="http://it.wikipedia.org/wiki/Codice_a_barre">Italiano</a></li>
+				<li class="interwiki-he"><a href="http://he.wikipedia.org/wiki/%D7%91%D7%A8%D7%A7%D7%95%D7%93">עברית</a></li>
+				<li class="interwiki-hu"><a href="http://hu.wikipedia.org/wiki/Vonalk%C3%B3d">Magyar</a></li>
+				<li class="interwiki-nl"><a href="http://nl.wikipedia.org/wiki/Streepjescode">Nederlands</a></li>
+				<li class="interwiki-ja"><a href="http://ja.wikipedia.org/wiki/%E3%83%90%E3%83%BC%E3%82%B3%E3%83%BC%E3%83%89">日本語</a></li>
+				<li class="interwiki-no"><a href="http://no.wikipedia.org/wiki/Strekkode">Norsk (bokmål)</a></li>
+				<li class="interwiki-pl"><a href="http://pl.wikipedia.org/wiki/Kod_kreskowy">Polski</a></li>
+				<li class="interwiki-pt"><a href="http://pt.wikipedia.org/wiki/C%C3%B3digo_de_barras">Português</a></li>
+				<li class="interwiki-ro"><a href="http://ro.wikipedia.org/wiki/Cod_de_bare">Română</a></li>
+				<li class="interwiki-ru"><a href="http://ru.wikipedia.org/wiki/%D0%A8%D1%82%D1%80%D0%B8%D1%85%D0%BA%D0%BE%D0%B4">Русский</a></li>
+				<li class="interwiki-sl"><a href="http://sl.wikipedia.org/wiki/%C4%8Crtna_koda">Slovenščina</a></li>
+				<li class="interwiki-fi"><a href="http://fi.wikipedia.org/wiki/Viivakoodi">Suomi</a></li>
+				<li class="interwiki-sv"><a href="http://sv.wikipedia.org/wiki/Streckkod">Svenska</a></li>
+				<li class="interwiki-th"><a href="http://th.wikipedia.org/wiki/%E0%B8%9A%E0%B8%B2%E0%B8%A3%E0%B9%8C%E0%B9%82%E0%B8%84%E0%B9%89%E0%B8%94">ไทย</a></li>
+				<li class="interwiki-vi"><a href="http://vi.wikipedia.org/wiki/M%C3%A3_v%E1%BA%A1ch">Tiếng Việt</a></li>
+				<li class="interwiki-zh"><a href="http://zh.wikipedia.org/wiki/%E6%A2%9D%E7%A2%BC">中文</a></li>
+			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="_files/poweredby_mediawiki_88x31" alt="MediaWiki"></a></div>
+				<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="_files/wikimedia-button" alt="Wikimedia Foundation" border="0"></a></div>
+			<ul id="f-list">
+				<li id="lastmod"> This page was last modified 16:46, 3 April 2006.</li>
+				<li id="copyright">All text is available under the terms of the <a class="internal" href="http://en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License">GNU Free Documentation License</a> (see <b><a class="internal" href="http://en.wikipedia.org/wiki/Wikipedia:Copyrights">Copyrights</a></b> for details). <br> Wikipedia® is a registered trademark of the Wikimedia Foundation, Inc.<br></li>
+				<li id="privacy"><a href="http://wikimediafoundation.org/wiki/Privacy_policy" title="wikimedia:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="http://en.wikipedia.org/wiki/Wikipedia:About" title="Wikipedia:About">About Wikipedia</a></li>
+				<li id="disclaimer"><a href="http://en.wikipedia.org/wiki/Wikipedia:General_disclaimer" title="Wikipedia:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+	<script type="text/javascript"> if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by srv58 in 0.05 secs. -->
+</body></html>

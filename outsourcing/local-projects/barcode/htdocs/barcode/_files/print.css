@@ -1,0 +1,11 @@
+/*****************************************/
+/*                                       */
+/* Print-specific styles                 */
+/*                                       */
+/*****************************************/
+
+@import "common.css";
+
+div#leftcontent { display: none; }
+div#noticecontent { display: none; }
+.noprint { display: none; }

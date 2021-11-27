@@ -1,0 +1,16 @@
+config.h
+	BINDADDR	=> 192.168.0.255
+	BINDPORT	=> 6000
+
+receiver will bind to wildcard [0.0.0.0] address by default.
+receiver will listen on $BINDPORT port by default.
+sender will send to $BINDPORT port by default.
+
+sender <where-to-send> [port]
+	where-to-send	=> ip address of the host where the receiver to send
+	port [optional]	=> in which port to send [by default $BINDPORT]
+
+receiver [<bind-to-address> [bind-to-port]]
+	bind-to-address	=> address to bind to
+	port [optional]	=> which port to listen [by default $BINDPORT]
+

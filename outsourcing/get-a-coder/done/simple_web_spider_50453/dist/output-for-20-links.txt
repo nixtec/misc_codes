@@ -1,0 +1,2541 @@
+Opening queue file <queue.txt> ... Done.
+	*** Maximum 20 links will be visited
+	*** Crawling <http://www.brad.ac.uk/internal/>
+
+Fetching URL from queue: <http://www.brad.ac.uk/internal/>
+Visiting http://www.brad.ac.uk/internal/
+	http://www.brad.ac.uk/internal/#content
+	http://www.brad.ac.uk/internal/#schools
+	http://www.brad.ac.uk/internal/#quick
+	http://www.brad.ac.uk/internal/#bottom
+	http://www.brad.ac.uk/
+	http://www.bradford.ac.uk/hub/images/uoblogoempty.gif
+		External link, skipping <http://www.bradford.ac.uk/hub/images/uoblogoempty.gif>
+	http://search.brad.ac.uk/search
+		External link, skipping <http://search.brad.ac.uk/search>
+	http://www.brad.ac.uk/about/
+	http://search.brad.ac.uk/search?ie=&amp;site=Bradford&amp;output=xml_no_dtd&amp;client=Bradford&amp;access=p&amp;lr=&amp;proxystylesheet=Bradford&amp;oe=&amp;proxycustom=&lt;ADVANCED/>
+		External link, skipping <http://search.brad.ac.uk/search?ie=&amp;site=Bradford&amp;output=xml_no_dtd&amp;client=Bradford&amp;access=p&amp;lr=&amp;proxystylesheet=Bradford&amp;oe=&amp;proxycustom=&lt;ADVANCED/>>
+	http://www.brad.ac.uk/external/
+	http://www.brad.ac.uk/internal/index.php?section=research
+	http://www.brad.ac.uk/internal/index.php?section=learning
+	http://www.brad.ac.uk/internal/index.php?section=staff
+	http://www.brad.ac.uk/internal/index.php?section=student
+	http://www.brad.ac.uk/internal/index.php?section=campus
+	http://www.brad.ac.uk/internal/index.php?section=resources
+	http://www.brad.ac.uk/internal/index.php?section=contacts
+	http://www.brad.ac.uk/internal/index.php?section=accessibility
+	http://www.brad.ac.uk/archenvi/
+	http://www.brad.ac.uk/admin/
+	http://www.eng.brad.ac.uk/
+		External link, skipping <http://www.eng.brad.ac.uk/>
+	http://www.brad.ac.uk/acad/health/
+	http://www.inf.brad.ac.uk/
+		External link, skipping <http://www.inf.brad.ac.uk/>
+	http://www.brad.ac.uk/lss/
+	http://www.brad.ac.uk/acad/lifesci/index.php
+	http://www.brad.ac.uk/admin/conted/
+	http://www.brad.ac.uk/management
+		Skipping http://www.brad.ac.uk/management
+	http://www.brad.ac.uk/acad/ssis/
+	http://www.brad.ac.uk/internal/index.php?section=accessibility
+	http://www.brad.ac.uk/cgi-bin/largetext/www.brad.ac.uk/internal/index.php?section=
+	http://www.brad.ac.uk/internal/styles/switcher.php
+	http://validator.w3.org/check/referer
+		External link, skipping <http://validator.w3.org/check/referer>
+	http://www.w3.org/Icons/valid-xhtml10
+		External link, skipping <http://www.w3.org/Icons/valid-xhtml10>
+	http://jigsaw.w3.org/css-validator/check/referer
+		External link, skipping <http://jigsaw.w3.org/css-validator/check/referer>
+	http://www.brad.ac.uk/img/valid-css.gif
+		Skipping http://www.brad.ac.uk/img/valid-css.gif
+	http://www.w3.org/WAI/WCAG1A-Conformance
+		External link, skipping <http://www.w3.org/WAI/WCAG1A-Conformance>
+	http://www.brad.ac.uk/img/wcag1A.gif
+		Skipping http://www.brad.ac.uk/img/wcag1A.gif
+	http://www.brad.ac.uk/corporateplan/
+	http://www.brad.ac.uk/admin/planning/balancedscorecard/
+	http://www.brad.ac.uk/admin/planning/PBPTRACKER/TrackerTitlePage.htm
+	http://www.brad.ac.uk/admin/pr/pressreleases/Press_rel_liat.htm
+	http://www.brad.ac.uk/briefing/
+	http://www.brad.ac.uk/newsandviews/
+	http://www.brad.ac.uk/news/campusnews/
+	http://www.brad.ac.uk/library/elecinfo/refnews.php
+	http://news.bbc.co.uk/
+		External link, skipping <http://news.bbc.co.uk/>
+	http://www.bbc.co.uk/bradford/news/index.shtml
+		External link, skipping <http://www.bbc.co.uk/bradford/news/index.shtml>
+	http://www.thisisbradford.co.uk/
+		External link, skipping <http://www.thisisbradford.co.uk/>
+	http://www.brad.ac.uk/admin/disab/des/
+	http://www.bradford.ac.uk/news/ges.htm
+		External link, skipping <http://www.bradford.ac.uk/news/ges.htm>
+	https://selfreg.brad.ac.uk/cc/SelfregNotice.htm
+		External link, skipping <https://selfreg.brad.ac.uk/cc/SelfregNotice.htm>
+	http://www.brad.ac.uk/lss/help/newpassword.php
+	https://secure.brad.ac.uk/cc/ChangePassword.htm
+		External link, skipping <https://secure.brad.ac.uk/cc/ChangePassword.htm>
+	https://webmail.brad.ac.uk/
+		External link, skipping <https://webmail.brad.ac.uk/>
+	http://www.brad.ac.uk/lss/it-services/internet/forwarding.php
+	http://www.brad.ac.uk/lss/it-services/support/roamnet.php
+	http://www.brad.ac.uk/lss/it-services/filestores/
+	http://blackboard.brad.ac.uk/
+		External link, skipping <http://blackboard.brad.ac.uk/>
+	http://www.brad.ac.uk/library/elecinfo/readinglists/
+	http://ipac.brad.ac.uk/
+		External link, skipping <http://ipac.brad.ac.uk/>
+	http://www.brad.ac.uk/library/elecinfo/metalib.php
+	http://www.diary.brad.ac.uk/
+		External link, skipping <http://www.diary.brad.ac.uk/>
+	http://www.brad.ac.uk/admin/SAINT/
+	https://evision.brad.ac.uk/
+		External link, skipping <https://evision.brad.ac.uk/>
+	http://evision.brad.ac.uk/modsearch.htm
+		External link, skipping <http://evision.brad.ac.uk/modsearch.htm>
+	http://www.brad.ac.uk/openday/
+	http://www.brad.ac.uk/admin/student-registry/DegreeCeremonies/index.htm
+	http://www.brad.ac.uk/admin/theatre
+		Skipping http://www.brad.ac.uk/admin/theatre
+	http://www.brad.ac.uk/university/music/
+	http://www.brad.ac.uk/admin/arts/GalleryII.htm
+	http://www.brad.ac.uk/admin/physrec/
+	http://www.ubuonline.co.uk/
+		External link, skipping <http://www.ubuonline.co.uk/>
+	http://www.ramair.co.uk/
+		External link, skipping <http://www.ramair.co.uk/>
+	http://www.kineticmag.com/
+		External link, skipping <http://www.kineticmag.com/>
+	http://www.bradford.gov.uk/tourism/whatsonform.asp
+		External link, skipping <http://www.bradford.gov.uk/tourism/whatsonform.asp>
+	http://www.bbc.co.uk/bradford/going_out/whatson.shtml
+		External link, skipping <http://www.bbc.co.uk/bradford/going_out/whatson.shtml>
+	http://www.brad.ac.uk/staffsurvey/
+	http://www.brad.ac.uk/img/sss07-icon.gif
+		Skipping http://www.brad.ac.uk/img/sss07-icon.gif
+	http://www.brad.ac.uk/admin/pr/pressreleases/2007/football.php
+	http://www.brad.ac.uk/admin/acsec/examreg/timetable/index.php
+	http://www.brad.ac.uk/briefing/we-4-may07.php#smoke
+	http://www.brad.ac.uk/hub/studentnews/bradford-bid.php
+	http://www.brad.ac.uk/hub/studentnews/photo.php
+	http://www.brad.ac.uk/news/lazyeye.html
+	http://www.brad.ac.uk/staffsurvey/
+	http://www.brad.ac.uk/lss/learnerdevelopment/fyesurvey/survey.php
+	http://www.brad.ac.uk/internal/#top
+	http://www.brad.ac.uk/img/iip.jpg
+		Skipping http://www.brad.ac.uk/img/iip.jpg
+	mailto:info-admin@bradford.ac.uk
+		External link, skipping <mailto:info-admin@bradford.ac.uk>
+	http://www.brad.ac.uk/internal/index.php?section=accessibility
+	http://www.brad.ac.uk/university/ugpros2001/calloff.htm
+	http://www.brad.ac.uk/foi/
+	http://www.yorkshireuniversities.ac.uk/
+		External link, skipping <http://www.yorkshireuniversities.ac.uk/>
+	mailto:abuse@bradford.ac.uk
+		External link, skipping <mailto:abuse@bradford.ac.uk>
+# of links in <http://www.brad.ac.uk/internal/> : 94
+Fetching URL from queue: <http://www.brad.ac.uk/internal/>
+Link already visited, skipping <http://www.brad.ac.uk/internal/>
+Fetching URL from queue: <http://www.brad.ac.uk/internal/>
+Link already visited, skipping <http://www.brad.ac.uk/internal/>
+Fetching URL from queue: <http://www.brad.ac.uk/internal/>
+Link already visited, skipping <http://www.brad.ac.uk/internal/>
+Fetching URL from queue: <http://www.brad.ac.uk/internal/>
+Link already visited, skipping <http://www.brad.ac.uk/internal/>
+Fetching URL from queue: <http://www.brad.ac.uk/>
+Visiting http://www.brad.ac.uk/
+# of links in <http://www.brad.ac.uk/> : 0
+Fetching URL from queue: <http://www.brad.ac.uk/about/>
+Visiting http://www.brad.ac.uk/about/
+	http://www.brad.ac.uk/
+	http://www.brad.ac.uk/img/uoblogo-col-mkw.jpg
+		Skipping http://www.brad.ac.uk/img/uoblogo-col-mkw.jpg
+	http://search.brad.ac.uk/search
+		External link, skipping <http://search.brad.ac.uk/search>
+	http://search.brad.ac.uk/search?ie=&amp;site=Bradford&amp;output=xml_no_dtd&amp;client=Bradford&amp;access=p&amp;lr=&amp;proxystylesheet=Bradford&amp;oe=&amp;proxycustom=<ADVANCED/>
+		External link, skipping <http://search.brad.ac.uk/search?ie=&amp;site=Bradford&amp;output=xml_no_dtd&amp;client=Bradford&amp;access=p&amp;lr=&amp;proxystylesheet=Bradford&amp;oe=&amp;proxycustom=<ADVANCED/>>
+	http://www.brad.ac.uk/external/
+	mailto:content-manager@bradford.ac.uk
+		External link, skipping <mailto:content-manager@bradford.ac.uk>
+	http://www.brad.ac.uk/about/#A
+	http://www.brad.ac.uk/about/#B
+	http://www.brad.ac.uk/about/#C
+	http://www.brad.ac.uk/about/#D
+	http://www.brad.ac.uk/about/#E
+	http://www.brad.ac.uk/about/#F
+	http://www.brad.ac.uk/about/#G
+	http://www.brad.ac.uk/about/#H
+	http://www.brad.ac.uk/about/#I
+	http://www.brad.ac.uk/about/#J
+	http://www.brad.ac.uk/about/#K
+	http://www.brad.ac.uk/about/#L
+	http://www.brad.ac.uk/about/#M
+	http://www.brad.ac.uk/about/#N
+	http://www.brad.ac.uk/about/#O
+	http://www.brad.ac.uk/about/#P
+	http://www.brad.ac.uk/about/#Q
+	http://www.brad.ac.uk/about/#R
+	http://www.brad.ac.uk/about/#S
+	http://www.brad.ac.uk/about/#T
+	http://www.brad.ac.uk/about/#U
+	http://www.brad.ac.uk/about/#V
+	http://www.brad.ac.uk/about/#W
+	http://www.brad.ac.uk/about/#X
+	http://www.brad.ac.uk/about/#X
+	http://www.brad.ac.uk/about/#X
+	http://www.brad.ac.uk/admin/acsec/
+	http://www.brad.ac.uk/admin/disab/
+	http://www.brad.ac.uk/admin/recruitment/accom/
+	http://www.brad.ac.uk/admin/recruitment/accom/
+	http://www.brad.ac.uk/university/ugpros2004/business.php
+	http://www.brad.ac.uk/admin/admissions/
+	http://www.brad.ac.uk/university/cfa/
+	http://www.brad.ac.uk/admin/student-services/aos.html
+	http://www.brad.ac.uk/admin/alumni
+		Skipping http://www.brad.ac.uk/admin/alumni
+	http://www.brad.ac.uk/university/ugpros2004/eimc.php
+	http://www.brad.ac.uk/admin/recruitment/annrept/
+	http://www.brad.ac.uk/university/ugpros2004/ssh.php
+	http://www.brad.ac.uk/acad/socsci/
+	http://www.brad.ac.uk/university/ugpros2004/archaeology.php
+	http://www.brad.ac.uk/acad/archsci/
+	http://www.brad.ac.uk/admin/arts
+		Skipping http://www.brad.ac.uk/admin/arts
+	http://www.brad.ac.uk/other/unions/aut/UCU@bradford.html
+	http://www.brad.ac.uk/university/ugpros2004/design.php
+	http://www.brad.ac.uk/about/#top
+	http://www.brad.ac.uk/about/top.gif
+		Skipping http://www.brad.ac.uk/about/top.gif
+	http://www.brad.ac.uk/acad/bcid/
+	http://www.brad.ac.uk/university/ugpros2004/archaeology.php
+	http://www.brad.ac.uk/university/ugpros2004/biomedical.php
+	http://www.brad.ac.uk/university/ugpros2003/biomedical.htm
+	http://www.brad.ac.uk/acad/biomed/homepage.html
+	http://www.brad.ac.uk/acad/bcid/
+	http://www.brad.ac.uk/external/geninfo/surround.php
+	http://www.brad.ac.uk/acad/health/bdg/dementia.htm
+	http://www.bradfordstudentcinema.co.uk/
+		External link, skipping <http://www.bradfordstudentcinema.co.uk/>
+	http://www.bradford.ac.uk/
+		External link, skipping <http://www.bradford.ac.uk/>
+	http://www.brad.ac.uk/university/ugpros2004/computing.php
+	http://www.brad.ac.uk/university/ugpros2004/business.php
+	http://www.brad.ac.uk/admin/bsrdweb/
+	http://www.brad.ac.uk/about/#top
+	http://www.brad.ac.uk/about/top.gif
+		Skipping http://www.brad.ac.uk/about/top.gif
+	http://www.brad.ac.uk/acad/cancer/CRU1.htm
+	http://www.brad.ac.uk/university/gen/campus.html
+	http://www.bradford.ac.uk/admin/careers
+		External link, skipping <http://www.bradford.ac.uk/admin/careers>
+	http://www.brad.ac.uk/acad/chemistry/
+	http://www.brad.ac.uk/university/ugpros2004/chemical.php
+	http://www.brad.ac.uk/external/geninfo/surround.php
+	http://www.bbc.co.uk/bradford/
+		External link, skipping <http://www.bbc.co.uk/bradford/>
+	http://www.brad.ac.uk/university/ugpros2004/civil.php
+	http://www.brad.ac.uk/clearing
+		Skipping http://www.brad.ac.uk/clearing
+	http://www.brad.ac.uk/university/ugpros2004/clinical.php
+	http://www.brad.ac.uk/university/ugpros2004/eimc.php
+	http://www.brad.ac.uk/compact
+		Skipping http://www.brad.ac.uk/compact
+	http://www.brad.ac.uk/university/ugpros2004/eimc.php
+	http://www.brad.ac.uk/lss/it-services/index.php
+	http://www.brad.ac.uk/lss/it-services/index.php
+	http://www.brad.ac.uk/about/#lss
+	http://www.brad.ac.uk/lss/help/index.php
+	http://www.brad.ac.uk/lss/regulations/index.php
+	http://www.brad.ac.uk/lss/learning/index.php
+	http://www.brad.ac.uk/university/ugpros2004/computing.php
+	http://www.brad.ac.uk/university/ugpros2004/computing.php
+	http://www.scm.brad.ac.uk/
+		External link, skipping <http://www.scm.brad.ac.uk/>
+	http://www.brad.ac.uk/university/ugpros2004/peace.php
+	http://www.brad.ac.uk/internal/contacts.php
+	http://www.brad.ac.uk/admin/conted/
+	http://www.brad.ac.uk/admin/planning/Corporateindex.htm
+	http://www.brad.ac.uk/admin/pr
+		Skipping http://www.brad.ac.uk/admin/pr
+	mailto:course-enquiries@bradford.ac.uk
+		External link, skipping <mailto:course-enquiries@bradford.ac.uk>
+	http://www.brad.ac.uk/courses
+		Skipping http://www.brad.ac.uk/courses
+	http://www.brad.ac.uk/university/cfa/
+	http://www.brad.ac.uk/university/pgpros/
+	http://www.brad.ac.uk/admin/conted/scu/
+	http://www.brad.ac.uk/university/ugpros/
+	http://www.brad.ac.uk/university/ugpros2004/ssh.php
+	http://www.brad.ac.uk/university/ugpros2004/cyber.php
+	http://www.cyber.brad.ac.uk/
+		External link, skipping <http://www.cyber.brad.ac.uk/>
+	http://www.brad.ac.uk/about/#top
+	http://www.brad.ac.uk/about/top.gif
+		Skipping http://www.brad.ac.uk/about/top.gif
+	http://www.brad.ac.uk/university/cfa/
+	http://www.brad.ac.uk/university/ugpros2004/dementia.php
+	http://www.brad.ac.uk/university/ugpros2004/design.php
+	http://www.brad.ac.uk/university/ugpros2004/peace.php
+	http://www.brad.ac.uk/acad/dppc/homepage.html
+	http://www.brad.ac.uk/search/directories.html
+	http://www.brad.ac.uk/cgi/teldir.cgi
+		Skipping http://www.brad.ac.uk/cgi/teldir.cgi
+	http://www.brad.ac.uk/admin/disab/
+	http://www.brad.ac.uk/disabilitystatement
+		Skipping http://www.brad.ac.uk/disabilitystatement
+	http://www.brad.ac.uk/dyslexia
+		Skipping http://www.brad.ac.uk/dyslexia
+	http://www.brad.ac.uk/lss/training/ecdl/index.php
+	http://www.brad.ac.uk/university/ugpros2004/ecommerce.php
+	http://www.brad.ac.uk/university/ugpros2004/geography.php
+	http://www.brad.ac.uk/university/ugpros2004/economics.php
+	http://www.brad.ac.uk/acad/dppc/economics.html
+	http://www.brad.ac.uk/ecoversity
+		Skipping http://www.brad.ac.uk/ecoversity
+	http://www.brad.ac.uk/university/ugpros2004/electel.php
+	http://www.brad.ac.uk/university/ugpros2004/electel.php
+	http://www.brad.ac.uk/university/ugpros2004/eimc.php
+	http://www.eimc.brad.ac.uk/home.html
+		External link, skipping <http://www.eimc.brad.ac.uk/home.html>
+	http://www.brad.ac.uk/internal/contact.php
+	http://www.eng.brad.ac.uk/
+		External link, skipping <http://www.eng.brad.ac.uk/>
+	mailto:course-enquiries@bradford.ac.uk
+		External link, skipping <mailto:course-enquiries@bradford.ac.uk>
+	http://www.brad.ac.uk/university/ugpros2004/geography.php
+	http://www.brad.ac.uk/university/ugpros2004/geography.php
+	http://www.brad.ac.uk/acad/envsci/envisci.htm
+	http://www.brad.ac.uk/admin/estates/environ/index.html
+	http://www.brad.ac.uk/admin/estates/
+	http://www.brad.ac.uk/admin/rsil/elo.html
+	http://www.brad.ac.uk/admin/rsil/nonfnews.html
+	http://www.brad.ac.uk/university/ugpros2004/languages.php
+	http://www.brad.ac.uk/acad/mod-lang/
+	http://www.brad.ac.uk/excellenceplus
+		Skipping http://www.brad.ac.uk/excellenceplus
+	http://www.brad.ac.uk/acad/management/execeduc/index.html
+	http://www.brad.ac.uk/acad/optom/clinics/index.htm
+	http://www.brad.ac.uk/external/geninfo/facts.php
+	http://www.brad.ac.uk/university/ugpros2004/business.php
+	http://www.brad.ac.uk/admin/finance.html
+	http://www.brad.ac.uk/university/ugpros2004/chemical.php
+	http://www.brad.ac.uk/university/ugpros2004/socialcare.php
+	http://www.brad.ac.uk/university/ugpros2004/eng-foundation.php
+	http://www.brad.ac.uk/university/ugpros2004/science.php
+	http://www.brad.ac.uk/university/ugpros2004/languages.php
+	http://www.brad.ac.uk/university/ugpros2004/archaeology.php
+	http://www.brad.ac.uk/university/ugpros2004/geography.php
+	http://www.brad.ac.uk/university/ugpros2004/ssh.php
+	http://www.brad.ac.uk/external/prospectus/pg/gradschool.php
+	http://www.brad.ac.uk/admin/student-registry/awards/
+	http://www.brad.ac.uk/admin/alumni/grad_ass.htm
+	http://www.brad.ac.uk/about/#top
+	http://www.brad.ac.uk/about/top.gif
+		Skipping http://www.brad.ac.uk/about/top.gif
+	http://www.brad.ac.uk/admin/safety/manual
+		Skipping http://www.brad.ac.uk/admin/safety/manual
+	http://www.brad.ac.uk/university/ugpros2004/socialcare.php
+	http://www.brad.ac.uk/university/ugpros2004/healthcare.php
+	http://www.brad.ac.uk/admin/health
+		Skipping http://www.brad.ac.uk/admin/health
+	http://www.brad.ac.uk/acad/health/
+	http://www.brad.ac.uk/university/ugpros2004/languages.php
+	http://www.brad.ac.uk/admin/alumni/history.htm
+	http://www.brad.ac.uk/
+	http://www.brad.ac.uk/university/contact.html
+	http://www.brad.ac.uk/university/ugpros2004/ssh.php
+	http://www.brad.ac.uk/about/#top
+	http://www.brad.ac.uk/about/top.gif
+		Skipping http://www.brad.ac.uk/about/top.gif
+	http://www.brad.ac.uk/admin/pr/Image-bank.htm
+	http://www.brad.ac.uk/admin/impact
+		Skipping http://www.brad.ac.uk/admin/impact
+	http://www.inf.brad.ac.uk/home/home.html
+		External link, skipping <http://www.inf.brad.ac.uk/home/home.html>
+	http://www.brad.ac.uk/lss/regulations/policy/ias_code.php
+	http://www.brad.ac.uk/admin/student-services/intl.html
+	http://www.brad.ac.uk/university/ugpros2004/eimc.php
+	http://www.brad.ac.uk/university/ugpros2004/ssh.php
+	http://www.brad.ac.uk/university/ugpros2004/economics.php
+	http://www.brad.ac.uk/university/ugpros2004/business.php
+	http://www.brad.ac.uk/international/
+	http://www.brad.ac.uk/university/ugpros2004/peace.php
+	http://www.brad.ac.uk/admin/recruitment/ivsp/
+	http://www.brad.ac.uk/lss/it-services/index.php
+	http://www.brad.ac.uk/university/ugpros2004/computing.php
+	http://www.brad.ac.uk/admin/staffdev/IiP/
+	http://www.brad.ac.uk/lss/it-services/index.php
+	http://www.brad.ac.uk/lss/library/index.php
+	http://bradforduni-recruitment.ac.uk/
+		External link, skipping <http://bradforduni-recruitment.ac.uk/>
+	http://www.brad.ac.uk/admin/jobshop
+		Skipping http://www.brad.ac.uk/admin/jobshop
+	http://www.brad.ac.uk/about/#top
+	http://www.brad.ac.uk/about/top.gif
+		Skipping http://www.brad.ac.uk/about/top.gif
+	http://www.brad.ac.uk/excellenceplus/
+	http://www.brad.ac.uk/university/ugpros2004/languages.php
+	http://www.brad.ac.uk/admin/pr/pressreleases/
+	http://www.brad.ac.uk/university/ugpros2004/law.php
+	http://www.brad.ac.uk/lss/
+	http://www.brad.ac.uk/lss/guide/it.php
+	http://www.brad.ac.uk/lss/it-services/
+	http://www.brad.ac.uk/lss/news/index.php
+	http://www.brad.ac.uk/lss/library/index.php
+	http://www.brad.ac.uk/lss/regulations/index.php
+	http://www.brad.ac.uk/lss/library/index.php
+	http://www.brad.ac.uk/library/news/catalogue.php
+	http://www.brad.ac.uk/library/news/cdrom.php
+	http://www.brad.ac.uk/library/elecinfo/metalib.php
+	http://www.brad.ac.uk/library/elecinfo/ejnl.php
+	http://www.brad.ac.uk/library/elecinfo/metalib.php
+	http://www.brad.ac.uk/acad/lifesci/homepage.html
+	http://www.brad.ac.uk/university/ugpros2004/ssh.php
+	http://www.brad.ac.uk/about/#top
+	http://www.brad.ac.uk/about/top.gif
+		Skipping http://www.brad.ac.uk/about/top.gif
+	http://www.brad.ac.uk/admin/estates/environ/bus.html
+	http://www.brad.ac.uk/university/ugpros2004/business.php
+	http://www.brad.ac.uk/acad/management/
+	http://www.brad.ac.uk/admin/mis/
+	http://www.brad.ac.uk/university/gen/campusmap.htm
+	http://www.brad.ac.uk/university/ugpros2004/business.php
+	http://www.brad.ac.uk/admin/marketing.html
+	http://www.brad.ac.uk/university/ugpros2004/mechanical.php
+	http://www.brad.ac.uk/acad/mecheng/
+	http://www.brad.ac.uk/university/ugpros2004/eimc.php
+	http://www.brad.ac.uk/university/ugpros2004/eimc.php
+	http://www.brad.ac.uk/university/ugpros2004/cyber.php
+	http://www.brad.ac.uk/university/ugpros2004/medical.php
+	http://www.diary.brad.ac.uk/
+		External link, skipping <http://www.diary.brad.ac.uk/>
+	http://www.brad.ac.uk/library/elecinfo/metalib.php
+	http://www.brad.ac.uk/university/ugpros2004/biomedical.php
+	http://www.brad.ac.uk/university/ugpros2004/languages.php
+	http://www.brad.ac.uk/acad/mod-lang/
+	http://www.brad.ac.uk/university/ugpros2004/midwifery.php
+	http://www.brad.ac.uk/acad/health/midwifery.htm
+	http://sipr.admin.brad.ac.uk/modsearch.htm
+		External link, skipping <http://sipr.admin.brad.ac.uk/modsearch.htm>
+	http://www.brad.ac.uk/university/ugpros2004/computing.php
+	http://www.brad.ac.uk/about/#top
+	http://www.brad.ac.uk/about/top.gif
+		Skipping http://www.brad.ac.uk/about/top.gif
+	http://neupg.procureweb.ac.uk/
+		External link, skipping <http://neupg.procureweb.ac.uk/>
+	http://www.brad.ac.uk/admin/pr/News_and_views.htm
+	http://www.brad.ac.uk/admin/student-services/nursery.htm
+	http://www.brad.ac.uk/university/ugpros2004/nursing.php
+	http://www.brad.ac.uk/acad/health/nursing.htm
+	http://www.brad.ac.uk/lss/training/nvq/index.php
+	http://www.brad.ac.uk/about/#top
+	http://www.brad.ac.uk/about/top.gif
+		Skipping http://www.brad.ac.uk/about/top.gif
+	http://www.brad.ac.uk/admin/recruitment/openday/
+	http://www.brad.ac.uk/university/ugpros2004/optometry.php
+	http://www.brad.ac.uk/acad/optom/Dept_of_Optometry_Home.html
+	http://www.brad.ac.uk/admin/recruitment/calendar/ords/
+	http://www.brad.ac.uk/external/geninfo/int.php
+	http://www.brad.ac.uk/university/ugpros2004/biomedical.php
+	http://www.brad.ac.uk/lss/guide/it.php#cluster
+	http://www.brad.ac.uk/university/ugpros2004/peace.php
+	http://www.brad.ac.uk/acad/peace/
+	http://www.brad.ac.uk/lss/it-services/internet/personalweb/index.php
+	http://www.staff.brad.ac.uk/
+		External link, skipping <http://www.staff.brad.ac.uk/>
+	http://www.student.brad.ac.uk/
+		External link, skipping <http://www.student.brad.ac.uk/>
+	http://www.brad.ac.uk/admin/personnel/
+	http://www.brad.ac.uk/university/ugpros2004/biomedical.php
+	http://www.brad.ac.uk/university/ugpros2004/pharmacy.php
+	http://www.brad.ac.uk/acad/lifesci/pharmacy/
+	http://www.brad.ac.uk/university/ugpros2004/ssh.php
+	http://www.brad.ac.uk/university/ugpros2004/geography.php
+	http://www.brad.ac.uk/admin/physrec/
+	http://www.brad.ac.uk/acad/health/physio/
+	http://www.brad.ac.uk/admin/planning/
+	http://www.brad.ac.uk/university/ugpros2004/ssh.php
+	http://www.brad.ac.uk/university/ugpros/peace.php
+	http://www.brad.ac.uk/university/pgpros/
+	http://www.brad.ac.uk/admin/pr/pressreleases/Press_rel_liat.htm
+	http://www.brad.ac.uk/university/pgpros/
+	http://www.brad.ac.uk/university/ugpros/
+	http://www.admin.brad.ac.uk/
+		External link, skipping <http://www.admin.brad.ac.uk/>
+	http://www.brad.ac.uk/university/ugpros2004/psychology.php
+	http://www.brad.ac.uk/university/ugpros2004/ssh.php
+	http://www.brad.ac.uk/university/cfa/
+	http://www.brad.ac.uk/admin/purchasing
+		Skipping http://www.brad.ac.uk/admin/purchasing
+	http://www.brad.ac.uk/about/#top
+	http://www.brad.ac.uk/about/top.gif
+		Skipping http://www.brad.ac.uk/about/top.gif
+	http://www.brad.ac.uk/admin/safety/
+	http://www.brad.ac.uk/university/ugpros2004/radiography.php
+	http://www.brad.ac.uk/acad/health/rad/index.php
+	http://www.ramair.co.uk/
+		External link, skipping <http://www.ramair.co.uk/>
+	http://www.brad.ac.uk/admin/recruitment/calendar/regs/
+	http://www.brad.ac.uk/admin/student-services/religion.shtml
+		Skipping http://www.brad.ac.uk/admin/student-services/religion.shtml
+	http://www.brad.ac.uk/gateway/
+	http://www.brad.ac.uk/lss/it-services/internet/web-intro/workshop/index.php
+	http://www.brad.ac.uk/about/#top
+	http://www.brad.ac.uk/about/top.gif
+		Skipping http://www.brad.ac.uk/about/top.gif
+	http://www.brad.ac.uk/admin/safety
+		Skipping http://www.brad.ac.uk/admin/safety
+	http://www.brad.ac.uk/international/scholarships.php
+	http://www.brad.ac.uk/university/ugpros2004/science.php
+	http://www.brad.ac.uk/search/
+	http://www.brad.ac.uk/admin/security/
+	http://www.brad.ac.uk/lss/regulations/policy/ias_code.php
+	http://www.brad.ac.uk/university/ugpros2004/peace.php
+	http://www.brad.ac.uk/admin/bsrdweb/
+	http://www.brad.ac.uk/admin/recruitment/sessions/
+	http://www.brad.ac.uk/admin/conted/cfa/
+	http://www.brad.ac.uk/admin/conted/scu/contents.html
+	http://www.brad.ac.uk/acad/ssis/
+	http://www.brad.ac.uk/university/ugpros2004/ssh.php
+	http://www.brad.ac.uk/university/ugpros2004/ssh.php
+	http://www.brad.ac.uk/university/ugpros2004/computing.php
+	http://www.brad.ac.uk/university/ugpros2004/languages.php
+	http://www.brad.ac.uk/university/ugpros2004/eimc.php
+	http://www.brad.ac.uk/admin/physrec/
+	http://www.brad.ac.uk/university/ugpros2004/design.php
+	http://www.brad.ac.uk/admin/pr/briefing/
+	http://www.brad.ac.uk/admin/staffdev/
+	http://www.brad.ac.uk/admin/staffdev/hbk/index.html
+	http://www.brad.ac.uk/admin/studev/
+	http://www.brad.ac.uk/admin/recruitment/student-life/
+	http://www.brad.ac.uk/external/tuitionfees/what.php
+	http://www.brad.ac.uk/admin/student-registry/
+	http://www.ubu.brad.ac.uk/
+		External link, skipping <http://www.ubu.brad.ac.uk/>
+	http://www.brad.ac.uk/about/#top
+	http://www.brad.ac.uk/about/top.gif
+		Skipping http://www.brad.ac.uk/about/top.gif
+	http://www.brad.ac.uk/university/music
+		Skipping http://www.brad.ac.uk/university/music
+	http://www.brad.ac.uk/acad/tqeg
+		Skipping http://www.brad.ac.uk/acad/tqeg
+	http://www.brad.ac.uk/university/ugpros2004/techman.php
+	http://www.brad.ac.uk/university/ugpros2004/medical.php
+	http://www.brad.ac.uk/university/ugpros2004/electel.php
+	http://www.brad.ac.uk/internal/index.php?section=contacts
+	http://www.brad.ac.uk/admin/theatre
+		Skipping http://www.brad.ac.uk/admin/theatre
+	http://www.brad.ac.uk/other/unions/aut/UCU@bradford.html
+	http://www.brad.ac.uk/other/unions/unison/
+	http://www.brad.ac.uk/external/visit/getting.php
+	http://www.brad.ac.uk/about/#top
+	http://www.brad.ac.uk/about/top.gif
+		Skipping http://www.brad.ac.uk/about/top.gif
+	http://www.ubu.brad.ac.uk/
+		External link, skipping <http://www.ubu.brad.ac.uk/>
+	http://www.brad.ac.uk/courses
+		Skipping http://www.brad.ac.uk/courses
+	http://www.unison.org.uk/
+		External link, skipping <http://www.unison.org.uk/>
+	http://www.brad.ac.uk/university/gen/campusmap.htm
+	http://www.brad.ac.uk/internal/index.php?section=contacts
+	http://www.brad.ac.uk/
+	http://www.brad.ac.uk/internal/index.php?section=contacts
+	http://www.brad.ac.uk/external/visit/visitors.php
+	http://www.brad.ac.uk/internal/index.php?section=contacts
+	http://www.brad.ac.uk/external/visit/getting.php
+	http://www.brad.ac.uk/about/#top
+	http://www.brad.ac.uk/about/top.gif
+		Skipping http://www.brad.ac.uk/about/top.gif
+	http://www.brad.ac.uk/university/ugpros2004/eimc.php
+	http://www.brad.ac.uk/university/ugpros2004/design.php
+	http://www.brad.ac.uk/university/ugpros2004/cyber.php
+	http://www.brad.ac.uk/external/visit/visitors.php
+	http://webmail.brad.ac.uk/horde/
+		External link, skipping <http://webmail.brad.ac.uk/horde/>
+	http://www.brad.ac.uk/university/ugpros2004/ssh.php
+	http://www.brad.ac.uk/lss/it-services/internet/resources/index.php
+	http://www.brad.ac.uk/about/#top
+	http://www.brad.ac.uk/about/top.gif
+		Skipping http://www.brad.ac.uk/about/top.gif
+	http://www.brad.ac.uk/external/geninfo/surround.php
+	http://www.brad.ac.uk/about/#top
+	mailto:content-manager@bradford.ac.uk
+		External link, skipping <mailto:content-manager@bradford.ac.uk>
+	http://validator.w3.org/check/referer
+		External link, skipping <http://validator.w3.org/check/referer>
+	http://www.brad.ac.uk/img/valid-html401.gif
+		Skipping http://www.brad.ac.uk/img/valid-html401.gif
+	http://www.brad.ac.uk/
+	http://www.brad.ac.uk/university/ugpros2001/calloff.htm
+	mailto:course-enquiries@bradford.ac.uk
+		External link, skipping <mailto:course-enquiries@bradford.ac.uk>
+# of links in <http://www.brad.ac.uk/about/> : 355
+Fetching URL from queue: <http://www.brad.ac.uk/external/>
+Visiting http://www.brad.ac.uk/external/
+	http://www.brad.ac.uk/img/uoblogo-col-mkw-med.jpeg
+		Skipping http://www.brad.ac.uk/img/uoblogo-col-mkw-med.jpeg
+	http://www.brad.ac.uk/cgi-bin/largetext/www.brad.ac.uk/external
+		Skipping http://www.brad.ac.uk/cgi-bin/largetext/www.brad.ac.uk/external
+	http://www.brad.ac.uk/internal
+		Skipping http://www.brad.ac.uk/internal
+	http://www.brad.ac.uk/about/index.html
+	http://www.brad.ac.uk/external/contactus.php
+	http://search.brad.ac.uk/search
+		External link, skipping <http://search.brad.ac.uk/search>
+	http://www.brad.ac.uk/admin/conted/openday.html
+	http://search.brad.ac.uk/search?ie=&amp;site=Bradford&amp;output=xml_no_dtd&amp;client=Bradford&amp;access=p&amp;lr=&amp;proxystylesheet=Bradford&amp;oe=&amp;proxycustom=%3CADVANCED/%3E
+		External link, skipping <http://search.brad.ac.uk/search?ie=&amp;site=Bradford&amp;output=xml_no_dtd&amp;client=Bradford&amp;access=p&amp;lr=&amp;proxystylesheet=Bradford&amp;oe=&amp;proxycustom=%3CADVANCED/%3E>
+	http://www.brad.ac.uk/external/library-home.jpg
+		Skipping http://www.brad.ac.uk/external/library-home.jpg
+	http://www.brad.ac.uk/external/clock-home.jpg
+		Skipping http://www.brad.ac.uk/external/clock-home.jpg
+	http://www.brad.ac.uk/external/halls-home.jpg
+		Skipping http://www.brad.ac.uk/external/halls-home.jpg
+	http://www.brad.ac.uk/external/study.php
+	http://www.brad.ac.uk/external/study.gif
+		Skipping http://www.brad.ac.uk/external/study.gif
+	http://www.brad.ac.uk/external/student/student.php
+	http://www.brad.ac.uk/external/studentlife.gif
+		Skipping http://www.brad.ac.uk/external/studentlife.gif
+	http://www.brad.ac.uk/external/geninfo/surround.php
+	http://www.brad.ac.uk/external/bradford.gif
+		Skipping http://www.brad.ac.uk/external/bradford.gif
+	http://www.brad.ac.uk/gateway
+		Skipping http://www.brad.ac.uk/gateway
+	http://www.brad.ac.uk/external/researchand.gif
+		Skipping http://www.brad.ac.uk/external/researchand.gif
+	http://www.brad.ac.uk/external/almed/alumni.php
+	http://www.brad.ac.uk/external/alumniand.gif
+		Skipping http://www.brad.ac.uk/external/alumniand.gif
+	http://www.brad.ac.uk/external/visit/visitors.php
+	http://www.brad.ac.uk/external/visitorsjobs.gif
+		Skipping http://www.brad.ac.uk/external/visitorsjobs.gif
+	http://www.brad.ac.uk/courses
+		Skipping http://www.brad.ac.uk/courses
+	http://www.brad.ac.uk/img/our-courses.gif
+		Skipping http://www.brad.ac.uk/img/our-courses.gif
+	http://www.brad.ac.uk/openday
+		Skipping http://www.brad.ac.uk/openday
+	http://www.brad.ac.uk/external/openday.gif
+		Skipping http://www.brad.ac.uk/external/openday.gif
+	http://www.brad.ac.uk/university/ugpros2001/calloff.htm
+	http://www.brad.ac.uk/external/order-a-prospectus.gif
+		Skipping http://www.brad.ac.uk/external/order-a-prospectus.gif
+	http://www.brad.ac.uk/tuitionfees
+		Skipping http://www.brad.ac.uk/tuitionfees
+	http://www.brad.ac.uk/img/tuition-fees-2006.gif
+		Skipping http://www.brad.ac.uk/img/tuition-fees-2006.gif
+	http://www.brad.ac.uk/admin/pr/pressreleases/2006/employmentfirst.php
+	http://www.brad.ac.uk/admin/pr/pressreleases/2007/football.php
+	http://www.brad.ac.uk/news/ges.htm
+	http://www.brad.ac.uk/admin/pr/pressreleases/2007/vc-portrait.php
+	http://www.brad.ac.uk/acad/ssh/course/undergraduate/children/
+	http://www.brad.ac.uk/admin/conted/civic-community/writing-together.html
+	http://www.brad.ac.uk/ecoversity
+		Skipping http://www.brad.ac.uk/ecoversity
+	http://www.brad.ac.uk/admin/pr/pressreleases/
+	http://www.brad.ac.uk/external/epay-accessibility.htm
+	http://www.brad.ac.uk/external/online-payment.gif
+		Skipping http://www.brad.ac.uk/external/online-payment.gif
+	http://www.brad.ac.uk/internal
+		Skipping http://www.brad.ac.uk/internal
+	http://www.brad.ac.uk/img/iip.jpg
+		Skipping http://www.brad.ac.uk/img/iip.jpg
+	http://www.brad.ac.uk/university/ugpros2001/calloff.htm
+	http://www.brad.ac.uk/foi
+		Skipping http://www.brad.ac.uk/foi
+	http://www.yorkshireuniversities.ac.uk/
+		External link, skipping <http://www.yorkshireuniversities.ac.uk/>
+	mailto:abuse@bradford.ac.uk
+		External link, skipping <mailto:abuse@bradford.ac.uk>
+	http://www.brad.ac.uk/external/visit/web.php
+	mailto:content-manager@bradford.ac.uk
+		External link, skipping <mailto:content-manager@bradford.ac.uk>
+	http://validator.w3.org/check?uri=referer
+		External link, skipping <http://validator.w3.org/check?uri=referer>
+	http://jigsaw.w3.org/css-validator/check/referer
+		External link, skipping <http://jigsaw.w3.org/css-validator/check/referer>
+# of links in <http://www.brad.ac.uk/external/> : 51
+Fetching URL from queue: <http://www.brad.ac.uk/internal/index.php?section=research>
+Visiting http://www.brad.ac.uk/internal/index.php?section=research
+	http://www.brad.ac.uk/internal/index.php?section=research#content
+	http://www.brad.ac.uk/internal/index.php?section=research#schools
+	http://www.brad.ac.uk/internal/index.php?section=research#quick
+	http://www.brad.ac.uk/internal/index.php?section=research#bottom
+	http://www.brad.ac.uk/
+	http://www.bradford.ac.uk/hub/images/uoblogoempty.gif
+		External link, skipping <http://www.bradford.ac.uk/hub/images/uoblogoempty.gif>
+	http://search.brad.ac.uk/search
+		External link, skipping <http://search.brad.ac.uk/search>
+	http://www.brad.ac.uk/about/
+	http://search.brad.ac.uk/search?ie=&amp;site=Bradford&amp;output=xml_no_dtd&amp;client=Bradford&amp;access=p&amp;lr=&amp;proxystylesheet=Bradford&amp;oe=&amp;proxycustom=&lt;ADVANCED/>
+		External link, skipping <http://search.brad.ac.uk/search?ie=&amp;site=Bradford&amp;output=xml_no_dtd&amp;client=Bradford&amp;access=p&amp;lr=&amp;proxystylesheet=Bradford&amp;oe=&amp;proxycustom=&lt;ADVANCED/>>
+	http://www.brad.ac.uk/external/
+	http://www.brad.ac.uk/internal/index.php
+	http://www.brad.ac.uk/internal/index.php?section=learning
+	http://www.brad.ac.uk/internal/index.php?section=staff
+	http://www.brad.ac.uk/internal/index.php?section=student
+	http://www.brad.ac.uk/internal/index.php?section=campus
+	http://www.brad.ac.uk/internal/index.php?section=resources
+	http://www.brad.ac.uk/internal/index.php?section=contacts
+	http://www.brad.ac.uk/internal/index.php?section=accessibility
+	http://www.brad.ac.uk/archenvi/
+	http://www.eng.brad.ac.uk/
+		External link, skipping <http://www.eng.brad.ac.uk/>
+	http://www.brad.ac.uk/acad/health/
+	http://www.inf.brad.ac.uk/
+		External link, skipping <http://www.inf.brad.ac.uk/>
+	http://www.brad.ac.uk/acad/lifesci/index.php
+	http://www.brad.ac.uk/admin/conted/
+	http://www.brad.ac.uk/management
+		Skipping http://www.brad.ac.uk/management
+	http://www.brad.ac.uk/acad/ssis/
+	http://www.brad.ac.uk/admin/
+	http://www.brad.ac.uk/thehub/
+	http://www.brad.ac.uk/lss/
+	http://www.brad.ac.uk/admin/estates/
+	http://www.brad.ac.uk/admin/#finance
+	http://www.brad.ac.uk/admin/#hr
+	http://www.brad.ac.uk/rkts/
+	http://www.brad.ac.uk/internal/index.php?section=accessibility
+	http://www.brad.ac.uk/cgi-bin/largetext/www.brad.ac.uk/internal/index.php?section=research
+	http://www.brad.ac.uk/internal/styles/switcher.php
+	http://validator.w3.org/check/referer
+		External link, skipping <http://validator.w3.org/check/referer>
+	http://www.w3.org/Icons/valid-xhtml10
+		External link, skipping <http://www.w3.org/Icons/valid-xhtml10>
+	http://jigsaw.w3.org/css-validator/check/referer
+		External link, skipping <http://jigsaw.w3.org/css-validator/check/referer>
+	http://www.brad.ac.uk/img/valid-css.gif
+		Skipping http://www.brad.ac.uk/img/valid-css.gif
+	http://www.w3.org/WAI/WCAG1A-Conformance
+		External link, skipping <http://www.w3.org/WAI/WCAG1A-Conformance>
+	http://www.brad.ac.uk/img/wcag1A.gif
+		Skipping http://www.brad.ac.uk/img/wcag1A.gif
+	http://www.brad.ac.uk/rkts/researchsupp.php?content=jesandguidelines
+	http://www.brad.ac.uk/rkts/researchsupp.php?content=rae_2008
+	http://www.brad.ac.uk/rkts/researchsupp.php?content=researchbulletins
+	http://www.brad.ac.uk/rkts/researchsupp.php?content=fundingopps
+	http://www.researchresearch.com/
+		External link, skipping <http://www.researchresearch.com/>
+	http://www.brad.ac.uk/dev-prog/index.php?section=research
+	http://www.brad.ac.uk/rkts/researchsupp.php
+	http://www.brad.ac.uk/rkts/researchsupp.php?content=seminars
+	http://www.brad.ac.uk/rkts/researchsupp.php?content=calendar2006
+	http://www.brad.ac.uk/rkts/researchsupp.php?content=policies3
+	http://www.brad.ac.uk/rkts/researchsupp.php?content=policies2
+	http://www.brad.ac.uk/rkts/researchsupp.php?content=euresearchsupport
+	http://www.brad.ac.uk/rkts/researchsupp.php?content=siriusguidelines
+	http://www.brad.ac.uk/rkts/researchsupp.php?content=policies1
+	http://www.brad.ac.uk/admin/planning/committees/RISC/homepage.html
+	http://www.brad.ac.uk/admin/bsrdweb/
+	http://www.brad.ac.uk/thinkbusiness/index.php
+	http://www.brad.ac.uk/external/prospectus/pg/gradschool.php
+	http://www.brad.ac.uk/admin/planning/HEFCEindex.htm
+	http://www.brad.ac.uk/admin/student-registry/Guidance/index.htm
+	http://www.brad.ac.uk/lss/library/
+	http://www.brad.ac.uk/admin/personnel/jobvacancies/
+	http://www.brad.ac.uk/admin/personnel/Contractresearch/
+	http://www.brad.ac.uk/equality/
+	http://www.brad.ac.uk/admin/safety/
+	http://www.vcb.co.uk/
+		External link, skipping <http://www.vcb.co.uk/>
+	http://www.hero.ac.uk/uk/research/index.cfm
+		External link, skipping <http://www.hero.ac.uk/uk/research/index.cfm>
+	http://www.brad.ac.uk/openday/
+	http://www.brad.ac.uk/img/openday.gif
+		Skipping http://www.brad.ac.uk/img/openday.gif
+	http://www.brad.ac.uk/news/lazyeye.html
+	http://www.brad.ac.uk/rkts/researchsupp.php?content=researchbulletins
+	http://www.brad.ac.uk/internal/index.php?section=research#top
+	http://www.brad.ac.uk/img/iip.jpg
+		Skipping http://www.brad.ac.uk/img/iip.jpg
+	mailto:info-admin@bradford.ac.uk
+		External link, skipping <mailto:info-admin@bradford.ac.uk>
+	http://www.brad.ac.uk/internal/index.php?section=accessibility
+	http://www.brad.ac.uk/university/ugpros2001/calloff.htm
+	http://www.brad.ac.uk/foi/
+	http://www.yorkshireuniversities.ac.uk/
+		External link, skipping <http://www.yorkshireuniversities.ac.uk/>
+	mailto:abuse@bradford.ac.uk
+		External link, skipping <mailto:abuse@bradford.ac.uk>
+# of links in <http://www.brad.ac.uk/internal/index.php?section=research> : 81
+Fetching URL from queue: <http://www.brad.ac.uk/internal/index.php?section=learning>
+Visiting http://www.brad.ac.uk/internal/index.php?section=learning
+	http://www.brad.ac.uk/internal/index.php?section=learning#content
+	http://www.brad.ac.uk/internal/index.php?section=learning#schools
+	http://www.brad.ac.uk/internal/index.php?section=learning#quick
+	http://www.brad.ac.uk/internal/index.php?section=learning#bottom
+	http://www.brad.ac.uk/
+	http://www.bradford.ac.uk/hub/images/uoblogoempty.gif
+		External link, skipping <http://www.bradford.ac.uk/hub/images/uoblogoempty.gif>
+	http://search.brad.ac.uk/search
+		External link, skipping <http://search.brad.ac.uk/search>
+	http://www.brad.ac.uk/about/
+	http://search.brad.ac.uk/search?ie=&amp;site=Bradford&amp;output=xml_no_dtd&amp;client=Bradford&amp;access=p&amp;lr=&amp;proxystylesheet=Bradford&amp;oe=&amp;proxycustom=&lt;ADVANCED/>
+		External link, skipping <http://search.brad.ac.uk/search?ie=&amp;site=Bradford&amp;output=xml_no_dtd&amp;client=Bradford&amp;access=p&amp;lr=&amp;proxystylesheet=Bradford&amp;oe=&amp;proxycustom=&lt;ADVANCED/>>
+	http://www.brad.ac.uk/external/
+	http://www.brad.ac.uk/internal/index.php
+	http://www.brad.ac.uk/internal/index.php?section=research
+	http://www.brad.ac.uk/internal/index.php?section=staff
+	http://www.brad.ac.uk/internal/index.php?section=student
+	http://www.brad.ac.uk/internal/index.php?section=campus
+	http://www.brad.ac.uk/internal/index.php?section=resources
+	http://www.brad.ac.uk/internal/index.php?section=contacts
+	http://www.brad.ac.uk/internal/index.php?section=accessibility
+	http://www.brad.ac.uk/archenvi/
+	http://www.eng.brad.ac.uk/
+		External link, skipping <http://www.eng.brad.ac.uk/>
+	http://www.brad.ac.uk/acad/health/
+	http://www.inf.brad.ac.uk/
+		External link, skipping <http://www.inf.brad.ac.uk/>
+	http://www.brad.ac.uk/acad/lifesci/index.php
+	http://www.brad.ac.uk/admin/conted/
+	http://www.brad.ac.uk/management
+		Skipping http://www.brad.ac.uk/management
+	http://www.brad.ac.uk/acad/ssis/
+	http://www.brad.ac.uk/admin/
+	http://www.brad.ac.uk/thehub/
+	http://www.brad.ac.uk/lss/
+	http://www.brad.ac.uk/admin/estates/
+	http://www.brad.ac.uk/admin/#finance
+	http://www.brad.ac.uk/admin/#hr
+	http://www.brad.ac.uk/rkts/
+	http://www.brad.ac.uk/internal/index.php?section=accessibility
+	http://www.brad.ac.uk/cgi-bin/largetext/www.brad.ac.uk/internal/index.php?section=learning
+	http://www.brad.ac.uk/internal/styles/switcher.php
+	http://validator.w3.org/check/referer
+		External link, skipping <http://validator.w3.org/check/referer>
+	http://www.w3.org/Icons/valid-xhtml10
+		External link, skipping <http://www.w3.org/Icons/valid-xhtml10>
+	http://jigsaw.w3.org/css-validator/check/referer
+		External link, skipping <http://jigsaw.w3.org/css-validator/check/referer>
+	http://www.brad.ac.uk/img/valid-css.gif
+		Skipping http://www.brad.ac.uk/img/valid-css.gif
+	http://www.w3.org/WAI/WCAG1A-Conformance
+		External link, skipping <http://www.w3.org/WAI/WCAG1A-Conformance>
+	http://www.brad.ac.uk/img/wcag1A.gif
+		Skipping http://www.brad.ac.uk/img/wcag1A.gif
+	http://www.brad.ac.uk/external/geninfo/dates.php
+	http://www.brad.ac.uk/admin/acsec/assu/academic_year_planner.html
+	http://www.brad.ac.uk/admin/acsec/examreg/timetable/index.php
+	http://www.brad.ac.uk/admin/acsec/assu/assessmentsexams.htm
+	http://www.brad.ac.uk/lss/lsc/
+	http://www.brad.ac.uk/lss/learnerdevelopment/
+	http://www.brad.ac.uk/admin/estates/roombookings.php
+	http://evision.brad.ac.uk/modsearch.htm
+		External link, skipping <http://evision.brad.ac.uk/modsearch.htm>
+	http://www.brad.ac.uk/university/ugpros2002/fullistofcourses.htm
+	http://www.brad.ac.uk/admin/SAINT/
+	https://evision.brad.ac.uk/
+		External link, skipping <https://evision.brad.ac.uk/>
+	http://www.brad.ac.uk/admin/student-registry/
+	http://www.brad.ac.uk/admin/acsec/
+	http://www.brad.ac.uk/acad/tqeg/
+	http://www.brad.ac.uk/admin/acsec/assu/TQSupport.html
+	http://www.brad.ac.uk/admin/acsec/QA_Hbk/QAH4_0toc.html
+	http://www.brad.ac.uk/admin/acsec/QA_Hbk/
+	http://www.brad.ac.uk/admin/acsec/taught_courses.html
+	http://www.brad.ac.uk/admin/acsec/committee/LT/learning&amp;teaching.htm
+	http://www.brad.ac.uk/admin/conted/awp/
+	http://www.brad.ac.uk/admin/personnel/Contractresearch/
+	http://www.brad.ac.uk/admin/acsec/assu/university_policy_on_plagiarism.htm
+	http://www.brad.ac.uk/library/
+	http://www.brad.ac.uk/admin/conted/scu/
+	http://www.heacademy.ac.uk/
+		External link, skipping <http://www.heacademy.ac.uk/>
+	http://www.hero.ac.uk/uk/inside_he/learning_and_teaching131.cfm
+		External link, skipping <http://www.hero.ac.uk/uk/inside_he/learning_and_teaching131.cfm>
+	http://www.brad.ac.uk/courses/
+	http://www.brad.ac.uk/img/general-pics/coursesnew.jpg
+		Skipping http://www.brad.ac.uk/img/general-pics/coursesnew.jpg
+	http://www.brad.ac.uk/dev-prog/teaching/index.php?course=06-52
+	http://www.brad.ac.uk/briefing/we-11-may07.php#health
+	http://www.brad.ac.uk/briefing/we-4-may07.php#portal
+	http://www.brad.ac.uk/briefing/we-27-april07.php#carp
+	http://www.brad.ac.uk/briefing/we-20-april07.php#lta
+	http://www.brad.ac.uk/dev-prog/teaching/index.php?course=06-49
+	http://www.brad.ac.uk/dev-prog/teaching/index.php?course=06-53
+	http://www.brad.ac.uk/dev-prog/teaching/index.php?course=06-50
+	http://www.brad.ac.uk/dev-prog/teaching/index.php?course=06-12
+	http://www.brad.ac.uk/dev-prog/teaching/index.php?course=06-15
+	http://www.brad.ac.uk/dev-prog/teaching/index.php?course=06-02
+	http://www.brad.ac.uk/dev-prog/teaching/index.php?course=06-26
+	http://www.brad.ac.uk/dev-prog/teaching/index.php?course=06-51
+	http://www.brad.ac.uk/internal/index.php?section=learning#top
+	http://www.brad.ac.uk/img/iip.jpg
+		Skipping http://www.brad.ac.uk/img/iip.jpg
+	mailto:info-admin@bradford.ac.uk
+		External link, skipping <mailto:info-admin@bradford.ac.uk>
+	http://www.brad.ac.uk/internal/index.php?section=accessibility
+	http://www.brad.ac.uk/university/ugpros2001/calloff.htm
+	http://www.brad.ac.uk/foi/
+	http://www.yorkshireuniversities.ac.uk/
+		External link, skipping <http://www.yorkshireuniversities.ac.uk/>
+	mailto:abuse@bradford.ac.uk
+		External link, skipping <mailto:abuse@bradford.ac.uk>
+# of links in <http://www.brad.ac.uk/internal/index.php?section=learning> : 91
+Fetching URL from queue: <http://www.brad.ac.uk/internal/index.php?section=staff>
+Visiting http://www.brad.ac.uk/internal/index.php?section=staff
+	http://www.brad.ac.uk/internal/index.php?section=staff#content
+	http://www.brad.ac.uk/internal/index.php?section=staff#schools
+	http://www.brad.ac.uk/internal/index.php?section=staff#quick
+	http://www.brad.ac.uk/internal/index.php?section=staff#bottom
+	http://www.brad.ac.uk/
+	http://www.bradford.ac.uk/hub/images/uoblogoempty.gif
+		External link, skipping <http://www.bradford.ac.uk/hub/images/uoblogoempty.gif>
+	http://search.brad.ac.uk/search
+		External link, skipping <http://search.brad.ac.uk/search>
+	http://www.brad.ac.uk/about/
+	http://search.brad.ac.uk/search?ie=&amp;site=Bradford&amp;output=xml_no_dtd&amp;client=Bradford&amp;access=p&amp;lr=&amp;proxystylesheet=Bradford&amp;oe=&amp;proxycustom=&lt;ADVANCED/>
+		External link, skipping <http://search.brad.ac.uk/search?ie=&amp;site=Bradford&amp;output=xml_no_dtd&amp;client=Bradford&amp;access=p&amp;lr=&amp;proxystylesheet=Bradford&amp;oe=&amp;proxycustom=&lt;ADVANCED/>>
+	http://www.brad.ac.uk/external/
+	http://www.brad.ac.uk/internal/index.php
+	http://www.brad.ac.uk/internal/index.php?section=research
+	http://www.brad.ac.uk/internal/index.php?section=learning
+	http://www.brad.ac.uk/internal/index.php?section=student
+	http://www.brad.ac.uk/internal/index.php?section=campus
+	http://www.brad.ac.uk/internal/index.php?section=resources
+	http://www.brad.ac.uk/internal/index.php?section=contacts
+	http://www.brad.ac.uk/internal/index.php?section=accessibility
+	http://www.brad.ac.uk/archenvi/
+	http://www.eng.brad.ac.uk/
+		External link, skipping <http://www.eng.brad.ac.uk/>
+	http://www.brad.ac.uk/acad/health/
+	http://www.inf.brad.ac.uk/
+		External link, skipping <http://www.inf.brad.ac.uk/>
+	http://www.brad.ac.uk/acad/lifesci/index.php
+	http://www.brad.ac.uk/admin/conted/
+	http://www.brad.ac.uk/management
+		Skipping http://www.brad.ac.uk/management
+	http://www.brad.ac.uk/acad/ssis/
+	http://www.brad.ac.uk/admin/
+	http://www.brad.ac.uk/thehub/
+	http://www.brad.ac.uk/lss/
+	http://www.brad.ac.uk/admin/estates/
+	http://www.brad.ac.uk/admin/#finance
+	http://www.brad.ac.uk/admin/#hr
+	http://www.brad.ac.uk/rkts/
+	http://www.brad.ac.uk/internal/index.php?section=accessibility
+	http://www.brad.ac.uk/cgi-bin/largetext/www.brad.ac.uk/internal/index.php?section=staff
+	http://www.brad.ac.uk/internal/styles/switcher.php
+	http://validator.w3.org/check/referer
+		External link, skipping <http://validator.w3.org/check/referer>
+	http://www.w3.org/Icons/valid-xhtml10
+		External link, skipping <http://www.w3.org/Icons/valid-xhtml10>
+	http://jigsaw.w3.org/css-validator/check/referer
+		External link, skipping <http://jigsaw.w3.org/css-validator/check/referer>
+	http://www.brad.ac.uk/img/valid-css.gif
+		Skipping http://www.brad.ac.uk/img/valid-css.gif
+	http://www.w3.org/WAI/WCAG1A-Conformance
+		External link, skipping <http://www.w3.org/WAI/WCAG1A-Conformance>
+	http://www.brad.ac.uk/img/wcag1A.gif
+		Skipping http://www.brad.ac.uk/img/wcag1A.gif
+	http://www.brad.ac.uk/dev-prog/index.php?section=providers
+	http://www.brad.ac.uk/dev-prog/index.php?section=diary
+	http://www.brad.ac.uk/lss/lsc/
+	http://www.brad.ac.uk/admin/personnel/jobvacancies/
+	http://www.brad.ac.uk/admin/staffdev/hbk/about.php
+	http://www.brad.ac.uk/admin/staffdev/hbk/mgrhandbook/
+	http://www.brad.ac.uk/admin/staffdev/IiP/
+	http://www.brad.ac.uk/admin/staffdev/Appraisal/
+	http://www.brad.ac.uk/admin/staffdev/PET/
+	http://www.brad.ac.uk/lss/training/
+	http://www.brad.ac.uk/admin/personnel/
+	http://www.brad.ac.uk/admin/personnel/policies&amp;procedures/index.html
+	http://www.brad.ac.uk/admin/personnel/recruitment,selection,induction/
+	http://www.brad.ac.uk/admin/personnel/terms&amp;conditions/index.html
+	http://www.brad.ac.uk/equality/
+	http://www.brad.ac.uk/admin/disab/des/
+	http://www.bradford.ac.uk/news/ges.htm
+		External link, skipping <http://www.bradford.ac.uk/news/ges.htm>
+	http://www.brad.ac.uk/admin/student-services/sis/religious.htm
+	http://www.brad.ac.uk/admin/personnel/pay,grading&amp;remuneration/index.html
+	http://www.brad.ac.uk/admin/finance/private/pay.htm
+	http://www.brad.ac.uk/admin/finance/private/forms.htm
+	http://www.brad.ac.uk/admin/security/
+	http://www.brad.ac.uk/admin/safety/
+	http://www.brad.ac.uk/lss/telephones/telecards.php
+	http://www.brad.ac.uk/lss/it-services/ubyou/staff/
+	http://www.brad.ac.uk/admin/conted/scu/
+	http://www.bradford.ac.uk/admin/busta/
+		External link, skipping <http://www.bradford.ac.uk/admin/busta/>
+	http://www.brad.ac.uk/admin/student-services/nursery.htm
+	http://www.brad.ac.uk/admin/counselling/
+	http://www.brad.ac.uk/admin/disab/
+	http://www.brad.ac.uk/other/unions/aut/
+	http://www.brad.ac.uk/other/unions/unison/
+	http://www.brad.ac.uk/briefing/we-11-may07.php#pay
+	http://www.brad.ac.uk/briefing/we-11-may07.php#aua
+	http://www.brad.ac.uk/briefing/we-11-may07.php#cms
+	http://www.brad.ac.uk/briefing/we-11-may07.php#couns
+	http://www.brad.ac.uk/briefing/we-4-may07.php#busta
+	http://www.brad.ac.uk/briefing/we-4-may07.php#portal
+	http://www.brad.ac.uk/briefing/we-4-may07.php#entries
+	http://www.brad.ac.uk/briefing/we-27-april07.php#hr
+	http://www.brad.ac.uk/briefing/we-27-april07.php#carp
+	http://www.brad.ac.uk/dev-prog/it/index.php?course=ECDL-W
+	http://www.brad.ac.uk/dev-prog/it/index.php?course=ECDL
+	http://www.brad.ac.uk/dev-prog/it/index.php?course=ECDLA
+	http://www.brad.ac.uk/dev-prog/it/index.php?course=BC-ECDL4
+	http://www.brad.ac.uk/dev-prog/safety/index.php?course=HSMN
+	http://www.brad.ac.uk/dev-prog/development/index.php?course=DDAT
+	http://www.brad.ac.uk/dev-prog/development/index.php?course=COAC
+	http://www.brad.ac.uk/dev-prog/it/index.php?course=UIT2
+	http://www.brad.ac.uk/dev-prog/it/index.php?course=PP-ECDL4
+	http://www.brad.ac.uk/internal/index.php?section=staff#top
+	http://www.brad.ac.uk/img/iip.jpg
+		Skipping http://www.brad.ac.uk/img/iip.jpg
+	mailto:info-admin@bradford.ac.uk
+		External link, skipping <mailto:info-admin@bradford.ac.uk>
+	http://www.brad.ac.uk/internal/index.php?section=accessibility
+	http://www.brad.ac.uk/university/ugpros2001/calloff.htm
+	http://www.brad.ac.uk/foi/
+	http://www.yorkshireuniversities.ac.uk/
+		External link, skipping <http://www.yorkshireuniversities.ac.uk/>
+	mailto:abuse@bradford.ac.uk
+		External link, skipping <mailto:abuse@bradford.ac.uk>
+# of links in <http://www.brad.ac.uk/internal/index.php?section=staff> : 100
+Fetching URL from queue: <http://www.brad.ac.uk/internal/index.php?section=student>
+Visiting http://www.brad.ac.uk/internal/index.php?section=student
+	http://www.brad.ac.uk/internal/index.php?section=student#content
+	http://www.brad.ac.uk/internal/index.php?section=student#schools
+	http://www.brad.ac.uk/internal/index.php?section=student#quick
+	http://www.brad.ac.uk/internal/index.php?section=student#bottom
+	http://www.brad.ac.uk/
+	http://www.bradford.ac.uk/hub/images/uoblogoempty.gif
+		External link, skipping <http://www.bradford.ac.uk/hub/images/uoblogoempty.gif>
+	http://search.brad.ac.uk/search
+		External link, skipping <http://search.brad.ac.uk/search>
+	http://www.brad.ac.uk/about/
+	http://search.brad.ac.uk/search?ie=&amp;site=Bradford&amp;output=xml_no_dtd&amp;client=Bradford&amp;access=p&amp;lr=&amp;proxystylesheet=Bradford&amp;oe=&amp;proxycustom=&lt;ADVANCED/>
+		External link, skipping <http://search.brad.ac.uk/search?ie=&amp;site=Bradford&amp;output=xml_no_dtd&amp;client=Bradford&amp;access=p&amp;lr=&amp;proxystylesheet=Bradford&amp;oe=&amp;proxycustom=&lt;ADVANCED/>>
+	http://www.brad.ac.uk/external/
+	http://www.brad.ac.uk/internal/index.php
+	http://www.brad.ac.uk/internal/index.php?section=research
+	http://www.brad.ac.uk/internal/index.php?section=learning
+	http://www.brad.ac.uk/internal/index.php?section=staff
+	http://www.brad.ac.uk/internal/index.php?section=campus
+	http://www.brad.ac.uk/internal/index.php?section=resources
+	http://www.brad.ac.uk/internal/index.php?section=contacts
+	http://www.brad.ac.uk/internal/index.php?section=accessibility
+	http://www.brad.ac.uk/archenvi/
+	http://www.eng.brad.ac.uk/
+		External link, skipping <http://www.eng.brad.ac.uk/>
+	http://www.brad.ac.uk/acad/health/
+	http://www.inf.brad.ac.uk/
+		External link, skipping <http://www.inf.brad.ac.uk/>
+	http://www.brad.ac.uk/acad/lifesci/index.php
+	http://www.brad.ac.uk/admin/conted/
+	http://www.brad.ac.uk/management
+		Skipping http://www.brad.ac.uk/management
+	http://www.brad.ac.uk/acad/ssis/
+	http://www.brad.ac.uk/admin/
+	http://www.brad.ac.uk/thehub/
+	http://www.brad.ac.uk/lss/
+	http://www.brad.ac.uk/admin/estates/
+	http://www.brad.ac.uk/admin/#finance
+	http://www.brad.ac.uk/admin/#hr
+	http://www.brad.ac.uk/rkts/
+	http://www.brad.ac.uk/internal/index.php?section=accessibility
+	http://www.brad.ac.uk/cgi-bin/largetext/www.brad.ac.uk/internal/index.php?section=student
+	http://www.brad.ac.uk/internal/styles/switcher.php
+	http://validator.w3.org/check/referer
+		External link, skipping <http://validator.w3.org/check/referer>
+	http://www.w3.org/Icons/valid-xhtml10
+		External link, skipping <http://www.w3.org/Icons/valid-xhtml10>
+	http://jigsaw.w3.org/css-validator/check/referer
+		External link, skipping <http://jigsaw.w3.org/css-validator/check/referer>
+	http://www.brad.ac.uk/img/valid-css.gif
+		Skipping http://www.brad.ac.uk/img/valid-css.gif
+	http://www.w3.org/WAI/WCAG1A-Conformance
+		External link, skipping <http://www.w3.org/WAI/WCAG1A-Conformance>
+	http://www.brad.ac.uk/img/wcag1A.gif
+		Skipping http://www.brad.ac.uk/img/wcag1A.gif
+	http://www.brad.ac.uk/admin/security/
+	http://www.brad.ac.uk/admin/safety/
+	http://www.brad.ac.uk/admin/student-services/
+	http://www.brad.ac.uk/admin/student-registry/
+	http://www.brad.ac.uk/admin/student-registry/tuitionfees/new_index_page.html
+	http://www.brad.ac.uk/external/epay-accessibility.htm
+	http://www.brad.ac.uk/admin/student-services/sis/
+	http://www.careers.brad.ac.uk/
+		External link, skipping <http://www.careers.brad.ac.uk/>
+	http://www.careers.brad.ac.uk/jobshop/
+		External link, skipping <http://www.careers.brad.ac.uk/jobshop/>
+	http://www.brad.ac.uk/lss/lsc/
+	http://www.brad.ac.uk/lss/learnerdevelopment/
+	http://www.brad.ac.uk/thinkbusiness/index.php
+	http://www.brad.ac.uk/ucan/
+	http://www.brad.ac.uk/lss/it-services/pc-purchase/
+	http://www.brad.ac.uk/equality/
+	http://www.brad.ac.uk/admin/health/
+	http://www.brad.ac.uk/admin/counselling/
+	http://www.brad.ac.uk/admin/disab/
+	http://www.brad.ac.uk/admin/disab/des/
+	http://www.bradford.ac.uk/news/ges.htm
+		External link, skipping <http://www.bradford.ac.uk/news/ges.htm>
+	http://www.brad.ac.uk/admin/student-services/sis/religious.htm
+	http://www.brad.ac.uk/international/
+	http://www.brad.ac.uk/admin/student-services/nursery.htm
+	http://www.brad.ac.uk/admin/recruitment/accom/
+	http://www.unipol.leeds.ac.uk/bradford/
+		External link, skipping <http://www.unipol.leeds.ac.uk/bradford/>
+	http://www.ubuonline.co.uk/
+		External link, skipping <http://www.ubuonline.co.uk/>
+	http://www.brad.ac.uk/admin/studev/
+	http://www.brad.ac.uk/admin/alumni/
+	http://www.brad.ac.uk/external/geninfo/mature.php
+	http://www.studentzone.org.uk/
+		External link, skipping <http://www.studentzone.org.uk/>
+	http://www.hero.ac.uk/uk/studying/index.cfm
+		External link, skipping <http://www.hero.ac.uk/uk/studying/index.cfm>
+	http://www.brad.ac.uk/thehub/
+	http://www.brad.ac.uk/img/hub/hub-animated.gif
+		Skipping http://www.brad.ac.uk/img/hub/hub-animated.gif
+	http://www.brad.ac.uk/internal/index.php
+	http://www.brad.ac.uk/briefing/we-11-may07.php#atrium
+	http://www.careers.brad.ac.uk/student/newgrad.php
+		External link, skipping <http://www.careers.brad.ac.uk/student/newgrad.php>
+	http://www.brad.ac.uk/admin/acsec/examreg/timetable/index.php
+	http://www.brad.ac.uk/hub/studentnews/bradford-bid.php
+	http://www.brad.ac.uk/hub/studentnews/photo.php
+	http://www.careers.brad.ac.uk/ygrf
+		External link, skipping <http://www.careers.brad.ac.uk/ygrf>
+	http://www.brad.ac.uk/briefing/we-27-april07.php#prince
+	http://www.brad.ac.uk/lss/lssworkshops/
+	http://www.brad.ac.uk/internal/index.php?section=student#top
+	http://www.brad.ac.uk/img/iip.jpg
+		Skipping http://www.brad.ac.uk/img/iip.jpg
+	mailto:info-admin@bradford.ac.uk
+		External link, skipping <mailto:info-admin@bradford.ac.uk>
+	http://www.brad.ac.uk/internal/index.php?section=accessibility
+	http://www.brad.ac.uk/university/ugpros2001/calloff.htm
+	http://www.brad.ac.uk/foi/
+	http://www.yorkshireuniversities.ac.uk/
+		External link, skipping <http://www.yorkshireuniversities.ac.uk/>
+	mailto:abuse@bradford.ac.uk
+		External link, skipping <mailto:abuse@bradford.ac.uk>
+# of links in <http://www.brad.ac.uk/internal/index.php?section=student> : 92
+Fetching URL from queue: <http://www.brad.ac.uk/internal/index.php?section=campus>
+Visiting http://www.brad.ac.uk/internal/index.php?section=campus
+	http://www.brad.ac.uk/internal/index.php?section=campus#content
+	http://www.brad.ac.uk/internal/index.php?section=campus#schools
+	http://www.brad.ac.uk/internal/index.php?section=campus#quick
+	http://www.brad.ac.uk/internal/index.php?section=campus#bottom
+	http://www.brad.ac.uk/
+	http://www.bradford.ac.uk/hub/images/uoblogoempty.gif
+		External link, skipping <http://www.bradford.ac.uk/hub/images/uoblogoempty.gif>
+	http://search.brad.ac.uk/search
+		External link, skipping <http://search.brad.ac.uk/search>
+	http://www.brad.ac.uk/about/
+	http://search.brad.ac.uk/search?ie=&amp;site=Bradford&amp;output=xml_no_dtd&amp;client=Bradford&amp;access=p&amp;lr=&amp;proxystylesheet=Bradford&amp;oe=&amp;proxycustom=&lt;ADVANCED/>
+		External link, skipping <http://search.brad.ac.uk/search?ie=&amp;site=Bradford&amp;output=xml_no_dtd&amp;client=Bradford&amp;access=p&amp;lr=&amp;proxystylesheet=Bradford&amp;oe=&amp;proxycustom=&lt;ADVANCED/>>
+	http://www.brad.ac.uk/external/
+	http://www.brad.ac.uk/internal/index.php
+	http://www.brad.ac.uk/internal/index.php?section=research
+	http://www.brad.ac.uk/internal/index.php?section=learning
+	http://www.brad.ac.uk/internal/index.php?section=staff
+	http://www.brad.ac.uk/internal/index.php?section=student
+	http://www.brad.ac.uk/internal/index.php?section=resources
+	http://www.brad.ac.uk/internal/index.php?section=contacts
+	http://www.brad.ac.uk/internal/index.php?section=accessibility
+	http://www.brad.ac.uk/archenvi/
+	http://www.eng.brad.ac.uk/
+		External link, skipping <http://www.eng.brad.ac.uk/>
+	http://www.brad.ac.uk/acad/health/
+	http://www.inf.brad.ac.uk/
+		External link, skipping <http://www.inf.brad.ac.uk/>
+	http://www.brad.ac.uk/acad/lifesci/index.php
+	http://www.brad.ac.uk/admin/conted/
+	http://www.brad.ac.uk/management
+		Skipping http://www.brad.ac.uk/management
+	http://www.brad.ac.uk/acad/ssis/
+	http://www.brad.ac.uk/admin/
+	http://www.brad.ac.uk/thehub/
+	http://www.brad.ac.uk/lss/
+	http://www.brad.ac.uk/admin/estates/
+	http://www.brad.ac.uk/admin/#finance
+	http://www.brad.ac.uk/admin/#hr
+	http://www.brad.ac.uk/rkts/
+	http://www.brad.ac.uk/internal/index.php?section=accessibility
+	http://www.brad.ac.uk/cgi-bin/largetext/www.brad.ac.uk/internal/index.php?section=campus
+	http://www.brad.ac.uk/internal/styles/switcher.php
+	http://validator.w3.org/check/referer
+		External link, skipping <http://validator.w3.org/check/referer>
+	http://www.w3.org/Icons/valid-xhtml10
+		External link, skipping <http://www.w3.org/Icons/valid-xhtml10>
+	http://jigsaw.w3.org/css-validator/check/referer
+		External link, skipping <http://jigsaw.w3.org/css-validator/check/referer>
+	http://www.brad.ac.uk/img/valid-css.gif
+		Skipping http://www.brad.ac.uk/img/valid-css.gif
+	http://www.w3.org/WAI/WCAG1A-Conformance
+		External link, skipping <http://www.w3.org/WAI/WCAG1A-Conformance>
+	http://www.brad.ac.uk/img/wcag1A.gif
+		Skipping http://www.brad.ac.uk/img/wcag1A.gif
+	http://www.brad.ac.uk/admin/security/
+	http://www.brad.ac.uk/admin/safety/
+	http://www.brad.ac.uk/external/visit/campus.php
+	http://www.brad.ac.uk/external/visit/getting.php
+	http://www.brad.ac.uk/external/visit/main-map.php
+	http://www.brad.ac.uk/external/geninfo/tours.php
+	http://www.brad.ac.uk/admin/estates/bus.php
+	http://www.brad.ac.uk/admin/pr/December2001/ubus.htm
+	http://www.brad.ac.uk/catering/
+	http://www.brad.ac.uk/external/visit/hotels.php
+	http://www.brad.ac.uk/lss/telephones/
+	http://www.brad.ac.uk/admin/estates/
+	http://www.brad.ac.uk/admin/estates/cprojects.php
+	http://www.brad.ac.uk/admin/ecoversity/
+	http://www.brad.ac.uk/admin/estates/environment.php
+	http://www.brad.ac.uk/admin/estates/roombookings.php
+	http://www.brad.ac.uk/admin/conted/scu/
+	http://www.brad.ac.uk/admin/recruitment/accom/
+	http://www.brad.ac.uk/admin/student-services/nursery.htm
+	http://www.brad.ac.uk/admin/physrec/
+	http://www.brad.ac.uk/admin/physrec/cricket/index.html
+	http://www.brad.ac.uk/admin/arts/
+	http://www.brad.ac.uk/briefing/we-11-may07.php#cafe
+	http://www.brad.ac.uk/briefing/we-11-may07.php#theatre
+	http://www.brad.ac.uk/briefing/we-11-may07.php#music
+	http://www.brad.ac.uk/briefing/we-4-may07.php#window
+	http://www.brad.ac.uk/briefing/we-4-may07.php#dfloor
+	http://www.brad.ac.uk/briefing/we-4-may07.php#nursery
+	http://www.brad.ac.uk/briefing/we-4-may07.php#smoke
+	http://www.brad.ac.uk/briefing/we-4-may07.php#eimc
+	http://www.brad.ac.uk/briefing/we-27-april07.php#richmond
+	http://www.brad.ac.uk/briefing/we-20-april07.php#gallery
+	http://www.brad.ac.uk/internal/index.php?section=campus#top
+	http://www.brad.ac.uk/img/iip.jpg
+		Skipping http://www.brad.ac.uk/img/iip.jpg
+	mailto:info-admin@bradford.ac.uk
+		External link, skipping <mailto:info-admin@bradford.ac.uk>
+	http://www.brad.ac.uk/internal/index.php?section=accessibility
+	http://www.brad.ac.uk/university/ugpros2001/calloff.htm
+	http://www.brad.ac.uk/foi/
+	http://www.yorkshireuniversities.ac.uk/
+		External link, skipping <http://www.yorkshireuniversities.ac.uk/>
+	mailto:abuse@bradford.ac.uk
+		External link, skipping <mailto:abuse@bradford.ac.uk>
+# of links in <http://www.brad.ac.uk/internal/index.php?section=campus> : 82
+Fetching URL from queue: <http://www.brad.ac.uk/internal/index.php?section=resources>
+Visiting http://www.brad.ac.uk/internal/index.php?section=resources
+	http://www.brad.ac.uk/internal/index.php?section=resources#content
+	http://www.brad.ac.uk/internal/index.php?section=resources#schools
+	http://www.brad.ac.uk/internal/index.php?section=resources#quick
+	http://www.brad.ac.uk/internal/index.php?section=resources#bottom
+	http://www.brad.ac.uk/
+	http://www.bradford.ac.uk/hub/images/uoblogoempty.gif
+		External link, skipping <http://www.bradford.ac.uk/hub/images/uoblogoempty.gif>
+	http://search.brad.ac.uk/search
+		External link, skipping <http://search.brad.ac.uk/search>
+	http://www.brad.ac.uk/about/
+	http://search.brad.ac.uk/search?ie=&amp;site=Bradford&amp;output=xml_no_dtd&amp;client=Bradford&amp;access=p&amp;lr=&amp;proxystylesheet=Bradford&amp;oe=&amp;proxycustom=&lt;ADVANCED/>
+		External link, skipping <http://search.brad.ac.uk/search?ie=&amp;site=Bradford&amp;output=xml_no_dtd&amp;client=Bradford&amp;access=p&amp;lr=&amp;proxystylesheet=Bradford&amp;oe=&amp;proxycustom=&lt;ADVANCED/>>
+	http://www.brad.ac.uk/external/
+	http://www.brad.ac.uk/internal/index.php
+	http://www.brad.ac.uk/internal/index.php?section=research
+	http://www.brad.ac.uk/internal/index.php?section=learning
+	http://www.brad.ac.uk/internal/index.php?section=staff
+	http://www.brad.ac.uk/internal/index.php?section=student
+	http://www.brad.ac.uk/internal/index.php?section=campus
+	http://www.brad.ac.uk/internal/index.php?section=contacts
+	http://www.brad.ac.uk/internal/index.php?section=accessibility
+	http://www.brad.ac.uk/archenvi/
+	http://www.eng.brad.ac.uk/
+		External link, skipping <http://www.eng.brad.ac.uk/>
+	http://www.brad.ac.uk/acad/health/
+	http://www.inf.brad.ac.uk/
+		External link, skipping <http://www.inf.brad.ac.uk/>
+	http://www.brad.ac.uk/acad/lifesci/index.php
+	http://www.brad.ac.uk/admin/conted/
+	http://www.brad.ac.uk/management
+		Skipping http://www.brad.ac.uk/management
+	http://www.brad.ac.uk/acad/ssis/
+	http://www.brad.ac.uk/admin/
+	http://www.brad.ac.uk/thehub/
+	http://www.brad.ac.uk/lss/
+	http://www.brad.ac.uk/admin/estates/
+	http://www.brad.ac.uk/admin/#finance
+	http://www.brad.ac.uk/admin/#hr
+	http://www.brad.ac.uk/rkts/
+	http://www.brad.ac.uk/internal/index.php?section=accessibility
+	http://www.brad.ac.uk/cgi-bin/largetext/www.brad.ac.uk/internal/index.php?section=resources
+	http://www.brad.ac.uk/internal/styles/switcher.php
+	http://validator.w3.org/check/referer
+		External link, skipping <http://validator.w3.org/check/referer>
+	http://www.w3.org/Icons/valid-xhtml10
+		External link, skipping <http://www.w3.org/Icons/valid-xhtml10>
+	http://jigsaw.w3.org/css-validator/check/referer
+		External link, skipping <http://jigsaw.w3.org/css-validator/check/referer>
+	http://www.brad.ac.uk/img/valid-css.gif
+		Skipping http://www.brad.ac.uk/img/valid-css.gif
+	http://www.w3.org/WAI/WCAG1A-Conformance
+		External link, skipping <http://www.w3.org/WAI/WCAG1A-Conformance>
+	http://www.brad.ac.uk/img/wcag1A.gif
+		Skipping http://www.brad.ac.uk/img/wcag1A.gif
+	http://www.brad.ac.uk/admin/recruitment/annrept/
+	http://www.brad.ac.uk/corporateplan/
+	http://www.brad.ac.uk/admin/assembly/
+	http://www.brad.ac.uk/admin/planning/committees/ISSC/ComStrucDiagupdated%200405.pdf
+		Skipping http://www.brad.ac.uk/admin/planning/committees/ISSC/ComStrucDiagupdated%200405.pdf
+	http://www.brad.ac.uk/admin/planning/committeesindex.htm
+	http://www.brad.ac.uk/admin/acsec/assu/committees_support.htm
+	http://www.brad.ac.uk/admin/staffdev/orgoverview.pdf
+		Skipping http://www.brad.ac.uk/admin/staffdev/orgoverview.pdf
+	http://www.brad.ac.uk/foi/
+	http://www.brad.ac.uk/admin/planning/CorporatePlanning/Corporateindex.htm
+	http://www.brad.ac.uk/admin/planning/
+	http://www.brad.ac.uk/admin/planning/PBindex.htm
+	http://www.brad.ac.uk/admin/planning/PBPTRACKER/TrackerTitlePage.htm
+	http://www.brad.ac.uk/admin/pr/cuttings/
+	http://www.brad.ac.uk/admin/market-research/
+	http://www.brad.ac.uk/admin/pr/corporate/
+	http://www.brad.ac.uk/admin/pr/Image-bank.htm
+	http://www.inprintdesign.com/
+		External link, skipping <http://www.inprintdesign.com/>
+	http://www.brad.ac.uk/admin/SAINT/
+	https://evision.brad.ac.uk/
+		External link, skipping <https://evision.brad.ac.uk/>
+	http://www.brad.ac.uk/admin/finance/
+	http://www.brad.ac.uk/admin/finance/private/forms.htm
+	http://www.brad.ac.uk/admin/purchasing/
+	http://www.brad.ac.uk/admin/rsil/SF/Siriusguidelines.doc
+		Skipping http://www.brad.ac.uk/admin/rsil/SF/Siriusguidelines.doc
+	http://www.brad.ac.uk/admin/estates/roombookings.php
+	http://www.brad.ac.uk/lss/telephones/
+	http://www.brad.ac.uk/library/news/catalogue.htm
+	http://www.brad.ac.uk/lss/athens.php
+	http://www.brad.ac.uk/lss/it-services/suppliers/index.php
+	http://www.mail.brad.ac.uk/
+		External link, skipping <http://www.mail.brad.ac.uk/>
+	http://www.brad.ac.uk/lss/it-services/software/index.php
+	http://www.brad.ac.uk/lss/it-services/support/faults.php
+	http://cmsproject.brad.ac.uk/
+		External link, skipping <http://cmsproject.brad.ac.uk/>
+	http://www.brad.ac.uk/webid/
+	http://www.brad.ac.uk/img/
+	http://www.brad.ac.uk/lss/it-services/internet/resources/
+	http://www.staff.brad.ac.uk/
+		External link, skipping <http://www.staff.brad.ac.uk/>
+	http://www.student.brad.ac.uk/
+		External link, skipping <http://www.student.brad.ac.uk/>
+	http://www.brad.ac.uk/foi/
+	http://www.brad.ac.uk/img/general/foi.jpg
+		Skipping http://www.brad.ac.uk/img/general/foi.jpg
+	http://www.brad.ac.uk/briefing/we-11-may07.php#card
+	http://www.brad.ac.uk/briefing/we-11-may07.php#couns
+	http://www.brad.ac.uk/briefing/we-11-may07.php#inprint
+	http://www.brad.ac.uk/admin/acsec/examreg/timetable/index.php
+	http://www.brad.ac.uk/internal/index.php?section=resources#top
+	http://www.brad.ac.uk/img/iip.jpg
+		Skipping http://www.brad.ac.uk/img/iip.jpg
+	mailto:info-admin@bradford.ac.uk
+		External link, skipping <mailto:info-admin@bradford.ac.uk>
+	http://www.brad.ac.uk/internal/index.php?section=accessibility
+	http://www.brad.ac.uk/university/ugpros2001/calloff.htm
+	http://www.brad.ac.uk/foi/
+	http://www.yorkshireuniversities.ac.uk/
+		External link, skipping <http://www.yorkshireuniversities.ac.uk/>
+	mailto:abuse@bradford.ac.uk
+		External link, skipping <mailto:abuse@bradford.ac.uk>
+# of links in <http://www.brad.ac.uk/internal/index.php?section=resources> : 93
+Fetching URL from queue: <http://www.brad.ac.uk/internal/index.php?section=contacts>
+Visiting http://www.brad.ac.uk/internal/index.php?section=contacts
+	http://www.brad.ac.uk/internal/index.php?section=contacts#content
+	http://www.brad.ac.uk/internal/index.php?section=contacts#schools
+	http://www.brad.ac.uk/internal/index.php?section=contacts#quick
+	http://www.brad.ac.uk/internal/index.php?section=contacts#bottom
+	http://www.brad.ac.uk/
+	http://www.bradford.ac.uk/hub/images/uoblogoempty.gif
+		External link, skipping <http://www.bradford.ac.uk/hub/images/uoblogoempty.gif>
+	http://search.brad.ac.uk/search
+		External link, skipping <http://search.brad.ac.uk/search>
+	http://www.brad.ac.uk/about/
+	http://search.brad.ac.uk/search?ie=&amp;site=Bradford&amp;output=xml_no_dtd&amp;client=Bradford&amp;access=p&amp;lr=&amp;proxystylesheet=Bradford&amp;oe=&amp;proxycustom=&lt;ADVANCED/>
+		External link, skipping <http://search.brad.ac.uk/search?ie=&amp;site=Bradford&amp;output=xml_no_dtd&amp;client=Bradford&amp;access=p&amp;lr=&amp;proxystylesheet=Bradford&amp;oe=&amp;proxycustom=&lt;ADVANCED/>>
+	http://www.brad.ac.uk/external/
+	http://www.brad.ac.uk/internal/index.php
+	http://www.brad.ac.uk/internal/index.php?section=research
+	http://www.brad.ac.uk/internal/index.php?section=learning
+	http://www.brad.ac.uk/internal/index.php?section=staff
+	http://www.brad.ac.uk/internal/index.php?section=student
+	http://www.brad.ac.uk/internal/index.php?section=campus
+	http://www.brad.ac.uk/internal/index.php?section=resources
+	http://www.brad.ac.uk/internal/index.php?section=accessibility
+	http://www.brad.ac.uk/archenvi/
+	http://www.eng.brad.ac.uk/
+		External link, skipping <http://www.eng.brad.ac.uk/>
+	http://www.brad.ac.uk/acad/health/
+	http://www.inf.brad.ac.uk/
+		External link, skipping <http://www.inf.brad.ac.uk/>
+	http://www.brad.ac.uk/acad/lifesci/index.php
+	http://www.brad.ac.uk/admin/conted/
+	http://www.brad.ac.uk/management
+		Skipping http://www.brad.ac.uk/management
+	http://www.brad.ac.uk/acad/ssis/
+	http://www.brad.ac.uk/admin/
+	http://www.brad.ac.uk/thehub/
+	http://www.brad.ac.uk/lss/
+	http://www.brad.ac.uk/admin/estates/
+	http://www.brad.ac.uk/admin/#finance
+	http://www.brad.ac.uk/admin/#hr
+	http://www.brad.ac.uk/rkts/
+	http://www.brad.ac.uk/internal/index.php?section=accessibility
+	http://www.brad.ac.uk/cgi-bin/largetext/www.brad.ac.uk/internal/index.php?section=contacts
+	http://www.brad.ac.uk/internal/styles/switcher.php
+	http://validator.w3.org/check/referer
+		External link, skipping <http://validator.w3.org/check/referer>
+	http://www.w3.org/Icons/valid-xhtml10
+		External link, skipping <http://www.w3.org/Icons/valid-xhtml10>
+	http://jigsaw.w3.org/css-validator/check/referer
+		External link, skipping <http://jigsaw.w3.org/css-validator/check/referer>
+	http://www.brad.ac.uk/img/valid-css.gif
+		Skipping http://www.brad.ac.uk/img/valid-css.gif
+	http://www.w3.org/WAI/WCAG1A-Conformance
+		External link, skipping <http://www.w3.org/WAI/WCAG1A-Conformance>
+	http://www.brad.ac.uk/img/wcag1A.gif
+		Skipping http://www.brad.ac.uk/img/wcag1A.gif
+	http://www.brad.ac.uk/lss/it-services/support/faults.php
+	http://www.brad.ac.uk/lss/telephones/
+	http://www.brad.ac.uk/admin/estates/roombookings.php
+	http://www.118500.co.uk/
+		External link, skipping <http://www.118500.co.uk/>
+	http://www.192.com/directoryenquiries.cfm
+		External link, skipping <http://www.192.com/directoryenquiries.cfm>
+	http://search.yell.com/search/DoSearch
+		External link, skipping <http://search.yell.com/search/DoSearch>
+	http://www.newdirectoryenquiries.com/local_numeric.html
+		External link, skipping <http://www.newdirectoryenquiries.com/local_numeric.html>
+	http://www.brad.ac.uk/lss/telephones/directory/directory.php
+	http://www.brad.ac.uk/lss/telephones/directory/index.php
+	http://www.brad.ac.uk/internal/index.php
+	http://www.brad.ac.uk/internal/index.php?section=contacts#top
+	http://www.brad.ac.uk/img/iip.jpg
+		Skipping http://www.brad.ac.uk/img/iip.jpg
+	mailto:info-admin@bradford.ac.uk
+		External link, skipping <mailto:info-admin@bradford.ac.uk>
+	http://www.brad.ac.uk/internal/index.php?section=accessibility
+	http://www.brad.ac.uk/university/ugpros2001/calloff.htm
+	http://www.brad.ac.uk/foi/
+	http://www.yorkshireuniversities.ac.uk/
+		External link, skipping <http://www.yorkshireuniversities.ac.uk/>
+	mailto:abuse@bradford.ac.uk
+		External link, skipping <mailto:abuse@bradford.ac.uk>
+# of links in <http://www.brad.ac.uk/internal/index.php?section=contacts> : 60
+Fetching URL from queue: <http://www.brad.ac.uk/internal/index.php?section=accessibility>
+Visiting http://www.brad.ac.uk/internal/index.php?section=accessibility
+	http://www.brad.ac.uk/internal/index.php?section=accessibility#content
+	http://www.brad.ac.uk/internal/index.php?section=accessibility#schools
+	http://www.brad.ac.uk/internal/index.php?section=accessibility#quick
+	http://www.brad.ac.uk/internal/index.php?section=accessibility#bottom
+	http://www.brad.ac.uk/
+	http://www.bradford.ac.uk/hub/images/uoblogoempty.gif
+		External link, skipping <http://www.bradford.ac.uk/hub/images/uoblogoempty.gif>
+	http://search.brad.ac.uk/search
+		External link, skipping <http://search.brad.ac.uk/search>
+	http://www.brad.ac.uk/about/
+	http://search.brad.ac.uk/search?ie=&amp;site=Bradford&amp;output=xml_no_dtd&amp;client=Bradford&amp;access=p&amp;lr=&amp;proxystylesheet=Bradford&amp;oe=&amp;proxycustom=&lt;ADVANCED/>
+		External link, skipping <http://search.brad.ac.uk/search?ie=&amp;site=Bradford&amp;output=xml_no_dtd&amp;client=Bradford&amp;access=p&amp;lr=&amp;proxystylesheet=Bradford&amp;oe=&amp;proxycustom=&lt;ADVANCED/>>
+	http://www.brad.ac.uk/external/
+	http://www.brad.ac.uk/internal/index.php
+	http://www.brad.ac.uk/internal/index.php?section=research
+	http://www.brad.ac.uk/internal/index.php?section=learning
+	http://www.brad.ac.uk/internal/index.php?section=staff
+	http://www.brad.ac.uk/internal/index.php?section=student
+	http://www.brad.ac.uk/internal/index.php?section=campus
+	http://www.brad.ac.uk/internal/index.php?section=resources
+	http://www.brad.ac.uk/internal/index.php?section=contacts
+	http://www.brad.ac.uk/archenvi/
+	http://www.eng.brad.ac.uk/
+		External link, skipping <http://www.eng.brad.ac.uk/>
+	http://www.brad.ac.uk/acad/health/
+	http://www.inf.brad.ac.uk/
+		External link, skipping <http://www.inf.brad.ac.uk/>
+	http://www.brad.ac.uk/acad/lifesci/index.php
+	http://www.brad.ac.uk/admin/conted/
+	http://www.brad.ac.uk/management
+		Skipping http://www.brad.ac.uk/management
+	http://www.brad.ac.uk/acad/ssis/
+	http://www.brad.ac.uk/admin/
+	http://www.brad.ac.uk/thehub/
+	http://www.brad.ac.uk/lss/
+	http://www.brad.ac.uk/admin/estates/
+	http://www.brad.ac.uk/admin/#finance
+	http://www.brad.ac.uk/admin/#hr
+	http://www.brad.ac.uk/rkts/
+	http://www.brad.ac.uk/internal/index.php?section=accessibility
+	http://www.brad.ac.uk/cgi-bin/largetext/www.brad.ac.uk/internal/index.php?section=accessibility
+	http://www.brad.ac.uk/internal/styles/switcher.php
+	http://validator.w3.org/check/referer
+		External link, skipping <http://validator.w3.org/check/referer>
+	http://www.w3.org/Icons/valid-xhtml10
+		External link, skipping <http://www.w3.org/Icons/valid-xhtml10>
+	http://jigsaw.w3.org/css-validator/check/referer
+		External link, skipping <http://jigsaw.w3.org/css-validator/check/referer>
+	http://www.brad.ac.uk/img/valid-css.gif
+		Skipping http://www.brad.ac.uk/img/valid-css.gif
+	http://www.w3.org/WAI/WCAG1A-Conformance
+		External link, skipping <http://www.w3.org/WAI/WCAG1A-Conformance>
+	http://www.brad.ac.uk/img/wcag1A.gif
+		Skipping http://www.brad.ac.uk/img/wcag1A.gif
+	http://www.brad.ac.uk/corporateplan/
+	http://www.brad.ac.uk/admin/planning/balancedscorecard/
+	http://www.brad.ac.uk/admin/planning/PBPTRACKER/TrackerTitlePage.htm
+	http://www.brad.ac.uk/admin/pr/pressreleases/Press_rel_liat.htm
+	http://www.brad.ac.uk/briefing/
+	http://www.brad.ac.uk/newsandviews/
+	http://www.brad.ac.uk/news/campusnews/
+	http://www.brad.ac.uk/library/elecinfo/refnews.php
+	http://news.bbc.co.uk/
+		External link, skipping <http://news.bbc.co.uk/>
+	http://www.bbc.co.uk/bradford/news/index.shtml
+		External link, skipping <http://www.bbc.co.uk/bradford/news/index.shtml>
+	http://www.thisisbradford.co.uk/
+		External link, skipping <http://www.thisisbradford.co.uk/>
+	http://www.brad.ac.uk/admin/disab/des/
+	http://www.bradford.ac.uk/news/ges.htm
+		External link, skipping <http://www.bradford.ac.uk/news/ges.htm>
+	https://selfreg.brad.ac.uk/cc/SelfregNotice.htm
+		External link, skipping <https://selfreg.brad.ac.uk/cc/SelfregNotice.htm>
+	http://www.brad.ac.uk/lss/help/newpassword.php
+	https://secure.brad.ac.uk/cc/ChangePassword.htm
+		External link, skipping <https://secure.brad.ac.uk/cc/ChangePassword.htm>
+	https://webmail.brad.ac.uk/
+		External link, skipping <https://webmail.brad.ac.uk/>
+	http://www.brad.ac.uk/lss/it-services/support/roamnet.php
+	http://www.brad.ac.uk/lss/it-services/filestores/
+	http://blackboard.brad.ac.uk/
+		External link, skipping <http://blackboard.brad.ac.uk/>
+	http://www.brad.ac.uk/library/elecinfo/readinglists/
+	http://ipac.brad.ac.uk/
+		External link, skipping <http://ipac.brad.ac.uk/>
+	http://www.brad.ac.uk/library/elecinfo/metalib.php
+	http://www.diary.brad.ac.uk/
+		External link, skipping <http://www.diary.brad.ac.uk/>
+	http://www.brad.ac.uk/admin/SAINT/
+	https://evision.brad.ac.uk/
+		External link, skipping <https://evision.brad.ac.uk/>
+	http://evision.brad.ac.uk/modsearch.htm
+		External link, skipping <http://evision.brad.ac.uk/modsearch.htm>
+	http://www.brad.ac.uk/openday/
+	http://www.brad.ac.uk/admin/student-registry/DegreeCeremonies/index.htm
+	http://www.brad.ac.uk/admin/theatre
+		Skipping http://www.brad.ac.uk/admin/theatre
+	http://www.brad.ac.uk/university/music/
+	http://www.brad.ac.uk/admin/arts/GalleryII.htm
+	http://www.brad.ac.uk/admin/physrec/
+	http://www.ubuonline.co.uk/
+		External link, skipping <http://www.ubuonline.co.uk/>
+	http://www.ramair.co.uk/
+		External link, skipping <http://www.ramair.co.uk/>
+	http://www.kineticmag.com/
+		External link, skipping <http://www.kineticmag.com/>
+	http://www.bradford.gov.uk/tourism/whatsonform.asp
+		External link, skipping <http://www.bradford.gov.uk/tourism/whatsonform.asp>
+	http://www.bbc.co.uk/bradford/going_out/whatson.shtml
+		External link, skipping <http://www.bbc.co.uk/bradford/going_out/whatson.shtml>
+	http://www.bradford.ac.uk/webid/guide/webcode.doc
+		External link, skipping <http://www.bradford.ac.uk/webid/guide/webcode.doc>
+	mailto:suggestions@bradford.ac.uk
+		External link, skipping <mailto:suggestions@bradford.ac.uk>
+	http://www.brad.ac.uk/internal/index.php?section=accessibility#lowvis
+	http://www.brad.ac.uk/internal/index.php?section=accessibility#keys
+	http://www.brad.ac.uk/internal/index.php?section=accessibility#font
+	http://www.brad.ac.uk/internal/index.php?section=accessibility#colours
+	http://www.brad.ac.uk/internal/index.php?section=accessibility#viewers
+	http://www.brad.ac.uk/internal/index.php?section=accessibility#clusters
+	http://www.brad.ac.uk/internal/index.php?section=accessibility#bb
+	http://www.brad.ac.uk/internal/index.php?section=accessibility#documentation
+	http://www.brad.ac.uk/internal/index.php?section=accessibility#disability
+	http://www.brad.ac.uk/internal/index.php?section=accessibility#top
+	http://www.brad.ac.uk/internal/index.php?section=accessibility#top
+	http://www.brad.ac.uk/internal/index.php?section=accessibility#top
+	http://www.microsoft.com/downloads/details.aspx?FamilyId=95E24C87-8732-48D5-8689-AB826E7B8FDF
+		External link, skipping <http://www.microsoft.com/downloads/details.aspx?FamilyId=95E24C87-8732-48D5-8689-AB826E7B8FDF>
+	http://www.microsoft.com/downloads/details.aspx?FamilyID=428d5727-43ab-4f24-90b7-a94784af71a4
+		External link, skipping <http://www.microsoft.com/downloads/details.aspx?FamilyID=428d5727-43ab-4f24-90b7-a94784af71a4>
+	http://www.microsoft.com/downloads/details.aspx?FamilyID=c8378bf4-996c-4569-b547-75edbd03aaf0
+		External link, skipping <http://www.microsoft.com/downloads/details.aspx?FamilyID=c8378bf4-996c-4569-b547-75edbd03aaf0>
+	http://www.adobe.com/products/acrobat/readstep2.html
+		External link, skipping <http://www.adobe.com/products/acrobat/readstep2.html>
+	http://www.adobe.com/products/acrobat/access_onlinetools.html
+		External link, skipping <http://www.adobe.com/products/acrobat/access_onlinetools.html>
+	http://www.macromedia.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash
+		External link, skipping <http://www.macromedia.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash>
+	http://www.brad.ac.uk/internal/index.php?section=accessibility#top
+	http://www.microsoft.com/windowsxp/using/accessibility/default.mspx
+		External link, skipping <http://www.microsoft.com/windowsxp/using/accessibility/default.mspx>
+	http://www.brad.ac.uk/lss/documentation/#Accessibility
+	http://www.brad.ac.uk/lss/guide/accessibility.php
+	http://www.brad.ac.uk/internal/index.php?section=accessibility#top
+	http://www.brad.ac.uk/lss/documentation/index.php#printing
+	http://www.brad.ac.uk/lss/documentation/index.php#Wordprocessing
+	http://www.brad.ac.uk/lss/documentation/index.php#Wordprocessing
+	http://www.brad.ac.uk/lss/documentation/index.php#Wordprocessing
+	http://www.brad.ac.uk/lss/documentation/index.php#Wordprocessing
+	http://www.brad.ac.uk/internal/index.php?section=accessibility#top
+	http://www.brad.ac.uk/lss/documentation/#Accessibility
+	http://www.brad.ac.uk/internal/index.php?section=accessibility#top
+	http://www.brad.ac.uk/admin/disab/index.php
+	http://www.brad.ac.uk/internal/index.php?section=accessibility#top
+	http://www.brad.ac.uk/img/iip.jpg
+		Skipping http://www.brad.ac.uk/img/iip.jpg
+	mailto:info-admin@bradford.ac.uk
+		External link, skipping <mailto:info-admin@bradford.ac.uk>
+	http://www.brad.ac.uk/internal/index.php?section=accessibility
+	http://www.brad.ac.uk/university/ugpros2001/calloff.htm
+	http://www.brad.ac.uk/foi/
+	http://www.yorkshireuniversities.ac.uk/
+		External link, skipping <http://www.yorkshireuniversities.ac.uk/>
+	mailto:abuse@bradford.ac.uk
+		External link, skipping <mailto:abuse@bradford.ac.uk>
+# of links in <http://www.brad.ac.uk/internal/index.php?section=accessibility> : 122
+Fetching URL from queue: <http://www.brad.ac.uk/archenvi/>
+Visiting http://www.brad.ac.uk/archenvi/
+	http://www.brad.ac.uk/
+	http://www.brad.ac.uk/img/UoBmediumArch.gif
+		Skipping http://www.brad.ac.uk/img/UoBmediumArch.gif
+	http://www.brad.ac.uk/acad/lifesci/
+	http://www.brad.ac.uk/archenvi/index.php
+	http://www.brad.ac.uk/archenvi/admissions.php
+	http://www.brad.ac.uk/archenvi/research.php
+	http://www.brad.ac.uk/archenvi/staffinfo.php
+	http://www.brad.ac.uk/archenvi/studinfo.php
+	http://www.brad.ac.uk/archenvi/resources.php
+	http://www.brad.ac.uk/archenvi/contacts.php
+	http://www.brad.ac.uk/archenvi/search.php
+	http://www.brad.ac.uk/cgi-bin/largetext/www.bradford.ac.uk/archenvi/
+	http://www.brad.ac.uk/acad/archsci/
+	http://www.brad.ac.uk/archenvi/images/Jarlshof.jpg
+		Skipping http://www.brad.ac.uk/archenvi/images/Jarlshof.jpg
+	http://www.brad.ac.uk/acad/archsci/
+	http://www.brad.ac.uk/acad/envsci/
+	http://www.brad.ac.uk/archenvi/images/River.jpg
+		Skipping http://www.brad.ac.uk/archenvi/images/River.jpg
+	http://www.brad.ac.uk/acad/envsci/
+	http://www.brad.ac.uk/university/ugpros2004/foundation-year.php
+	http://www.bradford.ac.uk/acad/archsci/depart/ugrad/BA_Arch
+		External link, skipping <http://www.bradford.ac.uk/acad/archsci/depart/ugrad/BA_Arch>
+	http://www.brad.ac.uk/acad/archsci/images/new.gif
+		Skipping http://www.brad.ac.uk/acad/archsci/images/new.gif
+	http://www.bradford.ac.uk/acad/archsci/depart/ugrad/BSc_Arch
+		External link, skipping <http://www.bradford.ac.uk/acad/archsci/depart/ugrad/BSc_Arch>
+	http://www.bradford.ac.uk/acad/archsci/depart/ugrad/BSc_ArchSci
+		External link, skipping <http://www.bradford.ac.uk/acad/archsci/depart/ugrad/BSc_ArchSci>
+	http://www.bradford.ac.uk/acad/archsci/depart/ugrad/for_arch_sci
+		External link, skipping <http://www.bradford.ac.uk/acad/archsci/depart/ugrad/for_arch_sci>
+	http://www.bradford.ac.uk/acad/archsci/depart/ugrad/BSc_Bioarch
+		External link, skipping <http://www.bradford.ac.uk/acad/archsci/depart/ugrad/BSc_Bioarch>
+	http://www.brad.ac.uk/acad/envsci/prospectivestudents/undergrad/index.php#Applied_Ecology
+	http://www.brad.ac.uk/acad/envsci/prospectivestudents/undergrad/index.php#Environmental_Science
+	http://www.brad.ac.uk/acad/envsci/prospectivestudents/undergrad/index.php#Geography
+	http://www.brad.ac.uk/acad/archsci/images/new.gif
+		Skipping http://www.brad.ac.uk/acad/archsci/images/new.gif
+	http://www.brad.ac.uk/acad/envsci/prospectivestudents/undergrad/index.php#Geography_and_Archaeology_
+	http://www.brad.ac.uk/acad/envsci/prospectivestudents/undergrad/index.php#Geography_and_Environmental_Management
+	http://www.brad.ac.uk/acad/envsci/prospectivestudents/undergrad/index.php#Physical_and_Environmental_Geography_
+	http://www.brad.ac.uk/acad/archsci/depart/pgrad/archaeo/
+	http://www.brad.ac.uk/acad/archsci/depart/pgrad/arcpros/
+	http://www.brad.ac.uk/acad/archsci/depart/pgrad/bioarch/
+	http://www.brad.ac.uk/acad/archsci/depart/pgrad/forarch/
+	http://www.brad.ac.uk/acad/archsci/depart/pgrad/osteo/
+	http://www.brad.ac.uk/acad/archsci/depart/pgrad/scimeth/
+	http://browse.guardian.co.uk/education?SearchBySubject=false&FirstRow=0&SortOrderDirection=&SortOrderColumn=GuardianTeachingScore&Subject=Archaeology&Go=Go
+		External link, skipping <http://browse.guardian.co.uk/education?SearchBySubject=false&FirstRow=0&SortOrderDirection=&SortOrderColumn=GuardianTeachingScore&Subject=Archaeology&Go=Go>
+	http://browse.guardian.co.uk/education?SearchBySubject=&FirstRow=10&SortOrderDirection=&SortOrderColumn=GuardianTeachingScore&Subject=Geography+and+environmental+studies&Institution=
+		External link, skipping <http://browse.guardian.co.uk/education?SearchBySubject=&FirstRow=10&SortOrderDirection=&SortOrderColumn=GuardianTeachingScore&Subject=Geography+and+environmental+studies&Institution=>
+	http://www.bradford.ac.uk/archsci/
+		External link, skipping <http://www.bradford.ac.uk/archsci/>
+	http://www.bradford.ac.uk/acad/envsci/
+		External link, skipping <http://www.bradford.ac.uk/acad/envsci/>
+	http://www.brad.ac.uk/archenvi/#top
+	mailto:ArchSci-WWW@Bradford.ac.uk
+		External link, skipping <mailto:ArchSci-WWW@Bradford.ac.uk>
+	http://www.bradford.ac.uk/
+		External link, skipping <http://www.bradford.ac.uk/>
+	http://www.brad.ac.uk/university/ugpros2001/calloff.htm
+	mailto:Enquiries@Bradford.ac.uk
+		External link, skipping <mailto:Enquiries@Bradford.ac.uk>
+	mailto:Abuse@Bradford.ac.uk
+		External link, skipping <mailto:Abuse@Bradford.ac.uk>
+# of links in <http://www.brad.ac.uk/archenvi/> : 48
+Fetching URL from queue: <http://www.brad.ac.uk/admin/>
+Visiting http://www.brad.ac.uk/admin/
+	http://www.brad.ac.uk/
+	http://www.brad.ac.uk/img/web-logo-med.jpg
+		Skipping http://www.brad.ac.uk/img/web-logo-med.jpg
+	http://search.brad.ac.uk/search
+		External link, skipping <http://search.brad.ac.uk/search>
+	http://search.brad.ac.uk/search?ie=&amp;site=Bradford&amp;output=xml_no_dtd&amp;client=Bradford&amp;access=p&amp;lr=&amp;proxystylesheet=Bradford&amp;oe=&amp;proxycustom=<ADVANCED/>
+		External link, skipping <http://search.brad.ac.uk/search?ie=&amp;site=Bradford&amp;output=xml_no_dtd&amp;client=Bradford&amp;access=p&amp;lr=&amp;proxystylesheet=Bradford&amp;oe=&amp;proxycustom=<ADVANCED/>>
+	http://www.brad.ac.uk/external/
+	http://www.brad.ac.uk/external/prospectus/depts.php
+	http://www.brad.ac.uk/admin/cs-structure-2007.pdf
+		Skipping http://www.brad.ac.uk/admin/cs-structure-2007.pdf
+	http://www.brad.ac.uk/img/pdf.gif
+		Skipping http://www.brad.ac.uk/img/pdf.gif
+	http://www.brad.ac.uk/admin/#vc
+	http://www.brad.ac.uk/admin/planning
+		Skipping http://www.brad.ac.uk/admin/planning
+	http://www.brad.ac.uk/admin/#aa
+	http://www.brad.ac.uk/admin/#estates
+	http://www.brad.ac.uk/admin/#finance
+	http://www.brad.ac.uk/admin/#hr
+	http://www.brad.ac.uk/admin/#lss
+	http://www.brad.ac.uk/admin/#rkts
+	http://www.brad.ac.uk/external/geninfo/vc-who.php
+	http://www.brad.ac.uk/external/geninfo/taylor.php
+	http://www.brad.ac.uk/external/geninfo/vc-who.php#lucas
+	http://www.brad.ac.uk/external/geninfo/andrew.php
+	http://www.brad.ac.uk/external/geninfo/vc-who.php#pc
+	http://www.brad.ac.uk/external/geninfo/vc-who.php#pc
+	http://www.brad.ac.uk/external/geninfo/vc-who.php#pc
+	http://www.brad.ac.uk/external/geninfo/coates.php
+	http://www.brad.ac.uk/external/geninfo/earnshaw.php
+	http://www.brad.ac.uk/external/geninfo/layer.php
+	http://www.brad.ac.uk/admin/planning
+		Skipping http://www.brad.ac.uk/admin/planning
+	http://www.brad.ac.uk/admin/#top
+	http://www.brad.ac.uk/admin/acsec
+		Skipping http://www.brad.ac.uk/admin/acsec
+	http://www.brad.ac.uk/admin/saint
+		Skipping http://www.brad.ac.uk/admin/saint
+	http://www.brad.ac.uk/admin/alumni
+		Skipping http://www.brad.ac.uk/admin/alumni
+	http://www.brad.ac.uk/arts
+		Skipping http://www.brad.ac.uk/arts
+	http://www.brad.ac.uk/admin/gallery
+		Skipping http://www.brad.ac.uk/admin/gallery
+	http://www.brad.ac.uk/university/music
+		Skipping http://www.brad.ac.uk/university/music
+	http://www.brad.ac.uk/admin/theatre
+		Skipping http://www.brad.ac.uk/admin/theatre
+	http://www.brad.ac.uk/hub
+		Skipping http://www.brad.ac.uk/hub
+	http://www.brad.ac.uk/hub
+		Skipping http://www.brad.ac.uk/hub
+	http://www.brad.ac.uk/admin/hub-icon.gif
+		Skipping http://www.brad.ac.uk/admin/hub-icon.gif
+	http://www.brad.ac.uk/international
+		Skipping http://www.brad.ac.uk/international
+	http://www.brad.ac.uk/admin/pr
+		Skipping http://www.brad.ac.uk/admin/pr
+	http://www.brad.ac.uk/admin/#top
+	http://www.brad.ac.uk/admin/estates
+		Skipping http://www.brad.ac.uk/admin/estates
+	http://www.brad.ac.uk/admin/estates/ancillary.php
+	http://www.brad.ac.uk/admin/estates/environment.php
+	http://www.brad.ac.uk/admin/estates/roombookings.php
+	http://www.brad.ac.uk/admin/estates/roombookings.php
+	http://www.brad.ac.uk/admin/estates/security.php
+	http://www.brad.ac.uk/admin/#top
+	http://www.brad.ac.uk/admin/finance
+		Skipping http://www.brad.ac.uk/admin/finance
+	http://www.brad.ac.uk/admin/finance/private/pay.htm
+	http://www.brad.ac.uk/admin/finance/private/pay.htm
+	http://www.brad.ac.uk/admin/purchasing
+		Skipping http://www.brad.ac.uk/admin/purchasing
+	http://www.brad.ac.uk/admin/finance/tr/
+	http://www.brad.ac.uk/admin/catering
+		Skipping http://www.brad.ac.uk/admin/catering
+	http://www.brad.ac.uk/admin/conted/eventlist/public/
+	http://www.brad.ac.uk/accommodation
+		Skipping http://www.brad.ac.uk/accommodation
+	http://www.brad.ac.uk/nursery
+		Skipping http://www.brad.ac.uk/nursery
+	http://www.brad.ac.uk/admin/physrec
+		Skipping http://www.brad.ac.uk/admin/physrec
+	http://www.brad.ac.uk/admin/#top
+	http://www.brad.ac.uk/equality
+		Skipping http://www.brad.ac.uk/equality
+	http://www.brad.ac.uk/admin/safety
+		Skipping http://www.brad.ac.uk/admin/safety
+	http://www.brad.ac.uk/admin/personnel
+		Skipping http://www.brad.ac.uk/admin/personnel
+	http://www.brad.ac.uk/admin/#top
+	http://www.brad.ac.uk/lss
+		Skipping http://www.brad.ac.uk/lss
+	http://www.careers.brad.ac.uk/
+		External link, skipping <http://www.careers.brad.ac.uk/>
+	http://www.brad.ac.uk/lss/it-services/index.php
+	http://www.brad.ac.uk/admin/counselling
+		Skipping http://www.brad.ac.uk/admin/counselling
+	http://www.brad.ac.uk/admin/disab
+		Skipping http://www.brad.ac.uk/admin/disab
+	http://www.brad.ac.uk/external/prospectus/pg/gradschool.php
+	http://www.brad.ac.uk/lss/learnerdevelopment/
+	http://www.brad.ac.uk/library/index.php
+	http://www.brad.ac.uk/admin/mis/
+	http://www.brad.ac.uk/admin/staffdev
+		Skipping http://www.brad.ac.uk/admin/staffdev
+	http://www.brad.ac.uk/admin/student-engagement/
+	http://www.brad.ac.uk/acad/tqeg
+		Skipping http://www.brad.ac.uk/acad/tqeg
+	http://www.brad.ac.uk/lss/telephones/index.php
+	http://www.brad.ac.uk/admin/#top
+	http://www.brad.ac.uk/rkts
+		Skipping http://www.brad.ac.uk/rkts
+	http://www.brad.ac.uk/gateway/
+	http://www.cancer.brad.ac.uk/
+		External link, skipping <http://www.cancer.brad.ac.uk/>
+	http://www.ipi.brad.ac.uk/
+		External link, skipping <http://www.ipi.brad.ac.uk/>
+	http://www.brad.ac.uk/gateway/facilities/polymer-cic.php
+	http://www.brad.ac.uk/gateway/facilities/wireless-cic.php
+	http://www.brad.ac.uk/gateway/facilities/consultancy.php
+	http://www.brad.ac.uk/rkts/researchsupp.php?content=jesandguidelines
+	http://www.brad.ac.uk/gateway/research/
+	http://www.brad.ac.uk/thinkbusiness
+		Skipping http://www.brad.ac.uk/thinkbusiness
+	http://www.brad.ac.uk/admin/#top
+	http://www.brad.ac.uk/admin/#top
+	http://validator.w3.org/check/referer
+		External link, skipping <http://validator.w3.org/check/referer>
+	http://www.brad.ac.uk/img/valid-html401.gif
+		Skipping http://www.brad.ac.uk/img/valid-html401.gif
+	mailto:content-manager@bradford.ac.uk
+		External link, skipping <mailto:content-manager@bradford.ac.uk>
+	http://www.bradford.ac.uk/
+		External link, skipping <http://www.bradford.ac.uk/>
+	http://www.brad.ac.uk/university/ugpros2001/calloff.htm
+	mailto:course-enquiries@bradford.ac.uk
+		External link, skipping <mailto:course-enquiries@bradford.ac.uk>
+	http://www.yorkshireuniversities.ac.uk/
+		External link, skipping <http://www.yorkshireuniversities.ac.uk/>
+	mailto:abuse@bradford.ac.uk
+		External link, skipping <mailto:abuse@bradford.ac.uk>
+# of links in <http://www.brad.ac.uk/admin/> : 97
+Fetching URL from queue: <http://www.brad.ac.uk/acad/health/>
+Visiting http://www.brad.ac.uk/acad/health/
+	http://www.brad.ac.uk/
+	http://www.bradford.ac.uk/cgi-bin/largetext/www.bradford.ac.uk/acad/health/index.php
+		External link, skipping <http://www.bradford.ac.uk/cgi-bin/largetext/www.bradford.ac.uk/acad/health/index.php>
+	http://www.brad.ac.uk/acad/health/#skip
+	http://www.bradford.ac.uk/acad/health/access.php
+		External link, skipping <http://www.bradford.ac.uk/acad/health/access.php>
+	http://www.bradford.ac.uk/
+		External link, skipping <http://www.bradford.ac.uk/>
+	http://www.bradford.ac.uk/img/UoBlargeHealth.gif
+		External link, skipping <http://www.bradford.ac.uk/img/UoBlargeHealth.gif>
+	http://www.bradford.ac.uk/acad/health/
+		External link, skipping <http://www.bradford.ac.uk/acad/health/>
+	http://www.bradford.ac.uk/acad/health/images/health_title.gif
+		External link, skipping <http://www.bradford.ac.uk/acad/health/images/health_title.gif>
+	http://www.brad.ac.uk/acad/health/index.php
+	http://www.brad.ac.uk/acad/health/courses.php
+	http://www.brad.ac.uk/acad/health/departments.php
+	http://www.brad.ac.uk/acad/health/research/index.php
+	http://www.brad.ac.uk/acad/health/knowledge.php
+	http://www.brad.ac.uk/acad/health/resources.php
+	http://www.brad.ac.uk/acad/health/studentlife.php
+	http://www.brad.ac.uk/acad/health/recruitment/index.php
+	http://www.brad.ac.uk/acad/health/contact.php
+	http://www.brad.ac.uk/
+	http://www.bradford.ac.uk/acad/health/
+		External link, skipping <http://www.bradford.ac.uk/acad/health/>
+	http://search.brad.ac.uk/search
+		External link, skipping <http://search.brad.ac.uk/search>
+	http://www.bradford.ac.uk/acad/health/images/top_menu/searchgo.gif
+		External link, skipping <http://www.bradford.ac.uk/acad/health/images/top_menu/searchgo.gif>
+	http://www.brad.ac.uk/acad/health/dementia/index.php
+	http://www.brad.ac.uk/acad/health/hcs/index.php
+	http://www.brad.ac.uk/acad/health/mwh/index.php
+	http://www.brad.ac.uk/acad/health/nursing/index.php
+	http://www.brad.ac.uk/acad/health/rehab/index.php
+	http://www.brad.ac.uk/acad/health/rad/index.php
+	http://www.brad.ac.uk/acad/health/research/index.php
+	http://www.brad.ac.uk/acad/health/ilc/index.php
+	http://www.brad.ac.uk/acad/health/library.php
+	http://www.brad.ac.uk/acad/health/it/index.php
+	http://www.brad.ac.uk/acad/health/welcome.php
+	http://www.brad.ac.uk/acad/health/images/readmore.gif
+		Skipping http://www.brad.ac.uk/acad/health/images/readmore.gif
+	http://www.brad.ac.uk/acad/health/mwh/staff.php?showstaff=bradshaw_g
+	http://www.brad.ac.uk/admin/pr/newsandviews/
+	http://www.brad.ac.uk/acad/health/images/news_and_views.gif
+		Skipping http://www.brad.ac.uk/acad/health/images/news_and_views.gif
+	http://www.brad.ac.uk/acad/health/openday.php
+	http://www.brad.ac.uk/acad/health/images/opendays2004.jpg
+		Skipping http://www.brad.ac.uk/acad/health/images/opendays2004.jpg
+	http://www.brad.ac.uk/university/ugpros2001/calloff.htm
+	http://www.brad.ac.uk/acad/health/images/orderaprospectus.gif
+		Skipping http://www.brad.ac.uk/acad/health/images/orderaprospectus.gif
+	http://www.brad.ac.uk/acad/health/images/68d_Health.jpg
+		Skipping http://www.brad.ac.uk/acad/health/images/68d_Health.jpg
+	http://www.brad.ac.uk/acad/health/index.php?archive=yes
+	http://www.brad.ac.uk/acad/health/#top
+	mailto:soh-recruitment@bradford.ac.uk
+		External link, skipping <mailto:soh-recruitment@bradford.ac.uk>
+	mailto:sohs-webmaster@bradford.ac.uk
+		External link, skipping <mailto:sohs-webmaster@bradford.ac.uk>
+	http://www.brad.ac.uk/acad/health/copyright.php
+	http://validator.w3.org/check/referer
+		External link, skipping <http://validator.w3.org/check/referer>
+	http://www.brad.ac.uk/img/valid-html401.gif
+		Skipping http://www.brad.ac.uk/img/valid-html401.gif
+	http://jigsaw.w3.org/css-validator/validator?uri=http://www.brad.ac.uk/acad/health/index.php
+		External link, skipping <http://jigsaw.w3.org/css-validator/validator?uri=http://www.brad.ac.uk/acad/health/index.php>
+	http://www.brad.ac.uk/img/valid-css.gif
+		Skipping http://www.brad.ac.uk/img/valid-css.gif
+	http://www.bradford.ac.uk/university/ugpros2001/calloff.htm
+		External link, skipping <http://www.bradford.ac.uk/university/ugpros2001/calloff.htm>
+	mailto:enquiries@bradford.ac.uk
+		External link, skipping <mailto:enquiries@bradford.ac.uk>
+	mailto:abuse@bradford.ac.uk
+		External link, skipping <mailto:abuse@bradford.ac.uk>
+	http://www.bradford.ac.uk/acad/health/index.php
+		External link, skipping <http://www.bradford.ac.uk/acad/health/index.php>
+	http://www.bradford.ac.uk/
+		External link, skipping <http://www.bradford.ac.uk/>
+	http://www.brad.ac.uk/acad/health/courses/undergraduate.php
+	http://www.brad.ac.uk/acad/health/courses/postgraduate.php
+	http://www.bradford.ac.uk/acad/health/bdg/index.php
+		External link, skipping <http://www.bradford.ac.uk/acad/health/bdg/index.php>
+	http://www.bradford.ac.uk/acad/health/hcs/index.php
+		External link, skipping <http://www.bradford.ac.uk/acad/health/hcs/index.php>
+	http://www.bradford.ac.uk/acad/health/mwh/index.php
+		External link, skipping <http://www.bradford.ac.uk/acad/health/mwh/index.php>
+	http://www.bradford.ac.uk/acad/health/nursing/index.php
+		External link, skipping <http://www.bradford.ac.uk/acad/health/nursing/index.php>
+	http://www.bradford.ac.uk/acad/health/physio/index.php
+		External link, skipping <http://www.bradford.ac.uk/acad/health/physio/index.php>
+	http://www.bradford.ac.uk/acad/health/rad/index.php
+		External link, skipping <http://www.bradford.ac.uk/acad/health/rad/index.php>
+	http://www.bradford.ac.uk/catering/
+		External link, skipping <http://www.bradford.ac.uk/catering/>
+	http://www.brad.ac.uk/admin/safety/
+	http://www.bradford.ac.uk/acad/health/parking.php
+		External link, skipping <http://www.bradford.ac.uk/acad/health/parking.php>
+	http://www.ubuonline.co.uk/
+		External link, skipping <http://www.ubuonline.co.uk/>
+	http://www.careers.brad.ac.uk//
+		External link, skipping <http://www.careers.brad.ac.uk//>
+	http://www.bradford.ac.uk/admin/student-services/
+		External link, skipping <http://www.bradford.ac.uk/admin/student-services/>
+	http://www.brad.ac.uk/external/geninfo/tours.php
+	http://www.bradford.ac.uk/acad/health/staff.php
+		External link, skipping <http://www.bradford.ac.uk/acad/health/staff.php>
+	http://www.bradford.ac.uk/acad/health/details.php
+		External link, skipping <http://www.bradford.ac.uk/acad/health/details.php>
+	http://www.bradford.ac.uk/acad/health/findus.php
+		External link, skipping <http://www.bradford.ac.uk/acad/health/findus.php>
+	http://www.bradford.ac.uk/acad/health/ilc/index.php
+		External link, skipping <http://www.bradford.ac.uk/acad/health/ilc/index.php>
+	http://www.bradford.ac.uk/acad/health/it/index.php
+		External link, skipping <http://www.bradford.ac.uk/acad/health/it/index.php>
+	http://www.bradford.ac.uk/acad/health/library.php
+		External link, skipping <http://www.bradford.ac.uk/acad/health/library.php>
+	http://www.bradford.ac.uk/acad/health/sitemap.php
+		External link, skipping <http://www.bradford.ac.uk/acad/health/sitemap.php>
+	http://blackboard.brad.ac.uk/
+		External link, skipping <http://blackboard.brad.ac.uk/>
+	http://webmail.brad.ac.uk/horde/
+		External link, skipping <http://webmail.brad.ac.uk/horde/>
+# of links in <http://www.brad.ac.uk/acad/health/> : 79
+Fetching URL from queue: <http://www.brad.ac.uk/lss/>
+Visiting http://www.brad.ac.uk/lss/
+	http://www.brad.ac.uk/cgi-bin/largetext/www.brad.ac.uk/lss/index.php
+	http://www.brad.ac.uk/lss/images/pixelshim.gif
+		Skipping http://www.brad.ac.uk/lss/images/pixelshim.gif
+	http://www.brad.ac.uk/lss/#main
+	http://www.brad.ac.uk/lss/images/pixelshim.gif
+		Skipping http://www.brad.ac.uk/lss/images/pixelshim.gif
+	http://www.bradford.ac.uk/
+		External link, skipping <http://www.bradford.ac.uk/>
+	http://www.bradford.ac.uk/hub/images/uoblogoempty.gif
+		External link, skipping <http://www.bradford.ac.uk/hub/images/uoblogoempty.gif>
+	http://search.brad.ac.uk/search
+		External link, skipping <http://search.brad.ac.uk/search>
+	http://www.brad.ac.uk/lss/index.php
+	http://www.careers.brad.ac.uk/
+		External link, skipping <http://www.careers.brad.ac.uk/>
+	http://www.brad.ac.uk/admin/counselling/
+	http://www.brad.ac.uk/admin/disab/
+	http://www.brad.ac.uk/external/prospectus/pg/gradschool.php
+	http://www.brad.ac.uk/lss/it-services/index.php
+	http://www.brad.ac.uk/lss/learnerdevelopment/
+	http://www.brad.ac.uk/lss/library/index.php
+	http://www.brad.ac.uk/admin/mis/
+	http://www.brad.ac.uk/admin/staffdev/
+	http://www.brad.ac.uk/admin/studev/
+	http://www.brad.ac.uk/acad/tqeg/
+	http://www.brad.ac.uk/lss/telephones/index.php
+	http://www.brad.ac.uk/admin/
+	http://www.brad.ac.uk/lss/access.php
+	http://www.brad.ac.uk/lss/az/index.php
+	http://www.brad.ac.uk/lss/guide/contacts.php
+	http://www.brad.ac.uk/lss/disability/
+	http://www.brad.ac.uk/img/new3.gif
+		Skipping http://www.brad.ac.uk/img/new3.gif
+	http://www.brad.ac.uk/lss/feedback.php
+	http://www.brad.ac.uk/lss/help/
+	http://www.brad.ac.uk/lss/guide/index.php
+	http://www.brad.ac.uk/lss/lsc/
+	http://www.brad.ac.uk/lss/opening/index.php
+	http://www.brad.ac.uk/lss/price_list/
+	http://www.brad.ac.uk/lss/regulations/index.php
+	http://www.brad.ac.uk/dev-prog/index.php?section=diary
+	http://www.brad.ac.uk/lss/lssworkshops/
+	http://www.brad.ac.uk/lss/athens.php
+	http://www.brad.ac.uk/library/catalogue.php
+	http://www.brad.ac.uk/library/elecinfo/metalib.php
+	http://www.brad.ac.uk/lss/it-services/support/faults.php
+	http://www.brad.ac.uk/lss/it-services/pc-purchase/
+	http://www.resnet.brad.ac.uk/
+		External link, skipping <http://www.resnet.brad.ac.uk/>
+	http://www.brad.ac.uk/lss/documentation/
+	http://www.brad.ac.uk/lss/it-services/software/virus.php
+	http://www.careers.brad.ac.uk/student/study/
+		External link, skipping <http://www.careers.brad.ac.uk/student/study/>
+	http://www.careers.brad.ac.uk/student/jobhunting/
+		External link, skipping <http://www.careers.brad.ac.uk/student/jobhunting/>
+	http://www.careers.brad.ac.uk/student/experience/
+		External link, skipping <http://www.careers.brad.ac.uk/student/experience/>
+	http://www.ucisa.ac.uk/
+		External link, skipping <http://www.ucisa.ac.uk/>
+	http://www.brad.ac.uk/img/ucisa.gif
+		Skipping http://www.brad.ac.uk/img/ucisa.gif
+	http://www.careers.brad.ac.uk/
+		External link, skipping <http://www.careers.brad.ac.uk/>
+	http://www.brad.ac.uk/admin/counselling/
+	http://www.brad.ac.uk/admin/disab/
+	http://www.brad.ac.uk/external/prospectus/pg/gradschool.php
+	http://www.brad.ac.uk/lss/it-services/index.php
+	http://www.brad.ac.uk/lss/learnerdevelopment
+		Skipping http://www.brad.ac.uk/lss/learnerdevelopment
+	http://www.brad.ac.uk/lss/library/index.php
+	http://www.brad.ac.uk/admin/mis/
+	http://www.brad.ac.uk/admin/staffdev/
+	http://www.brad.ac.uk/admin/studev/
+	http://www.brad.ac.uk/acad/tqeg/
+	http://www.brad.ac.uk/lss/telephones/index.php
+	http://www.brad.ac.uk/news/coursework.html
+	http://www.brad.ac.uk/library/inductions/answers.php
+	http://www.brad.ac.uk/library/news/index.php#ehraf
+	http://www.careers.brad.ac.uk/ygrf
+		External link, skipping <http://www.careers.brad.ac.uk/ygrf>
+	http://www.careers.brad.ac.uk/student/international/permits.php
+		External link, skipping <http://www.careers.brad.ac.uk/student/international/permits.php>
+	http://www.graduatesyorkshire.info/
+		External link, skipping <http://www.graduatesyorkshire.info/>
+	http://www.careers.brad.ac.uk/student/events/employerlist.php
+		External link, skipping <http://www.careers.brad.ac.uk/student/events/employerlist.php>
+	http://www.brad.ac.uk/lss/news/bulletin/index.php
+	http://www.brad.ac.uk/lss/news/index.php
+	http://www.brad.ac.uk/lss/images/strip.jpg
+		Skipping http://www.brad.ac.uk/lss/images/strip.jpg
+	http://validator.w3.org/check/referer
+		External link, skipping <http://validator.w3.org/check/referer>
+	http://www.brad.ac.uk/img/valid-html401.gif
+		Skipping http://www.brad.ac.uk/img/valid-html401.gif
+	http://www.w3.org/WAI/WCAG1AA-Conformance
+		External link, skipping <http://www.w3.org/WAI/WCAG1AA-Conformance>
+	http://www.w3.org/WAI/wcag1AA
+		External link, skipping <http://www.w3.org/WAI/wcag1AA>
+	http://jigsaw.w3.org/css-validator/check/referer
+		External link, skipping <http://jigsaw.w3.org/css-validator/check/referer>
+	http://www.brad.ac.uk/img/valid-css.gif
+		Skipping http://www.brad.ac.uk/img/valid-css.gif
+	mailto:info-admin@bradford.ac.uk
+		External link, skipping <mailto:info-admin@bradford.ac.uk>
+	http://www.brad.ac.uk/lss/#top
+	mailto:info-admin@bradford.ac.uk
+		External link, skipping <mailto:info-admin@bradford.ac.uk>
+	http://www.bradford.ac.uk/
+		External link, skipping <http://www.bradford.ac.uk/>
+	http://www.brad.ac.uk/university/ugpros2001/calloff.htm
+	mailto:enquiries@bradford.ac.uk
+		External link, skipping <mailto:enquiries@bradford.ac.uk>
+	http://www.yorkshireuniversities.ac.uk/
+		External link, skipping <http://www.yorkshireuniversities.ac.uk/>
+	mailto:abuse@bradford.ac.uk
+		External link, skipping <mailto:abuse@bradford.ac.uk>
+# of links in <http://www.brad.ac.uk/lss/> : 84
+Fetching URL from queue: <http://www.brad.ac.uk/acad/lifesci/index.php>
+Visiting http://www.brad.ac.uk/acad/lifesci/index.php
+	http://www.bradford.ac.uk/
+		External link, skipping <http://www.bradford.ac.uk/>
+	http://www.brad.ac.uk/acad/lifesci/images/UoBmedium-mod.gif
+		Skipping http://www.brad.ac.uk/acad/lifesci/images/UoBmedium-mod.gif
+	http://www.brad.ac.uk/acad/lifesci/index.php
+	http://www.brad.ac.uk/acad/lifesci/courses/index.php
+	http://www.brad.ac.uk/acad/lifesci/departments/index.php
+	http://www.brad.ac.uk/acad/lifesci/research/index.php
+	http://www.brad.ac.uk/acad/lifesci/students/index.php
+	http://www.brad.ac.uk/acad/lifesci/admissions/index.php
+	http://www.brad.ac.uk/acad/lifesci/contacts/index.php
+	http://www.brad.ac.uk/acad/lifesci/news/index.php
+	http://www.brad.ac.uk/archenvi/
+	http://www.brad.ac.uk/acad/lifesci/biomedical/
+	http://www.brad.ac.uk/acad/lifesci/pharmacy/
+	http://www.brad.ac.uk/acad/lifesci/cfs/
+	http://www.brad.ac.uk/acad/lifesci/clinical/
+	http://www.brad.ac.uk/acad/lifesci/optometry/
+	http://search.brad.ac.uk/search
+		External link, skipping <http://search.brad.ac.uk/search>
+	http://www.bradford.ac.uk/acad/lifesci/images/top_menu/searchgo.gif
+		External link, skipping <http://www.bradford.ac.uk/acad/lifesci/images/top_menu/searchgo.gif>
+	http://www.brad.ac.uk/acad/ipi/
+	http://www.brad.ac.uk/acad/lifesci/images/IPI-logo-hrz.gif
+		Skipping http://www.brad.ac.uk/acad/lifesci/images/IPI-logo-hrz.gif
+	http://www.cancer.brad.ac.uk/
+		External link, skipping <http://www.cancer.brad.ac.uk/>
+	http://www.brad.ac.uk/acad/lifesci/images/ICT_logo.gif
+		Skipping http://www.brad.ac.uk/acad/lifesci/images/ICT_logo.gif
+	http://www.brad.ac.uk/acad/lifesci/internal/index.php
+	http://www.brad.ac.uk/acad/lifesci/Home/servicesb.php
+	http://www.brad.ac.uk/acad/lifesci/images/service.gif
+		Skipping http://www.brad.ac.uk/acad/lifesci/images/service.gif
+	http://www.brad.ac.uk/acad/lifesci/Home/servicesb.php
+	http://www.brad.ac.uk/acad/lifesci/internal/index.php
+	http://www.brad.ac.uk/acad/lifesci/images/intranet.gif
+		Skipping http://www.brad.ac.uk/acad/lifesci/images/intranet.gif
+	http://www.brad.ac.uk/admin/pr/pressreleases/2005/guardian.php
+	http://www.brad.ac.uk/img/rankings/biosciences-3rd.gif
+		Skipping http://www.brad.ac.uk/img/rankings/biosciences-3rd.gif
+	http://www.brad.ac.uk/acad/lifesci/home/forward.php
+	http://www.brad.ac.uk/admin/pr/pressreleases/2005/guardian.php
+	http://www.bradford.ac.uk/extra
+		External link, skipping <http://www.bradford.ac.uk/extra>
+	http://www.brad.ac.uk/img/ucas-extra.gif
+		Skipping http://www.brad.ac.uk/img/ucas-extra.gif
+	http://www.bradford.ac.uk/openday
+		External link, skipping <http://www.bradford.ac.uk/openday>
+	http://www.bradford.ac.uk/img/openday.gif
+		External link, skipping <http://www.bradford.ac.uk/img/openday.gif>
+	http://www.brad.ac.uk/external/geninfo/tours.php
+	http://www.cancer.brad.ac.uk/cancerpharm.php
+		External link, skipping <http://www.cancer.brad.ac.uk/cancerpharm.php>
+	https://evision1.brad.ac.uk/urd/sits.urd/run/siw_ipp_lgn.login?process=siw_ipp_app&code1=PCANPHA&code2=0001
+		External link, skipping <https://evision1.brad.ac.uk/urd/sits.urd/run/siw_ipp_lgn.login?process=siw_ipp_app&code1=PCANPHA&code2=0001>
+	http://www.cancer.brad.ac.uk/cancerpharm.php
+		External link, skipping <http://www.cancer.brad.ac.uk/cancerpharm.php>
+	http://www.cancer.brad.ac.uk/images/MSclogo_005.jpg
+		External link, skipping <http://www.cancer.brad.ac.uk/images/MSclogo_005.jpg>
+	http://www.brad.ac.uk/acad/lifesci/images/comment/comment5.gif
+		Skipping http://www.brad.ac.uk/acad/lifesci/images/comment/comment5.gif
+	http://www.brad.ac.uk/acad/lifesci/images/photo/3.jpg
+		Skipping http://www.brad.ac.uk/acad/lifesci/images/photo/3.jpg
+	http://www.bradford.ac.uk/extra
+		External link, skipping <http://www.bradford.ac.uk/extra>
+	http://www.brad.ac.uk/acad/lifesci/index.php#top
+	mailto:L.M.Whitehead1@bradford.ac.uk
+		External link, skipping <mailto:L.M.Whitehead1@bradford.ac.uk>
+	mailto:sls-web@bradford.ac.uk
+		External link, skipping <mailto:sls-web@bradford.ac.uk>
+	http://www.brad.ac.uk/booklets/#life
+	http://www.brad.ac.uk/university/ugpros2001/calloff.htm
+	http://www.bradford.ac.uk/cgi-bin/largetext/www.bradford.ac.uk/acad/lifesci/index.php
+		External link, skipping <http://www.bradford.ac.uk/cgi-bin/largetext/www.bradford.ac.uk/acad/lifesci/index.php>
+	http://validator.w3.org/check/referer
+		External link, skipping <http://validator.w3.org/check/referer>
+	http://www.brad.ac.uk/img/valid-html401.gif
+		Skipping http://www.brad.ac.uk/img/valid-html401.gif
+	http://jigsaw.w3.org/css-validator/validator?uri=http://www.brad.ac.uk/acad/lifesci/index.php
+		External link, skipping <http://jigsaw.w3.org/css-validator/validator?uri=http://www.brad.ac.uk/acad/lifesci/index.php>
+	http://www.brad.ac.uk/img/valid-css.gif
+		Skipping http://www.brad.ac.uk/img/valid-css.gif
+	http://www.bradford.ac.uk/university/ugpros2001/calloff.htm
+		External link, skipping <http://www.bradford.ac.uk/university/ugpros2001/calloff.htm>
+	mailto:enquiries@bradford.ac.uk
+		External link, skipping <mailto:enquiries@bradford.ac.uk>
+	mailto:abuse@bradford.ac.uk
+		External link, skipping <mailto:abuse@bradford.ac.uk>
+	http://www.bradford.ac.uk/acad/lifesci/index.php
+		External link, skipping <http://www.bradford.ac.uk/acad/lifesci/index.php>
+	http://www.bradford.ac.uk/
+		External link, skipping <http://www.bradford.ac.uk/>
+	http://www.brad.ac.uk/university/ugpros/biomedical.php
+	http://www.brad.ac.uk/university/ugpros/chemical.php
+	http://www.brad.ac.uk/university/ugpros/clinical.php
+	http://www.brad.ac.uk/university/ugpros/optometry.php
+	http://www.brad.ac.uk/university/ugpros/pharmacy.php
+	http://www.brad.ac.uk/university/ugpros/pharm-mgt.php
+	http://www.brad.ac.uk/acad/lifesci/courses/new.php
+	http://www.brad.ac.uk/university/pgpros/lifesciences.php
+	http://www.brad.ac.uk/university/ugpros2004/science.php
+	http://www.brad.ac.uk/external/study.php
+	http://www.brad.ac.uk/acad/lifesci/biomedical/index.php
+	http://www.brad.ac.uk/acad/chemistry/
+	http://www.brad.ac.uk/acad/optom/
+	http://www.brad.ac.uk/acad/lifesci/pharmacy/
+	http://www.brad.ac.uk/acad/lifesci/clinical/
+	http://www.brad.ac.uk/acad/cancer/new/tom_connors_cancer.htm
+	http://www.brad.ac.uk/acad/lifesci/biomedical/research.php
+	http://www.brad.ac.uk/acad/chemistry/research.html
+	http://www.brad.ac.uk/acad/lifesci/optometry/research/index.htm
+	http://www.brad.ac.uk/acad/lifesci/pharmacy/research.php
+	http://www.brad.ac.uk/acad/lifesci/clinical/features.php
+	http://www.brad.ac.uk/acad/cancer/new/tom_connors_cancer.htm
+	http://www.brad.ac.uk/acad/ipi/
+	http://www.nektar.com/
+		External link, skipping <http://www.nektar.com/>
+	http://www.brad.ac.uk/admin/pr/May2002/AGT.HTM
+		Skipping http://www.brad.ac.uk/admin/pr/May2002/AGT.HTM
+	http://www.brad.ac.uk/university/pgpros/lifesciences.php
+	http://www.brad.ac.uk/acad/lifesci/Home/studentships.php
+	http://www.plasticsurgery-bradford.org/
+		External link, skipping <http://www.plasticsurgery-bradford.org/>
+	http://www.brad.ac.uk/admin/rsil/index.html
+	http://www.brad.ac.uk/admin/student-services/
+	http://www.ubui.co.uk/
+		External link, skipping <http://www.ubui.co.uk/>
+	http://www.brad.ac.uk/admin/student-services/sis/
+	http://www.careers.brad.ac.uk/
+		External link, skipping <http://www.careers.brad.ac.uk/>
+	http://www.brad.ac.uk/admin/arts/
+	http://www.brad.ac.uk/admin/physrec/
+	http://www.brad.ac.uk/admin/disab/
+	http://www.brad.ac.uk/acad/lifesci/Home/student_societies1.php
+	http://www.brad.ac.uk/external/study.php
+	http://www.brad.ac.uk/acad/lifesci/admissions/entry.php
+	http://www.brad.ac.uk/university/ugpros2001/calloff.htm
+	http://www.brad.ac.uk/openday/
+	http://www.brad.ac.uk/admin/recruitment/clearing/
+	http://www.brad.ac.uk/external/study.php
+	http://www.bradford.ac.uk/acad/lifesci/contacts/staff1.php
+		External link, skipping <http://www.bradford.ac.uk/acad/lifesci/contacts/staff1.php>
+	http://www.brad.ac.uk/acad/lifesci/staff/
+	http://www.brad.ac.uk/university/gen/campusmap.htm
+	http://www.bradford.ac.uk/acad/lifesci/news/news.php
+		External link, skipping <http://www.bradford.ac.uk/acad/lifesci/news/news.php>
+	http://www.brad.ac.uk/acad/lifesci/news/newsletter/index.php
+	http://www.brad.ac.uk/acad/lifesci/news/archive.php
+	http://www.brad.ac.uk/admin/pr/pressreleases/
+	http://www.brad.ac.uk/admin/pr/newsandviews/
+# of links in <http://www.brad.ac.uk/acad/lifesci/index.php> : 110
+Fetching URL from queue: <http://www.brad.ac.uk/admin/conted/>
+Visiting http://www.brad.ac.uk/admin/conted/
+	http://www.brad.ac.uk/external/
+	http://www.brad.ac.uk/img/UoBmedium.gif
+		Skipping http://www.brad.ac.uk/img/UoBmedium.gif
+	http://www.brad.ac.uk/admin/conted/img/frieze2.jpg
+		Skipping http://www.brad.ac.uk/admin/conted/img/frieze2.jpg
+	http://www.brad.ac.uk/admin/conted/#skip
+	http://www.brad.ac.uk/admin/conted/access.html
+	http://www.brad.ac.uk/cgi-bin/cgiwrap/CONTED/lowvision
+		Skipping http://www.brad.ac.uk/cgi-bin/cgiwrap/CONTED/lowvision
+	http://www.brad.ac.uk/admin/conted/search/
+	http://www.brad.ac.uk/admin/conted/cfa/
+	http://www.brad.ac.uk/admin/conted/eventlist/public/
+	http://www.brad.ac.uk/admin/conted/civic-community/
+	http://www.brad.ac.uk/admin/conted/awp/
+	http://www.brad.ac.uk/admin/conted/ce_common/contact.html
+	http://www.brad.ac.uk/admin/conted/services.html
+	http://www.brad.ac.uk/admin/conted/forstudents/
+	http://www.brad.ac.uk/admin/conted/forstaff/
+	http://www.brad.ac.uk/admin/conted/cfa/welcome.html
+	http://www.polyeng.com/ppe07/
+		External link, skipping <http://www.polyeng.com/ppe07/>
+	http://www.brad.ac.uk/admin/conted/eventlist/public/attach/ec2/
+	http://www.brad.ac.uk/admin/conted/civic-community/writing-together.html
+	http://www.brad.ac.uk/admin/conted/news.php
+	http://www.brad.ac.uk/admin/conted/cfa/
+	http://www.brad.ac.uk/admin/conted/openday.html
+	http://www.brad.ac.uk/admin/conted/eventlist/public/
+	http://www.brad.ac.uk/admin/conted/civic-community/
+	http://www.brad.ac.uk/admin/conted/research/
+	http://www.brad.ac.uk/admin/conted/services.html
+	http://www.brad.ac.uk/admin/conted/ce_common/contact.html
+	http://www.brad.ac.uk/admin/conted/forstudents/
+	http://www.brad.ac.uk/admin/conted/forstaff/
+	http://www.brad.ac.uk/admin/conted/virtual-pennines/
+	http://www.brad.ac.uk/admin/conted/search/
+	http://www.brad.ac.uk/admin/conted/ce-announce.php
+	http://www.brad.ac.uk/admin/conted/newsfeed.html
+	http://www.brad.ac.uk/admin/conted/img/rss.png
+		Skipping http://www.brad.ac.uk/admin/conted/img/rss.png
+	http://www.brad.ac.uk/admin/conted/ce_common/pubs.html
+	http://www.brad.ac.uk/admin/conted/ce_common/links.html
+	http://www.brad.ac.uk/admin/conted/cfa/
+	http://www.brad.ac.uk/admin/conted/img/ourcourses-small.jpeg
+		Skipping http://www.brad.ac.uk/admin/conted/img/ourcourses-small.jpeg
+	http://www.brad.ac.uk/university/ugpros/combined-studies.php
+	http://www.brad.ac.uk/admin/conted/img/dyo-small.jpeg
+		Skipping http://www.brad.ac.uk/admin/conted/img/dyo-small.jpeg
+	http://www.brad.ac.uk/university/ugpros/combined-studies.php
+	http://www.brad.ac.uk/thehub/
+	http://www.brad.ac.uk/img/hub/hub-animated.gif
+		Skipping http://www.brad.ac.uk/img/hub/hub-animated.gif
+	http://www.brad.ac.uk/openday
+		Skipping http://www.brad.ac.uk/openday
+	http://www.brad.ac.uk/external/openday.gif
+		Skipping http://www.brad.ac.uk/external/openday.gif
+	http://www.brad.ac.uk/admin/conted/cfa/
+	http://www.brad.ac.uk/admin/conted/eventlist/public/
+	http://www.brad.ac.uk/admin/conted/civic-community/
+	http://www.brad.ac.uk/admin/conted/awp/
+	http://www.brad.ac.uk/acad/tqeg/
+	http://www.brad.ac.uk/admin/conted/research/
+	http://www.eucen.org/
+		External link, skipping <http://www.eucen.org/>
+	http://www.mirpurconnection.com/home.php
+		External link, skipping <http://www.mirpurconnection.com/home.php>
+	http://www.brad.ac.uk/admin/conted/img/sign.jpg
+		Skipping http://www.brad.ac.uk/admin/conted/img/sign.jpg
+	http://www.brad.ac.uk/admin/conted/#pagetop
+	http://www.brad.ac.uk/img/toptr.gif
+		Skipping http://www.brad.ac.uk/img/toptr.gif
+	mailto:enquiries@bradford.ac.uk
+		External link, skipping <mailto:enquiries@bradford.ac.uk>
+	mailto:scu@bradford.ac.uk
+		External link, skipping <mailto:scu@bradford.ac.uk>
+	http://www.brad.ac.uk/external/
+	http://www.brad.ac.uk/university/ugpros2001/calloff.htm
+	mailto:course-enquiries@bradford.ac.uk
+		External link, skipping <mailto:course-enquiries@bradford.ac.uk>
+	mailto:abuse@bradford.ac.uk
+		External link, skipping <mailto:abuse@bradford.ac.uk>
+	http://www.brad.ac.uk/admin/conted/search/
+	http://www.brad.ac.uk/img/search4.gif
+		Skipping http://www.brad.ac.uk/img/search4.gif
+# of links in <http://www.brad.ac.uk/admin/conted/> : 64
+Fetching URL from queue: <http://www.brad.ac.uk/acad/ssis/>
+Visiting http://www.brad.ac.uk/acad/ssis/
+	http://www.brad.ac.uk/acad/ssis/#content
+	http://www.brad.ac.uk/acad/ssis/#nav
+	http://www.brad.ac.uk/acad/ssis/#deptNav
+	http://www.brad.ac.uk/cgi-bin/largetext/www.brad.ac.uk/acad/ssis/
+	http://www.bradford.ac.uk/
+		External link, skipping <http://www.bradford.ac.uk/>
+	http://www.brad.ac.uk/acad/ssis/
+	http://search.brad.ac.uk/search
+		External link, skipping <http://search.brad.ac.uk/search>
+	http://www.dev.brad.ac.uk/acad/ssis/ssistemplateMay06/images/searchgo.gif
+		External link, skipping <http://www.dev.brad.ac.uk/acad/ssis/ssistemplateMay06/images/searchgo.gif>
+	http://www.bradford.ac.uk/
+		External link, skipping <http://www.bradford.ac.uk/>
+	http://www.bradford.ac.uk/acad/ssis/
+		External link, skipping <http://www.bradford.ac.uk/acad/ssis/>
+	http://www.brad.ac.uk/acad/bcid/
+	http://www.brad.ac.uk/acad/ssis/images/dept/bcid_button.gif
+		Skipping http://www.brad.ac.uk/acad/ssis/images/dept/bcid_button.gif
+	http://www.brad.ac.uk/acad/psychology/
+	http://www.brad.ac.uk/acad/ssis/images/dept/psychology_button.gif
+		Skipping http://www.brad.ac.uk/acad/ssis/images/dept/psychology_button.gif
+	http://www.brad.ac.uk/acad/les/
+	http://www.brad.ac.uk/acad/ssis/images/dept/les_button.gif
+		Skipping http://www.brad.ac.uk/acad/ssis/images/dept/les_button.gif
+	http://www.brad.ac.uk/acad/peace/
+	http://www.brad.ac.uk/acad/ssis/images/dept/peace_button.gif
+		Skipping http://www.brad.ac.uk/acad/ssis/images/dept/peace_button.gif
+	http://www.brad.ac.uk/acad/ssh/
+	http://www.brad.ac.uk/acad/ssis/images/dept/ssh_button.gif
+		Skipping http://www.brad.ac.uk/acad/ssis/images/dept/ssh_button.gif
+	http://www.brad.ac.uk/acad/ssis/welcome.php
+	http://www.brad.ac.uk/acad/ssis/course/undergraduate/
+	http://www.brad.ac.uk/acad/ssis/course/postgraduate/
+	http://www.brad.ac.uk/acad/ssis/departments/
+	http://www.brad.ac.uk/thehub/
+	http://www.brad.ac.uk/img/hub/hub-animated.gif
+		Skipping http://www.brad.ac.uk/img/hub/hub-animated.gif
+	http://www.brad.ac.uk/acad/les/course/undergraduate/history.php
+	http://www.brad.ac.uk/acad/les/images/history_8.gif
+		Skipping http://www.brad.ac.uk/acad/les/images/history_8.gif
+	http://www.brad.ac.uk/acad/ssis/research/CES/
+	http://www.brad.ac.uk/acad/ssis/images/ces.gif
+		Skipping http://www.brad.ac.uk/acad/ssis/images/ces.gif
+	http://www.brad.ac.uk/acad/ebu/
+	http://www.brad.ac.uk/acad/ssis/images/ebu.gif
+		Skipping http://www.brad.ac.uk/acad/ssis/images/ebu.gif
+	http://www.brad.ac.uk/acad/ssis/course/undergraduate/combine.php
+	http://www.brad.ac.uk/acad/ssis/images/mixSmall.gif
+		Skipping http://www.brad.ac.uk/acad/ssis/images/mixSmall.gif
+	http://www.brad.ac.uk/briefing/we-11-may07.php#atrium
+	http://www.careers.brad.ac.uk/student/newgrad.php
+		External link, skipping <http://www.careers.brad.ac.uk/student/newgrad.php>
+	http://www.brad.ac.uk/briefing/we-11-may07.php#inprint
+	http://www.brad.ac.uk/admin/acsec/examreg/timetable/index.php
+	http://www.brad.ac.uk/briefing/we-4-may07.php#smoke
+	http://www.brad.ac.uk/hub/studentnews/bradford-bid.php
+	http://www.brad.ac.uk/hub/studentnews/photo.php
+	http://www.brad.ac.uk/news/lazyeye.html
+	http://www.brad.ac.uk/acad/ssis/
+	http://www.brad.ac.uk/acad/ssis/courses/
+	http://www.brad.ac.uk/acad/ssis/facilities/
+	http://www.brad.ac.uk/acad/ssis/departments/
+	http://www.brad.ac.uk/acad/ssis/research/
+	http://www.brad.ac.uk/acad/ssis/admission/
+	http://www.brad.ac.uk/acad/ssis/contacts/
+	http://www.brad.ac.uk/acad/ssis/news/
+	http://www.brad.ac.uk/acad/ssis/internal/
+	http://www.brad.ac.uk/acad/ssis/
+	http://www.brad.ac.uk/acad/ssis/
+	http://www.brad.ac.uk/
+	http://www.brad.ac.uk/acad/ssis/course/
+	http://www.brad.ac.uk/acad/ssis/course/
+	http://www.brad.ac.uk/acad/ssis/course/undergraduate/
+	http://www.brad.ac.uk/acad/ssis/course/postgraduate/
+	http://www.brad.ac.uk/acad/ssis/departments/
+	http://www.brad.ac.uk/acad/bcid/
+	http://www.brad.ac.uk/acad/psychology/
+	http://www.brad.ac.uk/acad/les/
+	http://www.brad.ac.uk/acad/peace/
+	http://www.brad.ac.uk/acad/ssh/
+	http://www.brad.ac.uk/acad/ssis/research/
+	http://www.brad.ac.uk/acad/ssis/research/
+	http://www.brad.ac.uk/gateway/
+	http://www.brad.ac.uk/acad/ssis/student_life/
+	http://www.brad.ac.uk/catering/
+	http://www.brad.ac.uk/library/
+	http://www.ubuonline.co.uk/
+		External link, skipping <http://www.ubuonline.co.uk/>
+	http://www.brad.ac.uk/admin/student-services/
+	http://www.brad.ac.uk/external/geninfo/mature.php
+	http://www.brad.ac.uk/external/geninfo/tours.php
+	http://www.brad.ac.uk/external/tuitionfees/
+	http://www.brad.ac.uk/acad/ssis/admission/
+	http://www.brad.ac.uk/university/ugpros2001/calloff.htm
+	http://www.brad.ac.uk/openday/
+	http://www.brad.ac.uk/jobs/
+	http://www.brad.ac.uk/acad/ssis/contact/
+	http://www.brad.ac.uk/acad/ssis/contact/
+	http://www.brad.ac.uk/acad/ssis/school_details.php
+	http://www.brad.ac.uk/external/visit/getting.php
+	http://www.brad.ac.uk/internal/index.php?section=contacts
+	http://www.brad.ac.uk/acad/ssis/news/
+	http://www.brad.ac.uk/acad/ssis/news/
+	http://www.brad.ac.uk/admin/pr/pressreleases/
+	http://www.brad.ac.uk/admin/pr/newsandviews/
+	http://www.brad.ac.uk/arts/
+	http://www.brad.ac.uk/acad/ssis/#top
+	mailto:course-enquiries@bradford.ac.uk
+		External link, skipping <mailto:course-enquiries@bradford.ac.uk>
+	mailto:ssis-webmaster@bradford.ac.uk
+		External link, skipping <mailto:ssis-webmaster@bradford.ac.uk>
+	http://www.brad.ac.uk/university/ugpros2001/calloff.htm
+	mailto:course-enquiries@bradford.ac.uk
+		External link, skipping <mailto:course-enquiries@bradford.ac.uk>
+	http://www.brad.ac.uk/acad/ssis/disclaimer.php
+	http://www.brad.ac.uk/acad/ssis/accessibility.php
+	http://www.brad.ac.uk/acad/ssis/copyright.php
+# of links in <http://www.brad.ac.uk/acad/ssis/> : 97
+Fetching URL from queue: <http://www.brad.ac.uk/internal/index.php?section=accessibility>
+Link already visited, skipping <http://www.brad.ac.uk/internal/index.php?section=accessibility>
+Fetching URL from queue: <http://www.brad.ac.uk/cgi-bin/largetext/www.brad.ac.uk/internal/index.php?section=>
+Visiting http://www.brad.ac.uk/cgi-bin/largetext/www.brad.ac.uk/internal/index.php?section=
+	http://www.brad.ac.uk/cgi-bin/largetext/www.brad.ac.uk/internal/index.php?section=#content
+	http://www.brad.ac.uk/cgi-bin/largetext/www.brad.ac.uk/internal/index.php?section=#schools
+	http://www.brad.ac.uk/cgi-bin/largetext/www.brad.ac.uk/internal/index.php?section=#quick
+	http://www.brad.ac.uk/cgi-bin/largetext/www.brad.ac.uk/internal/index.php?section=#bottom
+	http://www.brad.ac.uk/cgi-bin/largetext/0005/www.brad.ac.uk/
+	http://www.brad.ac.uk/cgi-bin/largetext/0005/search.brad.ac.uk/search
+		Skipping http://www.brad.ac.uk/cgi-bin/largetext/0005/search.brad.ac.uk/search
+	http://www.brad.ac.uk/cgi-bin/largetext/0005/www.brad.ac.uk/about/
+	http://www.brad.ac.uk/cgi-bin/largetext/0005/search.brad.ac.uk/search?ie=&amp;site=Bradford&amp;output=xml_no_dtd&amp;client=Bradford&amp;access=p&amp;lr=&amp;proxystylesheet=Bradford&amp;oe=&amp;proxycustom=&lt;ADVANCED/
+	http://www.brad.ac.uk/cgi-bin/largetext/0005/www.brad.ac.uk/external/
+	http://www.brad.ac.uk/cgi-bin/largetext/0005/www.brad.ac.uk/internal/index.php?section=research
+	http://www.brad.ac.uk/cgi-bin/largetext/0005/www.brad.ac.uk/internal/index.php?section=learning
+	http://www.brad.ac.uk/cgi-bin/largetext/0005/www.brad.ac.uk/internal/index.php?section=staff
+	http://www.brad.ac.uk/cgi-bin/largetext/0005/www.brad.ac.uk/internal/index.php?section=student
+	http://www.brad.ac.uk/cgi-bin/largetext/0005/www.brad.ac.uk/internal/index.php?section=campus
+	http://www.brad.ac.uk/cgi-bin/largetext/0005/www.brad.ac.uk/internal/index.php?section=resources
+	http://www.brad.ac.uk/cgi-bin/largetext/0005/www.brad.ac.uk/internal/index.php?section=contacts
+	http://www.brad.ac.uk/cgi-bin/largetext/0005/www.brad.ac.uk/internal/index.php?section=accessibility
+	http://www.brad.ac.uk/cgi-bin/largetext/0005/www.brad.ac.uk/archenvi/
+	http://www.brad.ac.uk/cgi-bin/largetext/0005/www.eng.brad.ac.uk/
+	http://www.brad.ac.uk/cgi-bin/largetext/0005/www.brad.ac.uk/acad/health/
+	http://www.brad.ac.uk/cgi-bin/largetext/0005/www.inf.brad.ac.uk/
+	http://www.brad.ac.uk/cgi-bin/largetext/0005/www.brad.ac.uk/acad/lifesci/index.php
+	http://www.brad.ac.uk/cgi-bin/largetext/0005/www.brad.ac.uk/admin/conted/
+	http://www.brad.ac.uk/cgi-bin/largetext/0005/www.brad.ac.uk/management
+		Skipping http://www.brad.ac.uk/cgi-bin/largetext/0005/www.brad.ac.uk/management
+	http://www.brad.ac.uk/cgi-bin/largetext/0005/www.brad.ac.uk/acad/ssis/
+	http://www.brad.ac.uk/cgi-bin/largetext/0005/www.brad.ac.uk/admin/
+	http://www.brad.ac.uk/cgi-bin/largetext/0005/www.brad.ac.uk/thehub/
+	http://www.brad.ac.uk/cgi-bin/largetext/0005/www.brad.ac.uk/lss/
+	http://www.brad.ac.uk/cgi-bin/largetext/0005/www.brad.ac.uk/admin/estates/
+	http://www.brad.ac.uk/cgi-bin/largetext/0005/www.brad.ac.uk/admin/#finance
+	http://www.brad.ac.uk/cgi-bin/largetext/0005/www.brad.ac.uk/admin/#hr
+	http://www.brad.ac.uk/cgi-bin/largetext/0005/www.brad.ac.uk/rkts/
+	http://www.brad.ac.uk/cgi-bin/largetext/0005/www.brad.ac.uk/internal/index.php?section=accessibility
+	http://www.brad.ac.uk/cgi-bin/largetext/0005/www.brad.ac.uk/cgi-bin/largetext/www.brad.ac.uk/internal/index.php?section=
+	http://www.brad.ac.uk/cgi-bin/largetext/0005/www.brad.ac.uk/internal/styles/switcher.php
+	http://validator.w3.org/check/referer
+		External link, skipping <http://validator.w3.org/check/referer>
+	http://jigsaw.w3.org/css-validator/check/referer
+		External link, skipping <http://jigsaw.w3.org/css-validator/check/referer>
+	http://www.w3.org/WAI/WCAG1A-Conformance
+		External link, skipping <http://www.w3.org/WAI/WCAG1A-Conformance>
+	http://www.brad.ac.uk/cgi-bin/largetext/0005/www.brad.ac.uk/corporateplan/
+	http://www.brad.ac.uk/cgi-bin/largetext/0005/www.brad.ac.uk/admin/planning/balancedscorecard/
+	http://www.brad.ac.uk/cgi-bin/largetext/0005/www.brad.ac.uk/admin/planning/PBPTRACKER/TrackerTitlePage.htm
+	http://www.brad.ac.uk/cgi-bin/largetext/0005/www.brad.ac.uk/admin/pr/pressreleases/Press_rel_liat.htm
+	http://www.brad.ac.uk/cgi-bin/largetext/0005/www.brad.ac.uk/briefing/
+	http://www.brad.ac.uk/cgi-bin/largetext/0005/www.brad.ac.uk/newsandviews/
+	http://www.brad.ac.uk/cgi-bin/largetext/0005/www.brad.ac.uk/news/campusnews/
+	http://www.brad.ac.uk/cgi-bin/largetext/0005/www.brad.ac.uk/library/elecinfo/refnews.php
+	http://www.brad.ac.uk/cgi-bin/largetext/0005/news.bbc.co.uk/
+	http://www.brad.ac.uk/cgi-bin/largetext/0005/www.bbc.co.uk/bradford/news/index.shtml
+		Skipping http://www.brad.ac.uk/cgi-bin/largetext/0005/www.bbc.co.uk/bradford/news/index.shtml
+	http://www.thisisbradford.co.uk/
+		External link, skipping <http://www.thisisbradford.co.uk/>
+	http://www.brad.ac.uk/cgi-bin/largetext/0005/www.brad.ac.uk/admin/disab/des/
+	http://www.brad.ac.uk/cgi-bin/largetext/0005/www.bradford.ac.uk/news/ges.htm
+	https://selfreg.brad.ac.uk/cc/SelfregNotice.htm
+		External link, skipping <https://selfreg.brad.ac.uk/cc/SelfregNotice.htm>
+	http://www.brad.ac.uk/cgi-bin/largetext/0005/www.brad.ac.uk/lss/help/newpassword.php
+	https://secure.brad.ac.uk/cc/ChangePassword.htm
+		External link, skipping <https://secure.brad.ac.uk/cc/ChangePassword.htm>
+	https://webmail.brad.ac.uk/
+		External link, skipping <https://webmail.brad.ac.uk/>
+	http://www.brad.ac.uk/cgi-bin/largetext/0005/www.brad.ac.uk/lss/it-services/support/roamnet.php
+	http://www.brad.ac.uk/cgi-bin/largetext/0005/www.brad.ac.uk/lss/it-services/filestores/
+	http://www.brad.ac.uk/cgi-bin/largetext/0005/blackboard.brad.ac.uk
+		Skipping http://www.brad.ac.uk/cgi-bin/largetext/0005/blackboard.brad.ac.uk
+	http://www.brad.ac.uk/cgi-bin/largetext/0005/www.brad.ac.uk/library/elecinfo/readinglists/
+	http://www.brad.ac.uk/cgi-bin/largetext/0005/ipac.brad.ac.uk
+		Skipping http://www.brad.ac.uk/cgi-bin/largetext/0005/ipac.brad.ac.uk
+	http://www.brad.ac.uk/cgi-bin/largetext/0005/www.brad.ac.uk/library/elecinfo/metalib.php
+	http://www.brad.ac.uk/cgi-bin/largetext/0005/www.diary.brad.ac.uk/
+	http://www.brad.ac.uk/cgi-bin/largetext/0005/www.brad.ac.uk/admin/SAINT/
+	https://evision.brad.ac.uk/
+		External link, skipping <https://evision.brad.ac.uk/>
+	http://www.brad.ac.uk/cgi-bin/largetext/0005/evision.brad.ac.uk/modsearch.htm
+	http://www.brad.ac.uk/cgi-bin/largetext/0005/www.brad.ac.uk/openday/
+	http://www.brad.ac.uk/cgi-bin/largetext/0005/www.brad.ac.uk/admin/student-registry/DegreeCeremonies/index.htm
+	http://www.brad.ac.uk/cgi-bin/largetext/0005/www.brad.ac.uk/admin/theatre
+		Skipping http://www.brad.ac.uk/cgi-bin/largetext/0005/www.brad.ac.uk/admin/theatre
+	http://www.brad.ac.uk/cgi-bin/largetext/0005/www.brad.ac.uk/university/music/
+	http://www.brad.ac.uk/cgi-bin/largetext/0005/www.brad.ac.uk/admin/arts/GalleryII.htm
+	http://www.brad.ac.uk/cgi-bin/largetext/0005/www.brad.ac.uk/admin/physrec/
+	http://www.ubuonline.co.uk/
+		External link, skipping <http://www.ubuonline.co.uk/>
+	http://www.ramair.co.uk/
+		External link, skipping <http://www.ramair.co.uk/>
+	http://www.kineticmag.com/
+		External link, skipping <http://www.kineticmag.com/>
+	http://www.bradford.gov.uk/tourism/whatsonform.asp
+		External link, skipping <http://www.bradford.gov.uk/tourism/whatsonform.asp>
+	http://www.brad.ac.uk/cgi-bin/largetext/0005/www.bbc.co.uk/bradford/going_out/whatson.shtml
+		Skipping http://www.brad.ac.uk/cgi-bin/largetext/0005/www.bbc.co.uk/bradford/going_out/whatson.shtml
+	http://www.brad.ac.uk/cgi-bin/largetext/0005/www.brad.ac.uk/hub/
+	http://www.brad.ac.uk/cgi-bin/largetext/0005/www.brad.ac.uk/internal/index.php
+	http://www.brad.ac.uk/cgi-bin/largetext/0005/www.brad.ac.uk/dev-prog/teaching/index.php?course=06-52
+	http://www.brad.ac.uk/cgi-bin/largetext/0005/www.brad.ac.uk/briefing/we-11-may07.php#atrium
+	http://www.brad.ac.uk/cgi-bin/largetext/0005/www.careers.brad.ac.uk/student/newgrad.php
+	http://www.brad.ac.uk/cgi-bin/largetext/0005/www.brad.ac.uk/briefing/we-11-may07.php#inprint
+	http://www.brad.ac.uk/cgi-bin/largetext/0005/www.brad.ac.uk/admin/acsec/examreg/timetable/index.php
+	http://www.brad.ac.uk/cgi-bin/largetext/0005/www.brad.ac.uk/briefing/we-4-may07.php#smoke
+	http://www.brad.ac.uk/cgi-bin/largetext/0005/www.brad.ac.uk/hub/studentnews/bradford-bid.php
+	http://www.brad.ac.uk/cgi-bin/largetext/0005/www.brad.ac.uk/hub/studentnews/photo.php
+	http://www.brad.ac.uk/cgi-bin/largetext/0005/www.brad.ac.uk/news/lazyeye.html
+	http://www.brad.ac.uk/cgi-bin/largetext/www.brad.ac.uk/internal/index.php?section=#top
+	mailto:info-admin@bradford.ac.uk
+		External link, skipping <mailto:info-admin@bradford.ac.uk>
+	http://www.brad.ac.uk/cgi-bin/largetext/0005/www.brad.ac.uk/internal/index.php?section=accessibility
+	http://www.brad.ac.uk/cgi-bin/largetext/0005/www.brad.ac.uk/university/ugpros2001/calloff.htm
+	http://www.brad.ac.uk/cgi-bin/largetext/0005/www.brad.ac.uk/foi/
+	http://www.yorkshireuniversities.ac.uk/
+		External link, skipping <http://www.yorkshireuniversities.ac.uk/>
+	mailto:abuse@bradford.ac.uk
+		External link, skipping <mailto:abuse@bradford.ac.uk>
+	http://www.brad.ac.uk/cgi-bin/largetext/1005/www.brad.ac.uk/internal/index.php?section=
+	http://www.brad.ac.uk/internal/index.php?section=
+# of links in <http://www.brad.ac.uk/cgi-bin/largetext/www.brad.ac.uk/internal/index.php?section=> : 96
+Fetching URL from queue: <http://www.brad.ac.uk/internal/styles/switcher.php>
+Done.
+Building matrix ... Done.
+Writing matrix to <matrix.txt> ... Done.

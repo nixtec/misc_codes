@@ -1,0 +1,13 @@
+Project Name: Simple Web Spider
+Programming Language: C
+Additional Library: w3c-libwww
+
+Advantages:
+  * C makes the program fast in execution
+  * The 'w3c-libwww' makes the spider robust in crawling pages and extracting
+    links.
+  * No additional interpreter [like php, perl, python, etc.] needed to be
+    installed. Native system's executable is generated after compilation.
+  * C is mostly used programming language. Most of the programmers know C.
+    However it is upto programmers which programming language they will use.
+

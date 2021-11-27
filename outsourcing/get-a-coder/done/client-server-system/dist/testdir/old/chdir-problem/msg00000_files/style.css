@@ -1,0 +1,199 @@
+*
+ * $Id: stylesheet.css.in.dist,v 1.2 2002/08/26 20:55:33 ehood Exp $
+ * Main stylesheet for MHArc archives.
+ * NOTE: The .in template version of this file should be edited
+ *	 if any changes are desired.  Then re-run the configure
+ *	 script to have changes applied.
+ */
+
+/**********************************************************************
+ *  General Styles
+ */
+body {
+  background-color: #8FFFFF;
+  color: black;
+  text-align: left;
+}
+.listTitle {
+  font-size: larger;
+}
+div.metaIdxNav {
+  text-align: center;
+  font-size: smaller;
+}
+div.idxTitle {
+  text-align: center;
+  margin-bottom: 0.5em;
+}
+.periodLink {
+  background-color: #CCEEFF;
+  padding: 0.25em;
+  border-style: solid;
+  border-width: thin;
+  border-color: black;
+}
+.iaText {
+  color: #888888;
+}
+
+/**********************************************************************
+ *  All Lists Index
+ */
+table.archiveLists {
+  color: #EEEEEE;
+  background: black;
+}
+table.archiveLists * th {
+  background: #FFEECC;
+  color: black;
+}
+table.archiveLists * td {
+  background: #CCEEFF;
+  color: black;
+}
+.listName {
+  font-weight: bold;
+} 
+.infoLink {
+  font-weight: normal;
+} 
+
+/**********************************************************************
+ *  Date Index Styles
+ */
+div.dayGroup {
+  background-color: #EEEEEE;
+  padding: 0.5em;
+  margin-bottom: 0.5em;
+  border-style: solid;
+  border-width: thin;
+  border-color: black;
+  width:100%
+}
+div.dayGroup > ul {
+  margin-top: 0em;
+  margin-bottom: 0em;
+}
+
+/**********************************************************************
+ *  Thread Index Styles
+ */
+div.threadList > ul {
+  margin: 0.5em;
+  padding-left: 1.0em;
+  text-align: left;
+  width:100%
+}
+
+div.threadGroup {
+  background-color: #EEEEEE;
+  padding: 0.5em;
+  margin-top: 0.25em;
+  margin-bottom: 0.25em;
+  border-style: solid;
+  border-width: thin;
+  border-color: black;
+  width:100%
+}
+div.threadGroup > ul {
+  margin-top: 0em;
+  margin-bottom: 0em;
+  width:100%
+}
+div.tSingle {
+  border: none;
+  width:100%
+}
+
+/**********************************************************************
+ *  Message Page Styles
+ */
+div.msgTitle {
+  text-align: center;
+  margin-bottom: 0.5em;
+}
+
+div.msgSubject h2 {
+  margin-top: 0.25em;
+  margin-bottom: 0.25em;
+}
+div.msgLinks {
+  margin-left: 1.0em;
+  margin-right: 1.0em;
+}
+div.msgLinks > table * td {
+  font-size: smaller;
+}
+
+div.topLinks {
+  text-align: center;
+}
+.topDateNav {
+  background-color: #CCEEFF;
+  padding: 0.25em;
+  border-style: solid;
+  border-width: thin;
+  border-color: black;
+}
+.topThreadNav {
+  background-color: #CCEEFF;
+  padding: 0.25em;
+  border-style: solid;
+  border-width: thin;
+  border-color: black;
+}
+
+div.msgHead {
+  background-color: #FFEECC;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  border-style: solid;
+  border-width: thin;
+  border-color: black;
+  border-spacing: 0em;
+  width:100%
+}
+
+div.msgBody {
+  background-color: #EEEEEE;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  border-style: solid;
+  border-width: thin;
+  border-color: black;
+  border-spacing: 0em;
+  width:100%
+}
+
+div.tSlice {
+  width:100%
+}
+
+div.tSlice * td {
+  background-color: #CCEEFF;
+}
+div.tSlice * th {
+  background-color: #FFEECC;
+}
+tr.tSliceList td {
+  background-color: #DDDDDD;
+  width:100%
+}
+.sliceCur {
+  background-color: #CCCCCC;
+}
+
+div.botLinks {
+  background-color: #FFEECC;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  border-style: solid;
+  border-width: thin;
+  border-color: black;
+  border-spacing: 0em;
+  width:100%
+}

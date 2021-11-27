@@ -1,0 +1,479 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head>
+
+
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+<meta name="robots" content="index,nofollow"><title>UserLevelDrivers - IA64wiki</title>
+
+
+<script type="text/javascript" src="UserLevelDrivers_files/common.js"></script>
+
+<script type="text/javascript">
+<!--// common functions
+
+// We keep here the state of the search box
+searchIsDisabled = false;
+
+function searchChange(e) {
+    // Update search buttons status according to search box content.
+    // Ignore empty or whitespace search term.
+    var value = e.value.replace(/\s+/, '');
+    if (value == '' || searchIsDisabled) { 
+        searchSetDisabled(true);
+    } else {
+        searchSetDisabled(false);
+    }
+}
+
+function searchSetDisabled(flag) {
+    // Enable or disable search
+    document.getElementById('fullsearch').disabled = flag;
+    document.getElementById('titlesearch').disabled = flag;
+}
+
+function searchFocus(e) {
+    // Update search input content on focus
+    if (e.value == 'Search') {
+        e.value = '';
+        e.className = '';
+        searchIsDisabled = false;
+    }
+}
+
+function searchBlur(e) {
+    // Update search input content on blur
+    if (e.value == '') {
+        e.value = 'Search';
+        e.className = 'disabled';
+        searchIsDisabled = true;
+    }
+}
+
+function actionsMenuInit(title) {
+    // Initialize action menu
+    for (i = 0; i < document.forms.length; i++) {
+        var form = document.forms[i];
+        if (form.className == 'actionsmenu') {
+            // Check if this form needs update
+            var div = form.getElementsByTagName('div')[0];
+            var label = div.getElementsByTagName('label')[0];
+            if (label) {
+                // This is the first time: remove label and do buton.
+                div.removeChild(label);
+                var dobutton = div.getElementsByTagName('input')[0];
+                div.removeChild(dobutton);
+                // and add menu title
+                var select = div.getElementsByTagName('select')[0];
+                var item = document.createElement('option');
+                item.appendChild(document.createTextNode(title));
+                item.value = 'show';
+                select.insertBefore(item, select.options[0]);
+                select.selectedIndex = 0;
+            }
+        }
+    }
+}
+//-->
+</script>
+
+
+<link rel="stylesheet" type="text/css" charset="utf-8" media="all" href="UserLevelDrivers_files/common.css">
+<link rel="stylesheet" type="text/css" charset="utf-8" media="screen" href="UserLevelDrivers_files/screen.css">
+<link rel="stylesheet" type="text/css" charset="utf-8" media="print" href="UserLevelDrivers_files/print.css">
+<link rel="stylesheet" type="text/css" charset="utf-8" media="projection" href="UserLevelDrivers_files/projection.css">
+<link rel="alternate" title="IA64wiki Recent Changes" href="http://www.gelato.unsw.edu.au/IA64wiki/RecentChanges?action=rss_rc&amp;ddiffs=1&amp;unique=1" type="application/rss+xml">
+
+<link rel="Start" href="http://www.gelato.unsw.edu.au/IA64wiki/Gelato%40UNSW">
+<link rel="Alternate" title="Wiki Markup" href="http://www.gelato.unsw.edu.au/IA64wiki/UserLevelDrivers?action=raw">
+<link rel="Alternate" media="print" title="Print View" href="http://www.gelato.unsw.edu.au/IA64wiki/UserLevelDrivers?action=print">
+<link rel="Search" href="http://www.gelato.unsw.edu.au/IA64wiki/FindPage">
+<link rel="Index" href="http://www.gelato.unsw.edu.au/IA64wiki/TitleIndex">
+<link rel="Glossary" href="http://www.gelato.unsw.edu.au/IA64wiki/WordIndex">
+<link rel="Help" href="http://www.gelato.unsw.edu.au/IA64wiki/HelpOnFormatting"></head><body dir="ltr" lang="en">
+
+<div id="header">
+<div id="logo"><a href="http://www.gelato.unsw.edu.au/IA64wiki/Gelato%40UNSW"><img src="UserLevelDrivers_files/wiki_logo_new.png" alt="IA64 Wiki" style="border: 1px solid rgb(51, 51, 51); padding: 5px; background: rgb(187, 187, 187) none repeat scroll 0%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial;"></a></div>
+
+<form id="searchform" method="get" action="">
+<div>
+<input name="action" value="fullsearch" type="hidden">
+<input name="context" value="180" type="hidden">
+<label for="searchinput">Search:</label>
+<input id="searchinput" name="value" value="" size="20" onfocus="searchFocus(this)" onblur="searchBlur(this)" onkeyup="searchChange(this)" onchange="searchChange(this)" alt="Search" type="text">
+<input id="titlesearch" name="titlesearch" value="Titles" alt="Search Titles" type="submit">
+<input id="fullsearch" name="fullsearch" value="Text" alt="Search Full Text" type="submit">
+</div>
+</form>
+<script type="text/javascript">
+<!--// Initialize search form
+var f = document.getElementById('searchform');
+f.getElementsByTagName('label')[0].style.display = 'none';
+var e = document.getElementById('searchinput');
+searchChange(e);
+searchBlur(e);
+//-->
+</script>
+
+<ul id="username"><li><a href="http://www.gelato.unsw.edu.au/IA64wiki/UserPreferences">Login</a></li></ul>
+<div id="locationline">
+<div id="interwiki"><span><a href="http://www.gelato.unsw.edu.au/IA64wiki/Gelato%40UNSW">IA64wiki</a></span></div>
+
+<ul id="pagelocation">
+<li><a class="backlink" title="Click to do a full-text search for this title" href="http://www.gelato.unsw.edu.au/IA64wiki/UserLevelDrivers?action=fullsearch&amp;value=linkto%3A%22UserLevelDrivers%22&amp;context=180">UserLevelDrivers</a></li>
+</ul>
+
+</div>
+
+
+<ul id="navibar">
+<li class="wikilink"><a href="http://www.gelato.unsw.edu.au/IA64wiki/RecentChanges">RecentChanges</a></li><li class="wikilink"><a href="http://www.gelato.unsw.edu.au/IA64wiki/FindPage">FindPage</a></li><li class="wikilink"><a href="http://www.gelato.unsw.edu.au/IA64wiki/HelpContents">HelpContents</a></li><li class="current"><a href="http://www.gelato.unsw.edu.au/IA64wiki/UserLevelDrivers">UserLevelDrivers</a></li>
+</ul>
+
+<div id="pageline"><hr style="display: none;"></div>
+
+<ul class="editbar"><li><span class="disabled">Immutable Page</span></li><li><a href="http://www.gelato.unsw.edu.au/IA64wiki/UserLevelDrivers?action=info">Info</a></li><li><a href="http://www.gelato.unsw.edu.au/IA64wiki/UserLevelDrivers?action=AttachFile">Attachments</a></li><li>
+<form class="actionsmenu" method="get" action="">
+<div>
+    <label>More Actions:</label>
+    <select name="action" onchange="if ((this.selectedIndex != 0) &&
+                      (this.options[this.selectedIndex].disabled == false)) {
+                this.form.submit();
+            }
+            this.selectedIndex = 0;">
+        <option value="raw">Raw Text</option>
+<option value="print">Print View</option>
+<option value="refresh">Delete Cache</option>
+<option value="show" disabled="disabled" class="disabled">------------</option>
+<option value="SpellCheck">Check Spelling</option>
+<option value="LikePages">Like Pages</option>
+<option value="LocalSiteMap">Local Site Map</option>
+<option value="show" disabled="disabled" class="disabled">------------</option>
+<option value="RenamePage" disabled="disabled" class="disabled">Rename Page</option>
+<option value="DeletePage" disabled="disabled" class="disabled">Delete Page</option>
+<option value="show" disabled="disabled" class="disabled">------------</option>
+<option value="Despam">Despam</option>
+<option value="MyPages">My Pages</option>
+<option value="PackagePages">Package Pages</option>
+<option value="RenderAsDocbook">Render As Docbook</option>
+<option value="SubscribeUser">Subscribe User</option>
+<option value="VisualSiteMap">Visual Site Map</option>
+    </select>
+    <input value="Do" type="submit">
+</div>
+<script type="text/javascript">
+<!--// Init menu
+actionsMenuInit('More Actions:');
+//-->
+</script>
+</form>
+</li></ul>
+
+</div>
+
+<div id="page" dir="ltr" lang="en">
+<div dir="ltr" id="content" lang="en"><span class="anchor" id="top"></span>
+<span class="anchor" id="line-1"></span>
+<h1 id="head-ab3033223da12724674745a70c7a5ea74c5b3986">User Level Device Drivers for Linux</h1>
+<span class="anchor" id="line-2"></span><span class="anchor" id="line-3"></span><ol><li><a href="#head-ab3033223da12724674745a70c7a5ea74c5b3986">User Level Device Drivers for Linux</a></li><li><a href="#head-e9343cd829faac964e43980fd362dfcd0f3093c5">The Concept</a></li><li><a href="#head-9f7198bfa6dbd22404b7648623272d5ff58f1bd7">Motivation</a></li><li><a href="#head-0817b19e8483f5649fc63b9b5b354b44e65dee1f">Existing Support</a><ol><li><a href="#head-6520cc85a92722ce38c6202fe1a5ea102e1a82d1">Threads</a></li><li><a href="#head-b46783a589f8ec6773ab7d297b2b007b07758deb">Fast System Calls</a></li></ol></li><li><a href="#head-0bd1a9d48d0b873a0034de0b0d9728281693f231">New Infrastructure (patches)</a><ol><li><a href="#head-29bb932e962357385bde66880924a133a0efc113">Interrupts</a></li><li><a href="#head-ead2f82660fa31c4cdabe585c0ec15d0a9ff1a34">PCI DMA</a></li></ol></li><li><a href="#head-14b983f130acb116f63ebe04204fa20419cd5440">New Interfaces</a><ol><li><a href="#head-8f270fd79e5bcb916aca60fed0770c60312926b9">Block Layer</a></li><li><a href="#head-8d95c600c3ee5e6c5ea74972fa8b5b483e61a3dd">Network stack</a></li></ol></li><li><a href="#head-24a4aeb4ba59451a2eeebbd5cad9689e6ac98481">Using the interfaces</a><ol><li><a href="#head-5a20707e7d0278d1cc71510a970a769544c8b840">usr_pci_open</a></li><li><a href="#head-357b77d3f61c4c600d68fd3e1df576b1147c7637">PCI Consistent memory</a></li><li><a href="#head-947135c2174a0333c4b0f5996c07a7948b18912b">Set up DMA</a></li><li><a href="#head-0d68c3eb3bf0449143689ba12afa62e9f81fddf9">Tear down DMA</a></li><li><a href="#head-0e7f0d6c57741a864a419e1f39de8691550c0a52">Handling Interrupts</a></li></ol></li><li><a href="#head-6ddec0a1476b632a3d86e022c3d7e9c57262c7bc">Related Information</a></li></ol> <span class="anchor" id="line-4"></span><span class="anchor" id="line-5"></span>
+<h1 id="head-e9343cd829faac964e43980fd362dfcd0f3093c5">The Concept</h1>
+<span class="anchor" id="line-6"></span><span class="anchor" id="line-7"></span><p class="line886">Most drivers are tightly bound into the kernel, either linked to it, or loaded as modules at runtime. <span class="anchor" id="line-8"></span>Some
+drivers (notably XFree86's X server) run in user space, and map device
+registers, video memory, etc., into their own address spaces. <span class="anchor" id="line-9"></span></p>
+<h1 id="head-9f7198bfa6dbd22404b7648623272d5ff58f1bd7">Motivation</h1>
+<span class="anchor" id="line-10"></span><div><span class="anchor" id="line-11"></span><table><tbody><tr>  <td><p class="line879">The majority of bugs are in device drivers -- see, e.g., <a class="http" href="http://linuxbugs.coverity.com/linuxbugs.htm">http://linuxbugs.coverity.com/linuxbugs.htm</a> which shows this graph:</p></td>
+  <td><p class="line903"><img alt="image001" src="UserLevelDrivers_files/image001.html" title="image001"></p></td>
+</tr>
+</tbody></table></div><span class="anchor" id="line-12"></span><p class="line886">By moving device drivers out of privileged kernel space into user space, their bugs can be contained. <span class="anchor" id="line-13"></span></p>
+<h1 id="head-0817b19e8483f5649fc63b9b5b354b44e65dee1f">Existing Support</h1>
+<span class="anchor" id="line-14"></span><p class="line886">As of linux 2.6.0-test5, user processes can: <span class="anchor" id="line-15"></span></p><ol type="1"><li><p class="line903"><tt class="backtick">mmap()</tt> /dev/mem to get at MMIO registers (not safe on all architectures) <span class="anchor" id="line-16"></span></p></li><li><p class="line879">Use <tt class="backtick">inb()</tt> etc., for ports below 65536 <span class="anchor" id="line-17"></span></p></li><li><p class="line886">Read and write the PCI configuration space <span class="anchor" id="line-18"></span></p><span class="anchor" id="line-19"></span></li></ol><p class="line886">There is also a patch by Albert Calahan that allows mapping bits of PCI space, at <span class="anchor" id="line-20"></span><a class="http" href="http://lkml.org/lkml/2003/7/13/258">http://lkml.org/lkml/2003/7/13/258</a> --- this is a better way to go than mapping /dev/mem directly. <span class="anchor" id="line-21"></span></p><span class="anchor" id="line-22"></span><p class="line886">In 2.6, it should be possible to use ioctl on /proc/bus/pci/XXX to get at the appropriate parts of I/O space. <span class="anchor" id="line-23"></span></p><span class="anchor" id="line-24"></span>
+<h2 id="head-6520cc85a92722ce38c6202fe1a5ea102e1a82d1">Threads</h2>
+<span class="anchor" id="line-25"></span><ul><li style="list-style-type: none;"><p class="line879">The new Posix Threads Library <a href="http://www.gelato.unsw.edu.au/IA64wiki/NPTL">NPTL</a> provides vary fast threading and mutexes. <span class="anchor" id="line-26"></span></p></li></ul>
+<h2 id="head-b46783a589f8ec6773ab7d297b2b007b07758deb">Fast System Calls</h2>
+<span class="anchor" id="line-27"></span><ul><li style="list-style-type: none;"><p class="line879">On
+IA64 and on some other architectures, there is support for very fast
+system calls, allowing some subset of the kernel&lt;-&gt;userspace
+crossing to become very cheap. <span class="anchor" id="line-28"></span></p></li></ul>
+<h1 id="head-0bd1a9d48d0b873a0034de0b0d9728281693f231">New Infrastructure (patches)</h1>
+<span class="anchor" id="line-29"></span><p class="line903"><a class="http" href="http://www.gelato.unsw.edu.au/patches/usrdrivers/kernel-2.6.8">-- patches against Kernel 2.6.8</a> <span class="anchor" id="line-30"></span>More recent patches ara available from the Gelato@UNSW <a href="http://www.gelato.unsw.edu.au/IA64wiki/CVSRepository">CVSRepository</a> <span class="anchor" id="line-31"></span></p>
+<h2 id="head-29bb932e962357385bde66880924a133a0efc113">Interrupts</h2>
+<span class="anchor" id="line-32"></span><p class="line886">New
+infrastructure is needed for allowing a user process to register
+interest in an (unshared) interrupt, and receive notification when it
+happens. <span class="anchor" id="line-33"></span>Sharing interrupts is extremely inadvisable if they are to be handled in user space: <span class="anchor" id="line-34"></span>a user-space handler may never return, so the interrupt has to be disabled and marked as handled before calling userspace. <span class="anchor" id="line-35"></span></p><span class="anchor" id="line-36"></span><p class="line879">Each possible interrupt has a file called /proc/irq/<em>irq</em>/irq  <span class="anchor" id="line-37"></span>Opening this file sets up an in-kernel stub handler for the interrupt. <span class="anchor" id="line-38"></span>Reading
+from the file enables the interrupt and causes the caller to sleep
+until one arrives; then the interrupt is disabled and the caller
+awoken. <span class="anchor" id="line-39"></span></p><span class="anchor" id="line-40"></span><p class="line886">The effect is that a userspace interrupt handler looks somnething like this: <span class="anchor" id="line-41"></span><span class="anchor" id="line-42"></span></p><pre><span class="anchor" id="line-43"></span>struct irq_desc {
+<span class="anchor" id="line-44"></span>        void   *driverp;
+<span class="anchor" id="line-45"></span>        int    (*handler)(void *);
+<span class="anchor" id="line-46"></span>        int     irqfd;
+<span class="anchor" id="line-47"></span>};
+<span class="anchor" id="line-48"></span>
+<span class="anchor" id="line-49"></span>static void *
+<span class="anchor" id="line-50"></span>interrupt_thread(void *arg)
+<span class="anchor" id="line-51"></span>{
+<span class="anchor" id="line-52"></span>        struct irq_desc *ip = (struct irq_desc *)arg;
+<span class="anchor" id="line-53"></span>        int nirq;
+<span class="anchor" id="line-54"></span>        int err;
+<span class="anchor" id="line-55"></span>        int fd = ip-&gt;irqfd;
+<span class="anchor" id="line-56"></span>
+<span class="anchor" id="line-57"></span>        for (;;) {
+<span class="anchor" id="line-58"></span>                err = read(fd, &amp;nirq, sizeof(nirq));
+<span class="anchor" id="line-59"></span>                if (err == -1)
+<span class="anchor" id="line-60"></span>                        switch(errno){
+<span class="anchor" id="line-61"></span>                        case EINTR:
+<span class="anchor" id="line-62"></span>                                continue;
+<span class="anchor" id="line-63"></span>                        default:
+<span class="anchor" id="line-64"></span>                                syserror("Interrupt device read returned EINVAL");
+<span class="anchor" id="line-65"></span>                                /* NOTREACHED */
+<span class="anchor" id="line-66"></span>                                break;
+<span class="anchor" id="line-67"></span>                        case EBUSY:
+<span class="anchor" id="line-68"></span>                        {
+<span class="anchor" id="line-69"></span>                                int enable = 0;
+<span class="anchor" id="line-70"></span>                                write(fd, &amp;enable, sizeof enable);
+<span class="anchor" id="line-71"></span>                                continue;
+<span class="anchor" id="line-72"></span>                        }
+<span class="anchor" id="line-73"></span>                        }
+<span class="anchor" id="line-74"></span>                interrupts++;
+<span class="anchor" id="line-75"></span>                (void)(ip-&gt;handler)(ip-&gt;driverp);
+<span class="anchor" id="line-76"></span>        }
+<span class="anchor" id="line-77"></span>        /* NOTREACHED */
+<span class="anchor" id="line-78"></span>        return NULL;
+<span class="anchor" id="line-79"></span>}
+<span class="anchor" id="line-80"></span>
+<span class="anchor" id="line-81"></span>int
+<span class="anchor" id="line-82"></span>create_interrupt_thread(int irq, void *drive, int (*handler)(void *))
+<span class="anchor" id="line-83"></span>{
+<span class="anchor" id="line-84"></span>        int fd;
+<span class="anchor" id="line-85"></span>        char name[24];
+<span class="anchor" id="line-86"></span>        struct irq_desc *idp = malloc(sizeof(*idp));
+<span class="anchor" id="line-87"></span>        pthread_attr_t attr;
+<span class="anchor" id="line-88"></span>        struct sched_param schp;
+<span class="anchor" id="line-89"></span>
+<span class="anchor" id="line-90"></span>        assert(ithr == 0);
+<span class="anchor" id="line-91"></span>        assert(idp != NULL);
+<span class="anchor" id="line-92"></span>        snprintf(name, sizeof name,  "/proc/irq/%d/irq", irq);
+<span class="anchor" id="line-93"></span>        if ((fd = open(name, O_RDWR|O_EXCL)) == -1)
+<span class="anchor" id="line-94"></span>                syserror("Cannot open interrupt descriptor");
+<span class="anchor" id="line-95"></span>        idp-&gt;irqfd = fd;
+<span class="anchor" id="line-96"></span>        idp-&gt;driverp = drive;
+<span class="anchor" id="line-97"></span>        idp-&gt;handler = handler;
+<span class="anchor" id="line-98"></span>
+<span class="anchor" id="line-99"></span>        memset(&amp;schp, 0, sizeof(schp));
+<span class="anchor" id="line-100"></span>        schp.sched_priority = sched_get_priority_max(SCHED_FIFO);
+<span class="anchor" id="line-101"></span>
+<span class="anchor" id="line-102"></span>        pthread_attr_init(&amp;attr);
+<span class="anchor" id="line-103"></span>        pthread_attr_setschedpolicy(&amp;attr, SCHED_FIFO);
+<span class="anchor" id="line-104"></span>        pthread_attr_setscope(&amp;attr, PTHREAD_SCOPE_SYSTEM);
+<span class="anchor" id="line-105"></span>        pthread_attr_setschedparam(&amp;attr, &amp;schp);
+<span class="anchor" id="line-106"></span>        pthread_create(&amp;ithr, &amp;attr, interrupt_thread, idp);
+<span class="anchor" id="line-107"></span>
+<span class="anchor" id="line-108"></span>        return 0;
+<span class="anchor" id="line-109"></span>}
+<span class="anchor" id="line-110"></span>
+<span class="anchor" id="line-111"></span></pre><span class="anchor" id="line-112"></span><span class="anchor" id="line-113"></span>
+<h2 id="head-ead2f82660fa31c4cdabe585c0ec15d0a9ff1a34">PCI DMA</h2>
+<span class="anchor" id="line-114"></span><p class="line886">New infrastructure is also needed to allow setup and teardown of DMA from a device into main memory. <span class="anchor" id="line-115"></span></p><span class="anchor" id="line-116"></span><p class="line879">I'm
+really unhappy with the protoype implementation, and intend to change
+it to be cleaner before release. While developing, it's very easy to
+use a multiplexing system call (because there's only a few to relocate
+when the kernel adds new system calls underneath you, and in general
+you can concentrate on modifying your own code, and not half a dozen <tt class="backtick">entry.S</tt> and <tt class="backtick">asm/unistd.h</tt> files) <span class="anchor" id="line-117"></span></p><span class="anchor" id="line-118"></span><p class="line886">We added two new system calls: <span class="anchor" id="line-119"></span><span class="anchor" id="line-120"></span></p><pre>int usr_pci_open(int bus, int slot, int fn)
+<span class="anchor" id="line-121"></span></pre><span class="anchor" id="line-122"></span><span class="anchor" id="line-123"></span><p class="line879">Return a filedescriptor that can be used to map memory for the device at (<em>bus</em>, <em>slot.fn</em>).   <span class="anchor" id="line-124"></span></p><span class="anchor" id="line-125"></span><p class="line886">At most one process can have a particular device open at a time. <span class="anchor" id="line-126"></span></p><span class="anchor" id="line-127"></span><span class="anchor" id="line-128"></span><pre>int
+<span class="anchor" id="line-129"></span>usr_pci_map(int fd, int cmd, struct mapping_info *mp)
+<span class="anchor" id="line-130"></span></pre><span class="anchor" id="line-131"></span><span class="anchor" id="line-132"></span><p class="line879">The fd is one returned from <tt class="backtick">usr_pci_open()</tt>; <em>cmd</em> is one of <tt class="backtick">DMA_BIDIRECTIONAL</tt>, <span class="anchor" id="line-133"></span><tt class="backtick">DMA_TO_DEVICE</tt>, or <tt class="backtick">DMA_FROM_DEVICE</tt>. <span class="anchor" id="line-134"></span>In general, avoid using <tt class="backtick">DMA_BIDIRECTIONAL</tt>. <span class="anchor" id="line-135"></span></p><span class="anchor" id="line-136"></span><p class="line886">The third argument looks like this: <span class="anchor" id="line-137"></span><span class="anchor" id="line-138"></span></p><pre><span class="anchor" id="line-139"></span>/*
+<span class="anchor" id="line-140"></span> * virtaddr: user mode address to be mapped/unmapped
+<span class="anchor" id="line-141"></span> * size: bytes of address to map
+<span class="anchor" id="line-142"></span> * nents: As passed into usr_pci_map will contain total 
+<span class="anchor" id="line-143"></span> *              number of entries;
+<span class="anchor" id="line-144"></span> *        as passed out, will contain number of valid entries 
+<span class="anchor" id="line-145"></span> *              (IOMMU may merge entries)
+<span class="anchor" id="line-146"></span> * sglist: allocated by caller of usr_pci_map,
+<span class="anchor" id="line-147"></span> *         should be at least (size/PAGE_SIZE) + 2
+<span class="anchor" id="line-148"></span> * direction: try not to use DMA_BIDERECTIONAL
+<span class="anchor" id="line-149"></span> */
+<span class="anchor" id="line-150"></span>struct mapping_info {
+<span class="anchor" id="line-151"></span>        void *virtaddr;
+<span class="anchor" id="line-152"></span>        unsigned long dmaaddr;
+<span class="anchor" id="line-153"></span>        unsigned int size;
+<span class="anchor" id="line-154"></span>        unsigned int nents;
+<span class="anchor" id="line-155"></span>        struct usr_pci_sglist  *sglist;
+<span class="anchor" id="line-156"></span>        enum dma_data_direction direction;
+<span class="anchor" id="line-157"></span>};
+<span class="anchor" id="line-158"></span></pre><span class="anchor" id="line-159"></span><span class="anchor" id="line-160"></span><p class="line879">If <em>cmd</em> is <tt class="backtick">USR_MAP</tt>, <em>mp-&gt;size</em> bytes are mapped from <em>mp-&gt;virtaddr</em> into PCI space; the resulting scatter-gather list is returned to user space to allow a user-mode driver to set up DMA. <span class="anchor" id="line-161"></span></p><span class="anchor" id="line-162"></span><p class="line879">If <em>cmd</em> is <tt class="backtick">USR_UNMAP</tt> then the only part of <tt class="backtick">*mp</tt> used is the <tt class="backtick">dmaaddr</tt> field; it should be the dma address from the first entry in a scatterlist obtained from <tt class="backtick">usr_pci_map(...,&nbsp;USR_MAP,&nbsp;...)</tt> call. <span class="anchor" id="line-163"></span></p><span class="anchor" id="line-164"></span><p class="line879">If <em>cmd</em> is 'USR_ALLOC_CONSISTENT' then the scatterlist is ignored; the <tt class="backtick">size</tt> is the only input field; the virtual address of the resulting memory is <tt class="backtick">mp-&gt;virtaddr</tt> and the PCI-space is <tt class="backtick">mp-&gt;dmaaddr</tt>. <span class="anchor" id="line-165"></span></p>
+<h1 id="head-14b983f130acb116f63ebe04204fa20419cd5440">New Interfaces</h1>
+<span class="anchor" id="line-166"></span>
+<h2 id="head-8f270fd79e5bcb916aca60fed0770c60312926b9">Block Layer</h2>
+<span class="anchor" id="line-167"></span><p class="line879">There is a
+hacked up implementatation that exposes the block device underside to
+user space, so that a user-mode IDE driver can appear like a <em>real</em> block device, and be partitioned, mounted, shared, etc. <span class="anchor" id="line-168"></span></p><span class="anchor" id="line-169"></span><p class="line886">The implementation needs to be cleaned up substantially before finalising the documentation.  <span class="anchor" id="line-170"></span></p>
+<h2 id="head-8d95c600c3ee5e6c5ea74972fa8b5b483e61a3dd">Network stack</h2>
+<span class="anchor" id="line-171"></span><span class="anchor" id="line-172"></span>
+<h1 id="head-24a4aeb4ba59451a2eeebbd5cad9689e6ac98481">Using the interfaces</h1>
+<span class="anchor" id="line-173"></span><span class="anchor" id="line-174"></span>
+<h2 id="head-5a20707e7d0278d1cc71510a970a769544c8b840">usr_pci_open</h2>
+<span class="anchor" id="line-175"></span><p class="line886">To write a user-space driver, you need to find the device on the PCI  <span class="anchor" id="line-176"></span>bus using libpci or whatever, then call  <span class="anchor" id="line-177"></span></p><ul><li style="list-style-type: none;"><p class="line903"><tt>&nbsp;devfd&nbsp;=&nbsp;usr_pci_open(bus,&nbsp;slot,&nbsp;function).&nbsp;</tt> <span class="anchor" id="line-178"></span></p><span class="anchor" id="line-179"></span></li></ul><p class="line879">Then map <tt class="backtick">/dev/kmem</tt> get at the MMIO registers,  <span class="anchor" id="line-180"></span>or set up <tt class="backtick">ioperm()</tt> to get access to the I/O ports.  <span class="anchor" id="line-181"></span></p><span class="anchor" id="line-182"></span>
+<h2 id="head-357b77d3f61c4c600d68fd3e1df576b1147c7637">PCI Consistent memory</h2>
+<span class="anchor" id="line-183"></span><p class="line886">Do:  <span class="anchor" id="line-184"></span><span class="anchor" id="line-185"></span></p><pre>    m.size = 16*1024; 
+<span class="anchor" id="line-186"></span>    if (usr_pci_map(devfd, USR_ALLOC_CONSISTENT, &amp;m) == -1) 
+<span class="anchor" id="line-187"></span>       error() 
+<span class="anchor" id="line-188"></span> </pre><span class="anchor" id="line-189"></span><p class="line879">to get 16k of device-consistent memory.  It'll be mapped into user space at <em>m.virtaddr</em>, and into PCI-bus space at <em>m.dmaaddr</em>.  <span class="anchor" id="line-190"></span></p><span class="anchor" id="line-191"></span><p class="line879">You can use <tt class="backtick">munmap()</tt> to throw it away again.  <span class="anchor" id="line-192"></span></p><span class="anchor" id="line-193"></span>
+<h2 id="head-947135c2174a0333c4b0f5996c07a7948b18912b">Set up DMA</h2>
+<span class="anchor" id="line-194"></span><p class="line886">To set up a mapping from user space into PCI dma space do:  <span class="anchor" id="line-195"></span><span class="anchor" id="line-196"></span></p><pre>   m.virtaddr = addr; 
+<span class="anchor" id="line-197"></span>   m.size = size; 
+<span class="anchor" id="line-198"></span>   m.direction = DMA_TO_DEVICE; /* or DMA_FROM_DEVIEC, or 
+<span class="anchor" id="line-199"></span>                 DMA_BIDIRECTIONAL */ 
+<span class="anchor" id="line-200"></span>   m.nents = size / pagesize + 2; 
+<span class="anchor" id="line-201"></span>   m.sglist = malloc(m.nents * sizeof m.sglist[0]); 
+<span class="anchor" id="line-202"></span> 
+<span class="anchor" id="line-203"></span>   if (usr_pci_map(dma, USR_MAP, &amp;m) != -1) 
+<span class="anchor" id="line-204"></span>      error(); 
+<span class="anchor" id="line-205"></span> 
+<span class="anchor" id="line-206"></span>   for (i = 0; i &lt; m.nents; i++) 
+<span class="anchor" id="line-207"></span>       set_up_dma(m.sglist[i].len, m.sglist[i].dmaaddr); 
+<span class="anchor" id="line-208"></span></pre><span class="anchor" id="line-209"></span><span class="anchor" id="line-210"></span>
+<h2 id="head-0d68c3eb3bf0449143689ba12afa62e9f81fddf9">Tear down DMA</h2>
+<span class="anchor" id="line-211"></span><p class="line886">To tear down a mapping, do  <span class="anchor" id="line-212"></span><span class="anchor" id="line-213"></span></p><pre>   m.dmaaddr = m.sglist[0].dmaaddr; 
+<span class="anchor" id="line-214"></span>   if (usr_pci_map(dma, USR_UNMAP, &amp;m) != 0) 
+<span class="anchor" id="line-215"></span>      error(); 
+<span class="anchor" id="line-216"></span></pre><span class="anchor" id="line-217"></span><span class="anchor" id="line-218"></span><span class="anchor" id="line-219"></span>
+<h2 id="head-0e7f0d6c57741a864a419e1f39de8691550c0a52">Handling Interrupts</h2>
+<span class="anchor" id="line-220"></span><p class="line886">To handle interrupts do something like this in a realtime thread:  <span class="anchor" id="line-221"></span></p><span class="anchor" id="line-222"></span><span class="anchor" id="line-223"></span><pre>          snprintf(name, sizeof name,  "/proc/irq/%d/irq", irq); 
+<span class="anchor" id="line-224"></span>          if ((fd = open(name, O_RDWR|O_EXCL)) == -1) 
+<span class="anchor" id="line-225"></span>             syserror("Cannot open interrupt descriptor"); 
+<span class="anchor" id="line-226"></span> 
+<span class="anchor" id="line-227"></span>          for (;;) { 
+<span class="anchor" id="line-228"></span>                int nirq; 
+<span class="anchor" id="line-229"></span>                err = read(fd, &amp;nirq, sizeof(nirq)); 
+<span class="anchor" id="line-230"></span>                if (err == -1) 
+<span class="anchor" id="line-231"></span>                        switch(errno){ 
+<span class="anchor" id="line-232"></span>                        case EINTR: 
+<span class="anchor" id="line-233"></span>                             continue; 
+<span class="anchor" id="line-234"></span>                        default: 
+<span class="anchor" id="line-235"></span>                                syserror("Interrupt device read returned EINVAL\
+<span class="anchor" id="line-236"></span>"); 
+<span class="anchor" id="line-237"></span>                                /* NOTREACHED */ 
+<span class="anchor" id="line-238"></span>                                break; 
+<span class="anchor" id="line-239"></span>                        case EBUSY: 
+<span class="anchor" id="line-240"></span>                        { 
+<span class="anchor" id="line-241"></span>                                int enable = 0; 
+<span class="anchor" id="line-242"></span>                                write(fd, &amp;enable, sizeof enable); 
+<span class="anchor" id="line-243"></span>                                continue; 
+<span class="anchor" id="line-244"></span>                        } 
+<span class="anchor" id="line-245"></span>                        } 
+<span class="anchor" id="line-246"></span>                interrupts++; 
+<span class="anchor" id="line-247"></span>                Handle_Interrupt() 
+<span class="anchor" id="line-248"></span>        } 
+<span class="anchor" id="line-249"></span></pre><span class="anchor" id="line-250"></span><span class="anchor" id="line-251"></span><span class="anchor" id="line-252"></span>
+<h1 id="head-6ddec0a1476b632a3d86e022c3d7e9c57262c7bc">Related Information</h1>
+<span class="anchor" id="line-253"></span><span class="anchor" id="line-254"></span><ul><li><p class="line903"><a class="http" href="http://www.storagereview.com/guide2000/ref/hdd/if/ide/modesUDMA.html">UDMA modes</a> <span class="anchor" id="line-255"></span></p></li><li><p class="line903"><a href="http://www.gelato.unsw.edu.au/IA64wiki/UserLevelDrivers/RFC">/RFC</a> on a componentised approach to hooking user level device drivers together. <span class="anchor" id="line-256"></span></p></li><li><p class="line903"><a href="http://www.gelato.unsw.edu.au/IA64wiki/Ext3XFSReadWritePatterns">Ext3XFSReadWritePatterns</a> -- example of data retreived with the drivers <span class="anchor" id="line-257"></span></p></li><li><p class="line903"><a class="http" href="http://www.ertos.nicta.com.au/publications/papers/Chubb_04.pdf">Linux Kernel Infrastructure for User-Level Device Drivers</a> <span class="anchor" id="line-258"></span></p></li><li><p class="line879">(internal use) The Project Dogfood <a class="interwiki" href="https://www.disy.cse.unsw.edu.au/kegwiki/ProjectDogFood" title="KegWiki">ProjectDogFood</a> <span class="anchor" id="line-259"></span></p></li></ul><span class="anchor" id="bottom"></span></div>
+<div id="pagebottom"></div>
+</div>
+
+
+<div id="footer">
+<ul class="editbar"><li><span class="disabled">Immutable Page</span></li><li><a href="http://www.gelato.unsw.edu.au/IA64wiki/UserLevelDrivers?action=info">Info</a></li><li><a href="http://www.gelato.unsw.edu.au/IA64wiki/UserLevelDrivers?action=AttachFile">Attachments</a></li><li>
+<form class="actionsmenu" method="get" action="">
+<div>
+    <label>More Actions:</label>
+    <select name="action" onchange="if ((this.selectedIndex != 0) &&
+                      (this.options[this.selectedIndex].disabled == false)) {
+                this.form.submit();
+            }
+            this.selectedIndex = 0;">
+        <option value="raw">Raw Text</option>
+<option value="print">Print View</option>
+<option value="refresh">Delete Cache</option>
+<option value="show" disabled="disabled" class="disabled">------------</option>
+<option value="SpellCheck">Check Spelling</option>
+<option value="LikePages">Like Pages</option>
+<option value="LocalSiteMap">Local Site Map</option>
+<option value="show" disabled="disabled" class="disabled">------------</option>
+<option value="RenamePage" disabled="disabled" class="disabled">Rename Page</option>
+<option value="DeletePage" disabled="disabled" class="disabled">Delete Page</option>
+<option value="show" disabled="disabled" class="disabled">------------</option>
+<option value="Despam">Despam</option>
+<option value="MyPages">My Pages</option>
+<option value="PackagePages">Package Pages</option>
+<option value="RenderAsDocbook">Render As Docbook</option>
+<option value="SubscribeUser">Subscribe User</option>
+<option value="VisualSiteMap">Visual Site Map</option>
+    </select>
+    <input value="Do" type="submit">
+</div>
+<script type="text/javascript">
+<!--// Init menu
+actionsMenuInit('More Actions:');
+//-->
+</script>
+</form>
+</li></ul>
+
+<ul id="credits">
+<li><a href="http://moinmoin.wikiwikiweb.de/">MoinMoin Powered</a></li><li><a href="http://www.python.org/">Python Powered</a></li><li><a href="http://validator.w3.org/check?uri=referer">Valid HTML 4.01</a></li>
+</ul>
+
+
+</div>
+
+
+    <center>
+    <table style="border: 1px solid rgb(85, 85, 85); background-color: rgb(255, 255, 255); margin-top: 5px; margin-bottom: 5px;" cellpadding="2" width="90%">
+    <tbody>
+
+    <tr>
+    <td colspan="5" style="border: 0px none ;">
+    <b><font style="color: rgb(238, 165, 74);">Gelato</font><font style="color: rgb(255, 194, 115);">@</font>UNSW</b> is sponsored by
+    </td></tr>
+
+    <tr>
+
+    <td style="border: 0px none ; text-align: center;" align="center" width="20%">
+    <a href="http://www.unsw.edu.au/">
+    <img src="UserLevelDrivers_files/abwh90.gif" alt="the University of New South Wales" border="0">
+    </a>
+    </td>
+
+    <td style="border: 0px none ; text-align: center;" align="center" width="20%">
+    <a href="http://nicta.com.au/">
+    <img src="UserLevelDrivers_files/nicta-logo.jpg" alt="National ICT Australia" align="middle" border="0">
+    </a>
+    </td>
+
+    <td style="border: 0px none ; text-align: center;" align="center" width="20%">
+    <a href="http://www.gelato.org/">
+    <img src="UserLevelDrivers_files/gelatoorgsmall.jpg" alt="The Gelato Federation" align="middle" border="0">
+    </a>
+    </td>
+
+    <td style="border: 0px none ; text-align: center;" align="center" width="20%">
+    <a href="http://www.hp.com/">
+    <img src="UserLevelDrivers_files/hm_logo.gif" alt="Hewlett-Packard Company" align="middle" border="0">
+    </a>
+    </td>
+
+    <td style="border: 0px none ; text-align: center;" align="center" width="20%">
+    <a href="http://www.arc.gov.au/">
+    <img src="UserLevelDrivers_files/arclogo.gif" alt="Australian Research Council" align="middle" border="0">
+    </a>
+    </td>
+
+    </tr>
+
+    <tr>
+    <td colspan="5" style="border: 0px none ;">
+    Please <a href="mailto:webmaster@gelato.unsw.edu.au">contact us</a> with any questions or comments.
+    </td>
+    </tr>
+    </tbody>
+    </table>
+    </center>
+
+    <!-- google analytics stuff: see ianw -->
+    <script src="UserLevelDrivers_files/urchin.js" type="text/javascript">
+    </script>
+    <script type="text/javascript">
+    _uacct = "UA-247278-3";
+    urchinTracker();
+    </script>
+
+    </body></html>

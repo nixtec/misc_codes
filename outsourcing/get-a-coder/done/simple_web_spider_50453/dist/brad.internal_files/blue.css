@@ -1,0 +1,184 @@
+body {
+		 background-color: #0000cc;
+		 color: #ffffff;
+}
+
+a:link {
+		 color: #ffffff;
+}
+
+a:visited {
+		 color: #ffffff;
+}
+
+a:active {
+		 color: #ffffff;
+}
+
+a:hover {
+		 color: #0000cc;
+		 background-color: #cccccc;
+}
+#masthead {
+		 background-color: #0000cc;
+		 color: #ffffff;
+}
+ 
+#masthead form a:link {
+		 color: #ffffff;
+		 text-decoration: none;
+}
+
+#masthead form a:visited {
+		 color: #ffffff;
+		 text-decoration: none;
+}
+
+#masthead form a:active {
+		 color: #ffffff;
+		 text-decoration: none;
+}
+
+#masthead form a:hover {
+		 color: #000000;
+		 background-color: #cccccc;
+		 text-decoration: none;
+}
+
+#masthead ul {
+		 color: #0000cc;
+		 background: #cccccc;
+		 border-color: #0000cc;
+}
+/* below style for all but ie mac \*/
+#masthead li {
+		 background-color: #0000cc;
+}
+
+#masthead li a {
+		 background-color: #cccccc;
+}
+
+#masthead li.here {
+		 background-color: #cccccc;
+}
+
+/* end of ie mac hidden style */
+
+#masthead li.here {
+		 color: #0000cc;
+}
+
+#masthead li a:link {
+		 color: #0000cc;
+}
+
+#masthead li a:visited {
+		 color: #0000cc;
+}
+
+#masthead li a:active {
+		 color: #0000cc;
+}
+
+#masthead li a:hover {
+		 color: #ffffff;
+		 background-color: #0000cc;
+}
+
+#leftcolumn {
+		 border-color: #ffffff;
+		 background-color: #0000cc;
+}
+
+#leftcolumn h1 {
+		 color: #0000cc;
+		 background-color: #ffffff;
+}
+
+
+#leftcolumn a:link {
+		 color: #ffffff;
+		 text-decoration: none;
+}		 
+
+#leftcolumn a:visited {
+		 color: #ffffff;
+		 text-decoration: none;
+}		 
+#leftcolumn a:active {
+		 color: #ffffff;
+		 text-decoration: none;
+}		 
+#leftcolumn a:hover {
+		 color: #0000cc;
+		 background-color: #cccccc;
+}		 
+
+#centre h1 {
+		 color: #ffffff;
+}
+
+#centre h2 {
+		 color: #ffffff; 
+}
+#centre h3 {
+		 color: #ffffff; 
+}
+
+#centre a {
+         text-decoration: underline;
+}
+ 
+#rightcolumn {
+		 border-color: #ffffff;
+		 background-color: #0000cc;
+}
+
+#rightcolumn h1 {
+		 color: #0000cc;
+		 background-color: #ffffff;
+}
+
+#rightcolumn h2 {
+		 color: #ffffff;
+		 background-color: #0000cc;
+}
+
+#rightcolumn a:link {
+		 color: #ffffff;
+		 text-decoration: none;
+}		 
+
+#rightcolumn a:visited {
+		 color: #ffffff;
+		 text-decoration: none;
+}		 
+#rightcolumn a:active {
+		 color: #ffffff;
+		 text-decoration: none;
+}		 
+#rightcolumn a:hover {
+		 color: #0000cc;
+		 background-color: #cccccc;
+}		 
+
+#footer p.nav {
+		 background-color: #0000cc;
+}
+#footer a:link {
+		 color: #ffffff;
+}
+
+#footer a:visited {
+		 color: #ffffff;
+}
+
+#footer a:active {
+		 color: #ffffff;
+}
+
+#footer a:hover {
+		 color: #0000cc;
+		 background-color: #cccccc;
+}

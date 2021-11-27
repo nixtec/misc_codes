@@ -1,0 +1,1111 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><title>Snooping the USB Data Stream | Linux Journal</title>
+
+
+  
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- base href="http://www.linuxjournal.com/" -->
+<style type="text/css" media="all">@import "misc/drupal.css";</style>
+  <style type="text/css" media="all">@import "sites/default/themes/linuxjournal/style.css";</style>
+  <link rel="shortcut icon" href="http://www.linuxjournal.com/favicon.ico" type="image/x-icon">
+  <style type="text/css" media="all">@import "/sites/default/themes/linuxjournal/lj-added.css";</style>
+  <script language="JavaScript" type="text/javascript" src="7582_files/browser.js"></script>
+  <script language="JavaScript" type="text/javascript" src="7582_files/phpads.js"></script>
+  <script language="JavaScript" type="text/javascript" src="7582_files/adx.js"></script><!-- 03-Feb-2005 MRF  Menu stuff not used anymore.
+  <script language="JavaScript" type="text/javascript" src="/local/lib/doiMenu/js/doiMenuDOM.js"></script>
+  <script language="JavaScript" type="text/javascript" src="/local/lib/doiMenu/js/functions.js"></script>
+-->
+
+
+
+  <script language="JavaScript" type="text/javascript" src="7582_files/linuxjournal.js"></script>
+  <script type="text/javascript"> </script></head><body bgcolor="#ffffff">
+
+
+<div class="hide"><a href="#content" title="Skip navigation." accesskey="2">Skip navigation</a>.</div>
+
+<table class="powerBarAd" border="0" cellpadding="0" cellspacing="0" width="100%">
+ <tbody><tr>
+  <td align="center">
+    <script language="JavaScript" type="text/javascript">
+      <!--
+      phpads_show_ad("http://ads.linuxjournal.com", "8");
+      //-->
+    </script>
+    <noscript>
+      <p><a href="http://ads.linuxjournal.com/adclick.php?n=a6c85b67" target="_blank">
+        <img src="7582_files/adview_002.jpeg" alt="" border="0">
+      </a></p>
+    </noscript>
+  </td>
+ </tr>
+</tbody></table>
+
+<table id="primary-menu" summary="Navigation elements." border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tbody><tr>
+    <!--
+    <td id="home" width="10%">-->
+
+      <!--<a href="./" title="Home"><img src="sites/default/themes/linuxjournal/logo.png" alt="Home" width="144" height="63" border="0" /></a>-->
+
+    <!--</td>-->
+    <!--<td id="site-info" width="20%">-->
+
+       
+
+       
+
+    <!--</td>-->
+
+    <td class="primary-links" align="center" valign="middle" width="70%">
+
+      <div id="left">
+	<table cellpadding="0" height="75">
+	<tbody><tr><td>
+		<img src="7582_files/ljlogo.png" alt="Home" border="0">
+	</td></tr>
+	</tbody></table>
+</div>
+
+<div id="center">
+	<table align="left" cellpadding="0" height="75">
+	<tbody><tr>
+		<td id="tagline" align="left" valign="bottom">Since 1994: The Original Monthly Magazine of the Linux Community</td>
+	</tr>
+	</tbody></table>
+</div>
+
+<div id="right">
+	<table id="primary-links-table" cellpadding="0">
+			<tbody><tr>
+				<td id="primary-links-hdr">Subscribe&nbsp;&nbsp;<strong>Now</strong></td>
+			</tr>
+			<tr>
+				<td id="primary-links">
+					<ul class="subscribebar">
+						<li><a href="http://www.linuxjournal.com/subscribe">Subscribe</a></li>
+						<li><a href="https://www.ssc.com/dlissc">Customer Service</a></li>
+					</ul>
+				</td>
+			</tr>
+	</tbody></table>
+</div>
+
+
+    </td>
+  </tr>
+</tbody></table>
+
+<table id="secondary-menu" summary="Navigation elements." border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tbody><tr>
+    <td class="secondary-links" align="center" valign="middle" width="100%">
+      <table id="secondary-links-table" summary="Navigation elements." border="0" cellpadding="0" cellspacing="0" width="100%">
+ <tbody><tr>
+   <td id="secondary-links">
+
+<table align="center"><tbody><tr>
+<td width="18%">&nbsp;</td>
+<td align="center" width="16%"><a class="first" href="http://www.linuxjournal.com/xstatic/magazine">Magazine</a></td>
+<td align="center" width="16%"><a class="second" href="http://www.linuxjournal.com/xstatic/advertising">Advertise</a></td>
+<td align="center" width="16%"><a class="second" href="http://www.linuxjournal.com/xstatic/community">Community</a></td>
+<td align="center" width="16%"><a class="second" href="http://www.linuxjournal.com/xstatic/aboutus">About&nbsp;Us</a></td>
+
+<td width="18%">&nbsp;</td>
+</tr></tbody></table>
+
+   </td>
+ </tr>
+</tbody></table>
+    </td>
+    <td align="center" valign="middle" width="25%">
+      <!--
+      <form action="search" method="GET">
+        <div id="search">
+          <input class="form-text" type="text" size="15" value="" name="keys" alt="Enter the terms you wish to search for." />
+          <input class="form-submit" type="submit" value="Search" alt="submit" />
+        </div>
+      </form>
+      -->
+    </td>
+    </tr>
+</tbody></table>
+
+
+
+<table id="content" border="0" cellpadding="15" cellspacing="0" width="100%">
+  <tbody><tr>
+
+
+
+    <td id="sidebar-left">
+      
+  <div class="block block-block" id="block-block-1">
+
+    <div class="title"><h3>Current Issue</h3></div>
+    <div class="content"><a href="http://www.linuxjournal.com/issue/146">
+<img alt="Current Issue Cover" id="cvb_image" src="7582_files/cover146.png">
+</a>
+<form id="cvb_form" method="get" action="/">
+<select id="cvb_select" class="block_select" onchange="return jump_to_select_option(this);">
+<option value="">Back Issues</option>
+<option value="/issue/146">Jun 2006 [#146]</option>
+<option value="/issue/145">May 2006 [#145]</option>
+<option value="/issue/144">Apr 2006 [#144]</option>
+<option value="/issue/143">Mar 2006 [#143]</option>
+<option value="/issue/142">Feb 2006 [#142]</option>
+<option value="/issue/141">Jan 2006 [#141]</option>
+<option value="/issue/140">Dec 2005 [#140]</option>
+<option value="/issue/139">Nov 2005 [#139]</option>
+<option value="/issue/138">Oct 2005 [#138]</option>
+<option value="/issue/137">Sep 2005 [#137]</option>
+<option value="/issue/136">Aug 2005 [#136]</option>
+<option value="/issue/135">Jul 2005 [#135]</option>
+<option value="/issue/134">Jun 2005 [#134]</option>
+<option value="/issue/133">May 2005 [#133]</option>
+<option value="/issue/132">Apr 2005 [#132]</option>
+<option value="/issue/131">Mar 2005 [#131]</option>
+<option value="/issue/130">Feb 2005 [#130]</option>
+<option value="/issue/129">Jan 2005 [#129]</option>
+<option value="/issue/128">Dec 2004 [#128]</option>
+<option value="/issue/127">Nov 2004 [#127]</option>
+<option value="/issue/126">Oct 2004 [#126]</option>
+<option value="/issue/125">Sep 2004 [#125]</option>
+<option value="/issue/124">Aug 2004 [#124]</option>
+<option value="/issue/123">Jul 2004 [#123]</option>
+<option value="/issue/122">Jun 2004 [#122]</option>
+<option value="/issue/121">May 2004 [#121]</option>
+<option value="/issue/120">Apr 2004 [#120]</option>
+<option value="/issue/119">Mar 2004 [#119]</option>
+<option value="/issue/118">Feb 2004 [#118]</option>
+<option value="/issue/117">Jan 2004 [#117]</option>
+<option value="/issue/116">Dec 2003 [#116]</option>
+<option value="/issue/115">Nov 2003 [#115]</option>
+<option value="/issue/114">Oct 2003 [#114]</option>
+<option value="/issue/113">Sep 2003 [#113]</option>
+<option value="/issue/112">Aug 2003 [#112]</option>
+<option value="/issue/111">Jul 2003 [#111]</option>
+<option value="/issue/110">Jun 2003 [#110]</option>
+<option value="/issue/109">May 2003 [#109]</option>
+<option value="/issue/108">Apr 2003 [#108]</option>
+<option value="/issue/107">Mar 2003 [#107]</option>
+<option value="/issue/106">Feb 2003 [#106]</option>
+<option value="/issue/105">Jan 2003 [#105]</option>
+<option value="/issue/104">Dec 2002 [#104]</option>
+<option value="/issue/103">Nov 2002 [#103]</option>
+<option value="/issue/102">Oct 2002 [#102]</option>
+<option value="/issue/101">Sep 2002 [#101]</option>
+<option value="/issue/100">Aug 2002 [#100]</option>
+<option value="/issue/99">Jul 2002 [#99]</option>
+<option value="/issue/98">Jun 2002 [#98]</option>
+<option value="/issue/97">May 2002 [#97]</option>
+<option value="/issue/96">Apr 2002 [#96]</option>
+<option value="/issue/95">Mar 2002 [#95]</option>
+<option value="/issue/94">Feb 2002 [#94]</option>
+<option value="/issue/93">Jan 2002 [#93]</option>
+<option value="/issue/92">Dec 2001 [#92]</option>
+<option value="/issue/91">Nov 2001 [#91]</option>
+<option value="/issue/90">Oct 2001 [#90]</option>
+<option value="/issue/89">Sep 2001 [#89]</option>
+<option value="/issue/88">Aug 2001 [#88]</option>
+<option value="/issue/87">Jul 2001 [#87]</option>
+<option value="/issue/86">Jun 2001 [#86]</option>
+<option value="/issue/85">May 2001 [#85]</option>
+<option value="/issue/84">Apr 2001 [#84]</option>
+<option value="/issue/83">Mar 2001 [#83]</option>
+<option value="/issue/82">Feb 2001 [#82]</option>
+<option value="/issue/81">Jan 2001 [#81]</option>
+<option value="/issue/80">Dec 2000 [#80]</option>
+<option value="/issue/79">Nov 2000 [#79]</option>
+<option value="/issue/78">Oct 2000 [#78]</option>
+<option value="/issue/77">Sep 2000 [#77]</option>
+<option value="/issue/76">Aug 2000 [#76]</option>
+<option value="/issue/75">Jul 2000 [#75]</option>
+<option value="/issue/74">Jun 2000 [#74]</option>
+<option value="/issue/73">May 2000 [#73]</option>
+<option value="/issue/72">Apr 2000 [#72]</option>
+<option value="/issue/71">Mar 2000 [#71]</option>
+<option value="/issue/70">Feb 2000 [#70]</option>
+<option value="/issue/69">Jan 2000 [#69]</option>
+<option value="/issue/68">Dec 1999 [#68]</option>
+<option value="/issue/67">Nov 1999 [#67]</option>
+<option value="/issue/66">Oct 1999 [#66]</option>
+<option value="/issue/65">Sep 1999 [#65]</option>
+<option value="/issue/64">Aug 1999 [#64]</option>
+<option value="/issue/63">Jul 1999 [#63]</option>
+<option value="/issue/62">Jun 1999 [#62]</option>
+<option value="/issue/61">May 1999 [#61]</option>
+<option value="/issue/60">Apr 1999 [#60]</option>
+<option value="/issue/59">Mar 1999 [#59]</option>
+<option value="/issue/58">Feb 1999 [#58]</option>
+<option value="/issue/57">Jan 1999 [#57]</option>
+<option value="/issue/56">Dec 1998 [#56]</option>
+<option value="/issue/55">Nov 1998 [#55]</option>
+<option value="/issue/54">Oct 1998 [#54]</option>
+<option value="/issue/53">Sep 1998 [#53]</option>
+<option value="/issue/52">Aug 1998 [#52]</option>
+<option value="/issue/51">Jul 1998 [#51]</option>
+<option value="/issue/50">Jun 1998 [#50]</option>
+<option value="/issue/49">May 1998 [#49]</option>
+<option value="/issue/48">Apr 1998 [#48]</option>
+<option value="/issue/47">Mar 1998 [#47]</option>
+<option value="/issue/46">Feb 1998 [#46]</option>
+<option value="/issue/45">Jan 1998 [#45]</option>
+<option value="/issue/44">Dec 1997 [#44]</option>
+<option value="/issue/43">Nov 1997 [#43]</option>
+<option value="/issue/42">Oct 1997 [#42]</option>
+<option value="/issue/41">Sep 1997 [#41]</option>
+<option value="/issue/40">Aug 1997 [#40]</option>
+<option value="/issue/39">Jul 1997 [#39]</option>
+<option value="/issue/38">Jun 1997 [#38]</option>
+<option value="/issue/37">May 1997 [#37]</option>
+<option value="/issue/36">Apr 1997 [#36]</option>
+<option value="/issue/35">Mar 1997 [#35]</option>
+<option value="/issue/34">Feb 1997 [#34]</option>
+<option value="/issue/33">Jan 1997 [#33]</option>
+<option value="/issue/32">Dec 1996 [#32]</option>
+<option value="/issue/31">Nov 1996 [#31]</option>
+<option value="/issue/30">Oct 1996 [#30]</option>
+<option value="/issue/29">Sep 1996 [#29]</option>
+<option value="/issue/28">Aug 1996 [#28]</option>
+<option value="/issue/27">Jul 1996 [#27]</option>
+<option value="/issue/26">Jun 1996 [#26]</option>
+<option value="/issue/25">May 1996 [#25]</option>
+<option value="/issue/24">Apr 1996 [#24]</option>
+<option value="/issue/23">Mar 1996 [#23]</option>
+<option value="/issue/22">Feb 1996 [#22]</option>
+<option value="/issue/21">Jan 1996 [#21]</option>
+<option value="/issue/20">Dec 1995 [#20]</option>
+<option value="/issue/19">Nov 1995 [#19]</option>
+<option value="/issue/18">Oct 1995 [#18]</option>
+<option value="/issue/17">Sep 1995 [#17]</option>
+<option value="/issue/16">Aug 1995 [#16]</option>
+<option value="/issue/15">Jul 1995 [#15]</option>
+<option value="/issue/14">Jun 1995 [#14]</option>
+<option value="/issue/13">May 1995 [#13]</option>
+<option value="/issue/12">Apr 1995 [#12]</option>
+<option value="/issue/11">Mar 1995 [#11]</option>
+<option value="/issue/10">Feb 1995 [#10]</option>
+<option value="/issue/9">Jan 1995 [#9]</option>
+<option value="/issue/8">Dec 1994 [#8]</option>
+<option value="/issue/7">Nov 1994 [#7]</option>
+<option value="/issue/6">Oct 1994 [#6]</option>
+<option value="/issue/5">Sep 1994 [#5]</option>
+<option value="/issue/4">Aug 1994 [#4]</option>
+<option value="/issue/3">Jun/Jul 1994 [#3]</option>
+<option value="/issue/2">Apr/May 1994 [#2]</option>
+<option value="/issue/1">Mar 1994 [#1]</option>
+</select>
+</form></div>
+
+ </div>
+
+  <div class="block block-statistics" id="block-statistics-0">
+
+    <div class="title"><h3>Popular content</h3></div>
+    <div class="content"><div class="item-list"><h3>Today's:</h3><ul><li><a href="http://www.linuxjournal.com/node/1000040">Linux System Administration: Growth in the Enterprise</a></li><li><a href="http://www.linuxjournal.com/node/1000037">Panning flash</a></li><li><a href="http://www.linuxjournal.com/article/3882">Why Python?</a></li></ul></div><br><div class="item-list"><h3>All time:</h3><ul><li><a href="http://www.linuxjournal.com/article/3882">Why Python?</a></li><li><a href="http://www.linuxjournal.com/article/5644">GNU/Linux DVD Player Review</a></li><li><a href="http://www.linuxjournal.com/article/6011">Industrial Light &amp; Magic</a></li></ul></div></div>
+
+ </div>
+
+  <div class="block block-block" id="block-block-30">
+
+    <div class="title"><h3>LJ Categories</h3></div>
+    <div class="content"><p><a href="http://www.linuxjournal.com/xstatic/categories/categories">LJ Categories</a></p>
+</div>
+
+ </div>
+
+  <div class="block block-block" id="block-block-2">
+
+    <div class="title"><h3>Free eNewsletters</h3></div>
+    <div class="content"><table><tbody><tr><td>
+<ul>
+<li>
+<a href="http://www.linuxjournal.com/xstatic/community/ljweeklyupdate">LJ Weekly Update</a></li>
+<li>
+<a href="http://www.linuxjournal.com/xstatic/community/suitwatch">Searls' Suitwatch</a></li>
+<li>
+<a href="http://www.linuxjournal.com/xstatic/community/tux-newsletter">TUX Desktop Watch</a></li>
+</ul>
+</td></tr></tbody></table>
+</div>
+
+ </div>
+
+  <div class="block block-block" id="block-block-16">
+
+    <div class="title"><h3>LJ Merchandise</h3></div>
+    <div class="content"><div><ul>
+<!--
+<li><a class="enews" href="https://www.ssc.com/cgi-bin/lj/back_issue">Backissues</a></li>
+<li><a class="enews" href="https://www.ssc.com/cgi-bin/lj/back_issue">Archive CD-ROM</a></li>
+-->
+<li><a class="enews" href="http://www.cafepress.com/linuxjournal">T-shirts, mugs &amp; more</a></li>
+</ul></div></div>
+
+ </div>
+
+  <div class="block block-user" id="block-user-1">
+
+    <div class="title"><h3>Navigation</h3></div>
+    <div class="content"><div class="menu">
+<ul>
+<li class="leaf"><a href="http://www.linuxjournal.com/tracker">recent posts</a></li>
+<li class="collapsed"><a href="http://www.linuxjournal.com/aggregator">news aggregator</a></li>
+
+</ul>
+</div></div>
+
+ </div>
+
+    </td>
+    <td valign="top">
+       
+      <div id="main">
+        <div class="breadcrumb"><a href="">Home</a></div>
+        <h1 class="title">Snooping the USB Data Stream</h1>
+           
+         
+
+<!-- begin content -->
+
+  <div class="node">
+     
+     
+    <span class="submitted">By <a href="http://www.linuxjournal.com/user/800887" title="View user profile.">Greg Kroah-Hartman</a> on Sun, 2004-08-01 01:00.</span>
+    <span class="taxonomy"><a href="http://www.linuxjournal.com/taxonomy/term/8">SysAdmin</a></span>
+
+    <div class="content">
+<p style="color: red;"></p>Follow along with the kernel hacker's actual problem-solving process as the quest to add support for a new device begins.
+
+<div class="article" lang="en">
+
+<div class="simplesect" lang="en">
+<div class="titlepage">
+<h2 class="title"><a name="N0x850ca10.0x8573984"></a></h2>
+</div>
+<p>Day 1: I open the box to see a small USB device-no bigger than a quarter-a CD and a note from my editor,
+"Make this work on Linux!" "Okay", I think, "this should be easy."</p>
+<div class="mediaobject"><a href="http://www.linuxjournal.com/articles/lj/0124/7582/7582f1.png"><img src="7582_files/7582f1.png"></a>
+<div class="caption">
+<p>Figure 1. MARX Software Security's CrypToken</p>
+</div>
+</div>
+<p>I plug the device in to my laptop and run a small program called usbview to learn what the Linux kernel
+thinks this device is (Figure 2). This device must be calling itself a USB CrypToken, as that is the string
+contained in the device. Unfortunately, the device name is in red, which means no kernel driver is bound to
+the device. I either have to write one or find a way to use libusb to talk to the device from user space (see
+my article "Writing a Real Driver-in User Space", <span class="emphasis"><em>LJ</em></span>, June 2004, for
+more information about libusb).</p>
+<div class="mediaobject"><a href="http://www.linuxjournal.com/articles/lj/0124/7582/7582f2.png"><img src="7582_files/7582f2.png"></a>
+<div class="caption">
+<p>Figure 2. usbview identifies the device by vendor and product ID.</p>
+</div>
+</div>
+<p>Not content to rely on pretty GUI programs, I poke around in the /proc/bus/usb/devices file to get the raw
+device information. The section that describes this device looks like this: <span class="c2">Garrick, use
+small font below.</span></p>
+<pre class="programlisting"><tt>T:  Bus=01 Lev=02 Prnt=03 Port=02 Cnt=01 Dev#=  4 Spd=1.5 MxCh= 0
+D:  Ver= 1.00 Cls=ff(vend.) Sub=00 Prot=ff MxPS= 8 #Cfgs=  1
+P:  Vendor=0d7a ProdID=0001 Rev= 1.07
+S:  Manufacturer=Marx
+S:  Product=USB crypToken
+C:* #Ifs= 1 Cfg#= 1 Atr=80 MxPwr= 16mA
+I:  If#= 0 Alt= 0 #EPs= 0 Cls=ff(vend.) Sub=00 Prot=ff Driver=(none)
+</tt>
+</pre>
+<br>
+<br>
+<p>Curious to know whether any other Linux user has tried this device, I consult the Linux USB Working
+Devices List (see the on-line Resources section). Plugging the vendor ID of 0d7a in to the Quick Search field
+results in no records found. Perhaps this project will take more work than I thought.</p>
+<p>Day 2: The CD, where did I toss it? I locate it and put it in the drive and, look, there's a file called
+linux.txt on it. Wow, a vendor that acknowledges that Linux might be a viable operating system to
+support-things sure have changed over the years. After poking around further and reading the documentation on
+the CD, I realize the device is a small crypto token that can be used to do all sorts of fun things, such as
+read a unique serial number from the device (each device is different), encrypt data through the device with
+a 128-bit key stored only in the device and save data on the device in a secure storage area.</p>
+<p>On the CD is a shared library that can be used to talk to the USB device to allow a program to access the
+functions provided by this device. Also present is a small test program that shows how the different library
+functions work. The library uses libusb to talk directly to the device from user space, which means that a
+kernel driver is not necessary for this device. The library's license does not allow it to be used within a
+program that would be licensed under the GPL, however, which is unfortunate for many potential uses. I need
+to find some way to allow GPL programs to talk to the USB device.</p>
+<p>Day 3: While rummaging through my old collection of USB patches, I dig up a reference to a developer who
+modified the kernel usbfs core code to log all data that flows through it. This patch would allow anyone to
+read the raw USB data for any program that uses usbfs to talk to a USB device. <u>Because libusb uses usbfs
+to communicate with USB devices, this might offer a way to reverse engineer this device.</u> Unfortunately,
+the patch wasn't present with the reference, and no amount of digging on the Internet turned up any real
+code.</p>
+<p>Day 4: As there is no available patch to do what I want to do, I might as well do it myself. So, off to
+grab the latest 2.6 kernel source tree and dive in.</p>
+<p>The files inode.c, devices.c and devio.c in the drivers/usb/core/ directory of the kernel source tree
+implement the usbfs filesystem. The main filesystem code is in the inode.c file. It contains all of the
+various VFS code that creates a virtual filesystem and the virtual files within it. The file devices.c
+handles the creation and reading of the /proc/bus/usb/devices file. This file shows all USB devices and
+information for those devices in the system at the present time.</p>
+<p>The file devio.c controls the raw access of USB devices through the usbfs filesystem. For a user-space
+program to talk to a USB device through usbfs, it needs to use the ioctl() command on a file that represents
+the USB device. All of the different ioctl messages that can be sent to the USB devices through usbfs are
+detailed in the include/linux/usbdevfs.h file.</p>
+<p>So, in order to log all accesses to all devices through usbfs, the devio.c file should be modified.
+Digging into the file, the function usbdev_ioctl looked like the proper place to do this logging. It is
+called for every ioctl call to a usbfs file. Within that function is a big switch statement that calls the
+proper functions, depending on the different ioctl command. That is the perfect place to log what kind of
+command was sent to the device. So, I added a simple printk() call to each case statement, causing them to
+look like this: <span class="c2">Garrick, please kern the double underscores in the code below.</span></p>
+<pre class="programlisting"><tt>...
+case USBDEVFS_CLAIMINTERFACE:
+  printk("CLAIMINTERFACE\n);
+  ret = proc_claiminterface(ps, (void __user *)arg);
+  break;
+case USBDEVFS_RELEASEINTERFACE:
+  printk("RELEASEINTERFACE\n");
+  ret = proc_releaseinterface(ps, (void __user *)arg);
+  break;
+...
+</tt>
+</pre>
+<br>
+<br>
+<p>A simple compile, install and module load later confirmed that every usbfs access is now logged to the
+kernel log, which can be seen by running the dmesg program. I determined that running the lsusb program as
+<tt>lsusb -v</tt> produced a lot of usbfs accesses as the program retrieves all of the raw USB configuration
+data from all devices.</p>
+<p>Day 5: Now that the different kinds of usbfs accesses can be noticed easily, it is time to log the data
+these accesses generate. In looking at the description of the device in the /proc/bus/usb/devices file, it
+appears that I care only about the accesses to the control endpoint, because there are no endpoints assigned
+to this device.</p>
+<p>Digging further into the devio.c file, I determine that the proc_control() function handles all control
+messages. There, the code determines whether the request is a read or write control message with the
+code:</p>
+<pre class="programlisting"><tt>
+if (ctrl.bRequestType &amp; 0x80) {
+</tt>
+</pre>
+<br>
+<br>
+<p>The USB bRequestType variable is a bitfield, and the uppermost bit determines the direction of the
+request. So, in the read section of this if statement I add the lines:</p>
+<pre class="programlisting"><tt>printk("control read: "
+       "bRequest=%02x bRrequestType=%02x "
+       "wValue=%04x wIndex=%04x\n", 
+       ctrl.bRequest, ctrl.bRequestType,
+       ctrl.wValue, ctrl.wIndex);
+</tt>
+</pre>
+<br>
+<br>
+</div>
+<div class="simplesect" lang="en">
+<div class="titlepage">
+<h2 class="title"><a name="N0x850ca10.0x8574064"></a></h2>
+</div>
+<p>to log the control request information. After the read has completed, I add the following lines to log the
+actual data read from the device:</p>
+<pre class="programlisting"><tt>
+printk("control read: data ");
+for (j = 0; j &lt; ctrl.wLength; ++j)
+    printk("%02x ", ctrl.data[j]);
+printk("\n");
+</tt>
+</pre>
+<br>
+<br>
+<p>After doing much the same modification to the write section of the if statement, I build, reload the
+usbcore modules and verify that I now can log all control messages to and from the device. The messages
+returned are: <span class="c2">Garrick, use small font below.</span></p>
+<pre class="programlisting"><tt>CONTROL
+control read: bRequest=06 bRrequestType=80 wValue=0300 wIndex=0000
+control read: data 00 00 61 63 
+</tt>
+</pre>
+<br>
+<br>
+<p>Day 6: Looking at the modifications I have made to the kernel code, I think this work might be something
+other users might like to have. So, it is time to clean up the code to a state that the USB maintainer might
+accept for the main kernel source tree.</p>
+<p>First, I recognized that the calls to printk() are incorrect. All printk() calls must be accompanied by a
+proper logging level. These logging levels are added to printk calls by pre-appending the proper KERN_ values
+to the message. The file include/linux/kernel.h contains the following valid values that must be used:</p>
+<pre class="programlisting"><tt>
+#define KERN_EMERG   "&lt;0&gt;" /* system is unusable               */
+#define KERN_ALERT   "&lt;1&gt;" /* action must be taken immediately */
+#define KERN_CRIT    "&lt;2&gt;" /* critical conditions              */
+#define KERN_ERR     "&lt;3&gt;" /* error conditions                 */
+#define KERN_WARNING "&lt;4&gt;" /* warning conditions               */
+#define KERN_NOTICE  "&lt;5&gt;" /* normal but significant condition */
+#define KERN_INFO    "&lt;6&gt;" /* informational                    */
+#define KERN_DEBUG   "&lt;7&gt;" /* debug-level messages             */
+</tt>
+</pre>
+<br>
+<br>
+<p>So, I change the printk calls in the usbfs_ioctl() function from:</p>
+<pre class="programlisting"><tt>printk("CLAIMINTERFACE\n);
+</tt>
+</pre>
+<br>
+<br>
+</div>
+<div class="simplesect" lang="en">
+<div class="titlepage">
+<h2 class="title"><a name="N0x850ca10.0x8574274"></a></h2>
+</div>
+<p>to:</p>
+<pre class="programlisting"><tt>printk(KERN_INFO "CLAIMINTERFACE\n);
+</tt>
+</pre>
+<br>
+<br>
+</div>
+<div class="simplesect" lang="en">
+<div class="titlepage">
+<h2 class="title"><a name="N0x850ca10.0x8574324"></a></h2>
+</div>
+<p>Now the kernel janitors should not complain about improper printk() usage.</p>
+<p>In looking further at the logging messages, however, it is hard to determine for what exact device the
+message is being logged. More information needs to be added to the printk() calls. Luckily, some macros
+already in the include/linux/device.h file can help us. They are the dev_printk() macro and its helper
+macros, dev_dbg(), dev_warn(), dev_info() and dev_err(). These macros all need an additional pointer to a
+struct device variable, which allows them to print out the unique device ID for the message. So I change the
+printk() calls again to look like this:</p>
+<pre class="programlisting"><tt>
+dev_info(&amp;dev-&gt;dev, "CLAIMINTERFACE\n");
+</tt>
+</pre>
+<br>
+<br>
+<p>Then the control message printk() calls are changed to:</p>
+<pre class="programlisting"><tt>
+dev_info(&amp;dev-&gt;dev, "control read: "
+       "bRequest=%02x bRrequestType=%02x "
+       "wValue=%04x wIndex=%04x\n", 
+       ctrl.bRequest, ctrl.bRequestType,
+       ctrl.wValue, ctrl.wIndex);
+dev_info(&amp;dev-&gt;dev, "control read: data ");
+for (j = 0; j &lt; ctrl.wLength; ++j)
+    printk("%02x ", ctrl.data[j]);
+printk("\n");
+</tt>
+</pre>
+<br>
+<br>
+<p>The printk calls that dump the data do not need to be changed, as they still are printing on the same line
+as the call to dev_info().</p>
+<p>Now the log messages are much more informative, looking like the following: <span class="c2">Garrick, use
+very small font below.</span></p>
+<pre class="programlisting"><tt>usb 1-1: CONTROL
+usb 1-1: control read: bRequest=06 bRrequestType=80 wValue=0300 wIndex=0000
+usb 1-1: control read: data 00 00 61 63 
+</tt>
+</pre>
+<br>
+<br>
+<p>I can determine exactly what USB device is being talked to, which helps me weed out the messages for
+devices I do not care about.</p>
+<p>Day 7: Oops, I now realize that if I expect this kernel change to be accepted by the community, I had
+better not always generate these messages. Otherwise, everyone would have their system logs overflowing with
+messages they do not care about. How to log messages only when asked?</p>
+<p>I first look into making a new kernel build configuration option. A simple modification of the
+drivers/usb/core/Kconfig file adding a new option is simple, but in examining the required code changes, I
+soon realize that wrapping all of the new logging statements in a #ifdef CONFIG_USBFS_LOGGING statement would
+make the USB maintainer reject my kernel patch. #ifdef is not generally allowed within kernel code, as it
+cuts down on readability and makes maintaining the code over time almost impossible.</p>
+<p>Instead, I look at making an option that can be changed at runtime. I add the following lines of code to
+the devio.c file: <span class="c2">Garrick, use small font below.</span></p>
+<pre class="programlisting"><tt>static int usbfs_snoop = 0;
+module_param (usbfs_snoop, bool, S_IRUGO | S_IWUSR);
+MODULE_PARM_DESC (usbfs_snoop, "true to log all usbfs traffic");
+</tt>
+</pre>
+<br>
+<br>
+<p>This adds a new module parameter to the main usbcore module called usbfs_snoop. This can be seen after
+building the code by running the modinfo program:</p>
+<pre class="programlisting"><tt>$ modinfo usbcore
+license: GPL
+parm:    blinkenlights:true to cycle leds on hubs
+parm:    usbfs_snoop:true to log all usbfs traffic
+</tt>
+</pre>
+<br>
+<br>
+<p>By loading the module with the following line:</p>
+<pre class="programlisting"><tt>modprobe usbcore usbfs_snoop=1
+</tt>
+</pre>
+<br>
+<br>
+</div>
+<div class="simplesect" lang="en">
+<div class="titlepage">
+<h2 class="title"><a name="N0x850ca10.0x85d2a78"></a></h2>
+</div>
+<p>the option can be enabled by the user.</p>
+<p>I used the definition module_param() instead of the old-style MODULE_PARM(), as this is the proper way to
+describe module parameters in the 2.6 kernel. The main difference is this definition has a third parameter.
+This third parameter, if set to something besides 0, causes the parameter to show up in sysfs and allows a
+user to query and modify the option while the module is loaded. With this code included, the usbcore module's
+directory in sysfs looks like: <span class="c2">Garrick, use small font below.</span></p>
+<pre class="programlisting"><tt>$ ls -l /sys/module/usbcore/
+-r--r--r--  1 root root 4096 May 13 15:33 blinkenlights
+-r--r--r--  1 root root 4096 May 13 15:33 refcnt
+-rw-r--r--  1 root root 4096 May 13 15:33 usbfs_snoop
+</tt>
+</pre>
+<br>
+<br>
+<p>The module now can be loaded as normal:</p>
+<pre class="programlisting"><tt>modprobe usbcore
+</tt>
+</pre>
+<br>
+<br>
+<p>When I decide to turn on logging I simply do:</p>
+<pre class="programlisting"><tt>echo 1 &gt; /sys/module/usbcore/usbfs_snoop
+</tt>
+</pre>
+<br>
+<br>
+</div>
+<div class="simplesect" lang="en">
+<div class="titlepage">
+<h2 class="title"><a name="N0x850ca10.0x85d2c30"></a></h2>
+</div>
+<p>and the kernel variable usbfs_snoop in the devio.c file is changed on the fly.</p>
+<p>Now that I can determine whether the user wants to print out snooping messages, I need to modify the
+dev_info() calls again. I create the following macro to do this:</p>
+<pre class="programlisting"><tt>#define snoop(dev, format, arg...)             \
+    do {                                       \
+        if (usbfs_snoop)                       \
+            dev_info( dev , format , ## arg);  \
+    } while (0)
+</tt>
+</pre>
+<br>
+<br>
+<p>This macro tests the value of the usbfs_snoop variable, and if true, the dev_info() line is called. The
+macro is wrapped in a <tt>do { } while (0)</tt> statement to allow it to be used in any kind of code without
+having to worry about any side effects. All kernel macros containing more than one line of code are written
+in this way for this reason. For more details about this, read the kernel newbies FAQ (see Resources).</p>
+<p>I next change all previously added calls to dev_info() to a call to snoop(), causing the code to look
+like:</p>
+<pre class="programlisting"><tt>
+snoop(&amp;dev-&gt;dev, "control read: "
+       "bRequest=%02x bRrequestType=%02x "
+       "wValue=%04x wIndex=%04x\n", 
+       ctrl.bRequest, ctrl.bRequestType,
+       ctrl.wValue, ctrl.wIndex);
+</tt>
+</pre>
+<br>
+<br>
+<p>But where the data is printed out, the snoop() macro does not work properly. I need to check the value of
+the usbfs_snoop variable directly, wrapping the code in an if statement:</p>
+<pre class="programlisting"><tt>
+if (usbfs_snoop) {
+    dev_info(&amp;dev-&gt;dev, "control read: data ");
+    for (j = 0; j &lt; ctrl.wLength; ++j)
+        printk("%02x ", ctrl.data[j]);
+    printk("\n");
+}
+</tt>
+</pre>
+<br>
+<br>
+<p>I'm happy, and hopefully the USB maintainer also will be happy with the changes. I read how to generate a
+proper kernel patch by consulting the file Documentation/SubmittingPatches, generate a diff file and e-mail
+it off.</p>
+<p>We now have a way to snoop all usbfs traffic, which can help us reverse engineer any device that uses
+libusb to communicate with a USB device. It also allows us to snoop any USB accesses from a guest OS running
+in a VMware session, allowing the possibility to reverse engineer Microsoft Windows USB drivers much more
+easily. But all of that has to wait until the next column.</p>
+<p><span class="bold"><b>Resources for this article:</b></span> <a href="http://www.linuxjournal.com/article/7605" target="_top">www.linuxjournal.com/article/7605</a>.</p>
+</div>
+</div>
+<p>Greg Kroah-Hartman currently is the Linux kernel maintainer for a variety of different driver subsystems.
+He works for IBM, doing Linux kernel-related things, and can be reached at <a href="mailto:greg@kroah.com">greg@kroah.com</a>. <span class="c2">7582aa.tif</span></p></div>
+      <div class="links">» <a href="http://www.linuxjournal.com/comment/reply/7582#comment" title="Share your thoughts and opinions related to this posting.">add new comment</a> | <a href="http://www.linuxjournal.com/emailpage&amp;nid=7582" title="Email this page to a friend">email this page</a> | <a href="http://www.linuxjournal.com/node/7582/print" title="Display a printer friendly version of this page.">printer friendly version</a></div>
+
+  </div>
+
+<a id="comment"></a>
+<form method="post" action="comment"><div>
+
+  <div class="box">
+    <h2 class="title">Comment viewing options</h2>
+    <div class="content"><div class="form-item">
+ <select name="mode"> <option value="1">Flat list - collapsed</option>
+ <option value="2">Flat list - expanded</option>
+ <option value="3">Threaded list - collapsed</option>
+ <option value="4" selected="selected">Threaded list - expanded</option>
+</select>
+<select name="order"> <option value="1" selected="selected">Date - newest first</option>
+ <option value="2">Date - oldest first</option>
+</select>
+<select name="comments_per_page"> <option value="10">10 comments per page</option> <option value="30">30 comments per page</option> <option value="50" selected="selected">50 comments per page</option> <option value="70">70 comments per page</option> <option value="90">90 comments per page</option></select>
+<input name="threshold" value="0" type="hidden">
+ <input class="form-submit" name="op" value="Save settings" type="submit">
+
+ <div class="description">Select your preferred way to display the comments and click "Save settings" to activate your changes.</div>
+</div>
+
+    </div>
+ </div>
+<input name="edit[nid]" value="7582" type="hidden">
+</div></form><form method="post" action="comment"><div>
+<input name="edit[nid]" value="7582" type="hidden">
+<div style="margin-left: 50px;">
+<a id="comment-136131"></a>
+
+  <div class="comment">
+     
+    <h3 class="title"><a href="http://www.linuxjournal.com/article/7582#comment-136131" class="active">margarine</a></h3>
+    <div class="submitted">Submitted by Anonymous User (not verified) on Tue, 2006-04-18 16:25. </div>
+    <div class="content"><p>These things are not harmless, even at shops that I love and services that I use, Johnson said.</p>
+</div>
+    <div class="links">» <a href="http://www.linuxjournal.com/comment/reply/7582/136131">reply</a> | <a href="http://www.linuxjournal.com/emailpage&amp;nid=7582" title="Email this page to a friend">email this page</a></div>
+  </div>
+</div>
+<a id="comment-101288"></a>
+
+  <div class="comment">
+     
+    <h3 class="title"><a href="http://www.linuxjournal.com/article/7582#comment-101288" class="active">Doesn't work with 2.6.11</a></h3>
+    <div class="submitted">Submitted by Markus (not verified) on Thu, 2005-07-07 17:27. </div>
+    <div class="content"><p>Somehow it doesn't work for me with a 2.6.11 Kernel</p>
+<p>also the usbfs_snoop file doesn't exist it's located in:<br>
+/sys/module/usbcore/parameters/usbfs_snoop</p>
+<p>the article would be really nice but it looks like it doesn't fit anymore, the only thing I get in the logfile is following:</p>
+<p><code><br>
+Jul  8 01:18:41 debian kernel: usb usb1: usbdev_ioctl: IOCTL<br>
+Jul  8 01:21:41 debian kernel: usb 4-2.3: usbdev_ioctl: CONNECTINFO<br>
+Jul  8 01:21:41 debian kernel: usb 4-2: usbdev_ioctl: CONNECTINFO<br>
+Jul  8 01:21:41 debian kernel: usb usb4: usbdev_ioctl: CONNECTINFO<br>
+Jul  8 01:21:41 debian kernel: usb 4-2.3: usbdev_ioctl: IOCTL<br>
+Jul  8 01:21:41 debian kernel: usb 4-2: usbdev_ioctl: IOCTL<br>
+Jul  8 01:21:41 debian kernel: usb usb4: usbdev_ioctl: IOCTL<br>
+Jul  8 01:21:41 debian kernel: usb usb3: usbdev_ioctl: CONNECTINFO<br>
+Jul  8 01:21:41 debian kernel: usb usb3: usbdev_ioctl: IOCTL<br>
+Jul  8 01:21:41 debian kernel: usb usb2: usbdev_ioctl: CONNECTINFO<br>
+Jul  8 01:21:41 debian kernel: usb usb2: usbdev_ioctl: IOCTL<br>
+Jul  8 01:21:41 debian kernel: usb 1-3: usbdev_ioctl: CONNECTINFO<br>
+Jul  8 01:21:41 debian kernel: usb usb1: usbdev_ioctl: CONNECTINFO<br>
+Jul  8 01:21:41 debian kernel: usb 1-3: usbdev_ioctl: IOCTL<br>
+Jul  8 01:21:41 debian kernel: usb usb1: usbdev_ioctl: IOCTL<br>
+</code></p>
+<p>see there are no values ..</p>
+<p>anyway I think this is the only solution I have for hacking an usb driver, windows usbsniff doesn't show up all usb packets...</p>
+<p>well I'll go on hacking it...</p>
+</div>
+    <div class="links">» <a href="http://www.linuxjournal.com/comment/reply/7582/101288">reply</a> | <a href="http://www.linuxjournal.com/emailpage&amp;nid=7582" title="Email this page to a friend">email this page</a></div>
+  </div>
+<div style="margin-left: 25px;">
+<a id="comment-101608"></a>
+
+  <div class="comment">
+     
+    <h3 class="title"><a href="http://www.linuxjournal.com/article/7582#comment-101608" class="active">...</a></h3>
+    <div class="submitted">Submitted by Markus Rechberger (not verified) on Thu, 2005-07-07 22:05. </div>
+    <div class="content"><p>.. my results..</p>
+<p>http://www.wikiservice.at/dse/wiki.cgi?MarkusRechberger/USB/em2820</p>
+</div>
+    <div class="links">» <a href="http://www.linuxjournal.com/comment/reply/7582/101608">reply</a> | <a href="http://www.linuxjournal.com/emailpage&amp;nid=7582" title="Email this page to a friend">email this page</a></div>
+  </div>
+</div>
+<a id="comment-14473"></a>
+
+  <div class="comment">
+     
+    <h3 class="title"><a href="http://www.linuxjournal.com/article/7582#comment-14473" class="active">thanks for mapping this out.
+</a></h3>
+    <div class="submitted">Submitted by <a href="http://www.linuxjournal.com/user/727" title="View user profile.">gstrock@lji</a> on Tue, 2004-12-14 02:53. </div>
+    <div class="content"><p>thanks for mapping this out.<br>
+I found it informative, clear and easy to follow.<br>
+Demystifying - yes, that's the word.<br>
+Thanks Greg.</p>
+<p>- greg s.</p>
+</div>
+    <div class="links">» <a href="http://www.linuxjournal.com/comment/reply/7582/14473">reply</a> | <a href="http://www.linuxjournal.com/emailpage&amp;nid=7582" title="Email this page to a friend">email this page</a></div>
+  </div>
+<a id="comment-12171"></a>
+
+  <div class="comment">
+     
+    <h3 class="title"><a href="http://www.linuxjournal.com/article/7582#comment-12171" class="active">Re: Snooping the USB Data Stream</a></h3>
+    <div class="submitted">Submitted by Anonymous on Mon, 2004-08-23 01:00. </div>
+    <div class="content"><p>How
+do you enable this on the fly with the FC2 2.6.8-1.521 kernel? It
+appears that usbcore is built into the kernel since modprobe usbcore
+says it is not found. /sys//module/usbcore does not exist either.
+Matter of fact I cant find any tunable parameters in any of the
+directories under /sys/module/.</p>
+</div>
+    <div class="links">» <a href="http://www.linuxjournal.com/comment/reply/7582/12171">reply</a> | <a href="http://www.linuxjournal.com/emailpage&amp;nid=7582" title="Email this page to a friend">email this page</a></div>
+  </div>
+<div style="margin-left: 25px;">
+<a id="comment-36999"></a>
+
+  <div class="comment">
+     
+    <h3 class="title"><a href="http://www.linuxjournal.com/article/7582#comment-36999" class="active">Enable without kernel module</a></h3>
+    <div class="submitted">Submitted by <a href="http://andrestuff.blogspot.com/">Andre</a> (not verified) on Thu, 2005-04-28 03:33. </div>
+    <div class="content"><p>I would think that using USBFS_SNOOP as a boot parameter should work.</p>
+</div>
+    <div class="links">» <a href="http://www.linuxjournal.com/comment/reply/7582/36999">reply</a> | <a href="http://www.linuxjournal.com/emailpage&amp;nid=7582" title="Email this page to a friend">email this page</a></div>
+  </div>
+</div>
+</div></form>
+<!-- end content -->
+
+      </div><!-- main -->
+
+    </td>
+    <td id="sidebar-right">
+      
+  <div class="block block-search" id="block-search-0">
+
+    <div class="title"><h3>Search</h3></div>
+    <div class="content"><form action="search/" method="post">
+ <div class="search-form"><div class="form-item">
+ <div class="container-inline"><div class="form-item">
+ <input maxlength="150" class="form-text" name="edit[keys]" id="edit-keys" size="20" value="" type="text">
+</div>
+<input class="form-submit" name="op" value="Search" type="submit">
+</div>
+</div>
+</div>
+</form>
+</div>
+
+ </div>
+
+  <div class="block block-block" id="block-block-29">
+
+    <div class="title"><h3>Skyscraper Ad</h3></div>
+    <div class="content">
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr><td align="center">
+<script language="JavaScript" type="text/javascript" src="7582_files/adx.js"></script>
+<script type="text/javascript">
+<!--
+phpads_show_ad('http://ads.linuxjournal.com', '9');
+//-->
+</script><noscript><p>
+<a href="http://ads.linuxjournal.com/adclick.php?n=acff6c1e">
+<img src="7582_files/adview.png" alt="">
+</a></p></noscript>
+</td></tr>
+</tbody></table>
+</div>
+
+ </div>
+
+  <div class="block block-block" id="block-block-7">
+
+    <div class="title"><h3>Button 1 zone 6</h3></div>
+    <div class="content">
+<div class="adimage">
+<script language="JavaScript" type="text/javascript" src="7582_files/adx.js"></script>
+<script type="text/javascript">
+<!--
+phpads_show_ad('http://ads.linuxjournal.com', '6');
+//-->
+</script><noscript><p>
+<a href="http://ads.linuxjournal.com/adclick.php?n=acff6c1e">
+<img src="7582_files/adview.jpeg" alt="">
+</a></p></noscript>
+</div>
+</div>
+
+ </div>
+
+  <div class="block block-block" id="block-block-19">
+
+    <div class="title"><h3>Sponsored Links</h3></div>
+    <div class="content"><p>&nbsp;</p>
+</div>
+
+ </div>
+
+  <div class="block block-block" id="block-block-17">
+
+    <div class="title"><h3>Text ad 4 - zone 12</h3></div>
+    <div class="content">
+<div class="adimage">
+<script language="JavaScript" type="text/javascript" src="7582_files/adx.js"></script>
+<script type="text/javascript">
+<!--
+phpads_show_ad('http://ads.linuxjournal.com', '12');
+//-->
+</script><noscript><p>
+<a href="http://ads.linuxjournal.com/adclick.php?n=acff6c1e">
+<img src="7582_files/adview_004.gif" alt="">
+</a></p></noscript>
+</div>
+</div>
+
+ </div>
+
+  <div class="block block-block" id="block-block-22">
+
+    <div class="title"><h3>Text Ad Eight - zone 17</h3></div>
+    <div class="content">
+<div class="adimage">
+<script language="JavaScript" type="text/javascript" src="7582_files/adx.js"></script>
+<script type="text/javascript">
+<!--
+phpads_show_ad('http://ads.linuxjournal.com', '17');
+//-->
+</script><noscript><p>
+<a href="http://ads.linuxjournal.com/adclick.php?n=acff6c1e">
+<img src="7582_files/adview_002.gif" alt="">
+</a></p></noscript>
+</div>
+</div>
+
+ </div>
+
+  <div class="block block-block" id="block-block-28">
+
+    <div class="title"><h3>Text ad twelve - zone 22</h3></div>
+    <div class="content">
+<div class="adimage">
+<script language="JavaScript" type="text/javascript" src="7582_files/adx.js"></script>
+<script type="text/javascript">
+<!--
+phpads_show_ad('http://ads.linuxjournal.com', '22');
+//-->
+</script><noscript><p>
+<a href="http://ads.linuxjournal.com/adclick.php?n=acff6c1e">
+<img src="7582_files/adview.gif" alt="">
+</a></p></noscript>
+</div>
+</div>
+
+ </div>
+
+  <div class="block block-block" id="block-block-12">
+
+    <div class="title"><h3>Text Ad Two -  zone 10</h3></div>
+    <div class="content">
+<div class="adimage">
+<script language="JavaScript" type="text/javascript" src="7582_files/adx.js"></script>
+<script type="text/javascript">
+<!--
+phpads_show_ad('http://ads.linuxjournal.com', '10');
+//-->
+</script><noscript><p>
+<a href="http://ads.linuxjournal.com/adclick.php?n=acff6c1e">
+<img src="7582_files/adview_003.gif" alt="">
+</a></p></noscript>
+</div>
+</div>
+
+ </div>
+
+    </td>
+
+
+
+  </tr>
+</tbody></table>
+<!--
+<table id="footer-menu" summary="Navigation elements." border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tr>
+    <td align="center" valign="middle">
+      <div class="primary-links"><div id="left">
+	<table height="75px" cellpadding="0">
+	<tr><td>
+		<img src="/sites/default/themes/linuxjournal/ljlogo.png" alt="Home" border="0" />
+	</td></tr>
+	</table>
+</div>
+
+<div id="center">
+	<table height="75px" align="left" cellpadding="0">
+	<tr>
+		<td id="tagline" valign="bottom" align="left">Since 1994: The Original Monthly Magazine of the Linux Community</td>
+	</tr>
+	</table>
+</div>
+
+<div id="right">
+	<table id="primary-links-table" cellpadding="0">
+			<tr>
+				<td id="primary-links-hdr">Subscribe&nbsp;&nbsp;<strong>Now</strong></td>
+			</tr>
+			<tr>
+				<td id="primary-links">
+					<ul class="subscribebar">
+						<li><a href="http://www.linuxjournal.com/subscribe">Subscribe</a></li>
+						<li><a href="https://www.ssc.com/dlissc">Customer Service</a></li>
+					</ul>
+				</td>
+			</tr>
+	</table>
+</div>
+</div>
+      <div class="secondary-links"><table id="secondary-links-table" summary="Navigation elements." border="0" cellpadding="0" cellspacing="0" width="100%">
+ <tr>
+   <td id="secondary-links">
+
+<table align="center"><tr>
+<td width="18%">&#160;</td>
+<td align="center" width="16%"><a class="first" href="/xstatic/magazine">Magazine</a></td>
+<td align="center" width="16%"><a class="second" href="/xstatic/advertising">Advertise</a></td>
+<td align="center" width="16%"><a class="second" href="/xstatic/community">Community</a></td>
+<td align="center" width="16%"><a class="second" href="/xstatic/aboutus">About&#160;Us</a></td>
+
+<td width="18%">&#160;</td>
+</tr></table>
+
+   </td>
+ </tr>
+</table></div>
+    </td>
+  </tr>
+</table>
+-->
+<hr id="footer-sep">
+
+<div id="footer-message">
+
+
+
+  <table width="100%"><tbody><tr>
+<td align="left" width="10%"><img src="7582_files/drupal07.png" alt="Drupal"></td>
+<td id="first-foot-links" width="80%">
+<a class="first" href="http://www.linuxjournal.com/xstatic/magazine" title="Magazine">Magazine</a>
+<a href="https://www.ssc.com/dlissc" title="Subscriber Services">Subscriber&nbsp;Services</a>
+<a href="http://www.linuxjournal.com/xstatic/advertising/" title="Advertise">Advertise</a>
+<a href="http://www.linuxjournal.com/xstatic/community" title="Community">Community</a>
+<a href="http://www.linuxjournal.com/xstatic/aboutus" title="Contact Us">Contact&nbsp;Us</a>
+<a href="https://www.ssc.com/lj/subs/privacy.html" title="Privacy Statement">Privacy&nbsp;Statement</a></td>
+<td width="10%">&nbsp;</td>
+</tr></tbody></table>
+
+
+
+<table align="center"><tbody><tr>
+<td id="sec-foot-links">
+Copyright © 1994 - 2006 <a href="http://www.ssc.com/">SSC&nbsp;Media&nbsp;Corporation</a>. All rights reserved.
+</td></tr></tbody></table>
+
+<table align="center"><tbody><tr>
+<td>Visit SSC's other sites:</td>
+<td>&nbsp;</td>
+<td id="third-foot-links">
+<a class="first" href="http://www.tuxmagazine.com/" title="TUX Magazine">TUX&nbsp;Magazine</a>
+<a href="http://www.docsearls.com/" title="Doc's IT Garage">Doc's&nbsp;IT&nbsp;Garage
+</a><a href="http://www.linuxjournal.com/xstatic/aboutus/rss_page" title="Click here for more RSS feeds">RSS&nbsp;Links</a>
+</td></tr></tbody></table>
+
+<table align="center">
+<tbody><tr>
+<td>Read "News Feeds" from SSC's other sites:</td>
+<td>&nbsp;</td><td id="fourth-foot-links"><a class="first" href="http://www.linuxjournal.com/aggregator" title="Click here for News Feeds">News&nbsp;Feeds</a>
+ <a href="mailto:webmaster@ssc.com">Report&nbsp;&nbsp;Problems</a></td></tr></tbody></table>
+
+</div>
+</body></html>

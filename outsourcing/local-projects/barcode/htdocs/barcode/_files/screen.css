@@ -1,0 +1,151 @@
+/*****************************************/
+/*                                       */
+/* Screen-specific styles                */
+/*                                       */
+/*****************************************/
+
+@import "common.css";
+@import "/shared/css/screen.css";
+
+/*****************************************/
+/* General                               */
+/*****************************************/
+body {
+  margin: 0px 20px 0px 20px;
+  padding: 0px;
+  background-color: #fff;
+}
+
+div.noscreen { display: none; }
+
+/*****************************************/
+/* Sections                              */
+/*****************************************/
+
+div#bannercontent {
+  text-align: left;
+  padding-left: 10px;
+  padding-top: 10px;
+}
+
+div#bannercontent_inner {}
+
+div#leftcontent {
+  position: absolute;
+  left:20px;
+  top:150px;
+  width:270px;
+}
+div#leftcontent h3 { margin:0;padding:0;margin-top:15px;margin-bottom:10px; }
+
+div#content {
+  background:#fff;
+  margin-top: 10px;
+  margin-left: 300px;
+  margin-right: 0;
+}
+
+div#content_inner {
+  margin-left: 20px;
+  margin-right: 0;
+}
+
+div#noticecontent { 
+  margin-top: 20px;
+  padding: 10px; 
+  font-size: 0.8em;
+}
+
+/*****************************************/
+/* Menus                                 */
+/*****************************************/
+div#sitemenu {
+  padding: 10px; padding-top:0;
+  margin-bottom: 0;
+  font-size: 0.9em;
+}
+div#sitemenu div#menu {
+  margin:0; padding:0;
+  padding-left: 1em;
+}
+
+div#navi {}
+
+div#navi div#pathbar {
+  margin:0; padding:0;
+  font-size:0.9em;
+  color:gray;
+}
+div#pathbar a { color: gray; }
+
+div#navi div#menu {
+  display: none;
+  padding-left: 2em;
+  margin-bottom:1em; 
+}
+
+
+div.menuicons {
+  display: table;
+  padding: 4px;
+}
+div.menuicons img {
+  border: none;
+}
+
+/*****************************************/
+/* Hot                                   */
+/*****************************************/
+div#hotnews {
+  padding:10px; padding-top:0;padding-bottom:0;
+  margin:0;
+  font-size: 0.9em;
+}
+
+div#hotbuttons {
+  padding:10px; padding-top:3px; padding-bottom:3px;
+  margin-bottom: 0;
+}
+
+/*****************************************/
+/* Weblog                                */
+/*****************************************/
+div.weblog_entry {
+  margin-bottom:3em;
+}
+div.weblog_entry h2 {
+  margin-top:0;
+}
+div.weblog_entry blockquote {
+  margin-left: 1.5em;
+  margin-right: 1.5em;
+}
+
+div.weblog_front_entry {
+  background-color: #eee;
+  display: block;
+  padding-left: 1em;
+  padding-right: 1em;
+  padding-bottom: 1em;
+  margin: 0;
+  font-size: 0.95em;
+}
+
+/*****************************************/
+/* Deprecate                             */
+/*****************************************/
+div.breakout { 
+  display:table;
+  float:right;
+  font-size: 0.9em;
+  padding-left:10px; padding-right:10px;
+  margin-left:15px; margin-bottom:10px;
+  border: 2px dotted #888;
+  border-left: 2px solid #888; border-bottom: 2px solid #888;
+  background-color: #ddd;
+}
+
+span.external div.breakout {
+  background-color: #fdd;
+  border-color: #a88;
+}

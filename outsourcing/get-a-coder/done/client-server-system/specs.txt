@@ -1,0 +1,50 @@
+Description
+I need of the development of a client-server system to manage file to execute commands:
+
+The server must provide the following functions:
+- file copying (with the command copy)
+- file moving (with the command move)
+- file delete (with the command delete)
+- make a list of files’ name, their dimensions, and the dates of the last access (with the command list)
+- creation of a new folder (with the command create_folder)
+- deletion of a folder, only if the folder is empty (with the command delete_folder)
+- change the current folder (with the command change_folder)
+
+Syntax Examples:
+1) (upload) to copy a local file called file1.txt from a client in the network on the server remote_host with the name file2.txt
+copy file1.txt server:file2.txt
+
+2) (download) to copy a file called file1.txt from the server remote_host to a client in the network with the name file2.txt
+copy server:file1.txt file2.txt
+
+3) (move) to copy a file called file1.txt from the server remote_host to the same server with the name file2.txt
+copy server:file1.txt server:file2.txt
+
+where server is the name or the IP address of the server.
+Must be possible make the access to files using relative or absolute paths
+
+and so on..
+
+The server must also be able to execute other remote commands (which list is stored in a configuration file) with the command execute.
+The commands can be concatenate in a pipe and can redirect the output on a file.
+As default the command execute will use as standard input and the standard output for the remote command of the client.
+Examples:
+- execute server:command executes “command” on “sever”
+- execute server:“command1 | command2” executes the pipe “command1 | command2”on “server”
+- execute server:“command > file” executes “command” on “server” redirecting the output on the remote file “file”
+- execute server: command > file executes “command” on “server” redirecting the output on the local file “file”
+
+The request must be execute with the credentials of the user that ran the server.
+Server must support multiple and concurrent connections using threads and wait the requests on the TCP port 1234.
+The files access must be controlled by a “Lock”-mechanism that allows to once thread a time to the write access; while the read access file must be allow in concurrent mode.
+
+A client can be an application (that accept the commands defined before) or a set of applications that implements the different commands.
+
+NB: In case of error a message must inform the user of a kind of error occurred.
+
+The system must run correctly on Windows and Linux platform: for example a Linux client will have to be able to interact both with Windows server and with Linux server and vice versa (Windows client and Linux/Windows server).
+
+Only for the Linux server:
+Before of the request’s execution the server will require to the client the authentication of the remote user.
+If the server is in execution with root’s credentials (uid = 0, gid = 0), after the authentication of the user will execute the commands with the credentials of the user that ran the client. Must be manage other kind of error for example: unexisting user, incorrect password, etc.
+

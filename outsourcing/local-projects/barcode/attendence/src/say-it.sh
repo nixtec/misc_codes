@@ -1,0 +1,8 @@
+#!/bin/sh
+
+if [ $# -lt 1 ] ; then
+  echo "(SayText \"Hi User\")" | festival
+else
+  echo "(SayText \"$@\")" | festival
+fi
+

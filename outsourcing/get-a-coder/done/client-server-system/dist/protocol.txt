@@ -1,0 +1,60 @@
+For using server provided functions:
+
+Colon is used as delimiter in the following. In real '\x2' is used as delimiter:
+
+
+client> FUNC <TYPE> <cwd>:<func>:<file>[:<file>][:<del>]
+e.g.    FUNC UP COPY file.txt
+TYPE: UP | DOWN | MOVE | NONE
+  UP <func> <cwd>:<file>		/* <file> will be created in server */
+  DOWN <func> <cwd>:<file>:<del>	/* <file> to be downloaded to client */
+  MOVE <func> <cwd>:<src>:<dst>		/* <src> to be copied to <dst> */
+  NONE <func> <cwd>:<ACTION>		/* no file transfer, just action */
+
+To handle the CHDIR Problem for multi-threaded server, each of the <file> path
+will preceed by the current directory of the server for the client. Clients
+may use hash tables for saving the directory for the server. It will be IP
+based. If a shell is used for communicating with a single server, then this is
+not needed. For example,
+
+192.168.0.1 => /home/ayub/zzz/
+
+
+<func>: COPY | MOVE | DEL | LIST | MKDIR | RMDIR | CHDIR | GETCWD
+
+GETCWD syntax:
+	NONE GETCWD <cwd>:<none>
+
+client> EXEC <cwd>:<cmd>
+
+
+<nbytes> is not used for the project. But maybe used for being robust.
+server> 500 OK <nbytes>
+
+DOWN: <func> <cwd>:<file>:<del>
+	if <del> is 1 then server will delete the file after transfer
+
+
+Command transformations:
+client: copy server:file.txt local.txt
+server: FUNC DOWN COPY <cwd>:file.txt:0
+
+client: copy local.txt server:file.txt
+server: FUNC UP COPY <cwd>:file.txt
+
+client: copy server:file1.txt server:file2.txt
+server: FUNC MOVE COPY <cwd>:file1.txt:file2.txt
+
+
+client: move server:file.txt local.txt
+server: FUNC DOWN MOVE <cwd>:file.txt:1
+
+client: move local.txt server:file.txt
+server: FUNC UP MOVE <cwd>:file.txt
+
+client: move server:file1.txt server:file2.txt
+server: FUNC MOVE MOVE <cwd>:file1.txt:file2.txt
+
+client: delete server:file.txt
+server: FUNC NONE DEL <cwd>:file.txt
+

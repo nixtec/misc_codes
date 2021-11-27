@@ -1,0 +1,313 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML//EN">
+<html><head><!-- MHonArc v2.5.13 --><!--X-Subject: thread&#45;private working directory --><!--X-From-R13: "Oyrknaqre Frerxubi" <FSDSYVAHNqr.voz.pbz> --><!--X-Date: Fri, 1 Aug 2003 13:26:07 +0100 --><!--X-Message-Id: OF5257DF51.BB7FB2E3&#45;ONC1256D75.00416742&#45;C1256D75.0044399F@de.ibm.com --><!--X-Content-Type: text/plain --><!--X-Reference: Pine.LNX.4.44.0307311538080.1373&#45;100000@ashi.FootPrints.net --><!--X-Head-End--><title>thread-private working directory</title>
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" type="text/css" href="msg00000_files/style.css">
+<link rel="contents" href="http://www.opengroup.org/austin/mailarchives/ag-futures/threads.html#00000">
+<link rel="index" href="http://www.opengroup.org/austin/mailarchives/ag-futures/index.html#00000">
+<link rel="prev" href="">
+<link rel="next" href="http://www.opengroup.org/austin/mailarchives/ag-futures/msg00001.html"><!--default header--></head><body bgcolor="white">
+
+<center>
+<div class="msgTitle">
+<span class="listTitle"><strong>Email List: Xaustin-group-futures-lX</strong></span>
+</div>
+<div class="metaIdxNav">
+<!--nobr>[<a href="../">Top</a>]</nobr-->
+<nobr>[<a href="http://www.opengroup.org/austin/mailarchives/">All&nbsp;Lists</a>]</nobr>
+</div>
+</center>
+<!--X-Body-Begin-->
+<!--X-User-Header-->
+<!--X-User-Header-End-->
+<!--X-TopPNI-->
+<center>
+<div class="topLinks">
+<table class="mainNav" width="100%">
+<tbody><tr>
+<td align="left" width="30%"><span class="topDateNav"><nobr><span class="iaText">&lt;prev</span>&nbsp;<strong>[<a href="http://www.opengroup.org/austin/mailarchives/ag-futures/index.html#00000">Date</a>]</strong>&nbsp;<a href="http://www.opengroup.org/austin/mailarchives/ag-futures/msg00001.html">next&gt;</a></nobr></span></td>
+<td align="center" width="40%"><form action="http://www.opengroup.org/sophocles/show_archive.tpl">
+<input name="source" value="L" type="hidden">
+<input name="listname" value="austin-group-futures-l" type="hidden">
+<input name="pagesize" value="10" type="hidden">
+<input name="first" value="1" type="hidden">
+Search for messages containing
+<br>
+<input name="searchstring" value="" size="40" type="input">
+<input value="Search" type="submit">
+<br>
+in <input name="zone" value="F" type="radio">message
+   <input name="zone" value="G" type="radio">Subject:
+   <input name="zone" value="T" type="radio">To:
+   <input name="zone" value="O" type="radio">From: 
+   <input name="zone" value="X" checked="checked" type="radio">(none)
+<br>
+</form>
+</td>
+<td align="right" width="30%"><span class="topThreadNav"><nobr><span class="iaText">&lt;prev</span>&nbsp;<strong>[<a href="http://www.opengroup.org/austin/mailarchives/ag-futures/threads.html#00000">Thread</a>]</strong>&nbsp;<a href="http://www.opengroup.org/austin/mailarchives/ag-futures/msg00001.html">next&gt;</a></nobr></span></td>
+</tr>
+</tbody></table>
+</div>
+</center>
+
+<!--X-TopPNI-End-->
+<!--X-MsgBody-->
+<!--X-Subject-Header-Begin-->
+<div class="msgSubject">
+<h2>thread-private working directory</h2>
+</div>
+<div class="msgHead">
+<!--X-Subject-Header-End-->
+<!--X-Head-of-Message-->
+<table>
+<tbody><tr valign="baseline">
+<th align="right">
+<strong>To</strong>: </th>
+<td align="left">
+yyyyyyyyyyyyyy@xxxxxxxxxxxxx</td>
+</tr>
+
+<tr valign="baseline">
+<th align="right">
+<strong>Subject</strong>: </th>
+<td align="left">
+thread-private working directory</td>
+</tr>
+
+<tr valign="baseline">
+<th align="right">
+<strong>From</strong>: </th>
+<td align="left">
+"Alexander Terekhov" &lt;yyyyyyyy@xxxxxxxxxx&gt;</td>
+</tr>
+
+<tr valign="baseline">
+<th align="right">
+<strong>Date</strong>: </th>
+<td align="left">
+Fri, 1 Aug 2003 14:25:55 +0200</td>
+</tr>
+
+<tr valign="baseline">
+<th align="right">
+<strong>Expiry-date</strong>: </th>
+<td align="left">
+</td>
+</tr>
+
+</tbody></table>
+<!--X-Head-of-Message-End-->
+<!--X-Head-Body-Sep-Begin-->
+</div>
+<div class="msgBody">
+<table cellspacing="1" width="100%"><tbody><tr><td>
+<!--X-Head-Body-Sep-End-->
+<!--X-Body-of-Message-->
+<pre>&lt; Reply-To: yyyyyyyyyyyyyyyyyyyyyy@xxxxxxxxxxxxx &gt;
+
+Kaz Kylheku wrote:
+[...]
+&gt;<i> I think that if you have one thread doing things like open() </i>
+&gt;<i> calls with relative paths, and another one calls chdir(), all </i>
+&gt;<i> bets are off, what do you think?</i>
+
+I think that the process-wide working directory just ought to be 
+declared ``as thread safe as an int.'' IOW, concurrent read-only 
+usage shall be okay as long as all mutations are synchronized out, 
+so to speak. ("see XBD 4.10 for details" ;-) ). The same goes for 
+other things like stdio streams but, unfortunately, it's a bit too 
+late, I'm afraid.
+
+[...]
+&gt;<i> Any chdir's not surrounded in a push/pop would just affect </i>
+&gt;<i> the process-wide one.</i>
+
+Push/pop ala thread cleanup handlers? I mean: "The application 
+shall ensure that they appear as statements, and in pairs within 
+the same lexical scope (that is, the pthread_cleanup_push() macro 
+may be thought to expand to a token list whose first token is '{' 
+with pthread_cleanup_pop() expanding to a token list whose last 
+token is the corresponding '}' )". Uhmm. I'd probably still want 
+to have something to activate use of the thread-private working 
+directory in some "common" routine. I like pthread_chdir(). ;-)
+
+regards,
+alexander.
+
+--
+"911: Get me your boss, this is the chief of police.
+ (Answering machine at SCO) Sorry no one's available to take your
+ call. Currently the management is busy deciding which company to 
+ sue. If you would like to help, please leave your company name 
+ and corporate information like annual turnover, etc. after you 
+ hear the beep."
+                                       -- <a href="http://tinyurl.com/ihu2">http://tinyurl.com/ihu2</a>
+
+
+Sent by:        Kaz Kylheku &lt;yyy@xxxxxxxxxxxxxx&gt;
+To:     Alexander yyyyyyyyyyyyyyyyyyyy@xxxxx
+cc:     yyyyyyyyyyyyyy@xxxxxxxxxxxxx 
+Subject:        Re: slashdot feedback on the TR
+
+
+On Thu, 31 Jul 2003, Alexander Terekhov wrote:
+
+&gt;<i> Kaz Kylheku wrote:</i>
+&gt;<i> [...]</i>
+&gt;<i> &gt; chdir is not thread safe</i>
+&gt;<i> </i>
+&gt;<i> AFAIK, chdir is thread safe but "not really useful" without </i>
+&gt;<i> some sync. ;-)</i>
+
+Okay, if I do a chdir in two threads, we know that one of them will
+win; the end result won't be an error or some half-baked location.  We
+could say that the chdir() update is atomic, which is a far cry from
+thread-safe.
+
+Or do we really know that? Where is it written that chdir() is memory
+synchronizing: that a chdir() in one thread must eventually be visible
+to another thread, and atomically so?
+
+I think that if you have one thread doing things like open() calls with
+relative paths, and another one calls chdir(), all bets are off, what
+do you think?
+
+In reality, we know that in typical implementations these are kernel
+calls that manipulate kernel data, so there is synchronization at that
+boundary.
+
+&gt;<i> Cox could have proposed something like pthread_chdir() with </i>
+&gt;<i> a null pointer used as an "indicator" to switch back to the </i>
+&gt;<i> process wide thing (using it, I mean). Or whatever.</i>
+
+A nice interface would be something for a dynamically-scoped
+current-working directory.
+
+chdir_push("/go/here"); /* thread-specific, saves old location */
+chdir("/go/elsewhere"); /* change thread-specific location, no save */
+chdir_pop()             /* restores old location */
+
+Any chdir's not surrounded in a push/pop would just affect the
+process-wide one.
+
+At once you have a useful interface for threads, as well as for saving
+and restoring around foreign library functions.
+
+This resembles the action of dynamically-scoped variable in Common
+Lisp.
+
+  (defvar *current-directory* "/") ;; global to all threads
+
+  ;; LET will save and restore, and give us a thread-specific
+  ;; variable binding in Lisp implementations that support threads!
+
+  (let ((*current-directory* "/go/here"))
+    ;; All code called from here sees this thread-specific
+    ;; binding of *current-directory*, not the global one.
+
+    ;; Store a new value in binding:
+    (setf *current-directory* "/go/elsewhere"))
+
+  ;; prior binding restored
+
+
+
+</pre>
+
+<!--X-Body-of-Message-End-->
+<!--X-MsgBody-End-->
+<!--X-Follow-Ups-->
+</td></tr></tbody></table>
+</div>
+<div class="msgLinks">
+<table width="100%">
+<tbody><tr valign="baseline">
+<td align="center"><span class="subjectLink">
+[<a href="http://www.opengroup.org/sophocles/show_archive.tpl?source=L&amp;listname=austin-group-futures-l&amp;pagesize=10&amp;first=1&amp;searchstring=thread-private%20working%20directory&amp;zone=G">Search&nbsp;for&nbsp;more&nbsp;with&nbsp;this&nbsp;subject...</a>]</span></td>
+</tr></tbody></table>
+</div>
+<div class="tSlice">
+<table cellpadding="4" cellspacing="1" width="100%">
+<tbody><tr valign="baseline">
+<td align="left"><span class="iaText"><strong>&lt;Prev&nbsp;in&nbsp;Thread</strong>]</span></td>
+<th align="center" width="100%"><strong>Current&nbsp;Thread</strong></th>
+<td align="right">[<a href="http://www.opengroup.org/austin/mailarchives/ag-futures/msg00001.html"><strong>Next&nbsp;in&nbsp;Thread&gt;</strong></a>
+</td></tr>
+<tr class="tSliceList"><td colspan="3">
+<ul>
+<li><span class="sliceCur"><strong>thread-private working directory</strong>,
+<em>Alexander Terekhov</em>&nbsp;<b></b></span><b>&lt;=</b>
+<ul>
+<li><b><a name="00001" href="http://www.opengroup.org/austin/mailarchives/ag-futures/msg00001.html">Re: thread-private working directory</a></b>, <i>Harti Brandt</i>
+<ul>
+<li><b><a name="00002" href="http://www.opengroup.org/austin/mailarchives/ag-futures/msg00002.html">Re: thread-private working directory</a></b>, <i>Alexander Terekhov</i>
+<ul>
+<li><b><a name="00003" href="http://www.opengroup.org/austin/mailarchives/ag-futures/msg00003.html">Re: thread-private working directory</a></b>, <i>Harti Brandt</i>
+</li><li><b><a name="00004" href="http://www.opengroup.org/austin/mailarchives/ag-futures/msg00004.html">Re: thread-private working directory</a></b>, <i>Dave Butenhof</i>
+</li><li><b><a name="00005" href="http://www.opengroup.org/austin/mailarchives/ag-futures/msg00005.html">Re: thread-private working directory</a></b>, <i>Harti Brandt</i>
+</li><li><b><a name="00006" href="http://www.opengroup.org/austin/mailarchives/ag-futures/msg00006.html">Re: thread-private working directory</a></b>, <i>Dave Butenhof</i>
+</li><li><b><a name="00007" href="http://www.opengroup.org/austin/mailarchives/ag-futures/msg00007.html">Re: thread-private working directory</a></b>, <i>Harti Brandt</i>
+</li><li><b><a name="00008" href="http://www.opengroup.org/austin/mailarchives/ag-futures/msg00008.html">Re: thread-private working directory</a></b>, <i>Dave Butenhof</i>
+</li><li><b><a name="00009" href="http://www.opengroup.org/austin/mailarchives/ag-futures/msg00009.html">Re: thread-private working directory</a></b>, <i>Harti Brandt</i>
+</li><li><b><a name="00010" href="http://www.opengroup.org/austin/mailarchives/ag-futures/msg00010.html">Re: thread-private working directory</a></b>, <i>Dave Butenhof</i>
+</li>
+
+
+
+
+
+
+
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+</td></tr>
+</tbody></table></div>
+<!--X-Follow-Ups-End-->
+<!--X-References-->
+<!--X-References-End-->
+<!--X-BotPNI-->
+<div class="botLinks">
+<table width="100%">
+
+<tbody><tr valign="baseline">
+<th align="right">Next&nbsp;by&nbsp;Date:&nbsp;</th>
+<td width="100%"><strong><a href="http://www.opengroup.org/austin/mailarchives/ag-futures/msg00001.html">Re: thread-private working directory</a></strong>, <em>Harti Brandt</em></td>
+</tr>
+
+<tr valign="baseline">
+<th align="right">Next&nbsp;by&nbsp;Thread:&nbsp;</th>
+<td width="100%"><strong><a href="http://www.opengroup.org/austin/mailarchives/ag-futures/msg00001.html">Re: thread-private working directory</a></strong>, <em>Harti Brandt</em></td>
+</tr>
+<tr valign="baseline">
+<th align="right">Indexes:&nbsp;</th>
+<td>[<a href="http://www.opengroup.org/austin/mailarchives/ag-futures/index.html#00000"><strong>Date</strong></a>]
+[<a href="http://www.opengroup.org/austin/mailarchives/ag-futures/threads.html#00000"><strong>Thread</strong></a>]
+<!--[<a href="../"><strong>Top</strong></a>]-->
+[<a href="http://www.opengroup.org/austin/mailarchives/"><strong>All&nbsp;Lists</strong></a>]</td>
+</tr>
+</tbody></table>
+</div>
+<a name="foot">&nbsp;</a>
+<!--default trailer-->
+
+
+<!--X-BotPNI-End-->
+<!--X-User-Footer-->
+<!--X-User-Footer-End-->
+</body></html>

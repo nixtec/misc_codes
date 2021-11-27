@@ -1,0 +1,251 @@
+                       :CUE:CAT BARCODE READER SOFTWARE
+                       --------------------------------
+                                    v0.8.2
+                                    ------
+
+                Pierre-Philippe Coupard <pcoupard@easyconnect.fr>
+                                   28/06/03
+
+
+
+The :Cue:Cat is a small barcode reader that connects to a standard PS/2
+keyboard port. It is a very cheap little device that can, nonetheless, read
+many types of bar codes. It was manufactured by DigitalConvergence
+(http://www.digitalconvergence.com/), which is a company that is no more. The
+main advantage of the :Cue:Cat was that RadioShack gave one away to anybody who
+requested it when DigitalConvergence was still alive, for the purpose of tying
+their paper catalog to their website.
+
+The device isn't manufactured anymore. However, there still are hundreds of
+thousand of them still around lying in people's drawers around the United
+States, and elsewhere in the world where people managed to get one somehow.
+DigitalConvergence's database having disappeared, the device has become totally
+useless for its original intended use, and is as good as a paperweight for
+Windows users. Too bad, because the :Cue:Cat is actually a decent barcode
+reader that can be very useful. However, I intend to maintain support for the
+device under Linux as long as there is demand for it, so as to prolong the
+useful life of existing :Cue:Cat readers as much as possible.
+
+
+
+1 - How to compile and use the read_cuecat example utility
+
+Simply type "make" and the program should build. It is a very simple program
+so there shouldn't be any problem. The only real issues are console-related
+ioctl calls and such.
+
+read_cuecat can read data from your CueCat off of the regular PS/2 keyboard port
+or off a serial port. In the latter case, you need to build a CueCat RS232 pod
+(see instructions in the "cuecat_RS232_pod" to build it).
+
+NOTE : read_cuecat does NOT work under X if you have a CueCat connected on your
+       PS/2 port. Bad things may happen if you run read_cuecat as root under X.
+       Instead, you should run read_cuecat in a plain text console.
+
+NOTE : read_cuecat DOES NOT need the CueCat driver in the kernel. It is a
+       standalone program.
+
+
+
+2 - What the :Cue:Cat send to the keyboard port when it has read a barcode
+
+The format is fairly simple, if bizarre :
+
+<HEADER>.<CUECAT DEVICE ID>.<BARCODE TYPE CODE>.<BARCODE...>.<CR>
+
+The header is simply the scancodes corresponding to ALT-F10 on a standard US
+keyboard : 0x38, 0x44, 0xc4, 0xb8.
+
+All characters transmitted by the CueCat are of the form :
+
+[<SHIFT PRESS>] <ALNUM KEY PRESS> <ALNUM KEY RELEASE> [<SHIFT RELEASE>]
+
+where ALNUM is a key scancode corresponding to 0->9 thru a->z, or '+' or '-' on
+a standard US keyboard.
+
+The CueCat device ID is a 18 character string, the barcode type is a 4 character
+string, and the barcode can be any length.
+
+Here is the explanation from Colin Cross about of how the CueCat encodes the
+data representing the CueCat ID, the barcode type and the barcode itself :
+
+--8<--8<--SNIP-SNIP--8<--8<--
+The encoding is a base64 (not MIME tho) with a random XOR thrown in.  Each 
+letter is a base 64 (6 bit) number, a is 0, z is 25, A is 26, Z is 51, 0 is 
+52, 9 is 61, + is 62, - is 63 (and fill in the blanks between there).  A group 
+of four of these 6 bit numbers are combined into a single 24 bit number, which 
+is then split into three 8 bit ASCII codes (XORed with 67).
+
+Taral corrected my first perl script to solve the short code problem.  If a 
+group of 4 characters is not complete (ie there are only 2 characters), it 
+should be padded with 0's ('a' in the base64 encoding), and then follow the 
+same decoding process.  Then chop off the same number of characters from the 
+decoded string that were padded onto the encoded string.
+
+No tables/codes should be used anywhere - it is simply a coincidence that they 
+work for numeric values, because the top 4 bits of all the number ASCII codes 
+are the same, 0011 binary.
+--8<--8<--SNIP-SNIP--8<--8<--
+
+Example : The following coded CueCat device ID :
+
+C3nZC3nZC3nYChj1C3D7CxnX
+
+translates into :
+
+000000001316048202
+
+The barcode type indicates what kind of barcode the CueCat just read, like
+"IBN" for ISBN, "UPA" for UPC-A, etc ...
+
+
+
+3 - How to use the CueCat kernel driver
+
+The patch is against Linux 2.4.21. Here is the detail of the kernel patching
+procedure (you need to be root) :
+
+#cd ${HOME}
+#tar -zx < cuecat-0.8.2.tar.gz
+#cd /usr/src/linux
+#patch -p1 < ${HOME}/cuecat-0.8.2/cuecat-linux-2.4.21.patch
+
+Then, invoke
+
+#make menuconfig
+
+You should have the following new options in the "character devices" section :
+
+Support for :Cue:Cat barcode reader
+  Support for :CueCat on PC/AT keyboard port
+    Driver enabled by default
+  Support for :CueCat on PS/2 mouse port
+    Driver enabled by default
+  Support for USB :CueCat
+    Driver enabled by default
+
+Select the first one. You can make the CueCat driver compiled in the kernel by
+selecting "*" or as a kernel module by selecting "M".
+
+Then, select "Support for :CueCat on PC/AT keyboard port" if your CueCat is on
+the keyboard port of your PC, "Support for :CueCat on PS/2 mouse port" if
+your CueCat is on the mouse port, "Support for USB :CueCat" if your CueCat is
+a USB version. Of course, if you have several CueCats, select any combination
+of the above options.
+
+For each or the above options, you can choose to have the driver enabled by
+default or not. If you don't enable a driver by default, make sure "proc
+filesystem support" is enabled.
+
+Then exit and recompile by invoking :
+
+#make dep && make bzImage
+
+If you have compiled the driver as a module, also invoke :
+
+#make modules && make modules_install
+
+Then, if you don't use the DevFS filesystem, create the "/dev/scanners/cuecat"
+device file by invoking :
+
+mkdir /dev/scanners
+mknod /dev/scanners/cuecat c 10 199
+
+Then, reboot your new kernel.
+
+If you have compiled support for the USB CueCat, invoke the following
+commands first :
+
+#modprobe input
+#modprobe usbkbd		(see NOTE below)
+#modprobe keybdev
+
+Then, if you have compiled the driver as a module, invoke :
+
+#modprobe cuecat
+
+NOTE : Although hid.o and usbkbd.o both can handle USB keyboard devices with
+       newer 2.4 versions of the Linux kernel, the hid.o module seem to have
+       some trouble handling USB CueCats and PS/2 <-> USB CueCat adapters, so it
+       is recommended that you use the usbkbd.o module instead.
+
+If a CueCat driver is disabled by default (i.e. characters from the barcode
+scanner will go throught as if the driver wasn't there), you need to enable it
+by invoking :
+
+#echo CC0=1 > /proc/scanners/cuecat
+
+to enable a keyboard port CueCat driver,
+
+#echo CC1=1 > /proc/scanners/cuecat
+
+to enable a PS/2 port CueCat driver,
+
+#echo CC2=1 > /proc/scanners/cuecat
+
+to enable a USB CueCat driver or a standard CueCat connected to a PS/2 <-> USB
+CueCat adapter.
+
+You can now read /dev/scanners/cuecat : as soon as a driver decodes a
+barcode, it sends a text line containing the CueCat device ID, the type of
+barcode and the barcode itself on the /dev/scanners/cuecat device file.
+
+If you want to be able to see the raw characters sent by the keyboard port
+CueCat, or you want to test the userland program, you can disable the driver
+again by invoking :
+
+#echo CC0=0 > /proc/scanners/cuecat
+
+Of course, you can also disable the PS/2 CueCat driver by invoking :
+
+#echo CC1=0 > /proc/scanners/cuecat
+
+And of course, you can also disable the USB CueCat driver by invoking :
+
+#echo CC2=0 > /proc/scanners/cuecat
+
+but then, beware that if you scan a barcode with a PS/2 CueCat when the driver
+is disabled, bad things are likely to happen to your mouse under X (and possibly
+bad things are likely to happen to your console too).
+
+NOTE : if a driver is not enabled by default, it requires the /proc
+       filesystem, otherwise it will never be enabled
+
+
+
+4 - Known bugs
+
+A program that uses a PS/2 mouse, like GPM or X11, needs to run *prior* to
+trying to use the PS/2 portion of the CueCat driver, otherwise the PS/2 mouse
+will die and the console may lock. I have added the PS/2 feature as a nicety
+for the many people who asked it for the sake of pushing the enveloppe. I doubt
+very much that it can be of any real use.
+
+
+
+5 - Other people and projects for the CueCat device, and information about
+    barcodes
+
+UScan Bar Code Scanning system :      http://sourceforge.net/projects/uscan/
+A Web Of Information About Bar Code : http://www.adams1.com/pub/russadam/
+Colin Cross' decoding perl script :   http://www.mit.edu/~colin/cat.pl
+Taral's homepage :                    http://ccwf.cc.utexas.edu/~taral/
+Mirror for the CueCat driver :        http://www.flyingbuttmonkeys.com/cuecat/
+
+Please feel free to send me any comment, suggestion, patch, ... that you may
+have.
+
+
+
+6 - LEGALESE
+
+This software is released under the terms of the General Public License. See
+the "COPYING" file for details.
+
+Oh, and yes, I forgot :
+
+DISCLAIMER :
+
+I am not responsible for any damage caused by this software, whether it's on
+your computer, your CueCat, or if it wipes out your hard-drive, or if it sets
+off a nuclear bomb, etc ...

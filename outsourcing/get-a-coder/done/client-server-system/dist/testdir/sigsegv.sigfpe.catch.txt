@@ -1,0 +1,57 @@
+finaly i found something that seems to work. Maybe it can help someone.
+I use setjmp and longjmp c standard functions.
+
+an example code:
+
+// a jmp_buf variable to store contex
+jmp_buf contex;
+
+// my exception class
+class myException : public exception
+{
+public:
+int err;
+
+myException (int s) {err=s;}
+~myException(){};
+}
+
+// the SIGSEGV, SIGFPE handler
+int signalhandler(int s)
+{
+longjmp(context, s);
+}
+
+int main()
+{
+int i = 10;
+
+// change signal behaviour
+signal(SIGFPE, signalhandler);
+signal(SIGSEGV, signalhandler);
+
+try
+{
+if ((i=setjmp(context)) == 0)
+{
+// we volontary make a bad code
+i = i / 0;
+printf("i=%d\n", i);
+}
+else
+{
+// i contains the signal error
+throw new myException(i);
+}
+}
+catch(myException *e)
+{
+printf("exception: %s\n", strerror(e->err));
+delete e;
+// do any traitement
+}
+catch(...)
+{
+// we do something
+}
+}

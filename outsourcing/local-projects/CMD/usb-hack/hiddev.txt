@@ -1,0 +1,16 @@
+By Ayub:
+
+mkdir -p /dev/usb
+mknod /dev/usb/hiddev0 c 180 96
+
+When done, you may delete the /dev/usb directory because it was not
+pre-existing.
+
+But it's not necessary since it's not being used by others. So it's not
+harmful.
+
+rm -rf /dev/usb		[optional]
+
+
+Latest kernels automatically initialize /dev filesystem. So, anything new
+created manually won't be saved between sessions.

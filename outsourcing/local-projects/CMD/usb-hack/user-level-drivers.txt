@@ -1,0 +1,324 @@
+IA64 Wiki
+Search:
+
+    * Login
+
+IA64wiki
+
+    * UserLevelDrivers
+
+    * RecentChanges
+    * FindPage
+    * HelpContents
+    * UserLevelDrivers
+
+    * Immutable Page
+    * Info
+    * Attachments
+    *
+      More Actions:
+
+User Level Device Drivers for Linux
+
+   1. User Level Device Drivers for Linux
+   2. The Concept
+   3. Motivation
+   4. Existing Support
+         1. Threads
+         2. Fast System Calls
+   5. New Infrastructure (patches)
+         1. Interrupts
+         2. PCI DMA
+   6. New Interfaces
+         1. Block Layer
+         2. Network stack
+   7. Using the interfaces
+         1. usr_pci_open
+         2. PCI Consistent memory
+         3. Set up DMA
+         4. Tear down DMA
+         5. Handling Interrupts
+   8. Related Information
+
+The Concept
+
+Most drivers are tightly bound into the kernel, either linked to it, or loaded as modules at runtime. Some drivers (notably XFree86's X server) run in user space, and map device registers, video memory, etc., into their own address spaces.
+Motivation
+
+The majority of bugs are in device drivers -- see, e.g., http://linuxbugs.coverity.com/linuxbugs.htm which shows this graph:
+	
+
+image001
+
+By moving device drivers out of privileged kernel space into user space, their bugs can be contained.
+Existing Support
+
+As of linux 2.6.0-test5, user processes can:
+
+   1.
+
+      mmap() /dev/mem to get at MMIO registers (not safe on all architectures)
+   2.
+
+      Use inb() etc., for ports below 65536
+   3.
+
+      Read and write the PCI configuration space
+
+There is also a patch by Albert Calahan that allows mapping bits of PCI space, at http://lkml.org/lkml/2003/7/13/258 --- this is a better way to go than mapping /dev/mem directly.
+
+In 2.6, it should be possible to use ioctl on /proc/bus/pci/XXX to get at the appropriate parts of I/O space.
+Threads
+
+    *
+
+      The new Posix Threads Library NPTL provides vary fast threading and mutexes. 
+
+Fast System Calls
+
+    *
+
+      On IA64 and on some other architectures, there is support for very fast system calls, allowing some subset of the kernel<->userspace crossing to become very cheap. 
+
+New Infrastructure (patches)
+
+-- patches against Kernel 2.6.8 More recent patches ara available from the Gelato@UNSW CVSRepository
+Interrupts
+
+New infrastructure is needed for allowing a user process to register interest in an (unshared) interrupt, and receive notification when it happens. Sharing interrupts is extremely inadvisable if they are to be handled in user space: a user-space handler may never return, so the interrupt has to be disabled and marked as handled before calling userspace.
+
+Each possible interrupt has a file called /proc/irq/irq/irq Opening this file sets up an in-kernel stub handler for the interrupt. Reading from the file enables the interrupt and causes the caller to sleep until one arrives; then the interrupt is disabled and the caller awoken.
+
+The effect is that a userspace interrupt handler looks somnething like this:
+
+struct irq_desc {
+        void   *driverp;
+        int    (*handler)(void *);
+        int     irqfd;
+};
+
+static void *
+interrupt_thread(void *arg)
+{
+        struct irq_desc *ip = (struct irq_desc *)arg;
+        int nirq;
+        int err;
+        int fd = ip->irqfd;
+
+        for (;;) {
+                err = read(fd, &nirq, sizeof(nirq));
+                if (err == -1)
+                        switch(errno){
+                        case EINTR:
+                                continue;
+                        default:
+                                syserror("Interrupt device read returned EINVAL");
+                                /* NOTREACHED */
+                                break;
+                        case EBUSY:
+                        {
+                                int enable = 0;
+                                write(fd, &enable, sizeof enable);
+                                continue;
+                        }
+                        }
+                interrupts++;
+                (void)(ip->handler)(ip->driverp);
+        }
+        /* NOTREACHED */
+        return NULL;
+}
+
+int
+create_interrupt_thread(int irq, void *drive, int (*handler)(void *))
+{
+        int fd;
+        char name[24];
+        struct irq_desc *idp = malloc(sizeof(*idp));
+        pthread_attr_t attr;
+        struct sched_param schp;
+
+        assert(ithr == 0);
+        assert(idp != NULL);
+        snprintf(name, sizeof name,  "/proc/irq/%d/irq", irq);
+        if ((fd = open(name, O_RDWR|O_EXCL)) == -1)
+                syserror("Cannot open interrupt descriptor");
+        idp->irqfd = fd;
+        idp->driverp = drive;
+        idp->handler = handler;
+
+        memset(&schp, 0, sizeof(schp));
+        schp.sched_priority = sched_get_priority_max(SCHED_FIFO);
+
+        pthread_attr_init(&attr);
+        pthread_attr_setschedpolicy(&attr, SCHED_FIFO);
+        pthread_attr_setscope(&attr, PTHREAD_SCOPE_SYSTEM);
+        pthread_attr_setschedparam(&attr, &schp);
+        pthread_create(&ithr, &attr, interrupt_thread, idp);
+
+        return 0;
+}
+
+PCI DMA
+
+New infrastructure is also needed to allow setup and teardown of DMA from a device into main memory.
+
+I'm really unhappy with the protoype implementation, and intend to change it to be cleaner before release. While developing, it's very easy to use a multiplexing system call (because there's only a few to relocate when the kernel adds new system calls underneath you, and in general you can concentrate on modifying your own code, and not half a dozen entry.S and asm/unistd.h files)
+
+We added two new system calls:
+
+int usr_pci_open(int bus, int slot, int fn)
+
+Return a filedescriptor that can be used to map memory for the device at (bus, slot.fn).
+
+At most one process can have a particular device open at a time.
+
+int
+usr_pci_map(int fd, int cmd, struct mapping_info *mp)
+
+The fd is one returned from usr_pci_open(); cmd is one of DMA_BIDIRECTIONAL, DMA_TO_DEVICE, or DMA_FROM_DEVICE. In general, avoid using DMA_BIDIRECTIONAL.
+
+The third argument looks like this:
+
+/*
+ * virtaddr: user mode address to be mapped/unmapped
+ * size: bytes of address to map
+ * nents: As passed into usr_pci_map will contain total 
+ *              number of entries;
+ *        as passed out, will contain number of valid entries 
+ *              (IOMMU may merge entries)
+ * sglist: allocated by caller of usr_pci_map,
+ *         should be at least (size/PAGE_SIZE) + 2
+ * direction: try not to use DMA_BIDERECTIONAL
+ */
+struct mapping_info {
+        void *virtaddr;
+        unsigned long dmaaddr;
+        unsigned int size;
+        unsigned int nents;
+        struct usr_pci_sglist  *sglist;
+        enum dma_data_direction direction;
+};
+
+If cmd is USR_MAP, mp->size bytes are mapped from mp->virtaddr into PCI space; the resulting scatter-gather list is returned to user space to allow a user-mode driver to set up DMA.
+
+If cmd is USR_UNMAP then the only part of *mp used is the dmaaddr field; it should be the dma address from the first entry in a scatterlist obtained from usr_pci_map(..., USR_MAP, ...) call.
+
+If cmd is 'USR_ALLOC_CONSISTENT' then the scatterlist is ignored; the size is the only input field; the virtual address of the resulting memory is mp->virtaddr and the PCI-space is mp->dmaaddr.
+New Interfaces
+Block Layer
+
+There is a hacked up implementatation that exposes the block device underside to user space, so that a user-mode IDE driver can appear like a real block device, and be partitioned, mounted, shared, etc.
+
+The implementation needs to be cleaned up substantially before finalising the documentation.
+Network stack
+Using the interfaces
+usr_pci_open
+
+To write a user-space driver, you need to find the device on the PCI bus using libpci or whatever, then call
+
+    *
+
+       devfd = usr_pci_open(bus, slot, function). 
+
+Then map /dev/kmem get at the MMIO registers, or set up ioperm() to get access to the I/O ports.
+PCI Consistent memory
+
+Do:
+
+    m.size = 16*1024; 
+    if (usr_pci_map(devfd, USR_ALLOC_CONSISTENT, &m) == -1) 
+       error() 
+ 
+
+to get 16k of device-consistent memory. It'll be mapped into user space at m.virtaddr, and into PCI-bus space at m.dmaaddr.
+
+You can use munmap() to throw it away again.
+Set up DMA
+
+To set up a mapping from user space into PCI dma space do:
+
+   m.virtaddr = addr; 
+   m.size = size; 
+   m.direction = DMA_TO_DEVICE; /* or DMA_FROM_DEVIEC, or 
+                 DMA_BIDIRECTIONAL */ 
+   m.nents = size / pagesize + 2; 
+   m.sglist = malloc(m.nents * sizeof m.sglist[0]); 
+ 
+   if (usr_pci_map(dma, USR_MAP, &m) != -1) 
+      error(); 
+ 
+   for (i = 0; i < m.nents; i++) 
+       set_up_dma(m.sglist[i].len, m.sglist[i].dmaaddr); 
+
+Tear down DMA
+
+To tear down a mapping, do
+
+   m.dmaaddr = m.sglist[0].dmaaddr; 
+   if (usr_pci_map(dma, USR_UNMAP, &m) != 0) 
+      error(); 
+
+Handling Interrupts
+
+To handle interrupts do something like this in a realtime thread:
+
+          snprintf(name, sizeof name,  "/proc/irq/%d/irq", irq); 
+          if ((fd = open(name, O_RDWR|O_EXCL)) == -1) 
+             syserror("Cannot open interrupt descriptor"); 
+ 
+          for (;;) { 
+                int nirq; 
+                err = read(fd, &nirq, sizeof(nirq)); 
+                if (err == -1) 
+                        switch(errno){ 
+                        case EINTR: 
+                             continue; 
+                        default: 
+                                syserror("Interrupt device read returned EINVAL\
+"); 
+                                /* NOTREACHED */ 
+                                break; 
+                        case EBUSY: 
+                        { 
+                                int enable = 0; 
+                                write(fd, &enable, sizeof enable); 
+                                continue; 
+                        } 
+                        } 
+                interrupts++; 
+                Handle_Interrupt() 
+        } 
+
+Related Information
+
+    *
+
+      UDMA modes
+    *
+
+      /RFC on a componentised approach to hooking user level device drivers together.
+    *
+
+      Ext3XFSReadWritePatterns -- example of data retreived with the drivers
+    *
+
+      Linux Kernel Infrastructure for User-Level Device Drivers
+    *
+
+      (internal use) The Project Dogfood ProjectDogFood 
+
+    * Immutable Page
+    * Info
+    * Attachments
+    *
+      More Actions:
+
+    * MoinMoin Powered
+    * Python Powered
+    * Valid HTML 4.01
+
+Gelato@UNSW is sponsored by
+the University of New South Wales 	National ICT Australia 	The Gelato Federation 	Hewlett-Packard Company 	Australian Research Council
+Please contact us with any questions or comments.
+

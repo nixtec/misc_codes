@@ -1,0 +1,199 @@
+/*
+ * exec_cmd.c
+ * Copyright (C) Ayub <mrayub@gmail.com>
+ */
+#include "exec_cmd.h"
+
+/* adjust according to your needs */
+#define MAXBUF 4096
+
+#ifdef __no__
+void exec_cmd(int connfd,
+    const char *cwd,
+    const char *shell,
+    const char *arg,
+    const char *cmd,
+    uid_t uid)
+{
+  pid_t pid;
+  int status;
+  const char *cp = NULL;
+
+  if ((pid = fork()) == 0) {
+    if (cwd[0] != '-') {
+      chdir(cwd);
+    }
+    cp = strrchr(shell, DIR_DELIM);
+    if (cp)
+      cp++;
+    else
+      cp = shell;
+    dup2(connfd, STDIN_FILENO);
+    dup2(connfd, STDOUT_FILENO);
+    dup2(connfd, STDERR_FILENO);
+    close(connfd);
+    execl(shell, cp, arg, cmd, NULL);
+    exit(1);
+  }
+
+  if (pid > 0) {
+    if (waitpid(pid, &status, 0) == pid) {
+      fprintf(stderr, "Child [%d] exited with status %d\n", (int) pid, status);
+    } else {
+      TRACE_LINE();
+      perror("waitpid");
+    }
+  }
+}
+#endif
+
+void exec_cmd(int connfd,
+    const char *cwd,
+    const char *shell,
+    const char *arg,
+    const char *cmd,
+    uid_t uid)
+{
+  const char *cp = NULL;
+  pid_t pid;
+  int status = 0;
+  int n, nsent;
+
+  int p[2][2];
+
+  // kernel maintains select() per process basis
+  // so here we're using two fork()s, otherwise another exec() will make
+  // problems with select()
+#ifdef __NO__
+  if ((pid = fork()) == 0) {
+#endif
+    pipe(p[0]); /* parent -> child */
+    pipe(p[1]); /* child -> parent */
+    switch (pid = fork()) {
+      case -1:
+	perror("fork");
+	return;
+	break;
+      case 0:
+#ifdef linux
+	if (geteuid() == 0) { // root
+	  if (setuid(uid)) { // run as user uid
+	    perror("setuid");
+	    exit(1); // not safe to execute
+	  }
+	}
+#endif
+	if (cwd[0] != '-') {
+	  chdir(cwd); // change to the directory
+	}
+	close(connfd);
+	close(p[0][1]);
+	close(p[1][0]);
+	dup2(p[0][0], STDIN_FILENO);
+	dup2(p[1][1], STDOUT_FILENO);
+	dup2(p[1][1], STDERR_FILENO);
+	cp = strrchr(shell, DIR_DELIM);
+	if (cp)
+	  cp++;
+	else
+	  cp = shell;
+	execl(shell, cp, arg, cmd, NULL);
+	exit(2); // never reach here if successfully executed
+	break;
+      default:
+	break;
+    }
+
+    /* only parent will reach here */
+    close(p[0][0]);
+    close(p[1][1]);
+
+    int maxfdp1;
+    fd_set rset;
+    char buf[MAXBUF];
+    int fin_received = 0; /* whether client sent FIN [shutdown(s, SHUT_WR)] */
+
+    FD_ZERO(&rset);
+
+    while (1) {
+      if (!fin_received) {
+	FD_SET(connfd, &rset);
+      }
+      FD_SET(p[1][0], &rset);
+      maxfdp1 = MAX(p[1][0], connfd) + 1;
+
+      if (select(maxfdp1, &rset, NULL, NULL, NULL) == -1) {
+	perror("select");
+	continue;
+      }
+
+      if (FD_ISSET(connfd, &rset)) { // socket is readable
+	n = recv(connfd, buf, sizeof(buf), 0);
+	if (n < 0) { // socket error
+	  perror("recv");
+	  break;
+	}
+
+	if (n == 0) { // no more read from socket
+	  //fprintf(stderr, "FIN received\n");
+	  FD_CLR(connfd, &rset);
+	  fin_received = 1;
+	  close(p[0][1]); // send EOF to the child
+	  continue; // we may have more data to send
+	}
+
+	nsent = write(p[0][1], buf, n);
+	if (nsent < n) {
+	  perror("write");
+	  break;
+	}
+      }
+
+      if (FD_ISSET(p[1][0], &rset)) {
+	n = read(p[1][0], buf, sizeof(buf));
+	if (n <= 0) {
+	  //perror("read");
+	  break;
+	}
+	fprintf(stderr, "%d bytes read from pipe\n", n);
+	nsent = sendn(connfd, buf, n);
+	if (nsent < n) {
+	  perror("send");
+	}
+	/*
+	write(2, buf, n); // debugging
+	fsync(2);
+	*/
+      }
+    }
+
+    /* we're done with pipe */
+    if (!fin_received) {
+      close(p[0][1]);
+    }
+    close(p[1][0]);
+
+    if (waitpid(pid, &status, 0) > 0) {
+      fprintf(stderr, "Child [%d] exited with status %d\n", (int) pid, status);
+    } else {
+      TRACE_LINE();
+      perror("waitpid");
+    }
+#ifdef __NO__
+    exit(0);
+  } else if (pid == -1) {
+    TRACE_LINE();
+    perror("fork");
+    return;
+  }
+  close(connfd);
+  *sfd = -1; // we closed the socket here
+
+  if (waitpid(pid, &status, 0) > 0) {
+    fprintf(stderr, "Child [%d] exited with status %d\n", (int) pid, status);
+  } else {
+    TRACE_LINE();
+    perror("waitpid");
+  }
+#endif
+}

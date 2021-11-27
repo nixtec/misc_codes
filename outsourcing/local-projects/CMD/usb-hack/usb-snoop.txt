@@ -1,0 +1,11 @@
+2.6.x kernel usbcore variable:
+
+$ ls /sys/module/usbcore/parameters/
+blinkenlights
+old_scheme_first
+usbfs_snoop		<<< default value is N >>>
+use_both_schemes
+$
+
+# echo 1 > /sys/module/usbcore/parameters/usbfs_snoop
+

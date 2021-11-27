@@ -1,0 +1,5 @@
+Description
+Need a Web Spider in any Language. The spider should be able to accept a
+starting URL, Visit the page, parse out the HTML links, apend the links to a
+queue file. recursively visit each page in the queue, parse their links, add
+them to the queue and so on. Build a connectivity matrix from the queue file.

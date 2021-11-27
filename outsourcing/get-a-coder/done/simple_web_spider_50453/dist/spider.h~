@@ -1,0 +1,16 @@
+/*
+ * spider.h
+ */
+#ifndef SPIDER_H
+#define SPIDER_H
+
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include <WWWLib.h>
+#include <WWWInit.h>
+#include <WWWHTML.h>
+
+void do_something(void);
+
+#endif /* !SPIDER_H */

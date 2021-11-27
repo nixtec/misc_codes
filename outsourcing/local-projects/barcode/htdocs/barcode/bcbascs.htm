@@ -1,0 +1,571 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Introduction to Barcodes - Bar Code Basics</title>
+
+
+
+<meta name="description" content="Introduction to Barcodes - Bar Code Basics">
+
+<meta name="searchtitle" content="Bar Coding Basics">
+
+<meta name="keywords" content="barcode, bar code, barcode font, bar code font, symbologies, Code 39, code39, code 3 of 9, Interleaved 2 of 5, ITF, UPC, UPC-A, UPC-E, EAN, EAN-8, EAN-13, Code 128 Code128, UCC/EAN 128, EAN/UCC 128 UCC, Code 93, Code93, Codabar, MSI, Plessey, PostNET, Zip+4, ZIP, 2 of 5, JAN, Bookland, Aztec Code, Aztec, PDF417, Data Matrix, Datamatrix, maxicode, HIBC">
+
+<script language="JavaScript">
+
+function formHandler(form){
+var URL = form.Quicklinks.options[form.Quicklinks.selectedIndex].value;
+if (URL != "") {
+	window.location.href =URL;
+}
+}
+
+</script>
+
+
+
+
+<style type="text/css">
+
+<!--
+
+A:link {color:#0000A0;}
+
+A:vlink {color:#330099;}
+
+A:hover {color:#8080FF;}
+
+-->
+
+</style>
+
+<link rel="stylesheet" type="text/css" href="bcbascs_files/taltech">
+
+
+
+<script type="text/javascript" language="JavaScript">
+
+function MM_preloadImages() { //v3.0s
+
+ 	var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+
+   	var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+
+   	if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+
+}
+
+//-->
+
+</script></head>
+
+
+<body topmargin="0" leftmargin="0" onload="MM_preloadImages('../images/n_products2_F2.gif', '../images/n_resources2_F2.gif', '../images/n_freesoft2_F2.gif');" alink="#8080ff" bgcolor="white" link="#0000a0" marginheight="0" marginwidth="0" vlink="#330099">
+
+
+
+<!--Header-->
+
+
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+
+
+
+
+
+
+
+<tbody><tr>
+
+
+
+
+
+
+
+<td colspan="2" bgcolor="#003399">
+
+
+
+
+
+
+
+<input name="Range" value="All" type="hidden"><input value="Standard" name="Format" type="hidden"><table border="0" cellpadding="2" cellspacing="0" width="745">
+
+
+
+
+
+
+
+<tbody><tr><td width="200"><img src="bcbascs_files/logo_sm" alt="TALtech Logo" border="0" height="34" width="197"></td>
+
+
+
+
+
+
+<form name="Quick"></form>
+<td width="255">
+<select name="Quicklinks" onchange="formHandler(this.form)"><option selected="selected">Resources
+
+</option><option value="../links.html">Links to related sites
+
+</option><option value="../intro-sc.html">Intro to Serial Communications
+
+</option><option value="http://www.beyondlogic.org/">Intro to Interfacing Devices to PCs
+
+</option><option value="index.html">Intro to Bar Coding
+
+</option><option value="../tcpip.htm">Using TCP/IP as an Instrument Interface
+
+</option><option value="../abouttal.htm">About TAL
+
+</option></select> 
+</td>
+
+
+
+
+
+
+
+<form name="SearchForm" method="get" action="http://www.taltech.com/cgi-bin/library/xavatoria/search.cgi"></form><td align="right"><img src="bcbascs_files/search2" alt="search" border="0" height="10" width="56"></td>
+
+<td><input name="Terms" size="20" maxlength="800" type="text"><input name="Scope" value="1" type="hidden"></td>
+
+
+
+
+
+
+
+
+</tr>
+
+
+
+
+
+
+
+</tbody></table></td>
+
+
+
+
+
+
+
+</tr>
+
+
+
+
+
+
+
+<tr><td colspan="2" bgcolor="#990000"><img src="bcbascs_files/dot_rs" alt="" border="0" height="3" width="3"></td></tr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<tr><td><img src="bcbascs_files/instrumental" alt="" border="0" height="25" width="235"></td>
+
+
+
+<td><table border="0" cellpadding="0" cellspacing="5"> 
+
+
+
+<tbody><tr>
+
+
+
+          <td valign="top"><a href="http://www.taltech.com/TALtech_web/products/index.html" onmouseover="document.products.src='../../images/n_products2_F2.gif';" onmouseout="document.products.src='../../images/n_products2.gif';"><img src="bcbascs_files/n_products2" alt="Products" name="products" border="0" height="12" width="57"></a></td>
+
+
+
+<td><img src="bcbascs_files/divider_r" alt="" border="0" height="15" width="1"></td>
+
+
+
+          <td valign="top"><a href="http://www.taltech.com/TALtech_web/support/index.html" onmouseover="document.support.src='../../images/n_support2_F2.gif';" onmouseout="document.support.src='../../images/n_support2.gif';"><img src="bcbascs_files/n_support2" alt="Support" name="support" border="0" height="15" width="53"></a></td>
+
+
+
+<td><img src="bcbascs_files/divider_r" alt="" border="0" height="15" width="1"></td>
+
+
+
+<td valign="top"><img src="bcbascs_files/n_resources2_F2" alt="Resources" name="resources" border="0" height="12" width="67"></td>
+
+
+
+<td><img src="bcbascs_files/divider_r" alt="" border="0" height="15" width="1"></td>
+
+
+
+
+
+<td valign="top"></td><td valign="top"><a href="http://www.taltech.com/cgi-bin/fs2k.cgi" onmouseover="document.freesoft.src='../../images/n_freesoft2_F2.gif';" onmouseout="document.freesoft.src='../../images/n_freesoft2.gif';"><img src="bcbascs_files/n_freesoft2" alt="Free Software" name="freesoft" border="0" height="13" width="90"></a></td>
+
+</tr>
+
+</tbody></table></td></tr>
+
+
+
+
+
+
+
+
+
+
+
+</tbody></table>
+
+
+
+
+
+
+
+
+
+
+
+<!--Text Navigation-->
+
+<table align="left" border="0" cellpadding="1" cellspacing="0" width="745">
+
+<tbody><tr>
+    <td><font face="Arial, Helvetica, Sans-serif" size="2"><i><b>&nbsp;<a href="http://www.taltech.com/TALtech_web/index.html">TALtech 
+      Home:</a> &nbsp;<a href="http://www.taltech.com/TALtech_web/resources/index.html">Resources:</a> &nbsp; <a href="http://www.taltech.com/TALtech_web/resources/intro_to_bc/index.html">Introduction 
+      to Bar Coding</a></b></i></font></td>
+  </tr>
+
+</tbody></table><br>
+
+<!--End Text Navigation-->
+
+
+
+
+
+
+
+
+
+<!--Content Table--><br>
+
+<table border="0" cellpadding="0" cellspacing="20" width="745">
+
+<tbody><tr>
+
+
+
+<td rowspan="3" width="20"><img src="bcbascs_files/blank" alt="" border="0" height="3" width="20"></td>
+
+
+
+    <td width="570"> <img src="bcbascs_files/r_bcbasics" alt="Bar Coding Basics" border="0" height="17" width="132"> 
+      <p> Bar codes provide a simple and inexpensive method of encoding text information 
+        that is easily read by inexpensive electronic readers. Bar coding also 
+        allows data to be collected rapidly and with extreme accuracy. A bar code 
+        consists of a series of parallel, adjacent bars and spaces. Predefined 
+        bar and space patterns or "symbologies" are used to encode small 
+        strings of character data into a printed symbol. Bar codes can be thought 
+        of as a printed type of the Morse code with narrow bars (and spaces) representing 
+        dots, and wide bars representing dashes. A bar code reader decodes a bar 
+        code by scanning a light source across the bar code and measuring the 
+        intensity of light reflected back by the white spaces. The pattern of 
+        reflected light is detected with a photodiode which produces an electronic 
+        signal that exactly matches the printed bar code pattern. This signal 
+        is then decoded back to the original data by inexpensive electronic circuits. 
+        Due to the design of most bar code symbologies, it does not make any difference 
+        if you scan a bar code from right to left or from left to right.</p>
+
+		
+
+		
+      <p align="left">The basic structure of a bar code consists of a leading 
+        and trailing quiet zone, a start pattern, one or more data characters, 
+        optionally one or two check characters and a stop pattern. </p>
+      <p align="center"><br>
+        <img src="bcbascs_files/bcbasi1" height="84" width="300"><br>
+      </p>
+      <p align="left">There are a variety of different types of bar code encoding
+         schemes or "symbologies", each of which were originally developed
+          to fulfill a specific need in a specific industry. Several of these
+         symbologies 
+        have matured into de-facto standards that are used universally today
+         throughout  most industries. The symbologies supported by B-Coder, the
+         TALtech Bar Code 
+        ActiveX control and the TALtech Bar Code DLLs are those most commonly
+         used across all industries.<br>
+        <br>
+        The different symbologies have different capabilities for encoding data. 
+        For example the UPC symbology used to identify retail products always 
+        contains 12 numeric digits whereas the general purpose Code 39 or Code 
+        128 bar code symbologies can encode variable length alphanumeric data 
+        up to about 30 characters in length. These types of bar codes are called 
+        "linear symbologies" because they are made up of a series of 
+        lines of different widths. Most commercially available bar code scanners 
+        are able to read all of the different linear bar code symbologies therefore 
+        you do not need different readers for different types of bar codes.<br>
+        <br>
+        New "2-Dimensional" bar code symbologies like PDF417, Aztec 
+        Code and Data Matrix are also now available that can encode several thousand 
+        bytes of data in a single bar code symbol including text or binary data. 
+        The newer 2D bar code symbologies typically require special bar code readers 
+        that are designed specifically for reading them.<br>
+      </p>
+      <p align="left">The primary purpose of a bar code is to identify something 
+        by labeling the item with a bar code containing a unique number or character 
+        string. Bar codes are typically used with a database application where 
+        the data encoded in the bar codes is used as an index to a record in the 
+        database that contains more detailed information about the item that is 
+        being scanned. For example, when a checkout clerk scans a bar code on 
+        a product in a grocery store, the bar code data is fed to a computer that 
+        looks up the information in a central database and returns more detailed 
+        information about the item that was scanned including possibly a description 
+        of the item and a price. By using bar codes, the grocery store does not 
+        need to put a price tag on each item in the store and they can also change 
+        the price for a particular item by modifying a single entry in the central 
+        database. They can also track how much of a product is currently in stock 
+        so that they know when to re-order more of each item as the number of 
+        items in stock falls.</p>
+      <p align="left">Bar codes also provide a quick and error free means for 
+        inputting the data into an application running on a computer. By using 
+        bar codes, the potential for errors from manual data input is eliminated. 
+        Another typical application for bar codes is therefore for inputting data 
+        without having to type. For example you could encode name or address data 
+        in a bar code on an ID badge and then scan the ID badges to input a persons 
+        name into a computer program instead of typing the information.</p>
+      <h2 align="left">How much data can you actually encode?</h2>
+      <p align="left">The different bar code symbologies support different types 
+        and amounts of data therefore you normally choose a particular symbology 
+        based on the type and amount of data that you want to encode in your bar 
+        codes. </p>
+      <table border="1" cellpadding="3" cellspacing="0" width="100%">
+        <tbody><tr> 
+          <td width="20%"> 
+            <p><b>Symbology</b></p>
+          </td>
+          <td> 
+            <p><b>Data Capacity</b></p>
+          </td>
+        </tr>
+        <tr> 
+          <td width="20%"> 
+            <p>UPC-A</p>
+          </td>
+          <td> 
+            <p>12 numeric digits - 11 user specified and 1 check digit.</p>
+          </td>
+        </tr>
+        <tr> 
+          <td width="20%"> 
+            <p>UPC-E</p>
+          </td>
+          <td> 
+            <p>7 numeric digits - 6 user specified and 1 check digit.</p>
+          </td>
+        </tr>
+        <tr> 
+          <td width="20%"> 
+            <p>EAN-8</p>
+          </td>
+          <td> 
+            <p>8 numeric digits - 7 user specified and 1 check digit.</p>
+          </td>
+        </tr>
+        <tr> 
+          <td width="20%"> 
+            <p>EAN-13</p>
+          </td>
+          <td> 
+            <p>13 numeric digits - 12 user specified and 1 check digit.</p>
+          </td>
+        </tr>
+        <tr> 
+          <td width="20%"> 
+            <p>Code 39<br>
+              Code 93<br>
+              Code 128<br>
+              EAN-UCC 128 </p>
+          </td>
+          <td> 
+            <p>Variable length alphanumeric data - the practical upper limit is 
+              dependent on the scanner and is typically between 20 and 40 characters. 
+              Code 128 is more efficient at encoding data than Code 39 or Code 
+              93. Code 128 is the best choice for most general bar code applications. 
+              Code 39 and Code 128 are both very widely used while Code 93 is 
+              rarely used.</p>
+          </td>
+        </tr>
+        <tr> 
+          <td width="20%"> 
+            <p>I 2 of 5</p>
+          </td>
+          <td> 
+            <p>Variable length numeric data - the practical upper limit is dependent
+               on the scanner and is typically between 20 and 50 characters.</p>
+          </td>
+        </tr>
+        <tr> 
+          <td width="20%"> 
+            <p>Data Matrix</p>
+          </td>
+          <td> 
+            <p> Data can consist of any type of data including binary or alphanumeric 
+              and be up to 3116 bytes in length.</p>
+          </td>
+        </tr>
+        <tr> 
+          <td width="20%"> 
+            <p>Aztec</p>
+          </td>
+          <td> 
+            <p>Data can consist of any type of data including binary or alphanumeric 
+              and be up to 3750 bytes in length.</p>
+          </td>
+        </tr>
+        <tr> 
+          <td width="20%"> 
+            <p>Maxicode</p>
+          </td>
+          <td> 
+            <p>Maxicode can hold up to 93 alphanumeric characters or 138 numeric 
+              digits. Maxicode is used almost exclusively for United Parcel Service 
+              package identification.</p>
+          </td>
+        </tr>
+        <tr> 
+          <td width="20%"> 
+            <p>PDF417</p>
+          </td>
+          <td> 
+            <p>PDF417 is a little more complex and it is difficult to say exactly 
+              what its capacity is because it depends greatly on the type of data 
+              that you encode in a PDF417 symbol as well as the amount of error 
+              correction capacity that you choose to use in a PDF417 symbol.</p>
+            <p>For general binary data with no error correction enabled, a single 
+              PDF417 symbol can hold up to 1108 bytes. If the data consists of 
+              all numeric digits, then a single PDF417 symbol can hold up to 2725 
+              digits. If the data consists of alphanumeric data, you can encode 
+              a maximum of 1850 bytes. If you have a mix of alphanumeric and binary 
+              data, the capacity will be somewhere between 1108 and 1850 bytes 
+              and will depend on the content of the data.<br>
+            </p>
+            <p>All of our bar code software products use an extremely efficient 
+              encoding algorithm that will squeeze the maximum number of bytes 
+              possible into a PDF417 symbol however it still must work within 
+              the limits of the symbology specification.</p>
+          </td>
+        </tr>
+      </tbody></table>
+      <p align="left">You are generally free to use any type of bar code that 
+        you like and encode whatever data that you like for applications in a 
+        closed system. <br>
+        If you want to place bar codes on retail items that will be commercially
+         distributed (e.g. UPC or EAN bar codes), you will need to apply for
+        a 
+        manufacturer number from the <a href="http://www.uc-council.org/" target="new">Uniform
+         Code Council</a> in the USA, Tel: 937-435-3870. If you plan to distribute
+          your products outside of the United States then you need to apply for
+         
+        a manufacturer code from <a href="http://www.ean-int.org/" target="new">EAN
+         International</a> in Belgium. Tel: 011-32.2.227.10.20</p>
+      <p align="left">&nbsp;</p>
+      <p align="left"> <img src="bcbascs_files/seealso-red-18" alt="See Also:" border="0" height="13" width="65"><br>
+        <br>
+        <a href="http://www.taltech.com/TALtech_web/resources/intro_to_bc/bcpwork.htm">How a Bar Code Reader Works</a><br>
+        <a href="http://www.taltech.com/TALtech_web/resources/intro_to_bc/bcsymbol.htm">Bar Code Symbology Descriptions</a><br>
+        <a href="http://www.taltech.com/TALtech_web/resources/intro_to_bc/printper.htm">Printing Perfect Barcodes from ANY Printer</a> 
+      </p>
+
+		</td>
+
+
+
+<td width="135">&nbsp;
+
+</td>
+
+
+
+</tr>
+
+
+
+
+
+
+
+
+
+<tr><td colspan="3"><hr color="#cc0033" noshade="noshade"></td></tr>
+
+
+
+
+
+<tr>
+
+<td colspan="3" align="right"><!--Footer-->
+
+<table border="0" cellpadding="0" cellspacing="0">
+<tbody><tr>
+<td><a href="http://www.taltech.com/TALtech_web/"><font face="Arial, Helvetica, Sans-Serif" size="1">TALtech Home</font></a></td>
+<td>&nbsp;|&nbsp;</td>
+<td><a href="http://www.taltech.com/TALtech_web/products/"><font face="Arial, Helvetica, Sans-Serif" size="1">Products</font></a></td>
+<td>&nbsp;|&nbsp;</td>
+<td><a href="http://www.taltech.com/TALtech_web/resources/"><font face="Arial, Helvetica, Sans-Serif" size="1">Resources</font></a></td>
+<td>&nbsp;|&nbsp;</td>
+<td><a href="http://www.taltech.com/cgi-bin/fs2k.cgi"><font face="Arial, Helvetica, Sans-Serif" size="1">Free Software</font></a></td>
+<td>&nbsp;|&nbsp;</td>
+<td><a href="http://www.taltech.com/TALtech_web/support/"><font face="Arial, Helvetica, Sans-Serif" size="1">Support</font></a></td>
+<td>&nbsp;|&nbsp;</td>
+<td><a href="https://taltech.securesites.com/cgi-bin/catalog2k2.cgi?ProdID="><font face="Arial, Helvetica, Sans-Serif" size="1">Buy Now</font></a></td>
+<td>&nbsp;|&nbsp;</td>
+<td><a href="http://www.taltech.com/TALtech_web/register.html"><font face="Arial, Helvetica, Sans-Serif" size="1">Register Your Products</font></a></td>
+<td>&nbsp;|&nbsp;</td>
+</tr></tbody></table>
+<table border="0" cellpadding="0" cellspacing="0">
+<tbody><tr>
+<td><a href="http://www.taltech.com/TALtech_web/tal_sitemap.html"><font face="Arial, Helvetica, Sans-Serif" size="1">Site Map</font></a></td>
+<td>&nbsp;|&nbsp;</td>
+<td><a href="http://www.taltech.com/TALtech_web/contact_tal.html"><font face="Arial, Helvetica, Sans-Serif" size="1">Contact TALtech</font></a></td>
+<td>&nbsp;|&nbsp;</td>
+<td><a href="http://www.taltech.com/TALtech_web/news/"><font face="Arial, Helvetica, Sans-Serif" size="1">News</font></a></td>
+</tr>
+</tbody></table>
+<!--End Footer-->
+
+
+</td> 
+
+</tr>
+
+</tbody></table>
+
+<!--End Content Table-->
+
+<br><br>
+
+
+</body></html>

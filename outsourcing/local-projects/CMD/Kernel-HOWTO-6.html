@@ -1,0 +1,191 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html><head>
+
+
+ <meta name="GENERATOR" content="SGML-Tools 1.0.9"><title>The Linux Kernel HOWTO: Patching the kernel</title>
+ 
+ <link href="http://www.linuxdocs.org/HOWTOs/Kernel-HOWTO-7.html" rel="next">
+ <link href="http://www.linuxdocs.org/HOWTOs/Kernel-HOWTO-5.html" rel="previous">
+ <link href="http://www.linuxdocs.org/HOWTOs/Kernel-HOWTO.html#toc6" rel="contents"></head><body>
+<!-- BEGIN TOP BANNER AD -->
+
+<!--
+<p style="color: red; background: yellow;">Got a great Linux idea?  This domain (LinuxDocs.org) is up for sale!  Please submit your bid to <a href-"mailto:osamesama@yahoo.com">osamesama@yahoo.com</a>.</p>
+-->
+
+
+
+<hr>
+<!-- BEGIN BURST! CODE -->
+<iframe src="Kernel-HOWTO-6_files/a.html" marginwidth="0" marginheight="0" vspace="0" hspace="0" frameborder="0" height="60" scrolling="no" width="468">
+&lt;A target="_top"
+HREF="http://www.burstnet.com/ads/ad3236a-map.cgi/1148153270"&gt;&lt;IMG
+SRC="http://www.burstnet.com/cgi-bin/ads/ad3236a.cgi/1148153270"
+border="0" width="468" height="60" alt="Please support our
+sponsor."&gt;&lt;/A&gt;
+</iframe>
+<!-- END BURST! CODE -->
+<hr>
+
+
+<!-- END TOP BANNER AD -->
+
+<a href="http://www.linuxdocs.org/HOWTOs/Kernel-HOWTO-7.html">Next</a>
+<a href="http://www.linuxdocs.org/HOWTOs/Kernel-HOWTO-5.html">Previous</a>
+<a href="http://www.linuxdocs.org/HOWTOs/Kernel-HOWTO.html#toc6">Contents</a>
+<hr>
+<h2><a name="s6">6. Patching the kernel </a></h2>
+
+<p>
+</p><p>
+</p><h2><a name="ss6.1">6.1 Applying a patch </a>
+</h2>
+
+<p>
+</p><p>Incremental upgrades of the kernel are distributed as patches. For
+example, if you have version 1.1.45, and you notice that there's a
+`<code>patch46.gz</code>' out there for it, it means you can upgrade to version
+1.1.46 through application of the patch. You might want to make a backup of the
+source tree first (`<code>make clean</code>' and then
+`<code>cd /usr/src; tar zcvf old-tree.tar.gz linux</code>'
+will make a compressed tar archive for you.).
+</p><p>
+</p><p>So, continuing with the example above, let's suppose that
+you have `<code>patch46.gz</code>' in <code>/usr/src</code>. <code>cd</code> to
+<code>/usr/src</code>  and do a `<code>zcat patch46.gz | patch -p0</code>'
+(or `<code>patch -p0 &lt; patch46</code>'
+if the patch isn't compressed). You'll see things whizz by
+(or flutter by, if your
+system is that slow) telling you that it is trying to apply hunks,
+and whether it succeeds or not. Usually, this action goes by too quickly for
+you to read, and you're not too sure whether it worked or not, so you might
+want to use the <code>-s</code> flag to <code>patch</code>, which tells <code>patch</code>
+to only report error messages (you don't get as much of the ``hey, my
+computer is actually doing something for a change!'' feeling, but you may
+prefer this..). To look for
+parts which might not have gone smoothly, cd to <code>/usr/src/linux</code>  and
+look for files with a <code>.rej</code> extension. Some versions of <code>patch</code>
+(older versions which may have been compiled with on an inferior
+filesystem) leave the rejects with a <code>#</code> extension. You can use
+`<code>find</code>' to look for you;
+</p><pre>    find .  -name '*.rej' -print
+</pre>
+
+prints all files who live in the current directory or any subdirectories with
+a <code>.rej</code> extension to the standard output.
+<p>
+</p><p>If everything went right, do a `<code>make clean</code>', `<code>config</code>',
+and `<code>dep</code>' as described in sections 3 and 4.
+</p><p>
+</p><p>There are quite a few options to the <code>patch</code> command. As mentioned
+above, <code>patch -s</code>
+will suppress all messages except the errors. If you keep your kernel
+source in some other place than <code>/usr/src/linux</code>, <code>patch -p1</code>
+(in that directory) will patch things cleanly. Other <code>patch</code> options are
+well-documented in the manual page.
+</p><p>
+</p><p>
+</p><h2><a name="ss6.2">6.2 If something goes wrong </a>
+</h2>
+
+<p>
+</p><p>(Note: this section refers mostly to quite old kernels)
+</p><p>
+</p><p>The most frequent problem that used to arise was when a patch modified
+a file called `<code>config.in</code>' and it didn't look quite right,
+because you changed the options to suit your machine. This has been
+taken care of, but one still might encounter it with an older release.
+To fix it, look at the <code>config.in.rej</code>  file, and see what remains
+of the original patch.
+The changes will typically be marked with `<code>+</code>' and `<code>-</code>'
+at the beginning of the
+line. Look at the lines surrounding it, and remember if they were set to
+`<code>y</code>' or `<code>n</code>'. Now, edit <code>config.in</code>, and change
+`<code>y</code>' to `<code>n</code>' and `<code>n</code>' to `<code>y</code>'
+when appropriate. Do a
+</p><pre>    patch -p0 &lt; config.in.rej
+</pre>
+
+and if it reports that it
+succeeded (no fails), then you can continue on with a configuration and
+compilation. The <code>config.in.rej</code> file will remain, but you can get
+delete it.
+<p>
+</p><p>If you encounter further problems, you might have installed a patch out
+of order. If patch says `<code>previously applied patch detected: Assume
+-R?</code>', you are probably trying to apply a patch which is below your current
+version number; if you answer `<code>y</code>', it will attempt to degrade
+your source, and will most likely fail; thus, you will need to get a whole new
+source tree (which might not have been such a bad idea in the first place).
+</p><p>
+</p><p>To back out (unapply) a patch, use `<code>patch -R</code>' on the original patch.
+</p><p>
+</p><p>The best thing to do when patches really turn out wrong is to start over
+again with a clean, out-of-the-box source tree (for example, from one
+of the <code>linux-x.y.z.tar.gz</code>  files), and start again.
+</p><p>
+</p><p>
+</p><h2><a name="ss6.3">6.3 Getting rid of the .orig files </a>
+</h2>
+
+<p>
+</p><p>After just a few patches, the <code>.orig</code>  files will start to pile up. For
+example, one 1.1.51 tree I had was once last cleaned out at 1.1.48.
+Removing the .orig files saved over a half a meg.
+</p><pre>    find .  -name '*.orig' -exec rm -f {} ';'
+</pre>
+
+will take care of it for you. Versions of <code>patch</code> which use
+<code>#</code> for rejects use a tilde instead of <code>.orig</code>.
+<p>There are better ways to get rid of the <code>.orig</code> files, which
+depend on GNU <code>xargs</code>:
+</p><pre>    find .  -name '*.orig' | xargs rm
+</pre>
+
+or the ``quite secure but a little more verbose'' method:
+<pre>    find . -name '*.orig' -print0 | xargs --null rm --
+</pre>
+<p>
+</p><p>
+</p><h2><a name="ss6.4">6.4 Other patches </a>
+</h2>
+
+<p>
+</p><p>There are other patches (I'll call them ``nonstandard'') than the
+ones Linus distributes. If you apply these, Linus' patches may not work
+correctly and you'll have to either back them out, fix the source or
+the patch, install a new source tree, or a combination of the above. This
+can become very frustrating, so if you do not want to modify the source (with
+the possibility of a very bad outcome), back
+out the nonstandard patches before applying Linus', or just install a new
+tree. Then, you can see
+if the nonstandard patches still work. If they don't, you are either
+stuck with an old kernel, playing with the patch or source to
+get it to work, or waiting (possibly begging) for a new version of
+the patch to come out.
+</p><p>
+</p><p>How common are the patches not in the standard distribution? You will
+probably hear of them. I used to use the noblink patch 
+for my virtual consoles because I hate blinking cursors (This patch
+is (or at least was) frequently updated for new kernel releases.). With
+most newer device drivers being developed as loadable modules, though, the
+frequecy of ``nonstandard'' patches is decreasing significantly.
+</p><p>
+</p><p>
+</p><hr>
+<a href="http://www.linuxdocs.org/HOWTOs/Kernel-HOWTO-7.html">Next</a>
+<a href="http://www.linuxdocs.org/HOWTOs/Kernel-HOWTO-5.html">Previous</a>
+<a href="http://www.linuxdocs.org/HOWTOs/Kernel-HOWTO.html#toc6">Contents</a>
+
+<!-- BEGIN TOP BANNER AD -->
+
+<hr>
+<a href="http://sharkysoft.com/products/as3000/"><img src="Kernel-HOWTO-6_files/as3000_banner.gif" border="0" height="60" width="468"></a>
+<hr>
+
+
+
+
+
+<!-- END TOP BANNER AD -->
+</body></html>

@@ -1,0 +1,20 @@
+IO95, a Win95 LFN API wrapper library (GLPL)
+
+This library contains functions to access the LFN API Win95 offers in the DOSbox, it can help to make a program LFN-aware quicklier.
+
+The current version is 1 and allocates approx. 43KB. The README (English) explains the contents in more details.
+
+Included are functions for:
+
+    * POSIX.1 compatible opendir() functions,
+    * DOS semistandard findfirst(),
+    * open() (from <io.h>),
+    * fopen() (from <stdio.h>),
+    * mk/rm/chdir(),
+    * remove() and unlink(),
+    * rename(),
+    * getcwd(), getdcwd(), getcurdir(),
+    * fullpath() [to return a path in all longname portions], &
+    * lfn2sfn() [to return a path in all shortname portions]. 
+
+IO95 compiles under: Borland C v5.2 and Turbo C v2.01.

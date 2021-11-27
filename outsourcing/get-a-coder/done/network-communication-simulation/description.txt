@@ -1,0 +1,16 @@
+Description:
+
+Create an operating system that manages a remote network file server and mail
+depository. Your server should be protected, allowing access only to those users with
+permission to use it. Only those files and e-mails associated with a particular user can be
+accessed by that user.
+Your server’s system must contain an interface that receives files, data, and mail. The
+interface will also give out mail, data blocks, and file information (as appropriate).
+Obviously, the security element will tie into this interface.
+Your server will also contain a file manager, a mail manager, and a communication
+controller. The communication controller manages its interaction with the network.
+Your server will receive process requests, some which will require output. Such requests
+will only be accepted after a successful security check. Therefore, the first request must
+be an access request. No access will be granted without a valid userid and password.
+Once security is approved, the server will establish a communication pipeline with the
+requestor, facilitating further requests. The final request will be one that closes the pipe.

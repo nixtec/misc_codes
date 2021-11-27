@@ -1,0 +1,45 @@
+# Makefile
+CC		:= gcc
+CFLAGS		:= -g -Wall -O2 -finline-functions `libwww-config --cflags`
+LDFLAGS		:= `libwww-config --libs`
+SRCS		:= myspider.c myregex.c mygetlinks.c bst.c list.c queue.c
+HEADERS 	:= myspider.h myregex.h mygetlinks.h bst.h list.h queue.h
+OBJS		:= $(patsubst %.c,%.o,$(SRCS))
+TARGET		:= myspider
+VERSION 	:= 1.0
+DIST		:= myspider-$(VERSION)
+EXT		:= tar.gz
+ZIPEXT		:= zip
+FILES		:= $(SRCS) $(HEADERS)
+FILES		+= Makefile Makefile.cygwin README AUTHORS INSTALL c.ldflags
+#FILES		+= doc.odt doc.pdf doc.doc
+
+all: $(TARGET)
+
+.PHONY: clean dist distclean
+
+
+myspider: $(OBJS)
+	$(CC) -o $@ $^ $(LDFLAGS)
+
+myspider.o: myspider.c myspider.h
+	$(CC) $(CFLAGS) -c -o $@ myspider.c
+
+dist: $(FILES)
+	mkdir -p $(DIST)
+	cp $(FILES) $(DIST)
+	tar -czf $(DIST).$(EXT) $(DIST)
+	rm -rf $(DIST)
+
+zip: $(FILES)
+	mkdir -p $(DIST)
+	cp $(FILES) $(DIST)
+	zip -r $(DIST).$(ZIPEXT) $(DIST)
+	rm -rf $(DIST)
+
+distclean:
+	rm -f $(DIST).$(EXT) $(DIST).zip
+
+clean:
+	rm -f $(OBJS) $(TARGET)
+

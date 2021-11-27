@@ -1,0 +1,3 @@
+I am child, entered
+hi there
+I am child, exiting

@@ -1,0 +1,398 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Introduction to barcode - bar code tutorials</title>
+
+
+
+<meta name="description" content="Introduction to barcode - bar code tutorials">
+
+<meta name="searchtitle" content="Introduction to Barcoding (Main Page)">
+
+<meta name="keywords" content="barcode, bar code, barcode font, bar code font, symbologies, Code 39, code39, code 3 of 9, Interleaved 2 of 5, ITF, UPC, UPC-A, UPC-E, EAN, EAN-8, EAN-13, Code 128 Code128, UCC/EAN 128, EAN/UCC 128 UCC, Code 93, Code93, Codabar, MSI, Plessey, PostNET, Zip+4, ZIP, 2 of 5, JAN, Bookland, Aztec Code, Aztec, PDF417, Data Matrix, Datamatrix, maxicode, HIBC">
+
+<script language="JavaScript">
+
+function formHandler(form){
+var URL = form.Quicklinks.options[form.Quicklinks.selectedIndex].value;
+if (URL != "") {
+	window.location.href =URL;
+}
+}
+
+</script>
+
+
+
+
+<style type="text/css">
+
+<!--
+
+A:link {color:#0000A0;}
+
+A:vlink {color:#330099;}
+
+A:hover {color:#8080FF;}
+
+-->
+
+</style>
+
+<link rel="stylesheet" type="text/css" href="Introduction%20to%20barcode%20-%20bar%20code%20tutorials_files/taltech">
+
+
+
+<script type="text/javascript" language="JavaScript">
+
+function MM_preloadImages() { //v3.0s
+
+ 	var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+
+   	var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+
+   	if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+
+}
+
+//-->
+
+</script></head>
+
+
+<body topmargin="0" leftmargin="0" onload="MM_preloadImages('../images/n_products2_F2.gif', '../images/n_resources2_F2.gif', '../images/n_freesoft2_F2.gif');" alink="#8080ff" bgcolor="white" link="#0000a0" marginheight="0" marginwidth="0" vlink="#330099">
+
+
+
+<!--Header-->
+
+
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+
+
+
+
+
+
+
+<tbody><tr>
+
+
+
+
+
+
+
+<td colspan="2" bgcolor="#003399">
+
+
+
+
+
+
+
+<input name="Range" value="All" type="hidden"><input value="Standard" name="Format" type="hidden"><table border="0" cellpadding="2" cellspacing="0" width="745">
+
+
+
+
+
+
+
+<tbody><tr><td width="200"><img src="Introduction%20to%20barcode%20-%20bar%20code%20tutorials_files/logo_sm" alt="TALtech Logo" border="0" height="34" width="197"></td>
+
+
+
+
+
+
+<form name="Quick"></form>
+<td width="255">
+<select name="Quicklinks" onchange="formHandler(this.form)"><option selected="selected">Resources
+
+</option><option value="../links.html">Links to related sites
+
+</option><option value="../intro-sc.html">Intro to Serial Communications
+
+</option><option value="http://www.beyondlogic.org/">Intro to Interfacing Devices to PCs
+
+</option><option value="index.html">Intro to Bar Coding
+
+</option><option value="../tcpip.htm">Using TCP/IP as an Instrument Interface
+
+</option><option value="../abouttal.htm">About TAL
+
+</option></select> 
+</td>
+
+
+
+
+
+<form name="SearchForm" method="get" action="http://www.taltech.com/cgi-bin/library/xavatoria/search.cgi"></form><td align="right"><img src="Introduction%20to%20barcode%20-%20bar%20code%20tutorials_files/search2" alt="search" border="0" height="10" width="56"></td>
+
+<td><input name="Terms" size="20" maxlength="800" type="text"><input name="Scope" value="1" type="hidden"></td>
+
+
+
+
+
+
+
+
+</tr>
+
+
+
+
+
+
+
+</tbody></table></td>
+
+
+
+
+
+
+
+</tr>
+
+
+
+
+
+
+
+<tr><td colspan="2" bgcolor="#990000"><img src="Introduction%20to%20barcode%20-%20bar%20code%20tutorials_files/dot_rs" alt="" border="0" height="3" width="3"></td></tr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<tr><td><img src="Introduction%20to%20barcode%20-%20bar%20code%20tutorials_files/instrumental" alt="" border="0" height="25" width="235"></td>
+
+
+
+<td><table border="0" cellpadding="0" cellspacing="5"> 
+
+
+
+<tbody><tr>
+
+
+
+          <td valign="top"><a href="http://www.taltech.com/TALtech_web/products/index.html" onmouseover="document.products.src='../../images/n_products2_F2.gif';" onmouseout="document.products.src='../../images/n_products2.gif';"><img src="Introduction%20to%20barcode%20-%20bar%20code%20tutorials_files/n_products2" alt="Products" name="products" border="0" height="12" width="57"></a></td>
+
+
+
+<td><img src="Introduction%20to%20barcode%20-%20bar%20code%20tutorials_files/divider_r" alt="" border="0" height="15" width="1"></td>
+
+
+
+          <td valign="top"><a href="http://www.taltech.com/TALtech_web/support/index.html" onmouseover="document.support.src='../../images/n_support2_F2.gif';" onmouseout="document.support.src='../../images/n_support2.gif';"><img src="Introduction%20to%20barcode%20-%20bar%20code%20tutorials_files/n_support2" alt="Support" name="support" border="0" height="15" width="53"></a></td>
+
+
+
+<td><img src="Introduction%20to%20barcode%20-%20bar%20code%20tutorials_files/divider_r" alt="" border="0" height="15" width="1"></td>
+
+
+
+<td valign="top"><img src="Introduction%20to%20barcode%20-%20bar%20code%20tutorials_files/n_resources2_F2" alt="Resources" name="resources" border="0" height="12" width="67"></td>
+
+
+
+<td><img src="Introduction%20to%20barcode%20-%20bar%20code%20tutorials_files/divider_r" alt="" border="0" height="15" width="1"></td>
+
+
+
+
+
+<td valign="top"></td><td valign="top"><a href="http://www.taltech.com/cgi-bin/fs2k.cgi" onmouseover="document.freesoft.src='../../images/n_freesoft2_F2.gif';" onmouseout="document.freesoft.src='../../images/n_freesoft2.gif';"><img src="Introduction%20to%20barcode%20-%20bar%20code%20tutorials_files/n_freesoft2" alt="Free Software" name="freesoft" border="0" height="13" width="90"></a></td>
+
+</tr>
+
+</tbody></table></td></tr>
+
+
+
+
+
+
+
+
+
+
+
+</tbody></table>
+
+
+
+
+
+
+
+
+
+
+
+<!--Text Navigation-->
+
+<table align="left" border="0" cellpadding="1" cellspacing="0" width="745">
+
+<tbody><tr>
+    <td><font face="Arial, Helvetica, Sans-serif" size="2"><i><b>&nbsp;<a href="http://www.taltech.com/TALtech_web/index.html">TALtech 
+      Home:</a> &nbsp;<a href="http://www.taltech.com/TALtech_web/resources/index.html">Resources:</a> &nbsp; </b></i></font></td>
+  </tr>
+
+</tbody></table><br>
+
+<!--End Text Navigation-->
+
+
+
+
+
+
+
+
+
+<!--Content Table--><br>
+
+<table border="0" cellpadding="0" cellspacing="20" width="745">
+
+<tbody><tr>
+
+
+
+<td rowspan="3" width="20"><img src="Introduction%20to%20barcode%20-%20bar%20code%20tutorials_files/blank" alt="" border="0" height="3" width="20"></td>
+
+
+
+<td width="570">
+
+<img src="Introduction%20to%20barcode%20-%20bar%20code%20tutorials_files/r_introbc" alt="Introduction to Bar Coding" border="0" height="22" width="256">
+
+      
+
+		<p><a href="http://www.taltech.com/TALtech_web/resources/intro_to_bc/bcbascs.htm">Bar Coding
+
+        Basics</a><br>
+
+        What is a Bar Code? How is it read? What can you encode in one?</p>
+
+		<p><a href="http://www.taltech.com/TALtech_web/resources/intro_to_bc/printper.htm">Printing Perfect Barcodes to ANY Printer</a><br>
+
+        How to ensure compliant, readable barcodes from any printer. </p>
+
+        <p><a href="http://www.taltech.com/TALtech_web/resources/intro_to_bc/rastvect.htm">Raster vs. Vector Graphics</a><br>
+
+        Explains the important difference between different graphic formats commonly used to
+
+        create bar codes. Which format is best for producing the highest quality bar codes? </p>
+
+        <p><a href="http://www.taltech.com/TALtech_web/resources/intro_to_bc/bcpwork.htm">How A Bar Code Reader Works</a><br>
+        Bar code readers are extremely simple devices made up of a light source, 
+        a photo diode and a simple decoder. It is also very easy to add bar code 
+        reading capabilities to any PC program. See how they work and how they 
+        interface to a PC. </p>
+
+        <p><a href="http://www.taltech.com/TALtech_web/resources/intro_to_bc/bcompscr.htm">Reading Bar Codes Directly From A
+
+        Computer Screen</a><br>
+
+        It is entirely possible to read bar codes directly from a computer screen however there
+
+        are a number of considerations that must be dealt with first. </p>
+
+        
+      <p><a href="http://www.taltech.com/TALtech_web/resources/intro_to_bc/bcsymbol.htm">Bar Code Symbologies</a><br>
+        Descriptions of all the most commonly used types of bar codes (i.e. bar
+           code symbologies).</p>
+      <p><a href="http://www.taltech.com/TALtech_web/products/which_bcsoftware.html">Which Bar Code Software 
+        is right for me?</a><br>
+        Discusses the most efficient applications for each of our bar coding tools.</p>
+      <p><a href="http://www.taltech.com/TALtech_web/resources/intro_to_bc/Merge.htm">Using the built in PostNet bar coding features of 
+        Microsoft Word</a><br>
+        Walks you through creating a mail merge document with PostNet bar codes.</p>
+
+</td>
+
+
+
+<td width="135">&nbsp;
+
+</td>
+
+
+
+</tr>
+
+
+
+
+
+
+
+
+
+<tr><td colspan="3"><hr color="#cc0033" noshade="noshade"></td></tr>
+
+
+
+
+
+<tr>
+
+<td colspan="3" align="right"><!--Footer-->
+
+<table border="0" cellpadding="0" cellspacing="0">
+<tbody><tr>
+<td><a href="http://www.taltech.com/TALtech_web/"><font face="Arial, Helvetica, Sans-Serif" size="1">TALtech Home</font></a></td>
+<td>&nbsp;|&nbsp;</td>
+<td><a href="http://www.taltech.com/TALtech_web/products/"><font face="Arial, Helvetica, Sans-Serif" size="1">Products</font></a></td>
+<td>&nbsp;|&nbsp;</td>
+<td><a href="http://www.taltech.com/TALtech_web/resources/"><font face="Arial, Helvetica, Sans-Serif" size="1">Resources</font></a></td>
+<td>&nbsp;|&nbsp;</td>
+<td><a href="http://www.taltech.com/cgi-bin/fs2k.cgi"><font face="Arial, Helvetica, Sans-Serif" size="1">Free Software</font></a></td>
+<td>&nbsp;|&nbsp;</td>
+<td><a href="http://www.taltech.com/TALtech_web/support/"><font face="Arial, Helvetica, Sans-Serif" size="1">Support</font></a></td>
+<td>&nbsp;|&nbsp;</td>
+<td><a href="https://taltech.securesites.com/cgi-bin/catalog2k2.cgi?ProdID="><font face="Arial, Helvetica, Sans-Serif" size="1">Buy Now</font></a></td>
+<td>&nbsp;|&nbsp;</td>
+<td><a href="http://www.taltech.com/TALtech_web/register.html"><font face="Arial, Helvetica, Sans-Serif" size="1">Register Your Products</font></a></td>
+<td>&nbsp;|&nbsp;</td>
+</tr></tbody></table>
+<table border="0" cellpadding="0" cellspacing="0">
+<tbody><tr>
+<td><a href="http://www.taltech.com/TALtech_web/tal_sitemap.html"><font face="Arial, Helvetica, Sans-Serif" size="1">Site Map</font></a></td>
+<td>&nbsp;|&nbsp;</td>
+<td><a href="http://www.taltech.com/TALtech_web/contact_tal.html"><font face="Arial, Helvetica, Sans-Serif" size="1">Contact TALtech</font></a></td>
+<td>&nbsp;|&nbsp;</td>
+<td><a href="http://www.taltech.com/TALtech_web/news/"><font face="Arial, Helvetica, Sans-Serif" size="1">News</font></a></td>
+</tr>
+</tbody></table>
+<!--End Footer-->
+
+
+</td> 
+
+</tr>
+
+</tbody></table>
+
+<!--End Content Table-->
+
+<br><br>
+
+
+</body></html>

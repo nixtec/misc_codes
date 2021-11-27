@@ -1,0 +1,23 @@
+/* snc.c */
+int main(int argc, char **argv);
+void run_simulator(void);
+int action_on_network(network_t *net, input_t *input);
+network_t *init_network(void);
+void destroy_network(network_t *net);
+void network_init(network_t *net, int id, int nports);
+void network_free(network_t *net);
+int proc_init(network_t *net, proc_t *proc);
+int proc_comp(network_t *net, pid_t pid);
+int port_down(network_t *net, int n_port);
+int port_rest(network_t *net, int n_port);
+void update_port_to_use(network_t *net);
+void show_network_status(network_t *net);
+void dump_proc_tree(tree_t t, bool verbose);
+void print_proc_info(proc_t *proc, bool verbose);
+void trigger_interrupt(tree_t t, stat_t status);
+tree_t tree_destroy(tree_t t, bool free_element);
+position_t tree_find(element_t e, tree_t t);
+position_t tree_find_min(tree_t t);
+position_t tree_find_max(tree_t t);
+tree_t tree_insert(element_t e, tree_t t);
+tree_t tree_delete(element_t e, tree_t t, bool free_element);

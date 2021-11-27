@@ -1,0 +1,499 @@
+﻿body 
+{
+	font-family: Arial; 
+	font-size: 10pt;
+	line-height: 1.5;
+	padding: 0px;   
+	margin: 0px;
+	background: #ffffff url(http://www.kirupa.com/images/backgradient2.jpg) top left repeat-x;
+}
+img.noBorder
+{
+	border-width: 0px;
+}
+td
+{
+	valign: top;
+}
+hr {
+	color: #D8D8D8;
+}
+.spacing
+{ 
+	font-size: 10pt;
+	line-height: 1.5;
+}
+.homeOrange {
+	font-size: x-small;
+	font-weight: bold;
+	color: #FF6600;
+}
+p 
+{ 
+	font-family: Arial; 
+	font-size: 10pt;
+	line-height: 1.5;
+}
+li 
+{ 
+	margin-bottom: 15px; color:#000000;
+	line-height: 1.5;
+}
+.header  
+{ 
+	font-family: Verdana; 
+	font-size: 14pt; 
+	color: #003366; 
+}
+.homeHeader  
+{ 
+	font-family: Verdana; 
+	font-size: 14pt; 
+	color: #0033CC; 
+}
+p.oneFiveLineSpacing
+{
+	line-height: 150%;
+}
+p.header2
+{
+	font-size: 12pt; 
+	font-weight: bold;
+	margin: 0;
+	padding: 0;
+ 
+}
+p.header3
+{
+	font-size: 11pt; 
+	font-weight: bold;
+	margin: 0;
+	padding: 0;
+
+}
+.header2
+{
+	font-size: 12pt; 
+	font-weight: bold;
+	margin: 0;
+	padding: 0;
+ 
+}
+.header3
+{
+	font-size: 11pt; 
+	font-weight: bold;
+	margin: 0;
+	padding: 0;
+
+}
+.header4
+{
+	font-size: 10pt; 
+	font-weight: bold;
+	margin: 0;
+	padding: 0;
+ 
+}
+
+span.header  
+{ 
+	font-family: Verdana; 
+	font-size: 14pt; 
+	color: #003366;
+	margin: 0;
+	padding: 0;
+ 
+}
+span.header2
+{
+	font-size: 12pt; 
+	font-weight: bold;
+	margin: 0;
+	padding: 0;
+
+}
+span.header3
+{
+	font-size: 11pt; 
+	font-weight: bold;
+	margin: 0;
+	padding: 0;
+ 
+}
+span.header4
+{
+	font-size: 10pt; 
+	font-weight: bold;
+	margin: 0;
+	padding: 0;
+
+}
+ol
+{
+	list-style-type: lower-roman; 
+	font-family:Arial; 
+	font-size:10pt; color:#000000
+	line-height: 1.5;
+}
+ul
+{
+	font-family:Arial; 
+	font-size:10pt; color:#000000
+	line-height: 1.5;
+}
+a:link
+{ 
+	text-decoration: none; 
+}
+a:visited
+{ 
+	text-decoration: none;
+}
+span.codeRightText 
+{ 
+	position: relative; 
+	left: 60; 
+	width: 250; 
+	height:25 
+}
+span.codeLeftImage 
+{ 
+	position: relative; 
+	left: 0; 
+	right: 40; 
+	width: 40; 
+}
+.codeTable
+{ 
+	border-left: 2px solid #E6E6E6; 
+	border-right: 2px solid #BEBEBE; 
+	border-top: 2px solid #CCCCCC; 
+	border-bottom: 2px solid #ACACAC; 
+	padding: 5px; 
+}
+span.homeLinkSM a 
+{
+	font-family: Verdana;
+	font-size: 8pt;
+	color: #151515;
+	right: auto;
+}
+a.homeLinkSM 
+{
+	font-family: Verdana;
+	font-size: 8pt;
+	color: #151515;
+	right: auto;
+}
+span.homeLinkSM_Bold a 
+{
+	font-family: Verdana;
+	font-size: 8pt;
+	color: #0059F3;
+	font-weight: bold;
+	position: relative;
+}
+a.homeLinkSM_Bold
+{
+	font-family: Verdana;
+	font-size: 8pt;
+	color: #0059F3;
+	font-weight: bold;
+	position: relative;
+}
+span.siteLinkSM_Bold a 
+{ 
+	font-family: Arial; 
+	font-size: 9pt; 
+	color: #003366; 
+	font-weight: bold; 
+	letter-spacing:1 
+}
+a.siteLinkSM_Bold
+{ 
+	font-family: Arial; 
+	font-size: 9pt; 
+	color: #003366; 
+	font-weight: bold; 
+	letter-spacing:1 
+}
+
+.siteInactiveLink 
+{ 
+	font-family: Arial; 
+	font-size: 9pt; 
+	color: #999999; 
+	font-weight: bold; 
+	letter-spacing:1 
+}
+span.homeLink1 
+{ 
+	font-family: Arial; 
+	font-size: 9pt; 
+	color: #2B5168; 
+	font-weight: bold; 
+}
+a:visited 
+{ 
+	text-decoration: none; 
+}textarea	
+{ 
+	font-size: 8pt; 
+	font-family: Courier New; 
+	border: 1px dotted #99CCFF; 
+	background-color: #F6FBFF;
+} 
+ul           
+{ 
+	color: #AAD6DF 
+}
+dl {
+	margin-left: 15px;
+	font-family: Courier New;
+	font-size: 8pt;
+	color: #003366;
+	background-color: #F6FBFF;
+}
+dt {
+	margin-left: 15px;
+	text-indent: -15px;
+}
+.supporter
+{ 
+	margin-bottom: 25px; 
+	position:relative; 
+	float:right; 
+	margin-left:25px; 
+}
+.fjdpth0
+{
+	background-color: #F7F7F7;
+	color: #000000;
+}
+.fjsel
+{
+	background-color: #EFEFEF;
+	color: #3E3E3E;
+}
+.kASHglobal2	
+{ 
+	background-color: #F6FBFF; 
+	padding: 5px; 
+}
+.kASHglobal	
+{
+	margin-left: -5px; 
+	background-color: #F6FBFF; 
+	border: 1px dotted #99CCFF; 
+	padding: 5px; 
+}
+.kASHkwrd	
+{ 
+	color:#006610; 
+}
+.kASHidn	
+{ 
+	color:#0000D0; 
+}
+.kASHwrd	
+{ 
+	color:#000050; 
+}
+.kASHqt		
+{ 
+	color:#666666; 
+}
+.kASHcom	
+{ 
+	color:#CC00CC; 
+}
+.kASHnum	
+{ 
+	color:#991010; 
+}
+.kASHop		
+{ 
+	color:#0000FF; 
+}
+.kMHdec		
+{ 
+	color:#bbb; 
+}
+.kMHtag		
+{ 
+	color:#000050; 
+	font-weight: bold; 
+}
+.kMHkatr	
+{ 
+	color:#0000D0; 
+}
+.kMHqt		
+{ 
+	color:#666; 
+}
+.kMHcom		
+{ 
+	color:#CC00CC; 
+}
+.kMHCDtag	
+{ 
+	color:#9A9AFF; 
+	font-style: italic; 
+}
+.kMHCDATA	
+{ 
+	color:#000; 
+	font-style: italic; 
+}
+.kMHERROR	
+{ 
+	background-color: #FF0000; 
+	color:#FFF; 
+	font-family: Verdana, Arial, sans-serif; 
+}	
+
+.phpglobal	
+{ 
+	background-color: #FFF9FD; 
+	border: 1px dotted #FF99CC; 
+	padding: 5px; 
+}
+.phptag		
+{ 
+	color:#991010; 
+	font-weight: bold;  
+}
+
+table.grid 
+{ 
+	border-color:#000000; 
+	border-style: solid; 
+	border-collapse:collapse; 
+}
+
+.subpagelinks 
+{
+	font-size: 8pt;
+}
+a.nounderline 
+{ 
+	text-decoration:none; 
+}
+a.underline {
+	text-decoration: underline;
+}
+.ktext2
+{ 
+	font-family: Arial; 
+	font-size: 10pt; 
+	color:#000000; 
+}
+span.kcode
+{ 
+	font-family: Courier New; 
+	font-size: 10pt; 
+}
+p.kcode
+{ 
+	font-family: Courier New; 
+	font-size: 10pt; 
+}
+span.credit_date 
+{ 
+	font-family: Verdana; 
+	font-size: 8pt; 
+	color: #808080; 
+}
+span.kCaption 
+{ 
+	font-size: 8pt; 
+	font-family: Verdana; 
+	color: #000000; 
+	text-align: center; 
+}
+p.kCaption 
+{ 
+	font-size: 8pt; 
+	font-family: Verdana; 
+	color: #000000; 
+	text-align: center; 
+}
+
+span.kCaption a
+{ 
+	font-size: 8pt; 
+	font-family: Verdana; 
+	color: #FF3300; 
+	text-align: center 
+}
+a:visited.homeLinkSM_Bold 
+{
+	color: #0059DF;
+}
+p.NoteHeader 
+{ 
+	font-family: Arial; 
+	font-size: 10pt; 
+	color: #003366; 
+	font-weight: bold; 
+	width: 350; 
+	border: 1px solid #B0D6FF; 
+	padding: 3px; 
+	background-color: #EAF4FF; 
+	word-spacing:0; 
+	margin-top:0; 
+	margin-bottom:0; 
+}
+p.NoteBody 
+{ 
+	border-left:1px solid #B0D6FF; 
+	border-right:1px solid #B0D6FF; 
+	border-bottom:1px solid #B0D6FF; 
+	font-family: Arial; 
+	font-size: 10pt; 
+	color: #000000; width: 350; 
+	padding: 3px; 
+	background-color: #F4FAFF; 
+	word-spacing:0; 
+	margin-top:0; 
+	margin-bottom:0; 
+}
+p.BlueBox 
+{ 
+	border:1px solid #B0D6FF; font-family: Arial; 
+	font-size: 10pt; 
+	color: #000000; width: 350; 
+	background-color: #F4FAFF; 
+	word-spacing:0; 
+	margin-top:0; 
+	margin-bottom:0; padding-left:4px; padding-right:4px; padding-top:1px; padding-bottom:1px 
+}
+.iTt{
+    FONT-FAMILY:       Verdana, Arial, Helvetica;
+    FONT-SIZE:         11px;
+    FONT-STYLE:        normal;
+    FONT-WEIGHT:       normal;
+    COLOR:             black;
+    BACKGROUND-COLOR:  lightyellow;
+    BORDER:            black 1px solid;
+    PADDING:           2px;
+}
+p.pageNumbersTutorial {
+	font-family: Arial;
+	font-size: 9pt;
+	color: #2B5168;
+	font-weight: bold;
+	text-align: center;
+}
+.inlineCode {
+	background: #E0EFF8;
+	font-family: "courier new", courier, monospace;
+	font-weight: normal;
+}
+.homeHeader {
+	font-family: Verdana;
+	font-size: 14pt;
+	color: #0000FF;
+}

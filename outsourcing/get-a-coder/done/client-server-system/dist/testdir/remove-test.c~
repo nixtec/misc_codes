@@ -1,0 +1,74 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <sys/types.h>
+#include <fcntl.h>
+#include <sys/wait.h>
+#include <unistd.h>
+#include <errno.h>
+
+/*
+ * create a file named 'remtest.file' and write some text in it
+ * then execute this program
+ */
+#define REMFILE "remtest.file"
+
+int main(int argc, char **argv)
+{
+  int fd, status;
+  pid_t pid;
+  char *file = NULL;
+
+  if (argc > 1) {
+    file = argv[1];
+  } else {
+    file = REMFILE;
+  }
+
+  fd = open(file, O_RDONLY);
+  if (fd == -1) {
+    perror("open");
+    exit(1);
+  }
+
+  if ((pid = fork()) == 0) { // child
+    /* child inherits open handles from parent */
+    char buf[256];
+    ssize_t n;
+    sleep(5); // by this time parent will delete the file
+
+    /* parent deleted the file but child still has open handle of the file,
+     * so file will not be removed from filesystem, but filename will be
+     * deleted from the directory entry; so 'ls' may not show the file
+     */
+    fprintf(stderr, "child: i got following from the file\n");
+    while ((n = read(fd, buf, sizeof(buf))) > 0) {
+      write(STDOUT_FILENO, buf, n);
+      fsync(STDOUT_FILENO); // fflush(stdout);
+    }
+    close(fd); // now only the file will be removed from filesystem
+    exit(0);
+  }
+
+  /* parent */
+  if (pid == -1) {
+    perror("fork");
+    close(fd);
+    exit(1);
+  }
+
+  if (remove(file) == 0) {
+    fprintf(stderr, "parent: file removed successfully\n");
+  } else {
+    perror("remove");
+  }
+
+//  sleep(30);
+  close(fd);
+
+  /* wait for child to exit */
+  fprintf(stderr, "parent: waiting for child to exit\n");
+  waitpid(pid, &status, 0);
+  fprintf(stderr, "parent: child exited, status=%d\n", status);
+
+  return 0;
+}

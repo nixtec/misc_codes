@@ -1,0 +1,42 @@
+Hi Ayub,
+I have have found some problems...
+
+-:::: In some cases the move not work in Windows client - Windows Server:
+
+1) move localhost:../555.rar localhost:../eee.rar ------> PERMISSION DENIED!!!!!!
+
+2) move ../555.rar localhost:../eee.rar ------> PERMISSION DENIED!!!!!!
+
+3) move ../555.rar ../eee.rar ------> PERMISSION DENIED!!!!!!
+
+4) move localhost:../555.rar ../eee.rar ------> it's ok!!!!!!
+
+
+-:::: If I do in Windows client - Windows Server:
+
+1) delete ../aaa.rar -----> NO SUCH FILE OR DIRECTORY (instead file exist!)
+
+=> in fact if I do:
+
+2) change_folder ..
+3) delete aaa.rar ------> it's ok
+
+
+-:::: With Windows server - Linux Client, if I do:
+
+1) move ../aaa.tar.gz 123.123.123.123:bbb.tar.gz
+
+where the server current directory is "Desktop",
+--> file is moved in cs-1.0 directory that it is in desktop.
+(in the end, so the result is: Desktop\cs-1.0\bbb.tar.gz instead of Desktop\bbb.tar.gz )
+
+INSTEAD if I do:
+2)move ../aaa.tar.gz 123.123.123.123:../bbb.tar.gz
+
+where the server current directory is "Desktop",
+--> file is moved in Desktop.
+(in the end, so the result is: Admin\Desktop\bbb.tar.gz instead of Admin\bbb.tar.gz )
+
+The same problem with COPY command.
+
+--->>> ALSO, CAN YOU CHECK VICEVERSA, PLEASE?!

@@ -1,0 +1,54 @@
+/*
+ * bst.h
+ */
+#ifndef BST_H
+#define BST_H
+
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include "list.h"
+
+/* binary search tree types */
+typedef void *telement_t;
+
+struct tnode;
+typedef struct tnode tnode_t;
+typedef tnode_t *tpos_t;
+typedef tnode_t *tree_t;
+
+struct tnode {
+  telement_t e;
+  tree_t left;
+  tree_t right;
+};
+
+/* each telement_t will be nodeinfo_t * */
+struct nodeinfo_struct {
+  int id;
+  char *url;
+  list_t adj;
+};
+typedef struct nodeinfo_struct nodeinfo_t;
+
+/* ********* TREE FUNCTIONS ********* */
+tree_t	tree_destroy(tree_t t, bool free_element); /* free element? */
+tpos_t	tree_find(tree_t t, telement_t e, int (*compfunc)(void *, void *));
+tpos_t	tree_find_min(tree_t t);
+tpos_t	tree_find_max(tree_t t);
+tree_t	tree_insert(tree_t t, telement_t e, int (*compfunc)(void *, void *));
+tree_t	tree_delete(tree_t t, telement_t e, int (*compfunc)(void *, void *),
+    bool free_element);
+/*
+ * macro equivalent of this function is available
+ * telement_t	tree_get_element(tpos_t p);
+ */
+
+
+/* these functions will be called several times, so using macros */
+#define telement_compare(e1, e2) \
+  (((nodeinfo_t *)(e1))->id - ((nodeinfo_t *)(e2))->id)
+#define tree_get_element(p) ((p)->e)
+
+
+#endif

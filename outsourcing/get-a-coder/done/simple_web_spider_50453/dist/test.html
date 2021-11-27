@@ -1,0 +1,504 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><title>PHP: Hypertext Preprocessor</title>
+
+
+ 
+ <style type="text/css" media="all">
+  @import url("http://static.php.net/www.php.net/styles/site.css");
+  @import url("http://static.php.net/www.php.net/styles/phpnet.css");
+ </style><!--[if IE]><![if gte IE 6]><![endif]-->
+ 
+  <style type="text/css" media="print">
+   @import url("http://static.php.net/www.php.net/styles/print.css");
+  </style><!--[if IE]><![endif]><![endif]-->
+ 
+ <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+ <link rel="shortcut icon" href="http://static.php.net/www.php.net/favicon.ico">
+ <link rel="search" type="application/opensearchdescription+xml" href="http://www.php.net/phpnetimprovedsearch.src" title="Add PHP.net search">
+ <script type="text/javascript" src="test_files/userprefs.js"></script>
+ <!-- base href="http://www.php.net/index.php" -->
+ <link rel="alternate" type="application/rss+xml" title="PHP: Hypertext Preprocessor" href="http://www.php.net/news.rss"></head><body onload="boldEvents();">
+
+<div id="headnav">
+ <a href="http://www.php.net/"><img src="test_files/php.gif" alt="PHP" height="67" width="120"></a>
+ <div id="headmenu">
+  <a href="http://www.php.net/downloads.php">downloads</a> |
+  <a href="http://www.php.net/docs.php">documentation</a> |
+  <a href="http://www.php.net/FAQ.php">faq</a> |
+  <a href="http://www.php.net/support.php">getting help</a> |
+  <a href="http://www.php.net/mailing-lists.php">mailing lists</a> |
+  <a href="http://bugs.php.net/">reporting bugs</a> |
+  <a href="http://www.php.net/sites.php">php.net sites</a> |
+  <a href="http://www.php.net/links.php">links</a> |
+  <a href="http://www.php.net/conferences/">conferences</a> |
+  <a href="http://www.php.net/my.php">my php.net</a>
+ </div>
+</div>
+
+<div id="headsearch">
+ <form method="post" action="/search.php" id="topsearch">
+  <p>
+   <span title="Keyboard shortcut: Alt+S (Win), Ctrl+S (Apple)">
+    <span class="shortkey">s</span>earch for
+   </span>
+   <input name="pattern" value="" size="30" accesskey="s" type="text">
+   <span>in the</span>
+   <select name="show">
+    <option value="quickref" selected="selected">function list</option>
+    <option value="all">all php.net sites</option>
+    <option value="local">this mirror only</option>
+    <option value="manual">online documentation</option>
+    <option value="bugdb">bug database</option>
+    <option value="news_archive">Site News Archive</option>
+    <option value="changelogs">All Changelogs</option>
+    <option value="pear">just pear.php.net</option>
+    <option value="pecl">just pecl.php.net</option>
+    <option value="talks">just talks.php.net</option>
+    <option value="maillist">general mailing list</option>
+    <option value="devlist">developer mailing list</option>
+    <option value="phpdoc">documentation mailing list</option>
+   </select>
+   <input src="test_files/small_submit_white.gif" class="submit" alt="search" type="image">
+  </p>
+ </form>
+</div>
+
+<div id="layout_3"><div id="layout_3_helper">
+ <div id="leftbar">
+
+<h3>What is PHP?</h3>
+<p>
+ <acronym title="recursive acronym for PHP: Hypertext Preprocessor">PHP</acronym>
+ is a widely-used general-purpose scripting language that is
+ especially suited for Web development and can be embedded into HTML.
+ If you are new to PHP and want to get some idea
+ of how it works, try the <a href="http://www.php.net/tut.php">introductory tutorial</a>.
+ After that, check out the online <a href="http://www.php.net/docs.php">manual</a>,
+ and the example archive sites and some of the other resources
+ available in the <a href="http://www.php.net/links.php">links section</a>.
+</p>
+<p>
+ Ever wondered how popular PHP is? see the
+ <a href="http://www.php.net/usage.php">Netcraft Survey</a>.
+</p>
+
+<h3><a href="http://www.php.net/thanks.php">Thanks To</a></h3>
+<ul class="simple">
+ <li><a href="http://www.easydns.com/?V=698570efeb62a6e2" title="DNS Hosting provided by easyDNS">easyDNS</a></li>
+ <li><a href="http://www.directi.com/">Directi</a></li>
+ <li><a href="http://promote.pair.com/direct.pl?php.net">pair Networks</a></li>
+ <li><a href="http://www.ev1servers.net/">EV1Servers</a></li>
+ <li><a href="http://www.servercentral.net/">Server Central</a></li>
+ <li><a href="http://www.hostedsolutions.com/">Hosted Solutions</a></li>
+ <li><a href="http://www.spry.com/">Spry VPS Hosting</a></li>
+ <li><a href="http://ez.no/">eZ Systems</a> / <a href="http://www.hit.no/english">HiT</a></li>
+ <li><a href="http://www.osuosl.org/">OSU Open Source Lab</a></li>
+ <li><a href="http://www.yahoo.com/">Yahoo! Inc.</a></li>
+ <li><a href="http://www.binarysec.com/">BinarySEC</a></li>
+</ul>
+<h3>Related sites</h3>
+<ul class="simple">
+ <li><a href="http://www.apache.org/">Apache</a></li>
+ <li><a href="http://www.mysql.com/">MySQL</a></li>
+ <li><a href="http://www.postgresql.org/">PostgreSQL</a></li>
+ <li><a href="http://www.zend.com/">Zend Technologies</a></li>
+</ul>
+<h3>Community</h3>
+<ul class="simple">
+ <li><a href="http://www.linuxfund.org/">LinuxFund.org</a></li>
+ <li><a href="http://www.ostg.com/">OSTG</a></li>
+</ul>
+
+<h3>Syndication</h3>
+<p>
+ You can grab our news as an RSS feed via a daily dump in a file
+ named <a href="http://www.php.net/news.rss">news.rss</a>.
+</p>
+ </div>
+ <div id="rightbar">
+  <div id="releaseBox">
+   <h4>Stable Releases</h4>
+   <ol id="releases">
+    <li class="php5"><a href="http://www.php.net/downloads.php#v5">Current PHP 5 Stable: <span class="release">5.2.1</span></a></li>
+    <li class="php5"><a href="http://www.php.net/downloads.php#v4">Current PHP 4 Stable: <span class="release">4.4.6</span></a></li>
+   </ol>
+  </div>
+  <div id="candidateBox">
+   <h4><a href="http://qa.php.net/rc.php">Release Candidates</a></h4>
+   <ol id="candidates">
+    <li class="php5"><a href="http://qa.php.net/">Current PHP 5 RC: <span class="release">5.2.2RC2</span></a></li>
+    <li class="php4"><a href="http://qa.php.net/">Current PHP 4 RC: <span class="release">4.4.7RC1</span></a></li>
+
+   </ol>
+  </div>
+<h4>Upcoming Events <a href="http://www.php.net/submit-event.php">[add]</a></h4>
+<h4 class="eventmonth">April</h4>
+<h4>User Group Events</h4>
+<span class="event_USA">30. <a href="http://www.php.net/cal.php?id=1099">Long Island PHP Users Group</a></span><br>
+<h4 class="eventmonth">May</h4>
+<h4>Conferences</h4>
+<span class="event_TUR">3. <a href="http://www.php.net/cal.php?id=2599">Linux &amp; Free Software, Ankara</a></span><br>
+<span class="event_DEU">5. <a href="http://www.php.net/cal.php?id=2602">PHP Unconference Hamburg</a></span><br>
+<span class="event_USA">16. <a href="http://www.php.net/cal.php?id=2501">Chicago php|tek 2007</a></span><br>
+<span class="event_ITA">18. <a href="http://www.php.net/cal.php?id=2398">Italian PHPDay</a></span><br>
+<h4>User Group Events</h4>
+<span class="event_USA">1. <a href="http://www.php.net/cal.php?id=1745">SW Florida Linux Users Group</a></span><br>
+<span class="event_USA">1. <a href="http://www.php.net/cal.php?id=1860">PDXPHP monthly meeting</a></span><br>
+<span class="event_USA">1. <a href="http://www.php.net/cal.php?id=2578">Providence PHP Meetup</a></span><br>
+<span class="event_DEU">2. <a href="http://www.php.net/cal.php?id=2352">Meeting PHP Usergroup OWL</a></span><br>
+<span class="event_USA">3. <a href="http://www.php.net/cal.php?id=109">SDPHP (San Diego, CA)</a></span><br>
+<span class="event_DEU">3. <a href="http://www.php.net/cal.php?id=272">Hannover</a></span><br>
+<span class="event_USA">3. <a href="http://www.php.net/cal.php?id=561">Meetup Day</a></span><br>
+<span class="event_USA">3. <a href="http://www.php.net/cal.php?id=1005">Omaha PHP Users Group Meetup</a></span><br>
+<span class="event_GBR">3. <a href="http://www.php.net/cal.php?id=1304">PHP London</a></span><br>
+<span class="event_USA">3. <a href="http://www.php.net/cal.php?id=1624">The Houston PHP Users Group</a></span><br>
+<span class="event_USA">3. <a href="http://www.php.net/cal.php?id=1632">Boston PHP Meetup</a></span><br>
+<span class="event_USA">3. <a href="http://www.php.net/cal.php?id=1706">Atlanta PHP User Group</a></span><br>
+<span class="event_GBR">3. <a href="http://www.php.net/cal.php?id=1795">Manchester UK - PHP Group</a></span><br>
+<span class="event_GBR">3. <a href="http://www.php.net/cal.php?id=1797">EdPUG - Edinburgh PHP User Group</a></span><br>
+<span class="event_AUS">3. <a href="http://www.php.net/cal.php?id=1918">Sydney PHP Group meetings</a></span><br>
+<span class="event_NZL">3. <a href="http://www.php.net/cal.php?id=2017">PHP UG Meetup Auckland</a></span><br>
+<span class="event_ZAF">3. <a href="http://www.php.net/cal.php?id=2195">Cape Town PHP Users Group</a></span><br>
+<span class="event_USA">3. <a href="http://www.php.net/cal.php?id=2301">Jacksonville User Group</a></span><br>
+<span class="event_USA">3. <a href="http://www.php.net/cal.php?id=2418">Seattle PHP Meetup Group</a></span><br>
+<span class="event_DEU">4. <a href="http://www.php.net/cal.php?id=153">Köln/Bonn</a></span><br>
+<span class="event_CHN">6. <a href="http://www.php.net/cal.php?id=1923">PHP meeting online in China</a></span><br>
+<span class="event_BOL">6. <a href="http://www.php.net/cal.php?id=2540">meeting de LAMPistas en La Paz</a></span><br>
+<span class="event_USA">7. <a href="http://www.php.net/cal.php?id=2495">PHP Meetup Columbia MD</a></span><br>
+<span class="event_DEU">8. <a href="http://www.php.net/cal.php?id=1385">Hamburg</a></span><br>
+<span class="event_USA">8. <a href="http://www.php.net/cal.php?id=1523">Dallas PHP/MySQL Users Group</a></span><br>
+<span class="event_USA">8. <a href="http://www.php.net/cal.php?id=1670">Dallas PHP Users Group (DPUG)</a></span><br>
+<span class="event_USA">8. <a href="http://www.php.net/cal.php?id=1652">Austin PHP Meetup</a></span><br>
+<span class="event_USA">8. <a href="http://www.php.net/cal.php?id=1665">OKC PHP Meetup</a></span><br>
+<span class="event_USA">8. <a href="http://www.php.net/cal.php?id=2238">Seattle PHP Users Group</a></span><br>
+<span class="event_USA">9. <a href="http://www.php.net/cal.php?id=1395">Wash DC PHP Developers Group</a></span><br>
+<span class="event_DEU">9. <a href="http://www.php.net/cal.php?id=2503">Stuttgart</a></span><br>
+<span class="event_DEU">10. <a href="http://www.php.net/cal.php?id=1848">Meeting usergroup Dortmund</a></span><br>
+<span class="event_DEU">10. <a href="http://www.php.net/cal.php?id=1946">PHP Usergroup Frankfurt/Main</a></span><br>
+<span class="event_AUS">10. <a href="http://www.php.net/cal.php?id=2375">Melbourne PHP Users Group</a></span><br>
+<span class="event_CAN">10. <a href="http://www.php.net/cal.php?id=2597">PHP, Remote XUL and jQuery</a></span><br>
+<span class="event_CAN">12. <a href="http://www.php.net/cal.php?id=1732">PHP User Group Nanaimo, BC/CA</a></span><br>
+<span class="event_CHN">12. <a href="http://www.php.net/cal.php?id=2580">PEA meeting from phpchina</a></span><br>
+<span class="event_USA">15. <a href="http://www.php.net/cal.php?id=1738">Madison PHP User's Group</a></span><br>
+<span class="event_AUS">15. <a href="http://www.php.net/cal.php?id=2246">PHP Brisbane Meetup Group</a></span><br>
+<span class="event_USA">16. <a href="http://www.php.net/cal.php?id=1545">Miami PHP User Group</a></span><br>
+<span class="event_USA">16. <a href="http://www.php.net/cal.php?id=1546">Broward Php Usergroup</a></span><br>
+<span class="event_USA">16. <a href="http://www.php.net/cal.php?id=1847">Nashville PHP Users Group</a></span><br>
+<span class="event_USA">16. <a href="http://www.php.net/cal.php?id=2208">Chicago PHP User Group Brunch</a></span><br>
+<span class="event_USA">17. <a href="http://www.php.net/cal.php?id=1704">TriPUG</a></span><br>
+<span class="event_USA">17. <a href="http://www.php.net/cal.php?id=1719">OINK-PUG (Cincinnati, Ohio)</a></span><br>
+<span class="event_USA">17. <a href="http://www.php.net/cal.php?id=1820">Utah PHP Users Group Meeting</a></span><br>
+<span class="event_USA">19. <a href="http://www.php.net/cal.php?id=1131">Kansas City</a></span><br>
+<span class="event_USA">19. <a href="http://www.php.net/cal.php?id=1346">Miami Linux Users Group</a></span><br>
+<span class="event_USA">19. <a href="http://www.php.net/cal.php?id=1671">Twin Cities PHP</a></span><br>
+<span class="event_USA">19. <a href="http://www.php.net/cal.php?id=2449">Los Angeles LAMPsig</a></span><br>
+<span class="event_USA">22. <a href="http://www.php.net/cal.php?id=409">New York</a></span><br>
+<span class="event_USA">22. <a href="http://www.php.net/cal.php?id=384">AzPHP</a></span><br>
+<span class="event_USA">22. <a href="http://www.php.net/cal.php?id=2039">San Antonio PHP Meetup</a></span><br>
+<span class="event_USA">28. <a href="http://www.php.net/cal.php?id=1099">Long Island PHP Users Group</a></span><br>
+<span class="event_MYS">29. <a href="http://www.php.net/cal.php?id=2527">Malaysia PHP Meetup</a></span><br>
+<span class="event_IRL">30. <a href="http://www.php.net/cal.php?id=2500">Irish PHP Users Group meeting</a></span><br>
+<span class="event_SAU">31. <a href="http://www.php.net/cal.php?id=1316">Arabic PHP Group Meeting</a></span><br>
+<span class="event_MYS">31. <a href="http://www.php.net/cal.php?id=1708">Malaysia PHP User Group Meet Up</a></span><br>
+<span class="event_USA">31. <a href="http://www.php.net/cal.php?id=2499">Sandy PHP Group</a></span><br>
+<h4>Training</h4>
+<span class="event_ESP">1. <a href="http://www.php.net/cal.php?id=841">Curso on-line de PHP-MySQL</a></span><br>
+<span class="event_USA">1. <a href="http://www.php.net/cal.php?id=1490">PHP Class at CalTek</a></span><br>
+<span class="event_USA">1. <a href="http://www.php.net/cal.php?id=2477">PHP Programming &gt; Chelmsford, MA</a></span><br>
+<span class="event_USA">1. <a href="http://www.php.net/cal.php?id=2505">PHP/MySQL training San Francisco</a></span><br>
+<span class="event_CAN">1. <a href="http://www.php.net/cal.php?id=2510">PHP and MySQL Bootcamp Toronto</a></span><br>
+<span class="event_CAN">1. <a href="http://www.php.net/cal.php?id=2543">Formation LAMP a Quebec</a></span><br>
+<span class="event_IND">1. <a href="http://www.php.net/cal.php?id=2581">Ahmedabad PHP Training</a></span><br>
+<span class="event_IND">2. <a href="http://www.php.net/cal.php?id=2144">PHP Training - Chennai - India</a></span><br>
+<span class="event_ESP">3. <a href="http://www.php.net/cal.php?id=1516">Curso de PHP Avanzado en Bilbao</a></span><br>
+<span class="event_GBR">5. <a href="http://www.php.net/cal.php?id=2379">Weekend course PHP</a></span><br>
+<span class="event_IND">6. <a href="http://www.php.net/cal.php?id=2023">Ahmedabad PHP Group Training</a></span><br>
+<span class="event_ESP">7. <a href="http://www.php.net/cal.php?id=338">MySQL Spain</a></span><br>
+<span class="event_ESP">7. <a href="http://www.php.net/cal.php?id=456">Curso PHP Madrid</a></span><br>
+<span class="event_DEU">7. <a href="http://www.php.net/cal.php?id=641">PHP E-Learning/Germany</a></span><br>
+<span class="event_ESP">7. <a href="http://www.php.net/cal.php?id=998">Curso on-line ActionScript / PHP</a></span><br>
+<span class="event_DEU">7. <a href="http://www.php.net/cal.php?id=1198">PHP &amp; MySQL Training in Kassel</a></span><br>
+<span class="event_BRA">7. <a href="http://www.php.net/cal.php?id=1360">PHP &amp; MySQL com Dreamweaver MX</a></span><br>
+<span class="event_ESP">7. <a href="http://www.php.net/cal.php?id=1981">Curso on-line de PHP</a></span><br>
+<span class="event_BRA">7. <a href="http://www.php.net/cal.php?id=2051">PHP &amp; MYSQL-Construindo WebSites</a></span><br>
+<span class="event_USA">7. <a href="http://www.php.net/cal.php?id=2509">PHP and MySQL Bootcamp in SF,CA</a></span><br>
+<span class="event_GBR">8. <a href="http://www.php.net/cal.php?id=2378">Evening course PHP</a></span><br>
+<span class="event_GBR">8. <a href="http://www.php.net/cal.php?id=2478">PHP Programming Course - London</a></span><br>
+<span class="event_USA">8. <a href="http://www.php.net/cal.php?id=2485">NYPHP Training</a></span><br>
+<span class="event_USA">10. <a href="http://www.php.net/cal.php?id=2487">NYPHP Programmer Training</a></span><br>
+<span class="event_ESP">14. <a href="http://www.php.net/cal.php?id=1466">PHP para Expertos Curso on-line</a></span><br>
+<span class="event_ECU">14. <a href="http://www.php.net/cal.php?id=1583">Curso PHP y MySQL</a></span><br>
+<span class="event_USA">14. <a href="http://www.php.net/cal.php?id=2323">PHP Programming Boot Camp - USA</a></span><br>
+<span class="event_ESP">15. <a href="http://www.php.net/cal.php?id=1389">Cursos de PHP en Bilbao</a></span><br>
+<span class="event_IND">17. <a href="http://www.php.net/cal.php?id=2408">Chennai PHP Training</a></span><br>
+<span class="event_DEU">21. <a href="http://www.php.net/cal.php?id=1200">PHP &amp; MySQL Training / Gießen</a></span><br>
+<span class="event_ESP">21. <a href="http://www.php.net/cal.php?id=2463">Curso de PHP (a distancia)</a></span><br>
+<span class="event_FRA">21. <a href="http://www.php.net/cal.php?id=2559">Formation PHP expert certifie</a></span><br>
+<span class="event_ZAF">21. <a href="http://www.php.net/cal.php?id=2589">PHP Intro Course South Africa</a></span><br>
+<span class="event_GBR">22. <a href="http://www.php.net/cal.php?id=231">UK PHP Training</a></span><br>
+<span class="event_CAN">22. <a href="http://www.php.net/cal.php?id=2545">LAMP Training in Ottawa</a></span><br>
+<span class="event_BRA">24. <a href="http://www.php.net/cal.php?id=1137">PHP Brasil - Training</a></span><br>
+<span class="event_IND">28. <a href="http://www.php.net/cal.php?id=2421">Basic PHP Course</a></span><br>
+<span class="event_FRA">28. <a href="http://www.php.net/cal.php?id=2535">Formation PHP Maitrise</a></span><br>
+<span class="event_FRA">28. <a href="http://www.php.net/cal.php?id=2565">Formation PHP maitrise</a></span><br>
+<span class="event_CAN">28. <a href="http://www.php.net/cal.php?id=2546">LAMP Training in Montreal</a></span><br>
+ </div>
+ <div id="content" class=".">
+  <div id="confTeaser">
+   <table>
+    <tbody><tr>
+     <td style="white-space: nowrap;" valign="top">Calling for papers:</td>
+     <td valign="top">
+      <ul class="cfp">
+       <li><a href="http://www.php.net/conferences/#8">Zend/PHP Conference 2007</a></li>
+       <li><a href="http://www.php.net/conferences/#7">PHP @ FrOSCon</a></li>
+       <li><a href="http://www.php.net/conferences/#5"> O'Reilly OSCON</a></li>
+       <li><a href="http://www.php.net/conferences/#4">International PHP Conference 2007 Spring Edition</a></li>
+      </ul>
+     </td>
+    </tr>
+    <tr>
+     <td style="white-space: nowrap;" valign="top">Conferences:</td>
+     <td valign="top">
+      <ul class="conference">
+       <li><a href="http://www.php.net/conferences/#6">PHP Québec conference 2007</a></li>
+       <li><a href="http://www.php.net/conferences/#3">PHP London 2007</a></li>
+       <li><a href="http://www.php.net/conferences/#2">Chicago php|tek 2007</a></li>
+       <li><a href="http://www.php.net/conferences/#1">Vancouver PHP Conference</a></li>
+      </ul>
+     </td>
+    </tr>
+   </tbody></table>
+  </div>
+
+<br>
+
+<a name="6"></a>
+<h1>The PHP.net Google Summer of Code</h1>
+<p>
+ <span class="newsdate">[14-Apr-2007]</span>
+ The PHP team is once again proud to participate in the 
+ <a href="http://code.google.com/soc/">Google Summer of Code</a>.
+ Seven students will "flip bits instead of burgers" this summer:
+</p>
+ <ul><li>Mentored by Michael Wallner, Hannes Magnusson will work on <a href="http://wiki.phpdoc.info/LiveDocs">LiveDocs</a>,
+ which is a "tool to display DocBook XML files in a web browser on the
+ fly, without the need of building all HTML target files first". This
+ project will be of great value to the PHP Documentation Team.</li>
+ <li>The PHP Interpreter uses reference counting to keep track of which objects
+ are no longer referenced and thus can be destroyed. A major weakness in the
+ current implementation is that it cannot detect reference cycles, that is
+ objects that reference each other in a circular graph structure which is not
+ referenced itself from outside the circle. Mentored by Derick Rethans,
+ David Wang will implement a new reference counting algorithm that will
+ alleviate this problem.</li>
+ <li><a href="http://xdebug.org/">Xdebug</a> provides a range of useful
+ functionality for PHP developers, including detailed error information,
+ code coverage and profiling support, and support for remote debugging using
+ the GDB and DBGp protocols. Mentored by Xdebug's creator, Derick Rethans,
+ Adam Harvey will develop a cross-platform GUI application that implements
+ the DBGp protocol and allows PHP applications to be debugged using Xdebug
+ in a development environment agnostic fashion.</li>
+ <li>Mentored by Lukas Smith, Konsta Vesterinen will work on the object-relational
+ mapper <a href="http://www.phpdoctrine.net/">Doctrine</a>.</li>
+ <li>Mutation Testing, or Automated Error Seeding, is an approach where the testing
+ tool makes some change to the tested code, runs the tests, and if the tests pass
+ displays a message saying what it changed. This approach is different than code
+ coverage analysis, because it can find code that is executed by the running of
+ tests but not actually tested. Mentored by Sebastian Bergmann, Mike Lewis will
+ implement Mutation Testing for <a href="http://www.phpunit.de/">PHPUnit</a>.</li>
+ <li>Mentored by Helgi Þormar Þorbjörnsson, Igor Feghali will add support for
+ foreign keys to <a href="http://pear.php.net/package/MDB2_Schema/">MDB2_Schema</a>,
+ a package that "enables users to maintain RDBMS independant schema files in
+ XML that can be used to create, alter and drop database entities and insert data
+ into a database".</li>
+ <li>Mentored by David Coallier, Nicolas Bérard-Nault will refactor the internals
+ of <a href="http://www.jaws-project.com/">Jaws</a>, a Framework and Content
+ Management System for building dynamic web sites, for PHP 6.</li></ul>
+
+<hr>
+
+<a name="5"></a>
+<h1>PHP 4.4.6 Released</h1>
+<p>
+ <span class="newsdate">[01-Mar-2007]</span>
+  The PHP development team would like to announce the immediate <a href="http://www.php.net/downloads.php#v4">availability of PHP 4.4.6</a>.
+
+  The main issue that this release addresses is a crash problem that was
+  introduced in PHP 4.4.5.  The problem occurs when session variables are used
+  while register_globals is enabled.
+  
+  Details about the PHP 4.4.6 release can be found in the <a href="http://www.php.net/releases/4_4_6.php">release announcement for 4.4.6</a>, the full list
+  of changes is available in the <a href="http://www.php.net/ChangeLog-4.php#4.4.6">ChangeLog for
+  PHP 4</a>.
+</p>
+
+<hr>
+
+<a name="4"></a>
+<h1>PHP 5.2.1 and PHP 4.4.5 Released</h1>
+<p>
+ <span class="newsdate">[14-Feb-2007]</span>
+  The PHP development team would like to announce the immediate <a href="http://www.php.net/downloads.php#v5">availability of PHP 5.2.1</a> and <a href="http://www.php.net/downloads.php#v4">availability of PHP 4.4.5</a>.
+  These releases are major stability and security enhancements of the 5.x and
+  4.4.x branches, and all users are strongly encouraged to upgrade to it as
+  soon as possible.  Further details about the PHP 5.2.1 release can be found in the <a href="http://www.php.net/releases/5_2_1.php">release announcement for 5.2.1</a>, the full list of
+  changes is available in the <a href="http://www.php.net/ChangeLog-5.php#5.2.1">ChangeLog for PHP
+  5</a>. Details about the PHP 4.4.5 release can be found in the <a href="http://www.php.net/releases/4_4_5.php">release announcement for 4.4.5</a>, the full list of
+  changes is available in the <a href="http://www.php.net/ChangeLog-4.php#4.4.5">ChangeLog for PHP
+  4</a>.
+</p>
+
+<p>
+<b>Security Enhancements and Fixes in PHP 5.2.1 and PHP 4.4.5:</b>
+</p>
+<ul>
+	<li>Fixed possible safe_mode &amp; open_basedir bypasses inside the session extension.</li>
+	<li>Fixed unserialize() abuse on 64 bit systems with certain input strings.</li>
+	<li>Fixed possible overflows and stack corruptions in the session extension.</li>
+	<li>Fixed an underflow inside the internal sapi_header_op() function.</li>
+	<li>Fixed non-validated resource destruction inside the shmop extension.</li>
+	<li>Fixed a possible overflow in the str_replace() function.</li>
+	<li>Fixed possible clobbering of super-globals in several code paths.</li>
+	<li>Fixed a possible information disclosure inside the wddx extension.</li>
+	<li>Fixed a possible string format vulnerability in *print() functions on 64 bit systems.</li>
+	<li>Fixed a possible buffer overflow inside ibase_{delete,add,modify}_user() functions.</li>
+	<li>Fixed a string format vulnerability inside the odbc_result_all() function.</li>
+</ul>
+<p>
+<b>Security Enhancements and Fixes in PHP 5.2.1 only:</b>
+</p>
+<ul>
+	<li>Prevent search engines from indexing the phpinfo() page.</li>
+	<li>Fixed a number of input processing bugs inside the filter extension.</li>
+	<li>Fixed allocation bugs caused by attempts to allocate negative values in some code paths.</li>
+	<li>Fixed possible stack/buffer overflows inside zip, imap &amp; sqlite extensions.</li>
+	<li>Fixed several possible buffer overflows inside the stream filters.</li>
+	<li>Memory limit is now enabled by default.</li>
+	<li>Added internal heap protection.</li>
+	<li>Extended filter extension support for $_SERVER in CGI and apache2 SAPIs.</li>
+</ul>
+<p>
+<b>Security Enhancements and Fixes in PHP 4.4.5 only:</b>
+</p>
+<ul>
+	<li>Fixed possible overflows inside zip &amp; imap extensions.</li>
+	<li>Fixed a possible buffer overflow inside mail() function on Windows.</li>
+	<li>Unbundled the ovrimos extension.</li>
+</ul>
+
+<p>
+The majority of the security vulnerabilities discovered and resolved can in
+most cases be only abused by local users and cannot be triggered remotely.
+However, some of the above issues can be triggered remotely in certain
+situations, or exploited by malicious local users on shared hosting setups
+utilizing PHP as an Apache module. Therefore, we strongly advise all users of
+PHP, regardless of the version to upgrade to the 5.2.1 or 4.4.5 releases as soon as possible.
+</p>
+
+<p>
+For users upgrading to PHP 5.2 from PHP 5.0 and PHP 5.1, an upgrade guide is
+available <a href="http://www.php.net/migration52">here</a>, detailing the changes between
+those releases and PHP 5.2.1.
+</p>
+
+<p><strong>Update: Feb 14th;</strong> Added release information for PHP
+4.4.5.</p>
+
+<p><strong>Update: Feb 12th;</strong> The Windows install package had problems
+with upgrading from previous PHP versions. That has now been fixed and new file
+posted in the <a href="http://www.php.net/downloads.php">download section</a>.</p>
+<hr>
+
+<a name="3"></a>
+<h1>The front page has changed</h1>
+<p>
+ <span class="newsdate">[08-Feb-2007]</span>
+ The news on the front page of php.net has changed, the <a href="http://www.php.net/conferences/">conference 
+ announcements</a> are now located on their own page. The idea is to keep php.net specific 
+ news clear and also opens the door for additional news entries, like for RC releases. 
+ More changes are on the way so keep an eye out.
+</p>
+
+<hr>
+
+<a name="2"></a>
+<a href="http://php.net/manual/en/"><img src="test_files/php-logo.gif" alt="The PHP Manual" style="float: right;" height="36" width="69"></a><h1>PHP Manual Updates</h1>
+<p>
+ <span class="newsdate">[03-Feb-2007]</span>
+ The PHP documentation team is proud to present to the PHP community a few
+ fixes and tweaks to the <a href="http://php.net/manual/en/">PHP Manual</a>,
+ including:
+</p>
+ <ul>
+  <li>an improved, XSL-based build system that will deliver compiled manuals
+  to mirrors in a more timely manner (goodbye dsssl)</li>
+  <li>manual pages can now contain images (see
+  <code><a href="http://php.net/en/function.imagearc">imagearc()</a></code>
+  for an example)</li>
+  <li>updated function version information and capture system (fewer
+  "no version information, might be only in CVS" messages)</li>
+  <li>... and more to come!</li>
+ </ul>
+<p>
+ Please <a href="http://php.net/about.howtohelp">help us improve the documentation</a> by <a href="http://bugs.php.net/">submitting bug reports</a>, and adding notes to undocumented functions.
+</p>
+
+<hr>
+
+<a name="1"></a>
+<h1>PHP 5.2.0 Released</h1>
+<p>
+ <span class="newsdate">[02-Nov-2006]</span>
+ The PHP development team is proud to announce the immediate release of PHP
+ 5.2.0. This release is a major improvement in the 5.X series, which includes a
+ large number of new features, bug fixes and security enhancements.
+ Further details about this release can be found in the release announcement
+ <a href="http://www.php.net/releases/5_2_0.php">5.2.0</a>, the full list of changes is
+ available in the ChangeLog <a href="http://www.php.net/ChangeLog-5.php#5.2.0">PHP 5</a>.
+</p>
+<p>
+All users of PHP, especially those using earlier PHP 5 releases are advised
+to upgrade to this release as soon as possible. This release also obsoletes
+the 5.1 branch of PHP.
+</p>
+
+<p>
+For users upgrading from PHP 5.0 and PHP 5.1 there is an upgrading guide 
+available <a href="http://www.php.net/UPDATE_5_2.txt">here</a>, detailing the changes between those releases
+and PHP 5.2.0.
+</p>
+
+<hr>
+
+<p class="center"><a href="http://www.php.net/archive/index.php">News Archive</a></p>
+
+
+ </div>
+ <div class="cleaner">&nbsp;</div>
+</div></div>
+
+<div id="footnav">
+ <a href="http://www.php.net/news.rss">RSS</a> | <a href="http://www.php.net/source.php?url=/index.php">show source</a> |
+ <a href="http://www.php.net/credits.php">credits</a> |
+ <a href="http://www.php.net/stats/">stats</a> |
+ <a href="http://www.php.net/sitemap.php">sitemap</a> |
+ <a href="http://www.php.net/contact.php">contact</a> |
+ <a href="http://www.php.net/contact.php#ads">advertising</a> |
+ <a href="http://www.php.net/mirrors.php">mirror sites</a>
+</div>
+
+<div id="pagefooter">
+ <div id="copyright">
+  <a href="http://www.php.net/copyright.php">Copyright © 2001-2007 The PHP Group</a><br>
+  All rights reserved.
+ </div>
+
+ <div id="thismirror">
+  <a href="http://www.php.net/mirror.php">This mirror</a> generously provided by:
+  <a href="http://developer.yahoo.com/">Yahoo! Inc.</a><br>
+  Last updated: Mon Apr 30 02:38:55 2007 PDT
+ </div>
+</div>
+
+</body></html>

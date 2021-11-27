@@ -1,0 +1,12 @@
+/*****************************************/
+/*                                       */
+/* Mobile-specific styles                */
+/*                                       */
+/*****************************************/
+
+@import "common.css";
+
+div#bannercontent { display: none; }
+div.weblog_entry_front { display: none; }
+div.menuicons { display: none; }
+div#noticecontent { display: none; }

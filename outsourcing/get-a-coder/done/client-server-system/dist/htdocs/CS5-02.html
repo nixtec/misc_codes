@@ -1,0 +1,122 @@
+<html><head><title>A Simple Hash Table Implmentation</title></head><body alink="#ff0000" bgcolor="#ffffff" link="#0000ee" text="#000000" vlink="#551a8b">
+<pre>==============================================================================
+<a href="http://www.gmonline.demon.co.uk/cscene/CS5/CS5-01.html">C-Scene Issue #05</a>
+A Simple Hash Table Implementation
+Platform: Non-specific
+<a href="http://www.gmonline.demon.co.uk/cscene/people/wright.html">Charles P. Wright</a>
+==============================================================================
+
+
+<h1><center>A Simple Hash Table Implementation</center></h1>
+<h2><center>Charles P. Wright</center></h2>
+
+<p>Hash tables are pretty cool things, and quite versatile.  They have a wide
+range of uses including associative arrays in perl (I am sure we all love
+these) and many others.  I apologize in advance for the differences in code
+between the article and the included files.  I already wrote this program and
+have added comments into the article to make it comprehensible, some of the
+code (the hash algorithm is really nasty to read).  I have tried to add the
+comments back into the original code, but I could have screwed up.</p>
+
+<p>To effectively use a hash table you need to know approximately how many
+data items you will have.  This is because if you under estimate you will get a
+lot of collisions (these are explained later in the article), and if you over
+estimate you will waste memory.  You can get around this by using an array of
+pointers to your hash structure as this should greatly reduce the memory used
+by unoccupied elements.</p>
+
+<p>A hash table is an array that has a prime number of elements.  (See prime.txt
+for a rather large list of prime numbers)  When you wish to add an piece of data
+to the hash table you need to take the key (usually characters) and turn it
+into a number.  This is the hash algorithm, the only really neccessary
+requirement is that the hash algorithm will always produce the same results for
+the same key.  It is also desirable to distribute the results for different
+keys nicely.  You then modulus the number produced by the hash algorith
+by the number of elements in the hash table.  Then you put the data in that
+element of the array.</p>
+
+<h3>unsigned int hash (char *s); // Starts on line #9 of hash.c</h3>
+<pre>unsigned int hash (char *s) {
+   int i, n;			// Our temporary variables
+   unsigned int hashval;
+   unsigned int ival;
+   char *p;
+
+   p = (char *) &amp;ival; 		// p lets us reference the integer value as a
+				// character array instead of an integer.  This 				// is actually pretty bad style even though it
+				// works.  You should try a union if you know
+				// how to use them.
+
+   hashval = ival = 0;		// Initialize our variables
+
+   // Figure out how many characters are in an integer the correct answer is 4 
+   // (on an i386), but this should be more cross platform.
+   n = (((log10((double)(UINT_MAX)) / log10(2.0))) / CHAR_BIT) + 0.5;
+ 
+   // loop through s four characters at a time
+   for(i = 0; i &lt; strlen(s); i += n) {
+      // voodoo to put the string in an integer don't try and use strcpy, it
+      // is a very bad idea and you will corrupt something.  
+      strncpy(p, s + i, n);
+      // accumulate our values in hashval
+      hashval += ival;
+   }
+
+   // divide by the number of elements and return our remainder
+   return hashval % HASHELEMENTS;
+}
+</pre>
+
+<p>If we could just shove the data in the array it would be pretty simple, but
+what if there are two keys that hash to the same value?  This is a collision,
+and slows down our lookup.  A good hash algorithm won't have many of these,
+but the are inevitable.  In this case I have implemented a <a href="http://cscene.oftheinter.net/CS1/CS1-04.html">linked list.</a>  This will deal with
+collisions pretty well.</p>
+
+<p>To look up an item we simply hash the search key and then go straight to that
+element of the array.  If it matches then everything is cool and we can
+extract the data, otherwise we must traverse the linked list.  If we run out of
+items, then the data obviously doesn't exist.</p>
+
+<p>The hash table is a great method for lookups as it will take order c
+operations to find an element.  If I knew any advanced math then I could
+explain this better, but essentially it means in theory you should only have
+to perform one operation to find an element.  You can try and glean more
+information from The art of Computer Programming, Volume 3, Sorting and
+Searching, by Knuth.  As you get more elements compared to slots you begin 
+to deviate from theory.  You can use the profiling code to experiment with this.
+</p>
+
+<p>Just keep in mind when to use this and when to use other searching methods,
+if you don't know how much data you will have then I would suggest you should
+try other things like a binary tree.  You can resize your hash table, but that
+requires allocating new memory and then rehashing every element, a binary tree
+can have as many nodes as you need without the need for extra allocation.</p>
+
+<p>These are the basics of hash tables, to find out more I suggest reading
+the included code.  It really doesn't do anything useful, and for real stuff I
+suggest having a pointer to your data.  The code should be reasonably cross 
+platform, but I will only claim that it should work with gcc-2.7.2.3-11 on
+RedHat 5.1 on an Intel Pentium Processor.  YMMV.</p>
+
+<p>I hope this has been useful to you, have fun hashing.</p>
+
+<ul>
+<li><a href="http://www.gmonline.demon.co.uk/cscene/CS5/hash/Makefile">Makefile</a></li>
+<li><a href="http://www.gmonline.demon.co.uk/cscene/CS5/hash/hash.h">hash.h</a></li>
+<li><a href="http://www.gmonline.demon.co.uk/cscene/CS5/hash/hash.c">hash.c</a></li>
+<li><a href="http://www.gmonline.demon.co.uk/cscene/CS5/hash/getch.c">getch.c</a></li>
+<li><a href="http://www.gmonline.demon.co.uk/cscene/CS5/hash/gettoken.c">gettoken.c</a></li>
+<li><a href="http://www.gmonline.demon.co.uk/cscene/CS5/hash/main.c">main.c</a></li>
+<li><a href="http://www.gmonline.demon.co.uk/cscene/CS5/hash/prime.txt">prime.txt</a></li>
+
+</ul>
+
+</pre>
+<hr>
+<i><font color="#008080" size="-1">
+This page is Copyright © 1998 By
+<a href="http://cscene.oftheinter.net/">C Scene</a>. All Rights Reserved
+</font></i>
+<hr>
+</body></html>

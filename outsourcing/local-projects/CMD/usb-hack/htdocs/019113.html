@@ -1,0 +1,105 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html><head><title>How to register a user-space function as an interrupt handler ?</title>
+
+ 
+   
+   <link rel="Index" href="http://ozlabs.org/pipermail/linuxppc-dev/2005-May/index.html">
+   <link rel="made" href="mailto:linuxppc-dev%40ozlabs.org?Subject=How%20to%20register%20a%20user-space%20function%20as%20an%20interrupt%20handler%20%3F&amp;In-Reply-To=">
+   <meta name="robots" content="index,nofollow">
+   <meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <link rel="Previous" href="http://ozlabs.org/pipermail/linuxppc-dev/2005-May/019109.html">
+   <link rel="Next" href="http://ozlabs.org/pipermail/linuxppc-dev/2005-May/019114.html"></head><body bgcolor="#ffffff">
+   <h1>How to register a user-space function as an interrupt handler ?</h1>
+    <b>Garcia Jérémie</b> 
+    <a href="mailto:linuxppc-dev%40ozlabs.org?Subject=How%20to%20register%20a%20user-space%20function%20as%20an%20interrupt%20handler%20%3F&amp;In-Reply-To=" title="How to register a user-space function as an interrupt handler ?">GARCIAJ at 3il.fr
+       </a><br>
+    <i>Thu May 26 20:09:51 EST 2005</i>
+    <p></p><ul>
+        <li>Previous message: <a href="http://ozlabs.org/pipermail/linuxppc-dev/2005-May/019109.html">adb caps patch
+</a></li>
+        <li>Next message: <a href="http://ozlabs.org/pipermail/linuxppc-dev/2005-May/019114.html">How to register a user-space function as an interrupt handler ?
+</a></li>
+         <li> <b>Messages sorted by:</b> 
+              <a href="http://ozlabs.org/pipermail/linuxppc-dev/2005-May/date.html#19113">[ date ]</a>
+              <a href="http://ozlabs.org/pipermail/linuxppc-dev/2005-May/thread.html#19113">[ thread ]</a>
+              <a href="http://ozlabs.org/pipermail/linuxppc-dev/2005-May/subject.html#19113">[ subject ]</a>
+              <a href="http://ozlabs.org/pipermail/linuxppc-dev/2005-May/author.html#19113">[ author ]</a>
+         </li>
+       </ul>
+    <hr>  
+<!--beginarticle-->
+<pre>Hi everybody, I'm tryin to adapt a vxWorks-designed application to a Linux montavista 3.1 on a board 
+running a powerPC 405 EP. In our application, that will be run from the linux user-space, we connect a
+routine to an interrupt vector as the example below:
+
+/**************************/
+/* /home/JG/appli/ppcos.c */
+/**************************/
+
+RET_CODE_TYPE enable_and_connect_DMA(MY_DMA_CTRL * my_param)
+{
+    BS_RET_CODE_TYPE rc1 = BS_RET_OK; 
+
+    /* Connect interrupt handler for each channel */
+    rc = intConnect((VOIDFUNCPTR *)INT_VEC_DMA, my_handler, (int)my_param);
+   
+    if(!rc)
+        /* Enable interrupt for first channel in the interrupt controller */
+        intEnable(INT_LVL_DMA_CH0);
+
+    else
+        rc1 = BS_RET_ERROR;
+     
+    return rc1;
+}
+
+What I would like to do is to make an emulation of both vxWorks routines (intConnect() and intEnable()) in the linux world
+cause I'm not allowed to change that code.
+I guess that I will have to use :
+   intConnect() &lt;==&gt; request_irq()
+   intEnable()  &lt;==&gt; enable_irq()
+(Is that correct??).
+Furthermore, I'm a newbie in linux developpment and if I understand well, I need to be in kernel-space to call those routines. 
+But here is my problem: the interrupt handler that we call is part of the application and uses a lot of #define,semaphores and other 
+ressources of the user-application. So can I implement a new linux system call, that will register our user-space-function (my_handler())
+as the interrupt handler for the given vector?? Indeed, we do that for several interrupts (each with a different handler) and it would
+be comfortable to have a system call that would take (the handler + the interrupt vector + the parameters) as parameters.
+Don't forget that I have to respect two conditions: my application must be run from user-space and I cannot modify the 
+code (my team does not want to support versions).
+
+Please help or give me a clue.
+
+Thanks for your precious help.
+Jérémie
+</pre>
+
+
+
+
+
+
+
+
+
+
+<!--endarticle-->
+    <hr>
+    <p></p><ul>
+        <!--threads-->
+	<li>Previous message: <a href="http://ozlabs.org/pipermail/linuxppc-dev/2005-May/019109.html">adb caps patch
+</a></li>
+	<li>Next message: <a href="http://ozlabs.org/pipermail/linuxppc-dev/2005-May/019114.html">How to register a user-space function as an interrupt handler ?
+</a></li>
+         <li> <b>Messages sorted by:</b> 
+              <a href="http://ozlabs.org/pipermail/linuxppc-dev/2005-May/date.html#19113">[ date ]</a>
+              <a href="http://ozlabs.org/pipermail/linuxppc-dev/2005-May/thread.html#19113">[ thread ]</a>
+              <a href="http://ozlabs.org/pipermail/linuxppc-dev/2005-May/subject.html#19113">[ subject ]</a>
+              <a href="http://ozlabs.org/pipermail/linuxppc-dev/2005-May/author.html#19113">[ author ]</a>
+         </li>
+       </ul>
+
+<hr>
+<a href="https://ozlabs.org/mailman/listinfo/linuxppc-dev">More information about the Linuxppc-dev
+mailing list</a><br>
+
+</body></html>

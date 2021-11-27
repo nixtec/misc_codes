@@ -1,0 +1,309 @@
+body {
+		 margin: 10px 10px 10px 10px;
+		 padding: 0px 0px 0px 0px;
+}
+
+.hidden {
+		 display: none;
+}
+
+#masthead {
+		 margin: 0px 0px 5px 0px;
+		 padding: 0px 0px 0px 0px;
+		 width: 100%;
+  	     display: block;
+}
+  
+#masthead img {
+		 float: left;
+		 margin: 10px 10px 10px 10px;
+		 border-style: none;
+}
+#masthead form {
+		 margin: 3px 5px 3px 0px;
+		 padding: 0px 0px 0px 0px; 
+		 top: 0%;
+		 width: 50%;
+		 left: 100%;
+		 text-align: right;
+		 float: right;
+}
+
+#masthead form p {
+		 margin: 0px 0px 2px 0px;
+		 text-align: right;
+}
+
+#masthead ul {
+		 clear: both;
+		 width: 100%;
+		 display: block;
+		 list-style: none;
+		 text-align: center;
+		 border-width: 0px 0px 0px 0px;
+		 border-style: none none none none;
+		 margin: 5px 0px 0px 0px;
+		 padding: 3px 0px 5px 0px;
+}
+
+#masthead li {
+		 display: inline;
+		 text-align: center;
+		 padding: 0px 0px 0px 0px;
+		 margin: 0px 4px 0px 4px;
+}
+
+
+#masthead li.here {
+		 text-align: center;
+}
+
+/* hide these from ie mac \*/
+#masthead ul {
+		 text-align: center;
+}
+
+#masthead li {
+		 text-align: center;
+		 padding: 0px 1px 0px 1px;
+		 margin: 0px 0px 0px -1px;
+}
+
+#masthead li.left {
+		 padding: 0px 1px 0px 0px;
+}
+
+#masthead li.right {
+		 padding: 0px 0px 0px 1px;
+}
+
+#masthead li.here {
+		 text-align: center;
+		 padding: 0px 4px 0px 4px;
+		 margin: 0px 0px 0px 0px;
+}
+
+#masthead li a {
+		 text-align: center;
+		 padding: 0px 10px 0px 10px;
+		 text-decoration: none;
+}
+/* end of mac hidden */
+
+#leftcolumn {
+		 float: left;
+		 margin: 5px 0px 0px 0px;
+		 padding: 0px 0px 0px 0px;
+		 width: 20%;
+		 border: 1px;
+		 border-style: solid;
+}
+
+#leftcolumn h1 {
+		 display: block;
+		 margin: 0px 0px 0px 0px;
+		 text-align: center;
+}
+
+#leftcolumn ul {
+		 padding: 5px 5px 5px 5px;
+		 margin: 0px 0px 0px 1.5em;	 
+}
+
+#leftcolumn li {
+         padding: 0px 0px 0px 0px;
+		 list-style-type: square;
+}
+
+#leftcolumn li.corp {
+		 list-style-type: square;
+		 list-style-image: url(http://www.brad.ac.uk/img/sq-claret.gif);
+}
+
+#leftcolumn li.arch {
+		 list-style-image: url(http://www.brad.ac.uk/img/sq-archenv.gif);
+}
+
+#leftcolumn li.eng {
+		 list-style-image: url(http://www.brad.ac.uk/img/sq-engrg.gif);
+}
+
+#leftcolumn li.health {
+		 list-style-image: url(http://www.brad.ac.uk/img/sq-hlth.gif);
+}
+
+#leftcolumn li.info {
+		 list-style-image: url(http://www.brad.ac.uk/img/sq-inf.gif);
+}
+
+#leftcolumn li.lss {
+		 list-style-image: url(http://www.brad.ac.uk/img/sq-grey.gif);
+}
+	
+#leftcolumn li.life {
+		 list-style-image: url(http://www.brad.ac.uk/img/sq-life.gif);
+}
+
+#leftcolumn li.sled {
+		 list-style-image: url(http://www.brad.ac.uk/img/sq-led.gif);
+}
+
+#leftcolumn li.mgt {
+		 list-style-image: url(http://www.brad.ac.uk/img/sq-mgt.gif);
+}
+	
+#leftcolumn li.ssis {
+		 list-style-image: url(http://www.brad.ac.uk/img/sq-intl.gif);
+}
+
+#leftcolumn hr {
+		 width: 80%;
+		 height: 1px;
+}
+
+#leftcolumn p {
+	   text-align: center;
+}
+
+#leftcolumn img {
+		 border-style: none;
+}
+
+#centre {
+		 margin-left: 22%;
+		 margin-right: 22%;
+		 padding: 0px 10px 0px 10px;
+}
+
+#centre a {
+         text-decoration: none;
+}         
+
+#centre img {
+		 float: right;
+         border-style: none;
+}
+
+#centre #beachcam img {
+		 float: none;
+		 display: block;
+		 margin: 0 auto;
+}
+
+#centre p img {
+		 float: left;
+		 margin: 2px;
+		 padding: 2px;
+         border-style: none;
+}
+
+#centre p.strip {
+		 text-transform: uppercase;
+		 margin: 0px 0px 18pt 12pt;
+		 padding: 0px 0px 0px 0px;
+}
+
+#centre h1 {
+		 margin: 10px 0px 3pt 0px;
+		 padding: 0px 0px 0px 0px; 
+}
+
+#centre h2 {
+		 margin: 3pt 0px 0px 0px;
+		 border-top: 1px solid #cccccc;
+}
+
+#centre h3 {
+		 margin: 3pt 0px 0px 0px;
+}
+
+#centre p {
+		 margin: 0px 0px 6pt 24pt;
+		 padding: 0px 0px 0px 0px;
+}
+
+#centre p.posted {
+		 margin: 3pt 0px 0px 0px;
+		 text-align: right;
+}
+
+#centre p.lastupdated {
+		 margin: 3pt 0px 0px 0px;
+		 border-top: 1px solid #cccccc;
+		 text-align: right;
+}
+
+#centre table {
+		 width: 95%;
+}
+
+#centre th {
+		 padding-left: 2px;
+		 padding-right: 2px;
+}
+
+#centre td {
+		 border-top: 1px solid #ffffff;
+		 padding-left: 2px;
+		 padding-right: 2px;
+}
+
+	 
+#rightcolumn {
+		 float: right;
+		 margin: 5px 0px 0px 0px;
+		 padding: 0px 0px 0px 0px;
+		 width: 20%;
+		 border: 1px;
+		 border-style: solid;
+}
+
+#rightcolumn h1 {
+		 display: block;
+		 margin: 0px 0px 0px 0px;
+		 text-align: center;
+}
+
+#rightcolumn h2 {
+		 display: block;
+		 text-align: center;
+		 margin: 3px 0px 3px 0px;
+}
+#rightcolumn ul {
+		 padding: 5px 5px 5px 5px;
+		 margin: 0px 0px 0px 2em;
+		 list-style-type: square;
+}
+
+#rightcolumn li {
+         padding: 0px 0px 0px 0px;
+}         
+
+#footer {
+		 margin: 0px 0px 0px 0px;
+		 padding: 0px 0px 0px 0px;
+		 clear: both;
+		 text-align: right;
+}
+
+#footer p.nav {
+		 display: block;
+		 padding: 3px 3px 4px 3px;
+		 margin: 5px 0px 5px 0px;
+}
+
+#footer p {
+		 margin: 0px 0px 0px 0px;
+		 padding: 0px 4px 0px 0px;
+}
+
+#footer img {
+		 margin: 10px 10px 10px 10px;
+		 border-style: none;
+		 float: left;
+}
+
+iframe {
+		 float: left;
+		 border-style: none;
+}

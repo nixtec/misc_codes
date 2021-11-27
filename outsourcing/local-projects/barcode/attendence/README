@@ -1,0 +1,6 @@
+Unfortunately! all 'attendance' strings were typed 'attendence'.
+So all database and table names and filenames consisting of 'attendence' are
+kept with this wrong word. [attendence]
+
+Since it's running, no need to change the attendence inside the code. Just
+the interface [GUI] should be changed.

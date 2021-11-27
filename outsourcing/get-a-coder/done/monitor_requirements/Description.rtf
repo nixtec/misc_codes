@@ -1,0 +1,58 @@
+{\rtf1\ansi\ansicpg1252\cocoartf949\cocoasubrtf270
+{\fonttbl\f0\froman\fcharset0 Times-Roman;\f1\fswiss\fcharset0 ArialMT;}
+{\colortbl;\red255\green255\blue255;\red136\green136\blue136;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww9000\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\ri-952\ql\qnatural
+
+\f0\fs24 \cf0 \
+Description\
+Create a C program to simulate a monitor system that can be used to synchronize access\
+to a critical resource. The resource has data within it; the format of that data is up to you.\
+The monitor must contain the following functions:\
+         \'95 Wait()\
+         \'95 Signal()\
+         \'95 Read()\
+         \'95 Write()\
+         \'95 Any additional internal functions befitting your structure\
+Your monitor must have at least one conditional variable queue. During the simulation\
+of your monitor, some processes will be placed on that queue, so you will need some\
+means of triggering the re-execution of processes on the queue.\
+While executing, your monitor should track certain statistics. At the conclusion of your\
+simulation, I want a report printed that displays the following:\
+         \'95 Number of processes that used the monitors\
+         \'95 Number of processes that spent time on conditional variable queues\
+         \'95 Average time spent on conditional variable queues\
+         \'95 Average time spent in monitor per process\
+\
+\
+\
+Modification:\
+\pard\pardeftab720\ql\qnatural
+
+\f1\fs26 \cf0 Hi Ayub,\
+\
+I would also add that processes that read need to be aware of whether writing is occurring. Multiple readers can normally access the same section, since they are not making changes to the contents. \
+But be aware that this is not just a simulation of the Readers/Writers problem.\
+Apart from the listed requirements I would also need at least one process in its critical section to get interrupted. When this occurs it is placed on a conditional queue and these processes i think are given priority by the monitor as compared to the Ready queue. Is what you have been working on similar to these guidelines?\
+\
+\pard\pardeftab720\ql\qnatural
+\cf2 11:19 PM\'a0\
+\pard\pardeftab720\ql\qnatural
+
+\b \cf0 Gagan
+\b0 : i had a question about the code..i wanted to know how many queue's were you using for the processes\
+\pard\pardeftab720\ql\qnatural
+\cf2 11:20 PM\'a0\
+\pard\pardeftab720\ql\qnatural
+\cf0 1) There will be one queue which acts like the Ready queue and is outside the scope of the monitor which basically holds the processes as they come into the system\
+\pard\pardeftab720\ql\qnatural
+\cf2 11:21 PM\'a0\
+\pard\pardeftab720\ql\qnatural
+\cf0 2) Conditional Queue will be the queue that holds the process when it is interrupted within the monitor. This queue is actually inside the scope of the monitor\
+\pard\pardeftab720\ql\qnatural
+\cf2 11:23 PM\'a0\
+\pard\pardeftab720\ql\qnatural
+\cf0 3) Urgent queue will be the queue where processes are placed once their condition is satisfied. The process is moved from the conditional queue to the urgent queue. Processes in the urgent queue are given priority over those in the Ready queue for entering the monitor\
+\
+}

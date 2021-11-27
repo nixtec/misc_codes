@@ -1,0 +1,767 @@
+<html><head>
+
+
+<meta name="keywords" content="Flash, ActionScript, arrays, maximum, minimum, function">
+<meta name="content" content="Find out how you can easily determing the maximum or minimum value in an array full of randomly sorted numbers.">
+<meta name="description" content="Find out how you can easily determing the maximum or minimum value in an array full of randomly sorted numbers.">
+
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 6.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta name="title" content="kirupa.com - Finding Maximum/Minimum Value in an Array"><title>kirupa.com - Finding Maximum/Minimum Value in an Array</title>
+
+
+<link rel="stylesheet" type="text/css" href="array_max_min_files/kirupa_2006_v3.css"></head><body topmargin="5" leftmargin="0" alink="#0000cc" bgcolor="#ffffff" link="#003366" vlink="#003366">
+
+<table style="border-collapse: collapse;" border="0" bordercolor="#111111" cellpadding="0" cellspacing="0" width="99%">
+  <tbody><tr>
+    <td width="33%">&nbsp;</td>
+    <td width="33%">
+    <table style="border-collapse: collapse;" border="0" bordercolor="#111111" cellpadding="0" cellspacing="0" height="33" width="765">
+      <tbody><tr>
+        <td bgcolor="#ffffff" height="41" width="100%">
+<!--webbot bot="Include" U-Include="../../modular/header.htm" TAG="BODY" startspan -->
+
+	<script type="text/javascript" src="array_max_min_files/swfobject.js"></script>
+    <div align="center">
+      <center>
+      <table border="0" cellpadding="5" cellspacing="0" height="116" width="100%">
+		<tbody><tr>
+			<td background="array_max_min_files/backgradient.jpg" height="68" valign="bottom"><div align="center">
+			<table style="border: 1px solid rgb(153, 153, 153);" border="0" cellpadding="0" cellspacing="0" width="850">
+				<tbody><tr>
+					<td>
+	<script type="text/javascript" src="array_max_min_files/swfobject.js"></script>
+    <div align="center">
+      <center>
+      <div id="swfHeader" style="width: 850px; height: 45px;">
+		
+		</div>
+		
+		<script type="text/javascript">
+  		 var so = new SWFObject("http://www.kirupa.com/new_layout/swf/header_colors5.swf", "headerAnimation", "850", "45", "0", "#FFFFFF");
+  		so.addParam("quality", "high");
+  		 so.addParam("wmode", "transparent");
+  		 so.write("swfHeader");
+	</script>
+					</center></div></td>
+				</tr>
+			</tbody></table>
+		</div>
+			</td>
+		</tr>
+		<tr>
+			<td valign="top">
+		
+
+<div align="center">
+	<table border="0" cellpadding="5" cellspacing="0" width="850">
+		<tbody><tr>
+			<td style="border: 1px solid rgb(222, 222, 222);" bgcolor="#eff4fa">
+			<table border="0" cellpadding="0" cellspacing="0" width="100%">
+				<tbody><tr>
+					<td><script type="text/javascript"><!--
+				google_ad_client = "pub-0633423995889665";
+				google_ad_width = 728;
+				google_ad_height = 15;
+				google_ad_format = "728x15_0ads_al_s";
+				google_ad_channel ="4661413043";
+				google_color_border = "EFF4FA";
+				google_color_bg = "EFF4FA";
+				google_color_link = "999999";
+				google_color_url = "999999";
+				google_color_text = "999999";
+				//--></script>
+				<script type="text/javascript" src="array_max_min_files/show_ads.js">
+				</script></td>
+				</tr>
+			</tbody></table>
+			</td>
+		</tr>
+	</tbody></table>
+</div>
+
+</td>
+		</tr>
+		</tbody></table>
+    
+      </center>
+    </div>
+    
+<!--webbot bot="Include" i-checksum="22513" endspan --></td>
+      </tr>
+      <tr>
+        <td bgcolor="#ffffff" height="1" width="100%">
+        <table style="border-collapse: collapse;" border="0" bordercolor="#111111" cellpadding="0" cellspacing="0" width="100%">
+          <tbody><tr>
+            <td valign="top" width="17%">
+            <table style="border-collapse: collapse;" border="0" bordercolor="#111111" cellpadding="0" cellspacing="0" height="148" width="100%">
+              <tbody><tr>
+                <td style="border-bottom-style: none; border-bottom-width: medium;" bgcolor="#ffffff" height="38" valign="top" width="100%">
+                    <!--webbot bot="Include" U-Include="../../modular/ax_contents.htm" TAG="BODY" startspan -->
+
+
+<table class="style1" border="0" cellpadding="0" cellspacing="0" width="100%">
+	<tbody><tr>
+		<td>
+				<img src="array_max_min_files/navigation.gif" align="left" border="0" height="11" width="90"></td>
+	</tr>
+	<tr>
+		<td>
+		<hr color="#d3d2cb" size="1"></td>
+	</tr>
+</tbody></table>
+
+<table border="0" cellpadding="7" cellspacing="0" width="100%">
+	<tbody><tr>
+		<td style="border-bottom: 1px solid rgb(240, 240, 240);" height="26" width="14%">
+		<p align="right">
+		<a href="http://www.kirupa.com/developer/flash/index.htm">
+		<img src="array_max_min_files/page_white.gif" border="0" height="16" width="16"></a></p></td>
+		<td style="border-bottom: 1px solid rgb(240, 240, 240);" height="26" width="74%">
+		<span class="siteLinkSM_Bold">
+		<a href="http://www.kirupa.com/developer/flash/index.htm">
+		<font color="#173c4f">Flash</font></a></span></td>
+	</tr>
+	<tr>
+		<td style="border-bottom: 1px solid rgb(240, 240, 240);" height="13" width="14%">
+		
+
+
+		
+		<p align="right"><a href="http://www.kirupa.com/net/index.htm">
+		<img src="array_max_min_files/page_white_visualstudio.gif" border="0" height="16" width="16"></a></p></td>
+		<td style="border-bottom: 1px solid rgb(240, 240, 240);" height="13" width="74%">
+		
+
+		<span class="siteLinkSM_Bold"><a href="http://www.kirupa.com/net/index.htm">
+		<font color="#173c4f">.NET</font></a></span></td>
+	</tr>
+	<tr>
+		<td style="border-bottom: 1px solid rgb(240, 240, 240);" height="13" width="14%">
+		
+
+
+		
+		<a href="http://www.kirupa.com/web/index.htm">
+		<img src="array_max_min_files/page_white_php.gif" align="right" border="0" height="16" hspace="0" width="16"></a></td>
+		<td style="border-bottom: 1px solid rgb(240, 240, 240);" height="13" width="74%">
+		
+
+		<span class="siteLinkSM_Bold">
+		<a href="http://www.kirupa.com/web/index.htm">
+		<font color="#173c4f">PHP</font></a></span></td>
+	</tr>
+	<tr>
+		<td style="border-bottom: 1px solid rgb(240, 240, 240);" height="26" width="14%">
+		<p align="right"><a href="http://www.kirupa.com/photoshop/index.htm">
+		<img src="array_max_min_files/page_white_paintbrush.gif" border="0" height="16" width="16"></a></p></td>
+		<td style="border-bottom: 1px solid rgb(240, 240, 240);" height="26" width="74%">
+		
+
+		
+		<span class="siteLinkSM_Bold">
+		<a href="http://www.kirupa.com/photoshop/index.htm">
+		<font color="#173c4f">Photoshop</font></a></span></td>
+	</tr>
+	<tr>
+		<td style="border-bottom: 1px solid rgb(240, 240, 240);" height="26" width="14%">
+		<a href="http://www.kirupa.com/css/index.htm">
+		<img src="array_max_min_files/page_white_code.gif" align="right" border="0" height="16" hspace="0" width="16"></a></td>
+		<td style="border-bottom: 1px solid rgb(240, 240, 240);" height="26" width="74%">
+		<span class="siteLinkSM_Bold">
+		<a href="http://www.kirupa.com/css/index.htm">
+		<font color="#173c4f">Web Dev</font></a></span></td>
+	</tr>
+	<tr>
+		<td colspan="2" height="7">
+		<img src="array_max_min_files/projec1.gif" border="0" height="5" width="5"></td>
+	</tr>
+	<tr>
+		<td style="border-bottom: 1px solid rgb(240, 240, 240);" height="6">
+		<a href="http://www.kirupa.com/forum/">
+		<img src="array_max_min_files/vcard.gif" align="right" border="0" height="16" hspace="0" width="16"></a></td>
+		<td style="border-bottom: 1px solid rgb(240, 240, 240);" height="6">
+		<span class="siteLinkSM_Bold">
+		<font style="font-size: 12px;" color="#0066cc">
+		<a href="http://www.kirupa.com/forum/"><font color="#0066cc">Forums</font></a></font></span></td>
+	</tr>
+	<tr>
+		<td style="border-bottom: 1px solid rgb(240, 240, 240);" height="26">
+		<p align="right"><a href="http://www.kirupa.com/me/index.htm">
+		<img src="array_max_min_files/user.gif" border="0" height="16" width="16"></a></p></td>
+		<td style="border-bottom: 1px solid rgb(240, 240, 240);" height="26">
+		<span class="siteLinkSM_Bold">
+		<a href="http://www.kirupa.com/me/index.htm">
+		<font style="font-size: 12px;" color="#0066cc">About</font></a></span></td>
+	</tr>
+	</tbody></table>
+
+
+
+
+
+
+ <table border="0" cellpadding="10" cellspacing="0" width="100%">
+	<tbody><tr>
+		<td>&nbsp;</td>
+	</tr>
+</tbody></table>
+
+					<div align="center">
+
+		<table id="table1" background="array_max_min_files/left_blug_bg.gif" border="0" cellpadding="2" cellspacing="0" height="275" width="145">
+		<tbody><tr>
+			<td valign="top" width="2">
+			&nbsp;</td>
+			<td valign="top"><font size="1"><br>
+			<script type="text/javascript"><!--
+google_ad_client = "pub-0633423995889665";
+google_ad_width = 120;
+google_ad_height = 240;
+google_ad_format = "120x240_as";
+google_ad_type = "text";
+google_ad_channel ="8717858283";
+google_color_border = "EFF4FA";
+google_color_bg = "EFF4FA";
+google_color_link = "333333";
+google_color_url = "333333";
+google_color_text = "333333";
+//--></script>
+<script type="text/javascript" src="array_max_min_files/show_ads.js">
+</script></font></td>
+		</tr>
+		</tbody></table>
+	
+					</div>
+	
+		<!--webbot bot="Include" i-checksum="47378" endspan --></td>
+              </tr>
+              </tbody></table>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p></td>
+            <td valign="top" width="83%">
+            <table style="border-collapse: collapse;" border="0" bordercolor="#111111" cellpadding="0" cellspacing="0" width="100%">
+              <tbody><tr>
+                <td width="1">
+                <font face="Arial" size="2">
+                <img src="array_max_min_files/projec1.gif" border="0" height="20" width="20"></font></td>
+                <td valign="top">
+                <table style="border-collapse: collapse;" bordercolor="#111111" cellpadding="0" cellspacing="0" height="321" width="100%">
+                  <tbody><tr>
+                    <td rowspan="6" height="345" valign="top" width="84%">
+
+<font face="Arial" size="2"><br>
+<img src="array_max_min_files/basic.gif" border="0" height="18" width="20">
+  </font>
+<font color="#003366" face="Verdana" size="4"> 
+<b>Finding</b> Maximum/Minimum Value in an Array<br>
+</font>
+<font color="#394153" face="Verdana" size="1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;by 
+kirupa&nbsp; |&nbsp; 1 July 2005</font><p class="ktext2">I was a bit dismayed to find out that 
+Flash had no simple built-in way of getting the maximum value from an array. You 
+have Math.max(), but that function returns only the greater of two values. The 
+Array.sort and Array.sortOn methods were too complicated for me to fiddle with, 
+and when I thought I had them working, they didn't produce the right results.</p>
+<p class="ktext2">In this short tutorial, I will provide the code for finding the maximum and 
+minimum values in an array. I will conclude with a brief explanation of the 
+ideas behind why the code work with an explanation of the code itself.</p>
+<p class="ktext2"><b>Code for Finding the Maximum Value in an Array:</b></p>
+<blockquote>
+	<dl class="kASHglobal">
+		<dt><span class="kASHwrd">maxValue</span> <span class="kASHop">=</span>
+		<span class="kASHkwrd">function</span> <span class="kASHop">(</span><span class="kASHwrd">array</span><span class="kASHop">)</span>
+		<span class="kASHop">{</span> </dt>
+		<dl>
+			<dt><span class="kASHidn">mxm</span> <span class="kASHop">=</span>
+			<span class="kASHwrd">array</span><span class="kASHop">[</span><span class="kASHnum">0</span><span class="kASHop">]</span>;
+			</dt>
+			<dt><span class="kASHkwrd">for</span> <span class="kASHop">(</span><span class="kASHwrd">i</span><span class="kASHop">=</span><span class="kASHnum">0</span>;
+			<span class="kASHwrd">i</span><span class="kASHop">&lt;</span><span class="kASHwrd">array</span>.<span class="kASHidn">length</span>;
+			<span class="kASHwrd">i</span><span class="kASHop">++)</span>
+			<span class="kASHop">{</span> </dt>
+			<dl>
+				<dt><span class="kASHkwrd">if</span> <span class="kASHop">(</span><span class="kASHwrd">array</span><span class="kASHop">[</span><span class="kASHwrd">i</span><span class="kASHop">]&gt;</span><span class="kASHidn">mxm</span><span class="kASHop">)</span>
+				<span class="kASHop">{</span> </dt>
+				<dl>
+					<dt><span class="kASHidn">mxm</span> <span class="kASHop">=</span>
+					<span class="kASHwrd">array</span><span class="kASHop">[</span><span class="kASHwrd">i</span><span class="kASHop">]</span>;</dt>
+				</dl>
+				<dt><span class="kASHop">}</span></dt>
+			</dl>
+			<dt><span class="kASHop">}</span> </dt>
+			<dt><span class="kASHkwrd">return</span> <span class="kASHidn">mxm</span>;</dt>
+		</dl>
+		<dt><span class="kASHop">}</span>;</dt>
+	</dl>
+</blockquote>
+<p><b>Code for Finding the Minimum Value in an Array:</b></p>
+<blockquote>
+	<dl class="kASHglobal">
+		<dt><span class="kASHwrd">minValue</span> <span class="kASHop">=</span>
+		<span class="kASHkwrd">function</span> <span class="kASHop">(</span><span class="kASHwrd">array</span><span class="kASHop">)</span>
+		<span class="kASHop">{</span> </dt>
+		<dl>
+			<dt><span class="kASHidn">mn</span> <span class="kASHop">=</span>
+			<span class="kASHwrd">array</span><span class="kASHop">[</span><span class="kASHnum">0</span><span class="kASHop">]</span>;
+			</dt>
+			<dt><span class="kASHkwrd">for</span> <span class="kASHop">(</span><span class="kASHwrd">i</span><span class="kASHop">=</span><span class="kASHnum">0</span>;
+			<span class="kASHwrd">i</span><span class="kASHop">&lt;</span><span class="kASHwrd">array</span>.<span class="kASHidn">length</span>;
+			<span class="kASHwrd">i</span><span class="kASHop">++)</span>
+			<span class="kASHop">{</span> </dt>
+			<dl>
+				<dt><span class="kASHkwrd">if</span> <span class="kASHop">(</span><span class="kASHwrd">array</span><span class="kASHop">[</span><span class="kASHwrd">i</span><span class="kASHop">]&lt;</span><span class="kASHidn">mn</span><span class="kASHop">)</span>
+				<span class="kASHop">{</span> </dt>
+				<dl>
+					<dt><span class="kASHidn">mn</span> <span class="kASHop">=</span>
+					<span class="kASHwrd">array</span><span class="kASHop">[</span><span class="kASHwrd">i</span><span class="kASHop">]</span>;</dt>
+				</dl>
+				<dt><span class="kASHop">}</span></dt>
+			</dl>
+			<dt><span class="kASHop">}</span> </dt>
+			<dt><span class="kASHkwrd">return</span> <span class="kASHidn">mn</span>;</dt>
+		</dl>
+		<dt><span class="kASHop">}</span>;</dt>
+	</dl>
+</blockquote>
+<font size="2">To use either of the above functions, simply call minValue or 
+maxValue with an array as an argument. For example:</font><blockquote>
+	<dl class="kASHglobal">
+		<dt><span class="kASHwrd">k</span> <span class="kASHop">=</span>
+		<span class="kASHkwrd">new</span> <span class="kASHidn">Array</span><span class="kASHop">()</span>;
+		</dt>
+		<dt><span class="kASHwrd">k</span> <span class="kASHop">=</span>
+		<span class="kASHop">[</span><span class="kASHnum">12</span>,
+		<span class="kASHnum">5</span>, <span class="kASHnum">63</span>,
+		<span class="kASHnum">7</span>, <span class="kASHnum">1</span>,
+		<span class="kASHop">-</span><span class="kASHnum">1</span>,
+		<span class="kASHnum">352</span>, <span class="kASHnum">36</span>,
+		<span class="kASHnum">754</span>, <span class="kASHnum">75</span>,
+		<span class="kASHnum">56</span>, <span class="kASHnum">74</span><span class="kASHop">]</span>;
+		</dt>
+		<dt><span class="kASHidn">trace</span><span class="kASHop">(</span><span class="kASHwrd">maxValue</span><span class="kASHop">(</span><span class="kASHwrd">k</span><span class="kASHop">))</span>;
+		<span class="kASHcom">// 754</span> </dt>
+		<dt><span class="kASHidn">trace</span><span class="kASHop">(</span><span class="kASHwrd">minValue</span><span class="kASHop">(</span><span class="kASHwrd">k</span><span class="kASHop">))</span>;
+		<span class="kASHcom">// -1</span></dt>
+	</dl>
+</blockquote>
+<p>Since the largest number in our k array is 754, our maxValue returns a 754 
+when traced with k as the argument. Likewise, running the minValue function with 
+k as the argument returns the smallest value, -1.</p>
+<hr color="#999999" size="1">
+<p><span class="header2">Thinking About Finding the Max Value in an Array</span><br>
+Before I explain the code, I would like to first talk generically about how to 
+approach a problem such as this. You have an array with a long list of numbers, 
+and your goal is to find the maximum minimum value from that list of numbers. 
+(For simplicity, I will focus only on the maximum case. The minimum case is 
+simply the opposite.)</p>
+<p>Here is a more detailed form of our array:</p>
+<p align="center">
+<img src="array_max_min_files/expanded.gif" border="0" height="77" width="381"></p>
+<p>In the above image, I added the index positions to our sample array k 
+that I used in my above example.</p>
+<p>So now, your job is to start off at the beginning and find out what the 
+maximum value is. Since you are just starting out, you have no real frame of 
+reference. You can't compare whether the number in the zero-th position is 
+a maximum or not, so you automatically set that number as your temporary maximum.</p>
+<p>In other words, the 12 at position 0 is the current maximum number. You then move 
+to the next number, position 1, and ask yourself, "Is 5 greater than the current 
+maximum, 12?" The answer is no. 5 is not greater than 12, so twelve still 
+remains your current, local maximum.</p>
+<p>You now progress to index position 2. At position 2, the value in your array 
+is a 63. You ask yourself the similar question, "Is 63 greater than the current 
+maximum, 12?". The answer is yes. 63 is greater than 12, so now your new maximum 
+is 63.</p>
+<p>You will keep progressing through each index position and asking yourself 
+whether the number at this position is greater than the current maximum. If the 
+number is greater, then you replace your old maximum value with the new number 
+you are at. If the number you are at is not greater, you simply progress to the 
+next number and ask yourself if that number is greater. You keep going until you 
+reach the end of your array.</p>
+<p>When you reach the final value in your array, you can throw up your hands and 
+boldly declare that whatever maximum value you have after your last value is the 
+maximum value of your <i><b>entire</b></i> array!</p>
+<p>For finding the minimum, instead of asking, "Is this number greater than the 
+current maximum?", you would ask, "Is this number <b>less</b> than the current
+<b>minimum</b>?"</p>
+<hr color="#999999" size="1">
+<p><span class="header2">Code Explained</span><font size="3"><b><br>
+</b></font><font size="2">Again, I will focus only on the maxValue function. The 
+code for minValue is exactly the same except for one operator change and a&nbsp; 
+few variable 
+naming changes.</font></p>
+<dl class="kASHglobal">
+	<dt><span class="kASHwrd">maxValue</span> <span class="kASHop">=</span>
+	<span class="kASHkwrd">function</span> <span class="kASHop">(</span><span class="kASHwrd">array</span><span class="kASHop">)</span>
+	<span class="kASHop">{</span> </dt>
+</dl>
+<p>In this line I am declaring a new function called maxValue that takes in an 
+argument. Even though I call my argument 'array', you can pass anything you want 
+into it. If you don't pass an array, though, you will run into problems. The 
+solution to that would be to ensure that users pass in an array with numbers, 
+but it's implementation is something well beyond the scope of this tutorial.</p>
+<hr color="#e6e6e6" size="1">
+<dl class="kASHglobal">
+	<dt><span class="kASHidn">mxm</span> <span class="kASHop">=</span>
+	<span class="kASHwrd">array</span><span class="kASHop">[</span><span class="kASHnum">0</span><span class="kASHop">]</span>;</dt>
+</dl>
+<p>I declare the variable mxm with an initial value - the first value in our 
+array. If you recall from my earlier explanation, we can safely assume that the 
+first value in our array will be our temporary maximum value.</p>
+<p>You may also use a ridiculously small number for the initial maximum value or 
+a large number for the initial minimum value, but you may run into a case where 
+one of the numbers lie beyond your initial value. </p>
+<p>For example, if your initial value is a 0 and the largest number in your 
+array is a <i><b>negative</b></i> 2, then the initial value will be deemed the 
+maximum value. The problem is that you arbitrarily picked 0 as your initial 
+value. It was never a part of your dataset (array), so that maximum value is 
+invalid.</p>
+<p>As long as you keep the initial max/min value as the first value in your array, 
+you should not run into situations where the final result is a number that you 
+made up.</p>
+<hr color="#e6e6e6" size="1">
+<dl class="kASHglobal">
+	<dt><span class="kASHkwrd">for</span> <span class="kASHop">(</span><span class="kASHwrd">i</span><span class="kASHop">=</span><span class="kASHnum">0</span>;
+	<span class="kASHwrd">i</span><span class="kASHop">&lt;</span><span class="kASHwrd">array</span>.<span class="kASHidn">length</span>;
+	<span class="kASHwrd">i</span><span class="kASHop">++)</span>
+	<span class="kASHop">{</span> </dt>
+	<dl>
+		<dt><span class="kASHkwrd"><font color="#cccccc">if</font></span><font color="#cccccc">
+		</font><span class="kASHop"><font color="#cccccc">(</font></span><span class="kASHwrd"><font color="#cccccc">array</font></span><span class="kASHop"><font color="#cccccc">[</font></span><span class="kASHwrd"><font color="#cccccc">i</font></span><span class="kASHop"><font color="#cccccc">]&gt;</font></span><span class="kASHwrd"><font color="#cccccc">mxm</font></span><span class="kASHop"><font color="#cccccc">)</font></span><font color="#cccccc">
+		</font><span class="kASHop"><font color="#cccccc">{</font></span><font color="#cccccc">
+		</font></dt>
+		<dl>
+			<dt><span class="kASHwrd"><font color="#cccccc">mxm</font></span><font color="#cccccc">
+			</font><span class="kASHop"><font color="#cccccc">=</font></span><font color="#cccccc">
+			</font><span class="kASHwrd"><font color="#cccccc">array</font></span><span class="kASHop"><font color="#cccccc">[</font></span><span class="kASHwrd"><font color="#cccccc">i</font></span><span class="kASHop"><font color="#cccccc">]</font></span><font color="#cccccc">;</font></dt>
+		</dl>
+		<dt><span class="kASHop"><font color="#cccccc">}</font></span></dt>
+	</dl>
+	<dt><span class="kASHop">}</span></dt>
+</dl>
+<p>I initiate a simple loop that counts from 0 until it reaches the end of our 
+array. This is representative of me progressing through each value in our array 
+until I reach the end.</p>
+<hr color="#e6e6e6" size="1">
+<dl class="kASHglobal">
+	<dt><span class="kASHkwrd">if</span> <span class="kASHop">(</span><span class="kASHwrd">array</span><span class="kASHop">[</span><span class="kASHwrd">i</span><span class="kASHop">]&gt;</span><span class="kASHwrd">mxm</span><span class="kASHop">)</span>
+	<span class="kASHop">{</span> </dt>
+	<dl>
+		<dt><span class="kASHwrd">mxm</span> <span class="kASHop">=</span>
+		<span class="kASHwrd">array</span><span class="kASHop">[</span><span class="kASHwrd">i</span><span class="kASHop">]</span>;</dt>
+	</dl>
+	<dt><span class="kASHop">}</span></dt>
+</dl>
+<p>In these lines of code, I first check if the number in our array at position 
+i is greater than our maximum value. If it is, I set our current value to be our 
+new maximum. If our current value is not greater than our current maximum, I 
+just don't do anything.</p>
+<hr color="#e6e6e6" size="1">
+<dl class="kASHglobal">
+	<dt><span class="kASHkwrd">return</span> <span class="kASHwrd">mxm</span>;</dt>
+</dl>
+<p>After all is said and done, and our value of i is less than the length of our 
+array, I return the maximum value, mxm. In short, that is what our function, in 
+the end outputs - just the maximum value as determined by all of our above work.
+</p>
+<hr color="#e6e6e6" size="1">
+<p>For the minimum, the only difference is that <font face="Courier New">
+array[i] &gt; mxm</font> is replaced with <font face="Courier New">array[i] &lt; mn</font>, 
+where mxm and mn are similar variables that store our temporary maximums and 
+minimums.</p>
+<hr color="#e6e6e6" size="1"><font color="black" face="Arial" size="2">
+                        </font><p><font color="black" face="Arial" size="2">If you are interested in not only finding the 
+						maximum/minimum but also the position at which the 
+						maximum/minimum occurs, you may find the following 
+						article at Layer 51 useful:
+						<a target="_blank" href="http://proto.layer51.com/d.aspx?f=254">
+						<u>http://proto.layer51.com/d.aspx?f=254</u></a> Thanks 
+						to lostinbeta for providing me with the URL.</font></p>
+<font color="black" face="Arial" size="2">                        <!--webbot bot="Include" u-include="../../pages/me.htm" tag="BODY" startspan -->
+</font><p><font color="black" face="Arial" size="2"><font face="Arial" size="2">I hope the information helped.</font>  <font face="Arial" size="2">
+If you have any questions or comments, please don't hesitate to post them on the
+<a href="http://www.kirupa.com/forum/"><u>kirupa.com Forums</u></a>. Just post your question and I, or our friendly 
+forum helpers, will help answer it. </font></font></p>
+<p><font color="black" face="Arial" size="2"><font face="Arial" size="2">
+The following is a list of related tutorial and help resources that you may find 
+useful:</font></font></p>
+<table border="1" bordercolor="#efefef" cellpadding="5" cellspacing="0" width="100%">
+	<tbody><tr>
+		<td>
+		<table border="0" cellpadding="5" cellspacing="0" width="100%">
+			<tbody><tr>
+				<td style="border-bottom: 1px solid rgb(239, 239, 239);" width="4">
+				<a href="http://www.kirupa.com/forumGuide/index.htm">
+				<img src="array_max_min_files/comments.gif" border="0" height="16" width="16"></a></td>
+				<td style="border-bottom: 1px solid rgb(239, 239, 239);"><font size="2">
+				<a href="http://www.kirupa.com/forumGuide/index.htm">
+				<font color="#003366">How to use the Forums</font></a></font></td>
+			</tr>
+			<tr>
+				<td style="border-bottom: 1px solid rgb(239, 239, 239);" width="4">
+				<a href="http://www.kirupa.com/forum/showthread.php?t=225399">
+				<img src="array_max_min_files/list_components.gif" border="0" height="16" width="16"></a></td>
+				<td style="border-bottom: 1px solid rgb(239, 239, 239);"><font size="2">
+				<a href="http://www.kirupa.com/forum/showthread.php?t=225399">
+				<font color="#003366">New, Upcoming, and In-Progress Tutorials</font></a></font></td>
+			</tr>
+			<tr>
+				<td style="border-bottom: 1px solid rgb(239, 239, 239);" width="4">
+				<a href="http://www.kirupa.com/me/howtohelp.htm">
+				<img src="array_max_min_files/cup.gif" border="0" height="16" width="16"></a></td>
+				<td style="border-bottom: 1px solid rgb(239, 239, 239);"><font size="2">
+				<a href="http://www.kirupa.com/me/howtohelp.htm">
+				<font color="#003366">How to Help out kirupa.com</font></a></font></td>
+			</tr>
+			<tr>
+				<td width="4">
+				<a href="http://www.kirupa.com/developer/tutorials.htm">
+				<img src="array_max_min_files/page_white_add.gif" border="0" height="16" width="16"></a></td>
+				<td><a href="http://www.kirupa.com/developer/tutorials.htm">
+				<font color="#003366" size="2">Writing Tutorials</font></a></td>
+			</tr>
+		</tbody></table>
+		</td>
+	</tr>
+</tbody></table>
+<table style="border-collapse: collapse;" border="0" cellpadding="5" cellspacing="0" width="100%">
+  <tbody><tr>
+    <td colspan="2" valign="top">
+    &nbsp;</td>
+  </tr>
+  <tr>
+    <td colspan="2" valign="top">
+    <font face="Arial" size="2">Cheers!</font></td>
+  </tr>
+  <tr>
+    <td valign="top" width="11">
+    <a target="_blank" href="http://blog.kirupa.com/">
+    <img src="array_max_min_files/pixel_kirupa.gif" border="0" height="38" width="22"></a></td>
+    <td width="98%"><font face="Arial" size="2">
+	<span style="text-decoration: none;">
+	<font color="#000000"><a target="_blank" href="http://blog.kirupa.com/"><span style="text-decoration: none;">
+	<font color="#003366">Kirupa Chinnathambi</font></span></a></font></span><font color="#003366"><br>
+	</font>
+	<span style="font-weight: 700; letter-spacing: 1px;">
+	<a target="_blank" href="http://blog.kirupa.com/"><font color="#003366">kirupaBlog</font></a></span></font></td>
+  </tr>
+</tbody></table>
+
+<!--webbot bot="Include" i-checksum="4482" endspan --><p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p></td>
+                  </tr>
+                </tbody></table>
+                </td>
+                <td valign="top" width="1">
+                <!--webbot bot="Include" U-Include="../../modular/supporter_right.htm" TAG="BODY" startspan -->
+
+					&nbsp;<table style="border-collapse: collapse;" align="left" border="0" bordercolor="#111111" cellpadding="13" height="1" width="126">
+                  <tbody><tr>
+                    <td style="border-left: 1px solid rgb(229, 229, 229);" align="right" width="100">
+
+                    <a href="http://www.kirupa.com/mt.html">
+					<img src="array_max_min_files/mt.gif" border="0" height="36" width="74"></a></td>
+                  </tr>
+                  <tr>
+                    <td style="border-left: 1px solid rgb(229, 229, 229);" align="right" width="100">
+                    
+                    <a target="_blank" href="http://www.flashloaded.com/?id2=ka">
+					<img src="array_max_min_files/flashloaded3a.gif" border="0" height="27" width="99"></a></td>
+                  </tr>
+                  <tr>
+                    <td style="border-left: 1px solid rgb(229, 229, 229);" align="right" width="100">
+                    <a target="_blank" href="http://www.1shoppingcart.com/app/adtrack.asp?AdID=155378">
+					<img src="array_max_min_files/learnflash.gif" border="0" height="39" width="100"></a></td>
+                  </tr>
+                  <tr>
+                    <td style="border-left: 1px solid rgb(229, 229, 229);" align="right" width="100">
+                    <a target="_blank" href="http://www.1shoppingcart.com/app/adtrack.asp?AdID=202050">
+					<img src="array_max_min_files/watchlearnphotoshop.gif" border="0" height="39" width="100"></a></td>
+                  </tr>
+                  <tr>
+                    <td style="border-left: 1px solid rgb(229, 229, 229);" align="right" width="100">
+                    <a target="_blank" href="http://www.flashrelief.com/">
+					<img src="array_max_min_files/flashrelief.gif" border="0" height="30" width="100"></a></td>
+                  </tr>
+                  <tr>
+                    <td style="border-left: 1px solid rgb(229, 229, 229);" align="right" width="100">
+                    <a target="_blank" href="http://www.frunder.com/?utm_id=1000&amp;utm_source=kirupa&amp;utm_medium=banner&amp;utm_campaign=Kirupa+Banner">
+					<img src="array_max_min_files/frunder3.gif" border="0" height="35" width="100"></a></td>
+                  </tr>
+                  <tr>
+                    <td style="border-left: 1px solid rgb(229, 229, 229);" align="right" width="100">
+                    <span style="letter-spacing: -1px;">
+					<span class="homeLinkSM_Bold">
+					<a target="_blank" href="http://www.flashperfection.com/">
+					Flash Perfection</a></span></span><span class="siteLinkSM_Bold"><br>
+					</span><span style="letter-spacing: -1px;">
+					<span class="homeLinkSM">
+					<a target="_blank" href="http://www.flashperfection.com/">
+					free flash tutorials</a></span></span></td>
+                  </tr>
+                  <tr>
+                    <td style="border-left: 1px solid rgb(229, 229, 229);" align="right" width="100">
+                    <a target="_blank" href="http://www.flashstore.com/">
+					<img alt="Visit Flashstore to sell your Flash Components!" src="array_max_min_files/flashstore_ad.jpg" class="style1" border="0" height="40" width="100"></a></td>
+                  </tr>
+                  <tr>
+                    <td style="border-left: 1px solid rgb(229, 229, 229);" align="right" width="100">
+                    <a target="_blank" href="http://www.flashextension.net/">
+					<img src="array_max_min_files/flashextension.gif" alt="Check out the great, high-quality flash extensions." border="0" height="40" width="100"></a></td>
+                  </tr>
+                  <tr>
+                    <td style="border-left: 1px solid rgb(229, 229, 229);" align="right" width="100">
+                    <a target="_blank" href="http://www.flashden.net/">
+					<img src="array_max_min_files/FlashDen.gif" alt="Buy or sell stock flash, video, audio and fonts for as little as 50 cents at FlashDen." border="0" height="50" width="100"></a></td>
+                  </tr>
+                  <tr>
+                    <td style="border-left: 1px solid rgb(229, 229, 229);" align="right" width="100">
+                    <a target="_blank" href="http://www.gomedia.us/v3/vectorpacks">
+					<img src="array_max_min_files/gomedia-button.jpg" alt="Check out our high quality vector-based design packs!" border="0" height="45" width="100"></a></td>
+                  </tr>
+                  <tr>
+                    <td style="border-left: 1px solid rgb(229, 229, 229);" width="100">
+                    <a href="http://flash-filter.net/">
+					<img src="array_max_min_files/flash-filter.gif" alt="flash-filter.net - stylish and easy to use effect components for flash" class="style2" border="0" height="45" width="100"></a></td>
+                  </tr>
+                  <tr>
+                    <td style="border-left: 1px solid rgb(229, 229, 229);" align="right" width="100">
+                    <a href="http://www.kirupa.com/me/ad.htm">
+					<img src="array_max_min_files/kir.gif" alt="Learn how to advertise on kirupa.com" border="0" height="35" width="99"></a></td>
+                  </tr>
+                  <tr>
+                    <td style="border-left: 1px solid rgb(229, 229, 229);" align="right" width="100">
+                    <a target="_blank" href="http://www.thehungersite.com/">
+					<img src="array_max_min_files/ths.gif" border="0" height="27" width="92"></a></td>
+                  </tr>
+                  </tbody></table>
+       
+<!--webbot bot="Include" i-checksum="62499" endspan --></td>
+              </tr>
+            </tbody></table>
+            </td>
+          </tr>
+        </tbody></table>
+        </td>
+      </tr>
+    </tbody></table>
+    </td>
+    <td width="34%">&nbsp;</td>
+  </tr>
+  </tbody></table>
+
+<table style="border-collapse: collapse;" border="0" bordercolor="#111111" cellpadding="0" cellspacing="0" width="99%">
+  <tbody><tr>
+    <td width="33%">&nbsp;</td>
+    <td width="33%">
+    <table style="border-collapse: collapse;" border="0" bordercolor="#111111" cellpadding="0" cellspacing="0" width="765">
+      <tbody><tr>
+        <td width="100%"><p>&nbsp;</p></td>
+      </tr>
+      <tr>
+        <td width="100%">
+        <!--webbot bot="Include" U-Include="../../modular/copyright.htm" TAG="BODY" startspan -->
+
+
+
+    
+
+<div align="center">
+		<hr color="#d3d2cb" size="1">
+		<table id="table1" border="0" cellpadding="10" cellspacing="0" width="850">
+			<tbody><tr>
+				<td>
+<div align="center">
+
+<table id="table3" background="array_max_min_files/blue_large_bg_gif6.gif" border="0" cellpadding="0" cellspacing="0" height="113" width="753">
+	<tbody><tr>
+		<td width="7"><font face="Arial" size="2">
+		<img src="array_max_min_files/projec1.gif" border="0" height="70" hspace="3" width="1"></font></td>
+		<td width="746">
+		
+		<script type="text/javascript"><!--
+		google_ad_client = "pub-0633423995889665";
+		google_ad_width = 728;
+		google_ad_height = 90;
+		google_ad_format = "728x90_as";
+		google_ad_type = "text";
+		google_ad_channel ="6505164574";
+		google_color_border = "EFF4FA";
+		google_color_bg = "EFF4FA";
+		google_color_link = "0066CC";
+		google_color_url = "336699";
+		google_color_text = "333333";
+		//--></script>
+		<script type="text/javascript" src="array_max_min_files/show_ads.js">
+		</script>
+
+		</td>
+	</tr>
+	</tbody></table>
+
+</div>
+      			</td>
+			</tr>
+		</tbody></table>
+	</div>
+
+<table border="0" cellspacing="0" width="100%">
+	<tbody><tr>
+		<td>
+		<hr color="#d3d2cb" size="1"></td>
+	</tr>
+</tbody></table>
+				<div align="center">
+				<table border="0" cellpadding="3" cellspacing="0" width="850">
+					<tbody><tr>
+						<td style="border-right: 1px solid rgb(211, 210, 203);" align="center" width="44">
+						<span class="homeLinkSM">
+						<a href="http://www.kirupa.com/"><font color="#0066cc">
+						Home</font></a></span></td>
+						<td style="border-right: 1px solid rgb(211, 210, 203);" align="center" width="137">
+						<span class="homeLinkSM"><a href="http://www.kirupa.com/me/index.htm">
+						<font color="#0066cc">About kirupa.com</font></a></span></td>
+						<td style="border-right: 1px solid rgb(211, 210, 203);" align="center" width="154">
+						<span class="homeLinkSM">
+						<a href="http://www.kirupa.com/me/mods.htm">
+						<font color="#0066cc">Meet the Moderators</font></a></span></td>
+						<td style="border-right: 1px solid rgb(211, 210, 203);" align="center" width="69">
+						<span class="homeLinkSM">
+						<a href="http://www.kirupa.com/me/ad.htm">
+						<font color="#0066cc">Advertise</font></a></span></td>
+						<td style="border-right: 1px solid rgb(211, 210, 203);" align="center" width="78">
+						<p align="center"><span class="homeLinkSM">
+						<font color="#0066cc">&nbsp;</font><a href="http://www.kirupa.com/me/link.htm"><font color="#0066cc">Link 
+						to Us</font></a></span></p></td>
+						<td style="border-right: 1px solid rgb(211, 210, 203);" align="center" width="70">
+						<span class="homeLinkSM"><font color="#0066cc">&nbsp;</font><a href="http://www.kirupa.com/me/credits.htm"><font color="#0066cc">Credits</font></a></span></td>
+						<td style="border-right: 1px solid rgb(211, 210, 203);" align="center" width="24">
+						<a href="http://www.kirupa.com/modular/rss.htm">
+						<img src="array_max_min_files/rssfeed.gif" border="0" height="16" width="16"></a></td>
+						<td width="219">
+						<p class="kCaption" style="text-align: right;" align="right">
+						<span class="homeLinkSM">Copyright
+						<font face="Times New Roman">©</font> 1999 - 2007&nbsp;&nbsp;
+						</span></p></td>
+					</tr>
+					<tr>
+						<td colspan="8">&nbsp;<p>&nbsp;</p></td>
+					</tr>
+				</tbody></table>
+															
+</div>
+															
+
+        
+    <!--webbot bot="Include" i-checksum="12190" endspan --></td>
+      </tr>
+    </tbody></table>
+    </td>
+    <td width="34%">&nbsp;</td>
+  </tr>
+</tbody></table>
+
+</body></html>

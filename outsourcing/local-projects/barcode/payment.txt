@@ -1,0 +1,6 @@
+Project: Barcode
+
+Total Bill: 10000/=
+Paid Bill : 10000/=
+
+Comment: Full bill payment done.

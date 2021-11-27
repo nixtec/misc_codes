@@ -1,0 +1,491 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Introduction to barcode - How a bar code reader works</title>
+
+
+
+<meta name="description" content="Introduction to barcode - How a bar code reader works">
+
+<meta name="searchtitle" content="How a Barcode Reader Works">
+
+<meta name="keywords" content="barcode, bar code, barcode font, bar code font, symbologies, Code 39, code39, code 3 of 9, Interleaved 2 of 5, ITF, UPC, UPC-A, UPC-E, EAN, EAN-8, EAN-13, Code 128 Code128, UCC/EAN 128, EAN/UCC 128 UCC, Code 93, Code93, Codabar, MSI, Plessey, PostNET, Zip+4, ZIP, 2 of 5, JAN, Bookland, Aztec Code, Aztec, PDF417, Data Matrix, Datamatrix, maxicode, HIBC, bar code scanner, barcode scanner, laser scanner, wand, ccd reader">
+
+
+<script language="JavaScript">
+
+function formHandler(form){
+var URL = form.Quicklinks.options[form.Quicklinks.selectedIndex].value;
+if (URL != "") {
+	window.location.href =URL;
+}
+}
+
+</script>
+
+
+
+
+<style type="text/css">
+
+<!--
+
+A:link {color:#0000A0;}
+
+A:vlink {color:#330099;}
+
+A:hover {color:#8080FF;}
+
+-->
+
+</style>
+
+<link rel="stylesheet" type="text/css" href="bcpwork_files/taltech">
+
+
+
+<script type="text/javascript" language="JavaScript">
+
+function MM_preloadImages() { //v3.0s
+
+ 	var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+
+   	var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+
+   	if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+
+}
+
+//-->
+
+</script></head>
+
+
+<body topmargin="0" leftmargin="0" onload="MM_preloadImages('../images/n_products2_F2.gif', '../images/n_resources2_F2.gif', '../images/n_freesoft2_F2.gif');" alink="#8080ff" bgcolor="white" link="#0000a0" marginheight="0" marginwidth="0" vlink="#330099">
+
+
+
+<!--Header-->
+
+
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+
+
+
+
+
+
+
+<tbody><tr>
+
+
+
+
+
+
+
+<td colspan="2" bgcolor="#003399">
+
+
+
+
+
+
+
+<input name="Range" value="All" type="hidden"><input value="Standard" name="Format" type="hidden"><table border="0" cellpadding="2" cellspacing="0" width="745">
+
+
+
+
+
+
+
+<tbody><tr><td width="200"><img src="bcpwork_files/logo_sm" alt="TALtech Logo" border="0" height="34" width="197"></td>
+
+
+
+
+
+
+<form name="Quick"></form>
+<td width="255">
+<select name="Quicklinks" onchange="formHandler(this.form)"><option selected="selected">Resources
+
+</option><option value="../links.html">Links to related sites
+
+</option><option value="../intro-sc.html">Intro to Serial Communications
+
+</option><option value="http://www.beyondlogic.org/">Intro to Interfacing Devices to PCs
+
+</option><option value="index.html">Intro to Bar Coding
+
+</option><option value="../tcpip.htm">Using TCP/IP as an Instrument Interface
+
+</option><option value="../abouttal.htm">About TAL
+
+</option></select> 
+</td>
+
+
+
+
+
+<form name="SearchForm" method="get" action="http://www.taltech.com/cgi-bin/library/xavatoria/search.cgi"></form><td align="right"><img src="bcpwork_files/search2" alt="search" border="0" height="10" width="56"></td>
+
+<td><input name="Terms" size="20" maxlength="800" type="text"><input name="Scope" value="1" type="hidden"></td>
+
+
+
+
+
+
+
+
+</tr>
+
+
+
+
+
+
+
+</tbody></table></td>
+
+
+
+
+
+
+
+</tr>
+
+
+
+
+
+
+
+<tr><td colspan="2" bgcolor="#990000"><img src="bcpwork_files/dot_rs" alt="" border="0" height="3" width="3"></td></tr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<tr><td><img src="bcpwork_files/instrumental" alt="" border="0" height="25" width="235"></td>
+
+
+
+<td><table border="0" cellpadding="0" cellspacing="5"> 
+
+
+
+<tbody><tr>
+
+
+
+          <td valign="top"><a href="http://www.taltech.com/TALtech_web/products/index.html" onmouseover="document.products.src='../../images/n_products2_F2.gif';" onmouseout="document.products.src='../../images/n_products2.gif';"><img src="bcpwork_files/n_products2" alt="Products" name="products" border="0" height="12" width="57"></a></td>
+
+
+
+<td><img src="bcpwork_files/divider_r" alt="" border="0" height="15" width="1"></td>
+
+
+
+          <td valign="top"><a href="http://www.taltech.com/TALtech_web/support/index.html" onmouseover="document.support.src='../../images/n_support2_F2.gif';" onmouseout="document.support.src='../../images/n_support2.gif';"><img src="bcpwork_files/n_support2" alt="Support" name="support" border="0" height="15" width="53"></a></td>
+
+
+
+<td><img src="bcpwork_files/divider_r" alt="" border="0" height="15" width="1"></td>
+
+
+
+<td valign="top"><img src="bcpwork_files/n_resources2_F2" alt="Resources" name="resources" border="0" height="12" width="67"></td>
+
+
+
+<td><img src="bcpwork_files/divider_r" alt="" border="0" height="15" width="1"></td>
+
+
+
+
+
+<td valign="top"></td><td valign="top"><a href="http://www.taltech.com/cgi-bin/fs2k.cgi" onmouseover="document.freesoft.src='../../images/n_freesoft2_F2.gif';" onmouseout="document.freesoft.src='../../images/n_freesoft2.gif';"><img src="bcpwork_files/n_freesoft2" alt="Free Software" name="freesoft" border="0" height="13" width="90"></a></td>
+
+</tr>
+
+</tbody></table></td></tr>
+
+
+
+
+
+
+
+
+
+
+
+</tbody></table>
+
+
+
+
+
+
+
+
+
+
+
+<!--Text Navigation-->
+
+<table align="left" border="0" cellpadding="1" cellspacing="0" width="745">
+
+<tbody><tr>
+    <td><font face="Arial, Helvetica, Sans-serif" size="2"><i><b>&nbsp;<a href="http://www.taltech.com/TALtech_web/index.html">TALtech 
+      Home:</a> &nbsp;<a href="http://www.taltech.com/TALtech_web/resources/index.html">Resources:</a> &nbsp; <a href="http://www.taltech.com/TALtech_web/resources/intro_to_bc/index.html">Introduction 
+      to Bar Coding</a></b></i></font></td>
+  </tr>
+
+</tbody></table><br>
+
+<!--End Text Navigation-->
+
+
+
+
+
+
+
+
+
+<!--Content Table--><br>
+
+<table border="0" cellpadding="0" cellspacing="20" width="745">
+
+<tbody><tr>
+
+
+
+<td rowspan="3" width="20"><img src="bcpwork_files/blank" alt="" border="0" height="3" width="20"></td>
+
+
+
+    <td width="570"> <img src="bcpwork_files/r_bcreader" alt="How a Bar Code Reader Works" border="0" height="14" width="224"> 
+      <p>There are currently four different types of bar code readers available.
+         Each uses a slightly different technology for reading and decoding a
+        bar 
+        code. There are pen type readers (e.g. bar code wands), laser scanners,
+         CCD readers and camera-based readers. To learn about creating bar codes
+         with TALtech software, visit our 
+        <a href="http://www.taltech.com/TALtech_web/products/index.html">barcoding products</a> page. </p>
+      <h2> Pen Type Readers and Laser Scanners</h2>
+      <p> Pen type readers consist of a light source and a photo diode that are 
+        placed next to each other in the tip of a pen or wand. To read a bar code, 
+        you drag the tip of the pen across all the bars in a steady even motion. 
+        The photo diode measures the intensity of the light reflected back from 
+        the light source and generates a waveform that is used to measure the 
+        widths of the bars and spaces in the bar code. Dark bars in the bar code 
+        absorb light and white spaces reflect light so that the voltage waveform 
+        generated by the photo diode is an exact duplicate of the bar and space 
+        pattern in the bar code. This waveform is decoded by the scanner in a 
+        manner similar to the way Morse code dots and dashes are decoded.<br>
+        <br>
+        <img src="bcpwork_files/barcodAN" height="124" width="378"><br>
+        <br>
+        Laser scanners work the same way as pen type readers except that they 
+        use a laser beam as the light source and typically employ either a reciprocating 
+        mirror or a rotating prism to scan the laser beam back and forth across 
+        the bar code. Just the same as with the pen type reader, a photo diode 
+        is used to measure the intensity of the light reflected back from the 
+        bar code. In both pen readers and laser scanners, the light emitted by 
+        the reader is tuned to a specific frequency and the photo diode is designed 
+        to detect only this same frequency light.<br>
+        <br>
+        Pen type readers and laser scanners can be purchased with different resolutions 
+        to enable them to read bar codes of different sizes. The scanner resolution 
+        is measured by the size of the dot of light emitted by the reader. The 
+        dot of light should be equal to or slightly smaller than the narrowest 
+        element width ("X" dimension). If the dot is wider than the 
+        width of the narrowest bar or space, then the dot will overlap two or 
+        more bars at a time thereby causing the scanner to not be able to distinguish 
+        clear transitions between bars and spaces. If the dot is too small, then 
+        any spots or voids in the bars can be misinterpreted as light areas also 
+        making a bar code unreadable. The most commonly used X dimension is 13 
+        mils (roughly 4 printer dots on a 300 DPI printer). Because this X dimension 
+        is so small, it is extremely important that the bar code is created with 
+        a program that creates high resolution graphics (like B-Coder). For a 
+        good description of the different graphic file formats that are commonly 
+        used to create bar codes see: <a href="http://www.taltech.com/TALtech_web/resources/intro_to_bc/rastvect.htm">Raster vs. Vector 
+        Graphics</a></p>
+      <h2> CCD Readers</h2>
+      <p>CCD (Charge Coupled Device) readers use an array of hundreds of tiny 
+        light sensors lined up in a row in the head of the reader. Each sensor 
+        can be thought of as a single photo diode that measures the intensity 
+        of the light immediately in front of it. Each individual light sensor 
+        in the CCD reader is extremely small and because there are hundreds of 
+        sensors lined up in a row, a voltage pattern identical to the pattern 
+        in a bar code is generated in the reader by sequentially measuring the 
+        voltages across each sensor in the row. The important difference between 
+        a CCD reader and a pen or laser scanner is that the CCD reader is measuring 
+        emitted ambient light from the bar code whereas pen or laser scanners 
+        are measuring reflected light of a specific frequency originating from 
+        the scanner itself. </p>
+      <h2>Camera-Based Readers</h2>
+      <p>The fourth and newest type of bar code reader currently available are
+         camera-based readers that use a small video camera to capture an image
+        
+        of a bar code. The reader then uses sophisticated digital image processing
+         techniques to decode the bar code. Video cameras use the same CCD technology
+        
+        as in a CCD bar code reader except that instead of having a single row
+         of sensors, a video camera has hundreds of rows of sensors arranged
+        in 
+        a two dimensional array so that they can generate an image.</p>
+      <p>The factors that make a bar code readable are: an adequate print contrast 
+        between the light and dark bars and having all bar and space dimensions 
+        within the tolerances for the symbology. It is also helpful to have sharp 
+        bar edges, few or no spots or voids, a smooth surface and clear margins 
+        or "quiet zones" at either end of the printed symbol.</p>
+      <h2>Interfacing a bar code reader to a PC</h2>
+      <p>All application programs support bar code reading as long as you have 
+        the right equipment. Bar code readers are available with two types of 
+        output - either "keyboard wedge" output or RS232 output. The bar code 
+        readers with keyboard wedge output plug directly into the keyboard port 
+        on your PC and they also provide a pigtail connector so that you can plug 
+        in your keyboard at the same time. When you scan a bar code with the keyboard 
+        wedge bar code reader, the data goes into the computer just as if it were 
+        typed in on the keyboard. This makes it extremely easy to interface the 
+        bar code reader to any application that is written to accept keyboard 
+        data. <br>
+        <br>
+        The keyboard wedge interface is extremely simple however it has a few 
+        drawbacks. If you swipe a bar code, the cursor has to be in the correct 
+        input field in the correct application otherwise you end up reading bar 
+        code data into whatever application has the focus. This can cause all 
+        sorts of potential problems as you can imagine. The keyboard output also 
+        is limited in that you cannot modify the data in any way before sending 
+        it into the program that is to receive the data. For example, if you needed 
+        to parse a bar code message into multiple pieces or remove some of a bar 
+        code message or add in a date or time stamp you would not be able to with 
+        a normal keyboard wedge reader. <br>
+        <br>
+        The other possible output option is to get a bar code reader with an RS232 
+        or "Serial" interface. With these types of bar code readers, you connect 
+        the reader to an available serial port on the back of your PC. You would 
+        then need a program called a "Software Wedge" to take the data from the 
+        bar code reader and feed it to the application where you want the data 
+        to go. The disadvantage to this approach is that it is a little more complex 
+        however you gain much more control over how and where your data ends up 
+        when you read a bar code. <br>
+        <br>
+        Our <a href="http://www.taltech.com/TALtech_web/products/winwedge.html">WinWedge</a> product line is 
+        designed just for this purpose. WinWedge is an executable program that 
+        can pass serial data back and forth to other programs using either DDE 
+        (Dynamic Data Exchange) or by converting incoming serial data to keystrokes 
+        (i.e. it stuffs the keyboard buffer with the incoming serial data). With 
+        WinWedge, you can control exactly where the data goes in the target application 
+        and you can also perform all sorts of modifications on the data before 
+        it is sent to the application including parsing or translating the data 
+        as well as adding additional keystrokes or date and time stamps to the 
+        data. <br>
+        <br>
+        WinWedge is extremely easy to use and is designed to have you up and running 
+        sending and receiving serial data directly from within your application 
+        in just a few minutes. Because WinWedge can pass data using DDE, you can 
+        set your application up to insure that the bar code data always goes where 
+        it is supposed to go and you can also have your application running in 
+        the background and still accept bar code input while you run some other 
+        program in the foreground. WinWedge is without question the most robust 
+        way to interface a bar code reader to a PC with the least amount of effort. 
+      </p>
+      <p><img src="bcpwork_files/seealso-red-18" alt="See Also:" border="0" height="13" width="65"></p>
+      <p><a href="http://www.taltech.com/TALtech_web/resources/intro_to_bc/bcbascs.htm">Bar Code Basics</a><br>
+        <a href="http://www.taltech.com/TALtech_web/resources/intro_to_bc/bcsymbol.htm">Bar Code Symbology Descriptions</a><br>
+        <a href="http://www.taltech.com/TALtech_web/resources/intro_to_bc/bcompscr.htm">Reading Bar Codes Directly From A Computer Screen</a> 
+        <br>
+        <a href="http://www.taltech.com/TALtech_web/products/activex_barcodes.html">TALtech Bar Code ActiveX
+        Control</a><br>
+        <a href="http://www.taltech.com/TALtech_web/products/barcode_software.html">TALtech B-Coder Bar Code
+        Software</a><br>
+        <a href="http://www.taltech.com/TALtech_web/products/dll_barcodes.html">TALtech Barcode DLLs</a></p>
+    </td>
+
+
+
+<td width="135">&nbsp;
+
+</td>
+
+
+
+</tr>
+
+
+
+
+
+
+
+
+
+<tr><td colspan="3"><hr color="#cc0033" noshade="noshade"></td></tr>
+
+
+
+
+
+<tr>
+
+<td colspan="3" align="right"><!--Footer-->
+
+<table border="0" cellpadding="0" cellspacing="0">
+<tbody><tr>
+<td><a href="http://www.taltech.com/TALtech_web/"><font face="Arial, Helvetica, Sans-Serif" size="1">TALtech Home</font></a></td>
+<td>&nbsp;|&nbsp;</td>
+<td><a href="http://www.taltech.com/TALtech_web/products/"><font face="Arial, Helvetica, Sans-Serif" size="1">Products</font></a></td>
+<td>&nbsp;|&nbsp;</td>
+<td><a href="http://www.taltech.com/TALtech_web/resources/"><font face="Arial, Helvetica, Sans-Serif" size="1">Resources</font></a></td>
+<td>&nbsp;|&nbsp;</td>
+<td><a href="http://www.taltech.com/cgi-bin/fs2k.cgi"><font face="Arial, Helvetica, Sans-Serif" size="1">Free Software</font></a></td>
+<td>&nbsp;|&nbsp;</td>
+<td><a href="http://www.taltech.com/TALtech_web/support/"><font face="Arial, Helvetica, Sans-Serif" size="1">Support</font></a></td>
+<td>&nbsp;|&nbsp;</td>
+<td><a href="https://taltech.securesites.com/cgi-bin/catalog2k2.cgi?ProdID="><font face="Arial, Helvetica, Sans-Serif" size="1">Buy Now</font></a></td>
+<td>&nbsp;|&nbsp;</td>
+<td><a href="http://www.taltech.com/TALtech_web/register.html"><font face="Arial, Helvetica, Sans-Serif" size="1">Register Your Products</font></a></td>
+<td>&nbsp;|&nbsp;</td>
+</tr></tbody></table>
+<table border="0" cellpadding="0" cellspacing="0">
+<tbody><tr>
+<td><a href="http://www.taltech.com/TALtech_web/tal_sitemap.html"><font face="Arial, Helvetica, Sans-Serif" size="1">Site Map</font></a></td>
+<td>&nbsp;|&nbsp;</td>
+<td><a href="http://www.taltech.com/TALtech_web/contact_tal.html"><font face="Arial, Helvetica, Sans-Serif" size="1">Contact TALtech</font></a></td>
+<td>&nbsp;|&nbsp;</td>
+<td><a href="http://www.taltech.com/TALtech_web/news/"><font face="Arial, Helvetica, Sans-Serif" size="1">News</font></a></td>
+</tr>
+</tbody></table>
+<!--End Footer-->
+
+
+</td> 
+
+</tr>
+
+</tbody></table>
+
+<!--End Content Table-->
+
+<br><br>
+
+
+</body></html>

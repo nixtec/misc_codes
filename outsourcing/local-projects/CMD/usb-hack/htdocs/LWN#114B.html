@@ -1,0 +1,716 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head><title>LWN: User-space device drivers</title>
+        
+        
+        <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+        <link rel="icon" href="http://old.lwn.net/images/bookmark.png" type="image/png">
+        <link rel="alternate" type="application/rss+xml" title="LWN Headlines" href="http://lwn.net/headlines/newrss">
+        <style type="text/css">
+<!--
+/* $Id: lwn.css,v 1.53 2006/05/15 20:03:07 corbet Exp $ */
+body {
+        color: black;
+        background-color: #ffffff;
+        padding:0px;
+        }
+h1 {
+        margin:0px 0px 5px 0px;
+        padding:0px;
+        color: black;
+        }
+h2 {
+        margin:20px 0px 5px 0px;
+        padding:0px;
+        }
+h3 {
+        margin:0px 0px 5px 0px;
+        padding:0px;
+        }
+td {
+        /* font-size:12px;
+        font-family: Verdana, Arial, Helvetica, sans-serif; */
+        }
+a {
+        color:Blue;
+        text-decoration:none;
+        }
+a:link { color: Blue;}
+a:visited {color: DarkBlue;}
+a:hover {color:Red;}
+
+a.name { color: black }
+a.name:link { color: black }
+a.name:hover { color: black }
+  
+/* All the content boxes belong to the content class. */
+
+SPAN { font-style: normal; font-weight: normal;
+       color: darkred; background-color: white }
+
+SPAN.SpellingError {  background-color: #eeeeee; color: black }
+FONT.SpellingError {  background-color: #eeeeee }
+
+DIV.BigQuote {font-style: normal; font-weight: normal;
+       color: darkred; background-color: white;
+       margin-left: 1cm; margin-right: 1cm }
+
+DIV.Headline { background-color: #ffcc99; font-weight: bold;
+	       font-size: larger }
+DIV.SummaryHeadline { font-weight: bold; font-size: larger;
+		      text-decoration: underline }
+
+DIV.Byline { font-size: smaller; text-align: center }
+
+/* Comments */
+DIV.Comment { margin-left: 2em }
+TABLE.CommentHL { border-width: 0; width: 100%; padding: 1px; margin: 0px;
+                  background-color: #ffcc99 }
+TABLE.CommentBox { background-color: black; border-width: 0px; padding: 0px;
+	           margin: 1px }
+TD.CommentBox { padding: 1px; margin: 0px }
+TABLE.CommentBody { width: 100%; padding: 3px; 
+		    background-color: #ffffff }
+TD.CommentBody { vertical-align: top; text-align: left;
+		 background-color: #ffffff }
+
+div.CommentReplyButton { display: none; 
+			 text-align: right }
+
+H1.C1HL { background-color: #ffcc99; text-align: center }
+DIV.C1HL { background-color: #ffcc99; font-size: x-large;
+	   text-align: center }
+DIV.C2HL { background-color: #ffcc99; font-size: large }
+DIV.C3HL { background-color: #ffcc99}
+
+TD.LeftColumn { background-color: #ffcc99; vertical-align: top }
+TD.Headline {background-color: #ffcc99 }
+TABLE.Middle { background-color: #ffffff; padding: 3px; 
+	       border-style: none; width: 100% }
+TD.Middle { background-color: #ffffff; vertical-align: top }
+
+.Form { background-color: #eeeeee; 
+	padding: 3px;
+	border-style: groove 
+	}
+
+A.Current { background-color: darkred; color: white }
+A.Other { }
+P.NextLink { text-align: right }
+FONT.SearchItem { font-weight: bold; color: red }
+FONT.QuotedText { color: #990099 }
+FONT.Subscription { color: darkgreen }
+
+TR.Odd { background-color: #eeeeee }
+TR.Even { }
+
+P.Headlines { margin-bottom: 6px; text-indent: -1em; margin-left: 1em;
+	      margin-top: 0px }
+
+
+P.Feature { text-indent: -1em; margin-left: 1em; margin-top: 0px;
+	    margin-bottom: 2px}
+
+P.ErrorMessage { color: red; margin-left: 1cm;
+                 margin-right: 1cm; font-weight: bold;
+                 font-size: large }
+FONT.NonActive { color: red; font-weight: bold }
+A.NonActive { color: red; font-weight: bold }
+
+TABLE.TopNavigation { width: 100% }
+TD.NavLink { background-color: #eeeeee; text-align: center }
+
+/* Index listings */
+P.IndexPrimary { margin-top: 1em; margin-bottom: 0px; font-weight: bold; }
+/*	font-size: larger } */
+P.IndexSecondary { margin-top: 0px; text-indent: 5mm; margin-bottom: 0px; }
+P.IndexEntry { text-indent: 1cm; margin-top: 0px; margin-bottom: 0px }
+
+/* Text ad formatting. */
+TABLE.TA1 { background-color: #000000; border-width: 0; width: 140px;
+	    padding: 1px }
+TABLE.TA2 { background-color: #e6e6e6; width: 100%; border-width: 0;
+	    padding: 2px}
+TABLE.TA3 { background-color: #fefefe; width: 100%; border-width: 0;
+	    padding: 7px }
+
+TD.TA { background-color: #419d4a; color: #ffffff }
+TD.TATEXT { vertical-align: top; text-align: left; background-color: white}
+
+/* Timeline stuff. */
+
+TABLE.tlnav { width: 100%; color: black; padding: 2px }
+
+TABLE.tlrw { width: 45%; float: right; background-color: #eeeedd;
+		 border-style: groove; margin: 5px; float: right }
+TABLE.tlr { width: 35%; float: right; background-color: #eeeedd;
+		 border-style: groove; margin: 5px; float: right }
+TABLE.tllw { width: 45%; float: right; background-color: #eeeedd;
+		 border-style: groove; margin: 5px; float: left }
+TABLE.tll { width: 35%; float: right; background-color: #eeeedd;
+		 border-style: groove; margin: 5px; float: left }
+P.QuoteAttr { text-align: right }
+
+P.GuestAuthor { text-align: left; font-size: smaller; margin-top: 0px}
+TABLE.Byline { width: 35%; float: right; background-color: #eeeedd;
+		 border-style: groove; margin: 5px; float: right }
+
+
+div.survey { margin-left: 1cm }
+div.sv_mc { margin-left: 10mm; margin-top: 0cm }
+
+-->
+</style></head><body alink="Green" bgcolor="#ffffff" link="Blue" vlink="Green">
+        <table border="0" width="100%">
+           <tbody><tr><td class="LeftColumn" valign="top">
+           
+        <center>
+        <a href="http://lwn.net/"><img src="LWN:%20User-space%20device%20drivers_files/lcorner.png" alt="LWN.net Logo" border="0" height="120" width="153"></a>
+        </center>
+        <br>&nbsp;<br>
+        <center>
+<table bgcolor="#000000" border="0" cellpadding="0" cellspacing="1" width="155">
+  <tbody><tr><td>
+      <table bgcolor="#e6e6e6" border="0" cellpadding="2" cellspacing="1" width="100%">
+      <tbody><tr><td bgcolor="#419d4a">
+          <center><b> <font color="#ffffff">Sponsored Link</font></b></center>
+      </td></tr>
+      </tbody></table>
+      <table bgcolor="#fefefe" border="0" cellpadding="2" cellspacing="1" width="100%">
+      <tbody><tr>
+          <td class="subject" align="left" bgcolor="#ffffff" valign="top">
+              <font size="-1">
+              <a href="http://lwn.net/TextAds/449/click">TrustCommerce</a>
+              </font><p>
+<font size="-1">              E-Commerce &amp; credit card processing - the Open Source way!
+
+              </font> 
+          </p></td></tr>
+      </tbody></table>
+  </td></tr>
+</tbody></table>
+</center>
+<p>
+<b>You are not logged in</b><br>
+<a href="http://lwn.net/login">Log in now</a><br>
+                                 <a href="http://lwn.net/newaccount">Create an account</a><br>
+                                 <a href="http://lwn.net/subscribe/">Subscribe to LWN</a>
+<br>&nbsp;<br><b>Weekly Edition</b><br>
+Return to the <a href="http://lwn.net/Articles/66289/">Kernel page</a>
+<br>&nbsp;<br><b>Recent Features</b>
+</p><p class="Feature"><a href="http://lwn.net/Articles/183231/">LWN.net Weekly Edition for May 18, 2006</a></p>
+            	<p class="Feature"><a href="http://lwn.net/Articles/184066/">Java becomes more distributable</a></p>
+            	<p class="Feature"><a href="http://lwn.net/Articles/183907/">Open Content III: the code</a></p>
+            	<p class="Feature"><a href="http://lwn.net/Articles/182492/">LWN.net Weekly Edition for May 11, 2006</a></p>
+            	<p class="Feature"><a href="http://lwn.net/Articles/182954/">The Grumpy Editor's guide to audio stream grabbers</a></p>
+            	<p>
+<a href="http://lwn.net/Articles/66829/?format=printable" rel="nofollow">Printable page</a>
+
+<br>&nbsp;<br></p></td><td width="10">&nbsp;</td>
+<td valign="top" width="100%">
+           <table border="0" cellpadding="0" cellspacing="1" width="100%">
+
+        <tbody><tr><td class="Middle" align="left" bgcolor="#ffffff" valign="top">
+        <!-- $Id: top-navigation,v 1.20 2005/01/21 17:05:04 corbet Exp $ -->
+<table bgcolor="#ffffff" width="100%">
+
+<!-- First row - content links -->
+<tbody><tr>
+  <td class="NavLink"><a href="http://lwn.net/">Home</a></td>
+  <td class="NavLink"><a href="http://lwn.net/current/">Weekly edition</a></td>
+  <td class="NavLink">
+	<a href="http://lwn.net/Kernel/">Kernel</a></td>
+  <td class="NavLink"><a href="http://lwn.net/security">Security</a></td>
+  <td class="NavLink">
+	<a href="http://lwn.net/Distributions/">Distributions</a></td>
+</tr>
+<!-- Second row: navigation links -->
+<tr>
+  <td class="NavLink"><a href="http://lwn.net/Archives/">Archives</a></td>
+  <td class="NavLink"><a href="http://lwn.net/Search/">Search</a> </td>
+  <td class="NavLink">
+	<a href="http://lwn.net/Letters/">Letters</a></td>
+  <td class="NavLink"><a href="http://www.linuxcalendar.com/">Calendar</a></td>
+  <td class="NavLink"><a href="http://lwn.net/op/FAQ.lwn">LWN.net FAQ</a></td>
+</tr>
+<!-- Third row: other stuff -->
+<tr>
+  <td class="NavLink"><a href="http://lwn.net/op/Subscriptions.lwn">Subscriptions</a></td>
+  <td class="NavLink"><a href="http://lwn.net/TextAds/">Advertise</a></td>
+  <td class="NavLink"><a href="http://lwn.net/op/AuthorGuide.lwn">Write for LWN</a></td>
+  <td class="NavLink"><a href="http://lwn.net/op/FAQ.lwn#contact">Contact us</a></td>
+  <td class="NavLink"><a href="http://lwn.net/op/Privacy.lwn">Privacy</a></td>
+</tr>
+</tbody></table>
+
+        </td></tr></tbody></table>
+        <p>
+        </p><center><a href="http://oasis.lwn.net/oasisc.php?s=13&amp;c=262"><img src="LWN:%20User-space%20device%20drivers_files/oasisi.png" alt="[FreedomHEC]" border="0" height="60" width="468"></a></center><p>
+</p><table border="0" cellpadding="0" cellspacing="1" width="100%">
+
+        <tbody><tr><td class="Middle" align="center" bgcolor="#ffffff" valign="top">
+        <h1>User-space device drivers</h1>
+<div class="Byline">[Posted January 19, 2004 by corbet]
+               <p>
+               </p></div>
+
+        </td></tr></tbody></table>
+        <p>
+        </p><table border="0" cellpadding="0" cellspacing="1" width="100%">
+
+        <tbody><tr><td class="Middle" align="left" bgcolor="#ffffff" valign="top">
+        Peter Chubb works with the <a href="http://gelato.unsw.edu.au/">Gelato</a>
+project, which works toward better Linux performance on the IA-64
+architecture.  Among other things, Peter is responsible for the 64-bit
+sector support which went into the 2.5 kernel.  At Linux.Conf.Au, Peter
+discussed device drivers.  He pointed out that drivers, while making up roughly
+50% of the code in the kernel, are responsible for 85% of all kernel bugs.
+Drivers tend to be written by people who would not normally be considered
+kernel hackers: hardware engineers, for example.  These people tend to have
+a hard time dealing with the special nature of kernel programming, where
+interfaces are fluid, bugs are lethal, and many normal development tools
+are not available.
+<p>
+Driver authors - and their users - might have a much easier time if 
+drivers could be written to run in user space.  In addition to mitigating
+the above-mentioned kernel programming issues, user-space driver
+development would allow the creation of a stable ABI; it also, presumably,
+would eliminate any licensing issues associated with closed-source
+drivers.  User-space driver writers could also use any language they
+choose, "even Python."
+</p><p>
+Peter and company have set out to make user-space drivers possible.  Some
+of the necessary pieces are already in place.  Standard Linux will allow a
+suitably privileged process to access I/O ports, for example.  Low-address
+memory-mapped I/O registers can be accessed via a <tt>mmap()</tt> of
+<tt>/dev/mem</tt>.  There is also an interface which gives user-space
+processes access to the PCI configuration space; this interface works via
+<tt>ioctl()</tt> calls on <tt>/proc</tt> files, though, thus upsetting the
+sensibilities of most kernel hackers.  These facilities are enough to allow
+some user-space drivers (particularly XFree86) to work, but they are not
+sufficient to enable a wider range of drivers to move out of the kernel.
+</p><p>
+One of the big gaps is interrupts; there is no way, currently, for
+user-space processes to register and respond to device interrupts.  A patch
+from the Gelato project addresses this gap by creating a set of files under
+<tt>/proc</tt>.  A process wanting to deal with interrupt 11, say, would
+open <tt>/proc/irq/11/irq</tt>.  Reading the resulting file descriptor
+enables the interrupt and blocks the process until a device interrupt
+happens; control then returns to user-space, which can figure out what to
+do.  A typical user-space driver will set up a separate thread to wait for
+interrupts in this manner; the actual work can be handed off to a different
+thread within the program.
+</p><p>
+Peter presented some graphs showing that interrupt response times suffer
+very little when interrupt handlers run in user space.  The main limitation
+at the moment seems to be the fact that shared interrupts are not
+supported.
+</p><p>
+Another thing that user-space processes cannot normally do is set up DMA
+operations.  To enable DMA, a new set of system calls has been added.  The
+interface appears to be in a bit of flux, but it will be something like the
+following.  The driver starts by opening a special file for device
+operations:
+</p><p>
+</p><pre>    int usr_pci_open(int bus, int slot, int function);
+</pre>
+<p>
+There is then a function for setting up DMA mappings:
+</p><p>
+</p><pre>    int usr_pci_map(int fd, int cmd, struct mapping_info *info);
+</pre>
+<p>
+The <tt>cmd</tt> argument can be <tt>USR_ALLOC_CONSISTENT</tt> to set up a
+long-lived consistent mapping, or <tt>USR_MAP</tt> to create a streaming,
+scatter/gather mapping.  In either case, the <tt>info</tt> argument is used
+to pass in the relevant information, and to get the necessary address(es).
+There is also, of course, a <tt>USR_UNMAP</tt> operation for when the DMA
+is complete.
+</p><p>
+Many user-space drivers will be able to obtain their requests directly from
+user space; the X server works in this way.  Many other drivers, however,
+will need to hook into the kernel for this information.  The current patch
+includes a mechanism (Peter described it as ugly) for a user-space block
+driver to register itself with the kernel and get I/O requests.  It works
+by opening another special file and using it to communicate requests and
+responses back and forth.  A similar interface apparently exists for
+network drivers.
+</p><p>
+Getting a user-space driver patch into the kernel could be an interesting
+challenge.  Many kernel hackers, certainly, resist changes that look like
+they are pushing Linux toward something that looks like a microkernel
+architecture - or which might legitimize binary-only drivers.  On the other
+hand, some drivers bring a great deal of baggage into the kernel with them
+which might be better kept in user space; think of some of the code
+required by some sound drivers or the modulation software needed by "linmodem"
+drivers.  The ability to run these drivers in user space could be a nice
+thing to have.
+</p><p>
+See <a href="http://www.gelato.unsw.edu.au/IA64wiki/UserLevelDrivers">the
+Gelato user-level drivers page</a> for more information.</p><p><a name="Comments"></a>
+</p><hr align="left" width="60%">
+           (<a href="http://lwn.net/login?target=/Articles/66829/">Log in</a> to post comments)
+           <p>
+           </p><p>
+        </p><table class="CommentBox" border="0" cellpadding="0" cellspacing="1"><tbody><tr><td>
+        <table class="CommentHL">
+               <tbody><tr><td><b>User-space device drivers</b></td></tr>
+        </tbody></table>
+        <table class="CommentBody">
+        <tbody><tr>
+        <td class="CommentBody">
+        Posted Jan 22, 2004 5:54 UTC (Thu) by guest <b>danshearer</b> [<a href="http://lwn.net/Articles/67267/">Link</a>]
+        <p>
+        <!-- body -->
+        There are several threads hanging out of the "drivers in userspace" tangle.</p><p>One
+of them is filesystems, which are a very logical thing to do in
+userspace. Peter's work doesn't address that at all. Years ago (back in
+2.0) Jeremy Fitzharding (sp?) from Sydney did userfs, which let you do
+things like mount an ftp site. Some obvious fs candidates such as
+imapfs involve very long strings and according to (a) people who really
+know what they are doing and (b) my bumbling experiments, 64k strings
+are a *really* bad idea in kernel modules.</p><p>Another one is
+virtualisation. Read Jeff Dike on pushing User Mode Linux into kernel
+space for some clues on where this might be going. Jeff articulates
+advanced architecture and design better than most, so it is worthwhile
+looking for his stuff. His idea in this case is to port UML from the
+current libc interfaces at the backend to kernel interfaces, something
+like a module. Think of it like IBM's VM with OSs running underneath
+that, and the kernel of each OS is in true kernel space but within that
+applications (drivers, in this case) are completely protected. </p><p>--<br>Dan Shearer<br>dan@shearer.org
+        <!-- comment button -->
+	</p><p>
+        </p><div class="CommentReplyButton">
+        	<form action="/Articles/67267/comment" method="post">
+                <input value="Reply to this comment" type="submit">
+                </form>
+        </div>
+        <!-- notification -->
+        
+        </td></tr></tbody></table>
+</td></tr></tbody></table>
+<p>
+</p><div class="Comment">
+<p>
+        </p><table class="CommentBox" border="0" cellpadding="0" cellspacing="1"><tbody><tr><td>
+        <table class="CommentHL">
+               <tbody><tr><td><b>User-space device drivers</b></td></tr>
+        </tbody></table>
+        <table class="CommentBody">
+        <tbody><tr>
+        <td class="CommentBody">
+        Posted Jan 22, 2004 12:37 UTC (Thu) by subscriber <b>rjw</b> [<a href="http://lwn.net/Articles/67345/">Link</a>]
+        <p>
+        <!-- body -->
+Google for FUSE and LUFS for the most active user space FS projects.
+FUSE even has a bridge allowing the use of KDE IO slaves as a mountable
+filesystem.<!-- comment button -->
+	 </p><p>
+        </p><div class="CommentReplyButton">
+        	<form action="/Articles/67345/comment" method="post">
+                <input value="Reply to this comment" type="submit">
+                </form>
+        </div>
+        <!-- notification -->
+        
+        </td></tr></tbody></table>
+</td></tr></tbody></table>
+<p>
+</p><div class="Comment">
+<p>
+        </p><table class="CommentBox" border="0" cellpadding="0" cellspacing="1"><tbody><tr><td>
+        <table class="CommentHL">
+               <tbody><tr><td><b>User-space device drivers</b></td></tr>
+        </tbody></table>
+        <table class="CommentBody">
+        <tbody><tr>
+        <td class="CommentBody">
+        Posted Jan 22, 2004 21:22 UTC (Thu) by subscriber <b>scripter</b> [<a href="http://lwn.net/Articles/67466/">Link</a>]
+        <p>
+        <!-- body -->
+        <a href="http://uservfs.sourceforge.net/">http://uservfs.sourceforge.net/</a>
+</p><p>
+<a href="http://sourceforge.net/projects/avf">http://sourceforge.net/projects/avf
+</a>
+</p><p>
+<a href="http://www.freenet.org.nz/python/lufs-python/">http://www.freenet.org.nz/python/lufs-python/</a>
+        <!-- comment button -->
+	</p><p>
+        </p><div class="CommentReplyButton">
+        	<form action="/Articles/67466/comment" method="post">
+                <input value="Reply to this comment" type="submit">
+                </form>
+        </div>
+        <!-- notification -->
+        
+        </td></tr></tbody></table>
+</td></tr></tbody></table>
+<p>
+</p><p>
+        </p><table class="CommentBox" border="0" cellpadding="0" cellspacing="1"><tbody><tr><td>
+        <table class="CommentHL">
+               <tbody><tr><td><b>User-space device drivers</b></td></tr>
+        </tbody></table>
+        <table class="CommentBody">
+        <tbody><tr>
+        <td class="CommentBody">
+        Posted Jan 23, 2004 17:44 UTC (Fri) by subscriber <b>aleXXX</b> [<a href="http://lwn.net/Articles/67657/">Link</a>]
+        <p>
+        <!-- body -->
+        You can find some information about the kioslave-fuse bridge at:  <br>http://kde.ground.cz/tiki-index.php?page=KIO+Fuse+Gateway <br> <br>And yes, it works, loading and saving files via konqueror in OOo or gimp <br>using ioslaves and fuse :-) <br> <br>You can also contact me directly: neundorf@kde.org <br> <br>Bye <br>Alex 
+        <!-- comment button -->
+	</p><p>
+        </p><div class="CommentReplyButton">
+        	<form action="/Articles/67657/comment" method="post">
+                <input value="Reply to this comment" type="submit">
+                </form>
+        </div>
+        <!-- notification -->
+        
+        </td></tr></tbody></table>
+</td></tr></tbody></table>
+<p>
+</p></div>
+</div>
+<p>
+        </p><table class="CommentBox" border="0" cellpadding="0" cellspacing="1"><tbody><tr><td>
+        <table class="CommentHL">
+               <tbody><tr><td><b>User-space device drivers</b></td></tr>
+        </tbody></table>
+        <table class="CommentBody">
+        <tbody><tr>
+        <td class="CommentBody">
+        Posted Jan 22, 2004 19:53 UTC (Thu) by subscriber <b>stuart2048</b> [<a href="http://lwn.net/Articles/67448/">Link</a>]
+        <p>
+        <!-- body -->
+        What fun!  Back in the days of "who's got the fastest IPC" my master's thesis project, the <a href="http://www.cs.ubc.ca/cgi-bin/tr/1993/TR-93-36">Raven Kernel</a>, was based on a user level approach (for as much as I could get away with...).
+
+<br><br>
+I did interrupt dispatching quite differently than Gelato. In Gelato, a
+user thread "reads" interrupts from an open file descriptor. In Raven,
+I took a more asynchronous approach: the kernel interrupt handler
+upcalls into the user driver (essentially interrupting the user code),
+where it then directly executes the handler code to service the device.
+<br><br>My motivation here was to make the user handler code execute
+with as low latency as possible. There were some tricky corner cases to
+implement, but I eventually got it working. ;-)
+<br><br>
+But after all that, I much prefer the simplicity of Gelato's approach and will stay tuned to their progress!
+<br><br>
+--Stuart
+        <!-- comment button -->
+	</p><p>
+        </p><div class="CommentReplyButton">
+        	<form action="/Articles/67448/comment" method="post">
+                <input value="Reply to this comment" type="submit">
+                </form>
+        </div>
+        <!-- notification -->
+        
+        </td></tr></tbody></table>
+</td></tr></tbody></table>
+<p>
+</p><div class="Comment">
+<p>
+        </p><table class="CommentBox" border="0" cellpadding="0" cellspacing="1"><tbody><tr><td>
+        <table class="CommentHL">
+               <tbody><tr><td><b>User-space device drivers</b></td></tr>
+        </tbody></table>
+        <table class="CommentBody">
+        <tbody><tr>
+        <td class="CommentBody">
+        Posted Jan 23, 2004 20:45 UTC (Fri) by subscriber <b>jonabbey</b> [<a href="http://lwn.net/Articles/67714/">Link</a>]
+        <p>
+        <!-- body -->
+        <a href="http://www.intersectalliance.com/">Snare's</a>
+userland audit daemon works in the same way Gelato does.. it loops
+reading audit events from /proc/audit. This method has the very great
+virtue of simplicity and it can actually be quite fast and efficient.
+It'll be neat to see where this goes for user mode drivers, but I
+wonder what happens if a user mode driver fails? Would the kernel be
+smart enough to stop preparing the data for the driver? I know when the
+Snare audit daemon closes /proc/audit, the kernel notices that it has
+been closed, and amends its behavior to avoid queueing up additional
+audit events.<!-- comment button -->
+	 </p><p>
+        </p><div class="CommentReplyButton">
+        	<form action="/Articles/67714/comment" method="post">
+                <input value="Reply to this comment" type="submit">
+                </form>
+        </div>
+        <!-- notification -->
+        
+        </td></tr></tbody></table>
+</td></tr></tbody></table>
+<p>
+</p><div class="Comment">
+<p>
+        </p><table class="CommentBox" border="0" cellpadding="0" cellspacing="1"><tbody><tr><td>
+        <table class="CommentHL">
+               <tbody><tr><td><b>User-space device drivers</b></td></tr>
+        </tbody></table>
+        <table class="CommentBody">
+        <tbody><tr>
+        <td class="CommentBody">
+        Posted Mar 9, 2004 3:13 UTC (Tue) by guest <b>PeterChubb</b> [<a href="http://lwn.net/Articles/74823/">Link</a>]
+        <p>
+        <!-- body -->
+When a userland driver fails, just kill it and start again. You may
+lose a few packets (for a network device) or any transactions that are
+halfway throough (for a disc device), but in most cases, this can be
+recovered from.</p><p>In the case of a kernel mode driver, the same faults often require a reboot...
+        <!-- comment button -->
+	</p><p>
+        </p><div class="CommentReplyButton">
+        	<form action="/Articles/74823/comment" method="post">
+                <input value="Reply to this comment" type="submit">
+                </form>
+        </div>
+        <!-- notification -->
+        
+        </td></tr></tbody></table>
+</td></tr></tbody></table>
+<p>
+</p></div>
+</div>
+<p>
+        </p><table class="CommentBox" border="0" cellpadding="0" cellspacing="1"><tbody><tr><td>
+        <table class="CommentHL">
+               <tbody><tr><td><b>USB is different</b></td></tr>
+        </tbody></table>
+        <table class="CommentBody">
+        <tbody><tr>
+        <td class="CommentBody">
+        Posted Jan 29, 2004 16:04 UTC (Thu) by guest <b>HalfMoon</b> [<a href="http://lwn.net/Articles/68657/">Link</a>]
+        <p>
+        <!-- body -->
+        </p><p>This Gelato approach would seem to be focussed on a particular
+style of userspace driver, which works on non-virtualized devices.
+Specifically, it aims for PCI (or ISA) style devices, where
+the device driver needs to touch "real hardware".
+
+</p><p>USB is a good example of a different style driver, one where
+the device driver can't touch the hardware.  In fact you can
+view USB drivers as the clients in a client/server framework,
+with the "server" being the device.
+The bus is really a special purpose network link, used to
+exchange packets between device and host.
+(And always initiated by the host, not the device/"server".)
+So userspace USB drivers
+work with virtualized devices ... they start with a formalized
+protocol to talk with the hardware, which doesn't involve
+register access, IRQs, or memory mapping except indirectly.
+
+</p><p>There are two approaches right now to userspace USB drivers.
+</p><ul>
+<li>The original "usbfs" (or "usdevfs"), which is in
+sore need of replacement.  It's ioctl-heavy, and multiplexes
+I/O streams (up to 32 per device) into one file descriptor.
+And it defines its own async I/O primitives.
+So while a Java API exists, it's awkward.
+</li><li>"gadgetfs" runs inside USB devices.  It's got
+hardly any ioctls, and uses one file descriptor per I/O stream.
+Current versions of gadgetfs (not yet in Linux 2.6) use standard
+AIO calls to support data streaming from userspace.
+</li></ul>
+
+<p>There are discussions underway to create "usbfs2", which
+should eventually replace "usbfs".
+It'll look much more like gadgetfs than "usbfs", with few
+ioctls and using the standard AIO framework.
+
+</p><p>So that's something else to keep in mind.  This Gelato
+framework doesn't seem like it'd work well with USB, or
+with other device models that have already upleveled and
+virtualized their hardware.
+
+
+        <!-- comment button -->
+	</p><p>
+        </p><div class="CommentReplyButton">
+        	<form action="/Articles/68657/comment" method="post">
+                <input value="Reply to this comment" type="submit">
+                </form>
+        </div>
+        <!-- notification -->
+        
+        </td></tr></tbody></table>
+</td></tr></tbody></table>
+<p>
+</p><p>
+        </p><table class="CommentBox" border="0" cellpadding="0" cellspacing="1"><tbody><tr><td>
+        <table class="CommentHL">
+               <tbody><tr><td><b>User-space device drivers</b></td></tr>
+        </tbody></table>
+        <table class="CommentBody">
+        <tbody><tr>
+        <td class="CommentBody">
+        Posted Jan 30, 2004 14:20 UTC (Fri) by guest <b>forthy</b> [<a href="http://lwn.net/Articles/68832/">Link</a>]
+        <p>
+        <!-- body -->
+        </p><p>The interrupt delivery part is something that has been necessary for 
+years, because X still can't give you any way to syncronize to VBL 
+interrupts (except OpenGL).</p> 
+ 
+<p>On the other hand, I don't feel too happy with user land directly 
+accessing IO ports. This is still dangerous, and buggy X drivers often can 
+hang the machine, too. Memory mapped IO pages should be ok, given that the 
+kernel would allow to map the PCI memory per device, not from /dev/mem. I 
+suggets to keep the IO port part of a device driver inside kernel space.<!--
+p--> 
+        <!-- comment button -->
+	</p><p>
+        </p><div class="CommentReplyButton">
+        	<form action="/Articles/68832/comment" method="post">
+                <input value="Reply to this comment" type="submit">
+                </form>
+        </div>
+        <!-- notification -->
+        
+        </td></tr></tbody></table>
+</td></tr></tbody></table>
+<p>
+</p><p>
+        </p><table class="CommentBox" border="0" cellpadding="0" cellspacing="1"><tbody><tr><td>
+        <table class="CommentHL">
+               <tbody><tr><td><b>User-space device drivers</b></td></tr>
+        </tbody></table>
+        <table class="CommentBody">
+        <tbody><tr>
+        <td class="CommentBody">
+        Posted Jan 30, 2004 16:16 UTC (Fri) by guest <b>joib</b> [<a href="http://lwn.net/Articles/68846/">Link</a>]
+        <p>
+        <!-- body -->
+IIRC the Plan 9 operating system allows user-space device drivers. They
+reason they did that was to bring the development advantages of
+microkernels described in this article, and then by loading the
+hopefully debugged driver into the kernel proper the speed benefits of
+a monolithic kernel are available. I think the point was that the same
+device driver code could be used for both, though a recompile is almost
+certainly needed?<!-- comment button -->
+	 </p><p>
+        </p><div class="CommentReplyButton">
+        	<form action="/Articles/68846/comment" method="post">
+                <input value="Reply to this comment" type="submit">
+                </form>
+        </div>
+        <!-- notification -->
+        
+        </td></tr></tbody></table>
+</td></tr></tbody></table>
+<p>
+
+        </p></td></tr></tbody></table>
+        <p>
+        <!-- Below ends the full table. -->
+           </p></td></tr></tbody></table>
+           
+        <p>
+        </p><center>
+        <font size="-2">
+        Copyright © 2004, Eklektix, Inc.<br>
+        Comments and public postings are copyrighted by their creators.<br>
+        Linux  is a registered trademark of Linus Torvalds<br>
+        Powered by <a href="http://www.rackspace.com/index.php?CMP=BAC-2GH696668493">Rackspace Managed Hosting</a>.
+        </font>
+        </center>
+        </body></html>

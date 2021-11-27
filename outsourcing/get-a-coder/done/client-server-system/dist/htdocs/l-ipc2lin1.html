@@ -1,0 +1,1228 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US"><head><meta content="text/html; charset=UTF-8" http-equiv="Content-Type"><title>Port Windows IPC apps to Linux, Part 1: Processes and threads</title><meta content="(PICS-1.1 &quot;http://www.icra.org/ratingsv02.html&quot; l gen true r (cz 1 lz 1 nz 1 oz 1 vz 1) &quot;http://www.rsac.org/ratingsv01.html&quot; l gen true r (n 0 s 0 v 0 l 0) &quot;http://www.classify.org/safesurf/&quot; l gen true r (SS~~000 1))" http-equiv="PICS-Label"><link href="http://purl.org/DC/elements/1.0/" rel="schema.DC"><link href="http://www.ibm.com/favicon.ico" rel="SHORTCUT ICON"><meta content="dW Information/Raleigh/IBM" name="Owner"><meta content="en-US" scheme="rfc1766" name="DC.Language"><meta content="ZZ" name="IBM.Country"><meta content="Public" name="Security"><meta name="Abstract" content="The wave of migration to open source in business has the potential to cause a tremendous porting traffic jam as developers move the pervasive Windows applications to the Linux platform. In this three-part series, get a mapping guide, complete with examples, to ease your transition from Windows to Linux. Part 1 introduces processes and threads."><meta name="Description" content="The wave of migration to open source in business has the potential to cause a tremendous porting traffic jam as developers move the pervasive Windows applications to the Linux platform. In this three-part series, get a mapping guide, complete with examples, to ease your transition from Windows to Linux. Part 1 introduces processes and threads."><meta name="Keywords" content="mapping guide,windows to linux,migration,processes,threads,synchronization,primitives,Srinivasan S. Muthuswamy,IPC,interprocess communication,inter-process,event,event object,semaphore,mutex,mutexes,critical section,wait function,, tttlca"><meta name="DC.Date" scheme="iso8601" content="2005-04-14"><meta name="Source" content="Based on v14 Template Generator, Template 14.0"><meta name="DC.Rights" content="Copyright (c) 2005 by IBM Corporation"> <meta name="Robots" content="index,follow"><meta name="IBM.Effective" scheme="W3CDTF" content="2005-04-14"><meta name="Last update" content="03052006chanhm@us.ibm.com"><link href="l-ipc2lin1_files/table.css" media="screen,print" type="text/css" rel="stylesheet"><script language="JavaScript" src="l-ipc2lin1_files/dwcss14.js" type="text/javascript"></script><link href="l-ipc2lin1_files/main.css" type="text/css" rel="stylesheet"><link href="l-ipc2lin1_files/screen.css" media="all" type="text/css" rel="stylesheet"><link href="l-ipc2lin1_files/print.css" media="print" type="text/css" rel="stylesheet"><script language="JavaScript" src="l-ipc2lin1_files/detection.js" type="text/javascript"></script><script language="JavaScript" src="l-ipc2lin1_files/dropdown.js" type="text/javascript"></script><script language="JavaScript" src="l-ipc2lin1_files/grabtitle.js" type="text/javascript"></script><script language="JavaScript" src="l-ipc2lin1_files/emailfriend2.js" type="text/javascript"></script><script language="JavaScript" src="l-ipc2lin1_files/dwplugin.js" type="text/javascript"></script><!--START RESERVED FOR FUTURE USE INCLUDE FILES--><script language="javascript" src="l-ipc2lin1_files/ajax1.js" type="text/javascript"></script><script language="javascript" src="l-ipc2lin1_files/searchcount.js" type="text/javascript"></script><!--END RESERVED FOR FUTURE USE INCLUDE FILES--><style type="text/css">
+code.section {font-family: Andale Mono, Lucida Console, Monaco, fixed, monospace; font-size: 11px}
+.boldcode {font-family: Andale Mono, Lucida Console, Monaco, fixed, monospace; font-size: 11px; font-weight: bold} .rboldcode {font-family: Andale Mono, Lucida Console, Monaco, fixed, monospace; font-size: 11px; font-weight: bold; color: #ff0000}
+.gboldcode {font-family: Andale Mono, Lucida Console, Monaco, fixed, monospace; font-size: 11px; font-weight: bold; color: #ff6600}
+.bboldcode {font-family: Andale Mono, Lucida  Console, Monaco, fixed, monospace; font-size: 11px; font-weight: bold; color: #3c5f84}
+</style><style type="text/css">
+.atitle { font-family:arial,sans-serif; font-size:18px; }
+</style><script language="JavaScript" type="text/javascript">var emailAbstract = "The wave of migration to open source in business has the potential to cause a tremendous porting traffic jam as developers move the pervasive Windows applications to the Linux platform. In this three-part series, get a mapping guide, complete with examples, to ease your transition from Windows to Linux. Part 1 introduces processes and threads."; </script></head><body><!--MASTHEAD_BEGIN--><table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr valign="top">
+<td class="bbg" width="110"><a href="http://www.ibm.com/"><img alt="IBM®" src="l-ipc2lin1_files/ibm-logo.gif" border="0" height="52" width="110"></a></td>
+<td class="bbg"><img src="l-ipc2lin1_files/c.gif" alt="" border="0" height="1" width="1"></td>
+<td class="mbbg" align="right" width="650">
+<table align="right" border="0" cellpadding="0" cellspacing="0">
+<tbody><tr class="cty-tou">
+<td rowspan="2" class="upper-masthead-corner" width="17"><a href="#main"><img src="l-ipc2lin1_files/c.gif" alt="Skip to main content" border="0" height="1" width="1"></a></td>
+<td align="left">
+<table align="left" border="0" cellpadding="0" cellspacing="0">
+<tbody><tr>
+<td><span class="spacer">&nbsp;&nbsp;&nbsp;&nbsp;</span><b class="country">Country/region</b><span class="spacer">&nbsp;[</span><a class="ur-link" href="http://www.ibm.com/developerworks/country/">select</a><span class="spacer">]</span></td>
+<td class="upper-masthead-divider" width="29">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td align="left"><a class="ur-link" href="http://www.ibm.com/legal/">Terms of use</a></td>
+</tr>
+</tbody></table>
+</td>
+<td width="40">&nbsp;</td>
+</tr>
+<tr>
+<td class="cty-tou-border" colspan="2" height="1"><img src="l-ipc2lin1_files/c.gif" alt="" height="1" width="1"></td>
+</tr>
+<tr>
+<td colspan="3"><img alt="" src="l-ipc2lin1_files/c.gif" height="8" width="1"></td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td colspan="2" align="center">
+<input name="searchType" value="1" type="hidden"><input value="dW" name="searchSite" type="hidden">
+<table border="0" cellpadding="0" cellspacing="0">
+<tbody><tr>
+<form method="get" action="//www.ibm.com/developerworks/search/searchResults.jsp" id="form1" name="form1"></form><td width="18"><label for="q"><img src="l-ipc2lin1_files/c.gif" alt="Search in:" height="1" width="1"></label></td>
+<td align="right"><select id="sq" name="searchScope" class="input-local" size="1">
+<option value="dW" selected="selected">All of dW</option>
+<option value="dW">-----------------</option>
+<option value="aixunix">&nbsp;&nbsp;AIX and UNIX</option>
+<option value="eserver">&nbsp;&nbsp;IBM Systems</option>
+<option value="db2">&nbsp;&nbsp;Information Mgmt</option>
+<option value="lotus">&nbsp;&nbsp;Lotus</option>
+<option value="rdd">&nbsp;&nbsp;Rational</option>
+<option value="tivoli">&nbsp;&nbsp;Tivoli</option>  
+<option value="WSDD">&nbsp;&nbsp;WebSphere</option>
+<option value="dW">-----------------</option> 
+<option value="archZ">&nbsp;&nbsp;Architecture</option>
+<option value="acZ">&nbsp;&nbsp;Autonomic computing</option>
+<option value="gridZ">&nbsp;&nbsp;Grid computing</option>
+<option value="javaZ">&nbsp;&nbsp;Java technology</option> 
+<option value="linuxZ">&nbsp;&nbsp;Linux</option> 
+<option value="opensrcZ">&nbsp;&nbsp;Open source</option>
+<option value="paZ">&nbsp;&nbsp;Power Architecture</option>
+<option value="webservZ">&nbsp;&nbsp;SOA &amp; Web services</option>
+<option value="webarchZ">&nbsp;&nbsp;Web development</option>  
+<option value="xmlZ">&nbsp;&nbsp;XML</option>
+<option value="dW">-----------------</option>
+<option value="forums">&nbsp;&nbsp;dW forums</option> 
+<option value="dW">-----------------</option>
+<option value="aW">alphaWorks</option>
+<option value="dW">-----------------</option>
+<option value="all">All of IBM</option>
+</select></td>
+<td align="right" width="7"><label for="q"><img src="l-ipc2lin1_files/c.gif" alt="Search for:" height="1" width="1"></label>&nbsp;&nbsp;</td>
+<td align="right"><input class="input" id="q" maxlength="100" name="query" size="15" value="" type="text">
+</td>
+<td width="7">&nbsp;
+</td>
+<td width="90"><input alt="Search" name="Search" src="l-ipc2lin1_files/search.gif" value="Search" type="image"></td>
+<!-- <td width="20">&nbsp;</td> -->
+
+</tr>
+</tbody></table>
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+<tr>
+<td class="blbg" colspan="3">
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr>
+<td>
+<table border="0" cellpadding="0" cellspacing="0">
+<tbody><tr>
+<td><span class="spacer">&nbsp;&nbsp;&nbsp;&nbsp;</span></td>
+<td><a class="masthead-mainlink" href="http://www.ibm.com/">Home</a></td>
+<td class="masthead-divider" width="27">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td><a class="masthead-mainlink" href="http://www.ibm.com/products/">Products</a></td>
+<td class="masthead-divider" width="27">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td><a class="masthead-mainlink" href="http://www.ibm.com/servicessolutions/">Services &amp; industry solutions</a></td>
+<td class="masthead-divider" width="27">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td><a class="masthead-mainlink" href="http://www.ibm.com/support/">Support &amp; downloads</a></td>
+<td class="masthead-divider" width="27">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td><a class="masthead-mainlink" href="http://www.ibm.com/account/">My IBM</a></td>
+<td><span class="spacer">&nbsp;&nbsp;&nbsp;&nbsp;</span></td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+</tbody></table>
+
+<script src="l-ipc2lin1_files/pmh.js" language="JavaScript" type="text/javascript"></script>
+
+<script><!--
+  if(document.images){ (new Image()).src="http://api.collarity.com/cws/v1/nf?appid=ibmdw&u="+escape(document.URL)+"&t="+escape(document.title)+"&r="+escape(document.referrer); } 
+//-->
+</script>
+
+<!--MASTHEAD_END--><table id="v14-body-table" border="0" cellpadding="0" cellspacing="0" width="100%"><tbody><tr valign="top"><!--LEFTNAV_BEGIN--><td id="navigation" width="150"><table border="0" cellpadding="0" cellspacing="0" width="150"><tbody><tr><td class="left-nav-spacer"><a href="http://www.ibm.com/developerworks" class="left-nav-overview">&nbsp;</a></td></tr></tbody></table><table border="0" cellpadding="0" cellspacing="0" width="150"><tbody><tr><td colspan="2" class="left-nav-overview"><a href="http://www.ibm.com/developerworks" class="left-nav-overview">developerWorks</a></td></tr></tbody></table><table border="0" cellpadding="0" cellspacing="0" width="150"><tbody><tr><td colspan="2" class="left-nav"><a href="http://www.ibm.com/developerworks/views/linux/libraryview.jsp?search_by=port+windows+ipc+apps+linux" class="left-nav">More in this series:</a><br><a class="left-nav-child" href="http://www.ibm.com/developerworks/views/linux/libraryview.jsp?search_by=port+windows+ipc+apps+linux">Port Windows IPC apps to Linux</a></td></tr><tr><td class="dw-left-nav-separator" width="14"><img alt="" src="l-ipc2lin1_files/c.gif" height="6" width="14"></td><td class="dw-left-nav-separator" width="136"><img alt="" src="l-ipc2lin1_files/c.gif" height="6" width="136"></td></tr><tr><td colspan="2" class="left-nav-highlight"><a href="#" class="left-nav">In this article:</a></td></tr><tr class="left-nav-child-highlight"><td><img alt="" src="l-ipc2lin1_files/cl-bullet.gif" height="8" width="2"></td><td><a href="#PROCESS" class="left-nav-child">Processes</a></td></tr><tr class="left-nav-child-highlight"><td><img alt="" src="l-ipc2lin1_files/cl-bullet.gif" height="8" width="2"></td><td><a href="#THREAD" class="left-nav-child">Threads</a></td></tr><tr class="left-nav-child-highlight"><td><img alt="" src="l-ipc2lin1_files/cl-bullet.gif" height="8" width="2"></td><td><a href="#TYPES" class="left-nav-child">Examples of processes and threads</a></td></tr><tr class="left-nav-child-highlight"><td><img alt="" src="l-ipc2lin1_files/cl-bullet.gif" height="8" width="2"></td><td><a href="#N106D8" class="left-nav-child">Next in the series</a></td></tr><tr class="left-nav-child-highlight"><td><img alt="" src="l-ipc2lin1_files/cl-bullet.gif" height="8" width="2"></td><td><a href="#resources" class="left-nav-child">Resources</a></td></tr><tr class="left-nav-child-highlight"><td><img alt="" src="l-ipc2lin1_files/cl-bullet.gif" height="8" width="2"></td><td><a href="#author" class="left-nav-child">About the authors</a></td></tr><tr class="left-nav-child-highlight"><td><img alt="" src="l-ipc2lin1_files/cl-bullet.gif" height="8" width="2"></td><td><a href="#rate" class="left-nav-child">Rate this page</a></td></tr><tr class="left-nav-last"><td width="14"><img class="display-img" alt="" src="l-ipc2lin1_files/c.gif" height="1" width="14"></td><td width="136"><img class="display-img" alt="" src="l-ipc2lin1_files/left-nav-corner.gif" height="19" width="136"></td></tr></tbody></table><br><table border="0" cellpadding="0" cellspacing="0" width="150"><tbody><tr><td class="related" colspan="2"><b class="related">Related links</b></td></tr><tr class="rlinks"><td><img alt="" src="l-ipc2lin1_files/rl-bullet.gif" height="8" width="2"></td><td><a class="rlinks" href="http://www.ibm.com/developerworks/views/linux/library.jsp">Linux technical library</a></td></tr><!--START RESERVED FOR FUTURE USE INCLUDE FILES--><!-- No content currently --><!--END RESERVED FOR FUTURE USE INCLUDE FILES--><tr><td width="14"><img class="display-img" alt="" src="l-ipc2lin1_files/c.gif" height="1" width="14"></td><td width="136"><img class="display-img" alt="" src="l-ipc2lin1_files/c.gif" height="19" width="136"></td></tr></tbody></table><!--START RESERVED FOR FUTURE USE INCLUDE FILES--><!-- Next Steps Area:  Start -->
+<!-- Call Next Steps Servlet -->
+<script language="JavaScript" type="text/javascript">
+<!--
+/*
+ * ajaxInclude makes a call to the url and render the results in the div tag specified in divId
+ */
+function ajaxInclude(url, divId) { 
+ var req = newXMLHttpRequest(); 
+ if (req) { 
+   req.onreadystatechange = getReadyStateHandler(req, 
+	function (result) {  
+           var contents = document.getElementById(divId);  
+           if (result != null && result.length > 0 && contents != null) {
+	     contents.innerHTML = result;  
+           }
+        }); 
+   req.open("GET", url, true);
+   req.send("");
+ }
+}
+//-->
+</script>
+
+<!-- Display Next Steps Result -->
+<div id="nextsteps"></div>
+
+<!-- Initiate Next Steps Call -->
+<script language="JavaScript" type="text/javascript">
+<!-- 
+ ajaxInclude("/developerworks/niagara/jsp/getNiagaraContent.jsp?url="+window.location.href,"nextsteps");
+//-->
+</script>
+<!-- Next Steps Area:  End --><!--END RESERVED FOR FUTURE USE INCLUDE FILES--></td><!--LEFTNAV_END--><td width="100%"><table id="content-table" border="0" cellpadding="0" cellspacing="0" width="100%"><tbody><tr valign="top"><td width="100%"><table border="0" cellpadding="0" cellspacing="0" width="100%"><tbody><tr><td><a name="main"><img alt="skip to main content" src="l-ipc2lin1_files/c.gif" border="0" height="1" width="592"></a></td></tr></tbody></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tbody><tr valign="top"><td height="18" width="10"><img alt="" src="l-ipc2lin1_files/c.gif" height="18" width="10"></td><td width="100%"><img alt="" src="l-ipc2lin1_files/c.gif" height="6" width="1"><br><a href="http://www.ibm.com/developerworks/" class="bctl">developerWorks</a><span class="bct">&nbsp;&nbsp;&gt;&nbsp;&nbsp;</span><a class="bctl" href="http://www.ibm.com/developerworks/linux/">Linux</a><span class="bct">&nbsp;&nbsp;&gt;</span><img alt="" src="l-ipc2lin1_files/c.gif" height="1" width="1"><br><h1><span style="color: rgb(153, 153, 153);">Port Windows IPC apps to Linux, Part 1: </span>Processes and threads</h1><p id="subtitle"><em>A mapping guide for complex, multithreaded, multiprocess applications</em></p><img alt="" src="l-ipc2lin1_files/c.gif" class="display-img" height="6" width="1"></td><td class="no-print" width="192"><a href="http://www.ibm.com/developerworks/"><img alt="developerWorks" src="l-ipc2lin1_files/dw.gif" border="0" height="18" width="192"></a></td></tr></tbody></table></td></tr></tbody></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tbody><tr valign="top"><td width="10"><img alt="" src="l-ipc2lin1_files/c.gif" height="1" width="10"></td><td width="100%"><table class="no-print" align="right" border="0" cellpadding="0" cellspacing="0" width="160"><tbody><tr><td width="10"><img alt="" src="l-ipc2lin1_files/c.gif" height="1" width="10"></td><td><table border="0" cellpadding="0" cellspacing="0" width="150"><tbody><tr><td class="v14-header-1-small">Document options</td></tr></tbody></table><table class="v14-gray-table-border" border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="no-padding" width="150"><noscript></noscript><noscript></noscript><table border="0" cellpadding="0" cellspacing="0" width="143"><script language="JavaScript" type="text/javascript">
+<!--
+document.write('<tr valign="top"><td width="8"><img src="//www.ibm.com/i/c.gif" width="8" height="1" alt=""/></td><td width="16"><img alt="Set printer orientation to landscape mode" height="16" src="//www.ibm.com/i/v14/icons/printer.gif" width="16" vspace="3" /></td><td width="122"><p><b><a class="smallplainlink" href="javascript:print()">Print this page</a></b></p></td></tr>');
+//-->
+</script>
+<script language="JavaScript" type="text/javascript">
+<!--
+document.write('<tr valign="top"><td width="8"><img src="//www.ibm.com/i/c.gif" width="8" height="1" alt=""/></td><td width="16"><img src="//www.ibm.com/i/v14/icons/em.gif" height="16" width="16" vspace="3" alt="Email this page" /></td><td width="122"><p><a class="smallplainlink" href="javascript:void newWindow()"><b>E-mail this page</b></a></p></td></tr>');
+//-->
+</script><tbody><tr valign="top"><td width="8"><img alt="" src="l-ipc2lin1_files/c.gif" height="1" width="8"></td><td width="16"><img alt="" src="l-ipc2lin1_files/c.gif" height="16" width="16"></td><td class="small" width="122"><p><span class="ast">Document options requiring JavaScript are not displayed</span></p></td></tr></tbody></table></td></tr></tbody></table><!--START RESERVED FOR FUTURE USE INCLUDE FILES--><!-- 04/04/07 refreshed by gem, per MOC --> 
+
+<br><table border="0" cellpadding="0" cellspacing="0" width="150"><tbody><tr><td class="v14-header-2-small">Congratulations!</td></tr></tbody></table><table class="v14-gray-table-border" border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="no-padding" width="150"><table border="0" cellpadding="0" cellspacing="0" width="143"><tbody><tr valign="top"><td width="8"><img src="l-ipc2lin1_files/c.gif" alt="" height="1" width="8"></td><td><img src="l-ipc2lin1_files/fw_bold.gif" alt="" border="0" height="16" vspace="3" width="16"></td><td width="125"><p><a href="http://www-03.ibm.com/developerworks/blogs/page/moc?entry=dw_wins_jolt_hall_of" class="smallplainlink">developerWorks wins Jolt Hall of Fame award
+</a>
+</p></td></tr></tbody></table></td></tr></tbody></table><!--END RESERVED FOR FUTURE USE INCLUDE FILES--><br><table border="0" cellpadding="0" cellspacing="0" width="150"><tbody><tr><td class="v14-header-2-small">Rate this page</td></tr></tbody></table><table class="v14-gray-table-border" border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="no-padding" width="150"><table border="0" cellpadding="0" cellspacing="0" width="143"><tbody><tr valign="top"><td width="8"><img alt="" src="l-ipc2lin1_files/c.gif" height="1" width="8"></td><td><img alt="" src="l-ipc2lin1_files/d_bold.gif" border="0" height="16" vspace="3" width="16"></td><td width="125"><p><a href="#rate" class="smallplainlink"><b>Help us improve this content</b></a></p></td></tr></tbody></table></td></tr></tbody></table><br></td></tr></tbody></table><p>Level: Advanced</p><p><a href="#author">Srinivasan Muthuswamy</a> (<a href="mailto:smuthusw@in.ibm.com?subject=Processes%20and%20threads">smuthusw@in.ibm.com</a>), Software Engineer, IBM Global Services Group<br><a href="#author">Kavitha Varadarajan</a> (<a href="mailto:vkavitha@in.ibm.com?subject=Processes%20and%20threads">vkavitha@in.ibm.com</a>), Software Engineer, IBM India Software Lab<br></p><p> 14 Apr  2005</p><blockquote>The
+wave of migration to open source in business has the potential to cause
+a tremendous porting traffic jam as developers move the pervasive
+Windows® applications to the Linux platform™. In this <a href="http://www-128.ibm.com/developerworks/views/linux/libraryview.jsp?search_by=port+windows+ipc+apps+linux">three-part series</a>,
+get a mapping guide, complete with examples, to ease your transition
+from Windows to Linux. Part 1 introduces processes and threads.</blockquote><!--START RESERVED FOR FUTURE USE INCLUDE FILES--><script language="JavaScript" type="text/javascript">
+<!--
+if (document.referrer&&document.referrer!="") { 
+   // document.write(document.referrer);
+   var q = document.referrer;
+   var engine = q;
+   var isG = engine.search(/google\.com/i);
+   var searchTerms;
+   //var searchTermsForDisplay;
+   if (isG != -1) { 
+	   var i = q.search(/q=/);
+	   var q2 = q.substring(i+2);
+	   var j = q2.search(/&/);
+	   j = (j == -1)?q2.length:j;
+	   searchTerms = q.substring(i+2,i+2+j);
+	   if (searchTerms.length != 0) {
+	       searchQuery(searchTerms);
+	       document.write("<div id=\"contents\"></div>");
+	   }
+   } 
+}
+//-->
+</script><!--END RESERVED FOR FUTURE USE INCLUDE FILES-->
+
+<p>
+Today many global businesses and services are going open source -- all
+the major corporate players in the industry are pushing for it. This
+trend has spurred a major migration exercise in which lots of existing
+products maintained for various platforms (Windows, OS2, Solaris, etc.)
+will be ported to open source Linux platforms.
+</p>
+
+
+<p>Many applications are designed without considering the need to port
+them to Linux. This has the potential to be a porting nightmare, but it
+doesn't have to be. The goal of this series of articles is to help you
+migrate complex applications involving IPC and threading primitives
+from Windows to Linux. We share our experiences in moving these
+critical Windows IPC applications, applications that include
+multithreaded apps that require thread synchronization and multiprocess
+apps that require interprocess synchronization.
+</p>
+
+<p>In short, think of this series as a mapping document -- it provides
+mapping of various Windows calls to Linux calls related to threads,
+processes, and interprocess communication elements (mutexes,
+semaphores, etc.). We've divided the mapping into three chunks:
+</p>
+
+<ul>
+<li>Part 1 deals with processes and threads.</li>
+<li>Part 2 handles semaphores and events.</li>
+<li>Part 3 covers mutexes, critical sections, and wait functions.</li>
+</ul>
+
+<p><a name="PROCESS"><span class="atitle">Processes</span></a></p>
+
+<p>Basic execution units in Windows and Linux are different. In
+Windows, the thread is the basic execution unit, and the process is a
+container that holds this thread.</p>
+
+<p>
+In Linux, the basic execution unit is the process. The functionalities
+offered by Windows APIs can be mapped directly to Linux system calls:
+</p>
+
+<p><a name="N1009B"><span class="smalltitle">Table 1. Process mapping</span></a></p>
+<p>
+      </p><table border="0" cellpadding="3" cellspacing="1" width="60%"><tbody><tr valign="top"><td><b>Windows</b></td><td><b>Linux</b></td><td><b>Classification</b></td></tr><tr valign="top"><td>
+<code>CreateProcess()</code><br>
+<code>CreateProcessAsUser()</code>
+</td><td>
+<code>fork()</code><br>
+<code>setuid()</code><br>
+<code>exec()</code><br>
+</td><td>
+<code>Mappable</code>
+</td></tr><tr valign="top"><td>
+<code>TerminateProcess()</code>
+</td><td>
+<code>kill()</code>
+</td><td>
+<code>Mappable</code>
+</td></tr><tr valign="top"><td>
+<code>SetThreadpriority()</code><br>
+<code>GetThreadPriority()</code>
+</td><td>
+<code>Setpriority()</code><br>
+<code>getPriority()</code>
+</td><td>
+<code>Mappable</code>
+</td></tr><tr valign="top"><td>
+<code>GetCurrentProcessID()</code>
+</td><td>
+<code>getpid()</code>
+</td><td>
+<code>Mappable</code>
+</td></tr><tr valign="top"><td>
+<code>Exitprocess()</code>
+</td><td>
+<code>exit()</code>
+</td><td>
+<code>Mappable</code>
+</td></tr><tr valign="top"><td>
+<code>Waitforsingleobject()</code><br>
+<code>Waitformultipleobject()</code><br>
+<code>GetExitCodeProcess()</code>
+</td><td>
+<code>waitpid()</code><br>
+<code>Using Sys V semaphores, Waitforsingleobject/multipleobject</code><br>
+<code>can be implemented</code>
+</td><td>
+<code>Context specific</code>
+</td></tr><tr valign="top"><td>
+<code>GetEnvironmentVariable</code><br>
+<code>SetEnvironmentVariable</code>
+</td><td>
+<code>getenv()</code><br>
+<code>setenv()</code>
+</td><td>
+<code>Mappable</code>
+</td></tr></tbody></table>
+
+
+<p>The Classification column (which explains classification constructs
+used in this article) indicates whether the Windows construct is <i>mappable</i> or <i>context specific</i>:
+</p>
+
+<ul>
+<li>
+If mappable, the Windows construct can be mapped to the specified Linux
+construct(s) by closely examining the types, parameters, return codes,
+and such. Both the Windows and Linux constructs provide similar
+functionality.
+</li>
+<li>If context specific, the given Windows construct may or may not
+have an equivalent construct in Linux, or Linux may have more than one
+construct that provides similar functionality. In either case, the
+decision to use a specific Linux construct(s) depends on the
+application context.
+</li>
+</ul>
+
+<p><a name="P1"><span class="smalltitle">Creating a process</span></a></p>
+
+<p>
+In Windows, you can use <code>CreateProcess()</code> to create a new process. The <code>CreateProcess()</code> function creates a new process and its main thread as follows:
+</p>
+
+<table bgcolor="#eeeeee" border="1" cellpadding="5" cellspacing="0" width="100%"><tbody><tr><td><pre><code class="section">
+BOOL CreateProcess(
+ LPCTSTR lpApplicationName,                  // name of executable module
+  LPTSTR lpCommandLine,                      // command line string
+  LPSECURITY_ATTRIBUTES lpProcessAttributes, // SD
+  LPSECURITY_ATTRIBUTES lpThreadAttributes,  // SD
+  BOOL bInheritHandles,                      // handle inheritance option
+  DWORD dwCreationFlags,                     // creation flags
+  LPVOID lpEnvironment,                      // new environment block
+  LPCTSTR lpCurrentDirectory,                // current directory name
+  LPSTARTUPINFO lpStartupInfo,               // startup information
+  LPPROCESS_INFORMATION lpProcessInformation // process information
+)
+</code></pre></td></tr></tbody></table><br>
+
+<p>
+<code>bInheritHandles</code> determines whether the handles have to be inherited to the child from the parent. <code>lpApplicationName</code> and <code>lpCommandLine</code> give the name and path of the process to be started. <code>lpEnvironment</code> defines the environment that has to be visible for the process.
+</p>
+
+<p>
+In Linux, the <code>exec</code>* family of functions replace the current process image with a new process image (as shown in the following):
+</p>
+
+<table bgcolor="#eeeeee" border="1" cellpadding="5" cellspacing="0" width="100%"><tbody><tr><td><pre><code class="section">
+int execl(const char *path, const char *arg, ...);
+int execlp(const char *file, const char *arg, ...);
+int  execle(const  char  *path,  const  char  *arg  , ..., char * const envp[]);
+int execv(const char *path, char *const argv[]);
+int execvp(const char *file, char *const argv[]);
+</code></pre></td></tr></tbody></table><br>
+
+<p>
+These versions of <code>exec</code>* are just various calling interfaces for core function <code>execve()</code>: <code>int  execve(const  char  *filename, char  *const  argv [], char *const envp[])</code>. Here <code>argv</code> is the pointer containing arguments <code>list</code> and <code>envp</code> is the pointer containing list of environment variables which are basically key=value pairs.
+</p>
+
+<p>
+This must be used along with the <code>fork()</code> command so both the parent and child processes are running: <code>pid_t fork(void)</code>. <code>fork()</code>
+creates a child process that differs from the parent process only in
+its PID and PPID; in fact, the resource utilizations are set to 0.
+</p>
+
+<p>
+By default, the <code>exec()</code> function inherits the group and
+user IDs from the parent process, which makes it dependent on the
+parent process. This can be changed by:
+</p>
+
+<ul>
+<li>Setting the <code>set-uid</code> and <code>set-gid</code> bit on the program file pointed</li>
+<li>Using the <code>setpgid()</code> and <code>setuid()</code> system call</li>
+</ul>
+
+<p>
+The <code>CreateProcessAsUser()</code> function is similar to <code>CreateProcess()</code> except that the new process runs in the security context of the user represented by the <code>hToken</code> parameter. There is no one-to-one equivalent for this function in Linux, but it can be replicated using the following logic:
+</p>
+
+<ul>
+<li><code>fork()</code> to create a new child process with new PID</li>
+<li><code>setuid()</code> to switch to the new PID</li>
+<li><code>exec()</code> to change the existing process image with the process to execute</li>
+</ul>
+
+<p><a name="P2"><span class="smalltitle">Terminating a process</span></a></p>
+
+<p>
+To forcibly terminate a running process, you can use <code>TerminateProcess()</code>  in Windows.
+</p>
+
+<table bgcolor="#eeeeee" border="1" cellpadding="5" cellspacing="0" width="100%"><tbody><tr><td><pre><code class="section">
+BOOL TerminateProcess(
+  HANDLE hProcess, // handle to the process
+  UINT uExitCode   // exit code for the process
+);
+</code></pre></td></tr></tbody></table><br>
+
+<p>
+This function terminates the running process and all the associated threads. Use this function only in extreme scenarios.
+</p>
+
+<p>
+In Linux, you can use <code>kill()</code> to forcibly kill a process: <code>int kill(pid_t pid, int sig)</code>. This system call terminates the process of id PID. You can also use it to signal to any group or process.
+</p>
+
+<p><a name="P3"><span class="smalltitle">Using wait functions</span></a></p>
+
+<p>In cases when the child process is dependent on the parent process,
+you can use wait functions in parent process to wait for the child
+process termination. In Windows, you can use the <code>WaitForSingleObject()</code> function call to achieve this.
+</p>
+
+<p>
+You can use the <code>WaitForMultipleObject()</code> function to wait for more than one object.
+</p>
+
+<table bgcolor="#eeeeee" border="1" cellpadding="5" cellspacing="0" width="100%"><tbody><tr><td><pre><code class="section">
+DWORD WaitForMultipleObjects(
+  DWORD nCount,             // number of handles in array
+  CONST HANDLE *lpHandles,  // object-handle array
+  BOOL bWaitAll,            // wait option
+  DWORD dwMilliseconds      // time-out interval
+);
+</code></pre></td></tr></tbody></table><br>
+
+<p>
+You can populate the object-handle array with the number of objects to wait for. Based on the <code>bWaitALL</code> option, you can either wait for all the objects to be signaled or wait for any of them to be signaled.
+</p>
+
+<p>
+In both of these functions, if you want to wait for a finite time, you
+can specify the time interval in the second parameter. If you want to
+wait infinitely, use <code>INFINITE</code> as the value for <code>dwMilliseconds</code>. Setting <code>dwMilliseconds</code> to 0 will just test the state of the object and return.
+</p>
+
+<p>
+You can use <code>waitpid()</code> in Linux if you want to just wait infinitely for the process to die. In Linux, there is no way to do a timed wait on a <code>waitpid()</code> call.
+</p>
+
+<p>
+In this code: <code>pid_t waitpid(pid_t pid, int *status, int options)</code>, <code>waitpid()</code>
+infinitely waits for the child process to terminate. Wait functions, in
+both Windows and Linux, suspend the execution of the current process
+until it completes, but in Windows there is an option to exit by
+specifying a time value. You can implement a timed wait or NO WAIT
+functionality similar to <code>WaitForSingleObject()</code> and <code>WaitForMultipleObject()</code> using System V semaphores, which is discussed in Part 2 of this series. Part 3 of this series further discusses wait functions.</p>
+
+<p><a name="P4"><span class="smalltitle">Exiting a process</span></a></p>
+
+<p>
+Exiting a process means a graceful exiting of the process with a proper cleanup. In Windows, you use <code>ExitProcess()</code> to perform this operation.
+</p>
+
+<table bgcolor="#eeeeee" border="1" cellpadding="5" cellspacing="0" width="100%"><tbody><tr><td><pre><code class="section">
+VOID ExitProcess(
+  UINT uExitCode   // exit code for all threads
+);
+</code></pre></td></tr></tbody></table><br>
+
+<p>
+<code>ExitProcess()</code> is the preferred method of ending a process.
+This function provides a clean process shutdown. This includes calling
+the entry-point function of all attached dynamic-link libraries (DLLs)
+with a value indicating that the process is detaching from the DLL.
+</p>
+
+<p>
+The Linux equivalent for <code>ExitProcess()</code> is <code>exit()</code>: <code>void exit(int status);</code>.
+</p>
+
+<p>
+The <code>exit()</code> function causes normal program termination
+and the value of status &amp;0377 is returned to the parent. The C
+standard specifies two definitions (<code>EXIT_SUCCESS</code> and <code>EXIT_FAILURE</code>) that can be passed to the status parameter to indicate successful or unsuccessful termination.
+</p>
+
+<p><a name="P5"><span class="smalltitle">Environment variables</span></a></p>
+
+<p>
+Each process has an environment block associated with it, basically
+name=value pairs that specify various environments the process can
+access. Even though we can specify the environment when we create the
+process, there are also specific functions to set and obtain
+environment variables after the process is created.
+</p>
+
+<p>
+In Windows, you can use <code>GetEnvironmentVariable()</code> and <code>SetEnvironmentVariable()</code> to get and set the environment variables.
+</p>
+
+<table bgcolor="#eeeeee" border="1" cellpadding="5" cellspacing="0" width="100%"><tbody><tr><td><pre><code class="section">
+DWORD GetEnvironmentVariable(
+  LPCTSTR lpName,  // environment variable name
+  LPTSTR lpBuffer, // buffer for variable value
+  DWORD nSize      // size of buffer
+);
+</code></pre></td></tr></tbody></table><br>
+
+<p>This function returns the size of the value buffer on success and 0
+if the name specified is not a valid environment variable name. The <code>SetEnvironmentVariable()</code> function sets the contents of the specified environment variable for the current process.
+</p>
+
+<table bgcolor="#eeeeee" border="1" cellpadding="5" cellspacing="0" width="100%"><tbody><tr><td><pre><code class="section">
+BOOL SetEnvironmentVariable(
+  LPCTSTR lpName,  // environment variable name
+  LPCTSTR lpValue  // new value for variable
+);
+</code></pre></td></tr></tbody></table><br>
+
+<p>
+If the function succeeds, the return value is non-zero. If the function fails, the return value is zero.
+</p>
+
+<p>
+In Linux, <code>getenv()</code> and <code>setenv()</code> system calls provide the equivalent functionality.
+</p>
+
+<table bgcolor="#eeeeee" border="1" cellpadding="5" cellspacing="0" width="100%"><tbody><tr><td><pre><code class="section">
+char *getenv(const char *name);
+int setenv(const char *name, const char *value, int overwrite);
+</code></pre></td></tr></tbody></table><br>
+
+<p>
+The <code>getenv()</code> function searches the environment list
+for a string that matches the string pointed to by name. This function
+returns a pointer to the value in the environment or NULL if there is
+no match. The <code>setenv()</code> function adds the variable name to
+the environment with the value if the name does not already exist. If
+the name does exist in the environment, then its value is changed to <code>value</code> if overwrite is non-zero. If overwrite is zero, then the value of <code>name</code> is not changed. The <code>setenv()</code> function returns zero on success or -1 if there was insufficient space in the environment.
+</p>
+
+<p><a name="P6"><span class="smalltitle">Examples</span></a></p>
+
+<p>
+The following examples illustrate what we've discussed in this section.
+</p>
+
+<br><a name="listing1"><b>Listing 1. Windows process code</b></a><br><table bgcolor="#eeeeee" border="1" cellpadding="5" cellspacing="0" width="100%"><tbody><tr><td><pre><code class="section">
+
+//Sample Application that explain process concepts
+
+//Parameters Declaration/Definition
+
+int TimetoWait;
+STARTUPINFO si;
+PROCESS_INFORMATION pi;
+LPTSTR lpszCurrValue,LPTSTR lpszVariable;
+TCHAR tchBuf[BUFSIZE];
+BOOL fSuccess;
+
+if(argc &gt; 2)
+{
+    printf("InvalidArgument");
+    ExitProcess(1); //Failure
+}
+
+//Get and display an  environment variable PATH
+lpszCurrValue = ((GetEnvironmentVariable("PATH",tchBuf, BUFSIZE) &gt; 0) ? tchBuf : NULL);
+lpszVariable = lpszCurrValue;
+
+//Display the environment variable
+while (*lpszVariable)
+    putchar(*lpszVariable++);
+putchar('\n');
+
+//Initialise si and pi
+ZeroMemory( &amp;si, sizeof(si) );
+si.cb = sizeof(si);
+ZeroMemory( &amp;pi, sizeof(pi) );
+
+//Create a childProcess
+if( !CreateProcess( NULL,             // No module name (use command line).
+                    "SomeProcess",    // Command line.
+                    NULL,             // Process handle not inheritable.
+                    NULL,             // Thread handle not inheritable.
+                    FALSE,            // Set handle inheritance to FALSE.
+                    0,                // No creation flags.
+                    NULL,             // Use parent's environment block.
+                    NULL,             // Use parent's starting directory.
+                    &amp;si,              // Pointer to STARTUPINFO structure.
+                    &amp;pi )             // Pointer to PROCESS_INFORMATION structure.
+                        )
+{
+    printf( "CreateProcess failed." );
+}
+
+// Wait until child process exits.
+if(argc == 2)
+{
+    TIMEOUT = atoi(argv[1]);
+    ret = WaitForSingleObject( pi.hProcess, TIMEOUT );
+    if(ret == WAIT_TIMEOUT)
+    {
+        TerminateProcess(pi.hProcess);
+    }
+}
+else
+{
+    WaitForSingleObject( pi.hProcess, INFINITE );
+    ...
+}
+    ExitProcess(0); //Success
+</code></pre></td></tr></tbody></table><br>
+
+<p>
+
+<br><a name="listing2"><b>Listing 2. Equivalent Linux process code</b></a><br></p><table bgcolor="#eeeeee" border="1" cellpadding="5" cellspacing="0" width="100%"><tbody><tr><td><pre><code class="section">
+
+#include &lt;stdlib.h&gt;
+
+int main(int argc,char *argv[])
+{
+    //Parameters Declaration/Definition
+
+
+    char PathName[255];
+    char *Argptr[20];
+    int rc;
+    char *EnvValue,*lpszVariable;
+
+    if(argc &gt; 1)
+    {
+        printf(" Wrong parameters !!");
+        exit(EXIT_FAILURE);
+    }
+    //Get and display an  environment variable PATH
+    EnvValue = getenv("PATH");
+    if(EnvValue == NULL)
+    {
+        printf("Invalid environment variable passed as param !!");
+    }else
+    {
+        lpszVariable = EnvValue;
+        while (*lpszVariable)
+            putchar(*lpszVariable++);
+        putchar('\n');
+    }
+    rc = fork(); //variable rc's value on success would be process ID in the parent
+                 //process, and 0 in the child's thread of execution.
+    switch(rc)
+    {
+        case -1:
+            printf("Fork() function failed !!");
+            ret = -1;
+            break;
+        case 0:
+            printf("Child process...");
+            setpgid(0,0);  //Change the parent grp ID to 0
+
+
+        ret = execv(PathName,Argptr); // there are other flavours of exec available,
+                                      // u can use any of them based on the arguments.
+        if(ret == -1)
+        {
+            kill(getpid(),0);
+        }
+        break;
+         default:
+             // infinitely waits for child process to die
+             Waitpid(rc,&amp;status,WNOHANG);
+             //Note RC will have PID returned since this is parent process.
+
+             break;
+    }
+    exit(EXIT_SUCCESS);
+}
+</code></pre></td></tr></tbody></table><br>
+
+<br><table border="0" cellpadding="0" cellspacing="0" width="100%"><tbody><tr><td><img src="l-ipc2lin1_files/blue_rule.gif" alt="" height="1" width="100%"></td></tr></tbody></table><table class="no-print" align="right" cellpadding="0" cellspacing="0"><tbody><tr align="right"><td><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td valign="middle"><img src="l-ipc2lin1_files/u_bold.gif" alt="" border="0" height="16" width="16"><br></td><td align="right" valign="top"><a href="#main" class="fbox"><b>Back to top</b></a></td></tr></tbody></table></td></tr></tbody></table><br><br><p><a name="THREAD"><span class="atitle">Threads</span></a></p>
+
+<p>
+In Windows, the thread is the basic unit of execution. One or more
+threads run in the context of the process. The scheduling code is
+implemented in the kernel. There is no single "scheduler" module or
+routine.
+</p>
+
+<p>The Linux kernel uses a process model rather than a threading model.
+The Linux kernel provides a lightweight process framework for creating
+threads; the actual thread implementation is in the user space. There
+are various threading libraries available (LinuxThreads, NGPT, NPTL,
+and so on) in Linux. The information in this article is based on the
+LinuxThreads library, but the information here is also applicable to
+Red Hat's Native POSIX Threading Library (NPTL).
+</p>
+
+<p>This section describes threading in Windows and in Linux. It covers
+the calls for creating a thread, setting its attributes, and changing
+its priority.
+</p>
+
+<p><a name="N10375"><span class="smalltitle">Table 2. Thread mapping</span></a></p>
+<p>
+      </p><table border="0" cellpadding="3" cellspacing="1" width="60%"><tbody><tr valign="top"><td>
+<b>Windows</b>
+</td><td>
+<b>Linux</b>
+</td><td>
+<b>Classification</b>
+</td></tr><tr valign="top"><td>
+<code>CreateThread</code>
+</td><td>
+<code>pthread_create</code><br>
+<code>pthread_attr_init</code><br>
+<code>pthread_attr_setstacksize</code><br>
+<code>pthread_attr_destroy</code>
+</td><td>
+<code>Mappable</code>
+</td></tr><tr valign="top"><td>
+<code>ThreadExit</code>
+</td><td>
+<code>pthread_exit</code>
+</td><td>
+<code>Mappable</code>
+</td></tr><tr valign="top"><td>
+<code>WaitForSingleObject</code>
+</td><td>
+<code>pthread_join</code><br>
+<code>pthread_attr_setdetachstate</code><br>
+<code>pthread_detach</code>
+</td><td>
+<code>Mappable</code>
+</td></tr><tr valign="top"><td>
+<code>SetPriorityClass</code><br>
+<code>SetThreadPriority</code>
+</td><td>
+<code>setpriority</code><br>
+<code>sched_setscheduler</code><br>
+<code>sched_setparam</code><br>
+<br>
+<code>pthread_setschedparam</code><br>
+<code>pthread_setschedpolicy</code><br>
+<code>pthread_attr_setschedparam</code><br>
+<code>pthread_attr_setschedpolicy</code>
+</td><td>
+<code>Context Specific</code>
+</td></tr></tbody></table>
+
+
+<p><a name="T1"><span class="smalltitle">Creating a thread</span></a></p>
+
+<p>
+In Windows, you can use <code>CreateThread()</code> to create a thread to execute under the virtual address space of the calling process.
+</p>
+
+<table bgcolor="#eeeeee" border="1" cellpadding="5" cellspacing="0" width="100%"><tbody><tr><td><pre><code class="section">
+HANDLE CreateThread(
+  LPSECURITY_ATTRIBUTES lpThreadAttributes,     // SD
+  SIZE_T dwStackSize,                           // initial stack size
+  LPTHREAD_START_ROUTINE lpStartAddress,        // thread function
+  LPVOID lpParameter,                           // thread argument
+  DWORD dwCreationFlags,                        // creation option
+  LPDWORD lpThreadId                            // thread identifier
+);
+</code></pre></td></tr></tbody></table><br>
+
+<p>
+<code>lpThreadAttributes</code> is a pointer to the thread attributes that determines whether the thread handle can be inherited by the child process.
+</p>
+
+<p>
+Linux uses the pthread library call <code>pthread_create()</code> to spawn a thread:
+</p>
+
+<table bgcolor="#eeeeee" border="1" cellpadding="5" cellspacing="0" width="100%"><tbody><tr><td><pre><code class="section">
+int pthread_create (pthread_t *thread_id, pthread_attr_t *threadAttr,
+                    void * (*start_address)(void *), void * arg);
+</code></pre></td></tr></tbody></table><br>
+
+<p>
+<b>Note:</b> In Windows, the number of threads a process can create is
+limited by the available virtual memory. By default, every thread has
+one megabyte of stack space. Therefore, you can create at most 2,028
+threads. If you reduce the default stack size, you can create more
+threads. In Linux, the maximum number of process per user can be found
+using <code>ULIMIT -a</code> (limits for all users), and you can update it by using <code>ULIMIT -u</code>,
+but it would be valid only for that logon. The header files under
+/usr/Include/limit.h and ulimit.h define these constants. You can
+modify them and recompile kernel to hv permanent effect. For POSIX
+threadlimits, the <code>THREAD_THREADS_MAX</code> macro defines the maximum limit and is defined in local_lim.h.
+</p>
+
+
+<p><a name="T2"><span class="smalltitle">Specifying the thread function</span></a></p>
+
+<p>
+The parameter <code>lpStartAddress</code> in the <code>CreateThread()</code> is the address of the function that the newly created thread will execute.
+</p>
+
+<p>
+The parameter <code>start_address</code> for the Linux library call <code>pthread_create()</code> is the address of the function that the newly created thread will execute.
+</p>
+
+<p><a name="T3"><span class="smalltitle">Parameter passing to the thread function</span></a></p>
+
+<p>
+In Windows, the parameter <code>lpParameter</code> for the system call <code>CreateThread()</code>
+specifies the parameter to be passed to the newly created thread. It
+specifies the address of the data item to be passed to the new thread.
+</p>
+
+<p>
+In Linux, the parameter <code>arg</code> for the library call <code>pthread_create()</code> specifies the parameter to be passed to the new thread.
+</p>
+
+<p><a name="T4"><span class="smalltitle">Setting the stack size</span></a></p>
+
+<p>
+In Windows, the parameter <code>dwStackSize</code> for the <code>CreateThread()</code>
+is the size of stack in bytes that is to be allocated for the new
+thread. The stack size should be a non-zero multiple of 4 KB and a
+minimum of 8 KB.
+</p>
+
+<p>
+In Linux, the stack size is set in the pthread attributes object; that is, the parameter <code>threadAttr</code> of type <code>pthread_attr_t</code> is passed to the library call <code>pthread_create()</code>. This object needs to be initialized by the call <code>pthread_attr_init()</code> before any attributes are set. The attribute object is destroyed using the call <code>pthread_attr_destroy()</code>:
+</p>
+
+<table bgcolor="#eeeeee" border="1" cellpadding="5" cellspacing="0" width="100%"><tbody><tr><td><pre><code class="section">
+int pthread_attr_init(pthread_attr_t *threadAttr);
+int pthread_attr_destroy(pthread_attr_t *threadAttr);
+</code></pre></td></tr></tbody></table><br>
+
+<p>
+Note that all of the <code>pthread_attr_setxxxx</code> calls achieve similar functionality to the <code>pthread_xxxx</code> calls (if available) except that you can use <code>pthread_attr_xxxx</code> only before thread creation to update the attribute object that will be passed as a parameter to <code>pthread_create</code>. Meanwhile, you can use <code>pthread_xxxx</code> calls at any time after the thread has been created.
+</p>
+
+<p>
+The stack size is set using the call <code>pthread_attr_setstacksize()</code>: <code>int pthread_attr_setstacksize(pthread_attr_t *threadAttr, int stack_size);</code>.
+</p>
+
+<p><a name="T5"><span class="smalltitle">Exiting a thread</span></a></p>
+
+<p>
+In Windows, the system call <code>ExitThread()</code> terminates the thread. The <code>dwExitCode</code> is the return value of the thread, and it can be retrieved from another thread by calling <code>GetExitCodeThread()</code>.
+</p>
+
+<table bgcolor="#eeeeee" border="1" cellpadding="5" cellspacing="0" width="100%"><tbody><tr><td><pre><code class="section">
+VOID ExitThread(
+  DWORD dwExitCode   // exit code for this thread
+);
+</code></pre></td></tr></tbody></table><br>
+
+<p>
+The Linux equivalent for this is the library call <code>pthread_exit()</code>. The <code>retval</code> is the return value of the thread, and you can retrieve it from another thread by calling <code>pthread_join()</code>: <code>int pthread_exit(void* retval);</code>.
+</p>
+
+<p><a name="T6"><span class="smalltitle">Thread states</span></a></p>
+
+<p>
+In Windows, there are no explicit thread states maintained with respect to thread termination. However, <code>WaitForSingleObject()</code> allows a thread to wait explicitly on the termination of a specific or non-specific thread within the process.
+</p>
+
+<p>In Linux, threads are by default created in joinable state. In
+joinable state, another thread can synchronize on the thread's
+termination and recover its termination code using the function <code>pthread_join()</code>. The thread resources of the joinable thread are released only after it is joined.
+</p>
+
+<p>
+Windows uses <code>WaitForSingleObject()</code> to wait for a thread to terminate:
+</p>
+
+<table bgcolor="#eeeeee" border="1" cellpadding="5" cellspacing="0" width="100%"><tbody><tr><td><pre><code class="section">
+DWORD WaitForSingleObject(
+  HANDLE hHandle,
+  DWORD dwMilliseconds
+);
+</code></pre></td></tr></tbody></table><br>
+
+<p>
+Where:
+</p>
+
+<ul>
+<li><code>hHandle</code> is the pointer to the thread handle.</li>
+<li><code>dwMilliseconds</code> is the time out value in milliseconds. If the value is set to INFINITE, then it blocks the calling thread/process indefinitely.</li>
+</ul>
+
+<p>
+Linux uses <code>pthread_join()</code> to do the same: <code>int pthread_join(pthread_t *thread, void **thread_return);</code>.</p>
+
+<p>
+In the detached state, the thread resources are immediately freed when it terminates. The detached state can be set by calling <code>pthread_attr_setdetachstate()</code> on the thread attribute object: <code>int pthread_attr_setdetachstate (pthread_attr_t *attr, int detachstate);</code>. A thread created in a joinable state can later be put into a detached state using the <code>pthread_detach()</code> call: <code>int pthread_detach (pthread_t id);</code>.
+</p>
+
+<p><a name="T7"><span class="smalltitle">Changing priority</span></a></p>
+
+<p>
+In Windows, the priority of the thread is determined by the priority
+class of its process and the priority level of the thread within the
+priority class of the process. In Linux, the thread itself is the unit
+of execution and has its own priority. It has no dependency on the
+priority of its process.
+</p>
+
+<p>
+In Windows, you can use <code>SetPriorityClass()</code> to set the priority class for the specified process:
+</p>
+
+<table bgcolor="#eeeeee" border="1" cellpadding="5" cellspacing="0" width="100%"><tbody><tr><td><pre><code class="section">
+BOOL SetPriorityClass(
+  HANDLE hProcess,         // handle to the process
+  DWORD dwPriorityClass    // Priority class
+);
+</code></pre></td></tr></tbody></table><br>
+
+<p>
+<code>dwPriorityClass</code> is the priority class of the process, and it is set to any of the following values:
+</p>
+
+<ul>
+<li><code>IDLE_PRIORITY_CLASS</code></li>
+<li><code>BELOW_NORMAL_PRIORITY_CLASS</code></li>
+<li><code>NORMAL_PRIORITY_CLASS</code></li>
+<li><code>ABOVE_NORMAL_PRIORITY_CLASS</code></li>
+<li><code>HIGH_PRIORITY_CLASS</code></li>
+<li><code>REALTIME_PRIORITY_CLASS</code></li>
+</ul>
+
+<p>
+Once the priority class of the process is set, <code>SetThreadPriority()</code> is used to set the priority level of the thread within the priority class of the process:
+</p>
+
+<table bgcolor="#eeeeee" border="1" cellpadding="5" cellspacing="0" width="100%"><tbody><tr><td><pre><code class="section">
+BOOL SetThreadPriority(
+  HANDLE hThread,
+  int nPriority
+);
+</code></pre></td></tr></tbody></table><br>
+
+<p>
+<code>nPriority</code> is the priority value of the thread, and it is set to one of the following values:
+</p>
+
+<ul>
+<li><code>THREAD_PRIORITY_ABOVE_NORMAL</code> sets the priority to 1 point above the priority class.</li>
+<li><code>THREAD_PRIORITY_BELOW_NORMAL</code> sets the priority to 1 point below the priority class.</li>
+<li><code>THREAD_PRIORITY_HIGHEST</code> sets the priority to 2 points above the priority class.</li>
+<li><code>THREAD_PRIORITY_IDLE</code> sets base priority to 1 for <code>IDLE_PRIORITY_CLASS</code>, <code>BELOW_NORMAL_PRIORITY_CLASS</code>, <code>NORMAL_PRIORITY_CLASS</code>, <code>ABOVE_NORMAL_PRIORITY_CLASS</code>, or <code>HIGH_PRIORITY_CLASS</code> processes, and sets base priority to 16 for <code>REALTIME_PRIORITY_CLASS</code> processes.</li>
+<li><code>THREAD_PRIORITY_LOWEST</code> sets the priority to 2 points below the priority class.</li>
+<li><code>THREAD_PRIORITY_NORMAL</code> sets to normal priority for the priority class.</li>
+<li><code>THREAD_PRIORITY_TIME_CRITICAL</code> sets the base priority to 15 for <code>IDLE_PRIORITY_CLASS</code>, <code>BELOW_NORMAL_PRIORITY_CLASS</code>, <code>NORMAL_PRIORITY_CLASS</code>, <code>ABOVE_NORMAL_PRIORITY_CLASS</code>, or <code>HIGH_PRIORITY_CLASS</code> processes, and sets base priority to 31 for <code>REALTIME_PRIORITY_CLASS</code>.</li>
+</ul>
+
+<br><table border="0" cellpadding="0" cellspacing="0" width="100%"><tbody><tr><td><img src="l-ipc2lin1_files/blue_rule.gif" alt="" height="1" width="100%"></td></tr></tbody></table><table class="no-print" align="right" cellpadding="0" cellspacing="0"><tbody><tr align="right"><td><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td valign="middle"><img src="l-ipc2lin1_files/u_bold.gif" alt="" border="0" height="16" width="16"><br></td><td align="right" valign="top"><a href="#main" class="fbox"><b>Back to top</b></a></td></tr></tbody></table></td></tr></tbody></table><br><br><p><a name="TYPES"><span class="atitle">Examples of processes and threads</span></a></p>
+
+<p>
+To wrap up this installment, let's look at some examples of the following types of processes and threads:
+</p>
+
+<ul>
+<li>Normal or regular processes and threads</li>
+<li>Time-critical and real-time processes and threads</li>
+</ul>
+
+<p><a name="Y1"><span class="smalltitle">Normal or regular processes/threads</span></a></p>
+
+<p>
+The Linux system call <code>setpriority()</code> is used to set or modify priority levels for normal processes and threads. The parameter scope is <code>PRIO_PROCESS</code>.
+Set id to 0 to change the current process (or thread) priority. Again,
+delta is the priority value -- this time in the range -20 to 20. Note
+also that in Linux, a lower delta value means a higher priority. So you
+set +20 for <code>IDLETIME</code> priority and 0 for <code>REGULAR</code> priority.
+</p>
+
+<p>
+In Windows, the priority range is from 1 (lower priority) to 15 (higher
+priority) for the regular threads. But in Linux, the priority range for
+normal non-real-time processes is from -20 (higher) to +20 (lower
+priority). This has to be mapped before being used: <code>int setpriority(int scope, int id, int delta);</code>.
+</p>
+
+<p><a name="Y2"><span class="smalltitle">Time-critical and real-time processes and threads</span></a></p>
+
+<p>
+You can use the Linux system call <code>sched_setscheduler()</code> to change the scheduling priority and policy of a running process: <code>int sched_setscheduler(pit_t pid, int policy, const struct sched_param *param);</code>.
+</p>
+
+<p>
+The parameter policy is the scheduling policy. The possible values for policy are <code>SCHED_OTHER</code> (for regular non-real-time scheduling), <code>SCHED_RR</code> (real-time round-robin policy), and <code>SCHED_FIFO</code> (real-time FIFO policy).
+</p>
+
+<p>
+Here, <code>param</code> is a pointer to a structure representing
+scheduling priority. It can range from 1 to 99 only for real-time
+policies. For others (normal non-real-time processes), it is zero.
+</p>
+
+<p>
+In Linux, for a known scheduling policy, it is also possible to change only the process priority by using the system call <code>sched_setparam</code>: <code>int sched_setparam(pit_t pid, const struct sched_param *param);</code>.
+</p>
+
+<p>
+The LinuxThreads library call <code>pthread_setschedparam</code> is the thread version of <code>sched_setscheduler</code> and is used to dynamically change the scheduling priority and policy for a running thread: <code>int pthread_setschedparam(pthread_t target_thread, int policy, const struct sched_param *param);</code>.
+</p>
+
+<p>
+The parameter <code>target_thread</code> indicates the thread whose priority is to be changed; <code>param</code> indicates the priority.
+</p>
+
+<p>
+The LinuxThreads library calls <code>pthread_attr_setschedpolicy</code>, and you can use <code>pthread_attr_setschedparam</code> to set the scheduling policy and the priority level to the thread attribute object before the thread is created:</p>
+
+<table bgcolor="#eeeeee" border="1" cellpadding="5" cellspacing="0" width="100%"><tbody><tr><td><pre><code class="section">
+int pthread_attr_setschedpolicy(pthread attr_t *threadAttr, int policy);
+
+int pthread_attr_setschedparam(pthread attr_t *threadAttr, const struct sched_param *param);
+</code></pre></td></tr></tbody></table><br>
+
+<p>In Windows, the priority range is from 16 (lower priority) to 31
+(higher priority) for the real-time threads. In Linux, the priority
+range for real-time threads is from 99 (higher) to 1 (lower priority).
+This has to be mapped before being used.
+</p>
+
+<p><a name="Y3"><span class="smalltitle">Examples</span></a></p>
+
+<p>
+The following listings illustrate the concepts in this section.
+</p>
+
+<br><a name="listing3"><b>Listing 3. Windows thread example</b></a><br><table bgcolor="#eeeeee" border="1" cellpadding="5" cellspacing="0" width="100%"><tbody><tr><td><pre><code class="section">
+
+<span class="boldcode">Main Thread</span>
+
+enum stackSize = 120 * 1024 ;
+// create a thread normal and real time thread
+DWORD  normalTId, realTID;
+HANDLE normalTHandle, realTHandle;
+
+normalTHandle = CreateThread(
+                NULL,            // default security attributes
+                stackSize,       // 120K
+                NormalThread,    // thread function
+                NULL,            // argument to thread function
+                0,               // use default creation flags
+                &amp;normalTId);     // returns the thread identifier
+
+// Set the priority class as "High priority"
+SetPriorityClass(pHandle, HIGH_PRIORITY_CLASS);
+
+normalTHandle = CreateThread(
+                 NULL,            // default security attributes
+                 stackSize,       // 120K
+                 NormalThread,    // thread function
+                 NULL,            // argument to thread function
+                 0,               // use default creation flags
+                &amp;normalTId);     // returns the thread identifier
+
+CloseHandle(threadHandle);
+...
+...
+
+// Thread function
+DWORD WINAPI NormalThread ( LPVOID lpParam )
+{
+
+    HANDLE tHandle,pHandle;
+
+    pHandle = GetCurrentProcess();
+    tHandle = GetCurrentThread();
+
+    // Set the priority class as "High priority"
+    SetPriorityClass(pHandle, HIGH_PRIORITY_CLASS);
+    // increase the priority by 2 points above the priority class
+    SetThreadPriority(tHandle,THREAD_PRIORITY_HIGHEST);
+
+    // perform job at high priority
+    ...
+    ...
+    ...
+
+    // Reset the priority class as "Normal"
+   SetPriorityClass(pHandle, NORMAL_PRIORITY_CLASS);
+
+    // set the priority back to normal
+    SetThreadPriority(tHandle,THREAD_PRIORITY_NORMAL);
+
+    // Exit thread
+    ExitThread(0);
+
+}
+
+// Thread function
+DWORD WINAPI RealTimeThread ( LPVOID lpParam )
+{
+    HANDLE tHandle, pHandle ;
+    pHandle = GetCurrentProcess();
+    tHandle = GetCurrentThread  ();
+
+    // Set the priority class as "Real time"
+   SetPriorityClass(pHandle, REALTIME_PRIORITY_CLASS);
+
+    // increase the priority by 2 points above the priority class
+    SetThreadPriority(tHandle,THREAD_PRIORITY_HIGHEST);
+
+    // do time critical work
+    ...
+    ...
+    ...
+    // Reset the priority class as "Normal"
+   SetPriorityClass(pHandle, NORMAL_PRIORITY_CLASS);
+
+    // Reset the priority back to normal
+    SetThreadPriority(tHandle,THREAD_PRIORITY_NORMAL);
+
+    ExitThread(0);
+}
+
+</code></pre></td></tr></tbody></table><br>
+
+<p>
+
+<br><a name="listing4"><b>Listing 4. Equivalent thread code in Linux</b></a><br></p><table bgcolor="#eeeeee" border="1" cellpadding="5" cellspacing="0" width="100%"><tbody><tr><td><pre><code class="section">
+
+static void * RegularThread (void *);
+static void * CriticalThread (void *);
+
+<span class="boldcode">// Main Thread</span>
+
+       pthread_t thread1, thread2;  // thread identifiers
+       pthread_attr_t threadAttr;
+
+       struct sched_param param;  // scheduling priority
+
+       // initialize the thread attribute
+       pthread_attr_init(&amp;threadAttr);
+
+       // Set the stack size of the thread
+       pthread_attr_setstacksize(&amp;threadAttr, 120*1024);
+
+       // Set thread to detached state. No need for pthread_join
+       pthread_attr_setdetachstate(&amp;threadAttr, PTHREAD_CREATE_DETACHED);
+
+       // Create the threads
+       pthread_create(&amp;thread1, &amp;threadAttr, RegularThread, NULL);
+       pthread_create(&amp;thread2, &amp;threadAttr, CriticalThread,NULL);
+
+       // Destroy the thread attributes
+       pthread_attr_destroy(&amp;threadAttr);
+       ...
+       ...
+
+
+
+  // Regular non-realtime Thread function
+  static void * RegularThread (void *d)   {
+
+       int priority = -18;
+
+       // Increase the priority
+       setpriority(PRIO_PROCESS, 0, priority);
+
+       // perform high priority job
+       ...
+       ...
+
+       // set the priority back to normal
+       setpriority(PRIO_PROCESS, 0, 0);
+
+       pthread_exit(NULL);
+
+   }
+
+
+   // Time Critical Realtime Thread function
+   static void * CriticalThread (void *d) {
+
+       // Increase the priority
+
+        struct sched_param param;  // scheduling priority
+        int policy = SCHED_RR;     // scheduling policy
+
+        // Get the current thread id
+
+        pthread_t thread_id = pthread_self();
+
+        // To set the scheduling priority of the thread
+        param.sched_priority = 90;
+        pthread_setschedparam(thread_id, policy, &amp;param);
+
+        // Perform time critical task
+        ...
+        ...
+
+        // set the priority back to normal
+
+        param.sched_priority = 0;
+        policy = 0;             // for normal threads
+        pthread_setschedparam(thread_id, policy, &amp;param);
+        ....
+        ....
+
+        pthread_exit(NULL);
+   }
+</code></pre></td></tr></tbody></table><br>
+
+<br><table border="0" cellpadding="0" cellspacing="0" width="100%"><tbody><tr><td><img src="l-ipc2lin1_files/blue_rule.gif" alt="" height="1" width="100%"></td></tr></tbody></table><table class="no-print" align="right" cellpadding="0" cellspacing="0"><tbody><tr align="right"><td><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td valign="middle"><img src="l-ipc2lin1_files/u_bold.gif" alt="" border="0" height="16" width="16"><br></td><td align="right" valign="top"><a href="#main" class="fbox"><b>Back to top</b></a></td></tr></tbody></table></td></tr></tbody></table><br><br><p><a name="N106D8"><span class="atitle">Next in the series</span></a></p>
+
+<p>This first part of the series has given you a guide to help map
+Windows processes and threads to their functional counterparts in
+Linux. <a href="http://www-128.ibm.com/developerworks/linux/library/l-ipc2lin2.html">Part 2</a> in the series covers synchronization objects and primitives, starting with semaphores and events. <a href="http://www-128.ibm.com/developerworks/linux/library/l-ipc2lin3.html">Part 3</a> covers mutexes, critical sections, and wait functions.
+</p>
+
+<br><table border="0" cellpadding="0" cellspacing="0" width="100%"><tbody><tr><td><img src="l-ipc2lin1_files/blue_rule.gif" alt="" height="1" width="100%"></td></tr></tbody></table><table class="no-print" align="right" cellpadding="0" cellspacing="0"><tbody><tr align="right"><td><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td valign="middle"><img src="l-ipc2lin1_files/u_bold.gif" alt="" border="0" height="16" width="16"><br></td><td align="right" valign="top"><a href="#main" class="fbox"><b>Back to top</b></a></td></tr></tbody></table></td></tr></tbody></table><br><br><p><a name="resources"><span class="atitle">Resources</span></a></p>
+
+<ul><li>
+Read all the articles in this series, "<a href="http://www.ibm.com/developerworks/views/linux/libraryview.jsp?search_by=port+windows+ipc+apps+linux">Port Windows IPC apps to Linux</a>" (developerWorks, Spring 2005).
+<br><br></li><li>The online code examples in the book <i><a href="http://www.amazon.com/exec/obidos/ASIN/1565921151">Pthreads Programming</a></i> by Bradford Nichols, Dick Buttlar, and Jacqueline Proulx Farrel (O'Reilly, 1996) illustrate the concepts in this article. <br><br></li><li>Don't forget to check the <a href="http://linas.org/linux/threads-faq.html">Linux Threads FAQ</a>, the <a href="http://man.he.net/">Linux Manpages Online</a>, and the <a href="http://pauillac.inria.fr/%7Exleroy/linuxthreads/">LinuxThreads library</a> for specific calls and more details on programming with threads in Linux.<br><br></li><li>For more on programming with threads in Linux, see the developerWorks articles, "<a href="http://www.ibm.com/developerworks/linux/library/l-pthred.html">Basic use of pthreads</a>" (developerWorks, January 2004) and "<a href="http://www.ibm.com/developerworks/linux/library/l-posix1.html">POSIX threads explained</a>" (developerWorks, July 2000).<br><br></li><li>The series of developerWorks articles, "<a href="http://www.ibm.com/developerworks/linux/library/l-osmig1.html">Migrate your apps from OS/2 to Linux</a>" (developerWorks, February 2004) is a good reference to see what is mapped during migration. <br><br></li><li>Find more resources for Linux developers in the <a href="http://www.ibm.com/developerworks/linux/">developerWorks Linux zone</a>.
+<br><br></li><li>Get involved in the developerWorks community by participating in <a href="http://www.ibm.com/developerworks/blogs/">developerWorks blogs</a>.<br><br></li><li><a href="http://www.ibm.com/developerworks/apps/SendTo?bookstore=safari">Browse for books</a> on these and other technical topics.<br><br></li><li><a href="http://www.ibm.com/developerworks/offers/sek/?S_TACT=105AGX03">Order the SEK for Linux</a>, a two-DVD set containing the latest IBM trial software for Linux from DB2®, Lotus®, Rational®, Tivoli®, and WebSphere®.<br><br></li><li>Innovate your next Linux development project with <a href="http://www.ibm.com/developerworks/downloads/?S_TACT=105AGX03">IBM trial software</a>, available for download directly from developerWorks.<br></li></ul>
+
+<br><table border="0" cellpadding="0" cellspacing="0" width="100%"><tbody><tr><td><img src="l-ipc2lin1_files/blue_rule.gif" alt="" height="1" width="100%"></td></tr></tbody></table><table class="no-print" align="right" cellpadding="0" cellspacing="0"><tbody><tr align="right"><td><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td valign="middle"><img src="l-ipc2lin1_files/u_bold.gif" alt="" border="0" height="16" width="16"><br></td><td align="right" valign="top"><a href="#main" class="fbox"><b>Back to top</b></a></td></tr></tbody></table></td></tr></tbody></table><br><br><p><a name="author"><span class="atitle">About the authors</span></a></p><table border="0" cellpadding="0" cellspacing="0" width="100%"><tbody><tr><td colspan="3"><img alt="" src="l-ipc2lin1_files/c.gif" height="5" width="100%"></td></tr><tr align="left" valign="top"><td><p><img alt="Srinivasan S. Muthuswamy" src="l-ipc2lin1_files/p-smuthuswamy.jpg" align="left" height="80" width="64"></p></td><td><img alt="" src="l-ipc2lin1_files/c.gif" height="5" width="4"></td><td width="100%"><p>Srinivasan
+S. Muthuswamy works as a Software Engineer for IBM Global Services
+Group. He joined IBM in 2000 and his expertise in programming reaches
+from scripting languages to object- and procedure-oriented languages on
+multiple platforms (Linux, Windows, WebSphere, Lotus, and so on).
+Muthuswamy has developed solutions ranging from system programming on
+Linux and Windows to Web solutions for J2EE. His primary focus is on
+integration and porting and he holds a B.Eng. in Computer Engineering
+from the Government College of Technology, Coimbatore, India. You can
+contact him at <a href="mailto:smuthusw@in.ibm.com">smuthusw@in.ibm.com</a>.</p></td></tr></tbody></table><br><table border="0" cellpadding="0" cellspacing="0" width="100%"><tbody><tr><td colspan="3"><img alt="" src="l-ipc2lin1_files/c.gif" height="5" width="100%"></td></tr><tr align="left" valign="top"><td><p><img alt="Author photo" src="l-ipc2lin1_files/p-kvaradarajan.jpg" align="left" height="80" width="64"></p></td><td><img alt="" src="l-ipc2lin1_files/c.gif" height="5" width="4"></td><td width="100%"><p>Kavitha
+Varadarajan has worked as a software Engineer in the IBM India Software
+Lab from December 2000. Her work experience involves development and
+support of host-access client products such as PCOMM and networking
+software such as the communication server. Varadarajan has a hands-on
+experience with a migration project that involves porting
+object-oriented IPC Windows applications to Linux. She holds a B.Eng.
+in Computer Science and Engineering from Shanmugha College of
+Engineering, Tanjore, India. She can be contacted at <a href="mailto:vkavitha@in.ibm.com">vkavitha@in.ibm.com</a>.</p></td></tr></tbody></table><br><br><table border="0" cellpadding="0" cellspacing="0" width="100%"><tbody><tr><td><img src="l-ipc2lin1_files/blue_rule.gif" alt="" height="1" width="100%"></td></tr></tbody></table><table class="no-print" align="right" cellpadding="0" cellspacing="0"><tbody><tr align="right"><td><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td valign="middle"><img src="l-ipc2lin1_files/u_bold.gif" alt="" border="0" height="16" width="16"><br></td><td align="right" valign="top"><a href="#main" class="fbox"><b>Back to top</b></a></td></tr></tbody></table></td></tr></tbody></table><br><br><p class="no-print"><span class="atitle"><a name="rate">Rate this page</a></span></p><span class="no-print"><form action="//www-128.ibm.com/developerworks/utils/RatingsHandler" method="post"><input value="Port Windows IPC apps to Linux, Part 1: Processes and threads" name="ArticleTitle" type="hidden"><input value="Linux" name="Zone" type="hidden"><input value="http://www.ibm.com/developerworks/thankyou/feedback-thankyou.html" name="RedirectURL" type="hidden"><input value="87938" name="ArticleID" type="hidden"><input value="04142005" name="publish-date" type="hidden"><input name="author1-email" value="smuthusw@in.ibm.com" type="hidden"><input name="author1-email-cc" value="" type="hidden"><input name="author2-email" value="vkavitha@in.ibm.com" type="hidden"><input name="author2-email-cc" value="" type="hidden"><script language="javascript" type="text/javascript">document.write('<input type="hidden" name="url" value="'+location.href+'">');</script><img src="l-ipc2lin1_files/gray_rule.gif" alt="" height="1" width="100%"><br><table class="v14-gray-table-border" border="0" cellpadding="0" cellspacing="0" width="100%"><tbody><tr><td width="100%"><table border="0" cellpadding="0" cellspacing="0" width="100%"><tbody><tr><td colspan="3"><p>Please take a moment to complete this form to help us better serve you.</p></td></tr><tr valign="top"><td width="140"><img src="l-ipc2lin1_files/c.gif" alt="" height="1" width="140"><br><p><label for="Goal">Did the information help you to achieve your goal?</label></p></td><td width="303"><img src="l-ipc2lin1_files/c.gif" alt="" height="6" width="303"><br><table border="0" cellpadding="0" cellspacing="0" width="100%"><tbody><tr><td><input value="Yes" id="Goal" name="Goal" type="radio">Yes</td><td><input value="No" id="Goal" name="Goal" type="radio">No</td><td><input value="Don't know" id="Goal" name="Goal" type="radio">Don't know</td></tr></tbody></table></td><td width="100%">&nbsp;</td></tr><tr><td colspan="3"><img alt="" src="l-ipc2lin1_files/c.gif" height="12" width="8"></td></tr><tr valign="top"><td width="140"><img src="l-ipc2lin1_files/c.gif" alt="" height="1" width="140"><br><p><label for="Comments">Please provide us with comments to help improve this page:</label></p></td><td width="303"><img src="l-ipc2lin1_files/c.gif" alt="" height="6" width="303"><br><table border="0" cellpadding="0" cellspacing="0" width="100%"><tbody><tr><td><textarea class="iform" cols="35" rows="5" wrap="virtual" id="Comments" name="Comments">&nbsp;</textarea></td></tr></tbody></table></td><td width="100%">&nbsp;</td></tr><tr><td colspan="3"><img alt="" src="l-ipc2lin1_files/c.gif" height="12" width="8"></td></tr><tr valign="top"><td width="140"><img src="l-ipc2lin1_files/c.gif" alt="" height="1" width="140"><br><p><label for="Rating">How useful is the information?
+<br>
+(1 = Not at all,
+<br>
+5 = Extremely useful)</label></p></td><td width="303"><img src="l-ipc2lin1_files/c.gif" alt="" height="6" width="303"><br><table border="0" cellpadding="0" cellspacing="0" width="100%"><tbody><tr><td><input value="1" id="Rating" name="Rating" type="radio">1</td><td><input value="2" id="Rating" name="Rating" type="radio">2</td><td><input value="3" id="Rating" name="Rating" type="radio">3</td><td><input value="4" id="Rating" name="Rating" type="radio">4</td><td><input value="5" id="Rating" name="Rating" type="radio">5</td></tr></tbody></table></td><td width="100%">&nbsp;</td></tr></tbody></table></td></tr></tbody></table><table class="v14-gray-table-border" border="0" cellpadding="0" cellspacing="0" width="100%"><tbody><tr><td colspan="3"><img alt="" src="l-ipc2lin1_files/c.gif" height="8" width="8"></td></tr><tr><td width="8"><img alt="" src="l-ipc2lin1_files/c.gif" height="1" width="8"></td><td colspan="3"><input alt="Submit" src="l-ipc2lin1_files/submit.gif" border="0" height="21" type="image" width="120"></td></tr><tr><td colspan="3"><img alt="" src="l-ipc2lin1_files/c.gif" height="8" width="8"></td></tr></tbody></table></form><br></span><span class="no-print"><table align="right" cellpadding="0" cellspacing="0"><tbody><tr align="right"><td><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td valign="middle"><img src="l-ipc2lin1_files/u_bold.gif" alt="" border="0" height="16" width="16"><br></td><td align="right" valign="top"><a href="#main" class="fbox"><b>Back to top</b></a></td></tr></tbody></table></td></tr></tbody></table><br><br></span></td><td width="10"><img alt="" src="l-ipc2lin1_files/c.gif" height="1" width="10"></td></tr></tbody></table></td></tr></tbody></table><!--FOOTER_BEGIN--><br><table border="0" cellpadding="0" cellspacing="0" width="100%"><tbody><tr><td class="bbg" height="19"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td><span class="spacer">&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="http://www.ibm.com/ibm/" class="mainlink">About IBM</a></td><td class="footer-divider" width="27">&nbsp;&nbsp;&nbsp;&nbsp;</td><td><a href="http://www.ibm.com/privacy/" class="mainlink">Privacy</a></td><td class="footer-divider" width="27">&nbsp;&nbsp;&nbsp;&nbsp;</td><td><a href="http://www.ibm.com/contact/" class="mainlink">Contact</a></td></tr></tbody></table></td></tr></tbody></table><script language="JavaScript1.2" type="text/javascript" src="l-ipc2lin1_files/stats.js"></script><noscript><img alt="" src="l-ipc2lin1_files/uc.GIF" border="0" height="1" width="1"></noscript><!--FOOTER_END--><!--XSLT stylesheet used to transform this file:  dw-document-html-5.3.xsl--></body></html>

@@ -1,0 +1,22 @@
+What is an URB?
+The basic idea of the new driver is message passing, the message itself if
+called USB Request Block, or URB.
+
+- An URB consists of all relevant information to execute any USB transaction
+  and deliver the data and status back.
+
+- Execution of an URB is inherently an asynchronous operation, i.e. the
+  usb_submit_urb(urb) call returns immediately after it has successfully
+  queued the requested action.
+
+- Transfers for one URB can be canceled with usb_unlink_urb(urb) at any time.
+
+- Each URB has a completion handler, which is called after the action has been
+  successfully completed or canceled. The URB also contains a context-pointer
+  for passing information to the completion handler.
+
+- Each endpoint for a device logically supports a queue or requests. You can
+  fill that queue, so that the USB hardware can still transfer data to an
+  endpoint while your driver handles completion of another. This maximize use
+  of USB bandwidth, and supports seamless streaming of data to (or from)
+  devices when using periodic transfer modes.

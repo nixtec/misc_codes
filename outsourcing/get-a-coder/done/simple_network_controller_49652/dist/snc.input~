@@ -1,0 +1,29 @@
+# it will be attached to port 1
+INIT 12 192.168.0.5
+# it will be attached to port 2
+INIT 15 192.168.0.9
+# verify the output
+SHOW
+# let us make port 3 down
+DOWN 3
+# it will be attached to port 4, because port 3 is inactive
+INIT 25 192.168.0.27
+# verify it
+SHOW
+# it will be attached to port 5
+INIT 27 192.168.0.29
+# collision
+INIT 27 192.168.0.29
+# verify
+SHOW
+# let's restore port 3
+REST 3
+# it will be attached to port 3
+INIT 32 16.15.26.58
+COMP 25
+COMP 12
+COMP 12
+SHOW
+INIT 69 195.26.15.9
+SHOW
+EXIT

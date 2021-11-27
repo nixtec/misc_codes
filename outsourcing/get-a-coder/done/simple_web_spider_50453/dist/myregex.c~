@@ -1,0 +1,6 @@
+/*
+ * myregex.c
+ */
+#include "myregex.h"
+
+#define match_regex(preg, regex, str) regexec(preg, str, 0, NULL, REG_NOTBOL)

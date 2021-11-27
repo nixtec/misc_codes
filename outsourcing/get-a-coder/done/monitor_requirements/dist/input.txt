@@ -1,0 +1,9 @@
+come writer 1
+come reader 1
+come writer 2
+come reader 2
+interrupt writer 1
+done reader 1
+done writer 1
+done writer 2
+done reader 2

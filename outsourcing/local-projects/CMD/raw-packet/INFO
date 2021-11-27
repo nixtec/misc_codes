@@ -1,0 +1,24 @@
+Configuration file syntax [may be modified later]
+
+currently only UDP protocol is supported [that's really needed in DSE].
+
+----------------$(CFGDIR)/addrs.cfg----------
+N
+ip-address1
+ip-address2
+...
+ip-addressN
+--------------------------------------------
+
+----------------$(CFGDIR)/ports.cfg-----------
+N
+port1
+port2
+...
+portN
+---------------------------------------------------
+
+
+The above configuration file says that ip-addressN should get UDP broadcasts
+on ports specified following it.
+

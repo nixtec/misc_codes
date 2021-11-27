@@ -1,0 +1,309 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head><script>if( self == top ){ window.location.replace( "../../?topic=/apis/gtpwnamr.htm");}</script>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="Copyright" content="Copyright (c) 2005 by IBM Corporation">
+<title>getpwnam_r()--Get User Information for User Name</title>
+<!-- Begin Header Records  ========================================== -->
+<!-- Unix2 SCRIPT J converted by B2H R4.1 (346) (CMS) by V2KEA304   -->
+<!-- at RCHVMW2 on 17 Feb 1999 at 11:05:09                            -->
+<!-- This file has undergone html cleanup May 2002 by JET -->
+<!-- All rights reserved. Licensed Materials Property of IBM          -->
+<!-- US Government Users Restricted Rights                            -->
+<!-- Use, duplication or disclosure restricted by                     -->
+<!-- GSA ADP Schedule Contract with IBM Corp.                         -->
+<!--End Header Records -->
+<link rel="stylesheet" type="text/css" href="../rzahg/ic.css">
+</head>
+<body>
+<!-- Java sync-link -->
+<script type="text/javascript" language="Javascript" src="../rzahg/synch.js">
+</script>
+
+<a name="Top_Of_Page"></a> 
+
+<h2>getpwnam_r()--Get User Information for User Name</h2>
+
+<table border width="80%" cellpadding="5">
+<!-- cols="15 85" -->
+<tr>
+<td><br>
+&nbsp;&nbsp;Syntax 
+
+<pre>
+ #include &lt;sys/types.h&gt;
+ #include &lt;pwd.h&gt;
+
+ int getpwnam_r(const char <em>*name</em>, struct passwd  
+ <em>*pwd</em>, char <em>*buffer</em>, size_t <em>bufsize</em>,   
+ struct passwd <em>**result</em>);
+</pre>
+
+<br>
+&nbsp;&nbsp;Service Program Name: QSYPAPI<br>
+<br>
+&nbsp;&nbsp;Default Public Authority: *USE<br>
+<br>
+&nbsp;&nbsp;Threadsafe: Yes<br>
+<br>
+</td>
+</tr>
+</table>
+
+<p>The <strong>getpwnam_r()</strong> function updates the <em>passwd</em>
+structure pointed to by <em>pwd</em> and stores a pointer to that structure in
+the location pointed to by <em>result</em>. The structure contains an entry
+from the user database with a matching <em>name</em>.</p>
+
+<br>
+ 
+
+<h3>Parameters</h3>
+
+<dl>
+<dt><strong><em>name</em></strong></dt>
+
+<dd>(Input) A pointer to a user profile name.<br>
+<br>
+</dd>
+
+<dt><strong><em>pwd</em></strong></dt>
+
+<dd>(Input) A pointer to a passwd structure.<br>
+<br>
+</dd>
+
+<dt><strong><em>buffer</em></strong></dt>
+
+<dd>(Input) A pointer to a buffer from which memory is allocated to hold
+storage areas referenced by the structure <em>pwd</em>.<br>
+<br>
+</dd>
+
+<dt><strong><em>bufsize</em></strong></dt>
+
+<dd>(Input) The size of <em>buffer</em> in bytes.<br>
+<br>
+</dd>
+
+<dt><strong><em>result</em></strong></dt>
+
+<dd>(Input) A pointer to a location in which a pointer to the updated passwd
+structure is stored. If an error occurs or if the requested entry cannot be
+found, a NULL pointer is stored in this location.</dd>
+</dl>
+
+<p>The <samp>struct passwd</samp>, which is defined in the <strong>
+pwd.h</strong> header file, has the following elements:</p>
+
+<table>
+<tr>
+<td align="left" valign="top" width="10%">char *</td>
+<td align="left" valign="top" width="10%">pw_name</td>
+<td align="left" valign="top" width="80%">User name</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">uid_t</td>
+<td align="left" valign="top">pw_uid</td>
+<td align="left" valign="top">User ID</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">uid_t</td>
+<td align="left" valign="top">pw_gid</td>
+<td align="left" valign="top">Group ID of the user's first group. If the user
+does not have a first group, the GID value will be set to 0.</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">char *</td>
+<td align="left" valign="top">pw_dir</td>
+<td align="left" valign="top">Initial working directory. If the user does not
+have *READ authority to the user profile, the pw_dir pointer will be set to
+NULL.</td>
+</tr>
+
+<tr>
+<td align="left" valign="top">char *</td>
+<td align="left" valign="top">pw_shell</td>
+<td align="left" valign="top">Initial user program. If the user does not have
+*READ authority to the user profile, the pw_shell will be set to NULL.</td>
+</tr>
+</table>
+
+<br>
+<p>See <a href="gtpwnamru.htm">QlgGetpwnam_r()--Get User Information for User
+Name (using NLS-enabled path name)</a> for a description and an example where
+the path name is returned in any CCSID. Go to _r version<br>
+</p>
+
+<h3>Authorities</h3>
+
+*READ authority is required to the user profile associated with the <em>
+name</em>. If the user does not have *READ authority, only the user name, user
+ID, and group ID values are returned. 
+
+<p><strong>Note:</strong> Adopted authority is not used.<br>
+</p>
+
+<h3>Return Value</h3>
+
+<dl>
+<dt><em>0</em></dt>
+
+<dd><strong>getpwnam_r</strong> was successful.<br>
+<br>
+</dd>
+
+<dt><em>Any other value</em></dt>
+
+<dd>Failure: The return value contains an error number indicating the
+error.</dd>
+</dl>
+
+<br>
+ 
+
+<h3>Error Conditions</h3>
+
+If <strong>getpwnam_r()</strong> is not successful, the return value usually
+indicates one of the following errors. Under some conditions, the value could
+indicate an error other than those listed here. <br>
+ 
+
+<dl compact>
+<dt><em>[EAGAIN]</em></dt>
+
+<dd>
+The user profile associated with the <em>name</em> is currently locked by
+another process.
+</dd>
+
+<dt><em>[EC2]</em></dt>
+
+<dd>
+Detected pointer that is not valid.
+</dd>
+
+<dt><em>[EINVAL]</em></dt>
+
+<dd>
+Value is not valid. Check the job log for messages.
+</dd>
+
+<dt><em>[ENOENT]</em></dt>
+
+<dd>
+The user profile associated with the <em>name</em> was not found.
+</dd>
+
+<dt><em>[ENOMEM]</em></dt>
+
+<dd>
+The user profile associated with the <em>UID</em> has exceeded its storage
+limit or is unable to allocate memory.
+</dd>
+
+<dt><em>[ERANGE]</em></dt>
+
+<dd>
+Insufficient storage was supplied through <em>buffer</em> and <em>
+bufsize</em> to contain the data to be referenced by the resulting group
+structure.
+</dd>
+
+<dt><em>[EUNKNOWN]</em></dt>
+
+<dd>
+Unknown system state. Check the job log for a CPF9872 message. If there is
+no message, verify that the home directory field in the user profile can be
+displayed.
+</dd>
+</dl>
+
+<br>
+ 
+
+<h3>Usage Notes</h3>
+
+The initial working directory is returned in the CCSID value of the job. <br>
+ 
+
+<h3>Related Information</h3>
+
+<ul>
+<li>The &lt;<strong>pwd.h</strong>&gt; file (see <a href="unix13.htm">Header
+Files for UNIX-Type Functions</a>)<br>
+<br>
+</li>
+
+<li><a href="getpwnam.htm">getpwnam()</a>--Get User Information for User
+Name</li>
+</ul>
+
+<br>
+ 
+
+<h3>Example</h3>
+
+<p>See <a href="aboutapis.htm#codedisclaimer">Code disclaimer information</a>
+for information pertaining to code examples.</p>
+
+<p>The following example gets the user database information for the user name
+of MYUSER. The UID is 22. The GID of MYUSER's first group is 1012. The initial
+directory is /home/MYUSER. The initial user program is *LIBL/QCMD.</p>
+
+<pre>
+#include &lt;sys/types.h&gt;
+#include &lt;pwd.h&gt;
+#include &lt;stdio.h&gt;
+#include &lt;errno.h&gt;
+
+main()
+{
+  struct passwd pd;
+  struct passwd* pwdptr=&amp;pd;
+  struct passwd* tempPwdPtr;
+  char pwdbuffer[200];
+  int  pwdlinelen = sizeof(pwdbuffer);
+
+  if ((getpwnam_r("MYUSER",pwdptr,pwdbuffer,pwdlinelen,&amp;tempPwdPtr))!=0)
+     perror("getpwnam_r() error.");
+  else
+  {
+     printf("\nThe user name is: %s\n", pd.pw_name);
+     printf("The user id   is: %u\n", pd.pw_uid);
+     printf("The group id  is: %u\n", pd.pw_gid);
+     printf("The initial directory is:    %s\n", pd.pw_dir);
+     printf("The initial user program is: %s\n", pd.pw_shell);
+  }
+
+}
+</pre>
+
+<strong>Output:</strong> 
+
+<pre>
+  The user name is: MYUSER
+  The user ID   is: 22
+  The group ID  is: 1012
+  The initial directory is:    /home/MYUSER
+  The initial user program is: *LIBL/QCMD
+</pre>
+
+<hr>
+API introduced: V4R4 
+
+<hr>
+<center>
+<table cellpadding="2" cellspacing="2">
+<tr align="center">
+<td valign="middle" align="center"><a href="#top_Of_Page">Top</a> | <a href= 
+"unix.htm">UNIX-Type APIs</a> | <a href="aplist.htm">APIs by category</a></td>
+</tr>
+</table>
+</center>
+</body>
+</html>
+

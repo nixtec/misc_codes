@@ -1,0 +1,223 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" dir="ltr" lang="en"><head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta name="keywords" content="Datamatrix,ASCII,Algorithm,Alphanumeric,Barcode,Bits,EIA,Electronic Industries Alliance,Error correction,Error correction and detection,ISO">
+<link rel="shortcut icon" href="http://en.wikipedia.org/favicon.ico">
+<link rel="copyright" href="http://www.gnu.org/copyleft/fdl.html"><title>Datamatrix - Wikipedia, the free encyclopedia</title>
+		
+		<style type="text/css" media="screen,projection">/*<![CDATA[*/ @import "/skins-1.5/monobook/main.css?7"; /*]]>*/</style>
+		<link rel="stylesheet" type="text/css" media="print" href="_files/commonPrint.css"><!--[if lt IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE50Fixes.css";</style><![endif]--><!--[if IE 5.5000]><style type="text/css">@import "/skins-1.5/monobook/IE55Fixes.css";</style><![endif]--><!--[if IE 6]><style type="text/css">@import "/skins-1.5/monobook/IE60Fixes.css";</style><![endif]--><!--[if IE 7]><style type="text/css">@import "/skins-1.5/monobook/IE70Fixes.css?1";</style><![endif]--><!--[if lt IE 7]><script type="text/javascript" src="/skins-1.5/common/IEFixes.js"></script>
+		<meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+		
+		
+		
+		
+		
+		<script type="text/javascript">var skin = 'monobook';var stylepath = '/skins-1.5';</script>
+		<script type="text/javascript" src="_files/wikibits"><!-- wikibits js --></script>
+		<script type="text/javascript" src="_files/index"><!-- site js --></script>
+		<style type="text/css">/*<![CDATA[*/
+@import "/w/index.php?title=MediaWiki:Common.css&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=MediaWiki:Monobook.css&action=raw&ctype=text/css&smaxage=2678400";
+@import "/w/index.php?title=-&action=raw&gen=css&maxage=2678400";
+/*]]>*/</style><!-- Head Scripts --></head>
+
+	<body class="ns-0 ltr">
+	<div id="globalWrapper">
+		<div id="column-content">
+	<div id="content">
+		<a name="top" id="top"></a>
+		<div id="siteNotice"><div style="text-align: right; font-size: 80%;">Your <b><a href="http://wikimediafoundation.org/wiki/Fundraising" class="extiw" title="wikimedia:Fundraising">continued donations</a></b> keep Wikipedia running!&nbsp;&nbsp;&nbsp;&nbsp;</div>
+</div>		<h1 class="firstHeading">Datamatrix</h1>
+		<div id="bodyContent">
+			<h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+			<div id="contentSub"></div>
+									<div id="jump-to-nav">Jump to: <a href="#column-one">navigation</a>, <a href="#searchInput">search</a></div>			<!-- start content -->
+			<div class="thumb tright">
+<div style="width: 105px;"><a href="http://en.wikipedia.org/wiki/Image:Datamatrix.png" class="internal" title="Barcode example, encoding &quot;Wikipedia, the free encyclopedia&quot;"><img src="_files/Datamatrix" alt="Barcode example, encoding &quot;Wikipedia, the free encyclopedia&quot;" longdesc="/wiki/Image:Datamatrix.png" height="103" width="103"></a>
+<div class="thumbcaption">Barcode example, encoding "Wikipedia, the free encyclopedia"</div>
+</div>
+</div>
+<p><b>Datamatrix</b> (or <b>Data Matrix</b>) is a two-dimensional <a href="http://en.wikipedia.org/wiki/Matrix_%28mathematics%29" title="Matrix (mathematics)">matrix</a> <a href="http://en.wikipedia.org/wiki/Barcode" title="Barcode">barcode</a> consisting of black and white square modules arranged in either a <a href="http://en.wikipedia.org/wiki/Square_%28geometry%29" title="Square (geometry)">square</a> or <a href="http://en.wikipedia.org/wiki/Rectangle" title="Rectangle">rectangular</a> pattern. The information to be encoded can be text or raw data. Usual data size is from a few bytes up to 2 <a href="http://en.wikipedia.org/wiki/Kilobyte" title="Kilobyte">kilobytes</a>. The length of the encoded data depends on the symbol dimension is used. <a href="http://en.wikipedia.org/wiki/Error_correction" title="Error correction">Error correction</a>
+codes are added to increase symbol strength: even if they are partially
+damaged, they can still be read. A Datamatrix symbol can store upto
+2,335 <a href="http://en.wikipedia.org/wiki/Alphanumeric" title="Alphanumeric">alphanumeric</a> characters.</p>
+<p>Datamatrix symbols are square and made of little <i>modules</i>, that is little squares that represent <a href="http://en.wikipedia.org/wiki/Bits" title="Bits">bits</a>.
+Depending on the situation a white module is a 0 and a black module is
+a 1, or vice versa. Every datamatrix is composed of at least two <i>finder patterns</i> or <i>handles</i> and two <i>syncs</i>.
+Handles are two perpendicular lines, coloured the same way as 1
+modules, while syncs are like handles with the difference that they are
+made of alternating black and white modules. Handles are used to
+achieve a good alignment with the symbol, while syncs are used to
+sample modules correctly. If the matrix dimension grows, more syncs and
+handles are added up to 8 both horizontally and vertically. Symbol
+sizes vary from 8×8 to 144×144.</p>
+<table id="toc" class="toc" summary="Contents">
+<tbody><tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+ <span class="toctoggle">[<a href="javascript:toggleToc()" class="internal" id="togglelink">hide</a>]</span></div>
+<ul>
+<li class="toclevel-1"><a href="#Applications"><span class="tocnumber">1</span> <span class="toctext">Applications</span></a></li>
+<li class="toclevel-1"><a href="#Technical_Specifications"><span class="tocnumber">2</span> <span class="toctext">Technical Specifications</span></a></li>
+<li class="toclevel-1"><a href="#Standards"><span class="tocnumber">3</span> <span class="toctext">Standards</span></a></li>
+<li class="toclevel-1"><a href="#See_also"><span class="tocnumber">4</span> <span class="toctext">See also</span></a></li>
+</ul>
+</td>
+</tr>
+</tbody></table>
+<p><script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script></p>
+<div class="editsection" style="float: right; margin-left: 5px;">[<a href="http://en.wikipedia.org/w/index.php?title=Datamatrix&amp;action=edit&amp;section=1" title="Edit section: Applications">edit</a>]</div>
+<p><a name="Applications" id="Applications"></a></p>
+<h2>Applications</h2>
+<div class="thumb tright">
+<div style="width: 258px;"><a href="http://en.wikipedia.org/wiki/Image:Matrix-36.PNG" class="internal" title="Four modules"><img src="_files/Matrix-36" alt="Four modules" longdesc="/wiki/Image:Matrix-36.PNG" height="256" width="256"></a>
+<div class="thumbcaption">Four modules</div>
+</div>
+</div>
+<p>The most popular applications for Datamatrix are marking of small
+items, due to the code’s ability to encode fifty characters in a symbol
+that is readable at 2 or 3 <a href="http://en.wikipedia.org/wiki/Millimeter" title="Millimeter">mm</a><sup><a href="http://en.wikipedia.org/wiki/Square_%28algebra%29" title="Square (algebra)">2</a></sup> and the fact that the code can be read with only a 20% contrast ratio.</p>
+<p>The <a href="http://en.wikipedia.org/wiki/Electronic_Industries_Alliance" title="Electronic Industries Alliance">Electronic Industries Alliance</a> (<a href="http://en.wikipedia.org/wiki/EIA" title="EIA">EIA</a>) recommends using Data Matrix for labeling small electronic components<span class="reference"><sup id="ref_Stevenson" class="plainlinksneverexpand"><a href="http://en.wikipedia.org/wiki/Datamatrix#endnote_Stevenson" class="external autonumber" title="http://en.wikipedia.org/wiki/Datamatrix#endnote_Stevenson">[1]</a></sup></span>.</p>
+<div class="editsection" style="float: right; margin-left: 5px;">[<a href="http://en.wikipedia.org/w/index.php?title=Datamatrix&amp;action=edit&amp;section=2" title="Edit section: Technical Specifications">edit</a>]</div>
+<p><a name="Technical_Specifications" id="Technical_Specifications"></a></p>
+<h2>Technical Specifications</h2>
+<p>Datamatrix symbols are made up of square modules arranged within a
+perimeter finder pattern. It can encode up to 3,116 characters from the
+entire <a href="http://en.wikipedia.org/wiki/ASCII" title="ASCII">ASCII</a>
+character set (with extensions). The symbol consists of data regions
+which contain square modules set out in a regular array. Large symbols
+contain several regions. Each data region is delimited by a finder
+pattern, and this is surrounded on all four sides by a quiet zone
+border (margin).</p>
+<p>Symbols have an even number of rows and an even number of columns.
+Most of the symbols are square with sizes from 10×10 to 144×144. Some
+symbols however are rectangular with sizes from 8×18 to 16×48. All
+symbols can be recognized by the upper right corner module being light
+(binary 0).</p>
+<p>ECC200 is the newest version of Datamatrix and supports advanced encoding <a href="http://en.wikipedia.org/wiki/Error_correction_and_detection" title="Error correction and detection">error checking and correction</a> <a href="http://en.wikipedia.org/wiki/Algorithm" title="Algorithm">algorithms</a> (such as <a href="http://en.wikipedia.org/wiki/Reed-Solomon" title="Reed-Solomon">Reed-Solomon</a>). This algorithm allows the recognition of barcodes that are up to 60% damaged.</p>
+<div class="editsection" style="float: right; margin-left: 5px;">[<a href="http://en.wikipedia.org/w/index.php?title=Datamatrix&amp;action=edit&amp;section=3" title="Edit section: Standards">edit</a>]</div>
+<p><a name="Standards" id="Standards"></a></p>
+<h2>Standards</h2>
+<p>Datamatrix was invented by <a href="http://en.wikipedia.org/w/index.php?title=RVSI&amp;action=edit" class="new" title="RVSI">RVSI</a> Acuity CiMatrix. Today it is covered by an <a href="http://en.wikipedia.org/wiki/ISO" title="ISO">ISO</a>
+standard, ISO/IEC16022—International Symbology Specification,
+Datamatrix, and is in the public domain, which means it can be used
+free of any licensing or royalties.</p>
+<ul>
+<li>ISO/IEC 15418:1999 – Symbol Data Format Semantics</li>
+<li>ISO/IEC 15434:1999 – Symbol Data Format Syntax</li>
+<li>ISO/IEC 15415 – 2-D Print Quality Standard</li>
+</ul>
+<div class="editsection" style="float: right; margin-left: 5px;">[<a href="http://en.wikipedia.org/w/index.php?title=Datamatrix&amp;action=edit&amp;section=4" title="Edit section: See also">edit</a>]</div>
+<p><a name="See_also" id="See_also"></a></p>
+<h2>See also</h2>
+<ul>
+<li><a href="http://en.wikipedia.org/wiki/Barcode" title="Barcode">Barcode</a></li>
+<li><a href="http://en.wikipedia.org/wiki/Semacode" title="Semacode">Semacode</a></li>
+<li><a href="http://en.wikipedia.org/wiki/Semapedia" title="Semapedia">semapedia</a></li>
+<li><a href="http://en.wikipedia.org/wiki/Pixecode" title="Pixecode">Pixecode</a></li>
+<li><a href="http://www.microscan.com/Blog" class="external text" title="http://www.microscan.com/Blog">Bar Code Blog</a></li>
+<li><a href="http://www.technoriversoft.com/barcode.html" class="external text" title="http://www.technoriversoft.com/barcode.html">Barcode Symbology</a></li>
+<li><cite id="endnote_Stevenson" style="font-style: normal;"><a href="#ref_Stevenson" title=""><b>↑</b></a></cite>&nbsp; <i>[<a href="http://pcdandm.com/pcdmag/mag/0512/0512stevenson.pdf" class="external text" title="http://pcdandm.com/pcdmag/mag/0512/0512stevenson.pdf">Laser Marking Matrix Codes on PCBs</a></i> by Rick Stevenson, <i><a href="http://pcdandm.com/cms/content/view/2236/128/" class="external text" title="http://pcdandm.com/cms/content/view/2236/128/">Printed Circuit Design and Manufacturing 2005-12</a></i></li>
+<li><a href="http://www.pixecode.com/" class="external text" title="http://www.pixecode.com">Service examples when used with camera phones</a> (Powerpoint presentation)</li>
+<li><a href="http://www.eurocomms.co.uk/features/features.ehtml?o=1217" class="external text" title="http://www.eurocomms.co.uk/features/features.ehtml?o=1217">Online magazine feature on mobile services utilizing 2D barcodes</a></li>
+</ul>
+
+
+<!-- Saved in parser cache with key enwiki:pcache:idhash:1619457-0!1!0!0!!en!2 and timestamp 20060409065415 -->
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org/wiki/Datamatrix">http://en.wikipedia.org/wiki/Datamatrix</a>"</div>
+			<div id="catlinks"><p class="catlinks"><a href="http://en.wikipedia.org/w/index.php?title=Special:Categories&amp;article=Datamatrix" title="Special:Categories">Category</a>: <span dir="ltr"><a href="http://en.wikipedia.org/wiki/Category:Barcodes" title="Category:Barcodes">Barcodes</a></span></p></div>			<!-- end content -->
+			<div class="visualClear"></div>
+		</div>
+	</div>
+		</div>
+		<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<ul>
+				 <li id="ca-nstab-main" class="selected"><a title="View the content page [alt-c]" accesskey="c" href="http://en.wikipedia.org/wiki/Datamatrix">Article</a></li>
+				 <li id="ca-talk"><a title="Discussion about the content page [alt-t]" accesskey="t" href="http://en.wikipedia.org/wiki/Talk:Datamatrix">Discussion</a></li>
+				 <li id="ca-edit"><a title="You can edit this page. Please use the preview button before saving. [alt-e]" accesskey="e" href="http://en.wikipedia.org/w/index.php?title=Datamatrix&amp;action=edit">Edit this page</a></li>
+				 <li id="ca-history"><a title="Past versions of this page. [alt-h]" accesskey="h" href="http://en.wikipedia.org/w/index.php?title=Datamatrix&amp;action=history">History</a></li>
+		</ul>
+	</div>
+	<div class="portlet" id="p-personal">
+		<h5>Personal tools</h5>
+		<div class="pBody">
+			<ul>
+				<li id="pt-login"><a title="Logging in is not required, but brings many benefits. [alt-o]" accesskey="o" href="http://en.wikipedia.org/w/index.php?title=Special:Userlogin&amp;returnto=Datamatrix">Sign in / create account</a></li>
+			</ul>
+		</div>
+	</div>
+	<div title="Main Page" class="portlet" id="p-logo">
+		<a style="background-image: url(/images/wiki-en.png);" href="http://en.wikipedia.org/wiki/Main_Page" title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class="portlet" id="p-navigation">
+		<h5>Navigation</h5>
+		<div class="pBody">
+			<ul>
+				<li id="n-mainpage"><a title="Visit the Main Page [alt-z]" accesskey="z" href="http://en.wikipedia.org/wiki/Main_Page">Main Page</a></li>
+				<li title="About the project, what you can do, where to find things" id="n-portal"><a href="http://en.wikipedia.org/wiki/Wikipedia:Community_Portal">Community Portal</a></li>
+				<li id="n-Featured-articles"><a href="http://en.wikipedia.org/wiki/Wikipedia:Featured_articles">Featured articles</a></li>
+				<li title="Find background information on current events" id="n-currentevents"><a href="http://en.wikipedia.org/wiki/Current_events">Current events</a></li>
+				<li id="n-recentchanges"><a title="List of recent changes in Wikipedia [alt-r]" accesskey="r" href="http://en.wikipedia.org/wiki/Special:Recentchanges">Recent changes</a></li>
+				<li id="n-randompage"><a title="Load a random page [alt-x]" accesskey="x" href="http://en.wikipedia.org/wiki/Special:Random">Random article</a></li>
+				<li title="The place to find out about Wikipedia" id="n-help"><a href="http://en.wikipedia.org/wiki/Help:Contents">Help</a></li>
+				<li id="n-contact"><a href="http://en.wikipedia.org/wiki/Wikipedia:Contact_us">Contact Wikipedia</a></li>
+				<li title="Support us" id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising#Donation_methods">Donations</a></li>
+			</ul>
+		</div>
+	</div>
+		<div id="p-search" class="portlet">
+		<h5><label for="searchInput">Search</label></h5>
+		<div id="searchBody" class="pBody">
+			<form action="/wiki/Special:Search" id="searchform"><div>
+				<input id="searchInput" name="search" accesskey="f" value="" type="text">
+				<input name="go" class="searchButton" id="searchGoButton" value="Go" type="submit">&nbsp;
+				<input name="fulltext" class="searchButton" value="Search" type="submit">
+			</div></form>
+		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5>Toolbox</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a title="List of all wiki pages that link here [alt-j]" accesskey="j" href="http://en.wikipedia.org/wiki/Special:Whatlinkshere/Datamatrix">What links here</a></li>
+				<li id="t-recentchangeslinked"><a title="Recent changes in pages linked from this page [alt-k]" accesskey="k" href="http://en.wikipedia.org/wiki/Special:Recentchangeslinked/Datamatrix">Related changes</a></li>
+<li id="t-upload"><a title="Upload images or media files [alt-u]" accesskey="u" href="http://en.wikipedia.org/wiki/Special:Upload">Upload file</a></li>
+<li id="t-specialpages"><a title="List of all special pages [alt-q]" accesskey="q" href="http://en.wikipedia.org/wiki/Special:Specialpages">Special pages</a></li>
+				<li id="t-print"><a href="http://en.wikipedia.org/w/index.php?title=Datamatrix&amp;printable=yes">Printable version</a></li>				<li id="t-permalink"><a href="http://en.wikipedia.org/w/index.php?title=Datamatrix&amp;oldid=43281815">Permanent link</a></li><li id="t-cite"><a href="http://en.wikipedia.org/w/index.php?title=Special:Cite&amp;page=Datamatrix&amp;id=43281815">Cite this article</a></li>			</ul>
+		</div>
+	</div>
+	<div id="p-lang" class="portlet">
+		<h5>In other languages</h5>
+		<div class="pBody">
+			<ul>
+				<li class="interwiki-de"><a href="http://de.wikipedia.org/wiki/DataMatrix">Deutsch</a></li>
+			</ul>
+		</div>
+	</div>
+		</div><!-- end of the left (by default at least) column -->
+			<div class="visualClear"></div>
+			<div id="footer">
+				<div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="_files/poweredby_mediawiki_88x31" alt="MediaWiki"></a></div>
+				<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="_files/wikimedia-button" alt="Wikimedia Foundation" border="0"></a></div>
+			<ul id="f-list">
+				<li id="lastmod"> This page was last modified 12:14, 11 March 2006.</li>
+				<li id="copyright">All text is available under the terms of the <a class="internal" href="http://en.wikipedia.org/wiki/Wikipedia:Text_of_the_GNU_Free_Documentation_License">GNU Free Documentation License</a> (see <b><a class="internal" href="http://en.wikipedia.org/wiki/Wikipedia:Copyrights">Copyrights</a></b> for details). <br> Wikipedia® is a registered trademark of the Wikimedia Foundation, Inc.<br></li>
+				<li id="privacy"><a href="http://wikimediafoundation.org/wiki/Privacy_policy" title="wikimedia:Privacy policy">Privacy policy</a></li>
+				<li id="about"><a href="http://en.wikipedia.org/wiki/Wikipedia:About" title="Wikipedia:About">About Wikipedia</a></li>
+				<li id="disclaimer"><a href="http://en.wikipedia.org/wiki/Wikipedia:General_disclaimer" title="Wikipedia:General disclaimer">Disclaimers</a></li>
+			</ul>
+		</div>
+	<script type="text/javascript"> if (window.runOnloadHook) runOnloadHook();</script>
+</div>
+<!-- Served by srv40 in 0.043 secs. -->
+</body></html>

@@ -1,0 +1,1419 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Introduction to barcode - Bar Code Symbologies</title>
+
+
+
+<meta name="description" content="Introduction to barcode - Bar Code Symbologies">
+
+<meta name="searchtitle" content="Bar Code Symbologies">
+
+<meta name="keywords" content="barcode, bar code, barcode font, bar code font, symbologies, Code 39, code39, code 3 of 9, Interleaved 2 of 5, ITF, UPC, UPC-A, UPC-E, EAN, EAN-8, EAN-13, Code 128 Code128, UCC/EAN 128, EAN/UCC 128 UCC, Code 93, Code93, Codabar, MSI, Plessey, PostNET, Zip+4, ZIP, 2 of 5, JAN, Bookland, Aztec Code, Aztec, PDF417, Data Matrix, Datamatrix, maxicode, HIBC, bar code scanner, barcode scanner, laser scanner, wand, ccd reader">
+
+<script language="JavaScript">
+
+function formHandler(form){
+var URL = form.Quicklinks.options[form.Quicklinks.selectedIndex].value;
+if (URL != "") {
+	window.location.href =URL;
+}
+}
+
+function PopUp(file) {
+	var w = window.open(file, "", "WIDTH=450,HEIGHT=360,scrollbars=No");
+}
+
+</script>
+
+
+
+
+<style type="text/css">
+
+<!--
+
+A:link {color:#0000A0;}
+
+A:vlink {color:#330099;}
+
+A:hover {color:#8080FF;}
+
+-->
+
+</style>
+
+<link rel="stylesheet" type="text/css" href="bcsymbol_files/taltech">
+
+
+
+<script type="text/javascript" language="JavaScript">
+
+function MM_preloadImages() { //v3.0s
+
+ 	var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+
+   	var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+
+   	if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+
+}
+
+//-->
+
+</script></head>
+
+
+<body topmargin="0" leftmargin="0" onload="MM_preloadImages('../images/n_products2_F2.gif', '../images/n_resources2_F2.gif', '../images/n_freesoft2_F2.gif');" alink="#8080ff" bgcolor="white" link="#0000a0" marginheight="0" marginwidth="0" vlink="#330099">
+
+
+
+<!--Header-->
+
+
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+
+
+
+
+
+
+
+<tbody><tr>
+
+
+
+
+
+
+
+<td colspan="2" bgcolor="#003399">
+
+
+
+
+
+
+
+<input name="Range" value="All" type="hidden"><input value="Standard" name="Format" type="hidden"><table border="0" cellpadding="2" cellspacing="0" width="745">
+
+
+
+
+
+
+
+<tbody><tr><td width="200"><img src="bcsymbol_files/logo_sm" alt="TALtech Logo" border="0" height="34" width="197"></td>
+
+
+
+
+
+
+<form name="Quick"></form>
+<td width="255">
+<select name="Quicklinks" onchange="formHandler(this.form)"><option selected="selected">Resources
+
+</option><option value="../links.html">Links to related sites
+
+</option><option value="../intro-sc.html">Intro to Serial Communications
+
+</option><option value="http://www.beyondlogic.org/">Intro to Interfacing Devices to PCs
+
+</option><option value="index.html">Intro to Bar Coding
+
+</option><option value="../tcpip.htm">Using TCP/IP as an Instrument Interface
+
+</option><option value="../abouttal.htm">About TAL
+
+</option></select> 
+</td>
+
+
+
+
+
+
+
+<form name="SearchForm" method="get" action="http://www.taltech.com/cgi-bin/library/xavatoria/search.cgi"></form><td align="right"><img src="bcsymbol_files/search2" alt="search" border="0" height="10" width="56"></td>
+
+<td><input name="Terms" size="20" maxlength="800" type="text"><input name="Scope" value="1" type="hidden"></td>
+
+
+
+
+
+
+
+
+</tr>
+
+
+
+
+
+
+
+</tbody></table></td>
+
+
+
+
+
+
+
+</tr>
+
+
+
+
+
+
+
+<tr><td colspan="2" bgcolor="#990000"><img src="bcsymbol_files/dot_rs" alt="" border="0" height="3" width="3"></td></tr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<tr><td><img src="bcsymbol_files/instrumental" alt="" border="0" height="25" width="235"></td>
+
+
+
+<td><table border="0" cellpadding="0" cellspacing="5"> 
+
+
+
+<tbody><tr>
+
+
+
+          <td valign="top"><a href="http://www.taltech.com/TALtech_web/products/index.html" onmouseover="document.products.src='../../images/n_products2_F2.gif';" onmouseout="document.products.src='../../images/n_products2.gif';"><img src="bcsymbol_files/n_products2" alt="Products" name="products" border="0" height="12" width="57"></a></td>
+
+
+
+<td><img src="bcsymbol_files/divider_r" alt="" border="0" height="15" width="1"></td>
+
+
+
+          <td valign="top"><a href="http://www.taltech.com/TALtech_web/support/index.html" onmouseover="document.support.src='../../images/n_support2_F2.gif';" onmouseout="document.support.src='../../images/n_support2.gif';"><img src="bcsymbol_files/n_support2" alt="Support" name="support" border="0" height="15" width="53"></a></td>
+
+
+
+<td><img src="bcsymbol_files/divider_r" alt="" border="0" height="15" width="1"></td>
+
+
+
+<td valign="top"><img src="bcsymbol_files/n_resources2_F2" alt="Resources" name="resources" border="0" height="12" width="67"></td>
+
+
+
+<td><img src="bcsymbol_files/divider_r" alt="" border="0" height="15" width="1"></td>
+
+
+
+
+
+<td valign="top"></td><td valign="top"><a href="http://www.taltech.com/cgi-bin/fs2k.cgi" onmouseover="document.freesoft.src='../../images/n_freesoft2_F2.gif';" onmouseout="document.freesoft.src='../../images/n_freesoft2.gif';"><img src="bcsymbol_files/n_freesoft2" alt="Free Software" name="freesoft" border="0" height="13" width="90"></a></td>
+
+</tr>
+
+</tbody></table></td></tr>
+
+
+
+
+
+
+
+
+
+
+
+</tbody></table>
+
+
+
+
+
+
+
+
+
+
+
+<!--Text Navigation-->
+
+<table align="left" border="0" cellpadding="1" cellspacing="0" width="745">
+
+<tbody><tr>
+    <td><font face="Arial, Helvetica, Sans-serif" size="2"><i><b>&nbsp;<a href="http://www.taltech.com/TALtech_web/index.html">TALtech 
+      Home:</a> &nbsp;<a href="http://www.taltech.com/TALtech_web/resources/index.html">Resources:</a> &nbsp; <a href="http://www.taltech.com/TALtech_web/resources/intro_to_bc/index.html">Introduction 
+      to Bar Coding</a></b></i></font></td>
+  </tr>
+
+</tbody></table><br>
+
+<!--End Text Navigation-->
+
+
+
+
+
+
+
+
+
+<!--Content Table--><br>
+
+<table border="0" cellpadding="0" cellspacing="20" width="755">
+  <tbody><tr>
+
+
+
+<td rowspan="3" width="20"><img src="bcsymbol_files/blank" alt="" border="0" height="3" width="20"></td>
+
+
+
+    <td width="524"> <img src="bcsymbol_files/r_bcsymbol" alt="Bar Code Symbologies" border="0" height="17" width="161"> 
+      <a name="top"></a> 
+      <p>Bar codes are like a printed version of the Morse code. Different bar 
+        and space patterns are used to represent different characters. Sets of 
+        these patterns are grouped together to form a "symbology". There 
+        are many types of bar code symbologies each having their own special characteristics 
+        and features. Most symbologies were designed to meet the needs of a specific 
+        application or industry. For example the UPC symbology was designed for 
+        identifying retail and grocery items and PostNET was designed to encode 
+        Zip Codes for the US Postal Service.</p>
+      <p>The following is a detailed description of the most commonly used bar
+         code symbologies. All of the following types of bar codes are fully
+        supported 
+        by B-Coder Pro, the TALtech Bar Code ActiveX control and the TALtech
+        Bar Code DLLs.</p>
+      <p></p>
+
+		  
+
+          
+
+			
+
+            
+      <h2>CODE 39<a name="CODE39"></a> (Normal and Full ASCII versions)</h2>
+
+			
+
+           
+
+			<img src="bcsymbol_files/code39" height="50" width="156">
+
+			
+
+			<p>The Normal CODE 39 is a variable length
+
+            symbology that can encode the following 44 characters:
+
+            1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ-. *$/+%. Code 39 is the most
+			  popular symbology in the
+
+            non-retail world and is used extensively in manufacturing, military,
+			  and health
+
+            applications. Each Code 39 bar code is framed by a start/stop character
+			  represented by an
+
+            asterisk (*). The Asterisk is reserved for this purpose and may not
+			  be used in the body of
+
+            a message. B-Coder automatically adds the start and stop character
+			  to each bar code
+
+            therefore you should not include them as part of your bar code message.
+			  If you select the
+
+            NORMAL version of CODE 39 and your bar code text contains lower case
+			  characters, B-Coder
+
+            will convert them to upper case. If your bar code message contains
+			  any invalid characters,
+
+            B-Coder will prompt you with a warning message (if the Enable Invalid
+			  Warning Messages
+
+            option is selected in the Preferences menu).</p>
+
+			
+
+			
+            <p>Code 39 optionally allows for a (modulo 43) check character in cases 
+        where data security is important. The health care industry has adopted 
+        the use of this check character for health care applications. </p>
+
+			
+
+       
+
+			
+
+            <p>Another feature of Code 39 allows for concatenation of two or
+              more bar codes. It is
+
+            sometimes advantageous to break long messages into multiple shorter
+              messages. If the
+
+            first data character of a Code 39 symbol is a space, some readers
+              will store the remainder
+
+            of the symbol in a buffer
+
+			and not transmit the data. This operation
+
+            continues for all successive Code 39 symbols with a leading space,
+              with each message
+
+            appended to the previous one.</p>
+
+			
+
+			
+
+            <p>When a message without a leading space is read, it is appended to the previously
+
+            scanned data in the buffer and the entire buffer is transmitted as one long message.</p>
+
+			
+
+			<p>The FULL ASCII version of Code 39 is a modification of the NORMAL (standard)
+
+            version that can encode the complete 128 ASCII character set (including
+			  asterisks). The
+
+            Full ASCII version is implemented by using the four characters: $/+%
+			  as shift characters
+
+            to change the meanings of the rest of the characters in the Normal
+			  Code 39 character set.
+
+            Because the Full ASCII version uses shift characters in combination
+			  with other standard
+
+            characters to represent data not in the Normal Code 39 character
+			  set, each non-standard
+
+            character requires twice the width of a standard character in a printed
+			  symbol. </p>
+
+			
+
+          
+
+			
+            <p><i><b>Note: </b></i> Because all of the characters used to implement
+               Full ASCII Code 39 are part of the Normal Code 39 character set,
+              readers 
+        that do not support Full ASCII Code 39 will still read Full ASCII Code
+               39 symbols. The barcode reader will output shifted characters
+              as if they were 
+        normal Code 39 characters.</p>
+            <p>[<a href="#top">Back to top</a>]</p>
+      <p>&nbsp;</p>
+      <h1> UPC<a name="UPC"></a>-A, UPC-E, and UPC Supplementals</h1>
+
+			
+
+          
+
+			<h2>UPC-A with Supplemental UPC-E</h2>
+
+		  
+
+           
+
+			<img src="bcsymbol_files/upc-a" height="50" width="172"><img src="bcsymbol_files/upc-e" height="50" width="83">
+
+		  
+
+            
+
+			
+      <p>UPC-A is a 12 digit, numeric symbology used in retail applications. UPC-A 
+        symbols consist of 11 data digits and one check digit. The first digit 
+        is a number system digit that normally represents the type of product 
+        being identified. The following 5 digits are a manufacturers code and 
+        the next 5 digits are used to identify a specific product.</p>
+
+			
+
+			<p>UPC numbers are
+
+            assigned to specific products and manufacturers by the Uniform Code Council (UCC). To
+
+            apply for a UPC number or for more information, you can contact the UCC at 8163 Old Yankee
+
+            Road, Suite J, Dayton, OH 45458 Tel: 937-435-3870</p>
+
+			
+
+            
+      <p>When specifying UPC-A messages, you normally specify 11 digits and let
+         your bar code printing software calculate the 12th check digit for you.
+        
+        (All TALtech bar code software products automatically calculate check
+        digits for you.)</p>
+
+			
+
+            
+      <p>UPC-E is a smaller seven digit UPC symbology for number system 0. It 
+        is often used for small retail items. For UPC-E bar codes, you normally 
+        specify 6 digits and let your bar code printing software calculate the 
+        seventh check digit for you. </p>
+      <p>Both UPC-A and UPC-E allow for a supplemental two or five digit number 
+        to be appended to the main bar code symbol. This supplemental message 
+        was designed for use on publications and periodicals. If you enter a supplemental 
+        message, it must consist of either two or five numeric digits. The supplemental 
+        is simply a small additional bar code that is added onto the right side 
+        of a standard UPC symbol.</p>
+
+			
+
+         
+
+		
+      <h1> <br>
+        Differences between Type A and Type E</h1>
+      <p>UPC-E is also called "zero suppressed UPC" because UPC-E compresses 
+        a normal 12 digit UPC-A number into a six digit code by "suppressing" 
+        the number system digit, trailing zeros in the manufacturers code and 
+        leading zeros in the product identification part of the bar code message. 
+        A seventh check digit is encoded into a parity pattern for the six main 
+        digits. UPC-E can thus be uncompressed back into a standard UPC-A 12 digit 
+        number.<br>
+      </p>
+      <p><b>Note:</b><br>
+        Most bar code readers can be configured to automatically convert 6 digit 
+        UPC-E numbers to 12 digit UPC-A numbers before they are transmitted to 
+        a host computer.</p>
+      <p>The main difference between a UPC-A symbol and a UPC-E symbol is the 
+        size.&nbsp; Below is a UPC-A bar code on the left and the same data encoded 
+        as a UPC-E symbol on the right. </p>
+      <p>&nbsp;
+      <table border="0" cellpadding="0" cellspacing="1" width="83%">
+        <tbody><tr align="center"> 
+          <td align="center" width="44%"><b> 
+            <p align="center">UPC-A<br>
+              <img src="bcsymbol_files/UPC_A" height="106" width="140"></p>
+            </b></td>
+          <td width="30%"><b> 
+            <div align="center"> 
+              <p>These two bar codes are equivalent.</p>
+            </div>
+            </b></td>
+          <td width="26%"><b> 
+            <p align="center">UPC-E<br>
+              <img src="bcsymbol_files/UPC_E" height="106" width="83"></p>
+            </b></td>
+        </tr>
+      </tbody></table>
+      </p><p><br>
+        To convert between UPC-A and UPC-E bar code numbers, you can use the following 
+        table or try our useful <a href="javascript:PopUp('UPCE2A.htm')">online 
+        UPCE converter program</a>. In the following, the number 0 and each of 
+        the letters a,b,c,d and e represent individual digits in the bar code 
+        message and the letter X represents the UPC check digit.<br>
+        &nbsp; 
+      <table border="1" cols="2" width="98%">
+        <tbody><tr> 
+          <td height="35" width="21%"> 
+            <p align="center"><b>UPC-A Number</b></p>
+          </td>
+          <td height="35" width="27%"> 
+            <p align="center"><b>Equivalent UPC-E</b> </p>
+          </td>
+          <td height="35" width="52%"> 
+            <p align="center"><b>Notes:</b> </p>
+          </td>
+        </tr>
+        <tr> 
+          <td height="21" width="21%"> 
+            <p align="center">0ab00000cdeX</p>
+          </td>
+          <td height="21" width="27%"> 
+            <p align="center">abcde0X</p>
+          </td>
+          <td height="21" width="52%"> 
+            <p>Manufacturer code must have 2 leading digits with 3 trailing zeros 
+              and the item number is limited to 3 digits (000 to 999).</p>
+          </td>
+        </tr>
+        <tr> 
+          <td width="21%"> 
+            <p align="center">0ab10000cdeX</p>
+          </td>
+          <td width="27%"> 
+            <p align="center">abcde1X</p>
+          </td>
+          <td width="52%"> 
+            <p>Manufacturer code must have 3 leading digits ending with "1" 
+              and 2 trailing zeros. The item number is limited to 3 digits.</p>
+          </td>
+        </tr>
+        <tr> 
+          <td width="21%"> 
+            <p align="center">0ab20000cdeX</p>
+          </td>
+          <td width="27%"> 
+            <p align="center">abcde2X</p>
+          </td>
+          <td width="52%"> 
+            <p>Manufacturer code must have 3 leading digits ending with "2" 
+              and 2 trailing zeros. The item number is limited to 3 digits.</p>
+          </td>
+        </tr>
+        <tr> 
+          <td width="21%"> 
+            <p align="center">0abc00000deX</p>
+          </td>
+          <td width="27%"> 
+            <p align="center">abcde3X</p>
+          </td>
+          <td width="52%"> 
+            <p>Manufacturer code must have 3 leading digits and 2 trailing zeros. 
+              The item number is limited to 2 digits (00 to 99).</p>
+          </td>
+        </tr>
+        <tr> 
+          <td width="21%"> 
+            <p align="center">0abcd00000eX</p>
+          </td>
+          <td width="27%"> 
+            <p align="center">abcde4X</p>
+          </td>
+          <td width="52%"> 
+            <p>Manufacturer code must have 4 leading digits with 1 trailing zero
+               and the item number is limited to 1 digit (0 to 9).</p>
+          </td>
+        </tr>
+        <tr> 
+          <td width="21%"> 
+            <p align="center">0abcde00005X<br>
+              0abcde00006X<br>
+              0abcde00007X<br>
+              0abcde00008X<br>
+              0abcde00009X</p>
+          </td>
+          <td width="27%"> 
+            <p align="center">abcde5X<br>
+              abcde6X<br>
+              abcde7X<br>
+              abcde8X<br>
+              abcde9X</p>
+          </td>
+          <td width="52%"> 
+            <p align="left">Manufacturer code has all 5 digits.<br>
+              The item number is limited to a single digit consisting of either 
+              5,6,7,8 or 9.</p>
+          </td>
+        </tr>
+      </tbody></table>
+      </p><p>[<a href="#top">Back to top</a>]</p>
+      <p>&nbsp;</p>
+      <h1> EAN<a name="EAN"></a>-8 / EAN-13, BookLand and EAN Supplementals</h1>
+
+		
+
+			<h2>EAN-8/EAN-13 with supplemental (ISBN Version)</h2>
+
+			<img src="bcsymbol_files/ean8" height="50" width="103"><img src="bcsymbol_files/ean13" height="63" width="172">
+
+			
+
+			<p>EAN or European Article Numbering system (also called JAN in
+
+            Japan) is a European version of UPC. It uses the same size requirements and a similar
+
+            encoding scheme as for UPC codes. </p>
+
+			
+
+            <p>
+
+            EAN-8 encodes 8 numeric digits consisting of two country code digits, five data digits and
+
+            one check digit. B-Coder will accept up to 7 numeric digits for EAN-8. B-Coder will
+
+            automatically calculate the check digit for you. If you enter less than 7 digits or if you
+
+            enter any digits other than 0 to 9, B-Coder will display a warning message. If the option
+
+            "Enable Invalid Message Warnings" in the Preferences menu is not selected and
+
+            you do not enter 7 digits, B-Coder will left pad short messages with zeros and truncate
+
+            longer messages so that the total length is 7.</p>
+
+		
+
+			
+
+           <p> EAN-13 is the European version of UPC-A. The difference between
+             EAN-13 and UPC-A is that
+
+            EAN-13 encodes a 13th digit into the parity pattern of the left six
+             digits of a UPC-A
+
+            symbol. This 13th digit, combined with the 12th digit, usually represent
+             a country code.</p>
+
+			<p>
+
+            Both EAN-8 and EAN-13 support a supplemental two or five digit number to be appended to
+
+            the main bar code symbol. The supplemental is designed for use on publications and
+
+            periodicals. Supplemental messages must consist of either two or five numeric digits and
+
+            will appear as a small additional bar code on the right side of a standard EAN symbol.</p>
+
+			<p>
+
+            EAN bar code numbers are assigned to specific products and manufacturers by an
+
+            organization called ICOF located in Brussels, Belgium. Tel: 011-32-2218-7674</p>
+
+			
+
+           
+      <p> EAN-13 has been adopted as the standard in the publishing industry for 
+        encoding ISBN numbers on books. An ISBN or BookLand bar code is simply 
+        an EAN-13 symbol consisting of the first 9 digits of the ISBN number preceded 
+        by the digits 978. The supplemental in an ISBN bar code is the retail 
+        price of the book preceded by the digit 5. For example, if your ISBN number 
+        is 1-56276-008-4 and the price of the book is $29.95 then you would enter 
+        978156276008 as the bar code message and 52995 for the supplemental. </p>
+      <p>[<a href="#top">Back to top</a>] </p>
+      <h2>RSS-14<a name="RSS14"></a></h2>
+      <p><img src="bcsymbol_files/rss14" height="86" width="154"></p>
+      <p>RSS was developed by the <a href="http://www.uc-council.org/" target="_blank">Uniform
+           Code Council</a>, Inc. to answer business needs of its 200,000 member
+            companies in North America. The purpose of the code is to increase
+           the 
+        amount of information that can be put into a bar code while decreasing
+            the overall area of the code. The code will allow businesses to improve
+           
+        the stream of information and to match that information to the actual
+            flow of product. This type of code is particularly useful for applications
+           
+        where space limitations are a concern. Industries such as pharmaceutical,
+            healthcare, logistics and transportation, and supermarkets have recently
+           
+        begun utilizing this new symbology. RSS allows businesses to go beyond
+            the typical manufacturer and product identification information embedded
+           
+        in a bar code. The healthcare industry views this symbology as a potential
+            way to significantly reduce medication errors. The RSS technology
+           also 
+        improves the labeling and tracking of food items. It gives supermarkets
+            the opportunity to improve their labeling and tracking of meat and
+           produce 
+        items. The code can be encoded to include manufacturers name, item identification
+            number, weight, extended price, and the ability to place "best if
+           used 
+        by" dates on items. Consumers also benefit by added consumer safety.
+           If a bad batch of produce is placed on the shelves, a supermarket
+           will
+           have 
+        the ability to track down the produce immediately and remove it from
+           the  shelves. </p>
+      <p><a href="http://www.uc-council.org/rss14/" target="_blank">More information</a> 
+        on RSS 14.</p>
+      <p>[<a href="#top">Back to top</a>] </p>
+      <h2>CODABAR<a name="codabar"></a></h2>
+
+			<img src="bcsymbol_files/codabar" height="50" width="135">
+
+		  
+
+			<p>CodaBar is a variable length symbology that allows encoding of
+
+            the following 20 characters: 0123456789-$:/.+ABCD. CodaBar is commonly used in libraries,
+
+            blood banks, and the air parcel business. CodaBar uses the characters A B C and D only as
+
+            start and stop characters. Thus, the first and last digits of a CodaBar message must be A
+
+            B C or D and the body of the message should not contain these characters. B-Coder will
+
+            allow any length of CodaBar message as long as it contains valid characters and starts and
+
+            ends with a valid start/stop character. If you use lower case letters for A B C or D,
+
+            B-Coder will convert to upper case.</p>
+
+			
+
+			
+      <p>[<a href="#top">Back to top</a>]</p>
+      <p>&nbsp;</p>
+      <h2>INTERLEAVED 2 OF 5<a name="i2of5"></a></h2>
+
+			          
+
+			<img src="bcsymbol_files/inter2" height="50" width="87"><br>
+
+          
+
+			
+      <p>Interleaved 2 of 5 is a high density variable length numeric only symbology 
+        that encodes digit pairs in an interleaved manner. The odd position digits 
+        are encoded in the bars and the even position digits are encoded in the 
+        spaces. Because of this, I 2 of 5 bar codes must consist of an even number 
+        of digits. Also, because partial scans of I 2 of 5 bar codes have a slight 
+        chance of being decoded as a valid (but shorter) bar code, readers are 
+        usually set to read a fixed (even) number of digits when reading I 2 of 
+        5 symbols. The number of digits are usually pre-defined for a particular 
+        application and all readers used in the application are programmed to 
+        only accept I 2 of 5 bar codes of the chosen length. Shorter data can 
+        be left padded with zeros to fit the proper length. </p>
+
+			
+
+            
+      <p>Interleaved 2 of 5 optionally allows for a weighted modulo 10 check character 
+        for special situations where data security is important. </p>
+      <p>[<a href="#top">Back to top</a>]</p>
+      <p>&nbsp;</p>
+
+		  
+
+          
+
+			
+      <h2>DISCRETE 2 OF 5<a name="d2of5"></a> </h2>
+      <img src="bcsymbol_files/discreet" height="50" width="115">
+
+		   <p>
+
+			Discrete 2 of 5 is a variable length numeric symbology very
+
+            similar to Interleaved 2 of 5 except that instead of encoding data
+			  in both the bars and
+
+            the spaces, data is only encoded in the bars. Because of this, discrete
+			  2 of 5 is not as
+
+            compact as Interleaved 2 of 5 and also, odd numbers of digits may
+			  be encoded. Discrete 2 of 5 is not used very often and few bar
+			  code readers support this symbology.</p>
+
+			
+
+			
+           <p>[<a href="#top">Back to top</a>]</p>
+      <p>&nbsp;</p>
+      <h2>CODE 93<a name="code93"></a></h2>
+
+          <img src="bcsymbol_files/code93" height="50" width="154"><br>
+
+          
+
+			
+      <p>CODE 93 is a variable length symbology that can encode the complete
+        128  ASCII character set. CODE 93 was developed as an enhancement to
+        the Code 
+        39 symbology by providing a slightly higher character density than Code
+         39. CODE 93 also incorporates two check digits as an added measure of
+        
+        security. Although CODE 93 is considered more robust than Code 39, it
+         has never achieved the same popularity as Code 39. CODE 93 bar codes
+        are 
+        framed by a special start/stop character. B-Coder will automatically
+        add  the start and stop characters as well as the check digits to each
+        CODE 
+        93 bar code therefore you should not attempt to include them as part
+        of  your bar code message. </p>
+      <p>[<a href="#top">Back to top</a>] </p>
+      <p>&nbsp;</p>
+      <h2> CODE 128<a name="code128"></a></h2>
+
+			<img src="bcsymbol_files/code128" alt="code128" height="50" width="136">
+
+           
+
+			
+      <p>Code 128 is a variable length, high density, alphanumeric symbology. 
+        Code 128 has 106 different bar and space patterns and each pattern can 
+        have one of three different meanings, depending on which of three different 
+        character sets is employed. Special start characters tell the reader which 
+        of the character sets is initially being used and three special shift 
+        codes permit changing character sets inside a symbol. One character sets 
+        encodes all upper case and ASCII control characters, another encodes all 
+        upper and lower case characters and the third set encodes numeric digit 
+        pairs 00 through 99. This third character set effectively doubles the 
+        code density when printing numeric data. Code 128 also employs a check 
+        digit for data security. In addition to ASCII characters, Code 128 also 
+        allows encoding of four special function codes (FNC1 - FNC4). The meaning 
+        of function code FNC1 and FNC4 were originally left open for application 
+        specific purposes. Recently an agreement was made by the Automatic Identification 
+        Manufacturers Assoc. (AIM) and the European Article Numbering Assoc. (EAN) 
+        to reserve FNC1 for use in EAN applications. FNC4 remains available for 
+        use in closed system applications. FNC2 is used to instruct a bar code 
+        reader to concatenate the message in a bar code symbol with the message 
+        in the next symbol. FNC3 is used to instruct a bar code reader to perform 
+        a reset. When FNC3 is encoded anywhere in a symbol, any data also contained 
+        in the symbol is discarded. </p>
+
+			
+
+			
+
+        
+      <p> <b> <i> Note: </i></b> All TALtech bar code software products will automatically 
+        select the proper character sets and insert the necessary start character 
+        and shift codes so that the resulting bar code will be as short as possible. 
+        The check digit will also be calculated automatically.</p>
+
+		  
+
+         
+
+		
+      <p>[<a href="#top">Back to top</a>]</p>
+      <p>&nbsp;</p>
+      <h2> EAN/UCC<a name="EAN/UCC"></a> 128</h2>
+
+			
+
+         
+
+			<img src="bcsymbol_files/eanucc" height="50" width="122">
+
+			
+
+           
+      <p> The EAN/UCC 128 symbology is a variation of the original Code 128 symbology 
+        designed primarily for use in product identification applications. The 
+        EAN/UCC 128 specification uses the same code set as Code 128 except that 
+        it does not allow function codes FNC2-FNC4 to be used in a symbol and 
+        FNC1 is used as part of the start code in the symbol. The check digit 
+        in EAN/UCC128 symbols is also calculated slightly differently than in 
+        Code 128.</p>
+
+			
+
+       
+
+		  
+
+         
+
+			
+      <p>[<a href="#top">Back to top</a>]<br>
+      </p>
+      <h2><br>
+        <br>
+        POSTNET<a name="postnet"></a> </h2>
+
+			
+
+            <img src="bcsymbol_files/postnet" height="11" width="141">
+
+			
+
+            <p>POSTNET (POSTal Numeric Encoding Technique) is a 5, 9 or 11 digit numeric only bar code
+
+            symbology used by the U.S. Postal Service to encode ZIP Code information for automatic
+
+            mail sorting by zip code. The bar code may represent a five digit ZIP Code (32 bars), a
+
+            nine digit ZIP + 4 code (52 bars) or an eleven digit Delivery Point code (62 bars). 
+
+			</p>
+
+            
+      <p>POSTNET is unlike other bar codes because data is encoded in the height 
+        of the bars instead of in the widths of the bars and spaces. Most standard 
+        bar code readers cannot decode POSTNET. This symbology was chosen by the 
+        Postal Service mainly because it is extremely easy to print on almost 
+        any type of printer. POSTNET is a fixed dimension symbology meaning that 
+        the height, width and spacing of all bars must fit within exact tolerances. 
+      </p>
+      <p>Microsoft Access and Word have built in tools for generating PostNet
+         bar codes. See our <a href="http://www.taltech.com/TALtech_web/resources/intro_to_bc/Merge.htm">tutorial</a> on how to use the
+          tools in Word to create PostNet bar codes in your mail merge documents.<br>
+      </p>
+
+			
+
+            
+      <p>[<a href="#top">Back to top</a>] </p>
+      <p>&nbsp; </p>
+      <h2>Postal FIM<a name="FIM"></a> Patterns</h2>
+
+			
+
+			<p>FIM or Facing Identification Mark patterns are another type of
+
+            postal bar code used in automated mail processing by the U.S. Postal Service. FIM patterns
+
+            are used for automatic facing and canceling of mail that does not contain a stamp or meter
+
+            imprint (business reply mail, penalty mail, etc.). They also provide a means of separating
+
+            business and courtesy reply mail from other letters. Three FIM patterns are currently in
+
+            use. FIM-A is used on courtesy reply mail that has been preprinted with PostNET bar codes.
+
+            FIM-B is used on business reply, penalty and franked (government) mail that is not
+
+            preprinted with PostNET bar codes. FIM-C is used on business reply, penalty and franked
+
+            mail that has been preprinted with PostNET bar codes. FIM patterns are placed in the upper
+
+            right corner along the top edge and two inches in from the right edge of letters and
+
+            cards. For more information about all postal bar codes contact your local post office.</p>
+
+			
+
+			
+
+           
+      <p>[<a href="#top">Back to top</a>]</p>
+      <p>&nbsp;</p>
+      <h2>PDF417<a name="pdf417"></a></h2>
+
+			<img src="bcsymbol_files/pdf417" height="22" width="82"><br>
+
+			
+
+			<p>PDF417 is a high density 2 dimensional bar code symbology that essentially consists
+
+            of a stacked set of smaller bar codes. The symbology is capable of encoding the entire
+
+            (255 character) ASCII set. PDF stands for "Portable Data File" because it can
+
+            encode as many as 2725 data characters in a single bar code. The complete specification
+
+            for PDF417 provides many encoding options including data compaction options, error
+
+            detection and correction options, and variable size and aspect ratio symbols. The
+
+            symbology was published by Symbol Technologies, Inc. to fulfill the need for higher
+
+            density bar codes. The low level structure of a PDF417 symbol consists of an array of code
+
+            words (small bar and space patterns) that are grouped together and stacked on top of each
+
+            other to produce the complete printed symbol. An individual code word consists of a bar
+
+            and space pattern 17 modules wide. The user may specify the module width, the module
+
+            height, and the overall aspect ratio (overall height to width ratio) for the complete
+
+            symbol. A complete PDF417 symbol consists of at least 3 rows of up to 30 code words and
+
+            may contain up to 90 code word rows per symbol with a maximum of 928 code words per
+
+            symbol.</p>
+
+			
+
+			
+
+            <p>The code words in a PDF417 symbol are generated using one of three data compaction modes
+
+            currently defined in the symbology specifications. This allows more than one character to
+
+            be encoded into a single data code word. Because different data compaction algorithms may
+
+            be used, it is possible for different printed symbols to be created from the same input
+
+            data. The symbology also allows for varying degrees of data security or error correction
+
+            and detection. Nine different error correction levels are available with each higher level
+
+            adding additional overhead to the printed symbol.</p>
+
+			
+
+            
+      <p>[<a href="#top">Back to top</a>]</p>
+      <p>&nbsp;</p>
+
+		  
+
+          
+
+			
+      <h2>BPO<a name="BPO"></a> 4 State Code (British Post Office, Royal Mail 
+        Code)</h2>
+
+			
+
+            <img src="bcsymbol_files/pbo" height="18" width="114"><br>
+
+			
+
+			<p>BPO (British Post Office) 4 State Code is a new postal bar code symbology that has
+
+            been developed by the British Post office for encoding European postcode data similar to
+
+            the way the U.S. PostNET symbology is used for encoding Zip Code data. At the time of this
+
+            writing, the BPO 4 State Code has not been officially adopted as the standard for European
+
+            postal applications however it is anticipated that it will be sanctioned sometime in 1995.
+
+            The goal of BPO 4 State Code is to provide European countries with a simple and efficient
+
+            postal bar coding scheme.</p>
+
+			
+
+            <p>The U.S. PostNET symbology encodes numeric characters in a pattern
+              of four bars per
+
+            character with each bar being either tall or short (i.e. two possible "states"
+
+            for each bar). The U.S. technique thus allows for up to 16 different
+            possible bar patterns
+
+            for each set of four bars and is adequate for encoding the ten digits
+            zero through nine.
+
+            Because European postcodes contain both alpha and numeric characters,
+            (thus requiring a
+
+            minimum of 36 different possible patterns for the characters A-Z
+            and 0 to 9), each
+
+            character in the BPO 4 State Code is encoded into four bars with
+            each bar having four
+
+            possible "states". The four states are: tall bars, short
+            bars, medium height
+
+            bars extended up from the middle of the symbol and medium height
+            bars extended down from
+
+            the middle of the symbol. In theory, the BPO 4 State Code is capable
+            of encoding up to 128
+
+            different characters however only the characters A through Z and
+            0 to 9 have been assigned
+
+            unique bar patterns.</p>
+
+			
+
+           
+            <p> BPO 4 State Code is a fixed dimension symbology meaning that the height, 
+        width and spacing of all bars must fit within exact tolerances. </p>
+      <p>[<a href="#top">Back to top</a>]</p>
+      <p>&nbsp;</p>
+
+			
+
+         
+
+			
+      <h2>DATA MATRIX<a name="datamatrix"></a></h2> 
+
+			
+
+			
+      <p><img src="bcsymbol_files/dmatrix" height="100" width="100"></p>
+      <p>Data Matrix is a high density 2 dimensional matrix style bar code symbology 
+        that can encode up to 3116 characters from the entire 256 byte ASCII character 
+        set. The symbol is built on a square grid arranged with a finder pattern 
+        around the perimeter of the bar code symbol.</p>
+
+            
+
+			
+      <p>There are two types of Data Matrix symbols each using a different error 
+        checking and correction scheme (ECC). The different types of Data Matrix 
+        symbols are identified using the terminology "ECC" followed 
+        by a number representing the type of error correction that is used by 
+        the encoding software. ECC 000 to ECC 140 are the original type of Data 
+        Matrix symbols and are now considered obsolete. The newest version of 
+        Data Matrix is called ECC 200 and is recommended for all new Data Matrix 
+        applications. The ECC 200 version of Data Matrix uses a much more efficient 
+        algorithm for encoding data in a symbol as well as an advanced error checking 
+        and correction scheme. </p>
+      <p>[<a href="#top">Back to top</a>]</p>
+      <p>&nbsp;</p>
+
+			
+
+			
+
+			
+      <h2>MAXICODE<a name="maxicode"></a></h2>
+
+			
+      <p><img src="bcsymbol_files/maxicode" height="106" width="111"></p>
+      <p>MaxiCode is a fixed size matrix style symbology which is made up of offset 
+        rows of hexagonal modules arranged around a unique bulls-eye finder pattern. 
+        Each MaxiCode symbol has 884 hexagonal modules arranged in 33 rows with 
+        each row containing up to 30 modules. The maximum data capacity for a 
+        MaxiCode symbol is 93 Alphanumeric characters or 138 Numeric characters. 
+        The symbology was designed by United Parcel Service for package tracking 
+        applications. The design of the MaxiCode symbology was chosen because 
+        it is well suited to high speed, orientation independent scanning. Although 
+        the capacity of a MaxiCode symbol is not as high as other matrix style 
+        bar code symbologies, it was primarily designed to encode address data 
+        which rarely requires more than about 80 characters. MaxiCode symbols 
+        actually encode two separate messages - a Primary message and a Secondary 
+        message. The Primary message normally encodes a postal code, a 3 digit 
+        country code and a 3 digit class of service number. The Secondary message 
+        normally encodes address data and any other required information.</p>
+
+			
+
+           
+
+		  
+
+          
+
+			
+      <p>[<a href="#top">Back to top</a>]</p>
+      <p>&nbsp;</p>
+      <h2>AZTEC<a name="AZTEC"></a> CODE</h2>
+      <h2><img src="bcsymbol_files/aztec" height="100" width="100"></h2>
+
+			
+
+			<p>Aztec Code is a high
+
+            density 2 dimensional matrix style bar code symbology that can encode
+			  up to 3750
+
+            characters from the entire 256 byte ASCII character set. The symbol
+			  is built on a square
+
+            grid with a bulls-eye pattern at its center. Data is encoded in a
+			  series of
+
+            "layers" that circle around the bullseye pattern. Each
+            additional layer
+
+            completely surrounds the previous layer thus causing the symbol to
+            grow in size as more
+
+            data is encoded yet the symbol remains square. Aztec's primary features
+            include: a wide
+
+            range of sizes allowing both small and large messages to be encoded,
+            orientation
+
+            independent scanning and a user selectable error correction mechanism.</p>
+
+			
+
+          
+
+			<p>The smallest element in an Aztec symbol is called a
+
+            "module" (i.e. a square dot). The module size and the amount of error correction
+
+            are the only "dimensions" that can be specified for an Aztec symbol and both are
+
+            user selectable. It is recommended that the module size should range between 15 to 30 mils
+
+            in order to be readable by most of the scanners that are currently available. </p>
+
+			
+
+         
+
+			<p>The overall size of an Aztec symbol is dependent on the
+
+            module size, the total amount of encoded data and also on the level of error correction
+
+            capacity chosen by the user. The smallest Aztec symbol is 15 modules square and can encode
+
+            up to 14 digits with 40% error correction. The largest symbol is 151 modules square and
+
+            can encode 3000 characters or 3750 numeric digits with 25% error correction.</p>
+
+			
+
+			
+      <p>[<a href="#top">Back to top</a>]</p>
+      <p>&nbsp;</p>
+      <h2>MSI/PLESSEY<a name="plessey"></a></h2>
+
+			
+
+			
+      <p>MSI/PLESSEY is a variable length, numeric-only symbology. The symbology
+         is one of the earliest bar code symbologies ever developed and is based
+        
+        on a four bit binary number scheme. Each symbol is framed by a start
+        and  a stop pattern and contains a check character that is calculated
+        from 
+        the values of each of the encoded data digits. MSI/Plessey is rarely
+        used  in anything other than grocery store shelf marking applications.
+        In fact 
+        most modern bar code readers do not provide support for reading MSI/Plessey
+         symbols.</p>
+      <p>[<a href="#top">Back to top</a>]</p>
+      <h2><a name="Accuracy"></a>Accuracy of Different Symbologies - How Accurate 
+        is Accurate?</h2>
+      <p>It's commonly known that the best-trained data entry operator will make
+         a keystroke entry error once every 300 keystrokes. Each of these keystroke
+        
+        errors represents an error in your decision-making data. This leads to
+         wasted time, misappropriated capital and ultimately, lost revenues.
+        It 
+        is for this reason that most companies make the decision to adopt AIDC
+         technologies.</p>
+      <p>In studies conducted by the University of Ohio, common bar code symbologies 
+        were tested to determine real life accuracy. The worst bar code for data 
+        accuracy in the test proved to be one of the most common - the UPC. The 
+        UPC had a worst-case error rate of 1 error in 394K characters. The best-tested 
+        symbologies were the DataMatrix and PDF417, with a worst case error rate 
+        of 1 error in 10.5M characters. All the results from the University of 
+        Ohio study are listed below.</p>
+      <p align="right">Taken from Lincoln's Log Vol 1-00</p>
+      <table border="0" width="100%">
+        <tbody><tr> 
+          <td> 
+            <h2>Symbology</h2>
+          </td>
+          <td> 
+            <h2>Worst Case</h2>
+          </td>
+          <td> 
+            <h2>Best Case</h2>
+          </td>
+        </tr>
+        <tr> 
+          <td><i>DataMatrix</i></td>
+          <td>1 error in 10.5M</td>
+          <td>1 error in 612.9M</td>
+        </tr>
+        <tr> 
+          <td><i>PDF417</i></td>
+          <td>1 error in 10.5M</td>
+          <td>1 error in 612.4M</td>
+        </tr>
+        <tr> 
+          <td><i>Code 128</i></td>
+          <td>1 error in 2.8M</td>
+          <td>1 error in 37M</td>
+        </tr>
+        <tr> 
+          <td><i>Code 39</i></td>
+          <td>1 error in 1.7M</td>
+          <td>1 error in 4.5M</td>
+        </tr>
+        <tr> 
+          <td><i>UPC</i></td>
+          <td>1 error in 394K</td>
+          <td>1 error in 800K</td>
+        </tr>
+      </tbody></table>
+      <p>[<a href="#top">Back to top</a>]</p>
+    </td>
+
+
+
+    <td valign="top" width="131"> 
+      <p><a href="#Code39"><font size="-2">&gt;&gt;Code 39</font></a><font size="-2"><a href="#UPC"><br>
+        &gt;&gt;UPC</a><br>
+        <a href="#EAN">&gt;&gt;EAN</a><br>
+        <a href="#RSS14">&gt;&gt;RSS-14</a><br>
+        <a href="#Codabar">&gt;&gt;Codabar</a><br>
+        <a href="#i2of5">&gt;&gt;Interleaved 2 of 5</a><br>
+        <a href="#d2of5">&gt;&gt;Discrete 2 of 5</a><br>
+        <a href="#code93">&gt;&gt;Code 93</a><br>
+        <a href="#code128">&gt;&gt;Code 128</a> <br>
+        <a href="#EAN/UCC">&gt;&gt;EAN/UCC 128</a><br>
+        <a href="#postnet">&gt;&gt;Postnet</a> <br>
+        <a href="#FIM">&gt;&gt;Postal FIM Patterns</a><br>
+        <a href="#pdf417">&gt;&gt;PDF417</a><br>
+        <a href="#BPO">&gt;&gt;British Post Office</a> <br>
+        <a href="#datamatrix">&gt;&gt;Data Matrix</a><br>
+        <a href="#maxicode">&gt;&gt;Maxicode </a><br>
+        <a href="#AZTEC">&gt;&gt;Aztec Code</a><br>
+        <a href="#plessey">&gt;&gt;MSI/Plessey</a><a href="#plessey"> </a><br>
+        <a href="#Accuracy"><font size="-2">&gt;&gt;Accuracy of symbologies</font></a> 
+        </font></p>
+      </td>
+
+
+
+</tr>
+
+
+
+
+
+
+
+
+
+<tr><td colspan="3"><hr color="#cc0033" noshade="noshade"></td></tr>
+
+
+
+
+
+<tr>
+
+<td colspan="3" align="right"><!--Footer-->
+
+<table border="0" cellpadding="0" cellspacing="0">
+<tbody><tr>
+<td><a href="http://www.taltech.com/TALtech_web/"><font face="Arial, Helvetica, Sans-Serif" size="1">TALtech Home</font></a></td>
+<td>&nbsp;|&nbsp;</td>
+<td><a href="http://www.taltech.com/TALtech_web/products/"><font face="Arial, Helvetica, Sans-Serif" size="1">Products</font></a></td>
+<td>&nbsp;|&nbsp;</td>
+<td><a href="http://www.taltech.com/TALtech_web/resources/"><font face="Arial, Helvetica, Sans-Serif" size="1">Resources</font></a></td>
+<td>&nbsp;|&nbsp;</td>
+<td><a href="http://www.taltech.com/cgi-bin/fs2k.cgi"><font face="Arial, Helvetica, Sans-Serif" size="1">Free Software</font></a></td>
+<td>&nbsp;|&nbsp;</td>
+<td><a href="http://www.taltech.com/TALtech_web/support/"><font face="Arial, Helvetica, Sans-Serif" size="1">Support</font></a></td>
+<td>&nbsp;|&nbsp;</td>
+<td><a href="https://taltech.securesites.com/cgi-bin/catalog2k2.cgi?ProdID="><font face="Arial, Helvetica, Sans-Serif" size="1">Buy Now</font></a></td>
+<td>&nbsp;|&nbsp;</td>
+<td><a href="http://www.taltech.com/TALtech_web/register.html"><font face="Arial, Helvetica, Sans-Serif" size="1">Register Your Products</font></a></td>
+<td>&nbsp;|&nbsp;</td>
+</tr></tbody></table>
+<table border="0" cellpadding="0" cellspacing="0">
+<tbody><tr>
+<td><a href="http://www.taltech.com/TALtech_web/tal_sitemap.html"><font face="Arial, Helvetica, Sans-Serif" size="1">Site Map</font></a></td>
+<td>&nbsp;|&nbsp;</td>
+<td><a href="http://www.taltech.com/TALtech_web/contact_tal.html"><font face="Arial, Helvetica, Sans-Serif" size="1">Contact TALtech</font></a></td>
+<td>&nbsp;|&nbsp;</td>
+<td><a href="http://www.taltech.com/TALtech_web/news/"><font face="Arial, Helvetica, Sans-Serif" size="1">News</font></a></td>
+</tr>
+</tbody></table>
+<!--End Footer-->
+
+
+</td> 
+
+</tr>
+
+</tbody></table>
+
+<!--End Content Table-->
+
+<br><br>
+
+
+</body></html>

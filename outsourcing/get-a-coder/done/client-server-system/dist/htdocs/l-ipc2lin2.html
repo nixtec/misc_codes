@@ -1,0 +1,1521 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US"><head><meta content="text/html; charset=UTF-8" http-equiv="Content-Type"><title>Port Windows IPC apps to Linux, Part 2: Semaphores and events</title><meta content="(PICS-1.1 &quot;http://www.icra.org/ratingsv02.html&quot; l gen true r (cz 1 lz 1 nz 1 oz 1 vz 1) &quot;http://www.rsac.org/ratingsv01.html&quot; l gen true r (n 0 s 0 v 0 l 0) &quot;http://www.classify.org/safesurf/&quot; l gen true r (SS~~000 1))" http-equiv="PICS-Label"><link href="http://purl.org/DC/elements/1.0/" rel="schema.DC"><link href="http://www.ibm.com/favicon.ico" rel="SHORTCUT ICON"><meta content="dW Information/Raleigh/IBM" name="Owner"><meta content="en-US" scheme="rfc1766" name="DC.Language"><meta content="ZZ" name="IBM.Country"><meta content="Public" name="Security"><meta name="Abstract" content="The wave of migration to open source in business has the potential to cause a tremendous porting traffic jam as developers move the pervasive Windows applications to the Linux platform. In this three-part series, get a mapping guide, complete with examples, to ease your transition from Windows to Linux. Part 2 examines two synchronization object types, semaphores and events."><meta name="Description" content="The wave of migration to open source in business has the potential to cause a tremendous porting traffic jam as developers move the pervasive Windows applications to the Linux platform. In this three-part series, get a mapping guide, complete with examples, to ease your transition from Windows to Linux. Part 2 examines two synchronization object types, semaphores and events."><meta name="Keywords" content="mapping guide,windows to linux,migration,processes,threads,synchronization,primitives,Srinivasan S. Muthuswamy,IPC,interprocess communication,inter-process,event,event object,semaphore,mutex,mutexes,critical section,wait function,, tttlca"><meta name="DC.Date" scheme="iso8601" content="2005-05-25"><meta name="Source" content="Based on v14 Template Generator, Template 14.0"><meta name="DC.Rights" content="Copyright (c) 2005 by IBM Corporation"> <meta name="Robots" content="index,follow"><meta name="IBM.Effective" scheme="W3CDTF" content="2005-05-25"><meta name="Last update" content="03052006chanhm@us.ibm.com"><link href="l-ipc2lin2_files/table.css" media="screen,print" type="text/css" rel="stylesheet"><script language="JavaScript" src="l-ipc2lin2_files/dwcss14.js" type="text/javascript"></script><link href="l-ipc2lin2_files/main.css" type="text/css" rel="stylesheet"><link href="l-ipc2lin2_files/screen.css" media="all" type="text/css" rel="stylesheet"><link href="l-ipc2lin2_files/print.css" media="print" type="text/css" rel="stylesheet"><script language="JavaScript" src="l-ipc2lin2_files/detection.js" type="text/javascript"></script><script language="JavaScript" src="l-ipc2lin2_files/dropdown.js" type="text/javascript"></script><script language="JavaScript" src="l-ipc2lin2_files/grabtitle.js" type="text/javascript"></script><script language="JavaScript" src="l-ipc2lin2_files/emailfriend2.js" type="text/javascript"></script><script language="JavaScript" src="l-ipc2lin2_files/dwplugin.js" type="text/javascript"></script><!--START RESERVED FOR FUTURE USE INCLUDE FILES--><script language="javascript" src="l-ipc2lin2_files/ajax1.js" type="text/javascript"></script><script language="javascript" src="l-ipc2lin2_files/searchcount.js" type="text/javascript"></script><!--END RESERVED FOR FUTURE USE INCLUDE FILES--><style type="text/css">
+code.section {font-family: Andale Mono, Lucida Console, Monaco, fixed, monospace; font-size: 11px}
+.boldcode {font-family: Andale Mono, Lucida Console, Monaco, fixed, monospace; font-size: 11px; font-weight: bold} .rboldcode {font-family: Andale Mono, Lucida Console, Monaco, fixed, monospace; font-size: 11px; font-weight: bold; color: #ff0000}
+.gboldcode {font-family: Andale Mono, Lucida Console, Monaco, fixed, monospace; font-size: 11px; font-weight: bold; color: #ff6600}
+.bboldcode {font-family: Andale Mono, Lucida  Console, Monaco, fixed, monospace; font-size: 11px; font-weight: bold; color: #3c5f84}
+</style><style type="text/css">
+.atitle { font-family:arial,sans-serif; font-size:18px; }
+</style><script language="JavaScript" type="text/javascript">var emailAbstract = "The wave of migration to open source in business has the potential to cause a tremendous porting traffic jam as developers move the pervasive Windows applications to the Linux platform. In this three-part series, get a mapping guide, complete with examples, to ease your transition from Windows to Linux. Part 2 examines two synchronization object types, semaphores and events."; </script></head><body><!--MASTHEAD_BEGIN--><table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr valign="top">
+<td class="bbg" width="110"><a href="http://www.ibm.com/"><img alt="IBM®" src="l-ipc2lin2_files/ibm-logo.gif" border="0" height="52" width="110"></a></td>
+<td class="bbg"><img src="l-ipc2lin2_files/c.gif" alt="" border="0" height="1" width="1"></td>
+<td class="mbbg" align="right" width="650">
+<table align="right" border="0" cellpadding="0" cellspacing="0">
+<tbody><tr class="cty-tou">
+<td rowspan="2" class="upper-masthead-corner" width="17"><a href="#main"><img src="l-ipc2lin2_files/c.gif" alt="Skip to main content" border="0" height="1" width="1"></a></td>
+<td align="left">
+<table align="left" border="0" cellpadding="0" cellspacing="0">
+<tbody><tr>
+<td><span class="spacer">&nbsp;&nbsp;&nbsp;&nbsp;</span><b class="country">Country/region</b><span class="spacer">&nbsp;[</span><a class="ur-link" href="http://www.ibm.com/developerworks/country/">select</a><span class="spacer">]</span></td>
+<td class="upper-masthead-divider" width="29">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td align="left"><a class="ur-link" href="http://www.ibm.com/legal/">Terms of use</a></td>
+</tr>
+</tbody></table>
+</td>
+<td width="40">&nbsp;</td>
+</tr>
+<tr>
+<td class="cty-tou-border" colspan="2" height="1"><img src="l-ipc2lin2_files/c.gif" alt="" height="1" width="1"></td>
+</tr>
+<tr>
+<td colspan="3"><img alt="" src="l-ipc2lin2_files/c.gif" height="8" width="1"></td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td colspan="2" align="center">
+<input name="searchType" value="1" type="hidden"><input value="dW" name="searchSite" type="hidden">
+<table border="0" cellpadding="0" cellspacing="0">
+<tbody><tr>
+<form method="get" action="//www.ibm.com/developerworks/search/searchResults.jsp" id="form1" name="form1"></form><td width="18"><label for="q"><img src="l-ipc2lin2_files/c.gif" alt="Search in:" height="1" width="1"></label></td>
+<td align="right"><select id="sq" name="searchScope" class="input-local" size="1">
+<option value="dW" selected="selected">All of dW</option>
+<option value="dW">-----------------</option>
+<option value="aixunix">&nbsp;&nbsp;AIX and UNIX</option>
+<option value="eserver">&nbsp;&nbsp;IBM Systems</option>
+<option value="db2">&nbsp;&nbsp;Information Mgmt</option>
+<option value="lotus">&nbsp;&nbsp;Lotus</option>
+<option value="rdd">&nbsp;&nbsp;Rational</option>
+<option value="tivoli">&nbsp;&nbsp;Tivoli</option>  
+<option value="WSDD">&nbsp;&nbsp;WebSphere</option>
+<option value="dW">-----------------</option> 
+<option value="archZ">&nbsp;&nbsp;Architecture</option>
+<option value="acZ">&nbsp;&nbsp;Autonomic computing</option>
+<option value="gridZ">&nbsp;&nbsp;Grid computing</option>
+<option value="javaZ">&nbsp;&nbsp;Java technology</option> 
+<option value="linuxZ">&nbsp;&nbsp;Linux</option> 
+<option value="opensrcZ">&nbsp;&nbsp;Open source</option>
+<option value="paZ">&nbsp;&nbsp;Power Architecture</option>
+<option value="webservZ">&nbsp;&nbsp;SOA &amp; Web services</option>
+<option value="webarchZ">&nbsp;&nbsp;Web development</option>  
+<option value="xmlZ">&nbsp;&nbsp;XML</option>
+<option value="dW">-----------------</option>
+<option value="forums">&nbsp;&nbsp;dW forums</option> 
+<option value="dW">-----------------</option>
+<option value="aW">alphaWorks</option>
+<option value="dW">-----------------</option>
+<option value="all">All of IBM</option>
+</select></td>
+<td align="right" width="7"><label for="q"><img src="l-ipc2lin2_files/c.gif" alt="Search for:" height="1" width="1"></label>&nbsp;&nbsp;</td>
+<td align="right"><input class="input" id="q" maxlength="100" name="query" size="15" value="" type="text">
+</td>
+<td width="7">&nbsp;
+</td>
+<td width="90"><input alt="Search" name="Search" src="l-ipc2lin2_files/search.gif" value="Search" type="image"></td>
+<!-- <td width="20">&nbsp;</td> -->
+
+</tr>
+</tbody></table>
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+<tr>
+<td class="blbg" colspan="3">
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr>
+<td>
+<table border="0" cellpadding="0" cellspacing="0">
+<tbody><tr>
+<td><span class="spacer">&nbsp;&nbsp;&nbsp;&nbsp;</span></td>
+<td><a class="masthead-mainlink" href="http://www.ibm.com/">Home</a></td>
+<td class="masthead-divider" width="27">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td><a class="masthead-mainlink" href="http://www.ibm.com/products/">Products</a></td>
+<td class="masthead-divider" width="27">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td><a class="masthead-mainlink" href="http://www.ibm.com/servicessolutions/">Services &amp; industry solutions</a></td>
+<td class="masthead-divider" width="27">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td><a class="masthead-mainlink" href="http://www.ibm.com/support/">Support &amp; downloads</a></td>
+<td class="masthead-divider" width="27">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td><a class="masthead-mainlink" href="http://www.ibm.com/account/">My IBM</a></td>
+<td><span class="spacer">&nbsp;&nbsp;&nbsp;&nbsp;</span></td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+</tbody></table>
+
+<script src="l-ipc2lin2_files/pmh.js" language="JavaScript" type="text/javascript"></script>
+
+<script><!--
+  if(document.images){ (new Image()).src="http://api.collarity.com/cws/v1/nf?appid=ibmdw&u="+escape(document.URL)+"&t="+escape(document.title)+"&r="+escape(document.referrer); } 
+//-->
+</script>
+
+<!--MASTHEAD_END--><table id="v14-body-table" border="0" cellpadding="0" cellspacing="0" width="100%"><tbody><tr valign="top"><!--LEFTNAV_BEGIN--><td id="navigation" width="150"><table border="0" cellpadding="0" cellspacing="0" width="150"><tbody><tr><td class="left-nav-spacer"><a href="http://www.ibm.com/developerworks" class="left-nav-overview">&nbsp;</a></td></tr></tbody></table><table border="0" cellpadding="0" cellspacing="0" width="150"><tbody><tr><td colspan="2" class="left-nav-overview"><a href="http://www.ibm.com/developerworks" class="left-nav-overview">developerWorks</a></td></tr></tbody></table><table border="0" cellpadding="0" cellspacing="0" width="150"><tbody><tr><td colspan="2" class="left-nav"><a href="http://www.ibm.com/developerworks/views/linux/libraryview.jsp?search_by=port+windows+ipc+apps+linux" class="left-nav">More in this series:</a><br><a class="left-nav-child" href="http://www.ibm.com/developerworks/views/linux/libraryview.jsp?search_by=port+windows+ipc+apps+linux">Port Windows IPC apps to Linux</a></td></tr><tr><td class="dw-left-nav-separator" width="14"><img alt="" src="l-ipc2lin2_files/c.gif" height="6" width="14"></td><td class="dw-left-nav-separator" width="136"><img alt="" src="l-ipc2lin2_files/c.gif" height="6" width="136"></td></tr><tr><td colspan="2" class="left-nav-highlight"><a href="#" class="left-nav">In this article:</a></td></tr><tr class="left-nav-child-highlight"><td><img alt="" src="l-ipc2lin2_files/cl-bullet.gif" height="8" width="2"></td><td><a href="#SYNC" class="left-nav-child">Synchronization</a></td></tr><tr class="left-nav-child-highlight"><td><img alt="" src="l-ipc2lin2_files/cl-bullet.gif" height="8" width="2"></td><td><a href="#SEMAPH" class="left-nav-child">Semaphores</a></td></tr><tr class="left-nav-child-highlight"><td><img alt="" src="l-ipc2lin2_files/cl-bullet.gif" height="8" width="2"></td><td><a href="#EVENT" class="left-nav-child">Events</a></td></tr><tr class="left-nav-child-highlight"><td><img alt="" src="l-ipc2lin2_files/cl-bullet.gif" height="8" width="2"></td><td><a href="#N10890" class="left-nav-child">Next in the series</a></td></tr><tr class="left-nav-child-highlight"><td><img alt="" src="l-ipc2lin2_files/cl-bullet.gif" height="8" width="2"></td><td><a href="#resources" class="left-nav-child">Resources</a></td></tr><tr class="left-nav-child-highlight"><td><img alt="" src="l-ipc2lin2_files/cl-bullet.gif" height="8" width="2"></td><td><a href="#author" class="left-nav-child">About the authors</a></td></tr><tr class="left-nav-child-highlight"><td><img alt="" src="l-ipc2lin2_files/cl-bullet.gif" height="8" width="2"></td><td><a href="#rate" class="left-nav-child">Rate this page</a></td></tr><tr class="left-nav-last"><td width="14"><img class="display-img" alt="" src="l-ipc2lin2_files/c.gif" height="1" width="14"></td><td width="136"><img class="display-img" alt="" src="l-ipc2lin2_files/left-nav-corner.gif" height="19" width="136"></td></tr></tbody></table><br><table border="0" cellpadding="0" cellspacing="0" width="150"><tbody><tr><td class="related" colspan="2"><b class="related">Related links</b></td></tr><tr class="rlinks"><td><img alt="" src="l-ipc2lin2_files/rl-bullet.gif" height="8" width="2"></td><td><a class="rlinks" href="http://www.ibm.com/developerworks/views/linux/library.jsp">Linux technical library</a></td></tr><!--START RESERVED FOR FUTURE USE INCLUDE FILES--><!-- No content currently --><!--END RESERVED FOR FUTURE USE INCLUDE FILES--><tr><td width="14"><img class="display-img" alt="" src="l-ipc2lin2_files/c.gif" height="1" width="14"></td><td width="136"><img class="display-img" alt="" src="l-ipc2lin2_files/c.gif" height="19" width="136"></td></tr></tbody></table><!--START RESERVED FOR FUTURE USE INCLUDE FILES--><!-- Next Steps Area:  Start -->
+<!-- Call Next Steps Servlet -->
+<script language="JavaScript" type="text/javascript">
+<!--
+/*
+ * ajaxInclude makes a call to the url and render the results in the div tag specified in divId
+ */
+function ajaxInclude(url, divId) { 
+ var req = newXMLHttpRequest(); 
+ if (req) { 
+   req.onreadystatechange = getReadyStateHandler(req, 
+	function (result) {  
+           var contents = document.getElementById(divId);  
+           if (result != null && result.length > 0 && contents != null) {
+	     contents.innerHTML = result;  
+           }
+        }); 
+   req.open("GET", url, true);
+   req.send("");
+ }
+}
+//-->
+</script>
+
+<!-- Display Next Steps Result -->
+<div id="nextsteps"></div>
+
+<!-- Initiate Next Steps Call -->
+<script language="JavaScript" type="text/javascript">
+<!-- 
+ ajaxInclude("/developerworks/niagara/jsp/getNiagaraContent.jsp?url="+window.location.href,"nextsteps");
+//-->
+</script>
+<!-- Next Steps Area:  End --><!--END RESERVED FOR FUTURE USE INCLUDE FILES--></td><!--LEFTNAV_END--><td width="100%"><table id="content-table" border="0" cellpadding="0" cellspacing="0" width="100%"><tbody><tr valign="top"><td width="100%"><table border="0" cellpadding="0" cellspacing="0" width="100%"><tbody><tr><td><a name="main"><img alt="skip to main content" src="l-ipc2lin2_files/c.gif" border="0" height="1" width="592"></a></td></tr></tbody></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tbody><tr valign="top"><td height="18" width="10"><img alt="" src="l-ipc2lin2_files/c.gif" height="18" width="10"></td><td width="100%"><img alt="" src="l-ipc2lin2_files/c.gif" height="6" width="1"><br><a href="http://www.ibm.com/developerworks/" class="bctl">developerWorks</a><span class="bct">&nbsp;&nbsp;&gt;&nbsp;&nbsp;</span><a class="bctl" href="http://www.ibm.com/developerworks/linux/">Linux</a><span class="bct">&nbsp;&nbsp;&gt;</span><img alt="" src="l-ipc2lin2_files/c.gif" height="1" width="1"><br><h1><span style="color: rgb(153, 153, 153);">Port Windows IPC apps to Linux, Part 2: </span>Semaphores and events</h1><p id="subtitle"><em>A mapping guide for complex, multithreaded, multiprocess applications</em></p><img alt="" src="l-ipc2lin2_files/c.gif" class="display-img" height="6" width="1"></td><td class="no-print" width="192"><a href="http://www.ibm.com/developerworks/"><img alt="developerWorks" src="l-ipc2lin2_files/dw.gif" border="0" height="18" width="192"></a></td></tr></tbody></table></td></tr></tbody></table><table border="0" cellpadding="0" cellspacing="0" width="100%"><tbody><tr valign="top"><td width="10"><img alt="" src="l-ipc2lin2_files/c.gif" height="1" width="10"></td><td width="100%"><table class="no-print" align="right" border="0" cellpadding="0" cellspacing="0" width="160"><tbody><tr><td width="10"><img alt="" src="l-ipc2lin2_files/c.gif" height="1" width="10"></td><td><table border="0" cellpadding="0" cellspacing="0" width="150"><tbody><tr><td class="v14-header-1-small">Document options</td></tr></tbody></table><table class="v14-gray-table-border" border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="no-padding" width="150"><noscript></noscript><noscript></noscript><table border="0" cellpadding="0" cellspacing="0" width="143"><script language="JavaScript" type="text/javascript">
+<!--
+document.write('<tr valign="top"><td width="8"><img src="//www.ibm.com/i/c.gif" width="8" height="1" alt=""/></td><td width="16"><img alt="Set printer orientation to landscape mode" height="16" src="//www.ibm.com/i/v14/icons/printer.gif" width="16" vspace="3" /></td><td width="122"><p><b><a class="smallplainlink" href="javascript:print()">Print this page</a></b></p></td></tr>');
+//-->
+</script>
+<script language="JavaScript" type="text/javascript">
+<!--
+document.write('<tr valign="top"><td width="8"><img src="//www.ibm.com/i/c.gif" width="8" height="1" alt=""/></td><td width="16"><img src="//www.ibm.com/i/v14/icons/em.gif" height="16" width="16" vspace="3" alt="Email this page" /></td><td width="122"><p><a class="smallplainlink" href="javascript:void newWindow()"><b>E-mail this page</b></a></p></td></tr>');
+//-->
+</script><tbody><tr valign="top"><td width="8"><img alt="" src="l-ipc2lin2_files/c.gif" height="1" width="8"></td><td width="16"><img alt="" src="l-ipc2lin2_files/c.gif" height="16" width="16"></td><td class="small" width="122"><p><span class="ast">Document options requiring JavaScript are not displayed</span></p></td></tr></tbody></table></td></tr></tbody></table><!--START RESERVED FOR FUTURE USE INCLUDE FILES--><!-- 04/04/07 refreshed by gem, per MOC --> 
+
+<br><table border="0" cellpadding="0" cellspacing="0" width="150"><tbody><tr><td class="v14-header-2-small">Congratulations!</td></tr></tbody></table><table class="v14-gray-table-border" border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="no-padding" width="150"><table border="0" cellpadding="0" cellspacing="0" width="143"><tbody><tr valign="top"><td width="8"><img src="l-ipc2lin2_files/c.gif" alt="" height="1" width="8"></td><td><img src="l-ipc2lin2_files/fw_bold.gif" alt="" border="0" height="16" vspace="3" width="16"></td><td width="125"><p><a href="http://www-03.ibm.com/developerworks/blogs/page/moc?entry=dw_wins_jolt_hall_of" class="smallplainlink">developerWorks wins Jolt Hall of Fame award
+</a>
+</p></td></tr></tbody></table></td></tr></tbody></table><!--END RESERVED FOR FUTURE USE INCLUDE FILES--><br><table border="0" cellpadding="0" cellspacing="0" width="150"><tbody><tr><td class="v14-header-2-small">Rate this page</td></tr></tbody></table><table class="v14-gray-table-border" border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="no-padding" width="150"><table border="0" cellpadding="0" cellspacing="0" width="143"><tbody><tr valign="top"><td width="8"><img alt="" src="l-ipc2lin2_files/c.gif" height="1" width="8"></td><td><img alt="" src="l-ipc2lin2_files/d_bold.gif" border="0" height="16" vspace="3" width="16"></td><td width="125"><p><a href="#rate" class="smallplainlink"><b>Help us improve this content</b></a></p></td></tr></tbody></table></td></tr></tbody></table><br></td></tr></tbody></table><p>Level: Advanced</p><p><a href="#author">Srinivasan Muthuswamy</a> (<a href="mailto:smuthusw@in.ibm.com?subject=Semaphores%20and%20events">smuthusw@in.ibm.com</a>), Software Engineer, IBM Global Services Group<br><a href="#author">Kavitha Varadarajan</a> (<a href="mailto:vkavitha@in.ibm.com?subject=Semaphores%20and%20events">vkavitha@in.ibm.com</a>), Software Engineer, IBM India Software Lab<br></p><p> 25 May  2005</p><blockquote>The
+wave of migration to open source in business has the potential to cause
+a tremendous porting traffic jam as developers move the pervasive
+Windows® applications to the Linux™ platform. In this <a href="http://www-128.ibm.com/developerworks/views/linux/libraryview.jsp?search_by=port+windows+ipc+apps+linux">three-part series</a>,
+get a mapping guide, complete with examples, to ease your transition
+from Windows to Linux. Part 2 examines two synchronization object
+types, semaphores and events.</blockquote><!--START RESERVED FOR FUTURE USE INCLUDE FILES--><script language="JavaScript" type="text/javascript">
+<!--
+if (document.referrer&&document.referrer!="") { 
+   // document.write(document.referrer);
+   var q = document.referrer;
+   var engine = q;
+   var isG = engine.search(/google\.com/i);
+   var searchTerms;
+   //var searchTermsForDisplay;
+   if (isG != -1) { 
+	   var i = q.search(/q=/);
+	   var q2 = q.substring(i+2);
+	   var j = q2.search(/&/);
+	   j = (j == -1)?q2.length:j;
+	   searchTerms = q.substring(i+2,i+2+j);
+	   if (searchTerms.length != 0) {
+	       searchQuery(searchTerms);
+	       document.write("<div id=\"contents\"></div>");
+	   }
+   } 
+}
+//-->
+</script><!--END RESERVED FOR FUTURE USE INCLUDE FILES-->
+
+<p>
+Today many global businesses and services are going open source -- all
+the major corporate players in the industry are pushing for it. This
+trend has spurred a major migration exercise in which lots of existing
+products maintained for various platforms (Windows, OS2, Solaris, etc.)
+are being ported to open source Linux platforms.
+</p>
+
+<p>Many applications are designed without consideration of the need to
+port them to Linux. This has the potential to be a porting nightmare,
+but it doesn't have to be. The goal of this series of articles is to
+help you migrate complex applications involving IPC and threading
+primitives from Windows to Linux. We will share our experiences in
+moving these critical Windows IPC applications, applications that
+include multithreaded apps that require thread synchronization and
+multiprocess apps that require interprocess synchronization.
+</p>
+
+<p>In short, this series can be called a mapping document -- it
+provides mapping of various Windows calls to Linux calls related to
+threads, processes, and interprocess communication elements (mutexes,
+semaphores, etc.). To create easily digestible chunks, we've divided
+the series into three articles:
+</p>
+
+<ul>
+<li>In <a href="http://www-128.ibm.com/developerworks/linux/library/l-ipc2lin1.html">Part 1</a>, we dealt with processes and threads.</li>
+<li>This installment handles semaphores and events.</li>
+<li>Part 3 will cover mutexes, critical sections, and wait functions.</li>
+</ul>
+
+<p>
+We'll continue our Windows-to-Linux mapping guide by starting with synchronization.
+</p>
+
+
+<p><a name="SYNC"><span class="atitle">Synchronization</span></a></p>
+
+<p>In Windows, synchronization is achieved by using one of the
+synchronization objects in one of the wait functions. The
+synchronization objects take either a signaled and non-signaled state.
+When the synchronization object is used in one of the wait functions,
+the wait function blocks the calling thread until the state of the
+synchronized object is set to signaled.
+</p>
+
+<p>
+Following are some of the synchronization objects available on Windows:
+</p>
+
+<ul>
+<li>Events</li>
+<li>Semaphores</li>
+<li>Mutexes</li>
+<li>Critical sections</li>
+</ul>
+
+<p>In Linux, there are different synchronization primitives available.
+The difference with Linux is that each primitive has its own wait
+functions (functions for changing the state of the synchronization
+primitive) -- in Windows there are common wait functions to achieve the
+same end. The following synchronization primitives are available in
+Linux:
+</p>
+
+<ul>
+<li>Semaphores</li>
+<li>Conditional variables</li>
+<li>Mutexes</li>
+</ul>
+
+<p>
+Various libraries are available for Linux to provide synchronization using the previously named primitives.
+</p>
+
+<p><a name="N100C3"><span class="smalltitle">Table 1. Synchronization mapping</span></a></p>
+<p>
+      </p><table border="0" cellpadding="3" cellspacing="1" width="60%"><tbody><tr valign="top"><td>
+<b>Windows</b>
+</td><td>
+<b>Linux -- threads</b>
+</td><td>
+<b>Linux -- process</b>
+</td></tr><tr valign="top"><td>
+<code>Mutex</code>
+</td><td>
+<code>Mutex - pthread library</code>
+</td><td>
+<code>System V semaphores</code>
+</td></tr><tr valign="top"><td>
+<code>Critical section</code>
+</td><td>
+<code>Mutex - pthread library</code>
+</td><td>
+<code>Not applicable as critical sections are used only between the threads of the same process</code>
+</td></tr><tr valign="top"><td>
+<code>Semaphore</code>
+</td><td>
+<code>Conditional Variable with mutex - pthreads</code><br>
+<code>POSIX semaphores</code>
+</td><td>
+<code>System V Semaphores</code>
+</td></tr><tr valign="top"><td>
+<code>Event</code>
+</td><td>
+<code>Conditional Variable with mutex - pthreads</code>
+</td><td>
+<code>System V Semaphores</code>
+</td></tr></tbody></table>
+
+
+<br><table border="0" cellpadding="0" cellspacing="0" width="100%"><tbody><tr><td><img src="l-ipc2lin2_files/blue_rule.gif" alt="" height="1" width="100%"></td></tr></tbody></table><table class="no-print" align="right" cellpadding="0" cellspacing="0"><tbody><tr align="right"><td><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td valign="middle"><img src="l-ipc2lin2_files/u_bold.gif" alt="" border="0" height="16" width="16"><br></td><td align="right" valign="top"><a href="#main" class="fbox"><b>Back to top</b></a></td></tr></tbody></table></td></tr></tbody></table><br><br><p><a name="SEMAPH"><span class="atitle">Semaphores</span></a></p>
+
+<p>Windows semaphores are count variables allowing a limited number of
+threads/processes to access the shared resource. Linux POSIX semaphores
+are count variables and can be used to achieve the Windows
+functionality of semaphores on Linux.
+</p>
+
+<p>
+The various points that needs to be considered for semaphores during the mapping process are as follows:
+</p>
+
+<ul>
+<li>
+<b>Type of semaphore:</b> Windows provides named and unnamed
+semaphores. Named semaphores extend the synchronization between
+processes. On Linux, POSIX semaphores are used only between the threads
+of same process. Between processes, System V semaphores can be used.
+</li>
+<li>
+<b>Timeout in wait functions:</b> When used in one of the wait
+functions, timeout value can be specified for Windows semaphore
+objects. This is not provided for in Linux -- it needs to be handled in
+the application logic only.
+</li>
+</ul>
+
+<p><a name="N1016E"><span class="smalltitle">Table 2. Semaphore mapping</span></a></p>
+<p>
+      </p><table border="0" cellpadding="3" cellspacing="1" width="60%"><tbody><tr valign="top"><td><b>Windows</b></td><td><b>Linux Threads</b></td><td><b>Linux Process</b></td><td><b>Classification</b></td></tr><tr valign="top"><td>
+<code>CreateSemaphore</code>
+</td><td>
+<code>sem_init</code>
+</td><td>
+<code>semget</code><br>
+<code>semctl</code>
+</td><td>
+<code>Context specific </code>
+</td></tr><tr valign="top"><td>
+<code>OpenSemaphore</code>
+</td><td>
+<code>Not applicable </code>
+</td><td>
+<code>semget</code>
+</td><td>
+<code>Context specific</code>
+</td></tr><tr valign="top"><td>
+<code>WaitForSingleObject</code>
+</td><td>
+<code>sem_wait</code><br>
+<code>sem_trywait</code>
+</td><td>
+<code>semop</code>
+</td><td>
+<code>Context specific</code>
+</td></tr><tr valign="top"><td><code>ReleaseSemaphore</code></td><td><code>sem_post</code></td><td><code>semop</code></td><td><code>Context specific</code></td></tr><tr valign="top"><td><code>CloseHandle</code></td><td><code>sem_destroy</code></td><td><code>semctl</code></td><td><code>Context specific </code></td></tr></tbody></table>
+
+
+<p><a name="S1"><span class="smalltitle">Creating a semaphore</span></a></p>
+
+<p>
+In Windows, <code>CreateSemaphore()</code> is used to create or open a named or unnamed semaphore.
+</p>
+
+<table bgcolor="#eeeeee" border="1" cellpadding="5" cellspacing="0" width="100%"><tbody><tr><td><pre><code class="section">
+HANDLE CreateSemaphore(
+  LPSECURITY_ATTRIBUTES lpSemaphoreAttributes,
+  LONG lInitialCount,
+  LONG lMaximumCount,
+  LPCTSTR lpName
+);
+</code></pre></td></tr></tbody></table><br>
+
+<p>
+In this code:
+</p>
+
+<ul>
+<li><code>lpSemaphoreAttributes</code> is a pointer to the security attributes. If this is null, the semaphore cannot be inherited.</li>
+<li><code>lInitialCount</code> is the initial count of the semaphore.</li>
+<li><code>lMaximumCount</code> is the maximum count of the semaphore and must be greater than zero.</li>
+<li><code>lpName</code> is the name of the semaphore. If this is NULL,
+the semaphore is shared only between the threads of the same process.
+Otherwise, it can be shared between threads of different process.</li>
+</ul>
+
+<p>
+This function creates the semaphore and returns the handle to the
+semaphore. It also sets the initial count to the values specified in
+the call. Thus it allows limited number of threads to access a shared
+resource.
+</p>
+
+<p>
+In Linux, <code>sem_init()</code> is used to create an unnamed
+POSIX semaphore which can be used between threads of the same process.
+This call also initializes the semaphore count: <code>int sem_init(sem_t *sem, int pshared, unsigned int value)</code>. In this code:
+</p>
+
+<ul>
+<li><code>value</code> (semaphore count) is the initial value of the semaphore.</li>
+<li><code>pshared</code> can be ignored since the POSIX semaphore is not shared between the processes in the current implementation.</li>
+</ul>
+
+<p>
+It is good to notice here that maximum count value is based on the SEM_VALUE_MAX defined in the header file semaphore.h.
+</p>
+
+<p>
+In Linux, <code>semget()</code> is used to create the System V
+semaphore which can be used between threads of different process. This
+is used to achieve the functionality of a Windows named semaphore. This
+function returns the semaphore set identifier associated with the
+argument key. When creating a new semaphore set, <code>semget()</code> initializes the semaphore-associated data structure <code>semid_ds</code> as follows:</p>
+
+<ul>
+<li><code>sem_perm.cuid</code> and <code>sem_perm.uid</code> are set to the effective user ID of the calling process.</li>
+<li><code>sem_perm.cgid</code> and <code>sem_perm.gid</code> are set to the effective group ID of the calling process.</li>
+<li>The low-order nine bits of <code>sem_perm.mode</code> are set to the low-order nine bits of <code>semflg</code>.</li>
+<li><code>sem_nsems</code> is set to the value of <code>nsems</code>.</li>
+<li><code>sem_otime</code> is set to 0.</li>
+<li><code>sem_ctime</code> is set to the current time.</li>
+</ul>
+
+<p>
+This is the code used to create the System V semaphore: <code>int semget(key_t key, int nsems, int semflg)</code>. Following are the attributes to this code:
+</p>
+
+<ul>
+<li>
+The <code>key</code> is a unique identifier that is used by different processes to identify this semaphore set. A unique key can be generated using <code>ftok()</code>. <code>IPC_PRIVATE</code> is a special <code>key_t</code> value; when <code>IPC_PRIVATE</code> is used as <code>key</code> the system call ignores everything but the lowest order nine bits of <code>semflg</code> and creates a new semaphore set (when successful).
+</li>
+<li>
+<code>nsems</code> is the number of semaphores in the semaphore set.
+</li>
+<li>
+<code>semflg</code> are permissions on the new semaphore set. To create a new set, you can set bit-wise or the access permissions with <code>IPC_CREAT</code>. <code>IPC_CREAT</code>/<code>IPC_EXCL</code> flags will fail if the semaphore set with that key is already existing.
+</li>
+</ul>
+
+<p>
+Notice that in System V semaphores, <code>key</code> is used to uniquely identify the semaphore; in Windows, the semaphore is identified by a name.
+</p>
+
+<p>
+In order to initialize the semaphore-set data structure, use the <code>semctl()</code> system call with the <code>IPC_SET</code>
+command. Write the values of some members of the semid_ds structure
+pointed to by arg.buf to the semaphore set data structure, also
+updating its sem_ctime member. The members from the user-supplied
+struct semid_ds pointed to by arg.buf are the following:</p>
+
+<ul>
+<li><code>sem_perm.uid</code></li>
+<li><code>sem_perm.gid</code></li>
+<li><code>sem_perm.mode</code> (but only the lowest nine bits)</li>
+</ul>
+
+<p>
+An effective user ID of the calling process should be that of
+super-user or at least match the creator or owner of the semaphore set:
+<code>
+int semctl(int semid, int semnum, int cmd = IPC_SET, ...)</code>. In this code:
+</p>
+
+<ul>
+<li><code>semid</code> is the semaphore set identifier.</li>
+<li><code>semnum</code> is the semaphore subset offset (starts at 0 till <code>nsems</code> -1, where n is the number of subsets in the semaphore set). This argument is ignored.</li>
+<li><code>cmd</code> is the command; it uses <code>IPC_SET</code> for setting the semaphore value.</li>
+<li><code>args</code> are the values to be updated in the semaphore set data structure through this <code>IPC_SET</code> (explained in the sample).</li>
+</ul>
+
+<p>
+Maximum count value is based on the <code>SEMVMX</code> defined in the header file.
+</p>
+
+<p><a name="S2"><span class="smalltitle">Opening a semaphore</span></a></p>
+
+<p>
+In Windows, <code>OpenSemaphore()</code> is used to open a named
+semaphore. This is required only if the semaphore is shared between two
+processes. Upon a successful opening, this function returns the handle
+to the semaphore so that it can be used in the subsequent calls.
+</p>
+
+<table bgcolor="#eeeeee" border="1" cellpadding="5" cellspacing="0" width="100%"><tbody><tr><td><pre><code class="section">
+HANDLE OpenSemaphore(
+  DWORD dwDesiredAccess,
+  BOOL bInheritHandle,
+  LPCTSTR lpName
+)
+</code></pre></td></tr></tbody></table><br>
+
+<p>
+In this code:
+</p>
+
+<ul>
+<li><code>dwDesiredAccess</code> is the requested access for the semaphore object.</li>
+<li><code>bInheritHandle</code> is the flag which controls the inheritance of the semaphore handle. If TRUE, handle can be inherited.</li>
+<li><code>lpName</code> is the name of the semaphore.</li>
+</ul>
+
+<p>
+In Linux, the same <code>semget()</code> call is used to open the semaphore with 0 as the value for the <code>semflg</code>: <code>int semget(key,nsems,0)</code>. In this code:
+</p>
+
+<ul>
+<li><code>key</code> should point to the semaphore set key, which you want to open.</li>
+<li><code>nsems</code> and flags can be 0 to open an already existing semaphore. The <code>semflg</code> value is set while creation is verified for the access permissions before returning semaphore set identifier. </li>
+</ul>
+
+<p><a name="S3"><span class="smalltitle">Acquiring a semaphore</span></a></p>
+
+<p>In Windows, wait functions provide the facility for acquiring the
+synchronization objects. There are different types of wait functions
+available -- in this section, we're only considering <code>WaitForSingleObject()</code>
+(the other types will be discussed separately). This function takes the
+handle to the semaphore object and waits until it is signaled or a
+timeout occurs.
+</p>
+
+<code>
+DWORD WaitForSingleObject(
+  HANDLE hHandle,
+  DWORD dwMilliseconds
+);
+</code>
+
+<p>
+In this code:
+</p>
+
+<ul>
+<li><code>hHandle</code> is the pointer to the mutex handle.</li>
+<li><code>dwMilliseconds</code> is the timeout value in milliseconds. If the value is <code>INFINITE</code> then it blocks the calling thread/process indefinitely. </li>
+</ul>
+
+<p>
+In Linux, <code>sem_wait()</code> is used to acquire the semaphore
+access. This function suspends the calling thread until the semaphore
+has a non-zero count. It then atomically decreases the semaphore count:
+<code>int sem_wait(sem_t * sem)</code>.
+</p>
+
+<p>
+The timeout option is not available in POSIX semaphores. This can be achieved by issuing a non-blocking <code>sem_trywait()</code> within a loop, which counts the timeout value: <code>int sem_trywait(sem_t * sem)</code>.
+</p>
+
+<p>
+When a System V semaphore is used, <code>semop()</code> has to be used to acquire the semaphore once the initial value is set through <code>semctl()</code> using the <code>IPC_SET</code> command. <code>semop()</code>
+performs the operations specified in the operation set and blocks the
+calling thread/process until the semaphore value is zero or more: <code>int semop(int semid, struct sembuf *sops, unsigned nsops)</code>.
+</p>
+
+<p>
+The function <code>semop()</code> performs the set of operations contained in <code>sops</code>
+atomically -- that is, the operations are performed at the same time
+and only if they can all be simultaneously performed. Each of the <code>nsops</code> elements in the array pointed to by <code>sops</code> specifies an operation to be performed on a semaphore by a <code>struct sembuf</code>, including the following members:
+</p>
+
+<ul>
+<li><code>unsigned short sem_num;</code> (semaphore number)</li>
+<li><code>short sem_op;</code> (semaphore operation)</li>
+<li><code>short sem_flg;</code> (operation flags)</li>
+</ul>
+
+<p>
+To acquire the semaphore, <code>semop()</code> is called with <code>sem_op</code> as -1 to acquire the semaphore; after using the semaphore, <code>semop()</code> is called with <code>sem_op</code> as 1 to release the semaphore. By calling <code>semop()</code> with <code>sem_op</code>
+as -1, the semaphore count is decreased by 1 and if the value falls
+less than zero (since semaphore values cannot go less than zero), the
+semaphore count is not decreased but the calling thread/process is
+blocked until the semaphore is signaled.
+</p>
+
+<p>
+Flags recognized in <code>sem_flg</code> are <code>IPC_NOWAIT</code> and <code>SEM_UNDO</code>. If an operation asserts <code>SEM_UNDO</code>, it will be undone when the process exits. If <code>sem_op</code> is set to 0, <code>semop()</code> will wait for <code>semval</code> to become 0. This is a "wait-for-zero" operation and can be used to acquire a semaphore.
+</p>
+
+<p>
+Remember that the timeout option is not available in System V semaphore. This can be achieved by issuing non-blocking <code>semop()</code> (by setting <code>sem_flg</code> as <code>IPC_NOWAIT</code>) within a loop, which counts the timeout value.
+</p>
+
+<p><a name="S4"><span class="smalltitle">Releasing a semaphore</span></a></p>
+
+<p>
+In Windows, <code>ReleaseSemaphore()</code> is used release the semaphore.
+</p>
+
+<table bgcolor="#eeeeee" border="1" cellpadding="5" cellspacing="0" width="100%"><tbody><tr><td><pre><code class="section">
+BOOL ReleaseSemaphore(
+  HANDLE hSemaphore,
+  LONG lReleaseCount,
+  LPLONG lpPreviousCount
+);
+</code></pre></td></tr></tbody></table><br>
+
+<p>
+In this code:
+</p>
+
+<ul>
+<li><code>hSemaphore</code> is a pointer to the handle of the semaphore.</li>
+<li><code>lReleaseCount</code> is the semaphore count incremented by the specified amount.</li>
+<li><code>lpPreviousCount</code> is the pointer to the variable where
+the previous semaphore count is returned. The parameter can be NULL if
+the previous semaphore count value is not required.</li>
+</ul>
+
+<p>
+This function increments the semaphore count by the value specified in <code>lReleaseCount</code> and sets the state of the semaphore to signaled state.
+</p>
+
+<p>
+In Linux, <code>sem_post()</code> is used to release semaphore.
+This wakes up any of the threads blocked on the semaphore. The count of
+the semaphore is incremented only by 1. To increment the semaphore
+count by a specified number (like in Windows), this function can be
+called multiple times along with a mutex variable: <code>int sem_post(sem_t * sem)</code>.
+</p>
+
+<p>
+For System V semaphores, <code>semop()</code> has to be used to release the semaphore: <code>int semop(int semid, struct sembuf *sops, unsigned nsops)</code>.
+</p>
+
+<p>
+The function <code>semop()</code> performs a set of operations contained in <code>sops</code> atomically (all operations performed at the same time only if they can be performed at the same time). Each of the <code>nsops</code> elements in the array pointed to by <code>sops</code> specifies an operation to be performed on a semaphore by a <code>struct sembuf</code> including the following members:
+</p>
+
+<ul>
+<li><code>unsigned short sem_num;</code> (semaphore number)</li>
+<li><code>short sem_op;</code> (semaphore operation)</li>
+<li><code>short sem_flg;</code> (operation flags)</li>
+</ul>
+
+<p>
+To release the semaphore, <code>semop()</code> is called with <code>sem_op</code> as 1. By calling <code>semop()</code> with <code>sem_op</code> as 1, the semaphore count is incremented by 1 and semaphore is signaled.
+</p>
+
+<p><a name="S5"><span class="smalltitle">Closing/destroying a semaphore</span></a></p>
+
+<p>
+In Windows, <code>CloseHandle()</code> is used to close or destroy the semaphore object.
+</p>
+
+<table bgcolor="#eeeeee" border="1" cellpadding="5" cellspacing="0" width="100%"><tbody><tr><td><pre><code class="section">
+BOOL CloseHandle(
+  HANDLE hObject
+);
+</code></pre></td></tr></tbody></table><br>
+
+<p>
+<code>hObject</code> is the pointer to the handle to the synchronization object.
+</p>
+
+<p>
+In Linux, <code>sem_destroy()</code> destroys the semaphore object, freeing the resources it might hold: <code>int sem_destroy(sem_t *sem)</code>. For System V semaphores, <code>semctl()</code> with <code>IPC_RMID</code> command has to be used to close the semaphore set: <code>int semctl(int semid, int semnum, int cmd = IPC_RMID, ...)</code>.
+</p>
+
+<p>
+This command immediately removes the semaphore set and its data
+structures, awakening all waiting processes (with an error return and <code>errno</code> set to <code>EIDRM</code>).
+The effective user ID of the calling process must be that of the
+super-user or match the creator or owner of the semaphore set. The
+argument <code>semnum</code> is ignored.
+</p>
+
+<p><a name="S6"><span class="smalltitle">Examples</span></a></p>
+
+<p>
+Following are examples for semaphores.
+</p>
+
+<br><a name="listing1"><b>Listing 1. Windows un-named semaphore code</b></a><br><table bgcolor="#eeeeee" border="1" cellpadding="5" cellspacing="0" width="100%"><tbody><tr><td><pre><code class="section">
+
+HANDLE hSemaphore;
+LONG   lCountMax = 10;
+LONG   lPrevCount;
+DWORD  dwRetCode;
+
+// Create a semaphore with initial and max. counts of 10.
+
+hSemaphore = CreateSemaphore(
+                      NULL,        // no security attributes
+                      0,           // initial count
+                      lCountMax,   // maximum count
+                      NULL);       // unnamed semaphore
+
+
+
+// Try to enter the semaphore gate.
+
+dwRetCode = WaitForSingleObject(
+                   hSemaphore,  // handle to semaphore
+                   2000L);   // zero-second time-out interval
+
+switch (dwRetCode)
+{
+    // The semaphore object was signaled.
+    case WAIT_OBJECT_0:
+        // Semaphore is signaled
+        // go ahead and continue the work
+
+        goto success:
+
+        break;
+
+    case WAIT_TIMEOUT:
+        // Handle the time out case
+        break;
+}
+
+Success:
+
+// Job done, release the semaphore
+ReleaseSemaphore(
+        hSemaphore,  // handle to semaphore
+        1,           // increase count by one
+        NULL)        // not interested in previous count
+
+
+
+// Close the semaphore handle
+CloseHandle(hSemaphore);
+</code></pre></td></tr></tbody></table><br>
+<p>
+</p>
+<br><a name="listing2"><b>Listing 2. Linux equivalent code using POSIX semaphores</b></a><br><table bgcolor="#eeeeee" border="1" cellpadding="5" cellspacing="0" width="100%"><tbody><tr><td><pre><code class="section">
+
+<span class="boldcode">// Main thread</span>
+#define TIMEOUT 200  /* 2 secs */
+
+<span class="boldcode">// Thread 1</span>
+sem_t sem     ; // Global Variable
+
+
+int   retCode ;
+
+// Initialize event semaphore
+retCode = sem_init(
+                   sem,   // handle to the event semaphore
+                   0,     // not shared
+                   0);    // initially set to non signaled state
+
+
+while (timeout &lt; TIMEOUT ) {
+   delay.tv_sec = 0;
+   delay.tv_nsec = 1000000;  /* 1 milli sec */
+
+   // Wait for the event be signaled
+   retCode = sem_trywait(
+                   &amp;sem); // event semaphore handle
+                          // non blocking call
+   if (!retCode)  {
+        /* Event is signaled */
+
+
+        break;
+   }
+   else {
+       /* check whether somebody else has the mutex */
+       if (retCode == EPERM ) {
+            /* sleep for delay time */
+            nanosleep(&amp;delay, NULL);
+            timeout++ ;
+       }
+       else{
+           /* error  */
+       }
+   }
+}
+
+
+// Completed the job,
+// now destroy the event semaphore
+retCode = sem_destroy(
+                      &amp;sem);   // Event semaphore handle
+<span class="boldcode">// Thread 2</span>
+// Condition met
+// now signal the event semaphore
+sem_post(
+         &amp;sem);    // Event semaphore Handle
+ </code></pre></td></tr></tbody></table><br>
+<p>
+</p>
+<br><a name="listing3"><b>Listing 3. Linux semaphore code using System V semaphores</b></a><br><table bgcolor="#eeeeee" border="1" cellpadding="5" cellspacing="0" width="100%"><tbody><tr><td><pre><code class="section">
+
+<span class="boldcode">// Process 1</span>
+#define TIMEOUT 200
+
+//Definition of variables
+    key_t key;
+    int semid;
+    int Ret;
+    int timeout = 0;
+    struct sembuf operation[1] ;
+
+    union semun
+    {
+        int val;
+        struct semid_ds *buf;
+        USHORT *array;
+    } semctl_arg,ignored_argument;
+
+
+    key = ftok(); // Generate a unique key, U can also supply a value instead
+
+    semid = semget(key,             // a unique identifier to identify semaphore set
+                    1,              // number of semaphore in the semaphore set
+                   0666 | IPC_CREAT // permissions (rwxrwxrwx) on the new
+                                    //    semaphore set and creation flag
+                    );
+
+   //Set Initial value for the resource
+    semctl_arg.val = 0; //Setting semval to 0
+    semctl(semid, 0, SETVAL, semctl_arg);
+
+
+    //Wait for Zero
+
+    while(timeout &lt; TIMEOUT)
+    {
+        delay.tv_sec = 0;
+        delay.tv_nsec = 1000000;  /* 1 milli sec */
+
+        //Call Wait for Zero with IPC_NOWAIT option,so it will be non blocking
+
+        operation[0].sem_op = -1; // Wait until the semaphore count becomes 0
+        operation[0].sem_num = 0;
+        operation[0].sem_flg = IPC_NOWAIT;
+
+        ret = semop(semid, operation,1);
+
+        if(ret &lt; 0)
+        {
+            /* check whether somebody else has the mutex */
+            if (retCode == EPERM )
+            {
+                /* sleep for delay time */
+                nanosleep(&amp;delay, NULL);
+                timeout++ ;
+            }
+            else
+            {
+                printf("ERROR while wait ");
+                break;
+            }
+        }
+        else
+        {
+            /*semaphore got triggered */
+            break;
+        }
+
+    }
+
+    //Close semaphore
+    iRc = semctl(semid, 1, IPC_RMID , ignored_argument);
+
+}
+
+<span class="boldcode">// Process 2</span>
+
+key_t key = KEY; // Process 2 should know key value in order to open the
+                 //    existing semaphore set
+
+    struct sembuf operation[1] ;
+
+    //Open semaphore
+    semid = semget(key, 1, 0);
+
+    operation[0].sem_op = 1; // Release the resource so Wait in process 1 will
+                             //    be triggered
+    operation[0].sem_num = 0;
+    operation[0].sem_flg = SEM_UNDO;
+
+    //Release semaphore
+    semop(semid, operation,0);
+}
+ </code></pre></td></tr></tbody></table><br>
+
+<br><table border="0" cellpadding="0" cellspacing="0" width="100%"><tbody><tr><td><img src="l-ipc2lin2_files/blue_rule.gif" alt="" height="1" width="100%"></td></tr></tbody></table><table class="no-print" align="right" cellpadding="0" cellspacing="0"><tbody><tr align="right"><td><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td valign="middle"><img src="l-ipc2lin2_files/u_bold.gif" alt="" border="0" height="16" width="16"><br></td><td align="right" valign="top"><a href="#main" class="fbox"><b>Back to top</b></a></td></tr></tbody></table></td></tr></tbody></table><br><br><p><a name="EVENT"><span class="atitle">Events</span></a></p>
+
+<p>
+In Windows, event objects are one of the synchronization objects whose state needs to be explicitly set to signaled using the <code>SetEvent()</code> function. Event objects come in two types:
+</p>
+
+<ul>
+<li>In the <i>manual reset event</i>, the state of the object remains signaled until explicitly reset using the <code>ResetEvent()</code> function.</li>
+<li>In the <i>auto reset event</i>, the state of the object remains
+signaled until a single waiting thread is released. When the waiting
+thread is released, the state is reset to non-signaled state.</li>
+</ul>
+
+<p>
+Event objects have two states, <i>signaled</i> and <i>non-signaled</i>. The wait function on the event object blocks the calling thread until its state is set to signaled state.
+</p>
+
+<p>
+The following points should be considered during migration:
+</p>
+
+<ul>
+<li>Windows provides <i>named</i> and <i>un-named</i> event objects.
+Named event objects are provided to provide synchronization between the
+processes, but in Linux, both the pthreads and POSIX provides
+synchronization between threads. To achieve functionality of named
+event objects in Linux, System V semaphore or signals can be used.</li>
+<li>Windows provides two types of event objects -- manual and auto reset. Linux provides only auto-reset event features.</li>
+<li>In Windows, event objects initial state is set to signaled. In
+Linux, pthreads does not provide an initial state, but POSIX semaphores
+provide an initial state.</li>
+<li>Windows event objects are asynchronous. In Linux, POSIX semaphores
+and System V semaphores are asynchronous but pthreads conditional
+variables are not asynchronous.</li>
+<li>When used in one of the wait functions, Windows event objects
+timeout value can be specified. In Linux, only pthreads provides a
+timeout feature in wait functions.</li>
+</ul>
+
+<p>
+It is also important to note that:
+</p>
+
+<ul>
+<li>POSIX semaphores are count semaphores, but when the count is set to
+1 they provide similar functionality to the Windows event object. They
+don't provide timeout in the wait functions. POSIX semaphores are
+preferred when the timeout is not the factor in the porting.</li>
+<li>When used along with the Mutex, pthreads conditional variables
+provide event-based synchronization between threads, but they are
+synchronous. Based on the application logic, this can be selected as a
+choice for implementing the functionality on Linux during porting.</li>
+</ul>
+
+<p><a name="N105C6"><span class="smalltitle">Table 3. Event objects mapping</span></a></p>
+<p>
+      </p><table border="0" cellpadding="3" cellspacing="1" width="60%"><tbody><tr valign="top"><td><b>Windows</b></td><td><b>Linux Threads</b></td><td><b>Linux Process</b></td><td><b>Classification</b></td></tr><tr valign="top"><td>
+<code>CreateEvent</code><br>
+<code>OpenEvent</code>
+</td><td>
+<code>pthread_cond_init</code><br>
+<code>sem_init</code>
+</td><td>
+<code>semget</code><br>
+<code>semctl</code></td><td><code>context specific</code></td></tr><tr valign="top"><td><code>SetEvent</code></td><td><code>pthread_cond_signal</code><br>
+<code>sem_post
+</code></td><td><code>semop</code></td><td><code>context specific</code></td></tr><tr valign="top"><td><code>ResetEvent</code></td><td><code>N/A</code></td><td><code>N/A</code></td><td><code>context specific</code></td></tr><tr valign="top"><td><code>WaitForSingleObject</code></td><td><code>pthread_cond_wait</code><br>
+<code>pthread_cond_timedwait</code><br>
+<code>sem_wait</code><br>
+<code>sem_trywait
+</code></td><td><code>semop</code></td><td><code>context specific</code></td></tr><tr valign="top"><td><code>CloseHandle</code></td><td><code>pthread_cond_destroy</code><br>
+<code>sem_destroy
+</code></td><td><code>semctl</code></td><td><code>context specific</code></td></tr></tbody></table>
+
+
+<p><a name="E1"><span class="smalltitle">Creating/opening an event object</span></a></p>
+
+<p>
+In Windows, <code>CreateEvent()</code> is used to create an event object.
+</p>
+
+<table bgcolor="#eeeeee" border="1" cellpadding="5" cellspacing="0" width="100%"><tbody><tr><td><pre><code class="section">
+HANDLE CreateEvent(
+  LPSECURITY_ATTRIBUTES lpEventAttributes,
+  BOOL bManualReset,
+  BOOL bInitialState,
+  LPCTSTR lpName
+)
+</code></pre></td></tr></tbody></table><br>
+
+<p>
+In this code:
+</p>
+
+<ul>
+<li><code>lpEventAttributes</code> is a pointer to the attributes that
+determines whether the handle can be inherited or not. If this is NULL,
+the object handle cannot be inherited. </li>
+<li><code>bManualReset</code> is a flag and if it is TRUE, a manual-reset event is created and <code>ResetEvent()</code> should be called explicitly to set the state to non-signaled. </li>
+<li><code>bInitialState</code> is the initial state of the event object. If true, the initial state is set to signaled. </li>
+<li><code>lpName</code> is the pointer to the name of the event object. It is kept NULL for un-named event object.</li>
+</ul>
+
+<p>
+This function creates a manual-reset or auto-reset event object and
+also sets the initial state of the object. This function returns the
+handle to the event object and can be used in subsequent calls to the
+event object.
+</p>
+
+<p>
+<code>OpenEvent()</code> is used to open an existing named event object. This function returns handle to the event object.
+</p>
+
+<table bgcolor="#eeeeee" border="1" cellpadding="5" cellspacing="0" width="100%"><tbody><tr><td><pre><code class="section">
+HANDLE OpenEvent(
+  DWORD dwDesiredAccess,
+  BOOL bInheritHandle,
+  LPCTSTR lpName
+)
+</code></pre></td></tr></tbody></table><br>
+
+<p>
+In this code:
+</p>
+
+<ul>
+<li><code>dwDesiredAccess</code> is the requested access for the event object.</li>
+<li><code>bInheritHandle</code> is a flag. If true, the handle can be inherited; otherwise, it cannot be inherited.</li>
+<li><code>lpName</code> is a pointer to the name of the event object.</li>
+</ul>
+
+<p>
+In Linux, the call <code>sem_init()</code> creates a POSIX semaphore: <code>int sem_init(sem_t *sem, int pshared, unsigned int value)</code> (in which <code>value</code> (semaphore count) is set to the initial value of the semaphore).
+</p>
+
+<p>
+Linux pthreads uses <code>pthread_cond_init()</code> to create a conditional variable: <code>int pthread_cond_init(pthread_cond_t *cond, pthread_condattr_t *cond_attr)</code>.
+</p>
+
+<p>Conditional variables of type <code>pthread_cond_t</code> can be initialized statically using the constant <code>PTHREAD_COND_INITIALIZER</code>. They can also be initialized using <code>pthread_condattr_init()</code> which initializes the attributes associated with the conditional variable. The call <code>pthread_condattr_destroy()</code> is used to destroy the attributes: </p>
+
+<table bgcolor="#eeeeee" border="1" cellpadding="5" cellspacing="0" width="100%"><tbody><tr><td><pre><code class="section">
+int pthread_condattr_init(pthread_condattr_t *attr)
+int pthread_condattr_destroy(pthread_condattr_t *attr)
+</code></pre></td></tr></tbody></table><br>
+
+<p><a name="E2"><span class="smalltitle">Waiting on an event</span></a></p>
+
+<p>In Windows, wait functions provide the facility of acquiring the
+synchronization objects. Different types of wait functions are
+available (we're only considering <code>WaitForSingleObject()</code> here). This function takes the handle to the mutex object and waits until it is signaled or timeout occurs.
+</p>
+
+<table bgcolor="#eeeeee" border="1" cellpadding="5" cellspacing="0" width="100%"><tbody><tr><td><pre><code class="section">
+DWORD WaitForSingleObject(
+  HANDLE hHandle,
+  DWORD dwMilliseconds
+);
+</code></pre></td></tr></tbody></table><br>
+
+<p>
+In this code:
+</p>
+
+<ul>
+<li><code>hHandle</code> is the pointer to the mutex handle.</li>
+<li><code>dwMilliseconds</code> is the timeout value in milliseconds. If the value is <code>INFINITE</code> then it blocks the calling thread/process indefinitely. </li>
+</ul>
+
+<p>
+Linux POSIX semaphores use <code>sem_wait()</code> to suspend the calling thread until the semaphore has a non-zero count. It then atomically decreases the semaphore count: <code>int sem_wait(sem_t * sem)</code>.
+</p>
+
+<p>
+The timeout option is not available in the POSIX semaphore. This can be achieved by issuing non-blocking <code>sem_trywait()</code> within a loop which counts the timeout value: <code>int sem_trywait(sem_t * sem)</code>.
+</p>
+
+<p>
+Linux pthreads uses <code>pthread_cond_wait()</code> to block the calling thread indefinitely: <code>int pthread_cond_wait(pthread_cond_t *cond, pthread_mutex_t *mutex)</code>. On the other hand, if the calling thread needs to be blocked for a specific time, then <code>pthread_cond_timedwait()</code> is used to block the thread. If the conditional variable is not posted within the specified time, <code>pthread_cond_timedwait()</code> returns with an error: <code>int pthread_cond_timedwait(pthread_cond_t *cond, pthread_mutex_t *mutex,const struct timespec *abstime)</code>. Here, the <code>abstime</code> parameter specifies an absolute time (specifically, the time elapsed since 00:00:00 GMT, January 1, 1970.) </p>
+
+<p><a name="E3"><span class="smalltitle">Signaling an event object</span></a></p>
+
+<p>
+The function <code>SetEvent()</code> is used to set the state of the event object to signaled state. Setting an already-set event object has no effect
+.</p>
+
+<table bgcolor="#eeeeee" border="1" cellpadding="5" cellspacing="0" width="100%"><tbody><tr><td><pre><code class="section">
+BOOL SetEvent(
+  HANDLE hEvent
+)
+</code></pre></td></tr></tbody></table><br>
+
+<p>
+Linux POSIX semaphores use <code>sem_post()</code> to post an event semaphore. This wakes any of the threads blocked on the semaphore: <code>int sem_post(sem_t * sem)</code>.
+</p>
+
+<p>
+The call <code>pthread_cond_signal()</code> is used in LinuxThreads to wake a thread waiting on the conditional variable, while <code>pthread_cond_broadcast()</code> is used to wake all the threads that are waiting on the conditional variable.
+</p>
+
+<table bgcolor="#eeeeee" border="1" cellpadding="5" cellspacing="0" width="100%"><tbody><tr><td><pre><code class="section">
+int pthread_cond_signal(pthread_cond_t *cond)
+int pthread_cond_broadcast(pthread_cond_t *cond)
+</code></pre></td></tr></tbody></table><br>
+
+<p>
+Note that condition functions are not asynchronously signal-safe and
+should not be called from a signal handler. In particular, calling <code>pthread_cond_signal()</code> or <code>pthread_cond_broadcast()</code> from a signal handler may deadlock the calling thread.</p>
+
+<p><a name="E4"><span class="smalltitle">Resetting an event</span></a></p>
+
+<p>
+In Windows, <code>ResetEvent()</code> is used to reset the state of the event object to a non-signaled state.
+</p>
+
+<table bgcolor="#eeeeee" border="1" cellpadding="5" cellspacing="0" width="100%"><tbody><tr><td><pre><code class="section">
+BOOL ResetEvent(
+  HANDLE hEvent
+);
+</code></pre></td></tr></tbody></table><br>
+
+<p>
+In Linux, conditional variable and POSIX semaphores are of the auto-reset type.
+</p>
+
+<p><a name="E5"><span class="smalltitle">Closing/destroying an event object</span></a></p>
+
+<p>
+In Windows, <code>CloseHandle()</code> is used to close or destroy the event object.
+</p>
+
+<table bgcolor="#eeeeee" border="1" cellpadding="5" cellspacing="0" width="100%"><tbody><tr><td><pre><code class="section">
+BOOL CloseHandle(
+  HANDLE hObject
+);
+</code></pre></td></tr></tbody></table><br>
+
+<p>
+In the code, <code>hObject</code> is the pointer to the handle to the synchronization object.
+</p>
+
+<p>
+In Linux, <code>sem_destroy()/ pthread_cond_destroy()</code> destroys semaphore objects or conditional variables, freeing the resources each might hold:
+</p>
+
+<table bgcolor="#eeeeee" border="1" cellpadding="5" cellspacing="0" width="100%"><tbody><tr><td><pre><code class="section">
+int sem_destroy(sem_t *sem)
+
+int pthread_cond_destroy(pthread_cond_t *cond)
+</code></pre></td></tr></tbody></table><br>
+
+<p><a name="E6"><span class="smalltitle">Named event object</span></a></p>
+
+<p>
+In Linux, the named event objects functionality between processes can
+be achieved by using a System V semaphore. System V semaphores are
+count variables, so to achieve the Windows event-object functionality,
+the initial count of the semaphore is set to 0 using <code>semctl()</code>.
+</p>
+
+<p>
+To signal an event, <code>semop()</code> is used with <code>sem_op</code> value as 1. To wait on an event, <code>semop()</code> function is used with <code>sem_op</code> value as -1 thus blocking the calling process until it is signaled.
+</p>
+
+<p>
+A semaphore can be owned by setting the initial count of the semaphore to 0 using <code>semctl()</code>. After using the shared resource, the semaphore count can be set to 1 by using <code>semop()</code>. Refer to the section on semaphores in this article for the prototype for each of these System V semaphores.
+</p>
+
+<p><a name="E7"><span class="smalltitle">Examples</span></a></p>
+
+<p>
+Following are examples to help illustrate what we've discussed in this section.
+</p>
+
+<br><a name="listing4"><b>Listing 4. Windows un-named event object code</b></a><br><table bgcolor="#eeeeee" border="1" cellpadding="5" cellspacing="0" width="100%"><tbody><tr><td><pre><code class="section">
+
+<span class="boldcode">// Main thread</span>
+HANDLE hEvent; // Global Variable
+
+<span class="boldcode">// Thread 1</span>
+DWORD  dwRetCode;
+
+// Create Event
+hEvent = CreateEvent(
+                     NULL,    // no security attributes
+                     FALSE,   // Auto reset event
+                     FALSE,   // initially set to non signaled state
+                     NULL);   // un named event
+
+// Wait for the event be signaled
+dwRetCode = WaitForSingleObject(
+                                hEvent,    // Mutex handle
+                              INFINITE);   // Infinite wait
+
+switch(dwRetCode) {
+          case WAIT_OBJECT_O :
+
+                 // Event is signaled
+                 // go ahead and proceed the work
+
+
+         default :
+                   // Probe for error
+}
+
+
+// Completed the job,
+// now close the event handle
+CloseHandle(hEvent);
+
+
+<span class="boldcode">// Thread 2</span>
+// Condition met for the event hEvent
+// now set the event
+SetEvent(
+         hEvent);    // Event Handle
+</code></pre></td></tr></tbody></table><br>
+<p>
+</p>
+<br><a name="listing5"><b>Listing 5. Linux equivalent code using POSIX semaphores</b></a><br><table bgcolor="#eeeeee" border="1" cellpadding="5" cellspacing="0" width="100%"><tbody><tr><td><pre><code class="section">
+
+<span class="boldcode">// Main thread</span>
+sem_t sem     ; // Global Variable
+
+
+<span class="boldcode">// Thread 1</span>
+int   retCode ;
+
+// Initialize event semaphore
+retCode = sem_init(
+                   sem,   // handle to the event semaphore
+                   0,     // not shared
+                   0);    // initially set to non signaled state
+
+
+// Wait for the event be signaled
+retCode = sem_wait(
+                   &amp;sem); // event semaphore handle
+                          // Indefinite wait
+
+// Event Signaled
+// a head and proceed the work
+
+
+
+
+// Completed the job,
+// now destroy the event semaphore
+retCode = sem_destroy(
+                      &amp;sem);   // Event semaphore handle
+
+<span class="boldcode">// Thread 2</span>
+// Condition met
+// now signal the event semaphore
+sem_post(
+         &amp;sem);    // Event semaphore Handle
+</code></pre></td></tr></tbody></table><br>
+<p>
+</p>
+<br><a name="listing6"><b>Listing 6. Equivalent code in Linux using conditional variables</b></a><br><table bgcolor="#eeeeee" border="1" cellpadding="5" cellspacing="0" width="100%"><tbody><tr><td><pre><code class="section">
+
+<span class="boldcode">// Main thread</span>
+pthread_mutex_t mutex = PTHREAD_MUTEX_INITIALIZER;
+pthread_cond_t condvar = PTHREAD_COND_INITIALIZER;
+
+<span class="boldcode">// Thread 1</span>
+ ...
+pthread_mutex_lock(&amp;mutex);
+
+// signal one thread to wake up
+pthread_cond_signal(&amp;condvar);
+pthread_mutex_unlock(&amp;mutex);
+
+// this signal is lost as no one is waiting
+
+// Thread 1 now tries to take the mutex lock
+// to send the signal but gets blocked
+     ...
+    pthread_mutex_lock(&amp;mutex);
+
+
+// Thread 1 now gets the lock and can
+// signal thread 2 to wake up
+      pthread_cond_signal(&amp;condvar);
+      pthread_mutex_unlock(&amp;mutex);
+
+<span class="boldcode">// Thread 2</span>
+pthread_mutex_lock(&amp;mutex);
+pthread_cond_wait(&amp;condvar, &amp;mutex);
+pthread_mutex_unlock(&amp;mutex);
+
+// Thread 2 blocks indefinitely
+// One way of avoiding losing the signal is as follows
+// In Thread 2 - Lock the mutex early to avoid losing signal
+
+pthread_mutex_lock (&amp;mutex);
+// Do work
+.......
+
+// This work may lead other threads to send signal to thread 2
+
+// Thread 2 waits for indefinitely for the signal to be posted
+pthread_cond_wait (&amp;condvar, &amp;Mutex );
+
+// Thread 2 unblocks upon receipt of signal
+pthread_mutex_unlock (&amp;mutex);
+</code></pre></td></tr></tbody></table><br>
+<p>
+</p>
+<br><a name="listing7"><b>Listing 7. Windows example for named events</b></a><br><table bgcolor="#eeeeee" border="1" cellpadding="5" cellspacing="0" width="100%"><tbody><tr><td><pre><code class="section">
+
+<span class="boldcode">// Process 1</span>
+DWORD  dwRetCode;
+HANDLE hEvent; // Local variable
+
+// Create Event
+hEvent = CreateEvent(
+                     NULL,        // no security attributes
+                     FALSE,       // Auto reset event
+                     FALSE,       // initially set to non signaled state
+                     "myEvent");  // un named event
+
+// Wait for the event be signaled
+dwRetCode = WaitForSingleObject(
+                                hEvent,    // Mutex handle
+                              INFINITE);   // Infinite wait
+
+switch(dwRetCode) {
+          case WAIT_OBJECT_O :
+
+                 // Event is signaled
+                 // go ahead and proceed the work
+
+
+         default :
+                   // Probe for error
+}
+
+
+// Completed the job,
+// now close the event handle
+CloseHandle(hEvent);
+
+
+<span class="boldcode">// Process 2</span>
+HANDLE hEvent; // Local variable
+
+// Open the Event
+hEvent = CreateEvent(
+                     NULL,        // no security attributes
+                     FALSE,       // do not inherit handle
+                     "myEvent");  // un named event
+
+// Condition met for the event hEvent
+// now set the event
+SetEvent(
+         hEvent);    // Event Handle
+
+// completed the job, now close the event handle
+CloseHandle(hEvent);
+</code></pre></td></tr></tbody></table><br>
+<p>
+</p>
+<br><a name="listing7"><b>Listing 7. Windows example for named events</b></a><br><table bgcolor="#eeeeee" border="1" cellpadding="5" cellspacing="0" width="100%"><tbody><tr><td><pre><code class="section">
+
+<span class="boldcode">// Process 1</span>
+DWORD  dwRetCode;
+HANDLE hEvent; // Local variable
+
+// Create Event
+hEvent = CreateEvent(
+                     NULL,        // no security attributes
+                     FALSE,       // Auto reset event
+                     FALSE,       // initially set to non signaled state
+                     "myEvent");  // un named event
+
+// Wait for the event be signaled
+dwRetCode = WaitForSingleObject(
+                                hEvent,    // Mutex handle
+                              INFINITE);   // Infinite wait
+
+switch(dwRetCode) {
+          case WAIT_OBJECT_O :
+
+                 // Event is signaled
+                 // go ahead and proceed the work
+
+
+         default :
+                   // Probe for error
+}
+
+
+// Completed the job,
+// now close the event handle
+CloseHandle(hEvent);
+
+
+<span class="boldcode">// Process 2</span>
+HANDLE hEvent; // Local variable
+
+// Open the Event
+hEvent = CreateEvent(
+                     NULL,        // no security attributes
+                     FALSE,       // do not inherit handle
+                     "myEvent");  // un named event
+
+// Condition met for the event hEvent
+// now set the event
+SetEvent(
+         hEvent);    // Event Handle
+
+// completed the job, now close the event handle
+CloseHandle(hEvent);
+</code></pre></td></tr></tbody></table><br>
+<p>
+</p>
+<br><a name="listing8"><b>Listing 8. Linux equivalent code using System V semaphores</b></a><br><table bgcolor="#eeeeee" border="1" cellpadding="5" cellspacing="0" width="100%"><tbody><tr><td><pre><code class="section">
+
+<span class="boldcode">// Process 1</span>
+int main()
+{
+    //Definition of variables
+    key_t key;
+    int semid;
+    int Ret;
+    int timeout = 0;
+    struct sembuf operation[1] ;
+
+    union semun
+    {
+        int val;
+        struct semid_ds *buf;
+        USHORT *array;
+    } semctl_arg,ignored_argument;
+
+
+    key = ftok(); /Generate a unique key, U can also supply a value instead
+
+    semid = semget(key,                // a unique identifier to identify semaphore set
+                     1,                // number of semaphore in the semaphore set
+                     0666 | IPC_CREAT  // permissions (rwxrwxrwx) on the new
+                                       //     semaphore set and creation flag
+                    );
+    if(semid &lt; 0)
+    {
+        printf("Create semaphore set failed ");
+        Exit(1);
+    }
+
+    //Set Initial value for the resource - initially not owned
+    semctl_arg.val = 0; //Setting semval to 0
+    semctl(semid, 0, SETVAL, semctl_arg);
+
+
+    // wait on the semaphore
+    // blocked until it is signaled
+
+    operation[0].sem_op = -1;
+    operation[0].sem_num = 0;
+    operation[0].sem_flg = IPC_WAIT;
+
+    ret = semop(semid, operation,1);
+
+    // access the shared resource
+    ...
+    ...
+
+
+
+    //Close semaphore
+    iRc = semctl(semid, 1, IPC_RMID , ignored_argument);
+
+}
+
+<span class="boldcode">// Process 2</span>
+int main()
+{
+    key_t key = KEY; //Process 2 shd know key value in order to open the
+                // existing semaphore set
+    struct sembuf operation[1] ;
+
+    //Open semaphore
+    semid = semget(key, 1, 0);
+
+    // signal the semaphore by incrementing the semaphore count
+    operation[0].sem_op = 1;
+    operation[0].sem_num = 0;
+    operation[0].sem_flg = SEM_UNDO;
+    semop(semid, operation,0);
+
+}
+ </code></pre></td></tr></tbody></table><br>
+ 
+<br><table border="0" cellpadding="0" cellspacing="0" width="100%"><tbody><tr><td><img src="l-ipc2lin2_files/blue_rule.gif" alt="" height="1" width="100%"></td></tr></tbody></table><table class="no-print" align="right" cellpadding="0" cellspacing="0"><tbody><tr align="right"><td><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td valign="middle"><img src="l-ipc2lin2_files/u_bold.gif" alt="" border="0" height="16" width="16"><br></td><td align="right" valign="top"><a href="#main" class="fbox"><b>Back to top</b></a></td></tr></tbody></table></td></tr></tbody></table><br><br><p><a name="N10890"><span class="atitle">Next in the series</span></a></p>
+
+<p>
+This second part of the series has introduced synchronization objects and primitives, starting with semaphores and events. <a href="http://www-128.ibm.com/developerworks/linux/library/l-ipc2lin3.html">Part 3</a> covers mutexes, critical sections, and wait functions.
+
+</p>
+
+
+
+
+
+
+
+<br><table border="0" cellpadding="0" cellspacing="0" width="100%"><tbody><tr><td><img src="l-ipc2lin2_files/blue_rule.gif" alt="" height="1" width="100%"></td></tr></tbody></table><table class="no-print" align="right" cellpadding="0" cellspacing="0"><tbody><tr align="right"><td><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td valign="middle"><img src="l-ipc2lin2_files/u_bold.gif" alt="" border="0" height="16" width="16"><br></td><td align="right" valign="top"><a href="#main" class="fbox"><b>Back to top</b></a></td></tr></tbody></table></td></tr></tbody></table><br><br><p><a name="resources"><span class="atitle">Resources</span></a></p>
+
+<ul><li>
+Read all the articles in this series, "<a href="http://www.ibm.com/developerworks/views/linux/libraryview.jsp?search_by=port+windows+ipc+apps+linux">Port Windows IPC apps to Linux</a>" (developerWorks, Spring 2005).
+<br><br></li><li>The online code examples in the book <i><a href="http://www.amazon.com/exec/obidos/ASIN/1565921151">Pthreads Programming</a></i> by Bradford Nichols, Dick Buttlar, and Jacqueline Proulx Farrel (O'Reilly, 1996) illustrate the concepts in this article. <br><br></li><li>Don't forget to check the <a href="http://linas.org/linux/threads-faq.html">Linux Threads FAQ</a>, the <a href="http://man.he.net/">Linux Manpages Online</a>, and the <a href="http://pauillac.inria.fr/%7Exleroy/linuxthreads/">LinuxThreads Library</a> for specific calls and more details on programming with threads in Linux.<br><br></li><li>For more on programming with threads in Linux, see the developerWorks articles, "<a href="http://www.ibm.com/developerworks/linux/library/l-pthred.html">Basic use of pthreads</a>" (developerWorks, January 2004) and "<a href="http://www.ibm.com/developerworks/linux/library/l-posix1.html">POSIX threads explained</a>" (developerWorks, July 2000).<br><br></li><li>The series of developerWorks articles, "<a href="http://www.ibm.com/developerworks/linux/library/l-osmig1.html">Migrate your apps from OS/2 to Linux</a>" (developerWorks, February 2004) is a good reference to see what is mapped during migration. <br><br></li><li>Find more resources for Linux developers in the <a href="http://www.ibm.com/developerworks/linux/">developerWorks Linux zone</a>.
+<br><br></li><li>Get involved in the developerWorks community by participating in <a href="http://www.ibm.com/developerworks/blogs/">developerWorks blogs</a>.<br><br></li><li><a href="http://www.ibm.com/developerworks/apps/SendTo?bookstore=safari">Browse for books</a> on these and other technical topics.<br><br></li><li><a href="http://www.ibm.com/developerworks/offers/sek/?S_TACT=105AGX03">Order the SEK for Linux</a>, a two-DVD set containing the latest IBM trial software for Linux from DB2®, Lotus®, Rational®, Tivoli®, and WebSphere®.<br><br></li><li>Innovate your next Linux development project with <a href="http://www.ibm.com/developerworks/downloads/?S_TACT=105AGX03">IBM trial software</a>, available for download directly from developerWorks.<br></li></ul>
+
+<br><table border="0" cellpadding="0" cellspacing="0" width="100%"><tbody><tr><td><img src="l-ipc2lin2_files/blue_rule.gif" alt="" height="1" width="100%"></td></tr></tbody></table><table class="no-print" align="right" cellpadding="0" cellspacing="0"><tbody><tr align="right"><td><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td valign="middle"><img src="l-ipc2lin2_files/u_bold.gif" alt="" border="0" height="16" width="16"><br></td><td align="right" valign="top"><a href="#main" class="fbox"><b>Back to top</b></a></td></tr></tbody></table></td></tr></tbody></table><br><br><p><a name="author"><span class="atitle">About the authors</span></a></p><table border="0" cellpadding="0" cellspacing="0" width="100%"><tbody><tr><td colspan="3"><img alt="" src="l-ipc2lin2_files/c.gif" height="5" width="100%"></td></tr><tr align="left" valign="top"><td><p><img alt="Srinivasan S. Muthuswamy" src="l-ipc2lin2_files/p-smuthuswamy.jpg" align="left" height="80" width="64"></p></td><td><img alt="" src="l-ipc2lin2_files/c.gif" height="5" width="4"></td><td width="100%"><p>Srinivasan
+S. Muthuswamy works as a Software Engineer for IBM Global Services
+Group. He joined IBM in 2000 and his expertise in programming reaches
+from scripting languages to object- and procedure-oriented languages on
+multiple platforms (Linux, Windows, WebSphere, Lotus, and so on).
+Muthuswamy has developed solutions ranging from system programming on
+Linux and Windows to Web solutions for J2EE. His primary focus is on
+integration and porting and he holds a B.Eng. in Computer Engineering
+from the Government College of Technology, Coimbatore, India. You can
+contact him at <a href="mailto:smuthusw@in.ibm.com">smuthusw@in.ibm.com</a>.</p></td></tr></tbody></table><br><table border="0" cellpadding="0" cellspacing="0" width="100%"><tbody><tr><td colspan="3"><img alt="" src="l-ipc2lin2_files/c.gif" height="5" width="100%"></td></tr><tr align="left" valign="top"><td><p><img alt="Author photo" src="l-ipc2lin2_files/p-kvaradarajan.jpg" align="left" height="80" width="64"></p></td><td><img alt="" src="l-ipc2lin2_files/c.gif" height="5" width="4"></td><td width="100%"><p>Kavitha
+Varadarajan has worked as a software Engineer in the IBM India Software
+Lab from December 2000. Her work experience involves development and
+support of host-access client products such as PCOMM and networking
+software such as the communication server. Varadarajan has a hands-on
+experience with a migration project that involves porting
+object-oriented IPC Windows applications to Linux. She holds a B.Eng.
+in Computer Science and Engineering from Shanmugha College of
+Engineering, Tanjore, India. She can be contacted at <a href="mailto:vkavitha@in.ibm.com">vkavitha@in.ibm.com</a>.</p></td></tr></tbody></table><br><br><table border="0" cellpadding="0" cellspacing="0" width="100%"><tbody><tr><td><img src="l-ipc2lin2_files/blue_rule.gif" alt="" height="1" width="100%"></td></tr></tbody></table><table class="no-print" align="right" cellpadding="0" cellspacing="0"><tbody><tr align="right"><td><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td valign="middle"><img src="l-ipc2lin2_files/u_bold.gif" alt="" border="0" height="16" width="16"><br></td><td align="right" valign="top"><a href="#main" class="fbox"><b>Back to top</b></a></td></tr></tbody></table></td></tr></tbody></table><br><br><p class="no-print"><span class="atitle"><a name="rate">Rate this page</a></span></p><span class="no-print"><form action="//www-128.ibm.com/developerworks/utils/RatingsHandler" method="post"><input value="Port Windows IPC apps to Linux, Part 2: Semaphores and events" name="ArticleTitle" type="hidden"><input value="Linux" name="Zone" type="hidden"><input value="http://www.ibm.com/developerworks/thankyou/feedback-thankyou.html" name="RedirectURL" type="hidden"><input value="83975" name="ArticleID" type="hidden"><input value="05252005" name="publish-date" type="hidden"><input name="author1-email" value="smuthusw@in.ibm.com" type="hidden"><input name="author1-email-cc" value="" type="hidden"><input name="author2-email" value="vkavitha@in.ibm.com" type="hidden"><input name="author2-email-cc" value="" type="hidden"><script language="javascript" type="text/javascript">document.write('<input type="hidden" name="url" value="'+location.href+'">');</script><img src="l-ipc2lin2_files/gray_rule.gif" alt="" height="1" width="100%"><br><table class="v14-gray-table-border" border="0" cellpadding="0" cellspacing="0" width="100%"><tbody><tr><td width="100%"><table border="0" cellpadding="0" cellspacing="0" width="100%"><tbody><tr><td colspan="3"><p>Please take a moment to complete this form to help us better serve you.</p></td></tr><tr valign="top"><td width="140"><img src="l-ipc2lin2_files/c.gif" alt="" height="1" width="140"><br><p><label for="Goal">Did the information help you to achieve your goal?</label></p></td><td width="303"><img src="l-ipc2lin2_files/c.gif" alt="" height="6" width="303"><br><table border="0" cellpadding="0" cellspacing="0" width="100%"><tbody><tr><td><input value="Yes" id="Goal" name="Goal" type="radio">Yes</td><td><input value="No" id="Goal" name="Goal" type="radio">No</td><td><input value="Don't know" id="Goal" name="Goal" type="radio">Don't know</td></tr></tbody></table></td><td width="100%">&nbsp;</td></tr><tr><td colspan="3"><img alt="" src="l-ipc2lin2_files/c.gif" height="12" width="8"></td></tr><tr valign="top"><td width="140"><img src="l-ipc2lin2_files/c.gif" alt="" height="1" width="140"><br><p><label for="Comments">Please provide us with comments to help improve this page:</label></p></td><td width="303"><img src="l-ipc2lin2_files/c.gif" alt="" height="6" width="303"><br><table border="0" cellpadding="0" cellspacing="0" width="100%"><tbody><tr><td><textarea class="iform" cols="35" rows="5" wrap="virtual" id="Comments" name="Comments">&nbsp;</textarea></td></tr></tbody></table></td><td width="100%">&nbsp;</td></tr><tr><td colspan="3"><img alt="" src="l-ipc2lin2_files/c.gif" height="12" width="8"></td></tr><tr valign="top"><td width="140"><img src="l-ipc2lin2_files/c.gif" alt="" height="1" width="140"><br><p><label for="Rating">How useful is the information?
+<br>
+(1 = Not at all,
+<br>
+5 = Extremely useful)</label></p></td><td width="303"><img src="l-ipc2lin2_files/c.gif" alt="" height="6" width="303"><br><table border="0" cellpadding="0" cellspacing="0" width="100%"><tbody><tr><td><input value="1" id="Rating" name="Rating" type="radio">1</td><td><input value="2" id="Rating" name="Rating" type="radio">2</td><td><input value="3" id="Rating" name="Rating" type="radio">3</td><td><input value="4" id="Rating" name="Rating" type="radio">4</td><td><input value="5" id="Rating" name="Rating" type="radio">5</td></tr></tbody></table></td><td width="100%">&nbsp;</td></tr></tbody></table></td></tr></tbody></table><table class="v14-gray-table-border" border="0" cellpadding="0" cellspacing="0" width="100%"><tbody><tr><td colspan="3"><img alt="" src="l-ipc2lin2_files/c.gif" height="8" width="8"></td></tr><tr><td width="8"><img alt="" src="l-ipc2lin2_files/c.gif" height="1" width="8"></td><td colspan="3"><input alt="Submit" src="l-ipc2lin2_files/submit.gif" border="0" height="21" type="image" width="120"></td></tr><tr><td colspan="3"><img alt="" src="l-ipc2lin2_files/c.gif" height="8" width="8"></td></tr></tbody></table></form><br></span><span class="no-print"><table align="right" cellpadding="0" cellspacing="0"><tbody><tr align="right"><td><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td valign="middle"><img src="l-ipc2lin2_files/u_bold.gif" alt="" border="0" height="16" width="16"><br></td><td align="right" valign="top"><a href="#main" class="fbox"><b>Back to top</b></a></td></tr></tbody></table></td></tr></tbody></table><br><br></span></td><td width="10"><img alt="" src="l-ipc2lin2_files/c.gif" height="1" width="10"></td></tr></tbody></table></td></tr></tbody></table><!--FOOTER_BEGIN--><br><table border="0" cellpadding="0" cellspacing="0" width="100%"><tbody><tr><td class="bbg" height="19"><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td><span class="spacer">&nbsp;&nbsp;&nbsp;&nbsp;</span><a href="http://www.ibm.com/ibm/" class="mainlink">About IBM</a></td><td class="footer-divider" width="27">&nbsp;&nbsp;&nbsp;&nbsp;</td><td><a href="http://www.ibm.com/privacy/" class="mainlink">Privacy</a></td><td class="footer-divider" width="27">&nbsp;&nbsp;&nbsp;&nbsp;</td><td><a href="http://www.ibm.com/contact/" class="mainlink">Contact</a></td></tr></tbody></table></td></tr></tbody></table><script language="JavaScript1.2" type="text/javascript" src="l-ipc2lin2_files/stats.js"></script><noscript><img alt="" src="l-ipc2lin2_files/uc.GIF" border="0" height="1" width="1"></noscript><!--FOOTER_END--><!--XSLT stylesheet used to transform this file:  dw-document-html-5.3.xsl--></body></html>

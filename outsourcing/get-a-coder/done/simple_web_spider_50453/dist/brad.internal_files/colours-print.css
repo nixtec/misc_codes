@@ -1,0 +1,165 @@
+body {
+		 background-color: #ffffff;
+		 color: #000000;
+}
+
+a:link {
+		 color: #000000;
+}
+
+a:visited {
+		 color: #000000;
+}
+
+a:active {
+		 color: #000000;
+}
+
+a:hover {
+		 color: #000000;
+		 background-color: #ffffff;
+}
+#masthead {
+		 background-color: #ffffff;
+		 color: #000000;
+		 border-color: #000000;	 
+}
+ 
+#masthead form a:link {
+		 color: #000000;
+}
+
+#masthead form a:visited {
+		 color: #000000;
+}
+
+#masthead form a:active {
+		 color: #000000;
+}
+
+#masthead form a:hover {
+		 color: #000000;
+		 background-color: #ffffff;
+}
+
+#masthead ul {
+		 color: #000000;
+		 background: #cccccc;
+		 border-color: #ffffff;
+}
+
+#masthead li.here {
+		 color: #000000;
+}
+
+#masthead li a:link {
+		 color: #000000;
+}
+
+#masthead li a:visited {
+		 color: #000000;
+}
+
+#masthead li a:active {
+		 color: #000000;
+}
+
+#masthead li a:hover {
+		 color: #000000;
+		 background-color: #ffffff;
+}
+
+#leftcolumn {
+		 border-color: #000000;
+		 background-color: #ffffff;
+}
+
+#leftcolumn h1 {
+		 color: #000000;
+		 background-color: #ffffff;
+}
+
+
+#leftcolumn a:link {
+		 color: #000000;
+}		 
+
+#leftcolumn a:visited {
+		 color: #000000;
+}		 
+#leftcolumn a:active {
+		 color: #000000;
+}		 
+#leftcolumn a:hover {
+		 color: #000000;
+		 background-color: #ffffff;
+}		 
+
+#centre h1 {
+		 color: #000000;
+}
+
+#centre h2 {
+		 color: #000000; 
+}
+#centre h3 {
+		 color: #000000; 
+}
+
+#centre th {
+		 background-color: #cccccc;
+}
+
+#centre td {
+		 background-color: #ffffff;
+}
+ 
+#rightcolumn {
+		 border-color: #000000;
+		 background-color: #ffffff;
+}
+
+#rightcolumn h1 {
+		 color: #000000;
+		 background-color: #ffffff;
+}
+
+#rightcolumn h2 {
+		 color: #000000;
+		 background-color: #cccccc;
+}
+
+#rightcolumn a:link {
+		 color: #000000;
+}		 
+
+#rightcolumn a:visited {
+		 color: #000000;
+}		 
+#rightcolumn a:active {
+		 color: #000000;
+}		 
+#rightcolumn a:hover {
+		 color: #000000;
+		 background-color: #ffffff;
+}		 
+
+#footer p.nav {
+		 background-color: #cccccc;
+}
+#footer a.nav:link {
+		 color: #000000;
+}
+
+#footer a.nav:visited {
+		 color: #000000;
+}
+
+#footer a.nav:active {
+		 color: #000000;
+}
+
+#footer a.nav:hover {
+		 color: #000000;
+		 background-color: #cccccc;
+}

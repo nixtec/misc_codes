@@ -1,0 +1,335 @@
+config["tab_width"] = 70;
+config["tab_height"] = 25; 
+config["tab_panel_width"] = 328; 
+config["tab_panel_height"] = 92;
+
+
+// define how to display each tab panel
+var EMiniMallTabs =
+{
+	description:
+	{
+		render: function( data )
+		{
+			var product = data["product"];
+			var vendors = data["vendors"];
+			var vendorCount = vendors ? vendors.length : 0;
+			
+			var desc = product["description"];
+			var offerdesc = (vendorCount > 0 ) ? vendors[0]["offer_details"] : "";
+			// Only add it if it is not there already
+			if ( document.getElementById("mmProductTitle") == null ) {
+				var nameLink = document.createElement( "div" );
+				nameLink.id = "mmProductTitle";
+				nameLink.className = "mmProductTitle";
+				nameLink.innerHTML = product["name"];
+				var toolTip = product["name"];
+				if( vendorCount > 0 ) {
+					var vendor = vendors[0];
+					toolTip += " -- Available at " + vendor["name"] + " for " + vendor["price"];
+				}
+				nameLink.title = toolTip;
+				document.body.appendChild( nameLink );
+
+				if ( vendorCount > 0 ) {
+					var vendor = vendors[0];
+					var vendorNameElement = document.createElement( "a" );
+					vendorNameElement.id = "mmProductVendor";
+					vendorNameElement.className = "mmProductVendor";
+					vendorNameElement.innerHTML = vendor["name"] + " - " + vendor["price"];
+					vendorNameElement.innerHTML = "Best Deal at " + vendor["name"];
+					vendorNameElement.title = "Available at " + vendor["name"] + " for " + vendor["price"];
+					vendorNameElement.target = "_blank";
+					vendorNameElement.href = vendor["url"] + "&linkid=mmProductVendor";
+					vendorNameElement.onmouseover = 'window.status="' + vendor["display_url"] + '";return true;'
+					vendorNameElement.onmouseout = "window.status='';return true;"
+					document.body.appendChild( vendorNameElement );
+				}
+			}
+
+			if ( document.getElementById("mmProductDescription") == null ) {
+				var descriptionContainer = document.createElement( "div" );
+				descriptionContainer.id = "mmProductDescription";
+				descriptionContainer.className = "mmProductDescription";
+				if( offerdesc && offerdesc != "" ) {
+					descriptionContainer.innerHTML = offerdesc;
+				} else if( desc && desc != "" ) {
+					descriptionContainer.innerHTML = desc;
+				} 
+				document.body.appendChild( descriptionContainer );
+			}
+
+			if( desc && desc != "" ) {
+				var descContainer = document.createElement( "div" );
+				descContainer.id = "mmDescriptionText";
+				descContainer.className = "mmDescriptionText";
+				descContainer.innerHTML = desc;
+				return ContentUtil.getOuterHTML( descContainer );
+			} else {
+				// Dont show the tab
+				return null;
+			}
+		},
+		
+		dependencies:
+		[
+			"product"
+		]
+	},
+
+	prices:
+	{
+		render: function( data )
+		{
+			var product = data["product"];
+			var vendors = data["vendors"];
+			var vendorCount = vendors ? vendors.length : 0;
+
+			var vendorsContainer = document.createElement( "div" );
+			vendorsContainer.className = "mmVendors";
+			vendorsContainer.id = "mmVendors";
+			var logoUrl = null;
+
+			var title = document.createElement( "div" );
+			title.id = "mmVendorTitle";
+			title.className = "mmVendorTitle";
+			title.innerHTML = "Best Deals from Name Brand Merchants";
+			vendorsContainer.appendChild( title );
+			
+			if( vendors ) {
+				if( vendors.length == 0 ) { return; }
+
+				// get a logo, the first vendor to have logo is featured
+				for( var i = 0; i < vendors.length; i++ ) {
+					var vendor = vendors[i];
+					logoUrl = vendor["logo"];
+					if( logoUrl ) {
+						var vendorLogo = document.createElement( "a" );
+						vendorLogo.innerHTML = "<img src='" + logoUrl + "' border=0/>";
+						vendorLogo.className = "mmVendorLogo";
+						vendorLogo.id = "mmVendorLogo";
+						vendorLogo.title = "This vendor is rated " + vendor["rating_score"] + " stars";
+						vendorLogo.target = "_blank";
+						vendorLogo.href = vendor["url"] + "&linkid=mmVendorLogo";
+						vendorLogo.onmouseover = function(){ window.status=vendor["display_url"];return true; };
+						vendorLogo.onmouseout = function(){ window.status='';return true; };
+
+						
+						var vendorLogoText = document.createElement( "div" );
+						vendorLogoText.innerHTML = "Featured Store";
+						vendorLogoText.id = "mmVendorLogoText";
+						vendorLogoText.className = "mmVendorLogoText";
+
+						vendorsContainer.appendChild( vendorLogo );
+						vendorsContainer.appendChild( vendorLogoText );
+						break;
+					}
+				}
+
+				if( vendors.length == 1 ) {
+					var vendor = vendors[0];
+					var vendorHeaderText = document.createElement( "div" );
+					vendorHeaderText.innerHTML = "Best Price at:";
+					vendorHeaderText.id = "mmVendorHeaderText";
+					vendorHeaderText.className = "mmVendorHeaderText";
+					vendorsContainer.appendChild( vendorHeaderText );
+
+					var vendorNameElement = document.createElement( "a" );
+					vendorNameElement.innerHTML = vendor["name"];
+					vendorNameElement.className = "mmVendorName1";
+					vendorNameElement.title = "This vendor is rated " + vendor["rating_score"] + " stars";
+					vendorNameElement.target = "_blank";
+					vendorNameElement.href = vendor["url"] + "&linkid=mmVendorName1";
+					vendorNameElement.onmouseover = 'window.status="' + vendor["display_url"] + '";return true;'
+					vendorNameElement.onmouseout = "window.status='';return true;"
+
+					var vendorPriceElement = document.createElement( "a" );
+					vendorPriceElement.innerHTML = vendor["price"];
+					vendorPriceElement.className = "mmVendorPrice1";
+					vendorPriceElement.target = "_blank";
+					vendorPriceElement.href = vendor["url"] + "&linkid=mmVendorPrice1";
+					vendorPriceElement.onmouseover = function(){ window.status=vendor["display_url"];return true; };
+					vendorPriceElement.onmouseout = function(){ window.status='';return true; };
+						
+					var vendorPriceDiv = document.createElement( "div" );
+					vendorPriceDiv.appendChild( vendorNameElement );
+					vendorPriceDiv.appendChild( vendorPriceElement );
+					vendorsContainer.appendChild( vendorPriceDiv );
+
+					var offerdesc = (vendorCount > 0 ) ? vendors[0]["offer_details"] : "";
+					if( offerdesc && offerdesc != "" ) {
+						var vendorOfferText = document.createElement( "div" );
+						vendorOfferText.innerHTML = offerdesc;
+						vendorOfferText.id = "mmVendorOfferText";
+						vendorOfferText.className = "mmVendorOfferText";
+						vendorsContainer.appendChild( vendorOfferText );
+					} 
+				} 
+
+				if( vendors.length > 1 ) {
+					for( var i = 0; i < vendors.length; i++ ) {
+						var vendor = vendors[i];					
+						var vendorNameElement = document.createElement( "a" );
+						vendorNameElement.innerHTML = vendor["name"];
+						vendorNameElement.className = "mmVendorName" + i;
+						vendorNameElement.title = "This vendor is rated " + vendor["rating_score"] + " stars";
+						vendorNameElement.target = "_blank";
+						vendorNameElement.href = vendor["url"] + "&linkid=mmVendorName" + i;
+						vendorNameElement.onmouseover = 'window.status="' + vendor["display_url"] + '";return true;'
+						vendorNameElement.onmouseout = "window.status='';return true;"
+
+
+						var vendorPriceElement = document.createElement( "a" );
+						vendorPriceElement.innerHTML = vendor["price"];
+						vendorPriceElement.className = "mmVendorPrice" + i;
+						vendorPriceElement.target = "_blank";
+						vendorPriceElement.href = vendor["url"] + "&linkid=mmVendorPrice" + i;
+						vendorPriceElement.onmouseover = function(){ window.status=vendor["display_url"];return true; };
+						vendorPriceElement.onmouseout = function(){ window.status='';return true; };
+						
+						var vendorContainer = document.createElement( "div" );
+						vendorContainer.appendChild( vendorNameElement );
+						vendorContainer.appendChild( vendorPriceElement );
+						vendorsContainer.appendChild( vendorContainer ); 
+					}
+				}
+			}
+			return ContentUtil.getOuterHTML( vendorsContainer );
+		},
+		
+		dependencies:
+		[
+			"product"
+		]
+	},
+
+	best_deals:
+	{
+		render: function( data )
+		{
+			return EMiniMallTabs["prices"].render( data );
+		},
+		
+		dependencies:
+		[
+			"product"
+		]
+	},
+
+	search:
+	{
+		render: function( data )
+		{
+			var searchContainer = document.createElement( "div" );
+			searchContainer.className = "mmSearch";
+			searchContainer.id = "mmSearch";
+			
+			var title = document.createElement( "div" );
+			title.id = "mmSearchTitle";
+			title.className = "mmSearchTitle";
+			title.innerHTML = "Search other products without leaving this page";
+	
+			var formhtml = "<form action='" + data["search_url"] + "' class='mmSearchForm' id='mmSearchForm'>";
+			formhtml += "<input name='query' type='text' value='" + ( formfields["query"] ? formfields["query"] : "" ) + "' id='mmSearchTextBox' class='mmSearchTextBox'>";
+			formhtml += "<input name='submit' type='submit' value='Find It' id='mmSearchSubmit' class='mmSearchSubmit'>";
+	
+			var excludeList = [ "query", "submit" ]; 
+                	for( var name in formfields ) { 
+				var excludeField = false; 
+				for( var i = 0; i < excludeList.length; i++ ) { 
+					if( name == excludeList[i] ) { 
+						excludeField = true; 
+					} 
+				} 
+  
+				if( excludeField != true ) { 
+					formhtml += "<input type='hidden' name='" + name + "' value='" + formfields[name] + "'>"; 
+				} 
+			} 
+			formhtml += "</form>";
+
+			searchContainer.innerHTML = formhtml;
+			searchContainer.appendChild( title );
+			
+			var items = data["suggested_items"];
+			if( items ) {
+				var moreItemsContainer = document.createElement( "div" );
+				moreItemsContainer.id = "mmMoreItems";
+				moreItemsContainer.className = "mmMoreItems";
+
+				for( var i = 0; i < items.length; i++ ) {
+					var item = items[i];
+					var listItemLink = document.createElement( "a" );
+					listItemLink.target = "_blank";
+					listItemLink.href = item["url"] + "&linkid=mmListItem" + i;
+					listItemLink.onmouseover = function(){ window.status=item["display_url"];return true; };
+					listItemLink.onmouseout = function(){ window.status='';return true; };
+					listItemLink.className = "mmListItem" + i;
+					listItemLink.id = "mmListItem" + i;
+					listItemLink.innerHTML = item["name"];
+
+					moreItemsContainer.appendChild( listItemLink );
+					moreItemsContainer.innerHTML += ( ( i != ( items.length - 1 ) ? ",&nbsp;&nbsp;" : "" ) );
+				}
+			}
+
+			var outputContainer = document.createElement( "span" );
+			outputContainer.appendChild( searchContainer );
+
+			if( items ) {
+				outputContainer.appendChild( moreItemsContainer );
+			}
+
+			return ContentUtil.getOuterHTML( outputContainer );
+		},
+
+		dependencies:
+		[
+		]
+	},
+	
+	more_items:
+	{
+		render: function( data )
+		{
+			return EMiniMallTabs["search"].render( data );
+		},
+		
+		dependencies:
+		[
+			"suggested_items"
+		]
+	},
+	
+	reviews:
+	{
+		render: function( data )
+		{
+			var review = data["review"];			
+			var tabContainer = document.createElement( "div" );
+			var titleElement = document.createElement( "a" );
+			titleElement.className = "mmReviewTitle";
+			titleElement.innerHTML = review["title"];
+			titleElement.target = "_blank";
+			titleElement.href = review["url"] + "&linkid=mmReviewTitle";
+			titleElement.title = "Click to view the complete review";
+			titleElement.onmouseover = function(){ window.status=review["display_url"];return true; };
+			titleElement.onmouseout = function(){ window.status='';return true; };
+					
+			
+			var reviewElement = document.createElement( "div" );
+			reviewElement.innerHTML = "<b>Pro</b>: " + review["pro"] + "<div class='mmReviewDivider'>&nbsp;</div><b>Con</b>: " + review["con"];
+			reviewElement.className = "mmReview";
+			
+			tabContainer.appendChild( titleElement );
+			tabContainer.appendChild( reviewElement );
+			
+			return ContentUtil.getOuterHTML( tabContainer );
+		},	
+		
+		dependencies:
+		[
+			"review"
+		]
+	}
+}

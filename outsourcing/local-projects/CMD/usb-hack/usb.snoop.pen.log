@@ -1,0 +1,163 @@
+Jun  6 01:51:01 localhost kernel: usb 1-1: usbdev_ioctl: REAPURBDELAY
+Jun  6 01:51:01 localhost kernel: usb 1-1: usbdev_ioctl: REAPURBDELAY
+Jun  6 01:56:49 localhost kernel: usb 1-1: usbdev_ioctl: RELEASEINTERFACE
+Jun  6 02:00:21 localhost kernel: usb 1-1: usbdev_ioctl: CONTROL
+Jun  6 02:00:21 localhost kernel: usb 1-1: control read: bRequest=06 bRrequestType=80 wValue=0300 wIndex=0000
+Jun  6 02:00:21 localhost kernel: usb 1-1: control read: data 04 03 09 04 
+Jun  6 02:00:21 localhost kernel: usb 1-1: usbdev_ioctl: CONTROL
+Jun  6 02:00:21 localhost kernel: usb 1-1: control read: bRequest=06 bRrequestType=80 wValue=0301 wIndex=0409
+Jun  6 02:00:21 localhost kernel: usb 1-1: control read: data 10 03 09 04 df 7c 90 71 79 43 c7 d0 f8 f7 88 b6 40 c8 64 06 b0 1e b5 fe b7 dd ee 30 0a 3d 5c f9 54 22 14 78 b8 c4 06 75 f4 80 97 a7 c1 2f b6 85 5a fb c9 78 c2 32 4a 62 f2 5f 0e 79 12 cf de 4b c7 8f a8 aa 57 b9 9d 5e bd 7b b3 e0 e1 45 01 c4 78 63 dc dd 55 ae 17 00 c5 c5 9b fa 9c be 35 f1 68 3d 98 ab be 9b de aa fd 82 f8 56 12 5c e8 d2 be 86 d9 4d 90 d5 74 33 d0 72 0f e5 f0 d8 36 b8 1f 88 90 6e 30 75 2e 12 f2 5e 38 64 47 d5 82 2a c8 4a 32 c9 1f 13 6f 2e bd 83 1b 10 91 d4 2f 4b bc f3 a9 8e be d3 aa 46 a8 55 5d 83 6f 41 54 1c d2 3d 8d 1e 12 7c 9a d9 17 b3 53 0f ae 83 66 00 fe d4 09 48 d4 47 e9 12 e4 5c bb fc c5 43 fc bc 8f aa 53 0e 38 b0 f3 15 ba 2d 51 c3 90 bd 43 9f 70 f5 d0 52 89 49 3b 07 ea dd 70 4e a6 6b 4e e2 d8 90 e1 5e 4b d0 37 23 c5 94 31 0e 53 29 f8 7a 50 5d e5 df db f0 4f 14 e2 64 81 bd a8 82 b2 42 45 ec 6e c5 23 a4 ac 14 db 82 ce dd 33 e0 5a 38 da cb 45 4f 24 83 88 73 6b de 62 84 22 67 6c 39 c5 f0 ce 93 b0 5b 7b 55 91 4f 40 6c 03 66 6b 8b 28 bc 4
+Jun  6 02:00:21 localhost kernel:  4f 13 6d 1f 0a ce 15 94 8d b0 c2 a7 f9 17 34 21 43 52 f7 91 f3 7a f6 7b 5c bc 3f 61 95 2f 6d 1b 37 af 91 e4 8a b2 fa fe 68 78 92 b4 60 e2 52 fa e4 4e 5e 22 d7 0c 2e c5 77 a4 6e ef 0e fb c8 3d a3 b8 cb c4 4f 87 a2 3e f3 60 78 2d c1 6c cd 39 73 fb ec 0f 05 eb 7d 85 de b5 e0 26 3c 28 34 39 fc be 16 d8 bf 7d 40 da f8 c5 b9 15 2a d3 60 7d 5b 49 3e 33 3f 6f 8a fe c4 5a b0 2c ab b0 78 3f 16 5f eb d6 c1 a6 89 a2 d9 25 87 10 5b 84 e8 fc 27 42 f7 f1 33 0d 3a ac f8 1c ae 47 36 45 3f 46 af 60 1c f6 06 4e 1c 3d 9b d7 9f b0 60 f6 fc fa 66 50 19 c4 d5 03 a3 27 d9 60 70 74 6e 49 4f 
+Jun  6 02:00:21 localhost kernel: usb 1-1: usbdev_ioctl: CONTROL
+Jun  6 02:00:21 localhost kernel: usb 1-1: control read: bRequest=06 bRrequestType=80 wValue=0302 wIndex=0409
+Jun  6 02:00:21 localhost kernel: usb 1-1: control read: data 20 03 09 04 df 7c 90 71 79 43 c7 d0 f8 f7 88 b6 40 c8 64 06 b0 1e b5 fe b7 dd ee 30 0a 3d 5c f9 54 22 14 78 b8 c4 06 75 f4 80 97 a7 c1 2f b6 85 5a fb c9 78 c2 32 4a 62 f2 5f 0e 79 12 cf de 4b c7 8f a8 aa 57 b9 9d 5e bd 7b b3 e0 e1 45 01 c4 78 63 dc dd 55 ae 17 00 c5 c5 9b fa 9c be 35 f1 68 3d 98 ab be 9b de aa fd 82 f8 56 12 5c e8 d2 be 86 d9 4d 90 d5 74 33 d0 72 0f e5 f0 d8 36 b8 1f 88 90 6e 30 75 2e 12 f2 5e 38 64 47 d5 82 2a c8 4a 32 c9 1f 13 6f 2e bd 83 1b 10 91 d4 2f 4b bc f3 a9 8e be d3 aa 46 a8 55 5d 83 6f 41 54 1c d2 3d 8d 1e 12 7c 9a d9 17 b3 53 0f ae 83 66 00 fe d4 09 48 d4 47 e9 12 e4 5c bb fc c5 43 fc bc 8f aa 53 0e 38 b0 f3 15 ba 2d 51 c3 90 bd 43 9f 70 f5 d0 52 89 49 3b 07 ea dd 70 4e a6 6b 4e e2 d8 90 e1 5e 4b d0 37 23 c5 94 31 0e 53 29 f8 7a 50 5d e5 df db f0 4f 14 e2 64 81 bd a8 82 b2 42 45 ec 6e c5 23 a4 ac 14 db 82 ce dd 33 e0 5a 38 da cb 45 4f 24 83 88 73 6b de 62 84 22 67 6c 39 c5 f0 ce 93 b0 5b 7b 55 91 4f 40 6c 03 66 6b 8b 28 bc 4
+Jun  6 02:00:21 localhost kernel:  4f 13 6d 1f 0a ce 15 94 8d b0 c2 a7 f9 17 34 21 43 52 f7 91 f3 7a f6 7b 5c bc 3f 61 95 2f 6d 1b 37 af 91 e4 8a b2 fa fe 68 78 92 b4 60 e2 52 fa e4 4e 5e 22 d7 0c 2e c5 77 a4 6e ef 0e fb c8 3d a3 b8 cb c4 4f 87 a2 3e f3 60 78 2d c1 6c cd 39 73 fb ec 0f 05 eb 7d 85 de b5 e0 26 3c 28 34 39 fc be 16 d8 bf 7d 40 da f8 c5 b9 15 2a d3 60 7d 5b 49 3e 33 3f 6f 8a fe c4 5a b0 2c ab b0 78 3f 16 5f eb d6 c1 a6 89 a2 d9 25 87 10 5b 84 e8 fc 27 42 f7 f1 33 0d 3a ac f8 1c ae 47 36 45 3f 46 af 60 1c f6 06 4e 1c 3d 9b d7 9f b0 60 f6 fc fa 66 50 19 c4 d5 03 a3 27 d9 60 70 74 6e 49 4f 
+Jun  6 02:04:06 localhost kernel: usb 1-1: usbdev_ioctl: CLAIMINTERFACE
+Jun  6 02:04:06 localhost kernel: usb 1-1: usbdev_ioctl: CONTROL
+Jun  6 02:04:06 localhost kernel: usb 1-1: control read: bRequest=06 bRrequestType=80 wValue=0300 wIndex=0000
+Jun  6 02:04:06 localhost kernel: usb 1-1: control read: data 04 03 09 04 
+Jun  6 02:04:06 localhost kernel: usb 1-1: usbdev_ioctl: CONTROL
+Jun  6 02:04:06 localhost kernel: usb 1-1: control read: bRequest=06 bRrequestType=80 wValue=0301 wIndex=0409
+Jun  6 02:04:06 localhost kernel: usb 1-1: control read: data 10 03 09 04 24 60 de ca 20 1e 6f c5 00 00 00 00 a0 5a 5a d2 01 be 11 c0 00 01 10 00 00 02 20 00 00 8e 9e c4 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0
+Jun  6 02:04:06 localhost kernel:  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+Jun  6 02:04:06 localhost kernel: usb 1-1: usbdev_ioctl: CONTROL
+Jun  6 02:04:06 localhost kernel: usb 1-1: control read: bRequest=06 bRrequestType=80 wValue=0302 wIndex=0409
+Jun  6 02:04:06 localhost kernel: usb 1-1: control read: data 20 03 09 04 24 60 de ca 20 1e 6f c5 00 00 00 00 a0 5a 5a d2 01 be 11 c0 00 01 10 00 00 02 20 00 00 8e 9e c4 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0
+Jun  6 02:04:06 localhost kernel:  00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+Jun  6 02:04:06 localhost kernel: usb 1-1: usbdev_ioctl: SUBMITURB
+Jun  6 02:04:06 localhost kernel: usb 1-1: usbdev_ioctl: REAPURBDELAY
+Jun  6 02:04:06 localhost kernel: usb 1-1: usbdev_ioctl: REAPURBDELAY
+Jun  6 02:04:06 localhost kernel: usb 1-1: usbdev_ioctl: SUBMITURB
+Jun  6 02:04:06 localhost kernel: usb 1-1: usbdev_ioctl: REAPURBDELAY
+Jun  6 02:04:06 localhost kernel: usb 1-1: usbdev_ioctl: REAPURBDELAY
+Jun  6 02:04:06 localhost kernel: usb 1-1: usbdev_ioctl: SUBMITURB
+Jun  6 02:04:06 localhost kernel: usb 1-1: usbdev_ioctl: REAPURBDELAY
+Jun  6 02:04:06 localhost kernel: usb 1-1: usbdev_ioctl: REAPURBDELAY
+Jun  6 02:04:06 localhost kernel: usb 1-1: usbdev_ioctl: SUBMITURB
+Jun  6 02:04:06 localhost kernel: usb 1-1: usbdev_ioctl: REAPURBDELAY
+Jun  6 02:04:06 localhost kernel: usb 1-1: usbdev_ioctl: REAPURBDELAY
+Jun  6 02:04:06 localhost kernel: usb 1-1: usbdev_ioctl: SUBMITURB
+Jun  6 02:04:06 localhost kernel: usb 1-1: usbdev_ioctl: REAPURBDELAY
+Jun  6 02:04:06 localhost kernel: usb 1-1: usbdev_ioctl: REAPURBDELAY
+Jun  6 02:04:06 localhost kernel: usb 1-1: usbdev_ioctl: SUBMITURB
+Jun  6 02:04:06 localhost kernel: usb 1-1: usbdev_ioctl: REAPURBDELAY
+Jun  6 02:04:06 localhost kernel: usb 1-1: usbdev_ioctl: REAPURBDELAY
+Jun  6 02:04:06 localhost kernel: usb 1-1: usbdev_ioctl: SUBMITURB
+Jun  6 02:04:06 localhost kernel: usb 1-1: usbdev_ioctl: REAPURBDELAY
+Jun  6 02:04:06 localhost kernel: usb 1-1: usbdev_ioctl: REAPURBDELAY
+Jun  6 02:04:06 localhost kernel: usb 1-1: usbdev_ioctl: SUBMITURB
+Jun  6 02:04:06 localhost kernel: usb 1-1: usbdev_ioctl: REAPURBDELAY
+Jun  6 02:04:07 localhost kernel: usb 1-1: usbdev_ioctl: REAPURBDELAY
+Jun  6 02:04:07 localhost kernel: usb 1-1: usbdev_ioctl: SUBMITURB
+Jun  6 02:04:07 localhost kernel: usb 1-1: usbdev_ioctl: REAPURBDELAY
+Jun  6 02:04:07 localhost kernel: usb 1-1: usbdev_ioctl: REAPURBDELAY
+Jun  6 02:04:07 localhost kernel: usb 1-1: usbdev_ioctl: SUBMITURB
+Jun  6 02:04:07 localhost kernel: usb 1-1: usbdev_ioctl: REAPURBDELAY
+Jun  6 02:04:07 localhost kernel: usb 1-1: usbdev_ioctl: REAPURBDELAY
+Jun  6 02:04:07 localhost kernel: usb 1-1: usbdev_ioctl: SUBMITURB
+Jun  6 02:04:07 localhost kernel: usb 1-1: usbdev_ioctl: REAPURBDELAY
+Jun  6 02:04:07 localhost kernel: usb 1-1: usbdev_ioctl: REAPURBDELAY
+Jun  6 02:04:07 localhost kernel: usb 1-1: usbdev_ioctl: SUBMITURB
+Jun  6 02:04:07 localhost kernel: usb 1-1: usbdev_ioctl: REAPURBDELAY
+Jun  6 02:04:07 localhost kernel: usb 1-1: usbdev_ioctl: REAPURBDELAY
+Jun  6 02:04:07 localhost kernel: usb 1-1: usbdev_ioctl: SUBMITURB
+Jun  6 02:04:07 localhost kernel: usb 1-1: usbdev_ioctl: REAPURBDELAY
+Jun  6 02:04:07 localhost kernel: usb 1-1: usbdev_ioctl: REAPURBDELAY
+Jun  6 02:04:07 localhost kernel: usb 1-1: usbdev_ioctl: SUBMITURB
+Jun  6 02:04:07 localhost kernel: usb 1-1: usbdev_ioctl: REAPURBDELAY
+Jun  6 02:04:07 localhost kernel: usb 1-1: usbdev_ioctl: REAPURBDELAY
+Jun  6 02:04:07 localhost kernel: usb 1-1: usbdev_ioctl: SUBMITURB
+Jun  6 02:04:07 localhost kernel: usb 1-1: usbdev_ioctl: REAPURBDELAY
+Jun  6 02:04:07 localhost kernel: usb 1-1: usbdev_ioctl: REAPURBDELAY
+Jun  6 02:04:07 localhost kernel: usb 1-1: usbdev_ioctl: SUBMITURB
+Jun  6 02:04:07 localhost kernel: usb 1-1: usbdev_ioctl: REAPURBDELAY
+Jun  6 02:04:07 localhost kernel: usb 1-1: usbdev_ioctl: REAPURBDELAY
+Jun  6 02:04:07 localhost kernel: usb 1-1: usbdev_ioctl: SUBMITURB
+Jun  6 02:04:07 localhost kernel: usb 1-1: usbdev_ioctl: REAPURBDELAY
+Jun  6 02:04:07 localhost kernel: usb 1-1: usbdev_ioctl: REAPURBDELAY
+Jun  6 02:04:07 localhost kernel: usb 1-1: usbdev_ioctl: SUBMITURB
+Jun  6 02:04:07 localhost kernel: usb 1-1: usbdev_ioctl: REAPURBDELAY
+Jun  6 02:04:07 localhost kernel: usb 1-1: usbdev_ioctl: REAPURBDELAY
+Jun  6 02:04:07 localhost kernel: usb 1-1: usbdev_ioctl: SUBMITURB
+Jun  6 02:04:07 localhost kernel: usb 1-1: usbdev_ioctl: REAPURBDELAY
+Jun  6 02:04:07 localhost kernel: usb 1-1: usbdev_ioctl: REAPURBDELAY
+Jun  6 02:04:07 localhost kernel: usb 1-1: usbdev_ioctl: SUBMITURB
+Jun  6 02:04:07 localhost kernel: usb 1-1: usbdev_ioctl: REAPURBDELAY
+Jun  6 02:04:07 localhost kernel: usb 1-1: usbdev_ioctl: REAPURBDELAY
+Jun  6 02:04:07 localhost kernel: usb 1-1: usbdev_ioctl: SUBMITURB
+Jun  6 02:04:07 localhost kernel: usb 1-1: usbdev_ioctl: REAPURBDELAY
+Jun  6 02:04:07 localhost kernel: usb 1-1: usbdev_ioctl: REAPURBDELAY
+Jun  6 02:04:07 localhost kernel: usb 1-1: usbdev_ioctl: SUBMITURB
+Jun  6 02:04:07 localhost kernel: usb 1-1: usbdev_ioctl: REAPURBDELAY
+Jun  6 02:04:07 localhost kernel: usb 1-1: usbdev_ioctl: REAPURBDELAY
+Jun  6 02:04:07 localhost kernel: usb 1-1: usbdev_ioctl: SUBMITURB
+Jun  6 02:04:07 localhost kernel: usb 1-1: usbdev_ioctl: REAPURBDELAY
+Jun  6 02:04:07 localhost kernel: usb 1-1: usbdev_ioctl: REAPURBDELAY
+Jun  6 02:04:07 localhost kernel: usb 1-1: usbdev_ioctl: SUBMITURB
+Jun  6 02:04:07 localhost kernel: usb 1-1: usbdev_ioctl: REAPURBDELAY
+Jun  6 02:04:07 localhost kernel: usb 1-1: usbdev_ioctl: REAPURBDELAY
+Jun  6 02:04:07 localhost kernel: usb 1-1: usbdev_ioctl: SUBMITURB
+Jun  6 02:04:07 localhost kernel: usb 1-1: usbdev_ioctl: REAPURBDELAY
+Jun  6 02:04:07 localhost kernel: usb 1-1: usbdev_ioctl: REAPURBDELAY
+Jun  6 02:04:07 localhost kernel: usb 1-1: usbdev_ioctl: SUBMITURB
+Jun  6 02:04:07 localhost kernel: usb 1-1: usbdev_ioctl: REAPURBDELAY
+Jun  6 02:04:07 localhost kernel: usb 1-1: usbdev_ioctl: REAPURBDELAY
+Jun  6 02:04:07 localhost kernel: usb 1-1: usbdev_ioctl: SUBMITURB
+Jun  6 02:04:07 localhost kernel: usb 1-1: usbdev_ioctl: REAPURBDELAY
+Jun  6 02:04:07 localhost kernel: usb 1-1: usbdev_ioctl: REAPURBDELAY
+Jun  6 02:04:07 localhost kernel: usb 1-1: usbdev_ioctl: SUBMITURB
+Jun  6 02:04:07 localhost kernel: usb 1-1: usbdev_ioctl: REAPURBDELAY
+Jun  6 02:04:07 localhost kernel: usb 1-1: usbdev_ioctl: REAPURBDELAY
+Jun  6 02:04:07 localhost kernel: usb 1-1: usbdev_ioctl: SUBMITURB
+Jun  6 02:04:07 localhost kernel: usb 1-1: usbdev_ioctl: REAPURBDELAY
+Jun  6 02:04:07 localhost kernel: usb 1-1: usbdev_ioctl: REAPURBDELAY
+Jun  6 02:04:07 localhost kernel: usb 1-1: usbdev_ioctl: SUBMITURB
+Jun  6 02:04:07 localhost kernel: usb 1-1: usbdev_ioctl: REAPURBDELAY
+Jun  6 02:04:07 localhost kernel: usb 1-1: usbdev_ioctl: REAPURBDELAY
+Jun  6 02:04:07 localhost kernel: usb 1-1: usbdev_ioctl: SUBMITURB
+Jun  6 02:04:08 localhost kernel: usb 1-1: usbdev_ioctl: REAPURBDELAY
+Jun  6 02:04:08 localhost kernel: usb 1-1: usbdev_ioctl: REAPURBDELAY
+Jun  6 02:04:08 localhost kernel: usb 1-1: usbdev_ioctl: SUBMITURB
+Jun  6 02:04:08 localhost kernel: usb 1-1: usbdev_ioctl: REAPURBDELAY
+Jun  6 02:04:08 localhost kernel: usb 1-1: usbdev_ioctl: REAPURBDELAY
+Jun  6 02:04:08 localhost kernel: usb 1-1: usbdev_ioctl: SUBMITURB
+Jun  6 02:04:08 localhost kernel: usb 1-1: usbdev_ioctl: REAPURBDELAY
+Jun  6 02:04:08 localhost kernel: usb 1-1: usbdev_ioctl: REAPURBDELAY
+Jun  6 02:04:08 localhost kernel: usb 1-1: usbdev_ioctl: SUBMITURB
+Jun  6 02:04:08 localhost kernel: usb 1-1: usbdev_ioctl: REAPURBDELAY
+Jun  6 02:04:08 localhost kernel: usb 1-1: usbdev_ioctl: REAPURBDELAY
+Jun  6 02:04:08 localhost kernel: usb 1-1: usbdev_ioctl: SUBMITURB
+Jun  6 02:04:08 localhost kernel: usb 1-1: usbdev_ioctl: REAPURBDELAY
+Jun  6 02:04:08 localhost kernel: usb 1-1: usbdev_ioctl: REAPURBDELAY
+Jun  6 02:04:08 localhost kernel: usb 1-1: usbdev_ioctl: SUBMITURB
+Jun  6 02:04:08 localhost kernel: usb 1-1: usbdev_ioctl: REAPURBDELAY
+Jun  6 02:04:08 localhost kernel: usb 1-1: usbdev_ioctl: REAPURBDELAY
+Jun  6 02:04:08 localhost kernel: usb 1-1: usbdev_ioctl: SUBMITURB
+Jun  6 02:04:08 localhost kernel: usb 1-1: usbdev_ioctl: REAPURBDELAY
+Jun  6 02:04:08 localhost kernel: usb 1-1: usbdev_ioctl: REAPURBDELAY
+Jun  6 02:04:08 localhost kernel: usb 1-1: usbdev_ioctl: SUBMITURB
+Jun  6 02:04:08 localhost kernel: usb 1-1: usbdev_ioctl: REAPURBDELAY
+Jun  6 02:04:08 localhost kernel: usb 1-1: usbdev_ioctl: REAPURBDELAY
+Jun  6 02:04:08 localhost kernel: usb 1-1: usbdev_ioctl: SUBMITURB
+Jun  6 02:04:08 localhost kernel: usb 1-1: usbdev_ioctl: REAPURBDELAY
+Jun  6 02:04:08 localhost kernel: usb 1-1: usbdev_ioctl: REAPURBDELAY
+Jun  6 02:04:08 localhost kernel: usb 1-1: usbdev_ioctl: SUBMITURB
+Jun  6 02:04:08 localhost kernel: usb 1-1: usbdev_ioctl: REAPURBDELAY
+Jun  6 02:04:08 localhost kernel: usb 1-1: usbdev_ioctl: REAPURBDELAY
+Jun  6 02:04:08 localhost kernel: usb 1-1: usbdev_ioctl: SUBMITURB
+Jun  6 02:04:08 localhost kernel: usb 1-1: usbdev_ioctl: REAPURBDELAY
+Jun  6 02:04:08 localhost kernel: usb 1-1: usbdev_ioctl: REAPURBDELAY
+Jun  6 02:04:08 localhost kernel: usb 1-1: usbdev_ioctl: SUBMITURB
+Jun  6 02:04:08 localhost kernel: usb 1-1: usbdev_ioctl: REAPURBDELAY
+Jun  6 02:04:08 localhost kernel: usb 1-1: usbdev_ioctl: REAPURBDELAY
+Jun  6 02:04:08 localhost kernel: usb 1-1: usbdev_ioctl: SUBMITURB
+Jun  6 02:04:17 localhost kernel: usb 1-1: usbdev_ioctl: DISCARDURB
+Jun  6 02:04:17 localhost kernel: usb 1-1: usbdev_ioctl: REAPURBDELAY
+Jun  6 02:04:17 localhost kernel: usb 1-1: usbdev_ioctl: SUBMITURB
+Jun  6 02:04:17 localhost kernel: usb 1-1: usbdev_ioctl: REAPURBDELAY
+Jun  6 02:04:17 localhost kernel: usb 1-1: usbdev_ioctl: REAPURBDELAY
+Jun  6 02:04:17 localhost kernel: usb 1-1: usbdev_ioctl: SUBMITURB
+Jun  6 02:04:17 localhost kernel: usb 1-1: usbdev_ioctl: REAPURBDELAY
+Jun  6 02:04:17 localhost kernel: usb 1-1: usbdev_ioctl: REAPURBDELAY
+Jun  6 02:04:17 localhost kernel: usb 1-1: usbdev_ioctl: SUBMITURB
+Jun  6 02:04:17 localhost kernel: usb 1-1: usbdev_ioctl: REAPURBDELAY

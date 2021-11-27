@@ -1,0 +1,8 @@
+/mnt/devel/kernel/linux-2.6.15.6/drivers/input/serio/i8042-io.h
+/mnt/devel/kernel/linux-2.6.15.6/drivers/input/serio/i8042-ip22io.h
+/mnt/devel/kernel/linux-2.6.15.6/drivers/input/serio/i8042-jazzio.h
+/mnt/devel/kernel/linux-2.6.15.6/drivers/input/serio/i8042-ppcio.h
+/mnt/devel/kernel/linux-2.6.15.6/drivers/input/serio/i8042-sparcio.h
+/mnt/devel/kernel/linux-2.6.15.6/drivers/input/serio/i8042-x86ia64io.h
+/mnt/devel/kernel/linux-2.6.15.6/drivers/input/serio/i8042.c
+/mnt/devel/kernel/linux-2.6.15.6/drivers/input/serio/i8042.h

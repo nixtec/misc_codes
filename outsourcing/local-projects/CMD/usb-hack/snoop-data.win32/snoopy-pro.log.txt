@@ -1,0 +1,2892 @@
+1	in down	n/a	0.000	GET_DESCRIPTOR_FROM_DEVICE		
+URB Header (length: 80)
+SequenceNumber: 1
+Function: 000b (GET_DESCRIPTOR_FROM_DEVICE)
+1	in up	n/a	0.010	CONTROL_TRANSFER	12 01 0a 01 00 00 00 08	0x00000000
+URB Header (length: 80)
+SequenceNumber: 1
+Function: 0008 (CONTROL_TRANSFER)
+PipeHandle: 819a5b50
+
+SetupPacket:
+0000: 80 06 00 01 00 00 12 00 
+bmRequestType: 80
+  DIR: Device-To-Host
+  TYPE: Standard
+  RECIPIENT: Device
+bRequest: 06  
+  GET_DESCRIPTOR
+Descriptor Type: 0x0001
+  DEVICE
+
+
+TransferBuffer: 0x00000012 (18) length
+0000: 12 01 0a 01 00 00 00 08 a6 0f 01 10 00 01 01 02 
+0010: 03 01 
+    bLength            : 0x12 (18)
+    bDescriptorType    : 0x01 (1)
+    bcdUSB             : 0x010a (266)
+    bDeviceClass       : 0x00 (0)
+    bDeviceSubClass    : 0x00 (0)
+    bDeviceProtocol    : 0x00 (0)
+    bMaxPacketSize0    : 0x08 (8)
+    idVendor           : 0x0fa6 (4006)
+    idProduct          : 0x1001 (4097)
+    bcdDevice          : 0x0100 (256)
+    iManufacturer      : 0x01 (1)
+    iProduct           : 0x02 (2)
+    iSerialNumber      : 0x03 (3)
+    bNumConfigurations : 0x01 (1)
+2	in down	n/a	0.010	GET_DESCRIPTOR_FROM_DEVICE		
+URB Header (length: 80)
+SequenceNumber: 2
+Function: 000b (GET_DESCRIPTOR_FROM_DEVICE)
+2	in up	n/a	0.010	CONTROL_TRANSFER	09 02 22 00 01 01 04 80	0x00000000
+URB Header (length: 80)
+SequenceNumber: 2
+Function: 0008 (CONTROL_TRANSFER)
+PipeHandle: 819a5b50
+
+SetupPacket:
+0000: 80 06 00 02 00 00 09 00 
+bmRequestType: 80
+  DIR: Device-To-Host
+  TYPE: Standard
+  RECIPIENT: Device
+bRequest: 06  
+  GET_DESCRIPTOR
+Descriptor Type: 0x0002
+  CONFIGURATION
+
+
+TransferBuffer: 0x00000009 (9) length
+0000: 09 02 22 00 01 01 04 80 32 
+    bLength            : 0x09 (9)
+    bDescriptorType    : 0x02 (2)
+    wTotalLength       : 0x0022 (34)
+    bNumInterfaces     : 0x01 (1)
+    bConfigurationValue: 0x01 (1)
+    iConfiguration     : 0x04 (4)
+    bmAttributes       : 0x80 (128)
+    MaxPower           : 0x32 (50)
+3	in down	n/a	0.010	GET_DESCRIPTOR_FROM_DEVICE		
+URB Header (length: 80)
+SequenceNumber: 3
+Function: 000b (GET_DESCRIPTOR_FROM_DEVICE)
+3	in up	n/a	0.020	CONTROL_TRANSFER	09 02 22 00 01 01 04 80	0x00000000
+URB Header (length: 80)
+SequenceNumber: 3
+Function: 0008 (CONTROL_TRANSFER)
+PipeHandle: 819a5b50
+
+SetupPacket:
+0000: 80 06 00 02 00 00 22 00 
+bmRequestType: 80
+  DIR: Device-To-Host
+  TYPE: Standard
+  RECIPIENT: Device
+bRequest: 06  
+  GET_DESCRIPTOR
+Descriptor Type: 0x0002
+  CONFIGURATION
+
+
+TransferBuffer: 0x00000022 (34) length
+0000: 09 02 22 00 01 01 04 80 32 09 04 00 00 01 03 00 
+0010: 00 05 09 21 00 01 00 01 22 34 00 07 05 81 03 06 
+0020: 00 0a 
+    bLength            : 0x09 (9)
+    bDescriptorType    : 0x02 (2)
+    wTotalLength       : 0x0022 (34)
+    bNumInterfaces     : 0x01 (1)
+    bConfigurationValue: 0x01 (1)
+    iConfiguration     : 0x04 (4)
+    bmAttributes       : 0x80 (128)
+    MaxPower           : 0x32 (50)
+4	??? down	n/a	0.020	SELECT_CONFIGURATION		
+URB Header (length: 60)
+SequenceNumber: 4
+Function: 0000 (SELECT_CONFIGURATION)
+Configuration Descriptor:
+bLength: 9 (0x09)
+bDescriptorType: 2 (0x02)
+wTotalLength: 34 (0x0022)
+bNumInterfaces: 1 (0x01)
+bConfigurationValue: 1 (0x01)
+iConfiguration: 4 (0x04)
+bmAttributes: 128 (0x80)
+  0x80: Bus Powered
+MaxPower: 50 (0x32)
+  (in 2 mA units, therefore 100 mA power consumption)
+
+Number of interfaces: 1
+Interface[0]:
+  Length: 0x0024
+  InterfaceNumber: 0x00
+  AlternateSetting: 0x00
+  Class             = 0x00
+  SubClass          = 0x00
+  Protocol          = 0x00
+  InterfaceHandle   = 0x00000000
+  NumberOfPipes     = 0x00000001
+  Pipe[0]:
+    MaximumPacketSize = 0x0000
+    EndpointAddress   = 0x00
+    Interval          = 0x00
+    PipeType          = 0x00
+      UsbdPipeTypeControl
+    PipeHandle        = 0x00000000
+    MaxTransferSize   = 0x00001000
+    PipeFlags         = 0x00
+4	??? up	n/a	0.040	SELECT_CONFIGURATION		0x00000000
+URB Header (length: 60)
+SequenceNumber: 4
+Function: 0000 (SELECT_CONFIGURATION)
+Configuration Descriptor:
+bLength: 9 (0x09)
+bDescriptorType: 2 (0x02)
+wTotalLength: 34 (0x0022)
+bNumInterfaces: 1 (0x01)
+bConfigurationValue: 1 (0x01)
+iConfiguration: 4 (0x04)
+bmAttributes: 128 (0x80)
+  0x80: Bus Powered
+MaxPower: 50 (0x32)
+  (in 2 mA units, therefore 100 mA power consumption)
+
+Number of interfaces: 1
+Interface[0]:
+  Length: 0x0024
+  InterfaceNumber: 0x00
+  AlternateSetting: 0x00
+  Class             = 0x03
+  SubClass          = 0x00
+  Protocol          = 0x00
+  InterfaceHandle   = 0xff625970
+  NumberOfPipes     = 0x00000001
+  Pipe[0]:
+    MaximumPacketSize = 0x0006
+    EndpointAddress   = 0x81
+    Interval          = 0x0a
+    PipeType          = 0x03
+      UsbdPipeTypeInterrupt
+    PipeHandle        = 0xff62598c
+    MaxTransferSize   = 0x00001000
+    PipeFlags         = 0x00
+5	out down	n/a	0.040	CLASS_INTERFACE	-	
+URB Header (length: 80)
+SequenceNumber: 5
+Function: 001b (CLASS_INTERFACE)
+PipeHandle: 00000000
+
+SetupPacket:
+0000: 22 0a 00 00 00 00 00 00 
+bmRequestType: 22
+  DIR: Host-To-Device
+  TYPE: Class
+  RECIPIENT: Endpoint
+bRequest: 0a  
+
+
+No TransferBuffer
+
+5	out up	n/a	0.040	CONTROL_TRANSFER	-	0xc0000004
+URB Header (length: 80)
+SequenceNumber: 5
+Function: 0008 (CONTROL_TRANSFER)
+PipeHandle: 819a5b50
+
+SetupPacket:
+0000: 21 0a 00 00 00 00 00 00 
+bmRequestType: 21
+  DIR: Host-To-Device
+  TYPE: Class
+  RECIPIENT: Interface
+bRequest: 0a  
+
+
+No TransferBuffer
+
+6	in down	n/a	0.040	GET_DESCRIPTOR_FROM_INTERFACE		
+URB Header (length: 80)
+SequenceNumber: 6
+Function: 0028 (GET_DESCRIPTOR_FROM_INTERFACE)
+6	in up	n/a	0.050	CONTROL_TRANSFER	06 01 ff 09 01 a1 01 09	0x00000000
+URB Header (length: 80)
+SequenceNumber: 6
+Function: 0008 (CONTROL_TRANSFER)
+PipeHandle: 819a5b50
+
+SetupPacket:
+0000: 81 06 00 22 00 00 74 00 
+bmRequestType: 81
+  DIR: Device-To-Host
+  TYPE: Standard
+  RECIPIENT: Interface
+bRequest: 06  
+  GET_DESCRIPTOR
+Descriptor Type: 0x0022
+  unknown
+
+
+TransferBuffer: 0x00000034 (52) length
+0000: 06 01 ff 09 01 a1 01 09 02 a1 00 06 02 ff 09 03 
+0010: 09 04 15 80 25 7f 35 00 45 ff 75 08 95 06 81 02 
+0020: 09 05 09 06 15 80 25 7f 35 00 45 ff 75 08 95 01 
+0030: 91 02 c0 c0 
+7	??? down	n/a	0.050	BULK_OR_INTERRUPT_TRANSFER	-	
+URB Header (length: 72)
+SequenceNumber: 7
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+No TransferBuffer
+
+8	??? down	n/a	0.050	BULK_OR_INTERRUPT_TRANSFER	-	
+URB Header (length: 72)
+SequenceNumber: 8
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+No TransferBuffer
+
+7	??? up	n/a	0.050	BULK_OR_INTERRUPT_TRANSFER	81 51 c5 22 22 22	0x00000000
+URB Header (length: 72)
+SequenceNumber: 7
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+TransferBuffer: 0x00000006 (6) length
+0000: 81 51 c5 22 22 22 
+9	??? down	n/a	0.050	BULK_OR_INTERRUPT_TRANSFER	-	
+URB Header (length: 72)
+SequenceNumber: 9
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+No TransferBuffer
+
+8	??? up	n/a	0.330	BULK_OR_INTERRUPT_TRANSFER	82 51 c5 22 22 22	0x00000000
+URB Header (length: 72)
+SequenceNumber: 8
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+TransferBuffer: 0x00000006 (6) length
+0000: 82 51 c5 22 22 22 
+10	??? down	n/a	0.330	BULK_OR_INTERRUPT_TRANSFER	-	
+URB Header (length: 72)
+SequenceNumber: 10
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+No TransferBuffer
+
+11	out down	n/a	58.323	CLASS_INTERFACE	01	
+URB Header (length: 80)
+SequenceNumber: 11
+Function: 001b (CLASS_INTERFACE)
+PipeHandle: 00000000
+
+SetupPacket:
+0000: 22 09 00 02 00 00 00 00 
+bmRequestType: 22
+  DIR: Host-To-Device
+  TYPE: Class
+  RECIPIENT: Endpoint
+bRequest: 09  
+
+
+TransferBuffer: 0x00000001 (1) length
+0000: 01 
+11	out up	n/a	58.323	CONTROL_TRANSFER	-	0x00000000
+URB Header (length: 80)
+SequenceNumber: 11
+Function: 0008 (CONTROL_TRANSFER)
+PipeHandle: 819a5b50
+
+SetupPacket:
+0000: 21 09 00 02 00 00 01 00 
+bmRequestType: 21
+  DIR: Host-To-Device
+  TYPE: Class
+  RECIPIENT: Interface
+bRequest: 09  
+
+
+No TransferBuffer
+
+9	??? up	n/a	58.343	BULK_OR_INTERRUPT_TRANSFER	01 51 c5 22 22 22	0x00000000
+URB Header (length: 72)
+SequenceNumber: 9
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+TransferBuffer: 0x00000006 (6) length
+0000: 01 51 c5 22 22 22 
+12	??? down	n/a	58.343	BULK_OR_INTERRUPT_TRANSFER	-	
+URB Header (length: 72)
+SequenceNumber: 12
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+No TransferBuffer
+
+10	??? up	n/a	58.464	BULK_OR_INTERRUPT_TRANSFER	ae b1 97 98 00 10	0x00000000
+URB Header (length: 72)
+SequenceNumber: 10
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+TransferBuffer: 0x00000006 (6) length
+0000: ae b1 97 98 00 10 
+13	??? down	n/a	58.464	BULK_OR_INTERRUPT_TRANSFER	-	
+URB Header (length: 72)
+SequenceNumber: 13
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+No TransferBuffer
+
+14	out down	n/a	58.764	CLASS_INTERFACE	02	
+URB Header (length: 80)
+SequenceNumber: 14
+Function: 001b (CLASS_INTERFACE)
+PipeHandle: 00000000
+
+SetupPacket:
+0000: 22 09 00 02 00 00 00 00 
+bmRequestType: 22
+  DIR: Host-To-Device
+  TYPE: Class
+  RECIPIENT: Endpoint
+bRequest: 09  
+
+
+TransferBuffer: 0x00000001 (1) length
+0000: 02 
+14	out up	n/a	58.764	CONTROL_TRANSFER	-	0x00000000
+URB Header (length: 80)
+SequenceNumber: 14
+Function: 0008 (CONTROL_TRANSFER)
+PipeHandle: 819a5b50
+
+SetupPacket:
+0000: 21 09 00 02 00 00 01 00 
+bmRequestType: 21
+  DIR: Host-To-Device
+  TYPE: Class
+  RECIPIENT: Interface
+bRequest: 09  
+
+
+No TransferBuffer
+
+12	??? up	n/a	58.784	BULK_OR_INTERRUPT_TRANSFER	02 51 c5 22 22 22	0x00000000
+URB Header (length: 72)
+SequenceNumber: 12
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+TransferBuffer: 0x00000006 (6) length
+0000: 02 51 c5 22 22 22 
+15	??? down	n/a	58.784	BULK_OR_INTERRUPT_TRANSFER	-	
+URB Header (length: 72)
+SequenceNumber: 15
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+No TransferBuffer
+
+13	??? up	n/a	69.530	BULK_OR_INTERRUPT_TRANSFER	98 05 db 01 af e8	0x00000000
+URB Header (length: 72)
+SequenceNumber: 13
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+TransferBuffer: 0x00000006 (6) length
+0000: 98 05 db 01 af e8 
+16	??? down	n/a	69.530	BULK_OR_INTERRUPT_TRANSFER	-	
+URB Header (length: 72)
+SequenceNumber: 16
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+No TransferBuffer
+
+17	out down	n/a	70.421	CLASS_INTERFACE	02	
+URB Header (length: 80)
+SequenceNumber: 17
+Function: 001b (CLASS_INTERFACE)
+PipeHandle: 00000000
+
+SetupPacket:
+0000: 22 09 00 02 00 00 00 00 
+bmRequestType: 22
+  DIR: Host-To-Device
+  TYPE: Class
+  RECIPIENT: Endpoint
+bRequest: 09  
+
+
+TransferBuffer: 0x00000001 (1) length
+0000: 02 
+17	out up	n/a	70.421	CONTROL_TRANSFER	-	0x00000000
+URB Header (length: 80)
+SequenceNumber: 17
+Function: 0008 (CONTROL_TRANSFER)
+PipeHandle: 819a5b50
+
+SetupPacket:
+0000: 21 09 00 02 00 00 01 00 
+bmRequestType: 21
+  DIR: Host-To-Device
+  TYPE: Class
+  RECIPIENT: Interface
+bRequest: 09  
+
+
+No TransferBuffer
+
+15	??? up	n/a	70.431	BULK_OR_INTERRUPT_TRANSFER	02 51 c5 22 22 22	0x00000000
+URB Header (length: 72)
+SequenceNumber: 15
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+TransferBuffer: 0x00000006 (6) length
+0000: 02 51 c5 22 22 22 
+18	??? down	n/a	70.431	BULK_OR_INTERRUPT_TRANSFER	-	
+URB Header (length: 72)
+SequenceNumber: 18
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+No TransferBuffer
+
+16	??? up	n/a	73.746	BULK_OR_INTERRUPT_TRANSFER	de 05 db 00 00 00	0x00000000
+URB Header (length: 72)
+SequenceNumber: 16
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+TransferBuffer: 0x00000006 (6) length
+0000: de 05 db 00 00 00 
+19	??? down	n/a	73.746	BULK_OR_INTERRUPT_TRANSFER	-	
+URB Header (length: 72)
+SequenceNumber: 19
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+No TransferBuffer
+
+20	out down	n/a	74.877	CLASS_INTERFACE	02	
+URB Header (length: 80)
+SequenceNumber: 20
+Function: 001b (CLASS_INTERFACE)
+PipeHandle: 00000000
+
+SetupPacket:
+0000: 22 09 00 02 00 00 00 00 
+bmRequestType: 22
+  DIR: Host-To-Device
+  TYPE: Class
+  RECIPIENT: Endpoint
+bRequest: 09  
+
+
+TransferBuffer: 0x00000001 (1) length
+0000: 02 
+20	out up	n/a	74.887	CONTROL_TRANSFER	-	0x00000000
+URB Header (length: 80)
+SequenceNumber: 20
+Function: 0008 (CONTROL_TRANSFER)
+PipeHandle: 819a5b50
+
+SetupPacket:
+0000: 21 09 00 02 00 00 01 00 
+bmRequestType: 21
+  DIR: Host-To-Device
+  TYPE: Class
+  RECIPIENT: Interface
+bRequest: 09  
+
+
+No TransferBuffer
+
+18	??? up	n/a	74.907	BULK_OR_INTERRUPT_TRANSFER	02 51 c5 22 22 22	0x00000000
+URB Header (length: 72)
+SequenceNumber: 18
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+TransferBuffer: 0x00000006 (6) length
+0000: 02 51 c5 22 22 22 
+21	??? down	n/a	74.907	BULK_OR_INTERRUPT_TRANSFER	-	
+URB Header (length: 72)
+SequenceNumber: 21
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+No TransferBuffer
+
+19	??? up	n/a	75.678	BULK_OR_INTERRUPT_TRANSFER	8e 05 db 01 2f 7e	0x00000000
+URB Header (length: 72)
+SequenceNumber: 19
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+TransferBuffer: 0x00000006 (6) length
+0000: 8e 05 db 01 2f 7e 
+22	??? down	n/a	75.678	BULK_OR_INTERRUPT_TRANSFER	-	
+URB Header (length: 72)
+SequenceNumber: 22
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+No TransferBuffer
+
+23	out down	n/a	76.580	CLASS_INTERFACE	02	
+URB Header (length: 80)
+SequenceNumber: 23
+Function: 001b (CLASS_INTERFACE)
+PipeHandle: 00000000
+
+SetupPacket:
+0000: 22 09 00 02 00 00 00 00 
+bmRequestType: 22
+  DIR: Host-To-Device
+  TYPE: Class
+  RECIPIENT: Endpoint
+bRequest: 09  
+
+
+TransferBuffer: 0x00000001 (1) length
+0000: 02 
+23	out up	n/a	76.580	CONTROL_TRANSFER	-	0x00000000
+URB Header (length: 80)
+SequenceNumber: 23
+Function: 0008 (CONTROL_TRANSFER)
+PipeHandle: 819a5b50
+
+SetupPacket:
+0000: 21 09 00 02 00 00 01 00 
+bmRequestType: 21
+  DIR: Host-To-Device
+  TYPE: Class
+  RECIPIENT: Interface
+bRequest: 09  
+
+
+No TransferBuffer
+
+21	??? up	n/a	76.590	BULK_OR_INTERRUPT_TRANSFER	02 51 c5 22 22 22	0x00000000
+URB Header (length: 72)
+SequenceNumber: 21
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+TransferBuffer: 0x00000006 (6) length
+0000: 02 51 c5 22 22 22 
+24	??? down	n/a	76.590	BULK_OR_INTERRUPT_TRANSFER	-	
+URB Header (length: 72)
+SequenceNumber: 24
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+No TransferBuffer
+
+22	??? up	n/a	79.674	BULK_OR_INTERRUPT_TRANSFER	31 05 da 02 66 8a	0x00000000
+URB Header (length: 72)
+SequenceNumber: 22
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+TransferBuffer: 0x00000006 (6) length
+0000: 31 05 da 02 66 8a 
+25	??? down	n/a	79.674	BULK_OR_INTERRUPT_TRANSFER	-	
+URB Header (length: 72)
+SequenceNumber: 25
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+No TransferBuffer
+
+26	out down	n/a	80.525	CLASS_INTERFACE	02	
+URB Header (length: 80)
+SequenceNumber: 26
+Function: 001b (CLASS_INTERFACE)
+PipeHandle: 00000000
+
+SetupPacket:
+0000: 22 09 00 02 00 00 00 00 
+bmRequestType: 22
+  DIR: Host-To-Device
+  TYPE: Class
+  RECIPIENT: Endpoint
+bRequest: 09  
+
+
+TransferBuffer: 0x00000001 (1) length
+0000: 02 
+26	out up	n/a	80.525	CONTROL_TRANSFER	-	0x00000000
+URB Header (length: 80)
+SequenceNumber: 26
+Function: 0008 (CONTROL_TRANSFER)
+PipeHandle: 819a5b50
+
+SetupPacket:
+0000: 21 09 00 02 00 00 01 00 
+bmRequestType: 21
+  DIR: Host-To-Device
+  TYPE: Class
+  RECIPIENT: Interface
+bRequest: 09  
+
+
+No TransferBuffer
+
+24	??? up	n/a	80.545	BULK_OR_INTERRUPT_TRANSFER	02 51 c5 22 22 22	0x00000000
+URB Header (length: 72)
+SequenceNumber: 24
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+TransferBuffer: 0x00000006 (6) length
+0000: 02 51 c5 22 22 22 
+27	??? down	n/a	80.545	BULK_OR_INTERRUPT_TRANSFER	-	
+URB Header (length: 72)
+SequenceNumber: 27
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+No TransferBuffer
+
+25	??? up	n/a	84.721	BULK_OR_INTERRUPT_TRANSFER	b3 05 db 02 28 47	0x00000000
+URB Header (length: 72)
+SequenceNumber: 25
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+TransferBuffer: 0x00000006 (6) length
+0000: b3 05 db 02 28 47 
+28	??? down	n/a	84.721	BULK_OR_INTERRUPT_TRANSFER	-	
+URB Header (length: 72)
+SequenceNumber: 28
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+No TransferBuffer
+
+29	out down	n/a	85.563	CLASS_INTERFACE	02	
+URB Header (length: 80)
+SequenceNumber: 29
+Function: 001b (CLASS_INTERFACE)
+PipeHandle: 00000000
+
+SetupPacket:
+0000: 22 09 00 02 00 00 00 00 
+bmRequestType: 22
+  DIR: Host-To-Device
+  TYPE: Class
+  RECIPIENT: Endpoint
+bRequest: 09  
+
+
+TransferBuffer: 0x00000001 (1) length
+0000: 02 
+29	out up	n/a	85.563	CONTROL_TRANSFER	-	0x00000000
+URB Header (length: 80)
+SequenceNumber: 29
+Function: 0008 (CONTROL_TRANSFER)
+PipeHandle: 819a5b50
+
+SetupPacket:
+0000: 21 09 00 02 00 00 01 00 
+bmRequestType: 21
+  DIR: Host-To-Device
+  TYPE: Class
+  RECIPIENT: Interface
+bRequest: 09  
+
+
+No TransferBuffer
+
+27	??? up	n/a	85.583	BULK_OR_INTERRUPT_TRANSFER	02 51 c5 22 22 22	0x00000000
+URB Header (length: 72)
+SequenceNumber: 27
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+TransferBuffer: 0x00000006 (6) length
+0000: 02 51 c5 22 22 22 
+30	??? down	n/a	85.583	BULK_OR_INTERRUPT_TRANSFER	-	
+URB Header (length: 72)
+SequenceNumber: 30
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+No TransferBuffer
+
+28	??? up	n/a	87.966	BULK_OR_INTERRUPT_TRANSFER	61 05 da 02 73 cf	0x00000000
+URB Header (length: 72)
+SequenceNumber: 28
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+TransferBuffer: 0x00000006 (6) length
+0000: 61 05 da 02 73 cf 
+31	??? down	n/a	87.966	BULK_OR_INTERRUPT_TRANSFER	-	
+URB Header (length: 72)
+SequenceNumber: 31
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+No TransferBuffer
+
+32	out down	n/a	88.797	CLASS_INTERFACE	02	
+URB Header (length: 80)
+SequenceNumber: 32
+Function: 001b (CLASS_INTERFACE)
+PipeHandle: 00000000
+
+SetupPacket:
+0000: 22 09 00 02 00 00 00 00 
+bmRequestType: 22
+  DIR: Host-To-Device
+  TYPE: Class
+  RECIPIENT: Endpoint
+bRequest: 09  
+
+
+TransferBuffer: 0x00000001 (1) length
+0000: 02 
+32	out up	n/a	88.797	CONTROL_TRANSFER	-	0x00000000
+URB Header (length: 80)
+SequenceNumber: 32
+Function: 0008 (CONTROL_TRANSFER)
+PipeHandle: 819a5b50
+
+SetupPacket:
+0000: 21 09 00 02 00 00 01 00 
+bmRequestType: 21
+  DIR: Host-To-Device
+  TYPE: Class
+  RECIPIENT: Interface
+bRequest: 09  
+
+
+No TransferBuffer
+
+30	??? up	n/a	88.817	BULK_OR_INTERRUPT_TRANSFER	02 51 c5 22 22 22	0x00000000
+URB Header (length: 72)
+SequenceNumber: 30
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+TransferBuffer: 0x00000006 (6) length
+0000: 02 51 c5 22 22 22 
+33	??? down	n/a	88.817	BULK_OR_INTERRUPT_TRANSFER	-	
+URB Header (length: 72)
+SequenceNumber: 33
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+No TransferBuffer
+
+31	??? up	n/a	90.950	BULK_OR_INTERRUPT_TRANSFER	21 05 db 02 1a e7	0x00000000
+URB Header (length: 72)
+SequenceNumber: 31
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+TransferBuffer: 0x00000006 (6) length
+0000: 21 05 db 02 1a e7 
+34	??? down	n/a	90.950	BULK_OR_INTERRUPT_TRANSFER	-	
+URB Header (length: 72)
+SequenceNumber: 34
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+No TransferBuffer
+
+35	out down	n/a	91.832	CLASS_INTERFACE	02	
+URB Header (length: 80)
+SequenceNumber: 35
+Function: 001b (CLASS_INTERFACE)
+PipeHandle: 00000000
+
+SetupPacket:
+0000: 22 09 00 02 00 00 00 00 
+bmRequestType: 22
+  DIR: Host-To-Device
+  TYPE: Class
+  RECIPIENT: Endpoint
+bRequest: 09  
+
+
+TransferBuffer: 0x00000001 (1) length
+0000: 02 
+35	out up	n/a	91.832	CONTROL_TRANSFER	-	0x00000000
+URB Header (length: 80)
+SequenceNumber: 35
+Function: 0008 (CONTROL_TRANSFER)
+PipeHandle: 819a5b50
+
+SetupPacket:
+0000: 21 09 00 02 00 00 01 00 
+bmRequestType: 21
+  DIR: Host-To-Device
+  TYPE: Class
+  RECIPIENT: Interface
+bRequest: 09  
+
+
+No TransferBuffer
+
+33	??? up	n/a	91.842	BULK_OR_INTERRUPT_TRANSFER	02 51 c5 22 22 22	0x00000000
+URB Header (length: 72)
+SequenceNumber: 33
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+TransferBuffer: 0x00000006 (6) length
+0000: 02 51 c5 22 22 22 
+36	??? down	n/a	91.842	BULK_OR_INTERRUPT_TRANSFER	-	
+URB Header (length: 72)
+SequenceNumber: 36
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+No TransferBuffer
+
+34	??? up	n/a	101.225	BULK_OR_INTERRUPT_TRANSFER	38 05 da 02 26 c3	0x00000000
+URB Header (length: 72)
+SequenceNumber: 34
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+TransferBuffer: 0x00000006 (6) length
+0000: 38 05 da 02 26 c3 
+37	??? down	n/a	101.225	BULK_OR_INTERRUPT_TRANSFER	-	
+URB Header (length: 72)
+SequenceNumber: 37
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+No TransferBuffer
+
+38	out down	n/a	102.056	CLASS_INTERFACE	02	
+URB Header (length: 80)
+SequenceNumber: 38
+Function: 001b (CLASS_INTERFACE)
+PipeHandle: 00000000
+
+SetupPacket:
+0000: 22 09 00 02 00 00 00 00 
+bmRequestType: 22
+  DIR: Host-To-Device
+  TYPE: Class
+  RECIPIENT: Endpoint
+bRequest: 09  
+
+
+TransferBuffer: 0x00000001 (1) length
+0000: 02 
+38	out up	n/a	102.056	CONTROL_TRANSFER	-	0x00000000
+URB Header (length: 80)
+SequenceNumber: 38
+Function: 0008 (CONTROL_TRANSFER)
+PipeHandle: 819a5b50
+
+SetupPacket:
+0000: 21 09 00 02 00 00 01 00 
+bmRequestType: 21
+  DIR: Host-To-Device
+  TYPE: Class
+  RECIPIENT: Interface
+bRequest: 09  
+
+
+No TransferBuffer
+
+36	??? up	n/a	102.076	BULK_OR_INTERRUPT_TRANSFER	02 51 c5 22 22 22	0x00000000
+URB Header (length: 72)
+SequenceNumber: 36
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+TransferBuffer: 0x00000006 (6) length
+0000: 02 51 c5 22 22 22 
+39	??? down	n/a	102.076	BULK_OR_INTERRUPT_TRANSFER	-	
+URB Header (length: 72)
+SequenceNumber: 39
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+No TransferBuffer
+
+37	??? up	n/a	105.381	BULK_OR_INTERRUPT_TRANSFER	c2 05 db 00 f4 e8	0x00000000
+URB Header (length: 72)
+SequenceNumber: 37
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+TransferBuffer: 0x00000006 (6) length
+0000: c2 05 db 00 f4 e8 
+40	??? down	n/a	105.381	BULK_OR_INTERRUPT_TRANSFER	-	
+URB Header (length: 72)
+SequenceNumber: 40
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+No TransferBuffer
+
+41	out down	n/a	106.212	CLASS_INTERFACE	02	
+URB Header (length: 80)
+SequenceNumber: 41
+Function: 001b (CLASS_INTERFACE)
+PipeHandle: 00000000
+
+SetupPacket:
+0000: 22 09 00 02 00 00 00 00 
+bmRequestType: 22
+  DIR: Host-To-Device
+  TYPE: Class
+  RECIPIENT: Endpoint
+bRequest: 09  
+
+
+TransferBuffer: 0x00000001 (1) length
+0000: 02 
+41	out up	n/a	106.212	CONTROL_TRANSFER	-	0x00000000
+URB Header (length: 80)
+SequenceNumber: 41
+Function: 0008 (CONTROL_TRANSFER)
+PipeHandle: 819a5b50
+
+SetupPacket:
+0000: 21 09 00 02 00 00 01 00 
+bmRequestType: 21
+  DIR: Host-To-Device
+  TYPE: Class
+  RECIPIENT: Interface
+bRequest: 09  
+
+
+No TransferBuffer
+
+39	??? up	n/a	106.222	BULK_OR_INTERRUPT_TRANSFER	02 51 c5 22 22 22	0x00000000
+URB Header (length: 72)
+SequenceNumber: 39
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+TransferBuffer: 0x00000006 (6) length
+0000: 02 51 c5 22 22 22 
+42	??? down	n/a	106.222	BULK_OR_INTERRUPT_TRANSFER	-	
+URB Header (length: 72)
+SequenceNumber: 42
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+No TransferBuffer
+
+40	??? up	n/a	108.766	BULK_OR_INTERRUPT_TRANSFER	31 05 db 00 b8 57	0x00000000
+URB Header (length: 72)
+SequenceNumber: 40
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+TransferBuffer: 0x00000006 (6) length
+0000: 31 05 db 00 b8 57 
+43	??? down	n/a	108.766	BULK_OR_INTERRUPT_TRANSFER	-	
+URB Header (length: 72)
+SequenceNumber: 43
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+No TransferBuffer
+
+44	out down	n/a	109.868	CLASS_INTERFACE	02	
+URB Header (length: 80)
+SequenceNumber: 44
+Function: 001b (CLASS_INTERFACE)
+PipeHandle: 00000000
+
+SetupPacket:
+0000: 22 09 00 02 00 00 00 00 
+bmRequestType: 22
+  DIR: Host-To-Device
+  TYPE: Class
+  RECIPIENT: Endpoint
+bRequest: 09  
+
+
+TransferBuffer: 0x00000001 (1) length
+0000: 02 
+44	out up	n/a	109.878	CONTROL_TRANSFER	-	0x00000000
+URB Header (length: 80)
+SequenceNumber: 44
+Function: 0008 (CONTROL_TRANSFER)
+PipeHandle: 819a5b50
+
+SetupPacket:
+0000: 21 09 00 02 00 00 01 00 
+bmRequestType: 21
+  DIR: Host-To-Device
+  TYPE: Class
+  RECIPIENT: Interface
+bRequest: 09  
+
+
+No TransferBuffer
+
+42	??? up	n/a	109.888	BULK_OR_INTERRUPT_TRANSFER	02 51 c5 22 22 22	0x00000000
+URB Header (length: 72)
+SequenceNumber: 42
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+TransferBuffer: 0x00000006 (6) length
+0000: 02 51 c5 22 22 22 
+45	??? down	n/a	109.888	BULK_OR_INTERRUPT_TRANSFER	-	
+URB Header (length: 72)
+SequenceNumber: 45
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+No TransferBuffer
+
+43	??? up	n/a	111.019	BULK_OR_INTERRUPT_TRANSFER	1a 05 db 00 e2 26	0x00000000
+URB Header (length: 72)
+SequenceNumber: 43
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+TransferBuffer: 0x00000006 (6) length
+0000: 1a 05 db 00 e2 26 
+46	??? down	n/a	111.019	BULK_OR_INTERRUPT_TRANSFER	-	
+URB Header (length: 72)
+SequenceNumber: 46
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+No TransferBuffer
+
+47	out down	n/a	111.850	CLASS_INTERFACE	02	
+URB Header (length: 80)
+SequenceNumber: 47
+Function: 001b (CLASS_INTERFACE)
+PipeHandle: 00000000
+
+SetupPacket:
+0000: 22 09 00 02 00 00 00 00 
+bmRequestType: 22
+  DIR: Host-To-Device
+  TYPE: Class
+  RECIPIENT: Endpoint
+bRequest: 09  
+
+
+TransferBuffer: 0x00000001 (1) length
+0000: 02 
+47	out up	n/a	111.850	CONTROL_TRANSFER	-	0x00000000
+URB Header (length: 80)
+SequenceNumber: 47
+Function: 0008 (CONTROL_TRANSFER)
+PipeHandle: 819a5b50
+
+SetupPacket:
+0000: 21 09 00 02 00 00 01 00 
+bmRequestType: 21
+  DIR: Host-To-Device
+  TYPE: Class
+  RECIPIENT: Interface
+bRequest: 09  
+
+
+No TransferBuffer
+
+45	??? up	n/a	111.860	BULK_OR_INTERRUPT_TRANSFER	02 51 c5 22 22 22	0x00000000
+URB Header (length: 72)
+SequenceNumber: 45
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+TransferBuffer: 0x00000006 (6) length
+0000: 02 51 c5 22 22 22 
+48	??? down	n/a	111.860	BULK_OR_INTERRUPT_TRANSFER	-	
+URB Header (length: 72)
+SequenceNumber: 48
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+No TransferBuffer
+
+46	??? up	n/a	116.327	BULK_OR_INTERRUPT_TRANSFER	de 05 db 00 00 00	0x00000000
+URB Header (length: 72)
+SequenceNumber: 46
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+TransferBuffer: 0x00000006 (6) length
+0000: de 05 db 00 00 00 
+49	??? down	n/a	116.327	BULK_OR_INTERRUPT_TRANSFER	-	
+URB Header (length: 72)
+SequenceNumber: 49
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+No TransferBuffer
+
+50	out down	n/a	117.358	CLASS_INTERFACE	02	
+URB Header (length: 80)
+SequenceNumber: 50
+Function: 001b (CLASS_INTERFACE)
+PipeHandle: 00000000
+
+SetupPacket:
+0000: 22 09 00 02 00 00 00 00 
+bmRequestType: 22
+  DIR: Host-To-Device
+  TYPE: Class
+  RECIPIENT: Endpoint
+bRequest: 09  
+
+
+TransferBuffer: 0x00000001 (1) length
+0000: 02 
+50	out up	n/a	117.358	CONTROL_TRANSFER	-	0x00000000
+URB Header (length: 80)
+SequenceNumber: 50
+Function: 0008 (CONTROL_TRANSFER)
+PipeHandle: 819a5b50
+
+SetupPacket:
+0000: 21 09 00 02 00 00 01 00 
+bmRequestType: 21
+  DIR: Host-To-Device
+  TYPE: Class
+  RECIPIENT: Interface
+bRequest: 09  
+
+
+No TransferBuffer
+
+48	??? up	n/a	117.378	BULK_OR_INTERRUPT_TRANSFER	02 51 c5 22 22 22	0x00000000
+URB Header (length: 72)
+SequenceNumber: 48
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+TransferBuffer: 0x00000006 (6) length
+0000: 02 51 c5 22 22 22 
+51	??? down	n/a	117.378	BULK_OR_INTERRUPT_TRANSFER	-	
+URB Header (length: 72)
+SequenceNumber: 51
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+No TransferBuffer
+
+49	??? up	n/a	119.061	BULK_OR_INTERRUPT_TRANSFER	96 05 da 02 31 7a	0x00000000
+URB Header (length: 72)
+SequenceNumber: 49
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+TransferBuffer: 0x00000006 (6) length
+0000: 96 05 da 02 31 7a 
+52	??? down	n/a	119.061	BULK_OR_INTERRUPT_TRANSFER	-	
+URB Header (length: 72)
+SequenceNumber: 52
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+No TransferBuffer
+
+53	out down	n/a	119.872	CLASS_INTERFACE	02	
+URB Header (length: 80)
+SequenceNumber: 53
+Function: 001b (CLASS_INTERFACE)
+PipeHandle: 00000000
+
+SetupPacket:
+0000: 22 09 00 02 00 00 00 00 
+bmRequestType: 22
+  DIR: Host-To-Device
+  TYPE: Class
+  RECIPIENT: Endpoint
+bRequest: 09  
+
+
+TransferBuffer: 0x00000001 (1) length
+0000: 02 
+53	out up	n/a	119.872	CONTROL_TRANSFER	-	0x00000000
+URB Header (length: 80)
+SequenceNumber: 53
+Function: 0008 (CONTROL_TRANSFER)
+PipeHandle: 819a5b50
+
+SetupPacket:
+0000: 21 09 00 02 00 00 01 00 
+bmRequestType: 21
+  DIR: Host-To-Device
+  TYPE: Class
+  RECIPIENT: Interface
+bRequest: 09  
+
+
+No TransferBuffer
+
+51	??? up	n/a	119.892	BULK_OR_INTERRUPT_TRANSFER	02 51 c5 22 22 22	0x00000000
+URB Header (length: 72)
+SequenceNumber: 51
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+TransferBuffer: 0x00000006 (6) length
+0000: 02 51 c5 22 22 22 
+54	??? down	n/a	119.892	BULK_OR_INTERRUPT_TRANSFER	-	
+URB Header (length: 72)
+SequenceNumber: 54
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+No TransferBuffer
+
+52	??? up	n/a	122.536	BULK_OR_INTERRUPT_TRANSFER	de 05 db 00 00 00	0x00000000
+URB Header (length: 72)
+SequenceNumber: 52
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+TransferBuffer: 0x00000006 (6) length
+0000: de 05 db 00 00 00 
+55	??? down	n/a	122.536	BULK_OR_INTERRUPT_TRANSFER	-	
+URB Header (length: 72)
+SequenceNumber: 55
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+No TransferBuffer
+
+56	out down	n/a	123.587	CLASS_INTERFACE	02	
+URB Header (length: 80)
+SequenceNumber: 56
+Function: 001b (CLASS_INTERFACE)
+PipeHandle: 00000000
+
+SetupPacket:
+0000: 22 09 00 02 00 00 00 00 
+bmRequestType: 22
+  DIR: Host-To-Device
+  TYPE: Class
+  RECIPIENT: Endpoint
+bRequest: 09  
+
+
+TransferBuffer: 0x00000001 (1) length
+0000: 02 
+56	out up	n/a	123.587	CONTROL_TRANSFER	-	0x00000000
+URB Header (length: 80)
+SequenceNumber: 56
+Function: 0008 (CONTROL_TRANSFER)
+PipeHandle: 819a5b50
+
+SetupPacket:
+0000: 21 09 00 02 00 00 01 00 
+bmRequestType: 21
+  DIR: Host-To-Device
+  TYPE: Class
+  RECIPIENT: Interface
+bRequest: 09  
+
+
+No TransferBuffer
+
+54	??? up	n/a	123.607	BULK_OR_INTERRUPT_TRANSFER	02 51 c5 22 22 22	0x00000000
+URB Header (length: 72)
+SequenceNumber: 54
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+TransferBuffer: 0x00000006 (6) length
+0000: 02 51 c5 22 22 22 
+57	??? down	n/a	123.607	BULK_OR_INTERRUPT_TRANSFER	-	
+URB Header (length: 72)
+SequenceNumber: 57
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+No TransferBuffer
+
+55	??? up	n/a	124.759	BULK_OR_INTERRUPT_TRANSFER	de 05 db 00 00 00	0x00000000
+URB Header (length: 72)
+SequenceNumber: 55
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+TransferBuffer: 0x00000006 (6) length
+0000: de 05 db 00 00 00 
+58	??? down	n/a	124.759	BULK_OR_INTERRUPT_TRANSFER	-	
+URB Header (length: 72)
+SequenceNumber: 58
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+No TransferBuffer
+
+59	out down	n/a	125.790	CLASS_INTERFACE	02	
+URB Header (length: 80)
+SequenceNumber: 59
+Function: 001b (CLASS_INTERFACE)
+PipeHandle: 00000000
+
+SetupPacket:
+0000: 22 09 00 02 00 00 00 00 
+bmRequestType: 22
+  DIR: Host-To-Device
+  TYPE: Class
+  RECIPIENT: Endpoint
+bRequest: 09  
+
+
+TransferBuffer: 0x00000001 (1) length
+0000: 02 
+59	out up	n/a	125.790	CONTROL_TRANSFER	-	0x00000000
+URB Header (length: 80)
+SequenceNumber: 59
+Function: 0008 (CONTROL_TRANSFER)
+PipeHandle: 819a5b50
+
+SetupPacket:
+0000: 21 09 00 02 00 00 01 00 
+bmRequestType: 21
+  DIR: Host-To-Device
+  TYPE: Class
+  RECIPIENT: Interface
+bRequest: 09  
+
+
+No TransferBuffer
+
+57	??? up	n/a	125.810	BULK_OR_INTERRUPT_TRANSFER	02 51 c5 22 22 22	0x00000000
+URB Header (length: 72)
+SequenceNumber: 57
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+TransferBuffer: 0x00000006 (6) length
+0000: 02 51 c5 22 22 22 
+60	??? down	n/a	125.810	BULK_OR_INTERRUPT_TRANSFER	-	
+URB Header (length: 72)
+SequenceNumber: 60
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+No TransferBuffer
+
+58	??? up	n/a	127.603	BULK_OR_INTERRUPT_TRANSFER	7b 05 db 01 42 e6	0x00000000
+URB Header (length: 72)
+SequenceNumber: 58
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+TransferBuffer: 0x00000006 (6) length
+0000: 7b 05 db 01 42 e6 
+61	??? down	n/a	127.603	BULK_OR_INTERRUPT_TRANSFER	-	
+URB Header (length: 72)
+SequenceNumber: 61
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+No TransferBuffer
+
+62	out down	n/a	128.414	CLASS_INTERFACE	02	
+URB Header (length: 80)
+SequenceNumber: 62
+Function: 001b (CLASS_INTERFACE)
+PipeHandle: 00000000
+
+SetupPacket:
+0000: 22 09 00 02 00 00 00 00 
+bmRequestType: 22
+  DIR: Host-To-Device
+  TYPE: Class
+  RECIPIENT: Endpoint
+bRequest: 09  
+
+
+TransferBuffer: 0x00000001 (1) length
+0000: 02 
+62	out up	n/a	128.414	CONTROL_TRANSFER	-	0x00000000
+URB Header (length: 80)
+SequenceNumber: 62
+Function: 0008 (CONTROL_TRANSFER)
+PipeHandle: 819a5b50
+
+SetupPacket:
+0000: 21 09 00 02 00 00 01 00 
+bmRequestType: 21
+  DIR: Host-To-Device
+  TYPE: Class
+  RECIPIENT: Interface
+bRequest: 09  
+
+
+No TransferBuffer
+
+60	??? up	n/a	128.434	BULK_OR_INTERRUPT_TRANSFER	02 51 c5 22 22 22	0x00000000
+URB Header (length: 72)
+SequenceNumber: 60
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+TransferBuffer: 0x00000006 (6) length
+0000: 02 51 c5 22 22 22 
+63	??? down	n/a	128.434	BULK_OR_INTERRUPT_TRANSFER	-	
+URB Header (length: 72)
+SequenceNumber: 63
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+No TransferBuffer
+
+61	??? up	n/a	131.829	BULK_OR_INTERRUPT_TRANSFER	4f 05 db 00 c9 58	0x00000000
+URB Header (length: 72)
+SequenceNumber: 61
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+TransferBuffer: 0x00000006 (6) length
+0000: 4f 05 db 00 c9 58 
+64	??? down	n/a	131.829	BULK_OR_INTERRUPT_TRANSFER	-	
+URB Header (length: 72)
+SequenceNumber: 64
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+No TransferBuffer
+
+65	out down	n/a	132.861	CLASS_INTERFACE	02	
+URB Header (length: 80)
+SequenceNumber: 65
+Function: 001b (CLASS_INTERFACE)
+PipeHandle: 00000000
+
+SetupPacket:
+0000: 22 09 00 02 00 00 00 00 
+bmRequestType: 22
+  DIR: Host-To-Device
+  TYPE: Class
+  RECIPIENT: Endpoint
+bRequest: 09  
+
+
+TransferBuffer: 0x00000001 (1) length
+0000: 02 
+65	out up	n/a	132.861	CONTROL_TRANSFER	-	0x00000000
+URB Header (length: 80)
+SequenceNumber: 65
+Function: 0008 (CONTROL_TRANSFER)
+PipeHandle: 819a5b50
+
+SetupPacket:
+0000: 21 09 00 02 00 00 01 00 
+bmRequestType: 21
+  DIR: Host-To-Device
+  TYPE: Class
+  RECIPIENT: Interface
+bRequest: 09  
+
+
+No TransferBuffer
+
+63	??? up	n/a	132.881	BULK_OR_INTERRUPT_TRANSFER	02 51 c5 22 22 22	0x00000000
+URB Header (length: 72)
+SequenceNumber: 63
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+TransferBuffer: 0x00000006 (6) length
+0000: 02 51 c5 22 22 22 
+66	??? down	n/a	132.881	BULK_OR_INTERRUPT_TRANSFER	-	
+URB Header (length: 72)
+SequenceNumber: 66
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+No TransferBuffer
+
+64	??? up	n/a	133.872	BULK_OR_INTERRUPT_TRANSFER	d1 05 d9 02 b8 b7	0x00000000
+URB Header (length: 72)
+SequenceNumber: 64
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+TransferBuffer: 0x00000006 (6) length
+0000: d1 05 d9 02 b8 b7 
+67	??? down	n/a	133.872	BULK_OR_INTERRUPT_TRANSFER	-	
+URB Header (length: 72)
+SequenceNumber: 67
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+No TransferBuffer
+
+68	out down	n/a	134.723	CLASS_INTERFACE	02	
+URB Header (length: 80)
+SequenceNumber: 68
+Function: 001b (CLASS_INTERFACE)
+PipeHandle: 00000000
+
+SetupPacket:
+0000: 22 09 00 02 00 00 00 00 
+bmRequestType: 22
+  DIR: Host-To-Device
+  TYPE: Class
+  RECIPIENT: Endpoint
+bRequest: 09  
+
+
+TransferBuffer: 0x00000001 (1) length
+0000: 02 
+68	out up	n/a	134.723	CONTROL_TRANSFER	-	0x00000000
+URB Header (length: 80)
+SequenceNumber: 68
+Function: 0008 (CONTROL_TRANSFER)
+PipeHandle: 819a5b50
+
+SetupPacket:
+0000: 21 09 00 02 00 00 01 00 
+bmRequestType: 21
+  DIR: Host-To-Device
+  TYPE: Class
+  RECIPIENT: Interface
+bRequest: 09  
+
+
+No TransferBuffer
+
+66	??? up	n/a	134.743	BULK_OR_INTERRUPT_TRANSFER	02 51 c5 22 22 22	0x00000000
+URB Header (length: 72)
+SequenceNumber: 66
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+TransferBuffer: 0x00000006 (6) length
+0000: 02 51 c5 22 22 22 
+69	??? down	n/a	134.743	BULK_OR_INTERRUPT_TRANSFER	-	
+URB Header (length: 72)
+SequenceNumber: 69
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+No TransferBuffer
+
+67	??? up	n/a	141.213	BULK_OR_INTERRUPT_TRANSFER	42 05 db 01 6a f7	0x00000000
+URB Header (length: 72)
+SequenceNumber: 67
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+TransferBuffer: 0x00000006 (6) length
+0000: 42 05 db 01 6a f7 
+70	??? down	n/a	141.213	BULK_OR_INTERRUPT_TRANSFER	-	
+URB Header (length: 72)
+SequenceNumber: 70
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+No TransferBuffer
+
+71	out down	n/a	142.054	CLASS_INTERFACE	02	
+URB Header (length: 80)
+SequenceNumber: 71
+Function: 001b (CLASS_INTERFACE)
+PipeHandle: 00000000
+
+SetupPacket:
+0000: 22 09 00 02 00 00 00 00 
+bmRequestType: 22
+  DIR: Host-To-Device
+  TYPE: Class
+  RECIPIENT: Endpoint
+bRequest: 09  
+
+
+TransferBuffer: 0x00000001 (1) length
+0000: 02 
+71	out up	n/a	142.054	CONTROL_TRANSFER	-	0x00000000
+URB Header (length: 80)
+SequenceNumber: 71
+Function: 0008 (CONTROL_TRANSFER)
+PipeHandle: 819a5b50
+
+SetupPacket:
+0000: 21 09 00 02 00 00 01 00 
+bmRequestType: 21
+  DIR: Host-To-Device
+  TYPE: Class
+  RECIPIENT: Interface
+bRequest: 09  
+
+
+No TransferBuffer
+
+69	??? up	n/a	142.064	BULK_OR_INTERRUPT_TRANSFER	02 51 c5 22 22 22	0x00000000
+URB Header (length: 72)
+SequenceNumber: 69
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+TransferBuffer: 0x00000006 (6) length
+0000: 02 51 c5 22 22 22 
+72	??? down	n/a	142.064	BULK_OR_INTERRUPT_TRANSFER	-	
+URB Header (length: 72)
+SequenceNumber: 72
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+No TransferBuffer
+
+70	??? up	n/a	144.708	BULK_OR_INTERRUPT_TRANSFER	cb 05 db 02 17 00	0x00000000
+URB Header (length: 72)
+SequenceNumber: 70
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+TransferBuffer: 0x00000006 (6) length
+0000: cb 05 db 02 17 00 
+73	??? down	n/a	144.708	BULK_OR_INTERRUPT_TRANSFER	-	
+URB Header (length: 72)
+SequenceNumber: 73
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+No TransferBuffer
+
+74	out down	n/a	145.569	CLASS_INTERFACE	02	
+URB Header (length: 80)
+SequenceNumber: 74
+Function: 001b (CLASS_INTERFACE)
+PipeHandle: 00000000
+
+SetupPacket:
+0000: 22 09 00 02 00 00 00 00 
+bmRequestType: 22
+  DIR: Host-To-Device
+  TYPE: Class
+  RECIPIENT: Endpoint
+bRequest: 09  
+
+
+TransferBuffer: 0x00000001 (1) length
+0000: 02 
+74	out up	n/a	145.579	CONTROL_TRANSFER	-	0x00000000
+URB Header (length: 80)
+SequenceNumber: 74
+Function: 0008 (CONTROL_TRANSFER)
+PipeHandle: 819a5b50
+
+SetupPacket:
+0000: 21 09 00 02 00 00 01 00 
+bmRequestType: 21
+  DIR: Host-To-Device
+  TYPE: Class
+  RECIPIENT: Interface
+bRequest: 09  
+
+
+No TransferBuffer
+
+72	??? up	n/a	145.589	BULK_OR_INTERRUPT_TRANSFER	02 51 c5 22 22 22	0x00000000
+URB Header (length: 72)
+SequenceNumber: 72
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+TransferBuffer: 0x00000006 (6) length
+0000: 02 51 c5 22 22 22 
+75	??? down	n/a	145.589	BULK_OR_INTERRUPT_TRANSFER	-	
+URB Header (length: 72)
+SequenceNumber: 75
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+No TransferBuffer
+
+73	??? up	n/a	150.846	BULK_OR_INTERRUPT_TRANSFER	17 05 da 03 81 4a	0x00000000
+URB Header (length: 72)
+SequenceNumber: 73
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+TransferBuffer: 0x00000006 (6) length
+0000: 17 05 da 03 81 4a 
+76	??? down	n/a	150.846	BULK_OR_INTERRUPT_TRANSFER	-	
+URB Header (length: 72)
+SequenceNumber: 76
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+No TransferBuffer
+
+77	out down	n/a	151.668	CLASS_INTERFACE	02	
+URB Header (length: 80)
+SequenceNumber: 77
+Function: 001b (CLASS_INTERFACE)
+PipeHandle: 00000000
+
+SetupPacket:
+0000: 22 09 00 02 00 00 00 00 
+bmRequestType: 22
+  DIR: Host-To-Device
+  TYPE: Class
+  RECIPIENT: Endpoint
+bRequest: 09  
+
+
+TransferBuffer: 0x00000001 (1) length
+0000: 02 
+77	out up	n/a	151.668	CONTROL_TRANSFER	-	0x00000000
+URB Header (length: 80)
+SequenceNumber: 77
+Function: 0008 (CONTROL_TRANSFER)
+PipeHandle: 819a5b50
+
+SetupPacket:
+0000: 21 09 00 02 00 00 01 00 
+bmRequestType: 21
+  DIR: Host-To-Device
+  TYPE: Class
+  RECIPIENT: Interface
+bRequest: 09  
+
+
+No TransferBuffer
+
+75	??? up	n/a	151.688	BULK_OR_INTERRUPT_TRANSFER	02 51 c5 22 22 22	0x00000000
+URB Header (length: 72)
+SequenceNumber: 75
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+TransferBuffer: 0x00000006 (6) length
+0000: 02 51 c5 22 22 22 
+78	??? down	n/a	151.688	BULK_OR_INTERRUPT_TRANSFER	-	
+URB Header (length: 72)
+SequenceNumber: 78
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+No TransferBuffer
+
+76	??? up	n/a	154.892	BULK_OR_INTERRUPT_TRANSFER	26 05 da 03 a7 5d	0x00000000
+URB Header (length: 72)
+SequenceNumber: 76
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+TransferBuffer: 0x00000006 (6) length
+0000: 26 05 da 03 a7 5d 
+79	??? down	n/a	154.892	BULK_OR_INTERRUPT_TRANSFER	-	
+URB Header (length: 72)
+SequenceNumber: 79
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+No TransferBuffer
+
+80	out down	n/a	155.673	CLASS_INTERFACE	02	
+URB Header (length: 80)
+SequenceNumber: 80
+Function: 001b (CLASS_INTERFACE)
+PipeHandle: 00000000
+
+SetupPacket:
+0000: 22 09 00 02 00 00 00 00 
+bmRequestType: 22
+  DIR: Host-To-Device
+  TYPE: Class
+  RECIPIENT: Endpoint
+bRequest: 09  
+
+
+TransferBuffer: 0x00000001 (1) length
+0000: 02 
+80	out up	n/a	155.673	CONTROL_TRANSFER	-	0x00000000
+URB Header (length: 80)
+SequenceNumber: 80
+Function: 0008 (CONTROL_TRANSFER)
+PipeHandle: 819a5b50
+
+SetupPacket:
+0000: 21 09 00 02 00 00 01 00 
+bmRequestType: 21
+  DIR: Host-To-Device
+  TYPE: Class
+  RECIPIENT: Interface
+bRequest: 09  
+
+
+No TransferBuffer
+
+78	??? up	n/a	155.693	BULK_OR_INTERRUPT_TRANSFER	02 51 c5 22 22 22	0x00000000
+URB Header (length: 72)
+SequenceNumber: 78
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+TransferBuffer: 0x00000006 (6) length
+0000: 02 51 c5 22 22 22 
+81	??? down	n/a	155.693	BULK_OR_INTERRUPT_TRANSFER	-	
+URB Header (length: 72)
+SequenceNumber: 81
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+No TransferBuffer
+
+79	??? up	n/a	158.808	BULK_OR_INTERRUPT_TRANSFER	a1 05 da 03 39 44	0x00000000
+URB Header (length: 72)
+SequenceNumber: 79
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+TransferBuffer: 0x00000006 (6) length
+0000: a1 05 da 03 39 44 
+82	??? down	n/a	158.808	BULK_OR_INTERRUPT_TRANSFER	-	
+URB Header (length: 72)
+SequenceNumber: 82
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+No TransferBuffer
+
+83	out down	n/a	159.609	CLASS_INTERFACE	02	
+URB Header (length: 80)
+SequenceNumber: 83
+Function: 001b (CLASS_INTERFACE)
+PipeHandle: 00000000
+
+SetupPacket:
+0000: 22 09 00 02 00 00 00 00 
+bmRequestType: 22
+  DIR: Host-To-Device
+  TYPE: Class
+  RECIPIENT: Endpoint
+bRequest: 09  
+
+
+TransferBuffer: 0x00000001 (1) length
+0000: 02 
+83	out up	n/a	159.609	CONTROL_TRANSFER	-	0x00000000
+URB Header (length: 80)
+SequenceNumber: 83
+Function: 0008 (CONTROL_TRANSFER)
+PipeHandle: 819a5b50
+
+SetupPacket:
+0000: 21 09 00 02 00 00 01 00 
+bmRequestType: 21
+  DIR: Host-To-Device
+  TYPE: Class
+  RECIPIENT: Interface
+bRequest: 09  
+
+
+No TransferBuffer
+
+81	??? up	n/a	159.629	BULK_OR_INTERRUPT_TRANSFER	02 51 c5 22 22 22	0x00000000
+URB Header (length: 72)
+SequenceNumber: 81
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+TransferBuffer: 0x00000006 (6) length
+0000: 02 51 c5 22 22 22 
+84	??? down	n/a	159.629	BULK_OR_INTERRUPT_TRANSFER	-	
+URB Header (length: 72)
+SequenceNumber: 84
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+No TransferBuffer
+
+82	??? up	n/a	162.884	BULK_OR_INTERRUPT_TRANSFER	60 05 da 03 d2 6e	0x00000000
+URB Header (length: 72)
+SequenceNumber: 82
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+TransferBuffer: 0x00000006 (6) length
+0000: 60 05 da 03 d2 6e 
+85	??? down	n/a	162.884	BULK_OR_INTERRUPT_TRANSFER	-	
+URB Header (length: 72)
+SequenceNumber: 85
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+No TransferBuffer
+
+86	out down	n/a	163.665	CLASS_INTERFACE	02	
+URB Header (length: 80)
+SequenceNumber: 86
+Function: 001b (CLASS_INTERFACE)
+PipeHandle: 00000000
+
+SetupPacket:
+0000: 22 09 00 02 00 00 00 00 
+bmRequestType: 22
+  DIR: Host-To-Device
+  TYPE: Class
+  RECIPIENT: Endpoint
+bRequest: 09  
+
+
+TransferBuffer: 0x00000001 (1) length
+0000: 02 
+86	out up	n/a	163.665	CONTROL_TRANSFER	-	0x00000000
+URB Header (length: 80)
+SequenceNumber: 86
+Function: 0008 (CONTROL_TRANSFER)
+PipeHandle: 819a5b50
+
+SetupPacket:
+0000: 21 09 00 02 00 00 01 00 
+bmRequestType: 21
+  DIR: Host-To-Device
+  TYPE: Class
+  RECIPIENT: Interface
+bRequest: 09  
+
+
+No TransferBuffer
+
+84	??? up	n/a	163.685	BULK_OR_INTERRUPT_TRANSFER	02 51 c5 22 22 22	0x00000000
+URB Header (length: 72)
+SequenceNumber: 84
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+TransferBuffer: 0x00000006 (6) length
+0000: 02 51 c5 22 22 22 
+87	??? down	n/a	163.685	BULK_OR_INTERRUPT_TRANSFER	-	
+URB Header (length: 72)
+SequenceNumber: 87
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+No TransferBuffer
+
+85	??? up	n/a	170.865	BULK_OR_INTERRUPT_TRANSFER	fa 05 db 02 fb dd	0x00000000
+URB Header (length: 72)
+SequenceNumber: 85
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+TransferBuffer: 0x00000006 (6) length
+0000: fa 05 db 02 fb dd 
+88	??? down	n/a	170.865	BULK_OR_INTERRUPT_TRANSFER	-	
+URB Header (length: 72)
+SequenceNumber: 88
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+No TransferBuffer
+
+89	out down	n/a	171.696	CLASS_INTERFACE	02	
+URB Header (length: 80)
+SequenceNumber: 89
+Function: 001b (CLASS_INTERFACE)
+PipeHandle: 00000000
+
+SetupPacket:
+0000: 22 09 00 02 00 00 00 00 
+bmRequestType: 22
+  DIR: Host-To-Device
+  TYPE: Class
+  RECIPIENT: Endpoint
+bRequest: 09  
+
+
+TransferBuffer: 0x00000001 (1) length
+0000: 02 
+89	out up	n/a	171.696	CONTROL_TRANSFER	-	0x00000000
+URB Header (length: 80)
+SequenceNumber: 89
+Function: 0008 (CONTROL_TRANSFER)
+PipeHandle: 819a5b50
+
+SetupPacket:
+0000: 21 09 00 02 00 00 01 00 
+bmRequestType: 21
+  DIR: Host-To-Device
+  TYPE: Class
+  RECIPIENT: Interface
+bRequest: 09  
+
+
+No TransferBuffer
+
+87	??? up	n/a	171.706	BULK_OR_INTERRUPT_TRANSFER	02 51 c5 22 22 22	0x00000000
+URB Header (length: 72)
+SequenceNumber: 87
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+TransferBuffer: 0x00000006 (6) length
+0000: 02 51 c5 22 22 22 
+90	??? down	n/a	171.706	BULK_OR_INTERRUPT_TRANSFER	-	
+URB Header (length: 72)
+SequenceNumber: 90
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+No TransferBuffer
+
+88	??? up	n/a	174.841	BULK_OR_INTERRUPT_TRANSFER	2c 05 db 00 8d 7f	0x00000000
+URB Header (length: 72)
+SequenceNumber: 88
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+TransferBuffer: 0x00000006 (6) length
+0000: 2c 05 db 00 8d 7f 
+91	??? down	n/a	174.841	BULK_OR_INTERRUPT_TRANSFER	-	
+URB Header (length: 72)
+SequenceNumber: 91
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+No TransferBuffer
+
+92	out down	n/a	175.882	CLASS_INTERFACE	02	
+URB Header (length: 80)
+SequenceNumber: 92
+Function: 001b (CLASS_INTERFACE)
+PipeHandle: 00000000
+
+SetupPacket:
+0000: 22 09 00 02 00 00 00 00 
+bmRequestType: 22
+  DIR: Host-To-Device
+  TYPE: Class
+  RECIPIENT: Endpoint
+bRequest: 09  
+
+
+TransferBuffer: 0x00000001 (1) length
+0000: 02 
+92	out up	n/a	175.882	CONTROL_TRANSFER	-	0x00000000
+URB Header (length: 80)
+SequenceNumber: 92
+Function: 0008 (CONTROL_TRANSFER)
+PipeHandle: 819a5b50
+
+SetupPacket:
+0000: 21 09 00 02 00 00 01 00 
+bmRequestType: 21
+  DIR: Host-To-Device
+  TYPE: Class
+  RECIPIENT: Interface
+bRequest: 09  
+
+
+No TransferBuffer
+
+90	??? up	n/a	175.892	BULK_OR_INTERRUPT_TRANSFER	02 51 c5 22 22 22	0x00000000
+URB Header (length: 72)
+SequenceNumber: 90
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+TransferBuffer: 0x00000006 (6) length
+0000: 02 51 c5 22 22 22 
+93	??? down	n/a	175.892	BULK_OR_INTERRUPT_TRANSFER	-	
+URB Header (length: 72)
+SequenceNumber: 93
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+No TransferBuffer
+
+91	??? up	n/a	176.744	BULK_OR_INTERRUPT_TRANSFER	de 05 db 00 00 00	0x00000000
+URB Header (length: 72)
+SequenceNumber: 91
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+TransferBuffer: 0x00000006 (6) length
+0000: de 05 db 00 00 00 
+94	??? down	n/a	176.744	BULK_OR_INTERRUPT_TRANSFER	-	
+URB Header (length: 72)
+SequenceNumber: 94
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+No TransferBuffer
+
+95	out down	n/a	177.865	CLASS_INTERFACE	02	
+URB Header (length: 80)
+SequenceNumber: 95
+Function: 001b (CLASS_INTERFACE)
+PipeHandle: 00000000
+
+SetupPacket:
+0000: 22 09 00 02 00 00 00 00 
+bmRequestType: 22
+  DIR: Host-To-Device
+  TYPE: Class
+  RECIPIENT: Endpoint
+bRequest: 09  
+
+
+TransferBuffer: 0x00000001 (1) length
+0000: 02 
+95	out up	n/a	177.865	CONTROL_TRANSFER	-	0x00000000
+URB Header (length: 80)
+SequenceNumber: 95
+Function: 0008 (CONTROL_TRANSFER)
+PipeHandle: 819a5b50
+
+SetupPacket:
+0000: 21 09 00 02 00 00 01 00 
+bmRequestType: 21
+  DIR: Host-To-Device
+  TYPE: Class
+  RECIPIENT: Interface
+bRequest: 09  
+
+
+No TransferBuffer
+
+93	??? up	n/a	177.875	BULK_OR_INTERRUPT_TRANSFER	02 51 c5 22 22 22	0x00000000
+URB Header (length: 72)
+SequenceNumber: 93
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+TransferBuffer: 0x00000006 (6) length
+0000: 02 51 c5 22 22 22 
+96	??? down	n/a	177.875	BULK_OR_INTERRUPT_TRANSFER	-	
+URB Header (length: 72)
+SequenceNumber: 96
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+No TransferBuffer
+
+94	??? up	n/a	180.679	BULK_OR_INTERRUPT_TRANSFER	de 05 db 00 00 00	0x00000000
+URB Header (length: 72)
+SequenceNumber: 94
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+TransferBuffer: 0x00000006 (6) length
+0000: de 05 db 00 00 00 
+97	??? down	n/a	180.679	BULK_OR_INTERRUPT_TRANSFER	-	
+URB Header (length: 72)
+SequenceNumber: 97
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+No TransferBuffer
+
+98	out down	n/a	181.511	CLASS_INTERFACE	02	
+URB Header (length: 80)
+SequenceNumber: 98
+Function: 001b (CLASS_INTERFACE)
+PipeHandle: 00000000
+
+SetupPacket:
+0000: 22 09 00 02 00 00 00 00 
+bmRequestType: 22
+  DIR: Host-To-Device
+  TYPE: Class
+  RECIPIENT: Endpoint
+bRequest: 09  
+
+
+TransferBuffer: 0x00000001 (1) length
+0000: 02 
+98	out up	n/a	181.521	CONTROL_TRANSFER	-	0x00000000
+URB Header (length: 80)
+SequenceNumber: 98
+Function: 0008 (CONTROL_TRANSFER)
+PipeHandle: 819a5b50
+
+SetupPacket:
+0000: 21 09 00 02 00 00 01 00 
+bmRequestType: 21
+  DIR: Host-To-Device
+  TYPE: Class
+  RECIPIENT: Interface
+bRequest: 09  
+
+
+No TransferBuffer
+
+96	??? up	n/a	181.531	BULK_OR_INTERRUPT_TRANSFER	02 51 c5 22 22 22	0x00000000
+URB Header (length: 72)
+SequenceNumber: 96
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+TransferBuffer: 0x00000006 (6) length
+0000: 02 51 c5 22 22 22 
+99	??? down	n/a	181.531	BULK_OR_INTERRUPT_TRANSFER	-	
+URB Header (length: 72)
+SequenceNumber: 99
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+No TransferBuffer
+
+97	??? up	n/a	184.265	BULK_OR_INTERRUPT_TRANSFER	28 05 da 03 08 fc	0x00000000
+URB Header (length: 72)
+SequenceNumber: 97
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+TransferBuffer: 0x00000006 (6) length
+0000: 28 05 da 03 08 fc 
+100	??? down	n/a	184.265	BULK_OR_INTERRUPT_TRANSFER	-	
+URB Header (length: 72)
+SequenceNumber: 100
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+No TransferBuffer
+
+101	out down	n/a	185.056	CLASS_INTERFACE	02	
+URB Header (length: 80)
+SequenceNumber: 101
+Function: 001b (CLASS_INTERFACE)
+PipeHandle: 00000000
+
+SetupPacket:
+0000: 22 09 00 02 00 00 00 00 
+bmRequestType: 22
+  DIR: Host-To-Device
+  TYPE: Class
+  RECIPIENT: Endpoint
+bRequest: 09  
+
+
+TransferBuffer: 0x00000001 (1) length
+0000: 02 
+101	out up	n/a	185.056	CONTROL_TRANSFER	-	0x00000000
+URB Header (length: 80)
+SequenceNumber: 101
+Function: 0008 (CONTROL_TRANSFER)
+PipeHandle: 819a5b50
+
+SetupPacket:
+0000: 21 09 00 02 00 00 01 00 
+bmRequestType: 21
+  DIR: Host-To-Device
+  TYPE: Class
+  RECIPIENT: Interface
+bRequest: 09  
+
+
+No TransferBuffer
+
+99	??? up	n/a	185.076	BULK_OR_INTERRUPT_TRANSFER	02 51 c5 22 22 22	0x00000000
+URB Header (length: 72)
+SequenceNumber: 99
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+TransferBuffer: 0x00000006 (6) length
+0000: 02 51 c5 22 22 22 
+102	??? down	n/a	185.076	BULK_OR_INTERRUPT_TRANSFER	-	
+URB Header (length: 72)
+SequenceNumber: 102
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+No TransferBuffer
+
+100	??? up	n/a	190.684	BULK_OR_INTERRUPT_TRANSFER	50 05 da 03 7a f6	0x00000000
+URB Header (length: 72)
+SequenceNumber: 100
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+TransferBuffer: 0x00000006 (6) length
+0000: 50 05 da 03 7a f6 
+103	??? down	n/a	190.684	BULK_OR_INTERRUPT_TRANSFER	-	
+URB Header (length: 72)
+SequenceNumber: 103
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+No TransferBuffer
+
+104	out down	n/a	191.505	CLASS_INTERFACE	02	
+URB Header (length: 80)
+SequenceNumber: 104
+Function: 001b (CLASS_INTERFACE)
+PipeHandle: 00000000
+
+SetupPacket:
+0000: 22 09 00 02 00 00 00 00 
+bmRequestType: 22
+  DIR: Host-To-Device
+  TYPE: Class
+  RECIPIENT: Endpoint
+bRequest: 09  
+
+
+TransferBuffer: 0x00000001 (1) length
+0000: 02 
+104	out up	n/a	191.515	CONTROL_TRANSFER	-	0x00000000
+URB Header (length: 80)
+SequenceNumber: 104
+Function: 0008 (CONTROL_TRANSFER)
+PipeHandle: 819a5b50
+
+SetupPacket:
+0000: 21 09 00 02 00 00 01 00 
+bmRequestType: 21
+  DIR: Host-To-Device
+  TYPE: Class
+  RECIPIENT: Interface
+bRequest: 09  
+
+
+No TransferBuffer
+
+102	??? up	n/a	191.525	BULK_OR_INTERRUPT_TRANSFER	02 51 c5 22 22 22	0x00000000
+URB Header (length: 72)
+SequenceNumber: 102
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+TransferBuffer: 0x00000006 (6) length
+0000: 02 51 c5 22 22 22 
+105	??? down	n/a	191.525	BULK_OR_INTERRUPT_TRANSFER	-	
+URB Header (length: 72)
+SequenceNumber: 105
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+No TransferBuffer
+
+103	??? up	n/a	195.160	BULK_OR_INTERRUPT_TRANSFER	de 05 db 00 00 00	0x00000000
+URB Header (length: 72)
+SequenceNumber: 103
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+TransferBuffer: 0x00000006 (6) length
+0000: de 05 db 00 00 00 
+106	??? down	n/a	195.160	BULK_OR_INTERRUPT_TRANSFER	-	
+URB Header (length: 72)
+SequenceNumber: 106
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+No TransferBuffer
+
+107	out down	n/a	196.232	CLASS_INTERFACE	02	
+URB Header (length: 80)
+SequenceNumber: 107
+Function: 001b (CLASS_INTERFACE)
+PipeHandle: 00000000
+
+SetupPacket:
+0000: 22 09 00 02 00 00 00 00 
+bmRequestType: 22
+  DIR: Host-To-Device
+  TYPE: Class
+  RECIPIENT: Endpoint
+bRequest: 09  
+
+
+TransferBuffer: 0x00000001 (1) length
+0000: 02 
+107	out up	n/a	196.232	CONTROL_TRANSFER	-	0x00000000
+URB Header (length: 80)
+SequenceNumber: 107
+Function: 0008 (CONTROL_TRANSFER)
+PipeHandle: 819a5b50
+
+SetupPacket:
+0000: 21 09 00 02 00 00 01 00 
+bmRequestType: 21
+  DIR: Host-To-Device
+  TYPE: Class
+  RECIPIENT: Interface
+bRequest: 09  
+
+
+No TransferBuffer
+
+105	??? up	n/a	196.252	BULK_OR_INTERRUPT_TRANSFER	02 51 c5 22 22 22	0x00000000
+URB Header (length: 72)
+SequenceNumber: 105
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+TransferBuffer: 0x00000006 (6) length
+0000: 02 51 c5 22 22 22 
+108	??? down	n/a	196.252	BULK_OR_INTERRUPT_TRANSFER	-	
+URB Header (length: 72)
+SequenceNumber: 108
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+No TransferBuffer
+
+106	??? up	n/a	197.323	BULK_OR_INTERRUPT_TRANSFER	5a 05 da 01 d3 57	0x00000000
+URB Header (length: 72)
+SequenceNumber: 106
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+TransferBuffer: 0x00000006 (6) length
+0000: 5a 05 da 01 d3 57 
+109	??? down	n/a	197.323	BULK_OR_INTERRUPT_TRANSFER	-	
+URB Header (length: 72)
+SequenceNumber: 109
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+No TransferBuffer
+
+110	out down	n/a	198.155	CLASS_INTERFACE	02	
+URB Header (length: 80)
+SequenceNumber: 110
+Function: 001b (CLASS_INTERFACE)
+PipeHandle: 00000000
+
+SetupPacket:
+0000: 22 09 00 02 00 00 00 00 
+bmRequestType: 22
+  DIR: Host-To-Device
+  TYPE: Class
+  RECIPIENT: Endpoint
+bRequest: 09  
+
+
+TransferBuffer: 0x00000001 (1) length
+0000: 02 
+110	out up	n/a	198.165	CONTROL_TRANSFER	-	0x00000000
+URB Header (length: 80)
+SequenceNumber: 110
+Function: 0008 (CONTROL_TRANSFER)
+PipeHandle: 819a5b50
+
+SetupPacket:
+0000: 21 09 00 02 00 00 01 00 
+bmRequestType: 21
+  DIR: Host-To-Device
+  TYPE: Class
+  RECIPIENT: Interface
+bRequest: 09  
+
+
+No TransferBuffer
+
+108	??? up	n/a	198.175	BULK_OR_INTERRUPT_TRANSFER	02 51 c5 22 22 22	0x00000000
+URB Header (length: 72)
+SequenceNumber: 108
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+TransferBuffer: 0x00000006 (6) length
+0000: 02 51 c5 22 22 22 
+111	??? down	n/a	198.175	BULK_OR_INTERRUPT_TRANSFER	-	
+URB Header (length: 72)
+SequenceNumber: 111
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+No TransferBuffer
+
+109	??? up	n/a	201.820	BULK_OR_INTERRUPT_TRANSFER	7a 05 db 01 d0 75	0x00000000
+URB Header (length: 72)
+SequenceNumber: 109
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+TransferBuffer: 0x00000006 (6) length
+0000: 7a 05 db 01 d0 75 
+112	??? down	n/a	201.820	BULK_OR_INTERRUPT_TRANSFER	-	
+URB Header (length: 72)
+SequenceNumber: 112
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+No TransferBuffer
+
+113	out down	n/a	202.631	CLASS_INTERFACE	02	
+URB Header (length: 80)
+SequenceNumber: 113
+Function: 001b (CLASS_INTERFACE)
+PipeHandle: 00000000
+
+SetupPacket:
+0000: 22 09 00 02 00 00 00 00 
+bmRequestType: 22
+  DIR: Host-To-Device
+  TYPE: Class
+  RECIPIENT: Endpoint
+bRequest: 09  
+
+
+TransferBuffer: 0x00000001 (1) length
+0000: 02 
+113	out up	n/a	202.631	CONTROL_TRANSFER	-	0x00000000
+URB Header (length: 80)
+SequenceNumber: 113
+Function: 0008 (CONTROL_TRANSFER)
+PipeHandle: 819a5b50
+
+SetupPacket:
+0000: 21 09 00 02 00 00 01 00 
+bmRequestType: 21
+  DIR: Host-To-Device
+  TYPE: Class
+  RECIPIENT: Interface
+bRequest: 09  
+
+
+No TransferBuffer
+
+111	??? up	n/a	202.641	BULK_OR_INTERRUPT_TRANSFER	02 51 c5 22 22 22	0x00000000
+URB Header (length: 72)
+SequenceNumber: 111
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+TransferBuffer: 0x00000006 (6) length
+0000: 02 51 c5 22 22 22 
+114	??? down	n/a	202.641	BULK_OR_INTERRUPT_TRANSFER	-	
+URB Header (length: 72)
+SequenceNumber: 114
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+No TransferBuffer
+
+112	??? up	n/a	209.992	BULK_OR_INTERRUPT_TRANSFER	06 05 da 03 a3 79	0x00000000
+URB Header (length: 72)
+SequenceNumber: 112
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+TransferBuffer: 0x00000006 (6) length
+0000: 06 05 da 03 a3 79 
+115	??? down	n/a	209.992	BULK_OR_INTERRUPT_TRANSFER	-	
+URB Header (length: 72)
+SequenceNumber: 115
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+No TransferBuffer
+
+116	out down	n/a	210.793	CLASS_INTERFACE	02	
+URB Header (length: 80)
+SequenceNumber: 116
+Function: 001b (CLASS_INTERFACE)
+PipeHandle: 00000000
+
+SetupPacket:
+0000: 22 09 00 02 00 00 00 00 
+bmRequestType: 22
+  DIR: Host-To-Device
+  TYPE: Class
+  RECIPIENT: Endpoint
+bRequest: 09  
+
+
+TransferBuffer: 0x00000001 (1) length
+0000: 02 
+116	out up	n/a	210.793	CONTROL_TRANSFER	-	0x00000000
+URB Header (length: 80)
+SequenceNumber: 116
+Function: 0008 (CONTROL_TRANSFER)
+PipeHandle: 819a5b50
+
+SetupPacket:
+0000: 21 09 00 02 00 00 01 00 
+bmRequestType: 21
+  DIR: Host-To-Device
+  TYPE: Class
+  RECIPIENT: Interface
+bRequest: 09  
+
+
+No TransferBuffer
+
+114	??? up	n/a	210.813	BULK_OR_INTERRUPT_TRANSFER	02 51 c5 22 22 22	0x00000000
+URB Header (length: 72)
+SequenceNumber: 114
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+TransferBuffer: 0x00000006 (6) length
+0000: 02 51 c5 22 22 22 
+117	??? down	n/a	210.813	BULK_OR_INTERRUPT_TRANSFER	-	
+URB Header (length: 72)
+SequenceNumber: 117
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+No TransferBuffer
+
+115	??? up	n/a	217.683	BULK_OR_INTERRUPT_TRANSFER	de 05 db 00 00 00	0x00000000
+URB Header (length: 72)
+SequenceNumber: 115
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+TransferBuffer: 0x00000006 (6) length
+0000: de 05 db 00 00 00 
+118	??? down	n/a	217.683	BULK_OR_INTERRUPT_TRANSFER	-	
+URB Header (length: 72)
+SequenceNumber: 118
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+No TransferBuffer
+
+119	out down	n/a	218.734	CLASS_INTERFACE	02	
+URB Header (length: 80)
+SequenceNumber: 119
+Function: 001b (CLASS_INTERFACE)
+PipeHandle: 00000000
+
+SetupPacket:
+0000: 22 09 00 02 00 00 00 00 
+bmRequestType: 22
+  DIR: Host-To-Device
+  TYPE: Class
+  RECIPIENT: Endpoint
+bRequest: 09  
+
+
+TransferBuffer: 0x00000001 (1) length
+0000: 02 
+119	out up	n/a	218.734	CONTROL_TRANSFER	-	0x00000000
+URB Header (length: 80)
+SequenceNumber: 119
+Function: 0008 (CONTROL_TRANSFER)
+PipeHandle: 819a5b50
+
+SetupPacket:
+0000: 21 09 00 02 00 00 01 00 
+bmRequestType: 21
+  DIR: Host-To-Device
+  TYPE: Class
+  RECIPIENT: Interface
+bRequest: 09  
+
+
+No TransferBuffer
+
+117	??? up	n/a	218.754	BULK_OR_INTERRUPT_TRANSFER	02 51 c5 22 22 22	0x00000000
+URB Header (length: 72)
+SequenceNumber: 117
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+TransferBuffer: 0x00000006 (6) length
+0000: 02 51 c5 22 22 22 
+120	??? down	n/a	218.754	BULK_OR_INTERRUPT_TRANSFER	-	
+URB Header (length: 72)
+SequenceNumber: 120
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+No TransferBuffer
+
+118	??? up	n/a	220.467	BULK_OR_INTERRUPT_TRANSFER	de 05 db 00 00 00	0x00000000
+URB Header (length: 72)
+SequenceNumber: 118
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+TransferBuffer: 0x00000006 (6) length
+0000: de 05 db 00 00 00 
+121	??? down	n/a	220.467	BULK_OR_INTERRUPT_TRANSFER	-	
+URB Header (length: 72)
+SequenceNumber: 121
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+No TransferBuffer
+
+122	out down	n/a	221.518	CLASS_INTERFACE	02	
+URB Header (length: 80)
+SequenceNumber: 122
+Function: 001b (CLASS_INTERFACE)
+PipeHandle: 00000000
+
+SetupPacket:
+0000: 22 09 00 02 00 00 00 00 
+bmRequestType: 22
+  DIR: Host-To-Device
+  TYPE: Class
+  RECIPIENT: Endpoint
+bRequest: 09  
+
+
+TransferBuffer: 0x00000001 (1) length
+0000: 02 
+122	out up	n/a	221.518	CONTROL_TRANSFER	-	0x00000000
+URB Header (length: 80)
+SequenceNumber: 122
+Function: 0008 (CONTROL_TRANSFER)
+PipeHandle: 819a5b50
+
+SetupPacket:
+0000: 21 09 00 02 00 00 01 00 
+bmRequestType: 21
+  DIR: Host-To-Device
+  TYPE: Class
+  RECIPIENT: Interface
+bRequest: 09  
+
+
+No TransferBuffer
+
+120	??? up	n/a	221.538	BULK_OR_INTERRUPT_TRANSFER	02 51 c5 22 22 22	0x00000000
+URB Header (length: 72)
+SequenceNumber: 120
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+TransferBuffer: 0x00000006 (6) length
+0000: 02 51 c5 22 22 22 
+123	??? down	n/a	221.538	BULK_OR_INTERRUPT_TRANSFER	-	
+URB Header (length: 72)
+SequenceNumber: 123
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+No TransferBuffer
+
+121	??? up	n/a	223.191	BULK_OR_INTERRUPT_TRANSFER	de 05 db 00 00 00	0x00000000
+URB Header (length: 72)
+SequenceNumber: 121
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+TransferBuffer: 0x00000006 (6) length
+0000: de 05 db 00 00 00 
+124	??? down	n/a	223.191	BULK_OR_INTERRUPT_TRANSFER	-	
+URB Header (length: 72)
+SequenceNumber: 124
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+No TransferBuffer
+
+125	out down	n/a	224.112	CLASS_INTERFACE	02	
+URB Header (length: 80)
+SequenceNumber: 125
+Function: 001b (CLASS_INTERFACE)
+PipeHandle: 00000000
+
+SetupPacket:
+0000: 22 09 00 02 00 00 00 00 
+bmRequestType: 22
+  DIR: Host-To-Device
+  TYPE: Class
+  RECIPIENT: Endpoint
+bRequest: 09  
+
+
+TransferBuffer: 0x00000001 (1) length
+0000: 02 
+125	out up	n/a	224.122	CONTROL_TRANSFER	-	0x00000000
+URB Header (length: 80)
+SequenceNumber: 125
+Function: 0008 (CONTROL_TRANSFER)
+PipeHandle: 819a5b50
+
+SetupPacket:
+0000: 21 09 00 02 00 00 01 00 
+bmRequestType: 21
+  DIR: Host-To-Device
+  TYPE: Class
+  RECIPIENT: Interface
+bRequest: 09  
+
+
+No TransferBuffer
+
+123	??? up	n/a	224.132	BULK_OR_INTERRUPT_TRANSFER	02 51 c5 22 22 22	0x00000000
+URB Header (length: 72)
+SequenceNumber: 123
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+TransferBuffer: 0x00000006 (6) length
+0000: 02 51 c5 22 22 22 
+126	??? down	n/a	224.132	BULK_OR_INTERRUPT_TRANSFER	-	
+URB Header (length: 72)
+SequenceNumber: 126
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+No TransferBuffer
+
+127	out down	n/a	242.148	CLASS_INTERFACE	03	
+URB Header (length: 80)
+SequenceNumber: 127
+Function: 001b (CLASS_INTERFACE)
+PipeHandle: 00000000
+
+SetupPacket:
+0000: 22 09 00 02 00 00 00 00 
+bmRequestType: 22
+  DIR: Host-To-Device
+  TYPE: Class
+  RECIPIENT: Endpoint
+bRequest: 09  
+
+
+TransferBuffer: 0x00000001 (1) length
+0000: 03 
+127	out up	n/a	242.148	CONTROL_TRANSFER	-	0x00000000
+URB Header (length: 80)
+SequenceNumber: 127
+Function: 0008 (CONTROL_TRANSFER)
+PipeHandle: 819a5b50
+
+SetupPacket:
+0000: 21 09 00 02 00 00 01 00 
+bmRequestType: 21
+  DIR: Host-To-Device
+  TYPE: Class
+  RECIPIENT: Interface
+bRequest: 09  
+
+
+No TransferBuffer
+
+124	??? up	n/a	242.168	BULK_OR_INTERRUPT_TRANSFER	03 51 c5 22 22 22	0x00000000
+URB Header (length: 72)
+SequenceNumber: 124
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+TransferBuffer: 0x00000006 (6) length
+0000: 03 51 c5 22 22 22 
+128	??? down	n/a	242.168	BULK_OR_INTERRUPT_TRANSFER	-	
+URB Header (length: 72)
+SequenceNumber: 128
+Function: 0009 (BULK_OR_INTERRUPT_TRANSFER)
+TransferFlags: 0x00000003
+
+No TransferBuffer
+
